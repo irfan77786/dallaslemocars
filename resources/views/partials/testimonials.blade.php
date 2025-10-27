@@ -12,7 +12,6 @@
             <div class="row">
                 <div class="col-md-12 testimonial-carousel owl-carousel">
                     <div class="single-testimonial text-center">
-                        <img src="{{ asset('assets/img/client2.png') }}" alt="Michael R. - Business Traveler" class="testimonial-img">
                         <div class="testimonials">
                             <div class="star">
                                 <i class="fas fa-star"></i>
@@ -29,7 +28,6 @@
                         </div>
                     </div> <!-- ./ single testimonail end -->
                     <div class="single-testimonial text-center">
-                        <img src="{{ asset('assets/img/client1.png') }}" alt="Sarah & James L. - Local Residents" class="testimonial-img">
                         <div class="testimonials">
                             <div class="star">
                                 <i class="fas fa-star"></i>
@@ -46,7 +44,6 @@
                         </div>
                     </div> <!-- ./ single testimonail end -->
                     <div class="single-testimonial text-center">
-                        <img src="{{ asset('assets/img/client3.png') }}" alt="Alex Johnson - CEO, TechStart" class="testimonial-img">
                         <div class="testimonials">
                             <div class="star">
                                 <i class="fas fa-star"></i>
