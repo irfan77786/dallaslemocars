@@ -15,17 +15,18 @@
                         <!-- single item box start -->
                         <div class="single-popular-item">
                             <div class="item-cover-image bg-cover" style="background-image: url({{ asset('assets/img/site/mercedes-s-class.webp') }})">
-                                <div class="item-details">
-                                    <div class="brand">
-                                        <span class="item-price">First Class</span>
-                                    </div>
-                                </div>
                             </div>
                             <div class="item-content">
                                 <h4><a href="listing-single-details.html">Mercedes S550, BMW 750 or similar</a></h4>
                                 <div class="item-feedback">
-                                    Max: 6 Passengers<br>
-                                    Max: 6 Bags
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <i class="fa fa-user"></i> Max : 6
+                                        </div>
+                                        <div class="col-6">
+                                            <i class="fa fa-suitcase"></i> Max : 6
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -33,17 +34,18 @@
                         <!-- single item box start -->
                         <div class="single-popular-item">
                             <div class="item-cover-image bg-cover" style="background-image: url({{ asset('assets/img/site/cadillac-escalade.webp') }})">
-                                <div class="item-details">
-                                    <div class="brand">
-                                        <span class="item-price">Business SUV</span>
-                                    </div>
-                                </div>
                             </div>
                             <div class="item-content">
                                 <h4><a href="listing-single-details.html">Cadillac Escalade ESV, Lincoln Navigator</a></h4>
                                 <div class="item-feedback">
-                                    Max: 6 Passengers<br>
-                                    Max: 6 Bags
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <i class="fa fa-user"></i> Max : 6
+                                        </div>
+                                        <div class="col-6">
+                                            <i class="fa fa-suitcase"></i> Max : 6
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -51,53 +53,54 @@
                         <!-- single item box start -->
                         <div class="single-popular-item">
                             <div class="item-cover-image bg-cover" style="background-image: url({{ asset('assets/img/site/tesla-model-x.webp') }})">
-                                <div class="item-details">
-                                    <div class="brand">
-                                        <span class="item-price">Electric Class</span>
-                                    </div>
-                                </div>
                             </div>
                             <div class="item-content">
                                 <h4><a href="listing-single-details.html">Tesla Model X or similar</a></h4>
                                 <div class="item-feedback">
-                                    Max: 3 Passengers<br>
-                                    Max: 3 Bags
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <i class="fa fa-user"></i> Max : 3
+                                        </div>
+                                        <div class="col-6">
+                                            <i class="fa fa-suitcase"></i> Max : 3
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <!-- single item box end -->
                         <!-- single item box start -->
                         <div class="single-popular-item">
-                            <div class="item-cover-image bg-cover" style="background-image: url({{ asset('assets/img/site/cadillac-xts.webp') }})">
-                                <div class="item-details">
-                                    <div class="brand">
-                                        <span class="item-price">Luxury Sedan</span>
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="item-cover-image bg-cover" style="background-image: url({{ asset('assets/img/site/cadillac-xts.webp') }})"></div>
                             <div class="item-content">
                                 <h4><a href="listing-single-details.html">Cadillac XTS, Volvo S90 or similar</a></h4>
                                 <div class="item-feedback">
-                                    Max: 3 Passengers<br>
-                                    Max: 3 Bags
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <i class="fa fa-user"></i> Max : 3
+                                        </div>
+                                        <div class="col-6">
+                                            <i class="fa fa-suitcase"></i> Max : 3
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <!-- single item box end -->
                         <!-- single item box start -->
                         <div class="single-popular-item">
-                            <div class="item-cover-image bg-cover" style="background-image: url({{ asset('assets/img/site/mercedes-sprinter.webp') }})">
-                                <div class="item-details">
-                                    <div class="brand">
-                                        <span class="item-price">Sprinter Class</span>
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="item-cover-image bg-cover" style="background-image: url({{ asset('assets/img/site/mercedes-sprinter.webp') }})"></div>
                             <div class="item-content">
                                 <h4><a href="listing-single-details.html">Mercedes Sprinter or similar</a></h4>
                                 <div class="item-feedback">
-                                    Max: 12 Passengers<br>
-                                    Max: 12 Bags
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <i class="fa fa-user"></i> Max : 12
+                                        </div>
+                                        <div class="col-6">
+                                            <i class="fa fa-suitcase"></i> Max : 12
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

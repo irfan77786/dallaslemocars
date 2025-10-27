@@ -557,6 +557,9 @@ ul.nav.nav-tabs li a.active {
     height: 260px;
     position: relative;
     z-index: 1;
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
 }
 .tags li, .tags a {
     display: inline-block;
