@@ -352,7 +352,7 @@ nav {
 }
 .main-menu ul li ul.submenu {
     position: absolute;
-    width: 190px;
+    width: 220px;
     left: 0;
     top: 220%;
     z-index: 99;
