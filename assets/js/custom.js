@@ -1098,8 +1098,8 @@ document.querySelector('form').addEventListener('submit', async function (event)
 
     const form = document.querySelector('#pointToPoint');  // Get the form element
     // Clear any existing hidden inputs
-    const existingHiddenStops = form.querySelectorAll('[name^="stop_"]');
-    existingHiddenStops.forEach(input => input.remove());
+    // const existingHiddenStops = form.querySelectorAll('[name^="stop_"]');
+    // existingHiddenStops.forEach(input => input.remove());
 
     // Append new hidden input fields for each stop
     stopAddresses.forEach((address, index) => {
@@ -1142,8 +1142,8 @@ if (form) {
 
     const form = document.querySelector('#hourForm');  // Get the form element
     // Clear any existing hidden inputs
-    const existingHiddenStops = form.querySelectorAll('[name^="stop_"]');
-    existingHiddenStops.forEach(input => input.remove());
+    // const existingHiddenStops = form.querySelectorAll('[name^="stop_"]');
+    // existingHiddenStops.forEach(input => input.remove());
 
     // Append new hidden input fields for each stop
     stopAddresses.forEach((address, index) => {

@@ -476,7 +476,6 @@ form.search-form button:hover {
 ul.nav.nav-tabs li a, ul.nav.nav-tabs li a.active {
     border: none;
     background: #ffffff;
-    border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
     text-transform: uppercase;
 }

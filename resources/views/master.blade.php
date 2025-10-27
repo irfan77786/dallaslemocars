@@ -5,6 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @isset($seo)
+    @section('seo')
+    <title>{{ $seo['title'] }}</title>
+    <meta name="description" content="{{ $seo['description'] }}" />
+    <meta name="keywords" content="{{ $seo['keywords'] }}" />
+    <meta property="og:title" content="{{ $seo['og_title'] ?? $seo['title'] }}" />
+    <meta property="og:description" content="{{ $seo['og_description'] ?? $seo['description'] }}" />
+    @if(isset($seo['og_image']))
+    <meta property="og:image" content="{{ $seo['og_image'] }}" />
+    <meta property="og:image:alt" content="{{ $seo['og_title'] ?? $seo['title'] }}">
+    @endif
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:site_name" content="Black Car Service Dallas">
+    <link rel="canonical" href="{{ url()->current() }}/" />
+    @show
+    @else
+    @endisset
     <!-- ======== Page title ============ -->
     <title>Listico - Listing & Directory HTML Template</title>
     <!-- ========== Favicon Icon ========== -->
@@ -37,11 +55,17 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css" integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    @yield('styles')
 </head>
 
 <body class="theme_body">
 
+    @include('partials.header')
+
     @yield('content')
+
+    @include('partials.footer')
 
     <!--  ALl JS Plugins
     ====================================== -->
@@ -99,6 +123,29 @@
     </script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    @stack('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            flatpickr(".flatpickr", {
+                enableTime: true,
+                dateFormat: "Y-m-d h:i K",  // Changed to 12-hour format with AM/PM
+                altInput: true,
+                altFormat: "F j, Y h:i K",  // More readable display format
+                minDate: "today",
+                time_24hr: false,  // Changed to false to show AM/PM
+                minuteIncrement: 15,
+                defaultHour: new Date().getHours(),
+                defaultMinute: Math.ceil(new Date().getMinutes() / 15) * 15, // Round to nearest 15 minutes
+                disableMobile: true, // Better UX on mobile devices
+                allowInput: true,   // Allow manual input
+                clickOpens: true,   // Open calendar on click
+                time_zone: "",      // Use local timezone
+                onReady: function(selectedDates, dateStr, instance) {
+                    instance.set('hourElement').value = instance.currentHour;
+                    instance.set('minuteElement').value = instance.currentMinute;
+                }
+            });
+        });
+    </script>
+    @yield('scripts')
 </body>
 </html>

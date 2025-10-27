@@ -12,7 +12,7 @@ use App\Models\ReturnService;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-use Validator;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
 class BookingController extends Controller
@@ -22,16 +22,15 @@ class BookingController extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware(function ($request, $next) {
-    //         if (!session()->has('_token')) {
-    //             return redirect()->route('booking');
-    //         }
-    //         return $next($request);
-    //     })->except(['showForm', 'BookNow', 'AirportTransfer', 'ThankYou', 'handlePointToPoint', 'handleHourlyHire']);
-    // }
-
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            if (!session()->has('_token')) {
+                return redirect()->route('booking');
+            }
+            return $next($request);
+        })->except(['showForm', 'BookNow', 'AirportTransfer', 'ThankYou', 'handlePointToPoint', 'handleHourlyHire']);
+    }
 
     // Show the form for Point to Point or Hourly Hire
     public function showForm(Request $request){
@@ -52,8 +51,7 @@ class BookingController extends Controller
         ];
 
         return view('pages.home', [
-            'backgroundImage' => '/img/black-car-service-frisco.webp',
-            'mobileImage' => 'img/black-car-service-dallas.webp',
+            'backgroundImage' => '/img/site/black-cars.jpg',
             'seo' => $seo
         ]);
     }
@@ -120,23 +118,27 @@ class BookingController extends Controller
             'service_type' => 'pointToPoint',
         ]);
     }
+
+    list($pickup_date, $pickup_time) = explode(' ', $request->pickup_datetime);
+
      $validator = Validator::make($request->all(), [
         'pickup_location' => 'required|string',
         'dropoff_location' => 'required|string',
-        'pickup_date' => 'required|date_format:Y-m-d',
-        'pickup_time' => 'required|date_format:H:i',
+        'pickup_datetime' => 'required',
         'stops' => 'nullable|array',
         'stops.*' => 'string',
         'is_airport' => 'int'
     ]);
 
     if ($validator->fails()) {
-        echo $request->pickup_date;
         dd($validator->errors()); // Dump and die with the validation errors
         // return redirect()->back()->withErrors($validator)->withInput();
     }
 
     $data = $validator->validated();
+
+    $data['pickup_date'] = $pickup_date;
+    $data['pickup_time'] = $pickup_time;
 
     // Get all vehicles with seat info
     $vehicles = Vehicle::with(['carSeat'])->get();
@@ -634,7 +636,7 @@ try {
 private function generateUniqueBookingId(): string
 {
     do {
-        $id = str_pad(mt_rand(0, 9999999999), 10, '0', STR_PAD_LEFT);
+        $id = 'pm_' . str_pad(mt_rand(0, 9999999999), 10, '0', STR_PAD_LEFT);
     } while (Booking::where('booking_id', $id)->exists());
 
     return $id;
@@ -656,7 +658,7 @@ public function completeBook(Request $request)
     }
 
     try {
-        \Stripe\Stripe::setApiKey('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');
+        \Stripe\Stripe::setApiKey('sk_test_51S81pVPvyAVXbs5QBqZwFdHwLTsQreH31LSF574OqXBuG5uBptERAQYZ136akK9k7JLX3eV5q0Wictx2YQH5lPkQ00pfxqJ0eF');
 
         $pickup_location = session('pickup_location');
         $dropoff_location = session('dropoff_location');
@@ -696,9 +698,9 @@ public function completeBook(Request $request)
         }
 
         $latestBooking = Booking::orderBy('id', 'desc')->first();
-        $lastNumericId = 41101;
+        $lastNumericId = 41100;
 
-        if ($latestBooking && preg_match('/(\d+)/', $latestBooking->booking_id, $matches)) {
+        if ($latestBooking && preg_match('/pm_(\d+)/', $latestBooking->booking_id, $matches)) {
             $lastNumericId = (int)$matches[1] + 1;
         }
 
@@ -714,7 +716,7 @@ public function completeBook(Request $request)
         }
 
         // dd($booker?$booker->id:null);
-        $customBookingId = $lastNumericId;
+        $customBookingId = 'pm_' . $lastNumericId;
 
         // Create return service if enabled
         $returnServiceId = null;
@@ -754,8 +756,6 @@ public function completeBook(Request $request)
             'transaction_id' => $transactionId,
             'amount' => $selected_price,
         ]);
-
-
 
         $passenger = $booking->passengers()->create([
             'first_name' => $isBookingForOthers ? session('first_name') : $first_name,
@@ -826,7 +826,7 @@ public function completeBook(Request $request)
         // Clear all details:
         session([
             'booking_completed' => true,
-            'booking_id' => $customBookingId
+            'booking_id' => $customBookingId,
         ]);
 
         return response()->json([
@@ -846,27 +846,9 @@ public function completeBook(Request $request)
 
 public function ThankYou()
 {
-    $bookingId = session('booking_id');
-
-    if (!$bookingId) {
-        return view('booking.thankyou', [
-            'booking' => null,
-            'travelInfo' => null,
-            'message' => 'Thank you for your interest in our service.'
-        ]);
-    }
-
     $booking = Booking::with(['vehicle','passengers','booker'])
-        ->where('booking_id', $bookingId)
-        ->first();
-
-    if (!$booking) {
-        return view('booking.thankyou', [
-            'booking' => null,
-            'travelInfo' => null,
-            'message' => 'Thank you for your interest in our service. Booking details not found.'
-        ]);
-    }
+    ->where('booking_id', session('booking_id'))
+    ->firstOrFail();
 
     $travelInfo = null;
 
@@ -900,7 +882,6 @@ public function ThankYou()
         'travelInfo' => $travelInfo,
     ]);
 }
-
 private function getDistanceBetweenAddresses(string $origin, string $destination): ?float
 {
     $apiKey = config('services.google_maps.api_key'); // Make sure you set this in config/services.php and .env

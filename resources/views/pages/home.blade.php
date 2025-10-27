@@ -2,7 +2,6 @@
 
 @section('content')
 
-@include('partials.header')
 @include('partials.hero')
 @include('partials.works', [
     'title' => 'Journey in Three Steps',
@@ -74,6 +73,5 @@
 @include('partials.testimonials')
 @include('partials.locations')
 @include('partials.startnow')
-@include('partials.footer')
 
 @endsection

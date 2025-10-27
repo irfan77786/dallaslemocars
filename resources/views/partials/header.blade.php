@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 logo">
-                        <a class="navbar-brand" href="{{ asset('index.html') }}">
+                        <a class="navbar-brand" href="{{ route('booking') }}">
                             <img src="{{ asset('assets/img/site/black-car-service-dallas-logo.webp') }}" class="logo-display" alt="shipo">
                         </a>
                     </div> <!-- /.col-md-3 logo -->
