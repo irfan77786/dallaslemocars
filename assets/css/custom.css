@@ -65,6 +65,9 @@ html, body {
     .search-tab-wrap{
         margin-bottom: 5px !important;
     }
+    .left-desc-container{
+        margin-top: 23px !important;
+    }
     .search-form-internal{
         padding-right: 14px !important;
         padding-left: 14px !important;
@@ -132,7 +135,6 @@ html, body {
     .how-it-works{
         padding-top: 0px !important;
     }
-
     .hero-container{
         min-height: 90vh !important;
     }
