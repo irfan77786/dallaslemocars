@@ -21,7 +21,7 @@ function geolocate() {
 
 function resetMap() {
   const mapElement = document.getElementById('map');
-
+  $('.web-hero').show();
   if (animationId) {
     cancelAnimationFrame(animationId);
     animationId = null;
@@ -632,22 +632,13 @@ function initMap(pickupPlace, dropoffPlace) {
   if (mapElement) {
       const overlay = mapElement.querySelector('.map-overlay');
       if (overlay) overlay.remove();
+      $('.web-hero').hide();
       mapElement.style.removeProperty('background-image');
       mapElement.style.removeProperty('background-size');
       mapElement.style.removeProperty('background-position');
       mapElement.style.removeProperty('background-repeat');
   }
-
-  // Show the map with smooth transition
-  if (mapElement.style.display === 'none') {
-      $('#hide_on_map').fadeOut(300, () => {
-          $(mapElement).fadeIn(300);
-      });
-  } else {
-      $('#hide_on_map').hide();
-      mapElement.style.display = 'block';
-  }
-
+  
   const mapStyle = [
     {
       "featureType": "all",
