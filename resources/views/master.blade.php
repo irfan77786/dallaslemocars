@@ -125,6 +125,24 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll(".faq-item");
+            faqItems.forEach(item => {
+            const btn = item.querySelector(".faq-question");
+                btn.addEventListener("click", () => {
+                    // close other items
+                    faqItems.forEach(i => {
+                    if (i !== item) {
+                        i.classList.remove("active");
+                        i.querySelector(".icon").textContent = "+";
+                    }
+                    });
+                    // toggle current item
+                    item.classList.toggle("active");
+
+                    const icon = item.querySelector(".icon");
+                    icon.textContent = item.classList.contains("active") ? "–" : "+";
+                });
+            });
             flatpickr(".flatpickr", {
                 enableTime: true,
                 dateFormat: "Y-m-d h:i K",  // Changed to 12-hour format with AM/PM

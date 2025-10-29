@@ -35,6 +35,9 @@
     width: 100%;
     margin-top: 10dvh !important;
 }
+#map:focus {
+    border: none !important;
+}
 #map {
     position: absolute;
     top: 0;
@@ -62,6 +65,16 @@ html, body {
 
 /* Mobile styles */
 @media (max-width: 768px) {
+    .how-it-works, .fifa-section{
+        padding-top: 0px !important;
+        padding-bottom: 40px !important;
+    }
+    .choice-section{
+        padding-bottom: 15px !important;
+    }
+    .popular-categories{
+        padding-top: 45px !important;
+    }
     .search-tab-wrap{
         margin-bottom: 5px !important;
     }
@@ -121,23 +134,92 @@ html, body {
         padding-right: 20px !important;
     }
     .search-form-row {
-        min-height: 80vh;
+        min-height: 76vh;
     }
     #map {
         background-image: none !important;
         position: absolute !important;
         width: 62% !important;
         justify-self: anchor-center !important;
-        height: 100% !important;
         top: 0;
         left: 0;
     }
     .how-it-works{
-        padding-top: 0px !important;
+        padding-top: 20px !important;
+        padding-bottom: 45px !important;
+    }
+    .testimonial-container{
+        margin-top: 30px !important;
+    }
+    .promo-section, .testimonial-section, .areas-section{
+        padding-top: 45px !important;
+        padding-bottom: 45px !important;
     }
     .hero-container{
-        min-height: 90vh !important;
+        min-height: 81vh !important;
     }
+}
+
+.faq-section {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.faq-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.faq-question .icon {
+  transition: transform 0.3s ease;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.faq-question:focus{
+    outline: unset !important;
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0 0;
+}
+
+.faq-answer p {
+  margin: 10px 0;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px; /* enough for content */
+  padding: 10px 0;
+}
+
+.faq-item.active .faq-question .icon {
+  transform: rotate(180deg);
+  content: "–";
 }
 
 @media only screen

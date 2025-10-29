@@ -119,7 +119,7 @@
 
 
     /*==================================
-     # Listico Item Carousel 
+     # Listico Item Carousel
      ==================================*/
     $('.listico-item-carousel, .top-locations-carousel').owlCarousel({
         autoplay: true,
@@ -144,9 +144,10 @@
     });
 
     /*==================================
-     # Listico testimonials Carousel 
+     # Listico testimonials Carousel
      ==================================*/
     $('.testimonial-carousel').owlCarousel({
+        items: 2,
         autoplay: true,
         loop: true,
         margin: 30,
@@ -163,13 +164,13 @@
                 items: 2
             },
             1300: {
-                items: 3
+                items: 2
             }
         }
     });
 
     /*==================================
-     # meanmenu active - mobile menu 
+     # meanmenu active - mobile menu
      ==================================*/
     $('#responsive-menu').meanmenu({
         meanMenuContainer: '.responsive-menu',
@@ -236,7 +237,7 @@
       activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
     });
 
-    
+
     }); // end document ready function
 })(jQuery); // End jQuery
 

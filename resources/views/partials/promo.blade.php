@@ -1,9 +1,9 @@
     <!-- promo section start -->
-    <section class="promo-section parallax section-padding bg-cover bg-overlay" style="background-image: url('{{ asset('assets/img/site/image.webp') }}');">
-        <div class="container">
+    <section class="promo-section parallax section-padding bg-cover bg-overlay" style="background: black">
+        <div class="container" sty>
             <div class="row d-flex align-items-center">
                 <div class="col-xl-7 col-sm-12 col-md-7">
-                    <h1 class="text-center">Areas We Serve</h1>
+                    <h1>Areas We Serve</h1>
                     <div class="promo-content">
                             <p> Serving clients across the Dallas–Fort Worth Metroplex with direct service to:</p>
                             <p><strong class="strong-c-color">Cities and Suburbs:</strong> Dallas, Fort Worth, Plano, <a href="/locations/black-car-service-frisco-texas/" class="internal-links">Frisco</a>, McKinney, Arlington, Addison, Irving,

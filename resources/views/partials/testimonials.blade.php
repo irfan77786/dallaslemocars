@@ -1,6 +1,6 @@
     <!-- happy client testimonial section start -->
-    <section class="testimonial-section bg-overlay section-padding bg-cover parallax" style="background-image: url({{asset('assets/img/site/black-car.webp')}})">
-        <div class="container">
+    <section class="testimonial-section bg-overlay section-padding bg-cover parallax" style="background: black">
+        <div class="testimonial-container container">
             <div class="row">
                 <div class="col-sm-12 col-xl-12 text-center">
                     <div class="section-title white-color">
