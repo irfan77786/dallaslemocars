@@ -20,7 +20,7 @@
     min-height: 100vh;
 }
 .main-hero {
-    background-image: url('/assets/img/site/image.webp');
+    background-image: url('/assets/img/site/dallas-main.webp');
     background-size: cover;
     background-position: center;
     flex: 1;
@@ -65,6 +65,14 @@ html, body {
 
 /* Mobile styles */
 @media (max-width: 768px) {
+    .web-hero{
+        color: white;
+        position: absolute;
+        z-index: 99999;
+        bottom: -45%;
+        left: 10%;
+        max-width: 75%;
+    }
     .how-it-works, .fifa-section{
         padding-top: 0px !important;
         padding-bottom: 40px !important;
@@ -114,7 +122,7 @@ html, body {
         margin: 0 !important;
         padding: 0 !important;
         order: 2;
-        background-image: url('/assets/img/site/image.webp');
+        background-image: url('/assets/img/site/dallas-main.webp');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -130,6 +138,14 @@ html, body {
 
 /* Desktop styles */
 @media (min-width: 769px) {
+    .web-hero{
+        display: block;
+        position: absolute;
+        left: -337%;
+        color: ghostwhite;
+        max-width: 500px;
+        top: 50%;
+    }
     .search-form-internal{
         padding-right: 20px !important;
     }
