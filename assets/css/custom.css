@@ -1,3 +1,9 @@
+.meanmenu-reveal{
+    width: 18px !important;
+    height: 18px !important;
+    padding: 9px 13px 11px !important;
+    top: 18px !important;
+}
 .header-section{
     position: fixed;
     width: 100%;
@@ -7,7 +13,7 @@
     top: 24% !important;
 }
 .search-tab-wrap > .nav-tabs{
-    justify-content: center;
+    justify-content: start;
 }
 .hero-container {
     position: relative;
@@ -20,7 +26,7 @@
     min-height: 100vh;
 }
 .main-hero {
-    background-image: url('/assets/img/site/dallas-main.webp');
+    background-image: url('/assets/img/site/dallas-main.png');
     background-size: cover;
     background-position: center;
     flex: 1;
@@ -33,7 +39,7 @@
     position: relative;
     z-index: 2;
     width: 100%;
-    margin-top: 10dvh !important;
+    margin-top: 14dvh !important;
 }
 #map:focus {
     border: none !important;
@@ -65,13 +71,17 @@ html, body {
 
 /* Mobile styles */
 @media (max-width: 768px) {
+    .mean-container .mean-nav {
+        margin-top: 70px !important;
+    }
     .web-hero{
         color: white;
         position: absolute;
-        z-index: 99999;
-        bottom: -45%;
-        left: 10%;
-        max-width: 75%;
+        z-index: 8;
+        bottom: -50%;
+        left: 12%;
+        max-width: 65%;
+        font-weight: 400;
     }
     .how-it-works, .fifa-section{
         padding-top: 0px !important;
@@ -122,7 +132,7 @@ html, body {
         margin: 0 !important;
         padding: 0 !important;
         order: 2;
-        background-image: url('/assets/img/site/dallas-main.webp');
+        background-image: url('/assets/img/site/dallas-main.png');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -138,24 +148,29 @@ html, body {
 
 /* Desktop styles */
 @media (min-width: 769px) {
+    .carousel-section{
+        margin-top: 10px !important;
+    }
     .web-hero{
         display: block;
         position: absolute;
-        left: -337%;
+        left: -308%;
         color: ghostwhite;
         max-width: 500px;
-        top: 50%;
+        top: 42%;
+        font-weight: 400;
+        font-size: 62px;
     }
     .search-form-internal{
-        padding-right: 20px !important;
+        padding-right: 38px !important;
     }
     .search-form-row {
-        min-height: 76vh;
+        min-height: 62vh;
     }
     #map {
         background-image: none !important;
         position: absolute !important;
-        width: 62% !important;
+        width: 65.1% !important;
         justify-self: anchor-center !important;
         top: 0;
         left: 0;
@@ -172,7 +187,7 @@ html, body {
         padding-bottom: 45px !important;
     }
     .hero-container{
-        min-height: 81vh !important;
+        min-height: 66vh !important;
     }
 }
 
@@ -340,15 +355,15 @@ html, body {
 
 .floating-bordered-input {
   position: relative;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .floating-bordered-input .floating-label {
   position: absolute;
   top: -1rem;
-  left: 2.5rem;
+  left: .5rem;
   font-size: 0.8rem;
-  color: #bbb;
+  color: #838282;
   font-weight: 600;
   pointer-events: none;
 }
@@ -358,7 +373,7 @@ html, body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  color: #888;
+  color: #757575;
 }
 
 .floating-bordered-input .input-icon-left {
@@ -373,7 +388,7 @@ html, body {
   padding-right: 2.5rem;
   background-color: #fff;
   color: #222;
-  border: 1px solid #ddd;
+  border: 1px solid #2e2e2e;
   border-radius: 5px;
 }
 

@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-sm-12 col-xl-12 ">
                     <div class="section-title">
-                        <h2>{{ $title }}</h2>
+                        <h2 class="mt-0">{{ $title }}</h2>
                         <span>{{ $description }}</span>
                         <ul>
                             @foreach ($features as $feature)

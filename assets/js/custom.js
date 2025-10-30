@@ -638,7 +638,7 @@ function initMap(pickupPlace, dropoffPlace) {
       mapElement.style.removeProperty('background-position');
       mapElement.style.removeProperty('background-repeat');
   }
-  
+
   const mapStyle = [
     {
       "featureType": "all",
@@ -765,7 +765,7 @@ function initMap(pickupPlace, dropoffPlace) {
           map: map,
           suppressMarkers: true,
           polylineOptions: {
-              strokeColor: '#5d8cff',  // Lighter shade of #3161fe
+              strokeColor: '#5d8cff',  // Lighter shade of #1A6982
               strokeOpacity: 0.9,
               strokeWeight: 6
           }
@@ -790,7 +790,7 @@ function initMap(pickupPlace, dropoffPlace) {
           const newMarker = new google.maps.Marker({
               position: position,
               map: map,
-              icon: createCustomMarker(isPickup ? '#3161fe' : '#3161fe', isPickup ? 'A' : 'B'),
+              icon: createCustomMarker(isPickup ? '#1A6982' : '#1A6982', isPickup ? 'A' : 'B'),
               animation: google.maps.Animation.DROP
           });
 
@@ -837,7 +837,7 @@ function initMap(pickupPlace, dropoffPlace) {
   }
 
   // Function to create a custom marker with centered label
-  function createCustomMarker(color = '#3161fe', labelText) {
+  function createCustomMarker(color = '#1A6982', labelText) {
     const svg = `
         <svg width="40" height="60" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg">
             <path d="M20 0C9 0 0 11 0 22c0 11 20 38 20 38s20-27 20-38C40 11 31 0 20 0z" fill="${color}"/>

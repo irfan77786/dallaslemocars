@@ -4,10 +4,13 @@
         <div class="main-header">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 logo">
-                        <a class="navbar-brand" href="{{ route('booking') }}">
+                    <div class="col-md-3 logo" style="padding-left: 8px; padding-right: 0px;">
+                        <a class="navbar-brand" href="{{ route('booking') }}" style="position: absolute">
                             <img src="{{ asset('assets/img/site/black-car-service-dallas-logo.webp') }}" class="logo-display" alt="shipo">
                         </a>
+                    <div class="col-12">
+                        <div class="responsive-menu"></div>
+                    </div>
                     </div> <!-- /.col-md-3 logo -->
                     <div class="col-md-9 d-none d-lg-block text-lg-right">
                         <nav id="responsive-menu" class="main-menu">
@@ -50,10 +53,6 @@
                             <a href="#" class="btn-booking-start">Book Now</a>
                         </nav>
                     </div> <!-- /. col-md-9 d-none d-lg-block -->
-
-                    <div class="col-12">
-                        <div class="responsive-menu"></div>
-                    </div>
                 </div>
             </div>
         </div>

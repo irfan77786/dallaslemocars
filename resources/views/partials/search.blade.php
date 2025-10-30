@@ -3,12 +3,12 @@
 @endphp
 <div class="search-tab-wrap">
     <!-- Nav tabs -->
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link {{ !$isHourly ? 'active' : '' }}" data-toggle="tab" href="#place">Point to Point</a>
+    <ul class="nav nav-tabs" style="padding-left: 18px; padding-right: 18px; padding-bottom: 15px;">
+        <li class="nav-item" style="flex: 1">
+            <a class="nav-link {{ !$isHourly ? 'active' : '' }} text-center pt-0" style="font-size: 13px" data-toggle="tab" href="#place">Point to Point</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link {{ $isHourly ? 'active' : '' }}" data-toggle="tab" href="#event">Hourly Hire</a>
+        <li class="nav-item" style="flex: 1">
+            <a class="nav-link {{ $isHourly ? 'active' : '' }} text-center pt-0" style="font-size: 13px" data-toggle="tab" href="#event">Hourly</a>
         </li>
     </ul>
 
@@ -22,7 +22,7 @@
                     <input type="hidden" name="is_airport" id="is-airport" value="{{ session('is_airport') ?? 0 }}">
 
                     <!-- Pick-up Location -->
-                    <div class="floating-bordered-input mb-3 position-relative">
+                    <div class="floating-bordered-input mb-[10px] position-relative">
                         <span class="floating-label">Pick-up Location</span>
                         <span class="input-icon-left"><i class="bi bi-geo-alt-fill"></i></span>
 
@@ -35,7 +35,7 @@
 
 
                     <!-- Drop-off Location -->
-                    <div class="floating-bordered-input mb-3 position-relative">
+                    <div class="floating-bordered-input mb-[10px] position-relative">
                         <span class="floating-label">Drop-off Location</span>
                         <span class="input-icon-left"><i class="bi bi-geo-alt-fill"></i></span>
 
@@ -60,7 +60,7 @@
 
                     <p class="small text-muted text-center mt-1 mb-1">Chauffeur will wait 15 minutes free of charge</p>
 
-                    <button type="submit" class="btn w-100 search_btn" style="text-transform: uppercase; background: linear-gradient(to right, #3161fe, #4d77ff);">Get My Prices
+                    <button type="submit" class="btn w-100 search_btn" style="text-transform: uppercase; background: linear-gradient(to right, #1A6982, #1B9CCC); letter-spacing: 2px;">Get My Prices
                         <i class="bi bi-arrow-right" style="font-size: 20px; margin: 2px;"></i></button>
                 </form>
             </div>
@@ -72,7 +72,7 @@
                 <form class="search-form loader-form" action="{{ url('/booking/hourly-hire') }}" method="POST">
                     @csrf
                     <!-- Pick-up Location (Hourly) -->
-                    <div class="floating-bordered-input mb-3 position-relative">
+                    <div class="floating-bordered-input mb-[10px] position-relative">
                         <span class="floating-label">Pick-up Location</span>
                         <span class="input-icon-left"><i class="bi bi-geo-alt-fill"></i></span>
 
@@ -86,7 +86,7 @@
 
 
                     <!-- Select Hours -->
-                    <div class="floating-bordered-input mb-3 position-relative">
+                    <div class="floating-bordered-input mb-[10px] position-relative">
                         <span class="floating-label">Select Hours</span>
                         <span class="input-icon-left"><i class="bi bi-clock-fill"></i></span>
 
@@ -117,7 +117,7 @@
 
                     <p class="small text-muted text-center mt-1 mb-1">Chauffeur will wait 15 minutes free of charge</p>
 
-                    <button type="submit" class="btn btn-primary w-100" style="text-transform: uppercase; background: linear-gradient(to right, #3161fe, #4d77ff);">Get My
+                    <button type="submit" class="btn btn-primary w-100" style="text-transform: uppercase; background: linear-gradient(to right, #1A6982, #1B9CCC); letter-spacing: 2px;">Get My
                         Prices <i class="bi bi-arrow-right" style="font-size: 20px; margin: 2px;"></i></button>
                 </form>
             </div>
