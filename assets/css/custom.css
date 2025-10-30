@@ -183,7 +183,7 @@ html, body {
     #map {
         background-image: none !important;
         position: absolute !important;
-        width: 65.1% !important;
+        width: 132dvh !important;
         justify-self: anchor-center !important;
         top: 0;
         left: 0;
