@@ -121,6 +121,10 @@
             'textColor' => 'text-dark',
             'sectionClass' => ''
         ])
+@include('partials.mobile-startnow', [
+    'image' => 'fifa-car-service.webp',
+    'action_name' => 'Visit our fifa world cup 2026 page',
+])
 @include('partials.left_description', [
     'py' => 4,
     'textColor' => 'white',
@@ -269,7 +273,11 @@
             'textColor' => 'text-dark',
             'sectionClass' => ''
         ])
-@include('partials.startnow')
+@include('partials.startnow', [
+    'title' => 'Book a Ride Now!',
+    'description' => 'Choose your destination, confirm, and you’re ready to go.',
+    'action_name' => 'Contact Now',
+])
 @include('partials.testimonials')
 @include('partials.faq', $faqs = [
             [

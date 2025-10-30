@@ -4,6 +4,9 @@
     padding: 9px 13px 11px !important;
     top: 18px !important;
 }
+.mobile-startnow{
+    display: none;
+}
 .header-section{
     position: fixed;
     width: 100%;
@@ -26,7 +29,7 @@
     min-height: 100vh;
 }
 .main-hero {
-    background-image: url('/assets/img/site/dallas-main.png');
+    background-image: url('/assets/img/site/dallas-main.webp');
     background-size: cover;
     background-position: center;
     flex: 1;
@@ -71,6 +74,12 @@ html, body {
 
 /* Mobile styles */
 @media (max-width: 768px) {
+    .mobile-startnow {
+        display: block !important;
+    }
+    .call-action-btn {
+        width: 100% !important;
+    }
     .mean-container .mean-nav {
         margin-top: 70px !important;
     }
@@ -132,7 +141,7 @@ html, body {
         margin: 0 !important;
         padding: 0 !important;
         order: 2;
-        background-image: url('/assets/img/site/dallas-main.png');
+        background-image: url('/assets/img/site/dallas-main.webp');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -143,6 +152,10 @@ html, body {
     .search-section {
         margin-top: 0 !important;
         order: 1;
+    }
+
+    .carousel-section {
+        padding-top: 0px !important;
     }
 }
 
