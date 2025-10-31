@@ -125,6 +125,9 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            $('.intercity-rides').on('click', function() {
+                $('html, body').animate({ scrollTop: 0 }, 'slow');
+            });
             const faqItems = document.querySelectorAll(".faq-item");
             faqItems.forEach(item => {
             const btn = item.querySelector(".faq-question");
@@ -162,6 +165,17 @@
                     instance.set('minuteElement').value = instance.currentMinute;
                 }
             });
+
+            $('.custom-card').hover(
+            function() {
+                $('#book-ride-label-' + $(this).data('key')).stop(true, true).fadeIn(100);
+                $('#book-ride-label-' + $(this).data('key')).addClass('slide-up-text');
+            },
+            function() {
+                $('#book-ride-label-' + $(this).data('key')).css('display', 'none');
+                $('#book-ride-label-' + $(this).data('key')).removeClass('slide-up-text');
+            }
+            );
         });
     </script>
     @yield('scripts')

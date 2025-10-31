@@ -82,48 +82,97 @@
             ],
         ]]);
 
-        @include('partials.right_description', [
-            'customClass' => 'airport-section',
-            'title' => 'DFW & Love Field Airport Transfers: Always On Time, Every Time',
-            'serviceSection' => [
-            'description' => 'We specialize in luxury ground transportation across Dallas–Fort Worth. Whether you need an airport pickup, a ride to an executive meeting, or transport for a group event, we deliver luxury with every mile.',
-            'intro' => 'Here’s what our service includes:',
-            'items' => [
-                [
-                    'title' => 'Executive Black Car Service',
-                    'link' => null,
-                    'description' => 'Designed for executives and professionals. Discreet chauffeurs, quiet cabins, Wi-Fi for productivity en route.',
-                ],
-                [
-                    'title' => 'Airport Transfers',
-                    'link' => null,
-                    'description' => 'We track all flights at DFW Airport, Love Field, and private FBOs. We pick up on time, take you where you go.',
-                ],
-                [
-                    'title' => 'Event Transportation',
-                    'link' => null,
-                    'description' => 'Great for weddings, birthdays, a night out, or date night. Come in style and luxury.',
-                ],
-                [
-                    'title' => 'Sprinter Van for Corporate Groups',
-                    'link' => null,
-                    'description' => 'Big, cozy, good for work teams, meetings, client shuttles.',
-                ],
-                [
-                    'title' => 'Door-to-Door Coverage',
-                    'link' => null,
-                    'description' => 'Covering every big city and neighborhood of the Dallas metro.',
-                ],
-            ],
-            ],
-            'image' => 'private-black-car.webp',
-            'alt' => 'Striking image placed on the left side',
-            'textColor' => 'text-dark',
-            'sectionClass' => ''
-        ])
-@include('partials.mobile-startnow', [
+@include('partials.right_description', [
+    'customClass' => 'airport-section',
+    'title' => 'DFW & Love Field Airport Transfers: Always On Time, Every Time',
+    'serviceSection' => [
+    'description' => 'We specialize in luxury ground transportation across Dallas–Fort Worth. Whether you need an airport pickup, a ride to an executive meeting, or transport for a group event, we deliver luxury with every mile.',
+    'intro' => 'Here’s what our service includes:',
+    'items' => [
+        [
+            'title' => 'Executive Black Car Service',
+            'link' => null,
+            'description' => 'Designed for executives and professionals. Discreet chauffeurs, quiet cabins, Wi-Fi for productivity en route.',
+        ],
+        [
+            'title' => 'Airport Transfers',
+            'link' => null,
+            'description' => 'We track all flights at DFW Airport, Love Field, and private FBOs. We pick up on time, take you where you go.',
+        ],
+        [
+            'title' => 'Event Transportation',
+            'link' => null,
+            'description' => 'Great for weddings, birthdays, a night out, or date night. Come in style and luxury.',
+        ],
+        [
+            'title' => 'Sprinter Van for Corporate Groups',
+            'link' => null,
+            'description' => 'Big, cozy, good for work teams, meetings, client shuttles.',
+        ],
+        [
+            'title' => 'Door-to-Door Coverage',
+            'link' => null,
+            'description' => 'Covering every big city and neighborhood of the Dallas metro.',
+        ],
+    ],
+    ],
+    'image' => 'private-black-car.webp',
+    'alt' => 'Striking image placed on the left side',
+    'textColor' => 'text-dark',
+    'sectionClass' => ''
+])
+{{-- @include('partials.mobile-startnow', [
     'image' => 'fifa-car-service.webp',
     'action_name' => 'Visit our fifa world cup 2026 page',
+]) --}}
+@include('partials.gallary', [
+    'customClass' => 'intercity-rides',
+    'title' => 'Intercity Rides',
+    'subtitle' => 'From New York City to Atlantic City, we offer reliable and comfortable transportation for your next trip.',
+    'items' => [
+        [
+            'title_before' => 'New York City',
+            'title_after' => 'Atlantic City',
+            'distance' => '125 miles',
+            'time' => '2h 00m',
+            'image' => 'cities/atlantic-city.webp',
+        ],
+        [
+            'title_before' => 'New York City',
+            'title_after' => 'Hamptons',
+            'distance' => '95 miles',
+            'time' => '2h 00m',
+            'image' => 'cities/hamptons.webp',
+        ],
+        [
+            'title_before' => 'New York City',
+            'title_after' => 'Philadelphia',
+            'distance' => '95 miles',
+            'time' => '1h 45m',
+            'image' => 'cities/philadelphia.webp',
+        ],
+        [
+            'title_before' => 'New York City',
+            'title_after' => 'Boston',
+            'distance' => '200 miles',
+            'time' => '3h 30m',
+            'image' => 'cities/boston.webp',
+        ],
+        [
+            'title_before' => 'New York City',
+            'title_after' => 'Albany',
+            'distance' => '155 miles',
+            'time' => '2h 45m',
+            'image' => 'cities/albany.webp',
+        ],
+        [
+            'title_before' => 'New York City',
+            'title_after' => 'Hartford',
+            'distance' => '120 miles',
+            'time' => '2h 15m',
+            'image' => 'cities/hartford.webp',
+        ],
+    ],
 ])
 @include('partials.left_description', [
     'py' => 4,
@@ -233,6 +282,15 @@
     'textColor' => 'text-dark',
     'sectionClass' => ''
 ])
+@include('partials.cta', [
+    'onlyMobile' => false,
+    'onlyDesktop' => false,
+    'darkTheme' => true,
+    'image' => 'green-grass.jpg',
+    'title' => 'Book a Ride for FIFA World Cup 2026!',
+    'description' => 'Book your ride now for the FIFA World Cup 2026.',
+    'action_name' => 'Visit our FIFA World Cup 2026 page',
+])
 @include('partials.right_description', [
             'py' => 5,
             'customClass' => 'fifa-section',
@@ -273,7 +331,11 @@
             'textColor' => 'text-dark',
             'sectionClass' => ''
         ])
-@include('partials.startnow', [
+@include('partials.cta', [
+    'onlyMobile' => false,
+    'onlyDesktop' => true,
+    'darkTheme' => false,
+    'image' => 'call-to-action-bg.jpg',
     'title' => 'Book a Ride Now!',
     'description' => 'Choose your destination, confirm, and you’re ready to go.',
     'action_name' => 'Contact Now',
@@ -305,5 +367,6 @@
                 'answer' => 'Yes. We offer tailored transportation packages for VIPs, executives, sponsors, and corporate groups, including premium vehicles, dedicated chauffeurs, and event coordination support.',
             ],
         ]);
-{{-- @include('partials.locations') --}}
+
+
 @endsection

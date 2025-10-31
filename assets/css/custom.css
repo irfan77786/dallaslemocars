@@ -1,3 +1,6 @@
+strong {
+    color: black !important;
+}
 .meanmenu-reveal{
     width: 18px !important;
     height: 18px !important;
@@ -74,6 +77,15 @@ html, body {
 
 /* Mobile styles */
 @media (max-width: 768px) {
+    .onlyMobile {
+        display: block;
+    }
+    .onlyDesktop {
+        display: none;
+    }
+    .hero-container {
+        min-height: 105vh !important;
+    }
     .mobile-startnow {
         display: block !important;
     }
@@ -93,7 +105,6 @@ html, body {
         font-weight: 400;
     }
     .how-it-works, .fifa-section{
-        padding-top: 0px !important;
         padding-bottom: 40px !important;
     }
     .choice-section{
@@ -155,14 +166,24 @@ html, body {
     }
 
     .carousel-section {
-        padding-top: 0px !important;
+        padding-top: 20px !important;
     }
 }
 
 /* Desktop styles */
 @media (min-width: 769px) {
+    .onlyMobile {
+        display: none;
+    }
+    .onlyDesktop {
+        display: block;
+    }
+    .gallary-inner-row {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
     .carousel-section{
-        margin-top: 10px !important;
+        margin-top: 24px !important;
     }
     .web-hero{
         display: block;
@@ -206,9 +227,10 @@ html, body {
 
 .faq-section {
   max-width: 800px;
-  margin: 50px auto;
+  margin: auto;
   padding: 20px;
   font-family: "Segoe UI", sans-serif;
+  margin-top: 20px;
 }
 
 .faq-title {
@@ -428,4 +450,99 @@ html, body {
 .flatpickr-day[aria-disabled="true"] {
   color: #949699 !important; /* previously too light; make a bit darker */
   opacity: 1 !important;    /* ensure text color is not lightened by opacity */
+}
+
+/* General Section */
+.destination-cards-section {
+  background-color: #fff;
+}
+
+/* Card Wrapper */
+.custom-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Image */
+.custom-card-img {
+  width: 100%;
+  height: 185px;
+  object-fit: cover;
+  display: block;
+}
+
+.custom-card-overlay{
+    animation: slideUp 0.5s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.custom-card:hover .custom-card-overlay {
+  transform: scale(1.05);
+}
+
+/* Overlay */
+.custom-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  color: #fff;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+}
+
+/* Text Styles */
+.custom-card-title {
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin: 0 0 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+.custom-arrow {
+  font-size: 1.2rem;
+  margin: 0 6px;
+  color: #f8f8f8;
+}
+
+.custom-card-text {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.custom-card-img {
+    max-width: 100% !important;
+}
+
+/* Add this to your custom.css file */
+.slide-up-text {
+    animation: slideUp 0.5s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.widget-list a {
+    line-height: 2.3rem;
 }

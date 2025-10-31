@@ -30,12 +30,12 @@
                             <div class="single-popular-item">
                                 <div class="item-cover-image bg-cover" style="background-image: url('{{ $item['image'] }}')"></div>
                                 <div class="item-content">
-                                    <h4><a href="{{ $item['link'] }}">{{ $item['title'] }}</a></h4>
+                                    <h4><a href="{{ $item['link'] }}" style="color: black">{{ $item['title'] }}</a></h4>
                                     <div class="item-feedback">
                                         <div class="row pl-3">
                                             @foreach ($item['features'] as $feature)
                                                 <div class="col-4 text-left pl-0">
-                                                    <i class="{{ $feature['icon'] }}"></i> {{ $feature['label'] }} : {{ $feature['value'] }}
+                                                    <strong><i class="{{ $feature['icon'] }}"></i></strong>  {{ $feature['label'] }}: {{ $feature['value'] }}
                                                 </div>
                                             @endforeach
                                         </div>

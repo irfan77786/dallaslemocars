@@ -765,7 +765,7 @@ function initMap(pickupPlace, dropoffPlace) {
           map: map,
           suppressMarkers: true,
           polylineOptions: {
-              strokeColor: '#5d8cff',  // Lighter shade of #1A6982
+              strokeColor: '#1B9CCC',  // Lighter shade of #1A6982
               strokeOpacity: 0.9,
               strokeWeight: 6
           }
