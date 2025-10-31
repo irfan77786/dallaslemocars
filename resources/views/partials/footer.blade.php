@@ -10,9 +10,9 @@
                         </div>
                         <ul class="widget-list">
                             <li><a href="#" style="font-size: 18px">Home</a></li><br>
-                            <li><a href="about.html">About us</a></li><br>
+                            <li><a href="about.html" style="font-size: 18px">About us</a></li><br>
                             <li><a href="#" style="font-size: 18px">Book Now</a></li><br>
-                            <li><a href="contact.html">Contact us</a></li><br>
+                            <li><a href="contact.html" style="font-size: 18px">Contact us</a></li><br>
                             <li><a href="#" style="font-size: 18px">Our Fleet</a></li><br>
                             <li><a href="#" style="font-size: 18px">Get A Quote</a></li>
                         </ul>
