@@ -77,6 +77,9 @@ html, body {
 
 /* Mobile styles */
 @media (max-width: 768px) {
+    .gallary-inner-row .col-12.col-md-6.col-lg-4:nth-child(n+4) {
+        display: none;
+    }
     .onlyMobile {
         display: block;
     }

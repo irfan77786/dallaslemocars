@@ -333,7 +333,7 @@
         ])
 @include('partials.cta', [
     'onlyMobile' => false,
-    'onlyDesktop' => true,
+    'onlyDesktop' => false,
     'darkTheme' => false,
     'image' => 'call-to-action-bg.jpg',
     'title' => 'Book a Ride Now!',
@@ -367,6 +367,4 @@
                 'answer' => 'Yes. We offer tailored transportation packages for VIPs, executives, sponsors, and corporate groups, including premium vehicles, dedicated chauffeurs, and event coordination support.',
             ],
         ]);
-
-
 @endsection
