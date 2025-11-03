@@ -86,6 +86,8 @@ html, body {
 /* Mobile styles */
 @media (max-width: 768px) {
     .search-tab-wrap {
+        box-shadow: none !important;
+        padding: 0px !important;
         margin: 0px !important;
         top: unset !important;
     }
