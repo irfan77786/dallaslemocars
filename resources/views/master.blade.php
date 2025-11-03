@@ -196,25 +196,25 @@
             }
             );
 
-            flatpickr(".flatpickr", {
-                enableTime: true,
-                dateFormat: "Y-m-d h:i K",  // 12-hour format with AM/PM
-                altInput: true,
-                altFormat: "F j, Y h:i K",  // more readable
-                minDate: "today",
-                time_24hr: false,
-                minuteIncrement: 15,
-                disableMobile: true,
-                allowInput: true,
-                clickOpens: true,
-                // Set default date to today with rounded nearest 15 min
-                defaultDate: new Date(new Date().setMinutes(Math.ceil(new Date().getMinutes() / 15) * 15)),
-                onReady: function(selectedDates, dateStr, instance) {
-                    instance.set('hourElement').value = instance.currentHour;
-                    instance.set('minuteElement').value = instance.currentMinute;
-                }
-            });
-
+                flatpickr(".flatpickr", {
+                    enableTime: true,
+                    dateFormat: "Y-m-d h:i K",  // Changed to 12-hour format with AM/PM
+                    altInput: true,
+                    altFormat: "F j, Y h:i K",  // More readable display format
+                    minDate: "today",
+                    time_24hr: false,  // Changed to false to show AM/PM
+                    minuteIncrement: 15,
+                    defaultHour: new Date().getHours(),
+                    defaultMinute: Math.ceil(new Date().getMinutes() / 15) * 15, // Round to nearest 15 minutes
+                    disableMobile: true, // Better UX on mobile devices
+                    allowInput: true,   // Allow manual input
+                    clickOpens: true,   // Open calendar on click
+                    time_zone: "",      // Use local timezone
+                    onReady: function(selectedDates, dateStr, instance) {
+                        instance.set('hourElement').value = instance.currentHour;
+                        instance.set('minuteElement').value = instance.currentMinute;
+                    }
+                });
         });
     </script>
     @yield('scripts')
