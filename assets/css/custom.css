@@ -1,3 +1,11 @@
+input[type="checkbox"] {
+  accent-color: #1A6982; /* any color you like */
+}
+.rotate-90 {
+  display: inline-block !important;
+  transform: rotate(90deg) !important;
+  vertical-align: middle;
+}
 strong {
     color: black !important;
 }
@@ -45,7 +53,7 @@ strong {
     position: relative;
     z-index: 2;
     width: 100%;
-    margin-top: 14dvh !important;
+    margin-top: 10dvh !important;
 }
 #map:focus {
     border: none !important;
@@ -77,6 +85,10 @@ html, body {
 
 /* Mobile styles */
 @media (max-width: 768px) {
+    .search-tab-wrap {
+        margin: 0px !important;
+        top: unset !important;
+    }
     .gallary-inner-row .col-12.col-md-6.col-lg-4:nth-child(n+4) {
         display: none;
     }
@@ -87,7 +99,7 @@ html, body {
         display: none;
     }
     .hero-container {
-        min-height: 105vh !important;
+        min-height: 100dvh !important;
     }
     .mobile-startnow {
         display: block !important;
@@ -99,11 +111,15 @@ html, body {
         margin-top: 70px !important;
     }
     .web-hero{
+        display: none;
+    }
+    .mobile-hero {
+        display: block;
         color: white;
-        position: absolute;
+        position: relative;
         z-index: 8;
-        bottom: -47%;
-        left: 12%;
+        top: 18dvh;
+        left: 4dvh;
         max-width: 65%;
         font-weight: 400;
     }
@@ -123,6 +139,11 @@ html, body {
         margin-top: 23px !important;
     }
     .search-form-internal{
+        display: unset !important;
+        position: relative !important;
+        left: 0%;
+        bottom: 95%;
+        top: 0%;
         padding-right: 14px !important;
         padding-left: 14px !important;
         margin-right: 0 !important;
@@ -164,8 +185,7 @@ html, body {
     }
 
     .search-section {
-        margin-top: 0 !important;
-        order: 1;
+        margin-top: 10dvh !important;
     }
 
     .carousel-section {
@@ -191,14 +211,18 @@ html, body {
     .web-hero{
         display: block;
         position: absolute;
-        left: -308%;
+        left: -500px;
         color: ghostwhite;
         max-width: 500px;
-        top: 42%;
+        top: 140%;
         font-weight: 400;
         font-size: 62px;
     }
+    .mobile-hero{
+        display: none;
+    }
     .search-form-internal{
+        position: absolute; left: 49%; bottom: 72%; top: 0%;
         padding-right: 38px !important;
     }
     .search-form-row {

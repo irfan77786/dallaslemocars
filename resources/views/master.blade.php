@@ -125,6 +125,45 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            $('#swap-locations').on('click', function() {
+                const $pickupInput = $('#pickup-location');
+                const $dropoffInput = $('#dropoff-location');
+
+                // Swap the input values
+                const tempValue = $pickupInput.val();
+                $pickupInput.val($dropoffInput.val());
+                $dropoffInput.val(tempValue);
+
+                // Swap the place objects if they exist
+                if (window.pickupPlacePoint && window.dropoffPlacePoint) {
+                    const tempPlace = window.pickupPlacePoint;
+                    window.pickupPlacePoint = window.dropoffPlacePoint;
+                    window.dropoffPlacePoint = tempPlace;
+                }
+
+                // Reinitialize autocomplete if not already done
+                if (!window.autocompletePickup || !window.autocompleteDropoff) {
+                    window.autocompletePickup = new google.maps.places.Autocomplete($pickupInput[0], options);
+                    window.autocompleteDropoff = new google.maps.places.Autocomplete($dropoffInput[0], options);
+                }
+
+                // Trigger place_changed events
+                google.maps.event.trigger(window.autocompletePickup, 'place_changed');
+                google.maps.event.trigger(window.autocompleteDropoff, 'place_changed');
+
+                // Calculate the route with swapped locations
+                calculateRoute();
+            });
+            // Handle swap locations button click
+            $('#round-trip').on('change', function() {
+                if ($(this).is(':checked')) {
+                    $('.return-trip').show();
+                    $('.point-button').addClass('mt-4');
+                } else {
+                    $('.return-trip').hide();
+                    $('.point-button').removeClass('mt-4');
+                }
+            });
             $('.intercity-rides').on('click', function() {
                 $('html, body').animate({ scrollTop: 0 }, 'slow');
             });
@@ -146,26 +185,6 @@
                     icon.textContent = item.classList.contains("active") ? "–" : "+";
                 });
             });
-            flatpickr(".flatpickr", {
-                enableTime: true,
-                dateFormat: "Y-m-d h:i K",  // Changed to 12-hour format with AM/PM
-                altInput: true,
-                altFormat: "F j, Y h:i K",  // More readable display format
-                minDate: "today",
-                time_24hr: false,  // Changed to false to show AM/PM
-                minuteIncrement: 15,
-                defaultHour: new Date().getHours(),
-                defaultMinute: Math.ceil(new Date().getMinutes() / 15) * 15, // Round to nearest 15 minutes
-                disableMobile: true, // Better UX on mobile devices
-                allowInput: true,   // Allow manual input
-                clickOpens: true,   // Open calendar on click
-                time_zone: "",      // Use local timezone
-                onReady: function(selectedDates, dateStr, instance) {
-                    instance.set('hourElement').value = instance.currentHour;
-                    instance.set('minuteElement').value = instance.currentMinute;
-                }
-            });
-
             $('.custom-card').hover(
             function() {
                 $('#book-ride-label-' + $(this).data('key')).stop(true, true).fadeIn(100);
@@ -176,6 +195,28 @@
                 $('#book-ride-label-' + $(this).data('key')).removeClass('slide-up-text');
             }
             );
+
+            $(document).on('ready', function() {
+                flatpickr(".flatpickr", {
+                    enableTime: true,
+                    dateFormat: "Y-m-d h:i K",  // Changed to 12-hour format with AM/PM
+                    altInput: true,
+                    altFormat: "F j, Y h:i K",  // More readable display format
+                    minDate: "today",
+                    time_24hr: false,  // Changed to false to show AM/PM
+                    minuteIncrement: 15,
+                    defaultHour: new Date().getHours(),
+                    defaultMinute: Math.ceil(new Date().getMinutes() / 15) * 15, // Round to nearest 15 minutes
+                    disableMobile: true, // Better UX on mobile devices
+                    allowInput: true,   // Allow manual input
+                    clickOpens: true,   // Open calendar on click
+                    time_zone: "",      // Use local timezone
+                    onReady: function(selectedDates, dateStr, instance) {
+                        instance.set('hourElement').value = instance.currentHour;
+                        instance.set('minuteElement').value = instance.currentMinute;
+                    }
+                });
+            });
         });
     </script>
     @yield('scripts')

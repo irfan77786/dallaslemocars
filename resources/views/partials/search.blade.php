@@ -5,10 +5,12 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" style="padding-left: 18px; padding-right: 18px; padding-bottom: 15px;">
         <li class="nav-item" style="flex: 1">
-            <a class="nav-link {{ !$isHourly ? 'active' : '' }} text-center pt-0" style="font-size: 13px" data-toggle="tab" href="#place">Point to Point</a>
+            <a class="nav-link {{ !$isHourly ? 'active' : '' }} text-center pt-0" style="font-size: 13px" data-toggle="tab"
+                href="#place">Point to Point</a>
         </li>
         <li class="nav-item" style="flex: 1">
-            <a class="nav-link {{ $isHourly ? 'active' : '' }} text-center pt-0" style="font-size: 13px" data-toggle="tab" href="#event">Hourly</a>
+            <a class="nav-link {{ $isHourly ? 'active' : '' }} text-center pt-0" style="font-size: 13px"
+                data-toggle="tab" href="#event">Hourly</a>
         </li>
     </ul>
 
@@ -28,7 +30,9 @@
 
                         <input type="text" name="pickup_location" id="pickup-location" class="form-control"
                             value="{{ session('pickup_location') }}" placeholder=" " required autocomplete="off">
-
+                        <span id="swap-locations" class="swap-locations" style="cursor: pointer; position: absolute; right: 0; top: 50%; transform: translateY(-50%) rotate(90deg); z-index: 1; background: white; padding: 0 10px;">
+                            <i class="bi bi-arrow-left-right"></i>
+                        </span>
                         <!-- Suggestions -->
                         <div id="pickup-suggestions" class="location-suggestions"></div>
                     </div>
@@ -56,11 +60,9 @@
                             placeholder="Select Date & Time" required>
                     </div>
 
-
-
-                    <p class="small text-muted text-center mt-1 mb-1">Chauffeur will wait 15 minutes free of charge</p>
-
-                    <button type="submit" class="btn w-100 search_btn" style="text-transform: uppercase; background: linear-gradient(to right, #1A6982, #1B9CCC); letter-spacing: 2px;">Get My Prices
+                    <button type="submit" class="btn w-100 search_btn mt-4"
+                        style="text-transform: uppercase; background: linear-gradient(to right, #1A6982, #1B9CCC); letter-spacing: 2px;">Get
+                        My Prices
                         <i class="bi bi-arrow-right" style="font-size: 20px; margin: 2px;"></i></button>
                 </form>
             </div>
@@ -86,7 +88,7 @@
 
 
                     <!-- Select Hours -->
-                    <div class="floating-bordered-input mb-[10px] position-relative">
+                    <div class="floating-bordered-input mb-[10px] position-relative" style="padding-right: 10px;">
                         <span class="floating-label">Select Hours</span>
                         <span class="input-icon-left"><i class="bi bi-clock-fill"></i></span>
 
@@ -108,16 +110,34 @@
                         <span class="input-icon-left"><i class="bi bi-calendar-date"></i></span>
 
                         <input type="text" name="pickup_datetime_hourly" id="pickup-datetime-hourly"
-                            class="form-control flatpickr"
-                            placeholder="Select Date & Time"
+                            class="form-control flatpickr" placeholder="Select Date & Time"
                             value="{{ session('pickup_datetime_hourly') ? \Carbon\Carbon::parse(session('pickup_datetime_hourly'))->format('Y-m-d H:i') : '' }}"
                             required>
                     </div>
 
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="form-check me-2">
+                            <input type="checkbox" name="round_trip" id="round-trip" class="form-check-input"
+                                style="height: 18px; width: 18px; cursor: pointer; margin-top: 18px;">
+                            <label for="round-trip" class="form-check-label ms-2 ml-2 mt-3" style="cursor: pointer;">
+                                Add a return Trip
+                            </label>
+                        </div>
+                    </div>
 
-                    <p class="small text-muted text-center mt-1 mb-1">Chauffeur will wait 15 minutes free of charge</p>
+                    <div class="floating-bordered-input mb-1 mt-3 position-relative return-trip" style="display: none;">
+                        <span class="floating-label">Return Trip Date & Time</span>
+                        <span class="input-icon-left"><i class="bi bi-calendar-date"></i></span>
 
-                    <button type="submit" class="btn btn-primary w-100" style="text-transform: uppercase; background: linear-gradient(to right, #1A6982, #1B9CCC); letter-spacing: 2px;">Get My
+                        <input type="text" name="return_datetime_hourly" id="return-datetime-hourly"
+                            class="form-control flatpickr" placeholder="Select Date & Time"
+                            value="{{ session('return_datetime_hourly') ? \Carbon\Carbon::parse(session('return_datetime_hourly'))->format('Y-m-d H:i') : '' }}"
+                            required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 point-button"
+                        style="text-transform: uppercase; background: linear-gradient(to right, #1A6982, #1B9CCC); letter-spacing: 2px;">Get
+                        My
                         Prices <i class="bi bi-arrow-right" style="font-size: 20px; margin: 2px;"></i></button>
                 </form>
             </div>
