@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 @php
 $isHourly = session('service_type') === 'hourlyHire';
@@ -101,31 +101,31 @@ $isHourly = session('service_type') === 'hourlyHire';
   <p>
                         <strong class="strong-c-color">Luxury Sedans:</strong> Cadillac CT6, Volvo S90, and Mercedes-Benz S-Class for private limo-style rides.
                     </p>
-                    
-                    
-                    
+
+
+
                     <p>
                         <strong class="strong-c-color">Luxury SUVs:</strong>
                         Escalade ESV, Suburban, Yukon XL, and Navigator for upscale group travel with luxury finishes.
                     </p>
-                    
+
                     <p>
                         <strong class="strong-c-color">Executive Sprinter Vans:</strong>
                      Mercedes-Benz Sprinters provide a limousine-style experience for larger parties and events.
                     </p>
-                   
+
                        <p> <strong class="strong-c-color">23–38 Passenger Mini Bus:</strong>
                      Great for wedding shuttles, concert transportation, or upscale group rides.
                     </p>
-                     
+
                        <p>
                         <strong class="strong-c-color">Luxury Motor Coaches (55–60 Passengers):</strong>
                     The ultimate option for gala events, conventions, or large VIP travel groups. With our Dallas limo service, every ride is styled for elegance and lasting impressions.
                     </p>
-                    
-                    
-               
-                    
+
+
+
+
                     <img
                         src="/img/dallas-black-car-service.webp"
                         alt="luxury black car service dallas" />
@@ -137,7 +137,7 @@ $isHourly = session('service_type') === 'hourlyHire';
         </div>
     </div>
 </section>
- 
+
 <section class="about-us city-pages">
     <div class="container">
         <div class="row">

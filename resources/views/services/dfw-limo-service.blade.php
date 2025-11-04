@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 @php
 $isHourly = session('service_type') === 'hourlyHire';
@@ -126,7 +126,7 @@ $isHourly = session('service_type') === 'hourlyHire';
             <strong class="strong-c-color">Luxury Motor Coaches (55–60 Passengers) –</strong>
             The ultimate option for gala events, conventions, or large VIP travel groups.
           </p>
- 
+
 <p class="tagline-bottom">  With our Dallas limo service, every ride is styled for elegance and lasting impressions.</p>
 
 

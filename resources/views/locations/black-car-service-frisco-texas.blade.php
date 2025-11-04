@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 @php
 $isHourly = session('service_type') === 'hourlyHire';
@@ -99,16 +99,16 @@ $isHourly = session('service_type') === 'hourlyHire';
                     </div>
 
                     <p><strong class="strong-c-color">Luxury Sedans:</strong> Cadillac CT6, Volvo S90, and Mercedes-Benz S-Class for corporate and leisure travelers.</p>
-                        
+
                          <p><strong class="strong-c-color">Luxury SUVs:</strong> Escalade ESV, Suburban, Yukon XL, and Navigator for Frisco airport transfers or group travel.</p>
-                        
-                        
+
+
                          <p><strong class="strong-c-color">Executive Sprinter Vans:</strong> Mercedes-Benz Sprinters designed for golf events, business meetings, or weddings.</p>
-                        
+
                          <p><strong class="strong-c-color">23–38 Passenger Mini Bus:</strong> Reliable transportation for conferences, concerts, or sporting events in Frisco.</p>
-                        
+
                          <p><strong class="strong-c-color">Luxury Motor Coaches (55–60 Passengers):</strong> The ultimate option for large-scale travel to and from Frisco.</p>
-                
+
 <p class="tagline-bottom">Choose our Frisco black car service for luxury group transportation and corporate travel solutions.</p>
 
 
@@ -315,7 +315,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                     </ul>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </section>

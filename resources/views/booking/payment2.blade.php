@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 
 @section('head-scripts')
@@ -141,7 +141,7 @@
 
     function updatePricingAreaMargin(hasError) {
         const pricingArea = document.getElementById('pricing-area-wrapper');
-        
+
         if (hasError) {
             const isMobile = window.innerWidth <= 768;
             pricingArea.style.marginTop = isMobile ? '55px' : '110px';

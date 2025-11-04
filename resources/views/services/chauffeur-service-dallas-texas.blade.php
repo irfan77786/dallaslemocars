@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 @php
 $isHourly = session('service_type') === 'hourlyHire';
@@ -127,7 +127,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                         Premium coaches with reclining seats and Wi-Fi for conferences, seminars, or corporate retreats.
                     </p>
 
-               
+
 
 <p class="tagline-bottom">Choose our chauffeur service in Dallas for punctuality, professionalism, and absolute comfort.</p>
 

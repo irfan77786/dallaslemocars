@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 @php
 $isHourly = session('service_type') === 'hourlyHire';
@@ -99,30 +99,30 @@ $isHourly = session('service_type') === 'hourlyHire';
                     <p>
                         <strong class="strong-c-color">Luxury Sedans: </strong>Cadillac CT6, Volvo S90, and Mercedes-Benz S-Class for executive transfers or private travel.
                     </p>
-                    
-                    
+
+
                       <p>
                         <strong class="strong-c-color">Luxury SUVs : </strong>Escalade ESV, Suburban, Yukon XL, and Navigator for families, groups, or corporate riders.
                     </p>
-                    
-                    
+
+
                       <p>
                         <strong class="strong-c-color">Executive Sprinter Vans: </strong>Mercedes-Benz Sprinters ideal for weddings, sports groups, or corporate meetings in Allen.
                     </p>
-                    
-                    
+
+
                       <p>
-                        <strong class="strong-c-color">23–38 Passenger Mini Bus: </strong>Great for airport shuttles, conferences, and community events. 
+                        <strong class="strong-c-color">23–38 Passenger Mini Bus: </strong>Great for airport shuttles, conferences, and community events.
                     </p>
-                    
+
                      <p>
                         <strong class="strong-c-color">Luxury Motor Coaches (55–60 Passengers): </strong>Allen’s choice for larger group trips, sports travel, and conventions.
                     </p>
-                    
-                    
-                    
+
+
+
                     <p class="tagline-bottom">Book our Allen limo service for reliable, luxury group transportation backed by professional chauffeurs.</p>
-              
+
                     <img
                         src="/img/dallas-black-car-service.webp"
                         alt="Black Car Service Allen luxury sedan for business travel" />

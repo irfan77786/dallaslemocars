@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 
 <a href="tel:+1888375547" class="float" target="_blank">
@@ -145,8 +145,8 @@
                             </div>
                         </div>
                     </div>
-                    
-                    
+
+
                     <div class="form-group">
                         <div class="input-text-container">
                             <div class="input-group-container mb-1">
@@ -163,9 +163,9 @@
                         </div>
                     </div>
 
-                
-                    
-                    
+
+
+
                 </div>
                 <button type="submit" class="btn btn-primary w-100 search_btn mt-3">CONTINUE TO PAYMENT</button>
             </form>

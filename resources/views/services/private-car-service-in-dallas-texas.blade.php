@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 @php
 $isHourly = session('service_type') === 'hourlyHire';
@@ -103,26 +103,26 @@ Enjoy discretion, privacy, and comfort with our private car service Dallas, desi
                         <strong class="strong-c-color">Luxury Sedans:</strong>
                        Cadillac CT6, Volvo S90, and Mercedes-Benz S-Class for smooth, quiet rides.
                     </p>
-                   
+
                       <p>
                         <strong class="strong-c-color">Luxury SUVs:</strong>
                         Escalade ESV, Suburban, Yukon XL, and Navigator for group or family private transfers.
                     </p>
-                    
-                    
+
+
                        <p>
                         <strong class="strong-c-color">Executive Sprinter Vans:</strong>
                         Mercedes-Benz Sprinters for private group rides, events, or leisure trips.
                     </p>
-                    
-                    
+
+
                        <p>
                         <strong class="strong-c-color">23–38 Passenger Mini Bus :</strong>
                    A stylish solution for medium groups seeking private transportation.
 
                     </p>
-                    
-                    
+
+
                        <p>
                         <strong class="strong-c-color">Luxury Motor Coaches (55–60 Passengers):</strong>
                         Full-scale private travel for large groups, tours, or sports organizations.

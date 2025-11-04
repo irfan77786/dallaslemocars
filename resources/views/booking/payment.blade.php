@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 
 @section('head-scripts')
@@ -244,9 +244,9 @@
             }
         }
     });
-    
+
     card.mount('#card-element');
-    
+
     // Enable the button when the page loads
     document.addEventListener('DOMContentLoaded', function() {
         const submitButton = document.getElementById('final-pay-button');
@@ -257,7 +257,7 @@
         const submitButton = document.getElementById('final-pay-button');
         const buttonText = document.getElementById('button-text');
         const buttonSpinner = document.getElementById('button-spinner');
-        
+
         if (isLoading) {
             submitButton.disabled = true;
             buttonText.textContent = 'Processing...';
@@ -271,7 +271,7 @@
 
     function updatePricingAreaMargin(hasError) {
         const pricingArea = document.getElementById('pricing-area-wrapper');
-        
+
         if (hasError) {
             const isMobile = window.innerWidth <= 768;
             pricingArea.style.marginTop = isMobile ? '55px' : '';
@@ -289,10 +289,10 @@
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault(); // Prevent default form submission
-        
+
         // Set loading state
         setLoading(true);
-        
+
         // Reset error state
         errorDiv.textContent = '';
         updatePricingAreaMargin(false);
@@ -325,7 +325,7 @@
             });
 
             const data = await response.json();
-            
+
             if (!response.ok) {
                 if (response.status === 419 || (data && data.redirect)) {
                     window.location.href = data.redirect || '//';
@@ -355,7 +355,7 @@
             errorDiv.textContent = error.message;
             updatePricingAreaMargin(true);
             setLoading(false);
-            
+
             if (error.status === 419) {
                 window.location.href="//";
             }
@@ -370,7 +370,7 @@
                 window.location.href="//";
             }
         }
-        
+
         // Remove the click event listener that was causing the issue
         const submitButton = document.getElementById('final-pay-button');
         if (submitButton) {

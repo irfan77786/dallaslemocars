@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 @php
 $isHourly = session('service_type') === 'hourlyHire';
@@ -114,7 +114,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                     <p>
                         <strong class="strong-c-color">Luxury Motor Coaches (55–60 Passengers) –</strong> Accommodate entire groups traveling together for conventions, sports teams, or citywide events.
                     </p>
- 
+
         <p class="tagline-bottom"> Choose our Dallas black car service at Love Field for peace of mind, comfort, and professional chauffeurs.</p>
                     <img
                         src="/images/img/black-suv-service-dallas.webp"

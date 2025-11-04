@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 @php
 $isHourly = session('service_type') === 'hourlyHire';
@@ -118,7 +118,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                         Built for larger groups flying in for conventions, conferences, or events in the North Dallas area.
                     </p>
 
-                     
+
                     <p class="tagline-bottom"> Our Addison Airport car service guarantees professional chauffeurs and seamless transfers tailored to aviation travelers.</p>
 
                     <img

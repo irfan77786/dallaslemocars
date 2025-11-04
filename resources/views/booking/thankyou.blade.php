@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 
 @section('head-scripts')
@@ -9,7 +9,7 @@
     .form-control{
     padding-left:15px !important;
     border:1px solid rgba(0, 0, 0, 0.23) !important;
-    
+
 }
     .text-primary{
     color:var(--dark-bg-btn) !important;

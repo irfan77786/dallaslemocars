@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 @php
 $isHourly = session('service_type') === 'hourlyHire';
@@ -101,23 +101,23 @@ $isHourly = session('service_type') === 'hourlyHire';
                     <p>
                         <strong class="strong-c-color">Luxury Sedans: </strong>Cadillac CT6, Volvo S90, and Mercedes-Benz S-Class for discreet, chauffeur-driven rides.
                     </p>
-              
-              
+
+
               <p>
                         <strong class="strong-c-color">Luxury SUVs: </strong>Escalade, Suburban, and Yukon XL provide comfortable seating for students, families, or professionals.
                     </p>
-                    
-                    
+
+
                     <p>
                         <strong class="strong-c-color">Executive Sprinter Vans: </strong>Mercedes-Benz Sprinters are perfect for alumni events, college visits, or group transfers.
                     </p>
-                    
-                    
+
+
                     <p>
                         <strong class="strong-c-color">23–38 Passenger Mini Bus: </strong>Designed for student groups, athletic teams, or business delegations visiting College Station.
                     </p>
-                    
-                    
+
+
                     <p>
                         <strong class="strong-c-color">Luxury Motor Coaches (55–60 Passengers):</strong> The best option for sports groups, conventions, or large-scale travel between Dallas and College Station.
                     </p>

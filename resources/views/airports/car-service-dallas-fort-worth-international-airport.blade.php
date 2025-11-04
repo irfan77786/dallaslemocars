@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 @php
 $isHourly = session('service_type') === 'hourlyHire';
@@ -99,32 +99,32 @@ $isHourly = session('service_type') === 'hourlyHire';
                     <p>
                         <strong class="strong-c-color">Luxury Sedans: </strong>Cadillac CT6, Volvo S90, and Mercedes-Benz S-Class are perfect for executives who need efficient, stylish transfers.
                     </p>
-                     
+
 
 
   <p>
                         <strong class="strong-c-color">Luxury SUVs: </strong>Cadillac Escalade, Chevy Suburban, and GMC Yukon XL provide spacious seating for families, corporate travelers, or extra luggage.
                     </p>
-                    
-                    
+
+
                       <p>
                         <strong class="strong-c-color">Executive Sprinter Vans: </strong>Mercedes-Benz Sprinters make group DFW airport transfers seamless for teams and wedding parties.
                     </p>
-                    
-                    
+
+
                       <p>
                         <strong class="strong-c-color">23–38 Passenger Mini Bus: </strong>The perfect solution for convention groups, large delegations, or corporate retreats arriving at DFW.
                     </p>
-                    
-                    
+
+
                       <p>
                         <strong class="strong-c-color">Luxury Motor Coaches (55–60 Passengers): </strong>Cadillac CT6, Volvo S90, and Mercedes-Benz S-Class are perfect for executives who need efficient, stylish transfers.
                     </p>
-                    
-                    
+
+
                     <p class="tagline-bottom">Every ride is chauffeur-driven, insured, and reliable, making DFW airport transfers stress-free.</p>
-                    
-                    
+
+
                     <img
                         src="/images/img/airport-limo-service-dallas.webp"
                         alt="Dallas limo service to and from DFW Airport" />

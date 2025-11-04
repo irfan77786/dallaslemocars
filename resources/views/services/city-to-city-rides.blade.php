@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 @php
 $isHourly = session('service_type') === 'hourlyHire';
@@ -122,7 +122,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                         Designed for long-distance travel with larger groups, universities, and sports teams.
                     </p>
 
-                 
+
 
 <p class="tagline-bottom"> Book city-to-city car service Dallas for a safe, stress-free journey across Texas.</p>
 

@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 @php
 $isHourly = session('service_type') === 'hourlyHire';
@@ -99,26 +99,26 @@ $isHourly = session('service_type') === 'hourlyHire';
                     <p>
                         <strong class="strong-c-color">Luxury Sedans: </strong>Cadillac CT6, Volvo S90, and Mercedes-Benz S-Class for VIP and executive travel.
                     </p>
-             
+
               <p>
                         <strong class="strong-c-color">Luxury SUVs: </strong>Escalade ESV, Suburban, Yukon XL, and Navigator for families, executives, and small groups.
                     </p>
-             
-             
+
+
                  <p>
                         <strong class="strong-c-color">Executive Sprinter Vans: </strong>Mercedes-Benz Sprinters ideal for Fort Worth corporate gatherings or wedding parties.
                     </p>
-             
-             
+
+
                  <p>
                         <strong class="strong-c-color">23–38 Passenger Mini Bus: </strong>Mid-size group transport for conventions, concerts, or Cowboys games at AT&T Stadium.
                     </p>
-             
-             
+
+
               <p>
                         <strong class="strong-c-color">Luxury Motor Coaches (55–60 Passengers): </strong>Best for university travel, sports teams, or major corporate events in Fort Worth.
                     </p>
-             
+
              <p class="tagline-bottom">Book our Fort Worth limo service for reliability, style, and professional chauffeurs.</p>
 
                     <img

@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 @php
 $isHourly = session('service_type') === 'hourlyHire';
@@ -127,7 +127,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                         Designed for corporate aviation groups, conventions, and sports delegations.
                     </p>
 
-              
+
                      <p class="tagline-bottom">With chauffeur service in Dallas customized for private aviation, we ensure privacy, punctuality, and five-star comfort.</p>
 
                     <img

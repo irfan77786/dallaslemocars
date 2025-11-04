@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 
 @php
@@ -120,7 +120,7 @@ $features = [
 </div>
         <div>
           <h2 class="mb-3">Additional Information (Optional)</h2>
-          
+
           <div class="form-group">
             <div style="margin-bottom: 2px !important;">
               <div class="input-text-container">
@@ -381,12 +381,12 @@ $features = [
     // Handle flight info toggle
     function toggleFlightInfoFields() {
       const noFlightInfo = $('#no-flight-info-checkbox').is(':checked');
-      
+
       // Get all flight info fields
       const pickupDetails = $('input[name="pickup_flight_details"]').closest('.form-group');
       const flightNumber = $('input[name="flight_number"]').closest('.form-group');
       const meetOption = $('#meet-option').closest('.form-group');
-      
+
       if (noFlightInfo) {
         // Show all fields when toggle is ON (default state)
         pickupDetails.show();
@@ -397,7 +397,7 @@ $features = [
         pickupDetails.hide();
         flightNumber.hide();
         meetOption.hide();
-        
+
         // Clear fields when hiding
         $('input[name="pickup_flight_details"]').val('').prop('disabled', true);
         $('input[name="flight_number"]').val('').prop('disabled', true);
@@ -409,14 +409,14 @@ $features = [
     $(document).ready(function() {
       // Set initial state
       toggleFlightInfoFields();
-      
+
       // Toggle on checkbox change
       $('#no-flight-info-checkbox').on('change', function() {
         // Enable/disable fields based on toggle state
         const isChecked = $(this).is(':checked');
         $('input[name="pickup_flight_details"], input[name="flight_number"]').prop('disabled', !isChecked);
         $('#meet-option').prop('disabled', !isChecked);
-        
+
         // Toggle visibility
         toggleFlightInfoFields();
       });

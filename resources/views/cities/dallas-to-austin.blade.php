@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 @php
 $isHourly = session('service_type') === 'hourlyHire';
@@ -101,29 +101,29 @@ $isHourly = session('service_type') === 'hourlyHire';
                     <p>
                         <strong class="strong-c-color">Luxury Sedans:</strong> Cadillac CT6, Volvo S90, and Mercedes-Benz S-Class ensure a smooth, private ride for executives or couples.
                     </p>
-                  
+
                       <p>
                         <strong class="strong-c-color"><a href="/our-fleet/" class="internal-links">Luxury SUVs:</a></strong> Cadillac Escalade, Chevy Suburban, and GMC Yukon XL provide spacious seating for families, business teams, or travelers with luggage.
                     </p>
-                    
-                    
+
+
                     <p>
                         <strong class="strong-c-color">Executive Sprinter Vans:</strong> Mercedes-Benz Sprinters are ideal for corporate groups, wedding parties, or leisure travelers making the Dallas–Austin trip.
                     </p>
-                    
-                    
+
+
                     <p>
                         <strong class="strong-c-color">23–38 Passenger Mini Bus:</strong> The smart choice for medium-to-large groups attending conventions, concerts, or sporting events in Austin.
                     </p>
-                    
+
                     <p>
                         <strong class="strong-c-color">Luxury Motor Coaches (55–60 Passengers):</strong> A premium option for universities, sports teams, or large delegations traveling between Dallas and Austin.
                     </p>
-                    
-                    
+
+
                     <p class="tagline-bottom">Choose our Dallas to Austin car service for reliability, luxury, and a stress-free journey.</p>
-                    
-                    
+
+
                     <img
                         src="/images/img/airport-limo-service-dallas.webp"
                         alt="Dallas to Austin luxury black car service" />

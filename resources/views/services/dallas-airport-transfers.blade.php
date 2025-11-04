@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 
 @php
@@ -104,7 +104,7 @@ $isHourly = session('service_type') === 'hourlyHire';
             <strong class="strong-c-color">Luxury Motor Coaches (55–60 Passengers):</strong> The best option for sports teams, delegations, or event transportation to and from DFW or Love Field airports.
           </p>
 
-          
+
 
 
 <p class="tagline-bottom"> Trust our chauffeur service Dallas for punctual, reliable, and comfortable airport transfers. All vehicles are fully insured, cleaned daily, and driven by licensed professionals for a safe & stylish ride every time.</p>

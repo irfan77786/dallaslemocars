@@ -2,14 +2,14 @@
     $currentStep = $step ?? 1;
     $steps = [
         1 => ['label' => 'Ride Info', 'route' => route('booking.form',['edit' => 1])],
-        2 => ['label' => 'Vehicle Class', 'route' => session('service_type') === 'pointToPoint' 
-                    ? route('booking.pointToPoint.show') 
+        2 => ['label' => 'Vehicle Class', 'route' => session('service_type') === 'pointToPoint'
+                    ? route('booking.pointToPoint.show')
                     : route('booking.hourlyHire.show')],
-        3 => ['label' => 'Passenger Info', 'route' => session()->has('vehicle_id') && session()->has('calculated_price') 
-                    ? route('passenger.info', ['id' => session('vehicle_id'), 'price' => session('calculated_price')]) 
+        3 => ['label' => 'Passenger Info', 'route' => session()->has('vehicle_id') && session()->has('calculated_price')
+                    ? route('passenger.info', ['id' => session('vehicle_id'), 'price' => session('calculated_price')])
                     : null],
-        4 => ['label' => 'Booking Detail', 'route' => session()->has('first_name') 
-                    ? url('/submit-passengerInfo/' . session('vehicle_id')) 
+        4 => ['label' => 'Booking Detail', 'route' => session()->has('first_name')
+                    ? url('/submit-passengerInfo/' . session('vehicle_id'))
                     : null],
         5 => ['label' => 'Payment', 'route' => null] // future step
     ];
@@ -92,11 +92,18 @@
 }
 
 .completed {
-    background-color: #f85a14; /* gold */
+    background-color: #1981A1; /* gold */
 }
 
+.select_car_btn{
+    border: none !important;
+}
+.select_car_btn:active{
+    background-color: #1981A1 !important;
+}
 .active {
-    background-color: #1E1E1E; /* dark blue */
+    background-color: #1981A1; /* dark blue */
+    color: white !important;
 }
 
 .upcoming {
@@ -125,7 +132,7 @@
     font-size: 0.75rem;
     line-height: 1.66;
     color:rgb(124, 124, 124) !important;
-    
+
 }
 .summary_text{
      margin: 0 0 12px;
@@ -168,14 +175,14 @@
     .stepper{
         gap:8px;
     }
-    
+
     .mob_stepper_container{
         display:flex;
         padding:0;
         justify-content:space-between;
     }
-    
-   
+
+
     .booking_step_container >div{
         padding:0 !important;
     }
@@ -186,7 +193,7 @@
         position:relative;
         /*padding-right:35px;*/
     }
-    
+
     /*.step::after{*/
     /*    content: "";*/
     /*    position: absolute;*/
@@ -205,7 +212,7 @@
         position:relative;
         padding-right:25px;
     }
-    
+
     .step::after{
         content: "";
         position: absolute;
@@ -215,7 +222,7 @@
         right: 5px;
         top: 50%;
     }
-    
+
 }
 </style>
 <div class="container-fluid bg-light step-wrapper py-3">
@@ -225,29 +232,29 @@
             <div class="d-none d-md-block step-title">{{ $steps[$step]['label'] ?? '' }}</div>
             <div class="d-md-none col-12  mob_stepper_container">
                 <div class="step-title">{{ $steps[$step]['label'] ?? '' }}</div>
-                <div class=" stepper d-flex justify-content-start justify-content-md-end flex-wrap pt-1"> 
+                <div class=" stepper d-flex justify-content-start justify-content-md-end flex-wrap pt-1">
                    @foreach ($steps as $index => $stepData)
                         @php
                             $isCompleted = $index < $currentStep;
                             $isActive = $index === $currentStep;
                             $isUpcoming = $index > $currentStep;
                         @endphp
-                    
+
                         @if($stepData['route'])
                             <a href="{{ $stepData['route'] }}" class="step text-center mx-md-2 trigger-loader">
                         @else
                             <div class="step text-center mx-md-2 disabled-link" style="pointer-events: none;">
                         @endif
-                    
-                            <div class="step-circle 
-                                @if($isCompleted) completed 
-                                @elseif($isActive) active 
-                                @else upcoming 
-                                @endif"> 
+
+                            <div class="step-circle
+                                @if($isCompleted) completed
+                                @elseif($isActive) active
+                                @else upcoming
+                                @endif">
                                 {{ $isCompleted ? '✓' : $index }}
                             </div>
                             <div class="step-label">{{ $stepData['label'] }}</div>
-                    
+
                         @if($stepData['route'])
                             </a>
                         @else
@@ -256,13 +263,13 @@
                     @endforeach
 
                 </div>
-                
+
             </div>
-            
-            
+
+
         </div>
         <div class="col-12 col-md-8 d-none d-md-block">
-            <div class=" stepper d-flex justify-content-start justify-content-md-end flex-wrap pt-1"> 
+            <div class=" stepper d-flex justify-content-start justify-content-md-end flex-wrap pt-1">
               @foreach ($steps as $index => $stepData)
     @php
         // Determine if the step is completed, active, or upcoming
@@ -282,9 +289,9 @@
 
         <!-- Step circle: display the step number or checkmark depending on completion status -->
         <div class="step-circle
-            @if($isCompleted) completed 
-            @elseif($isActive) active 
-            @else upcoming 
+            @if($isCompleted) completed
+            @elseif($isActive) active
+            @else upcoming
             @endif">
             <!-- Display a checkmark if the step is completed, otherwise display the step number -->
             {{ $isCompleted ? '✓' : ($index) }}
@@ -305,7 +312,7 @@
         </div>
     </div>
 </div>
-    
+
 <div class="d-md-none mb-3">
     <!-- Header with "Booking Summary" and Expand toggle -->
  <div class="d-flex justify-content-between align-items-center px-3 py-2 bg-white" data-toggle="collapse" data-target="#mobileRideSummary" aria-expanded="false" style="cursor: pointer;" onclick="toggleCollapse()">
@@ -341,7 +348,7 @@
                 <p class=" summary_label">Pick-Up Date & Time:</p>
                 <p class="summary_text">
                     @if(session('pickup_date') && session('pickup_time'))
-                        {{ \Carbon\Carbon::parse(session('pickup_date'))->format('D, M jS, Y') }} 
+                        {{ \Carbon\Carbon::parse(session('pickup_date'))->format('D, M jS, Y') }}
                         {{ \Carbon\Carbon::parse(session('pickup_time'))->format('h:i A') }}
                     @endif
                 </p>
@@ -399,7 +406,7 @@
       <div class="return-item">
         <p class="summary_label">Pick-Up Date & Time</p>
         <p class="summary_text mb-0">@if(session('pickup_date') && session('pickup_time'))
-                        {{ \Carbon\Carbon::parse(session('pickup_date'))->format('D, M jS, Y') }} 
+                        {{ \Carbon\Carbon::parse(session('pickup_date'))->format('D, M jS, Y') }}
                         {{ \Carbon\Carbon::parse(session('pickup_time'))->format('h:i A') }}
                     @endif</p>
       </div>
@@ -505,7 +512,7 @@
     function toggleCollapse() {
         const expandText = document.getElementById('expandText');
         const expandArrow = document.getElementById('expandArrow');
-        
+
         // Toggle text and arrow based on collapse state
         if (expandText.innerText === 'Expand') {
             expandText.innerText = 'Collapse';

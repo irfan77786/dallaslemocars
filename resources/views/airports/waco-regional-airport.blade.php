@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 @php
 $isHourly = session('service_type') === 'hourlyHire';
@@ -122,7 +122,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                         <strong class="strong-c-color">Luxury Motor Coaches (55–60 Passengers) –</strong>
                         The best option for sports teams, conventions, or large group shuttles between ACT and the Dallas–Fort Worth metroplex.
                     </p>
- 
+
  <p class="tagline-bottom">Our Waco shuttle service delivers safety, reliability, and luxury for every passenger.</p>
                     <img
                         src="/images/img/airport-limo-service-dallas.webp"

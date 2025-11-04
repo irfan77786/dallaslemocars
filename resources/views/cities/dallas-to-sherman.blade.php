@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 @php
 $isHourly = session('service_type') === 'hourlyHire';
@@ -120,7 +120,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                         <strong class="strong-c-color">Luxury Motor Coaches (55–60 Passengers) –</strong>
                         Perfect for moving larger groups, school trips, or conventions between Dallas and Sherman.
                     </p>
- 
+
 
 <p class="tagline-bottom">Trust our luxury chauffeur service Dallas for punctual, reliable long-distance rides to Sherman.</p>
 

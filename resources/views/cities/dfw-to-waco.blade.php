@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 @php
 $isHourly = session('service_type') === 'hourlyHire';
@@ -121,7 +121,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                         <strong class="strong-c-color">Luxury Motor Coaches (55–60 Passengers): </strong>
                         The top choice for conventions, sports teams, or student groups traveling between Dallas and Waco.
                     </p>
- 
+
 
 <p class="tagline-bottom">Choose our long-distance car service Dallas to Waco
                         for luxury group transportation and professional chauffeurs.</p>

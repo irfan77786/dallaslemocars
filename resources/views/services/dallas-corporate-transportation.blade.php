@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 
 @php
@@ -336,7 +336,7 @@ $isHourly = session('service_type') === 'hourlyHire';
         </div>
       </div>
     </div>
-    
+
     <section class="about-uss city-pages">
       <div class="container">
         <div class="row">

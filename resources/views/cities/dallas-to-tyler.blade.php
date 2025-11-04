@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 @php
 $isHourly = session('service_type') === 'hourlyHire';
@@ -121,7 +121,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                         Designed for larger groups including school trips, sports teams, or conventions.
                     </p>
 
-                     
+
 
 <p class="tagline-bottom">Our Dallas to Tyler long-distance car service guarantees professional chauffeurs and luxury comfort every mile.</p>
 

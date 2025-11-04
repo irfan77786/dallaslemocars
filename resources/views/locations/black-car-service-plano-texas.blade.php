@@ -1,4 +1,4 @@
-@extends('app')
+@extends('master')
 @section('content')
 @php
 $isHourly = session('service_type') === 'hourlyHire';
@@ -102,26 +102,26 @@ $isHourly = session('service_type') === 'hourlyHire';
                         <strong class="strong-c-color">Luxury Sedans:</strong>  Cadillac CT6, Volvo S90, and Mercedes-Benz S-Class for discreet, private car service Plano.
 
                     </p>
-               
-               
+
+
                              <p>
                         <strong class="strong-c-color">Luxury SUVs:</strong> Escalade ESV, Suburban, Yukon XL, and Navigator for airport rides, corporate meetings, or family travel.
                     </p>
-                    
+
                            <p>
                         <strong class="strong-c-color">Executive Sprinter Vans:</strong> Mercedes-Benz Sprinters for team travel, weddings, or executive transportation.
                     </p>
-                    
+
                            <p>
                         <strong class="strong-c-color">23–38 Passenger Mini Bus:</strong> Perfect for community events, conventions, or small corporate shuttles.
                     </p>
                            <p>
                         <strong class="strong-c-color">Luxury Motor Coaches (55–60 Passengers):</strong> Large-scale travel solutions for Plano businesses, schools, or group tours.
                     </p>
-                    
-                    
+
+
                <p class="tagline-bottom">Trust our Plano black car service for premium comfort, safety, and seamless travel.</p>
-               
+
 
                     <img
                         src="/img/dallas-black-car-service.webp"
@@ -299,7 +299,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                     </ul>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </section>
