@@ -1,12 +1,15 @@
 input[type="checkbox"] {
   accent-color: #1A6982; /* any color you like */
 }
+.selected {
+    background: #1A6982 !important ;
+}
 .rotate-90 {
   display: inline-block !important;
   transform: rotate(90deg) !important;
   vertical-align: middle;
 }
-strong {
+input, select, strong {
     color: black !important;
 }
 .meanmenu-reveal{
@@ -85,6 +88,10 @@ html, body {
 
 /* Mobile styles */
 @media (max-width: 768px) {
+    .sformlink{
+        font-size: 16.4px !important;
+        font-weight: 100 !important;
+    }
     .search-tab-wrap {
         box-shadow: none !important;
         padding: 0px !important;
@@ -187,7 +194,7 @@ html, body {
     }
 
     .search-section {
-        margin-top: 10dvh !important;
+        margin-top: 13dvh !important;
     }
 
     .carousel-section {
@@ -373,8 +380,8 @@ html, body {
 
 .floating-bordered-input {
     position: relative;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    border: 1px solid #C4C4C4;
+    border-radius: 4px;
     padding: 12px 40px;
     padding-top: 0px !important;
     padding-bottom: 0px !important;
@@ -403,7 +410,7 @@ html, body {
 .input-icon-right {
     position: absolute;
     color: #777;
-    font-size: 17px;
+    font-size: 18px;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -419,17 +426,17 @@ html, body {
 
 .floating-bordered-input {
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .floating-bordered-input .floating-label {
-  position: absolute;
-  top: -1rem;
-  left: .5rem;
-  font-size: 0.8rem;
-  color: #838282;
-  font-weight: 600;
-  pointer-events: none;
+    position: absolute;
+    top: -0.9rem;
+    left: .5rem;
+    font-size: 0.85rem;
+    color: #3a3a3a;
+    font-weight: 100;
+    pointer-events: none;
 }
 
 .floating-bordered-input .input-icon-left,

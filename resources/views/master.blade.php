@@ -150,9 +150,6 @@
                 // Trigger place_changed events
                 google.maps.event.trigger(window.autocompletePickup, 'place_changed');
                 google.maps.event.trigger(window.autocompleteDropoff, 'place_changed');
-
-                // Calculate the route with swapped locations
-                calculateRoute();
             });
             // Handle swap locations button click
             $('#round-trip').on('change', function() {

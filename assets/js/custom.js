@@ -21,7 +21,7 @@ function geolocate() {
 
 function resetMap() {
   const mapElement = document.getElementById('map');
-  $('.web-hero').show();
+  $(window).width() < 768 ? $('.mobile-hero').show() : $('.web-hero').show();
   if (animationId) {
     cancelAnimationFrame(animationId);
     animationId = null;
@@ -50,7 +50,7 @@ function resetMap() {
   }
 
   if (mapElement) {
-    mapElement.innerHTML = '<div class="map-overlay"></div>';
+    mapElement.innerHTML = '<h1 class="mobile-hero">Your Personal Chauffeur Service</h1><div class="map-overlay"></div>';
     mapElement.style.removeProperty('background-image');
     mapElement.style.removeProperty('background-size');
     mapElement.style.removeProperty('background-position');
@@ -632,7 +632,7 @@ function initMap(pickupPlace, dropoffPlace) {
   if (mapElement) {
       const overlay = mapElement.querySelector('.map-overlay');
       if (overlay) overlay.remove();
-      $('.web-hero').hide();
+      $(window).width() < 768 ? $('.mobile-hero').hide() : $('.web-hero').hide();
       mapElement.style.removeProperty('background-image');
       mapElement.style.removeProperty('background-size');
       mapElement.style.removeProperty('background-position');
@@ -790,7 +790,7 @@ function initMap(pickupPlace, dropoffPlace) {
           const newMarker = new google.maps.Marker({
               position: position,
               map: map,
-              icon: createCustomMarker(isPickup ? '#1A6982' : '#1A6982', isPickup ? 'A' : 'B'),
+              icon: createCustomMarker(isPickup ? '#1A6982' : '#1A6982', ''), // Removed 'A' and 'B' labels
               animation: google.maps.Animation.DROP
           });
 
@@ -837,30 +837,12 @@ function initMap(pickupPlace, dropoffPlace) {
   }
 
   // Function to create a custom marker with centered label
-  function createCustomMarker(color = '#1A6982', labelText) {
-    const svg = `
-        <svg width="40" height="60" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 0C9 0 0 11 0 22c0 11 20 38 20 38s20-27 20-38C40 11 31 0 20 0z" fill="${color}"/>
-            <text
-                x="20"
-                y="26"
-                text-anchor="middle"
-                dominant-baseline="middle"
-                font-size="18"
-                font-family="Arial, sans-serif"
-                fill="#fff"
-            >
-                ${labelText}
-            </text>
-        </svg>
-    `;
-
+  function createCustomMarker() {
+    const svg = `<svg fill="#1A6982" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34px" height="34px" viewBox="0 0 466.583 466.582" xml:space="preserve" stroke="#1A6982"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="13.064324000000003"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M233.292,0c-85.1,0-154.334,69.234-154.334,154.333c0,34.275,21.887,90.155,66.908,170.834 c31.846,57.063,63.168,104.643,64.484,106.64l22.942,34.775l22.941-34.774c1.317-1.998,32.641-49.577,64.483-106.64 c45.023-80.68,66.908-136.559,66.908-170.834C387.625,69.234,318.391,0,233.292,0z M233.292,233.291c-44.182,0-80-35.817-80-80 s35.818-80,80-80c44.182,0,80,35.817,80,80S277.473,233.291,233.292,233.291z"></path> </g> </g></svg>`;
     return {
         url: "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg),
-        scaledSize: new google.maps.Size(25, 40),
-        anchor: new google.maps.Point(15, 35)
     };
-}
+  }
 
   // Update or create markers with smooth transitions
   if (hasPickup) {
@@ -944,47 +926,318 @@ function removeStop(element, formId) {
 }
 
 // Function to calculate the route and re-render the map
-function calculateRoute() {
-    const pickupPlace = autocompletePickup.getPlace();
-    const dropoffPlace = autocompleteDropoff.getPlace();
+function calculateRoute(swapped = false) {
+    // Get the current input values
+    const pickupInput = document.getElementById('pickup-location');
+    const dropoffInput = document.getElementById('dropoff-location');
 
-    if (!pickupPlace || !dropoffPlace) {
-        // alert('Please select valid pickup and dropoff locations.');
+    console.log('js file : ' + pickupInput.value, dropoffInput.value);
+    // Check if we were called with place objects directly
+    if (arguments.length === 2 && arguments[0] && arguments[1] &&
+        arguments[0].geometry && arguments[1].geometry) {
+        // We were called with place objects directly
+        const pickupPlace = arguments[0];
+        const dropoffPlace = arguments[1];
+        return renderRoute(pickupPlace, dropoffPlace, []);
+    }
+
+    // If autocomplete objects aren't initialized yet, initialize them
+    if (!window.autocompletePickup || !window.autocompleteDropoff) {
+        if (window.google && google.maps && google.maps.places) {
+            window.autocompletePickup = new google.maps.places.Autocomplete(pickupInput);
+            window.autocompleteDropoff = new google.maps.places.Autocomplete(dropoffInput);
+        } else {
+            console.error('Google Maps JavaScript API not loaded');
+            return;
+        }
+    }
+
+    // If swapped parameter is true, swap the values in the input fields
+    if (swapped) {
+        const temp = pickupInput.value;
+        pickupInput.value = dropoffInput.value;
+        dropoffInput.value = temp;
+
+        // Trigger place_changed event to update the autocomplete places
+        if (window.autocompletePickup) google.maps.event.trigger(window.autocompletePickup, 'place_changed');
+        if (window.autocompleteDropoff) google.maps.event.trigger(window.autocompleteDropoff, 'place_changed');
+    }
+
+    // Get the places from autocomplete
+    const pickupPlace = window.autocompletePickup.getPlace();
+    const dropoffPlace = window.autocompleteDropoff.getPlace();
+
+    if (!pickupPlace || !dropoffPlace || !pickupPlace.geometry || !dropoffPlace.geometry) {
         return;
     }
 
-
-
     const waypoints = [];
 
-    stopAutocompletes.forEach(ac => {
-        const stopPlace = ac.getPlace();
-        if (stopPlace && stopPlace.geometry) {
-            waypoints.push({
-                location: stopPlace.geometry.location,
-                stopover: true
-            });
-        }
-    });
-
+    // Handle any stop locations if they exist
+    if (window.stopAutocompletes) {
+        stopAutocompletes.forEach(ac => {
+            const stopPlace = ac.getPlace();
+            if (stopPlace && stopPlace.geometry) {
+                waypoints.push({
+                    location: stopPlace.geometry.location,
+                    stopover: true
+                });
+            }
+        });
+    }
 
     // Make the request to the Directions API with waypoints (stops)
     const request = {
         origin: pickupPlace.geometry.location,
         destination: dropoffPlace.geometry.location,
         waypoints: waypoints,
-        travelMode: 'DRIVING'
+        travelMode: 'DRIVING',
+        optimizeWaypoints: true
     };
 
-    directionsService.route(request, function (response, status) {
+    // Initialize the map if not already done
+    if (!window.map) {
+        // Create a new map instance
+        const mapElement = document.getElementById('map');
+        if (mapElement) {
+            window.map = new google.maps.Map(mapElement, {
+                zoom: 12,
+                center: { lat: 32.7767, lng: -96.7970 }, // Default to Dallas
+                styles: [
+                    {
+                        featureType: 'all',
+                        elementType: 'geometry.fill',
+                        stylers: [{ color: '#f8faff' }]
+                    },
+                    {
+                        featureType: 'road',
+                        elementType: 'geometry.fill',
+                        stylers: [{ color: '#ffffff' }]
+                    },
+                    {
+                        featureType: 'water',
+                        elementType: 'geometry.fill',
+                        stylers: [{ color: '#e6f0ff' }]
+                    }
+                ]
+            });
+        }
+    }
+
+    // Ensure we have a valid map instance
+    if (!window.map) {
+        console.error('Failed to initialize map');
+        return;
+    }
+
+    // Show the map if it was hidden
+    const mapElement = document.getElementById('map');
+    if (mapElement) {
+        mapElement.style.display = 'block';
+    }
+
+    // Get and display the route
+    window.directionsService = window.directionsService || new google.maps.DirectionsService();
+
+    window.directionsService.route(request, function(response, status) {
         if (status === 'OK') {
-            directionsRenderer.setDirections(response);
+            // Initialize or update directions renderer
+            if (!window.directionsRenderer) {
+                window.directionsRenderer = new google.maps.DirectionsRenderer({
+                    map: window.map,
+                    suppressMarkers: true,
+                    polylineOptions: {
+                        strokeColor: '#2a41e8',
+                        strokeWeight: 4,
+                        strokeOpacity: 0.8
+                    }
+                });
+            }
+            window.directionsRenderer.setDirections(response);
+
+            // Update markers with the correct positions
+            if (window.pickupMarker) window.pickupMarker.setMap(null);
+            if (window.dropoffMarker) window.dropoffMarker.setMap(null);
+
+            // Add custom markers
+            const route = response.routes[0];
+            const bounds = new google.maps.LatLngBounds();
+
+            // Add pickup marker
+            window.pickupMarker = new google.maps.Marker({
+                position: pickupPlace.geometry.location,
+                map: window.map,
+                icon: {
+                    url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%232a41e8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>'
+                    ),
+                    scaledSize: new google.maps.Size(32, 32),
+                    anchor: new google.maps.Point(12, 12)
+                },
+                title: 'Pickup: ' + pickupInput.value
+            });
+
+            // Add dropoff marker
+            window.dropoffMarker = new google.maps.Marker({
+                position: dropoffPlace.geometry.location,
+                map: window.map,
+                icon: {
+                    url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23ff4d4d" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>'
+                    ),
+                    scaledSize: new google.maps.Size(32, 32),
+                    anchor: new google.maps.Point(12, 12)
+                },
+                title: 'Dropoff: ' + dropoffInput.value
+            });
+
+            // Extend bounds to include all points
+            bounds.extend(pickupPlace.geometry.location);
+            bounds.extend(dropoffPlace.geometry.location);
+            waypoints.forEach(waypoint => bounds.extend(waypoint.location));
+
+            // Fit map to bounds with padding
+            window.map.fitBounds(bounds, {
+                top: 50, right: 50, bottom: 50, left: 50
+            });
+
         } else {
-            alert('Error: ' + status);
+            console.error('Directions request failed due to ' + status);
         }
     });
 
-    // Optionally, recalculate the distance (if you want to display it or log it)
+    // Recalculate the distance
+    calculateDistance(pickupPlace, dropoffPlace, waypoints);
+}
+
+// Helper function to render the route with given places
+function renderRoute(pickupPlace, dropoffPlace, waypoints) {
+    if (!pickupPlace || !dropoffPlace || !pickupPlace.geometry || !dropoffPlace.geometry) {
+        console.error('Invalid pickup or dropoff place');
+        return;
+    }
+
+    // Make the request to the Directions API with waypoints (stops)
+    const request = {
+        origin: pickupPlace.geometry.location,
+        destination: dropoffPlace.geometry.location,
+        waypoints: waypoints,
+        travelMode: 'DRIVING',
+        optimizeWaypoints: true
+    };
+
+    // Initialize the map if not already done
+    if (!window.map) {
+        // Create a new map instance
+        const mapElement = document.getElementById('map');
+        if (mapElement) {
+            window.map = new google.maps.Map(mapElement, {
+                zoom: 12,
+                center: { lat: 32.7767, lng: -96.7970 }, // Default to Dallas
+                styles: [
+                    {
+                        featureType: 'all',
+                        elementType: 'geometry.fill',
+                        stylers: [{ color: '#f8faff' }]
+                    },
+                    {
+                        featureType: 'road',
+                        elementType: 'geometry.fill',
+                        stylers: [{ color: '#ffffff' }]
+                    },
+                    {
+                        featureType: 'water',
+                        elementType: 'geometry.fill',
+                        stylers: [{ color: '#e6f0ff' }]
+                    }
+                ]
+            });
+        }
+    }
+
+    // Ensure we have a valid map instance
+    if (!window.map) {
+        console.error('Failed to initialize map');
+        return;
+    }
+
+    // Show the map if it was hidden
+    const mapElement = document.getElementById('map');
+    if (mapElement) {
+        mapElement.style.display = 'block';
+    }
+
+    // Get and display the route
+    window.directionsService = window.directionsService || new google.maps.DirectionsService();
+
+    window.directionsService.route(request, function(response, status) {
+        if (status === 'OK') {
+            // Initialize or update directions renderer
+            if (!window.directionsRenderer) {
+                window.directionsRenderer = new google.maps.DirectionsRenderer({
+                    map: window.map,
+                    suppressMarkers: true,
+                    polylineOptions: {
+                        strokeColor: '#2a41e8',
+                        strokeWeight: 4,
+                        strokeOpacity: 0.8
+                    }
+                });
+            }
+            window.directionsRenderer.setDirections(response);
+
+            // Update markers with the correct positions
+            if (window.pickupMarker) window.pickupMarker.setMap(null);
+            if (window.dropoffMarker) window.dropoffMarker.setMap(null);
+
+            // Add custom markers
+            const route = response.routes[0];
+            const bounds = new google.maps.LatLngBounds();
+
+            // Add pickup marker
+            window.pickupMarker = new google.maps.Marker({
+                position: pickupPlace.geometry.location,
+                map: window.map,
+                icon: {
+                    url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%232a41e8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>'
+                    ),
+                    scaledSize: new google.maps.Size(32, 32),
+                    anchor: new google.maps.Point(12, 12)
+                },
+                title: 'Pickup: ' + (pickupPlace.name || pickupPlace.formatted_address || 'Pickup')
+            });
+
+            // Add dropoff marker
+            window.dropoffMarker = new google.maps.Marker({
+                position: dropoffPlace.geometry.location,
+                map: window.map,
+                icon: {
+                    url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23ff4d4d" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>'
+                    ),
+                    scaledSize: new google.maps.Size(32, 32),
+                    anchor: new google.maps.Point(12, 12)
+                },
+                title: 'Dropoff: ' + (dropoffPlace.name || dropoffPlace.formatted_address || 'Dropoff')
+            });
+
+            // Extend bounds to include all points
+            bounds.extend(pickupPlace.geometry.location);
+            bounds.extend(dropoffPlace.geometry.location);
+            waypoints.forEach(waypoint => bounds.extend(waypoint.location));
+
+            // Fit map to bounds with padding
+            window.map.fitBounds(bounds, {
+                top: 50, right: 50, bottom: 50, left: 50
+            });
+
+        } else {
+            console.error('Directions request failed due to ' + status);
+        }
+    });
+
+    // Recalculate the distance
     calculateDistance(pickupPlace, dropoffPlace, waypoints);
 }
 
