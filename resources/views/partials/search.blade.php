@@ -63,6 +63,29 @@
                             </svg>
                         </span>
                     </div>
+
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="form-check me-2">
+                            <input type="checkbox" name="round_trip" id="round-trip" class="form-check-input"
+                                style="height: 18px; width: 18px; cursor: pointer; margin-top: 10px;">
+                            <label for="round-trip" class="form-check-label ms-2 ml-2" style="cursor: pointer; font-size: 18px; margin-top: 0.4rem; color: black !important; font-weight: 100">
+                                Add a return Trip
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="floating-bordered-input mb-1 position-relative return-trip pl-3" style="display: none;">
+                        <input type="text" name="return_datetime_hourly" id="return-datetime-hourly"
+                            class="form-control flatpickr" placeholder="Return Trip Pick-up Data / Time"
+                            value="{{ session('return_datetime_hourly') ? \Carbon\Carbon::parse(session('return_datetime_hourly'))->format('Y-m-d H:i') : '' }}">
+                        <span class="input-icon-right"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="31" height="31">
+                            <path d="M0 0 C10.23 0 20.46 0 31 0 C31 10.23 31 20.46 31 31 C20.77 31 10.54 31 0 31 C0 20.77 0 10.54 0 0 Z " fill="#FEFEFE" transform="translate(0,0)"/>
+                            <path d="M0 0 C0.66 0 1.32 0 2 0 C2 0.66 2 1.32 2 2 C4.64 2 7.28 2 10 2 C10 1.34 10 0.68 10 0 C10.66 0 11.32 0 12 0 C12 0.66 12 1.32 12 2 C12.99 2.33 13.98 2.66 15 3 C15.02684679 5.64590014 15.04676357 8.29153096 15.0625 10.9375 C15.07087891 11.69224609 15.07925781 12.44699219 15.08789062 13.22460938 C15.09652441 15.14994313 15.05224333 17.07535581 15 19 C13.17883997 20.82116003 10.69328236 20.1323508 8.2734375 20.13671875 C7.52320313 20.13285156 6.77296875 20.12898438 6 20.125 C4.87464844 20.13080078 4.87464844 20.13080078 3.7265625 20.13671875 C-1.87338947 20.12661053 -1.87338947 20.12661053 -3 19 C-3.07319621 16.30345146 -3.09242537 13.63308542 -3.0625 10.9375 C-3.05798828 10.17888672 -3.05347656 9.42027344 -3.04882812 8.63867188 C-3.0370068 6.75908129 -3.01907078 4.87953101 -3 3 C-2.01 2.67 -1.02 2.34 0 2 C0 1.34 0 0.68 0 0 Z " fill="#757575" transform="translate(9,6)"/>
+                            <path d="M0 0 C4.62 0 9.24 0 14 0 C14 3.63 14 7.26 14 11 C9.38 11 4.76 11 0 11 C0 7.37 0 3.74 0 0 Z " fill="#FFFFFF" transform="translate(8,13)"/>
+                            <path d="M0 0 C1.65 0 3.3 0 5 0 C5 1.65 5 3.3 5 5 C3.35 5 1.7 5 0 5 C0 3.35 0 1.7 0 0 Z " fill="#757575" transform="translate(15,17)"/>
+                            </svg>
+                        </span>
+                    </div>
                     <style>
                         .input-icon-right {
                             position: absolute;
@@ -76,7 +99,7 @@
                         }
                     </style>
 
-                    <button type="submit" class="btn w-100 search_btn mt-4"
+                    <button type="submit" class="btn w-100 search_btn point-button"
                         style="text-transform: uppercase; background: linear-gradient(to right, #1A6982, #1B9CCC); letter-spacing: 2px;">Get
                         My Prices
                         <i class="bi bi-arrow-right" style="font-size: 20px; margin: 2px;"></i></button>
@@ -121,7 +144,7 @@
 
 
                     <!-- Pick-up Date & Time (Hourly) -->
-                    <div class="floating-bordered-input mb-1 position-relative pl-3">
+                    <div class="floating-bordered-input mb-4 position-relative pl-3">
                         <input type="text" name="pickup_datetime_hourly" id="pickup-datetime-hourly"
                             class="form-control flatpickr" placeholder="Pick-up Data / Time"
                             value="{{ session('pickup_datetime_hourly') ? \Carbon\Carbon::parse(session('pickup_datetime_hourly'))->format('Y-m-d H:i') : '' }}"
@@ -135,31 +158,7 @@
                         </span>
                     </div>
 
-                    <div class="d-flex align-items-center mb-2">
-                        <div class="form-check me-2">
-                            <input type="checkbox" name="round_trip" id="round-trip" class="form-check-input"
-                                style="height: 18px; width: 18px; cursor: pointer; margin-top: 10px;">
-                            <label for="round-trip" class="form-check-label ms-2 ml-2" style="cursor: pointer; font-size: 18px; margin-top: 0.4rem; color: black !important; font-weight: 100">
-                                Add a return Trip
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="floating-bordered-input mb-1 position-relative return-trip pl-3" style="display: none;">
-                        <input type="text" name="return_datetime_hourly" id="return-datetime-hourly"
-                            class="form-control flatpickr" placeholder="Return Trip Pick-up Data / Time"
-                            value="{{ session('return_datetime_hourly') ? \Carbon\Carbon::parse(session('return_datetime_hourly'))->format('Y-m-d H:i') : '' }}"
-                            required>
-                        <span class="input-icon-right"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="31" height="31">
-                            <path d="M0 0 C10.23 0 20.46 0 31 0 C31 10.23 31 20.46 31 31 C20.77 31 10.54 31 0 31 C0 20.77 0 10.54 0 0 Z " fill="#FEFEFE" transform="translate(0,0)"/>
-                            <path d="M0 0 C0.66 0 1.32 0 2 0 C2 0.66 2 1.32 2 2 C4.64 2 7.28 2 10 2 C10 1.34 10 0.68 10 0 C10.66 0 11.32 0 12 0 C12 0.66 12 1.32 12 2 C12.99 2.33 13.98 2.66 15 3 C15.02684679 5.64590014 15.04676357 8.29153096 15.0625 10.9375 C15.07087891 11.69224609 15.07925781 12.44699219 15.08789062 13.22460938 C15.09652441 15.14994313 15.05224333 17.07535581 15 19 C13.17883997 20.82116003 10.69328236 20.1323508 8.2734375 20.13671875 C7.52320313 20.13285156 6.77296875 20.12898438 6 20.125 C4.87464844 20.13080078 4.87464844 20.13080078 3.7265625 20.13671875 C-1.87338947 20.12661053 -1.87338947 20.12661053 -3 19 C-3.07319621 16.30345146 -3.09242537 13.63308542 -3.0625 10.9375 C-3.05798828 10.17888672 -3.05347656 9.42027344 -3.04882812 8.63867188 C-3.0370068 6.75908129 -3.01907078 4.87953101 -3 3 C-2.01 2.67 -1.02 2.34 0 2 C0 1.34 0 0.68 0 0 Z " fill="#757575" transform="translate(9,6)"/>
-                            <path d="M0 0 C4.62 0 9.24 0 14 0 C14 3.63 14 7.26 14 11 C9.38 11 4.76 11 0 11 C0 7.37 0 3.74 0 0 Z " fill="#FFFFFF" transform="translate(8,13)"/>
-                            <path d="M0 0 C1.65 0 3.3 0 5 0 C5 1.65 5 3.3 5 5 C3.35 5 1.7 5 0 5 C0 3.35 0 1.7 0 0 Z " fill="#757575" transform="translate(15,17)"/>
-                            </svg>
-                        </span>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary w-100 point-button"
+                    <button type="submit" class="btn btn-primary w-100"
                         style="text-transform: uppercase; background: linear-gradient(to right, #1A6982, #1B9CCC); letter-spacing: 2px;">Get
                         My
                         Prices <i class="bi bi-arrow-right" style="font-size: 20px; margin: 2px;"></i></button>

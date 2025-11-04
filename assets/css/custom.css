@@ -1,5 +1,17 @@
 input[type="checkbox"] {
-  accent-color: #1A6982; /* any color you like */
+  accent-color: #1A6982;
+}
+.booking_step_container {
+    margin-top: 8dvh;
+}
+.floating-bordered-input:hover {
+  border: 1px solid black;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+.floating-bordered-input:focus-within {
+  border-color: #1A6982;
+  box-shadow: 0 0 0 1px #1A6982;
 }
 .selected {
     background: #1A6982 !important ;
@@ -204,6 +216,20 @@ html, body {
 
 /* Desktop styles */
 @media (min-width: 769px) {
+
+    .form-check-label{
+        font-size: 16px !important;
+        font-weight: 300 !important;
+    }
+    .search-tab-wrap{
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0px 0px 4px #6e6e6e;
+        padding: 30px;
+        width: 430px;
+        margin: auto;
+        position: relative;
+    }
     .onlyMobile {
         display: none;
     }
