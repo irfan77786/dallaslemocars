@@ -13,7 +13,7 @@
     </style>
     @endsection
     <!-- header section start -->
-    <header class="header-section" style="bottom: 0 !important; box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1);">
+    <header class="header-section" style="bottom: 0 !important; box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1); overflow: hidden;">
         <!-- main menu -->
         <div class="main-header bottom-header">
             <div class="container">

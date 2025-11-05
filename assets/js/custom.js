@@ -745,7 +745,7 @@ function initMap(pickupPlace, dropoffPlace) {
           styles: mapStyle,
           disableDefaultUI: true,
           zoomControl: true,
-          gestureHandling: 'greedy',
+          gestureHandling: 'cooperative',
       });
   } else {
       // Smoothly update the map center if needed
