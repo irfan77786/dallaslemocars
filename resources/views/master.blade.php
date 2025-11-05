@@ -125,6 +125,43 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+
+            document.querySelectorAll('.selectable-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Ignore clicks on interactive elements inside the card
+                    const ignoreSelector = 'a, button, [role="button"], [data-toggle="collapse"], .collapse, .info-icon, .feature-item, .feature_items_cont';
+                    if (e.target.closest(ignoreSelector)) {
+                        return; // do not toggle selection when interacting with features/collapse
+                    }
+
+                    document.querySelectorAll('.selectable-card').forEach(c => c.classList.remove('selected'));
+                    card.classList.toggle('selected');
+                    const selectedId = card.dataset.id;
+                    console.log("Selected vehicle ID:", selectedId);
+                });
+            });
+            // Default select the first product card on load
+            const firstCard = document.querySelector('.selectable-card');
+            if (firstCard) {
+                document.querySelectorAll('.selectable-card').forEach(c => c.classList.remove('selected'));
+                firstCard.classList.add('selected');
+                console.log("Default selected vehicle ID:", firstCard.dataset.id);
+            }
+            const continueBtn = document.querySelector('.continue-button');
+            if (continueBtn) {
+                continueBtn.addEventListener('click', function() {
+                    const selected = document.querySelector('.selectable-card.selected') || document.querySelector('.selectable-card');
+                    if (!selected) { return; }
+                    const id = selected.dataset.id;
+                    const priceEl = selected.querySelector('.pricing_summary_price');
+                    if (!priceEl) { alert('Fare not available for selected vehicle'); return; }
+                    const priceMatch = (priceEl.textContent || '').match(/[0-9]+(?:\.[0-9]+)?/);
+                    const price = priceMatch ? priceMatch[0] : null;
+                    if (!price) { alert('Fare not available for selected vehicle'); return; }
+                    window.location.href = `/passengerInfo/${id}/${price}`;
+                });
+            }
+            
             $('#swap-locations').on('click', function() {
                 const $pickupInput = $('#pickup-location');
                 const $dropoffInput = $('#dropoff-location');

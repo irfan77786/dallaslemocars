@@ -3,6 +3,7 @@ input[type="checkbox"] {
 }
 .booking_step_container {
     margin-top: 8dvh;
+    margin-bottom: 3dvh;
 }
 .floating-bordered-input:hover {
   border: 1px solid black;

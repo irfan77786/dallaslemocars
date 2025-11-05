@@ -42,7 +42,6 @@
   }
 }
 
-
 .btn-primary{
     background-color:#1E1E1E;
     border-color: #1E1E1E;
@@ -50,9 +49,11 @@
 
 .step{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    gap: 8px;
+    justify-content: flex-start;
+    gap: 6px;
+    flex: 1 1 0;
 }
 .step-label {
     font-size: 0.875rem;
@@ -75,25 +76,32 @@
 
 
 .stepper {
-    gap: 20px;
+    position: relative;
+    gap: 0;
 }
 
-.step-circle {
-    width: 24px;
-    height: 24px;
+.stepper::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 44px; /* sits between label and dots */
+    height: 2px;
+    background: #e6e8ef;
+}
+
+.step-dot{
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: white;
-    font-size: 0.75rem;
-    margin: 0 auto;
+    border: 2px solid #e5e7eb;
+    background: #fff;
+    display: inline-block;
+    position: relative;
+    top: 22px; /* aligns to the connector line */
 }
 
-.completed {
-    background-color: #1981A1; /* gold */
-}
+.completed { border-color: #c7cbd6; background: #c7cbd6; }
 
 .select_car_btn{
     border: none !important;
@@ -102,12 +110,27 @@
     background-color: #1981A1 !important;
 }
 .active {
-    background-color: #1981A1; /* dark blue */
-    color: white !important;
+    border-color: #1A6982 !important;
+    background: #1A6982 !important;
 }
 
-.upcoming {
-    background-color: #ccc; /* grey */
+.upcoming { border-color: #e5e7eb; background: #fff; }
+
+.step-label-pill{
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    line-height: 1;
+    color: #6b7280;
+    background: transparent;
+    border: 1px solid transparent;
+}
+.step-label-pill.is-active{
+    color: white;
+    font-weight: 600;
+    background: #1981A1;
+    border-color: #1981A1;
 }
 
 
@@ -140,6 +163,10 @@
     font-size: 1rem;
     color: black !important;
 }
+.summary-row{ display:flex; align-items:center; gap:8px; }
+.summary-label-inline{ white-space:nowrap; margin:0; font-size:0.95rem; line-height:1.4; color:#000 !important; font-weight:600; }
+.summary-leader{ flex:1; height:0; border-bottom:1px dashed #e0e0e0; }
+.summary-value-inline{ margin:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-size:0.9rem; color:black !important; }
 .summary_info_box{
     position:relative;
 }
@@ -225,88 +252,32 @@
 
 }
 </style>
-<div class="container-fluid bg-light step-wrapper py-3">
+<div class="container-fluid step-wrapper md-py-3">
     <div class="row container align-items-center justify-content-between ml-auto mr-auto px-md-0 px-sm-0 px-0 booking_step_container">
-        <div class="col-12 col-md-4 text-left mb-0">
-            <div class="step-header">STEP {{ $step }} OF 5</div>
-            <div class="d-none d-md-block step-title">{{ $steps[$step]['label'] ?? '' }}</div>
-            <div class="d-md-none col-12  mob_stepper_container">
-                <div class="step-title">{{ $steps[$step]['label'] ?? '' }}</div>
-                <div class=" stepper d-flex justify-content-start justify-content-md-end flex-wrap pt-1">
-                   @foreach ($steps as $index => $stepData)
-                        @php
-                            $isCompleted = $index < $currentStep;
-                            $isActive = $index === $currentStep;
-                            $isUpcoming = $index > $currentStep;
-                        @endphp
-
-                        @if($stepData['route'])
-                            <a href="{{ $stepData['route'] }}" class="step text-center mx-md-2 trigger-loader">
-                        @else
-                            <div class="step text-center mx-md-2 disabled-link" style="pointer-events: none;">
-                        @endif
-
-                            <div class="step-circle
-                                @if($isCompleted) completed
-                                @elseif($isActive) active
-                                @else upcoming
-                                @endif">
-                                {{ $isCompleted ? '✓' : $index }}
-                            </div>
-                            <div class="step-label">{{ $stepData['label'] }}</div>
-
-                        @if($stepData['route'])
-                            </a>
-                        @else
-                            </div>
-                        @endif
-                    @endforeach
-
-                </div>
-
-            </div>
-
-
-        </div>
-        <div class="col-12 col-md-8 d-none d-md-block">
-            <div class=" stepper d-flex justify-content-start justify-content-md-end flex-wrap pt-1">
+        <div class="col-12 col-md-12 d-none d-md-block">
+            <div class=" stepper d-flex justify-content-start justify-content-md-end flex-nowrap pt-1 w-100 mt-4">
               @foreach ($steps as $index => $stepData)
-    @php
-        // Determine if the step is completed, active, or upcoming
-        $isCompleted = ($index < $currentStep);
-        $isActive = ($index === $currentStep);
-        $isUpcoming = ($index > $currentStep);
-    @endphp
+                @php
+                    $isCompleted = ($index < $currentStep);
+                    $isActive = ($index === $currentStep);
+                    $isUpcoming = ($index > $currentStep);
+                @endphp
 
-    <!-- Conditional rendering for steps with and without routes -->
-    @if($stepData['route'])
-        <!-- Step has a route, make it clickable -->
-        <a href="{{ $stepData['route'] }}" class="step text-center mx-md-2 trigger-loader">
-    @else
-        <!-- Step has no route, make it disabled and non-clickable -->
-        <div class="step text-center mx-md-2 disabled-link" style="pointer-events: none;">
-    @endif
+                @if($stepData['route'])
+                    <a href="{{ $stepData['route'] }}" class="step text-center trigger-loader">
+                @else
+                    <div class="step text-center disabled-link" style="pointer-events: none;">
+                @endif
 
-        <!-- Step circle: display the step number or checkmark depending on completion status -->
-        <div class="step-circle
-            @if($isCompleted) completed
-            @elseif($isActive) active
-            @else upcoming
-            @endif">
-            <!-- Display a checkmark if the step is completed, otherwise display the step number -->
-            {{ $isCompleted ? '✓' : ($index) }}
-        </div>
+                    <div class="step-label-pill {{ $isActive ? 'is-active' : '' }}">{{ $stepData['label'] }}</div>
+                    <span class="step-dot @if($isCompleted) completed @elseif($isActive) active @else upcoming @endif"></span>
 
-        <!-- Step label -->
-        <div class="step-label">{{ $stepData['label'] }}</div>
-
-    <!-- Close the anchor tag or div based on whether the step has a route -->
-    @if($stepData['route'])
-        </a>
-    @else
-        </div>
-    @endif
-@endforeach
+                @if($stepData['route'])
+                    </a>
+                @else
+                    </div>
+                @endif
+              @endforeach
 
             </div>
         </div>
@@ -316,7 +287,7 @@
 <div class="d-md-none mb-3">
     <!-- Header with "Booking Summary" and Expand toggle -->
  <div class="d-flex justify-content-between align-items-center px-3 py-2 bg-white" data-toggle="collapse" data-target="#mobileRideSummary" aria-expanded="false" style="cursor: pointer;" onclick="toggleCollapse()">
-        <h6 class="mb-0 font-weight-normal">Booking Summary</h6>
+        <h6 class="step-label-pill is-active">Booking Summary</h6>
         <div class="d-flex align-items-center summary_toggle_container">
             <span id="expandText" class="mr-1">Expand</span>
             <svg id="expandArrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 320 512">
@@ -328,15 +299,15 @@
     <!-- Collapsible Ride Info Summary -->
     <div class="collapse " id="mobileRideSummary">
         <div class="px-3  mob_top_summary">
-            <div class="">
-                <p class="  summary_label">Pickup Location:</p>
-                <p class="  summary_text">{{ session('pickup_location') }}</p>
+            <div class="summary-row">
+                <p class="summary-label-inline">Pickup Location</p>
+                <span class="summary-leader"></span>
+                <p class="summary-value-inline">{{ session('pickup_location') }}</p>
             </div>
-            <div class="">
-                <p class="  summary_label">
-                    {{ session('dropoff_location') ? 'Destination:' : 'Selected Hours:' }}
-                </p>
-                <p class=" summary_text">
+            <div class="summary-row">
+                <p class="summary-label-inline">{{ session('dropoff_location') ? 'Destination' : 'Selected Hours' }}</p>
+                <span class="summary-leader"></span>
+                <p class="summary-value-inline">
                     @if(session('dropoff_location'))
                         {{ session('dropoff_location') }}
                     @else
@@ -344,36 +315,37 @@
                     @endif
                 </p>
             </div>
-            <div class="">
-                <p class=" summary_label">Pick-Up Date & Time:</p>
-                <p class="summary_text">
+            <div class="summary-row">
+                <p class="summary-label-inline">Pick-Up Date & Time</p>
+                <span class="summary-leader"></span>
+                <p class="summary-value-inline">
                     @if(session('pickup_date') && session('pickup_time'))
-                        {{ \Carbon\Carbon::parse(session('pickup_date'))->format('D, M jS, Y') }}
-                        {{ \Carbon\Carbon::parse(session('pickup_time'))->format('h:i A') }}
+                        {{ \Carbon\Carbon::parse(session('pickup_date'))->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse(session('pickup_time'))->format('h:i A') }}
                     @endif
                 </p>
             </div>
             <?php if($step > 2){ ?>
-<div>
-    <p class="summary_label">Car Type:</p>
-    <p class="summary_text">
-        @php
-            $selectedVehicleName = null;
-            try {
-                $selId = session('vehicle_id');
-                if ($selId) {
-                    $v = \App\Models\Vehicle::find($selId);
-                    $selectedVehicleName = $v ? $v->vehicle_name : null;
-                }
-            } catch (\Throwable $e) {
-                $selectedVehicleName = null;
-            }
-        @endphp
-        {{ $selectedVehicleName ?? 'Sedan' }}
-    </p>
-</div>
-<?php } ?>
-            <div >
+            <div class="summary-row">
+                <p class="summary-label-inline">Car Type</p>
+                <span class="summary-leader"></span>
+                <p class="summary-value-inline">
+                    @php
+                        $selectedVehicleName = null;
+                        try {
+                            $selId = session('vehicle_id');
+                            if ($selId) {
+                                $v = \App\Models\Vehicle::find($selId);
+                                $selectedVehicleName = $v ? $v->vehicle_name : null;
+                            }
+                        } catch (\Throwable $e) {
+                            $selectedVehicleName = null;
+                        }
+                    @endphp
+                    {{ $selectedVehicleName ?? 'Sedan' }}
+                </p>
+            </div>
+            <?php } ?>
+            <div class="mt-2">
                 <a href="/booking?edit=1">
                     <button class="btn btn-primary btn-sm px-3 py-1 font-weight-bold" style="font-size: 14px;padding: 5px 8px !important;">
                         EDIT

@@ -1,5 +1,5 @@
     <!-- header section start -->
-    <header class="header-section">
+    <header class="header-section" style="box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1);">
         <!-- main menu -->
         <div class="main-header">
             <div class="container">
