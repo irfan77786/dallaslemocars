@@ -275,6 +275,9 @@ $features = [
         font-size: 1.05rem;
         margin-bottom: 0.25rem !important;
     }
+    .pricing_summary_price {
+        font-size: 22px;
+    }
     .car-price .pricing_summary_price {
         white-space: nowrap; /* keep numeric part on one line; USD may wrap */
     }
