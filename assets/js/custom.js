@@ -1297,7 +1297,7 @@ function validateForm(formId) {
     }
     return true;
 }
-document.querySelector('form').addEventListener('submit', async function (event) {
+document.querySelector('.search-form').addEventListener('submit', async function (event) {
     event.preventDefault(); // Prevent default form submission
 
     // Get latest places from pickup & dropoff autocompletes

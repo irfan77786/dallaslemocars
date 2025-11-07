@@ -1,6 +1,12 @@
 input[type="checkbox"] {
   accent-color: #1A6982;
 }
+.btn-primary {
+    background: linear-gradient(to right, #1A6982, #1B9CCC) !important;
+}
+.text-primary {
+    color: #1A6982 !important;
+}
 .booking_step_container {
     margin-top: 8dvh;
     margin-bottom: 3dvh;

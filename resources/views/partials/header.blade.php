@@ -15,8 +15,6 @@
                     <div class="col-md-9 d-none d-lg-block text-lg-right">
                         <nav id="responsive-menu" class="main-menu">
                             <ul class="menu-items">
-                                <li><a href="#">Home</a></li>
-
                                 <li><a href="about.html">About us</a></li>
 
                                 <li class="has-submenu">
@@ -48,8 +46,22 @@
                                         <li><a href="#">Cancellation Policy</a></li>
                                     </ul>
                                 </li>
+                                <li>
+                                    @if (Route::has('login'))
+                                        <div class="fixed top-0 right-0 p-6 text-right z-10">
+                                            @auth
+                                                <a href="{{ url('/dashboard') }}">
+                                                    Dashboard
+                                                </a>
+                                            @else
+                                                <a href="{{ route('login') }}">
+                                                    Log in
+                                                </a>
+                                            @endauth
+                                        </div>
+                                    @endif
+                                </li>
                             </ul>
-
                             <a href="#" class="btn-booking-start">Book Now</a>
                         </nav>
                     </div> <!-- /. col-md-9 d-none d-lg-block -->

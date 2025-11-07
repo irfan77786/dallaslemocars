@@ -150,6 +150,8 @@
             const continueBtn = document.querySelector('.continue-button');
             if (continueBtn) {
                 continueBtn.addEventListener('click', function() {
+                    var step ="{{ $step ?? null }}";
+                    console.log("step is = "+ step);
                     const selected = document.querySelector('.selectable-card.selected') || document.querySelector('.selectable-card');
                     if (!selected) { return; }
                     const id = selected.dataset.id;
@@ -158,10 +160,10 @@
                     const priceMatch = (priceEl.textContent || '').match(/[0-9]+(?:\.[0-9]+)?/);
                     const price = priceMatch ? priceMatch[0] : null;
                     if (!price) { alert('Fare not available for selected vehicle'); return; }
-                    window.location.href = `/passengerInfo/${id}/${price}`;
+                    // window.location.href = `/passengerInfo/${id}/${price}`;
                 });
             }
-            
+
             $('#swap-locations').on('click', function() {
                 const $pickupInput = $('#pickup-location');
                 const $dropoffInput = $('#dropoff-location');
