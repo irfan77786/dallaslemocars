@@ -2,6 +2,7 @@
 @section('content')
 
 @php
+$step = 4;
 $features = [
 ['text' => 'Flight tracking', 'icon' => 'bi-airplane'],
 [
@@ -132,7 +133,7 @@ $features = [
           </div>
         </div>
         <p class="text-muted small text-start mb-0 mt-1" style="line-height: 1.2rem;">Enter any special requests or important information for your ride, e.g. child car seats, etc.</p>
-        <div class="mt-4 d-flex justify-content-start">
+        <div class="mt-4 d-flex justify-content-start d-md-none">
           <button type="submit" class="btn btn-primary btn-block">
             CONTINUE TO PAYMENT
           </button>
@@ -144,6 +145,8 @@ $features = [
   </div>
 </div>
 </form>
+
+@include('partials.proceed_bar')
 
 <!-- Return Reservation Modal -->
 <div class="modal fade" id="returnReservationModal" tabindex="-1" role="dialog" aria-labelledby="returnReservationModalLabel" aria-hidden="true">

@@ -1,3 +1,4 @@
+
 <style>
 .mt-2 {
 margin-top: 6px !important;
@@ -6,7 +7,7 @@ margin-top: 6px !important;
 .mb-2 {
 margin-bottom: 6px !important;
 }
-  
+
 .ph-wrap .fake-ph {
   position: absolute !important;
   top: 50% !important;
@@ -116,18 +117,18 @@ margin-bottom: 6px !important;
 
             <div class="input-group">
               <div class="ph-wrap" style="position: relative;">
-                <input 
-                  type="time" 
-                  class="form-control" 
-                  value="{{ session('pickup_time') ?? '' }}" 
-                  name="pickup_time" 
-                  id="pickup-time" 
-                  required 
+                <input
+                  type="time"
+                  class="form-control"
+                  value="{{ session('pickup_time') ?? '' }}"
+                  name="pickup_time"
+                  id="pickup-time"
+                  required
                   style="padding-right: 10px; position: relative; z-index: 2;"
                 >
-                <span 
-                  class="fake-ph" 
-                  aria-hidden="true" 
+                <span
+                  class="fake-ph"
+                  aria-hidden="true"
                   style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #aaa; pointer-events: none; z-index: 1;"
                 >
                   HH:MM AM
@@ -230,19 +231,19 @@ margin-bottom: 6px !important;
         </div>
       </form>
     </div>
-  </div> 
+  </div>
   <!-- /tab-content -->
 </div>
 <script>
   window.addEventListener('DOMContentLoaded', function () {
     const timeInput = document.getElementById('pickup-time-hourly');
-    
+
     // Get current time in HH:MM format
     const now = new Date();
     const hours = now.getHours().toString().padStart(2, '0');
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const currentTime = `${hours}:${minutes}`;
-    
+
     // Set min attribute to current time
     timeInput.min = currentTime;
   });

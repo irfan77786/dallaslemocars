@@ -65,7 +65,9 @@
 
     @yield('content')
 
-    @include('partials.footer')
+    @if($step == 0)
+        @include('partials.footer')
+    @endif
 
     <!--  ALl JS Plugins
     ====================================== -->
@@ -150,17 +152,45 @@
             const continueBtn = document.querySelector('.continue-button');
             if (continueBtn) {
                 continueBtn.addEventListener('click', function() {
-                    var step ="{{ $step ?? null }}";
-                    console.log("step is = "+ step);
-                    const selected = document.querySelector('.selectable-card.selected') || document.querySelector('.selectable-card');
-                    if (!selected) { return; }
-                    const id = selected.dataset.id;
-                    const priceEl = selected.querySelector('.pricing_summary_price');
-                    if (!priceEl) { alert('Fare not available for selected vehicle'); return; }
-                    const priceMatch = (priceEl.textContent || '').match(/[0-9]+(?:\.[0-9]+)?/);
-                    const price = priceMatch ? priceMatch[0] : null;
-                    if (!price) { alert('Fare not available for selected vehicle'); return; }
-                    // window.location.href = `/passengerInfo/${id}/${price}`;
+                    var step = parseInt("{{ $step ?? 1 }}");
+                    console.log("Current step is = " + step);
+
+                    // Step 2: Vehicle Class - Navigate to Passenger Info
+                    if (step === 2) {
+                        const selected = document.querySelector('.selectable-card.selected') || document.querySelector('.selectable-card');
+                        if (!selected) {
+                            alert('Please select a vehicle');
+                            return;
+                        }
+                        const id = selected.dataset.id;
+                        const priceEl = selected.querySelector('.pricing_summary_price');
+                        if (!priceEl) {
+                            alert('Fare not available for selected vehicle');
+                            return;
+                        }
+                        const priceMatch = (priceEl.textContent || '').match(/[0-9]+(?:\.[0-9]+)?/);
+                        const price = priceMatch ? priceMatch[0] : null;
+                        if (!price) {
+                            alert('Fare not available for selected vehicle');
+                            return;
+                        }
+                        window.location.href = `/passengerInfo/${id}/${price}`;
+                    }
+                    // Step 3: Passenger Info - Submit the passenger form
+                    else if (step === 3) {
+                        const passengerForm = document.getElementById('passengerForm');
+                        if (passengerForm) {
+                            passengerForm.requestSubmit();
+                        }
+                    }
+                    // Step 4: Booking Detail - Submit the booking form
+                    else if (step === 4) {
+                        const bookingForm = document.querySelector('form[action*="/bookRide"]');
+                        if (bookingForm) {
+                            bookingForm.requestSubmit();
+                        }
+                    }
+                    // For other steps, do nothing as they have their own navigation
                 });
             }
 
