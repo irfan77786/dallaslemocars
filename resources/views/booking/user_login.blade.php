@@ -12,17 +12,24 @@
 @include('partials.bookig-top_area')
 
 <style>
+.floating-bordered-input{
+    position: relative;
+    border: 1px solid #C4C4C4;
+    border-radius: 4px;
+    padding: 12px 15px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    background: #fff;
+}
 .passenger-info-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 15px 20px 100px 20px; /* Reduced top padding */
+    padding: 50px 0px 100px 0px; /* Reduced top padding */
 }
 
 .info-card {
     background: #fff;
     border-radius: 8px;
-    padding: 25px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .section-title {
@@ -90,8 +97,6 @@
 .benefits-section {
     background: #fff;
     border-radius: 8px;
-    padding: 25px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .benefits-title {
@@ -147,6 +152,18 @@
     background: #145570;
 }
 
+@media (min-width: 992px) {
+    .col-divider {
+        border-left: 1px solid #e0e0e0;
+    }
+    .col-divider .benefits-section {
+        padding-left: 35px;
+    }
+    .info-card {
+        padding-right: 35px;
+    }
+}
+
 @media (max-width: 768px) {
     .form-row-custom {
         flex-direction: column;
@@ -159,6 +176,7 @@
 
     .passenger-info-container {
         padding-bottom: 20px;
+        padding-top: 0px !important;
     }
 }
 </style>
@@ -169,31 +187,31 @@
         <div class="col-lg-6 mb-4">
             <div class="info-card">
                 <h2 class="section-title">Continue as Guest</h2>
-                <form id="passengerForm" method="POST" action="{{ url('/submit-passengerInfo/' . $id) }}">
+                <form id="passengerForm" method="POST" action="{{ route('login') }}">
                     @csrf
                     @method('POST')
 
                     <!-- Email -->
-                    <div class="input-group-container">
-                        <label for="email">Email address *</label>
-                        <input type="email" id="email" name="email" value="{{ old('email', session('email')) }}" placeholder="Enter your email" autocomplete="email" required>
+                    <div class="floating-bordered-input position-relative">
+                        <span class="floating-label">Email address *</span>
+                        <input type="email" id="guest_email" name="email" value="{{ old('email', session('email')) }}" class="form-control" placeholder=" " autocomplete="email" required>
                         <div class="text-danger small mt-1" id="error_email"></div>
                     </div>
 
                     <!-- First Name & Last Name -->
                     <div class="form-row-custom">
                         <div>
-                            <div class="input-group-container">
-                                <label for="first_name">First name *</label>
-                                <input type="text" id="first_name" name="first_name" value="{{ old('first_name', session('first_name')) }}" placeholder="Enter your first name" autocomplete="given-name" required>
+                            <div class="floating-bordered-input position-relative">
+                                <span class="floating-label">First name *</span>
+                                <input type="text" id="first_name" name="first_name" value="{{ old('first_name', session('first_name')) }}" class="form-control" placeholder=" " autocomplete="given-name" required>
                                 <div class="text-danger small mt-1" id="error_first_name"></div>
                                 @error('first_name')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
                             </div>
                         </div>
                         <div>
-                            <div class="input-group-container">
-                                <label for="last_name">Last name *</label>
-                                <input type="text" id="last_name" name="last_name" value="{{ old('last_name', session('last_name')) }}" placeholder="Enter your last name" autocomplete="family-name" required>
+                            <div class="floating-bordered-input position-relative">
+                                <span class="floating-label">Last name *</span>
+                                <input type="text" id="last_name" name="last_name" value="{{ old('last_name', session('last_name')) }}" class="form-control" placeholder=" " autocomplete="family-name" required>
                                 <div class="text-danger small mt-1" id="error_last_name"></div>
                                 @error('last_name')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
                             </div>
@@ -201,9 +219,9 @@
                     </div>
 
                     <!-- Phone -->
-                    <div class="input-group-container">
-                        <label for="number">Phone *</label>
-                        <input type="tel" id="number" name="number" value="{{ old('number', session('number')) }}" placeholder="+1 (888) 346-9886" autocomplete="tel" required>
+                    <div class="floating-bordered-input position-relative">
+                        <span class="floating-label">Phone *</span>
+                        <input type="tel" id="number" name="number" value="{{ old('number', session('number')) }}" class="form-control" placeholder=" " autocomplete="tel" required>
                         <div class="text-danger small mt-1" id="error_number"></div>
                         @error('number')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
                     </div>
@@ -214,14 +232,15 @@
                     <input type="hidden" id="booker_last_name" name="booker_last_name" value="">
                     <input type="hidden" id="booker_email" name="booker_email" value="">
                     <input type="hidden" id="booker_number" name="booker_number" value="">
+                    <input type="text" name="type" value="guest" hidden>
 
-                    <button type="submit" class="continue-btn d-md-none">CONTINUE AS GUEST</button>
+                    <button type="submit" class="continue-btn">CONTINUE AS GUEST</button>
                 </form>
             </div>
         </div>
 
         <!-- Right Column: Login/Account Benefits -->
-        <div class="col-lg-6 mb-4">
+        <div class="col-lg-6 mb-4 col-divider">
             <div class="benefits-section">
                 <h2 class="section-title">Login or Create account</h2>
 
@@ -229,20 +248,47 @@
                 <form id="loginForm" method="POST" action="{{ route('login') }}">
                     @csrf
                     <!-- Login Email Input -->
-                    <div class="input-group-container">
-                        <label for="email_login">Email address</label>
-                        <input type="email" id="email_login" name="email" value="{{ old('email') }}" placeholder="Enter your email" required autofocus>
+                    <div class="floating-bordered-input position-relative">
+                        <span class="floating-label">Email address</span>
+                        <input type="email" id="email_login" name="email" value="{{ old('email') }}" class="form-control" placeholder=" " required autofocus>
                         @error('email')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
                     </div>
 
-                    <!-- Login Password Input -->
-                    <div class="input-group-container">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
-                        @error('password')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+                    <div class="register-now">
+                        <div class="form-row-custom">
+                            <div>
+                                <div class="floating-bordered-input position-relative">
+                                    <span class="floating-label">First name *</span>
+                                    <input type="text" id="first_name" name="first_name" value="{{ old('first_name', session('first_name')) }}" class="form-control" placeholder=" " autocomplete="given-name" required>
+                                    <div class="text-danger small mt-1" id="error_first_name"></div>
+                                    @error('first_name')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+                                </div>
+                            </div>
+                            <div>
+                                <div class="floating-bordered-input position-relative">
+                                    <span class="floating-label">Last name *</span>
+                                    <input type="text" id="last_name" name="last_name" value="{{ old('last_name', session('last_name')) }}" class="form-control" placeholder=" " autocomplete="family-name" required>
+                                    <div class="text-danger small mt-1" id="error_last_name"></div>
+                                    @error('last_name')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="floating-bordered-input position-relative">
+                            <span class="floating-label">Phone *</span>
+                            <input type="text" id="phone" name="phone" value="{{ old('phone', session('phone')) }}" class="form-control" placeholder=" " autocomplete="email" required>
+                            <div class="text-danger small mt-1" id="error_phone"></div>
+                        </div>
                     </div>
 
-                    <button type="submit" class="login-btn">Login</button>
+                    <div class="floating-bordered-input position-relative login-now">
+                        <span class="floating-label">Password *</span>
+                        <input type="password" id="password" name="password" value="{{ old('password', session('password')) }}" class="form-control" placeholder=" " autocomplete="password" required>
+                        <div class="text-danger small mt-1" id="error_password"></div>
+                    </div>
+
+                    <input type="text" name="type" value="real" hidden>
+
+                    <button id="continue_right" type="submit" class="login-btn">Continue</button>
                 </form>
 
                 <!-- Benefits Section -->
@@ -304,6 +350,53 @@
                 if (typeof $ !== 'undefined' && $('#loader').length) {
                     $('#loader').show();
                 }
+            }
+        });
+
+        $('#continue_right').click(function(e) {
+            if($('.login-btn').text().toLowerCase() === 'continue') {
+                e.preventDefault();
+                let email = $('#email_login').val().trim();
+
+                if (email === '') {
+                    alert('Please enter your email address.');
+                    return;
+                }
+
+                $.ajax({
+                    url: '{{ route('check.email.exists') }}',
+                    type: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                        'Content-Type': 'application/json'
+                    },
+                    data: JSON.stringify({ email: email }),
+                    success: function(response) {
+                        if (response.exists) {
+                            // If user exists → switch to login mode
+                            $('.register-now').hide();
+                            $('.login-now').show();
+                            $('.login-btn').text('Login');
+
+                            // Change form action to login route
+                            $('#loginForm').attr('action', '{{ route('login') }}');
+                        } else {
+                            // If user not found → switch to register mode
+                            $('.login-now').hide();
+                            $('.register-now').show();
+                            $('.login-btn').text('Register');
+
+                            // Change form action to register route
+                            $('#loginForm').attr('action', '{{ route('register') }}');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                        alert('Something went wrong. Please try again.');
+                    }
+                });
+            }else{
+               $('#loginForm').submit();
             }
         });
     });

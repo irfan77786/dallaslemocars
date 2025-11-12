@@ -5,7 +5,7 @@
         2 => ['label' => 'Vehicle Class', 'route' => session('service_type') === 'pointToPoint'
                     ? route('booking.pointToPoint.show')
                     : route('booking.hourlyHire.show')],
-        3 => ['label' => 'Passenger Info', 'route' => session()->has('vehicle_id') && session()->has('calculated_price')
+        3 => ['label' => 'Login', 'route' => session()->has('vehicle_id') && session()->has('calculated_price')
                     ? route('passenger.info', ['id' => session('vehicle_id'), 'price' => session('calculated_price')])
                     : null],
         4 => ['label' => 'Booking Detail', 'route' => session()->has('first_name')

@@ -32,6 +32,11 @@ class BookingController extends Controller
         })->except(['showForm', 'BookNow', 'AirportTransfer', 'ThankYou', 'handlePointToPoint', 'handleHourlyHire']);
     }
 
+    public function userLogin($id, $price){
+        session(['vehicle_id'=>$id, 'price'=>$price]);
+        return view('booking.user_login');
+    }
+
     // Show the form for Point to Point or Hourly Hire
     public function showForm(Request $request){
         if($request->edit){
@@ -374,61 +379,13 @@ class BookingController extends Controller
         ]);
     }
 
-
-
-
-
-
-
     public function showAll()
     {
         $vehicles = Vehicle::with(['carSeat'])->get();
         return response()->json($vehicles);
     }
 
-    public function passengerInfo($id,$price)
-    {
-
-
-        $serviceType = session('service_type');
-        $pickupLocation = session('pickup_location');
-        $dropoffLocation = session('dropoff_location');
-        $selected_hours = session('selected_hours');
-
-        $stops = json_decode(session('stops'), true) ?? [];
-        $vehicle = Vehicle::with(['carSeat'])->where('id',$id)->first();
-        if($serviceType == 'pointToPoint'){
-            $distanceData = $this->calculateDistanceWithStops(
-            $pickupLocation, //1
-            $dropoffLocation, //2
-            $stops ?? [],     //3
-            $vehicle->base_fare,  //4
-            null, // no hourly booking here   //5
-            $vehicle->per_km_rate,       //6
-            $vehicle->base_hourly_fare   //7
-        );
-
-        }else{
-            $distanceData = $this->calculateDistanceWithStops(
-                $pickupLocation,
-                null,
-                $stops ?? [],
-                $vehicle->base_fare,
-                $vehicle->base_hourly_fare,
-                $vehicle->per_km_rate,
-                $selected_hours
-            );
-        }
-
-        session(["vehicle_id" => $id,"calculated_price" => $price,'breakdown_data'=>$distanceData, 'vehicle_name'=>$vehicle->vehicle_name]);
-
-        return view('booking.passenger_info', [
-            'step'=>3,
-            'id' => $id
-        ]);
-    }
-
-    public function submitPassengerInfo(Request $request, $id)
+    public function submitPassengerInfo(Request $request)
     {
         // First check for required session data before any other processing
         if (!session('pickup_location') || !session('pickup_date')) {
@@ -447,7 +404,7 @@ class BookingController extends Controller
 
         if ($request->isMethod('get')) {
             $vehicles_all = Vehicle::with('carSeat')->get();
-            $vehicles = Vehicle::where("id", $id)->with('carSeat')->get();
+            $vehicles = Vehicle::where("id", session('vehicle_id'))->with('carSeat')->get();
 
             $pickupLocation = session('pickup_location');
             $dropoffLocation = session('dropoff_location');
@@ -468,7 +425,7 @@ class BookingController extends Controller
 
             return view('booking.booking_detail', [
                 'step' => 4,
-                'id' => $id,
+                'id' => session('vehicle_id'),
                 'data' => (object)[
                     'first_name' => session('first_name'),
                     'last_name' => session('last_name'),
@@ -523,7 +480,7 @@ class BookingController extends Controller
             ]);
         }
 
-        $vehicles = Vehicle::where("id", $id)->with(['carSeat'])->get();
+        $vehicles = Vehicle::where("id", session('vehicle_id'))->with(['carSeat'])->get();
 
         session([
             'first_name' => $request->first_name,
@@ -536,30 +493,30 @@ class BookingController extends Controller
           $vehicles_all = Vehicle::with(['carSeat'])->get();
 
         $distanceData = [];
-     $pickupLocation = session('pickup_location');
-    $dropoffLocation = session('dropoff_location');
+        $pickupLocation = session('pickup_location');
+        $dropoffLocation = session('dropoff_location');
 
-    $stops = json_decode(session('stops', '[]'), true); // decode stops back to array
+        $stops = json_decode(session('stops', '[]'), true); // decode stops back to array
 
-    foreach ($vehicles_all as $vehicle) {
-        $result = $this->calculateDistanceWithStops(
-            $pickupLocation,
-            $dropoffLocation,
-            $stops,
-            $vehicle->base_fare,
+        foreach ($vehicles_all as $vehicle) {
+            $result = $this->calculateDistanceWithStops(
+                $pickupLocation,
+                $dropoffLocation,
+                $stops,
+                $vehicle->base_fare,
             null, // no hourly booking here
              $vehicle->per_km_rate,
             $vehicle->base_hourly_fare
 
         );
 
-        $distanceData[$vehicle->id] = $result;
-    }
+            $distanceData[$vehicle->id] = $result;
+        }
 
 
         return view('booking.booking_detail', [
             'step'=>4,
-            'id' => $id,
+            'id' => session('vehicle_id'),
             "data" => $request,
             'vehicles' => $vehicles,
             'vehicles_all'=>$vehicles_all,

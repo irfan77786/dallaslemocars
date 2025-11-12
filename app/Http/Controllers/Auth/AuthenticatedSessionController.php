@@ -24,11 +24,20 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        if($request->type == 'guest') {
+            session()->put('guest', [
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+            ]);
+        }
+        else{
+            $request->authenticate();
+            $request->session()->regenerate();
+        }
 
-        $request->session()->regenerate();
-
-        return redirect()->intended(route('dashboard', absolute: false));
+        return redirect()->intended(route('submit.passenger.info', absolute: false));
     }
 
     /**

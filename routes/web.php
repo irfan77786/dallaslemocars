@@ -15,6 +15,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/user-login/{id}/{price}', [BookingController::class, 'userLogin'])->name('user_login');
+
+Route::post('/check-email-exists', [ProfileController::class, 'checkEmailExists'])->name('check.email.exists');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -34,9 +38,8 @@ Route::middleware('checkBookingCompletion')->group(function () {
     Route::get('/booking/', [BookingController::class, 'showForm'])->name('booking.form');  //step 1
     Route::get('/booking/point-to-point/', [BookingController::class, 'handlePointToPoint'])->name('booking.pointToPoint.show');  //step2 case 1
     Route::get('/booking/hourly-hire/', [BookingController::class, 'handleHourlyHire'])->name('booking.hourlyHire.show');  //step2 case 2
-    Route::get('/passengerInfo/{id}/{price}', [BookingController::class, 'passengerInfo'] )->where(['id' => '[0-9]+', 'price' => '[0-9.]+'])
-    ->name('passenger.info'); //step 3
-    Route::get('/submit-passengerInfo/{id}', [BookingController::class, 'submitPassengerInfo']);//step 4
+    Route::get('/passengerInfo', [BookingController::class, 'passengerInfo'] )->name('passenger.info'); //step 3
+    Route::get('/submit-passengerInfo', [BookingController::class, 'submitPassengerInfo'])->name('submit.passenger.info'); //step 4
 });
 
 // Other Pages:
