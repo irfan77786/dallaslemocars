@@ -2,14 +2,14 @@
     $currentStep = $step ?? 1;
     $steps = [
         1 => ['label' => 'Ride Info', 'route' => route('booking.form',['edit' => 1])],
-        2 => ['label' => 'Vehicle Class', 'route' => session('service_type') === 'pointToPoint' 
-            ? route('booking.pointToPoint.show') 
+        2 => ['label' => 'Vehicle Class', 'route' => session('service_type') === 'pointToPoint'
+            ? route('booking.pointToPoint.show')
             : route('booking.hourlyHire.show')],
-        3 => ['label' => 'Passenger Info', 'route' => session()->has('vehicle_id') && session()->has('calculated_price') 
-                    ? route('passenger.info', ['id' => session('vehicle_id'), 'price' => session('calculated_price')]) 
+        3 => ['label' => 'Passenger Info', 'route' => session()->has('vehicle_id') && session()->has('calculated_price')
+                    ? route('passenger.info', ['id' => session('vehicle_id'), 'price' => session('calculated_price')])
                     : null],
-        4 => ['label' => 'Booking Detail', 'route' => session()->has('first_name') 
-                    ? url('/submit-passengerInfo/' . session('vehicle_id')) 
+        4 => ['label' => 'Booking Detail', 'route' => session()->has('first_name')
+                    ? url('/submit-passengerInfo/' . session('vehicle_id'))
                     : null],
         5 => ['label' => 'Payment', 'route' => null] // future step
     ];
@@ -53,7 +53,8 @@
 .payment_method_info_box {
     display: grid;
     justify-content: center;
-   
+    text-align: center;
+
 }
 .payment_method_info_box p{
     margin: 16px 0px 0px;
@@ -62,78 +63,52 @@
     line-height: 1.5;
     color: #9e9e9e;
 }
+.cta-button {
+    width: 100%;
+    max-width: 320px;
+    margin: 12px auto 0;
+    display: block;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
 </style>
 <div class="col-md-4" id="pricing-area-wrapper">
 
             @php
                 $breakdown = session('breakdown_data');
-                
+
             @endphp
-            
-            @if($breakdown)
+
                 <div class="bg-light rounded-lg p-3 shadow-sm mt-3">
                     <!--<h2 class="mb-3 step-title" style="font-size: 16px">Trip Breakdown</h2>-->
                     <!--<h2 class="mb-2 step-title font-weight-bold " style="font-size: 16px">Outward Trip</h2>-->
-                        
-                    @if($breakdown['type'] === 'PointToPoint')
-                        
-                        <!--<div class="d-flex justify-content-between mb-1">-->
-                        <!--    <span class="text-muted">Base Fare</span>-->
-                        <!--    <span>${{ $breakdown['baseFare'] }}</span>-->
-                        <!--</div>-->
-                        <!--<div class="d-flex justify-content-between mb-1">-->
-                        <!--    <span class="text-muted">Per Mile Rate</span>-->
-                        <!--    <span>${{ $breakdown['perKmRate'] }}</span>-->
-                        <!--</div>-->
-                        <!--<div class="d-flex justify-content-between mb-1">-->
-                        <!--    <span class="text-muted">Distance</span>-->
-                        <!--    <span>{{ $breakdown['distance_km'] }} Miles</span>-->
-                        <!--</div>-->
+
+                    @php
+                        $base = session('calculated_price');
+                        if ($breakdown && isset($breakdown['hourlyFare'])) {
+                            $base = $breakdown['hourlyFare'];
+                        }
+                        $base = $base ?? 0;
+                        $price = number_format($base, 2);
+                        [$whole, $decimal] = explode('.', $price);
+                    @endphp
+                    <div class="d-flex justify-content-between mb-1">
+                        <span class="pricing_summary_label">Base Fare</span>
+                        <span id="trip-price" class="pricing_summary_price">
+                            ${{ $whole}}<span class="price-decimal">.{{ $decimal }}</span> USD
+                        </span>
+                    </div>
+                    @if($breakdown && isset($breakdown['hours']))
                         <div class="d-flex justify-content-between mb-1">
-                                <span class="pricing_summary_label">Base Price</span>
-                                @php
-                                    $price = number_format(session('calculated_price'), 2);
-                                    [$whole, $decimal] = explode('.', $price);
-                                @endphp
-                                <span id="trip-price" class="pricing_summary_price">
-                                    ${{ $whole}}<span class="price-decimal">.{{ $decimal }}</span> USD
-                                </span>
-                        </div>
-                    @else
-                        <div class="d-flex justify-content-between mb-1">
-                            <span class="pricing_summary_label">@if(!session('select_hours'))Hourly Fare @else Base Fare @endif</span>
-                            @if(!session('select_hours'))
-                                @php
-                                    $price = number_format($breakdown['hourlyFare'], 2);
-                                    [$whole, $decimal] = explode('.', $price);
-                                @endphp
-                            @else
-                                @php
-                                    $base = session('calculated_price');
-                                    if ($base === null && isset($breakdown['hourlyFare'])) {
-                                        $base = $breakdown['hourlyFare'];
-                                    }
-                                    $base = $base ?? 0;
-                                    $return = session('return_price') ?? 0;
-                                    $rawTotal = $base + $return;
-                                    $formattedTotal = number_format($rawTotal, 2);
-                                    [$whole, $decimal] = explode('.', $formattedTotal);
-                                @endphp 
-                            @endif
-                            <span class="pricing_summary_price">${{ $whole}}<span class="price-decimal">.{{ $decimal }}</span> USD</span>
-                        </div>
-                        <div class="d-flex justify-content-between mb-1">
-                            @if(!session('select_hours'))
-                                <span class="pricing_summary_label">Total Hours</span>
-                                <span class="pricing_summary_price">{{ $breakdown['hours']? $breakdown['hours' ]: session('select_hours') }}</span>
-                            @endif
+                            <span class="pricing_summary_label">Total Hours</span>
+                            <span class="pricing_summary_price">{{ $breakdown['hours']? $breakdown['hours' ]: session('select_hours') }}</span>
                         </div>
                     @endif
                      {{-- Return Trip Section (Hidden by default) --}}
                         <div id="return-trip-section" style="{{ session('return_price') ? '' : 'display: none;' }}">
                             <hr />
                             <!--<h2 class="mb-3 step-title font-weight-bold" style="font-size: 16px">Return Trip</h2>-->
-                
+
                             <!--<div class="d-flex justify-content-between mb-1">-->
                             <!--    <span class="text-muted">Base Fare (Return)</span>-->
                             <!--    <span id="return-base-fare">${{ session('return_base_fare') }}</span>-->
@@ -160,12 +135,12 @@
 @endif
 
                         </div>
-            
+
                     <div class="d-flex justify-content-between total_price_box">
-                        <span class="pricing_total_label">Total</span>
+                        <span class="pricing_total_label" style="color: #1A6982;">Total</span>
                         @php
                             $base = session('calculated_price');
-                            if ($base === null && isset($breakdown['hourlyFare'])) {
+                            if ($base === null && $breakdown && isset($breakdown['hourlyFare'])) {
                                 $base = $breakdown['hourlyFare'];
                             }
                             $base = $base ?? 0;
@@ -174,15 +149,15 @@
                             $formattedTotal = number_format($rawTotal, 2);
                             [$whole, $decimal] = explode('.', $formattedTotal);
                         @endphp
-                        <span class="pricing_total_price total-trip-price">
+                        <span class="pricing_total_price total-trip-price" style="color: #1A6982;">
                             ${{ $whole }}<span class="price-decimal">.{{ $decimal }}</span> USD
                         </span>
                     </div>
 <div class="text-center mt-3">
-    <button type="submit" 
-            class="btn btn-primary btn-block" 
-            id="submit-button" 
-            style="width: 100%; max-width: 250px;">
+    <button type="submit"
+            class="btn btn-primary btn-block cta-button"
+            id="submit-button"
+            style="width: 100%; border: none;">
         @if($currentStep == 5)
             BOOK NOW
         @else
@@ -193,7 +168,7 @@
 
 @if($currentStep == 5)
     <p class="text-muted small mt-3 text-center">
-        By clicking "BOOK NOW", you agree to our 
+        By clicking "BOOK NOW", you agree to our
         <a href="#" class="hover-black" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Terms &amp; Conditions</a>
     </p>
 @endif
@@ -201,11 +176,11 @@
                     <div class="payment_method_info_box">
                         <p>Secure payments</p>
                         <img src="/image/stripe-powered-light.svg" alt="Payment methods" class="img-fluid" >
-                        
+
                     </div>
                 </div>
-            @endif
-            
+
+
 
 
 

@@ -14,6 +14,13 @@
         padding-bottom: 0px !important;
         background: #fff;
     }
+    .custom-switch-container{display:flex;align-items:center;gap:10px}
+    .switch-wrapper{position:relative;display:inline-block;width:44px;height:24px}
+    .switch-wrapper input{opacity:0;width:0;height:0}
+    .switch-slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#bdbdbd;transition:.2s;border-radius:24px}
+    .switch-slider:before{position:absolute;content:"";height:20px;width:20px;left:2px;top:2px;background:#fff;transition:.2s;border-radius:50%}
+    .switch-wrapper input:checked + .switch-slider{background:var(--dark-bg-btn,#1A6982)}
+    .switch-wrapper input:checked + .switch-slider:before{transform:translateX(20px)}
     </style>
     <a href="tel:+1888375547" class="float" target="_blank">
         <img src="{{ asset('images/platinum-cls-phone.webp') }}" width="256" height="41"
@@ -48,33 +55,33 @@
                     <input type="hidden" name="return_no_flight_info" id="hidden-return-no-flight-info"
                         value="{{ session('return_no_flight_info', 0) }}">
 
-                    <div class="mb-4" id="flight-info-section">
-                        <h2 class="mb-3">Flight Information</h2>
+                    <div class="mb-4" id="outbound-flight-info-section">
+                        <div id="outbound-flight-fields" style="display:none;">
+                            <h2 class="mb-3">Flight Information</h2>
 
-                        <!-- Pickup Flight Details -->
-                        <div class="floating-bordered-input position-relative mb-3">
+                            <!-- Pickup Flight Details -->
+                            <div class="floating-bordered-input position-relative mb-3">
                             <span class="floating-label">Pickup Flight Details</span>
                             <input type="text" id="pickup-flight-details" name="pickup_flight_details"
                                 class="form-control" placeholder=" "
                                 value="{{ session('pickup_flight_details') ?? '' }}">
-                        </div>
-
-                        <!-- Flight Number -->
-                        <div class="floating-bordered-input position-relative mb-3">
+                            </div>
+                            <!-- Flight Number -->
+                            <div class="floating-bordered-input position-relative mb-3">
                             <span class="floating-label">Flight Number</span>
                             <input type="text" id="flight-number" name="flight_number"
                                 class="form-control" placeholder=" "
                                 value="{{ session('flight_number') ?? '' }}">
-                        </div>
-
-                        <!-- Meet Option -->
-                        <div class="floating-bordered-input position-relative mb-3">
+                            </div>
+                            <!-- Meet Option -->
+                            <div class="floating-bordered-input position-relative mb-3">
                             <span class="floating-label">Meet Option</span>
                             <select class="form-control" id="meet-option" name="meet_option">
                                 <option value="none" {{ session('meet_option') === null ? 'selected' : '' }} disabled>Select Option</option>
                                 <option value="curbside" {{ session('meet_option') === 'curbside' ? 'selected' : '' }}>Curbside Pickup</option>
                                 <option value="inside" {{ session('meet_option') === 'inside' ? 'selected' : '' }}>Inside Pickup</option>
                             </select>
+                            </div>
                         </div>
 
                         <!-- Inside Pickup Fee (Hidden) -->
@@ -84,7 +91,7 @@
                         <!-- Flight Info Toggle -->
                         <div class="custom-switch-container mt-3">
                             <label class="switch-wrapper">
-                                <input type="checkbox" id="no-flight-info-checkbox" name="no_flight_info" value="1" checked>
+                                <input type="checkbox" id="no-flight-info-checkbox" name="no_flight_info" value="1">
                                 <span class="switch-slider"></span>
                             </label>
                             <label class="form-check-label" for="no-flight-info-checkbox">
@@ -394,53 +401,31 @@
         </div>
     </div>
 
+    @section('scripts')
     @include('booking.return_logic')
-
     <script>
         jQuery(document).ready(function() {
             // Handle flight info toggle
             function toggleFlightInfoFields() {
-                const noFlightInfo = $('#no-flight-info-checkbox').is(':checked');
-
-                // Get all flight info fields
-                const pickupDetails = $('input[name="pickup_flight_details"]').closest('.form-group');
-                const flightNumber = $('input[name="flight_number"]').closest('.form-group');
-                const meetOption = $('#meet-option').closest('.form-group');
-
-                if (noFlightInfo) {
-                    // Show all fields when toggle is ON (default state)
-                    pickupDetails.show();
-                    flightNumber.show();
-                    meetOption.show();
+                const hasFlightDetails = $('#no-flight-info-checkbox').is(':checked');
+                const container = $('#outbound-flight-fields');
+                if (hasFlightDetails) {
+                    container.show();
+                    $('input[name="pickup_flight_details"], input[name="flight_number"]').prop('disabled', false);
+                    $('#meet-option').prop('disabled', false);
                 } else {
-                    // Hide all fields when toggle is OFF
-                    pickupDetails.hide();
-                    flightNumber.hide();
-                    meetOption.hide();
-
-                    // Clear fields when hiding
+                    container.hide();
                     $('input[name="pickup_flight_details"]').val('').prop('disabled', true);
                     $('input[name="flight_number"]').val('').prop('disabled', true);
-                    $('#meet-option').val('curbside').prop('disabled', true);
+                    $('#meet-option').val('none').prop('disabled', true);
                 }
             }
 
             // Initialize on page load
             $(document).ready(function() {
-                // Set initial state
+                $('#no-flight-info-checkbox').prop('checked', false);
                 toggleFlightInfoFields();
-
-                // Toggle on checkbox change
-                $('#no-flight-info-checkbox').on('change', function() {
-                    // Enable/disable fields based on toggle state
-                    const isChecked = $(this).is(':checked');
-                    $('input[name="pickup_flight_details"], input[name="flight_number"]').prop(
-                        'disabled', !isChecked);
-                    $('#meet-option').prop('disabled', !isChecked);
-
-                    // Toggle visibility
-                    toggleFlightInfoFields();
-                });
+                $('#no-flight-info-checkbox').on('change', function() { toggleFlightInfoFields(); });
             });
 
             const dateInputs = document.querySelectorAll('input[type="date"]');
@@ -1026,4 +1011,5 @@
             });
         });
     </script>
+    @endsection
 @endsection

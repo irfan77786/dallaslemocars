@@ -3,7 +3,6 @@
   z-index: 10000 !important;
 }
  </style>   
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUqn8Dg3GICSzhyvw7DjXXHkyoGMCoTpM&libraries=places&callback=initAutocomplete" async defer></script>
 <script>
 // Add a stop location (dynamically create stop inputs)
 function geolocate() {
