@@ -628,7 +628,7 @@ public function completeBook(Request $request)
         $last_name           = $user->last_name  ?? ($guest['last_name'] ?? null);
         $email               = $user->email      ?? ($guest['email'] ?? null);
         $number               = $user->phone      ?? ($guest['number'] ?? null);
-        $selected_price      = session('final_price', session('calculated_price')) + 20;
+        $selected_price      = session('final_price', session('calculated_price'));
         $vehicle_id          = session('vehicle_id');
         $vehicle_name        = session('vehicle_name');
         $isBookingForOthers  = session('bookingForSomeoneElse') ?? false;
