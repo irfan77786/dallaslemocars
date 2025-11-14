@@ -16,7 +16,7 @@
 
             <form method="POST" action="{{ route('login') }}">
                 @csrf
-
+                <input type="text" name="login_type" value="plain" hidden>
                 <!-- Email Address -->
                 <div class="mb-3">
                     <label for="email" class="form-label">{{ __('Email Address') }}</label>
@@ -61,22 +61,6 @@
                     {{ __('Log in') }}
                 </button>
             </form>
-
-            <p class="text-lg text-center mt-3">OR</p>
-
-            <button class="btn btn-default px-4 w-100" style="border: 1px solid black"><i class="bi bi-google mr-2"></i>Continue with Google</button>
-            <button class="btn btn-default px-4 w-100 mt-3" style="border: 1px solid black"><i class="bi bi-facebook mr-1"></i> Continue with Facebook</button>
-            <!-- Register Link -->
-            @if (Route::has('register'))
-                <div class="text-center mt-3">
-                    <p class="mb-0 small">
-                        {{ __("Don't have an account?") }}
-                        <a href="{{ route('register') }}" class="text-primary text-decoration-none">
-                            {{ __('Register') }}
-                        </a>
-                    </p>
-                </div>
-            @endif
         </div>
     </div>
 </div>

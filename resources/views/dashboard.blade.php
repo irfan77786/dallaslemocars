@@ -50,11 +50,11 @@
                                         </td>
                                         <td class="align-middle font-weight-bold">${{ number_format($booking->total_price, 2) }}</td>
                                         <td class="align-middle">
-                                            <span class="{{ $status_class }}">{{ ucfirst($booking->payment_status) }}</span>
+                                            <span class="{{ $status_class }}"><i class="bi bi-check-circle"></i> &nbsp;{{ ucfirst($booking->payment_status) }}</span>
                                         </td>
                                         <td class="align-middle">
                                             <button
-                                                class="btn btn-sm btn-outline-primary"
+                                                class="btn btn-sm btn-primary"
                                                 data-bs-toggle="modal"
                                                 data-bs-target="#bookingDetailModal"
                                                 onclick="showBookingDetails({{ $bookingJson }})"
@@ -90,7 +90,7 @@
                             <div class="card shadow-sm mb-3">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <h5 class="mb-0 text-primary">ID: {{ $booking->booking_id }}</h5>
+                                        <h5 class="mb-0 text-p2">ID: {{ $booking->booking_id }}</h5>
                                         <span class="h4 mb-0 font-weight-bold text-success">${{ number_format($booking->total_price, 2) }}</span>
                                     </div>
                                     <p class="mb-1"><strong>Route:</strong> {{ $booking->pickup_location }} to {{ $booking->dropoff_location }}</p>
@@ -98,7 +98,7 @@
                                     <div class="d-flex justify-content-between align-items-center mt-3">
                                         <span class="{{ $status_class }}">{{ ucfirst($booking->payment_status) }}</span>
                                         <button
-                                            class="btn btn-sm btn-outline-primary"
+                                            class="btn btn-sm btn-primary"
                                             data-bs-toggle="modal"
                                             data-bs-target="#bookingDetailModal"
                                             onclick="showBookingDetails({{ $bookingJson }})"
@@ -150,7 +150,7 @@
 
                     <div class="card mb-3 bg-light">
                         <div class="card-body">
-                            <h6 class="card-subtitle mb-2 text-primary">Route & Schedule</h6>
+                            <h6 class="card-subtitle mb-2 text-p2">Route & Schedule</h6>
                             <ul class="list-group list-group-flush bg-light">
                                 <li class="list-group-item bg-light d-flex justify-content-between">
                                     <strong>Pickup:</strong> <span id="modal-pickup-location"></span>
@@ -171,7 +171,7 @@
                     {{-- Vehicle Block: Updated to include Capacity and Luggage IDs --}}
                     <div class="card mb-3">
                         <div class="card-body">
-                            <h6 class="card-subtitle mb-2 text-primary">Vehicle & Passenger</h6>
+                            <h6 class="card-subtitle mb-2 text-p2">Vehicle & Passenger</h6>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item d-flex justify-content-between">
                                     <strong>Vehicle:</strong> <span id="modal-vehicle-name"></span>
@@ -191,7 +191,7 @@
 
                     <div class="card" id="modal-note-card" style="display:none;">
                         <div class="card-body">
-                            <h6 class="card-subtitle mb-2 text-primary">Special Instructions</h6>
+                            <h6 class="card-subtitle mb-2 text-p2">Special Instructions</h6>
                             <p class="card-text small text-muted fst-italic" id="modal-note"></p>
                         </div>
                     </div>

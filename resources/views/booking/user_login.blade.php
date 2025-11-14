@@ -190,7 +190,7 @@
                 <form id="passengerForm" method="POST" action="{{ route('login') }}">
                     @csrf
                     @method('POST')
-
+                    <input type="text" name="login_type" value="booking" hidden>
                     <!-- Email -->
                     <div class="floating-bordered-input position-relative">
                         <span class="floating-label">Email address *</span>

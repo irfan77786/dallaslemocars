@@ -14,8 +14,11 @@
 
         <!--  Bootstrap css plugins -->
         <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -45,7 +48,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

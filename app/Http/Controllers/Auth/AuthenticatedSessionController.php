@@ -24,6 +24,8 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+        $login_type = $request->input('login_type');
+
         if($request->type == 'guest') {
             session()->put('guest', [
                 'first_name' => $request->first_name,
@@ -37,7 +39,7 @@ class AuthenticatedSessionController extends Controller
             $request->session()->regenerate();
         }
 
-        return redirect()->intended(route('submit.passenger.info', absolute: false));
+        return redirect()->intended($login_type == 'booking' ? route('submit.passenger.info', absolute: false) : route('dashboard', absolute: false));
     }
 
     /**

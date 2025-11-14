@@ -41,9 +41,6 @@ class BookingController extends Controller
     public function showForm(Request $request){
         if($request->edit){
             session(['edit'=>1]);
-        }else{
-            session()->flush();
-            $request->session()->regenerateToken();
         }
 
         $seo = [
@@ -64,9 +61,6 @@ class BookingController extends Controller
     public function BookNow(Request $request){
         if($request->edit){
             session(['edit'=>1]);
-        }else{
-            session()->flush();
-            $request->session()->regenerateToken();
         }
 
         $seo = [

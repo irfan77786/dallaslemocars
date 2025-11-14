@@ -18,6 +18,7 @@ class CheckBookingCompletion
     {
         if (session('booking_completed')) {
             session()->flush();
+            $request->session()->regenerateToken();
             session(['booking_completed' => true]);
             return redirect()->route('booking');
         }
