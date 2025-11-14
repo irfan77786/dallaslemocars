@@ -12,6 +12,9 @@
 @include('partials.bookig-top_area')
 
 <style>
+    .login-btn:focus {
+        border: none !important;
+    }
 .floating-bordered-input{
     position: relative;
     border: 1px solid #C4C4C4;
@@ -78,20 +81,18 @@
 .continue-btn {
     width: 100%;
     padding: 11px;
-    background: #fff;
-    border: 2px solid #1E1E1E;
-    color: #1E1E1E;
+    background: #1A6982;
+    border: none;
+    color: #fff;
     font-size: 14px;
     font-weight: 500;
     border-radius: 4px;
     cursor: pointer;
-    transition: all 0.3s;
-    margin-top: 12px;
+    transition: background 0.3s;
 }
 
 .continue-btn:hover {
-    background: #1E1E1E;
-    color: #fff;
+    background: #145570;
 }
 
 .benefits-section {
@@ -153,6 +154,9 @@
 }
 
 @media (min-width: 992px) {
+    .loginguestrow {
+        margin-top: 30px;
+    }
     .col-divider {
         border-left: 1px solid #e0e0e0;
     }
@@ -182,7 +186,7 @@
 </style>
 
 <div class="passenger-info-container">
-    <div class="row">
+    <div class="row loginguestrow">
         <!-- Left Column: Guest Form -->
         <div class="col-lg-6 mb-4">
             <div class="info-card">
@@ -245,46 +249,55 @@
                 <h2 class="section-title">Login or Create account</h2>
 
                 <!-- Login Form -->
-                <form id="loginForm" method="POST" action="{{ route('login') }}">
+                <form id="loginForm" method="{{ auth()->check() ? 'GET' :  'POST' }}" action="{{ auth()->check() ? route('submit.passenger.info') : route('login') }}">
                     @csrf
-                    <!-- Login Email Input -->
-                    <div class="floating-bordered-input position-relative">
-                        <span class="floating-label">Email address</span>
-                        <input type="email" id="email_login" name="email" value="{{ old('email') }}" class="form-control" placeholder=" " required autofocus>
-                        @error('email')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
-                    </div>
 
-                    <div class="register-now">
-                        <div class="form-row-custom">
-                            <div>
-                                <div class="floating-bordered-input position-relative">
-                                    <span class="floating-label">First name *</span>
-                                    <input type="text" id="first_name" name="first_name" value="{{ old('first_name', session('first_name')) }}" class="form-control" placeholder=" " autocomplete="given-name" required>
-                                    <div class="text-danger small mt-1" id="error_first_name"></div>
-                                    @error('first_name')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
-                                </div>
-                            </div>
-                            <div>
-                                <div class="floating-bordered-input position-relative">
-                                    <span class="floating-label">Last name *</span>
-                                    <input type="text" id="last_name" name="last_name" value="{{ old('last_name', session('last_name')) }}" class="form-control" placeholder=" " autocomplete="family-name" required>
-                                    <div class="text-danger small mt-1" id="error_last_name"></div>
-                                    @error('last_name')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
-                                </div>
-                            </div>
-                        </div>
+                    <input type="text" name="login_type" value="booking" hidden>
+                    @if (auth()->check())
+                        {{-- CASE 1: User is Logged In (Authenticated) --}}
+                        <h2>Welcome back, {{ auth()->user()->first_name }}!</h2>
+                    @else
+                        {{-- CASE 2: User is NOT Logged In (Unauthenticated) - Show full login/registration inputs --}}
+
                         <div class="floating-bordered-input position-relative">
-                            <span class="floating-label">Phone *</span>
-                            <input type="text" id="phone" name="phone" value="{{ old('phone', session('phone')) }}" class="form-control" placeholder=" " autocomplete="email" required>
-                            <div class="text-danger small mt-1" id="error_phone"></div>
+                            <span class="floating-label">Email address</span>
+                            <input type="email" id="email_login" name="email" value="{{ old('email') }}" class="form-control" placeholder=" " required autofocus>
+                            @error('email')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
                         </div>
-                    </div>
 
-                    <div class="floating-bordered-input position-relative login-now">
-                        <span class="floating-label">Password *</span>
-                        <input type="password" id="password" name="password" value="{{ old('password', session('password')) }}" class="form-control" placeholder=" " autocomplete="password" required>
-                        <div class="text-danger small mt-1" id="error_password"></div>
-                    </div>
+                        <div class="register-now">
+                            <div class="form-row-custom">
+                                <div>
+                                    <div class="floating-bordered-input position-relative">
+                                        <span class="floating-label">First name *</span>
+                                        <input type="text" id="first_name" name="first_name" value="{{ old('first_name', session('first_name')) }}" class="form-control" placeholder=" " autocomplete="given-name" required>
+                                        <div class="text-danger small mt-1" id="error_first_name"></div>
+                                        @error('first_name')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="floating-bordered-input position-relative">
+                                        <span class="floating-label">Last name *</span>
+                                        <input type="text" id="last_name" name="last_name" value="{{ old('last_name', session('last_name')) }}" class="form-control" placeholder=" " autocomplete="family-name" required>
+                                        <div class="text-danger small mt-1" id="error_last_name"></div>
+                                        @error('last_name')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="floating-bordered-input position-relative">
+                                <span class="floating-label">Phone *</span>
+                                <input type="text" id="phone" name="phone" value="{{ old('phone', session('phone')) }}" class="form-control" placeholder=" " autocomplete="tel" required>
+                                <div class="text-danger small mt-1" id="error_phone"></div>
+                            </div>
+                        </div>
+
+                        <div class="floating-bordered-input position-relative login-now">
+                            <span class="floating-label">Password *</span>
+                            <input type="password" id="password" name="password" value="{{ old('password', session('password')) }}" class="form-control" placeholder=" " autocomplete="current-password" required>
+                            <div class="text-danger small mt-1" id="error_password"></div>
+                        </div>
+
+                    @endif
 
                     <input type="text" name="type" value="real" hidden>
 
@@ -319,9 +332,6 @@
         </div>
     </div>
 </div>
-
-@include('partials.proceed_bar')
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const form = document.getElementById('passengerForm');
@@ -354,7 +364,7 @@
         });
 
         $('#continue_right').click(function(e) {
-            if($('.login-btn').text().toLowerCase() === 'continue') {
+            if($('.login-btn').text().toLowerCase() === 'continue' && !{{ auth()->check() ? 'true' : 'false' }}){
                 e.preventDefault();
                 let email = $('#email_login').val().trim();
 

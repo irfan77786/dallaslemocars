@@ -175,7 +175,7 @@
 
                     <div class="payment_method_info_box">
                         <p>Secure payments</p>
-                        <img src="/image/stripe-powered-light.svg" alt="Payment methods" class="img-fluid" >
+                        <img src="{{ asset('assets/img/credit-cards.png') }}" alt="Payment methods" class="img-fluid" >
 
                     </div>
                 </div>
