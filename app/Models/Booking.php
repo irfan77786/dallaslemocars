@@ -20,13 +20,11 @@ class Booking extends Model
     public function vehicle() {
         return $this->belongsTo(Vehicle::class);
     }
-    
+
     public function booker() {
         return $this->belongsTo(Booker::class);
     }
     
-    
-
     public function passengers() {
         return $this->hasMany(Passenger::class);
     }
@@ -34,7 +32,7 @@ class Booking extends Model
     public function payments() {
         return $this->hasMany(Payment::class);
     }
-    
+
 public function returnService()
 {
     return $this->belongsTo(ReturnService::class);

@@ -1297,7 +1297,9 @@ function validateForm(formId) {
     }
     return true;
 }
-document.querySelector('.search-form').addEventListener('submit', async function (event) {
+var searchForm = document.querySelector('.search-form');
+if(searchForm){
+searchForm.addEventListener('submit', async function (event) {
     event.preventDefault(); // Prevent default form submission
 
     // Get latest places from pickup & dropoff autocompletes
@@ -1358,8 +1360,7 @@ document.querySelector('.search-form').addEventListener('submit', async function
 
     event.target.submit();
 });
-
-
+}
 
 const form = document.querySelector('#hourForm');
 if (form) {

@@ -382,7 +382,7 @@
                             $('#loginForm').attr('action', '{{ route('login') }}');
                         } else {
                             // If user not found → switch to register mode
-                            $('.login-now').hide();
+                            $('.login-now').show();
                             $('.register-now').show();
                             $('.login-btn').text('Register');
 

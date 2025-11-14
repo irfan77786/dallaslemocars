@@ -29,7 +29,7 @@ class BookingController extends Controller
                 return redirect()->route('booking');
             }
             return $next($request);
-        })->except(['showForm', 'BookNow', 'AirportTransfer', 'ThankYou', 'handlePointToPoint', 'handleHourlyHire']);
+        })->except(['showForm', 'BookNow', 'AirportTransfer', 'ThankYou', 'handlePointToPoint', 'handleHourlyHire', 'userLogin']);
     }
 
     public function userLogin($id, $price){
@@ -603,7 +603,7 @@ private function generateUniqueBookingId(): string
 public function completeBook(Request $request)
 {
     if (!session('pickup_location') || !session('pickup_date')) {
-        return response()->json(['error' => true, 'message' => 'Pickup location and date are required'], 419);
+        return redirect()->route('booking');
     }
 
     $validator = Validator::make($request->all(), [
@@ -611,29 +611,32 @@ public function completeBook(Request $request)
     ]);
 
     if ($validator->fails()) {
-        return response()->json(['success' => false, 'errors' => $validator->errors()], 422);
+        return redirect()->back()->withErrors($validator)->withInput();
     }
 
     try {
         \Stripe\Stripe::setApiKey('sk_test_51S81pVPvyAVXbs5QBqZwFdHwLTsQreH31LSF574OqXBuG5uBptERAQYZ136akK9k7JLX3eV5q0Wictx2YQH5lPkQ00pfxqJ0eF');
 
-        $pickup_location = session('pickup_location');
-        $dropoff_location = session('dropoff_location');
-        $pickup_date = session('pickup_date');
-        $pickup_time = session('pickup_time');
-        $first_name = session('first_name');
-        $last_name = session('last_name');
-        $email = session('email');
-        $number = session('number');
-        $selected_price = session('final_price', session('calculated_price'));
-        $vehicle_id = session('vehicle_id');
-        $vehicle_name = session('vehicle_name');
-        $isBookingForOthers = session('bookingForSomeoneElse');
-        $booker_first_name = session('booker_first_name') ?? null;
-        $booker_last_name = session('booker_last_name') ?? null;
-        $booker_number = session('booker_number') ?? null;
-        $booker_email = session('booker_email') ?? null;
-        $hours = session('select_hours') ?? null;
+        $user = auth()->user();
+        $guest = session('guest', []);
+
+        $pickup_location     = session('pickup_location');
+        $dropoff_location    = session('dropoff_location');
+        $pickup_date         = session('pickup_date');
+        $pickup_time         = session('pickup_time');
+        $first_name          = $user->first_name ?? ($guest['first_name'] ?? null);
+        $last_name           = $user->last_name  ?? ($guest['last_name'] ?? null);
+        $email               = $user->email      ?? ($guest['email'] ?? null);
+        $number               = $user->phone      ?? ($guest['number'] ?? null);
+        $selected_price      = session('final_price', session('calculated_price')) + 20;
+        $vehicle_id          = session('vehicle_id');
+        $vehicle_name        = session('vehicle_name');
+        $isBookingForOthers  = session('bookingForSomeoneElse') ?? false;
+        $booker_first_name   = session('booker_first_name') ?? null;
+        $booker_last_name    = session('booker_last_name') ?? null;
+        $booker_number       = session('booker_number') ?? null;
+        $booker_email        = session('booker_email') ?? null;
+        $hours               = session('select_hours') ?? null;
 
         $flight_details = null;
 
@@ -648,10 +651,7 @@ public function completeBook(Request $request)
         $transactionId = $paymentIntent->id;
 
         if ($paymentIntent->status === 'requires_action' && $paymentIntent->next_action->type === 'use_stripe_sdk') {
-            return response()->json([
-                'requires_action' => true,
-                'payment_intent_client_secret' => $paymentIntent->client_secret
-            ]);
+            return redirect()->back()->with('error', 'Payment requires additional authentication.');
         }
 
         $latestBooking = Booking::orderBy('id', 'desc')->first();
@@ -695,7 +695,7 @@ public function completeBook(Request $request)
         $booking = Booking::create([
             'booker_id' => $booker ? $booker->id :null,
             'booking_id' => $customBookingId,
-            'user_id' => Auth::id(),
+            'user_id' => auth()->id(),
             'vehicle_id' => $vehicle_id,
             'pickup_location' => $pickup_location,
             'dropoff_location' => $dropoff_location,
@@ -786,18 +786,17 @@ public function completeBook(Request $request)
             'booking_id' => $customBookingId,
         ]);
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Booking created successfully',
-            'booking_id' => $booking->booking_id,
-        ]);
+        if ($user) {
+            return redirect()->route('dashboard');
+        }
+        return redirect()->route('thankyou');
 
     } catch (\Stripe\Exception\CardException $e) {
-        return response()->json(['success' => false, 'message' => $e->getError()->message], 400);
+        return redirect()->back()->with('error', $e->getError()->message);
     } catch (\Stripe\Exception\ApiErrorException $e) {
-        return response()->json(['success' => false, 'message' => 'Stripe API error: ' . $e->getMessage()], 400);
+        return redirect()->back()->with('error', 'Stripe API error: ' . $e->getMessage());
     } catch (\Exception $e) {
-        return response()->json(['success' => false, 'message' => 'Something went wrong: ' . $e->getMessage()], 500);
+        return redirect()->back()->with('error', 'Something went wrong: ' . $e->getMessage());
     }
 }
 

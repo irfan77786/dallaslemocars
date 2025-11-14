@@ -1,8 +1,7 @@
 @extends('master')
 @section('content')
 
-@section('head-scripts')
-<script src="https://js.stripe.com/v3/"></script>
+@section('styles')
 <style>
     .ElementsApp .Icon-fill {
       fill: black !important;
@@ -19,7 +18,7 @@
     }
     @media (min-width: 769px) {
         #card-errors {
-            margin-top: 110px !important;
+            margin-top: 50px !important;
         }
     }
   .form-control {
@@ -96,9 +95,10 @@
                 All transactions are secure and encrypted. Safe and secure payments powered by <strong>Stripe</strong>
             </p>
 
-            <form id="payment-form" method="POST" data-submitted="false">
+            <form id="payment-form" method="POST" action="{{ url('/completeBook') }}" data-submitted="false">
                 @csrf
                 <input type="hidden" name="form_token" value="{{ session('form_token') }}">
+                <input type="hidden" name="payment_method_id" id="payment_method_id">
 
                 <div class=" mb-4 margin-pc-payment ">
                     <div class="input-text-container">
@@ -123,7 +123,7 @@
                     <a href="#" class="hover-black" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Terms &amp; Conditions</a>
                 </p>
                 <div class="d-md-flex justify-content-between">
-                    <img src="{{ asset('image/credit-cards.png') }}" alt="Supported Credit Cards" class="img-fluid" style="max-width: 400px;">
+                    <img src="{{ asset('assets/img/credit-cards.png') }}" alt="Supported Credit Cards" class="img-fluid" style="max-width: 400px;">
                     <button
                         style="width: 100%; max-width: 250px;"
                         class="btn btn-primary d-none d-md-block"
@@ -228,11 +228,12 @@
                     <p class="terms-paragraph">All content is protected. Unauthorized use is prohibited.</p>
                     <p class="terms-paragraph"><strong>Reporting Infringements:</strong> Contact us with a description of the content, your contact info, and proof of ownership at <strong>info@dallasblackcarslimoservice.com</strong>.</p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<script src="https://js.stripe.com/v3/"></script>
 <script>
     const stripe = Stripe('pk_test_51S81pVPvyAVXbs5QJfcsADAnQWcmEs5UjwJ5xoVEK6Hv5Zj4wFC08ogmw9zReRvAZIN4UVyECK6TEmMmAlEDm2iV00n6mftUq0');
     const elements = stripe.elements();
@@ -288,77 +289,29 @@
     const errorDiv = document.getElementById('card-errors');
 
     form.addEventListener('submit', async (event) => {
-        event.preventDefault(); // Prevent default form submission
-
-        // Set loading state
+        event.preventDefault();
         setLoading(true);
-
-        // Reset error state
         errorDiv.textContent = '';
         updatePricingAreaMargin(false);
 
         try {
             const { paymentMethod, error } = await stripe.createPaymentMethod({
                 type: 'card',
-                card: card,
-                billing_details: {
-                    name: document.getElementById('card-name').value
-                }
+                card,
+                billing_details: { name: document.getElementById('card-name').value }
             });
 
             if (error) {
                 throw error;
             }
 
-            const response = await fetch('{{ url("/completeBook") }}', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    payment_method_id: paymentMethod.id,
-                    _token: '{{ csrf_token() }}'
-                })
-            });
-
-            const data = await response.json();
-
-            if (!response.ok) {
-                if (response.status === 419 || (data && data.redirect)) {
-                    window.location.href = data.redirect || '//';
-                    return;
-                }
-                const errorMessage = data.message || 'An error occurred. Please try again.';
-                throw new Error(errorMessage);
-            }
-            if (data.redirect) {
-                window.location.href = data.redirect;
-                return;
-            }
-
-            if (data.success) {
-                window.location.href = '/thank-you/';
-            } else if (data.requires_action) {
-                const result = await stripe.confirmCardPayment(data.payment_intent_client_secret);
-                if (result.error) {
-                    throw result.error;
-                } else {
-                    window.location.href = '/thank-you/';
-                }
-            } else {
-                throw new Error(data.message || "Payment failed.");
-            }
+            document.getElementById('payment_method_id').value = paymentMethod.id;
+            form.dataset.submitted = 'true';
+            form.submit();
         } catch (error) {
             errorDiv.textContent = error.message;
             updatePricingAreaMargin(true);
             setLoading(false);
-
-            if (error.status === 419) {
-                window.location.href="//";
-            }
         }
     });
 </script>

@@ -106,23 +106,22 @@
         </script>
     <script>
         // Initialize autocomplete after Google Maps API is loaded
-        function initAutocomplete() {
-            // Initialize autocomplete for all location inputs
-            setupCustomAutocomplete('pickup-location', 'pickup-suggestions', 'is-airport', function(place) {
-                pickupPlacePoint = place;
-                handlePointToPointUpdate();
-            });
+    function initAutocomplete() {
+        // Initialize autocomplete for all location inputs
+        setupCustomAutocomplete('pickup-location', 'pickup-suggestions', 'is-airport', function(place) {
+            pickupPlacePoint = place;
+            handlePointToPointUpdate();
+        });
 
-            setupCustomAutocomplete('dropoff-location', 'dropoff-suggestions', 'is-airport-dropoff', function(place) {
-                dropoffPlacePoint = place;
-                handlePointToPointUpdate();
-            });
+        setupCustomAutocomplete('dropoff-location', 'dropoff-suggestions', 'is-airport-dropoff', function(place) {
+            dropoffPlacePoint = place;
+            handlePointToPointUpdate();
+        });
 
-            setupCustomAutocomplete('pickup-location-hourly', 'pickup-location-hourly-suggestions', 'is-airport-hourly', function(place) {
-                initMap(place, null);
-            });
-        }
-
+        setupCustomAutocomplete('pickup-location-hourly', 'pickup-location-hourly-suggestions', 'is-airport-hourly', function(place) {
+            initMap(place, null);
+        });
+    }
     </script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

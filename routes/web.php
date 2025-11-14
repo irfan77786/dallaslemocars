@@ -10,9 +10,11 @@ use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ProfileController;
+use App\Models\Booking;
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $bookings = Booking::with('booker', 'vehicle')->latest()->paginate(10);
+    return view('dashboard', compact('bookings'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/user-login/{id}/{price}', [BookingController::class, 'userLogin'])->name('user_login');
@@ -38,7 +40,7 @@ Route::middleware('checkBookingCompletion')->group(function () {
     Route::get('/booking/', [BookingController::class, 'showForm'])->name('booking.form');  //step 1
     Route::get('/booking/point-to-point/', [BookingController::class, 'handlePointToPoint'])->name('booking.pointToPoint.show');  //step2 case 1
     Route::get('/booking/hourly-hire/', [BookingController::class, 'handleHourlyHire'])->name('booking.hourlyHire.show');  //step2 case 2
-    Route::get('/passengerInfo', [BookingController::class, 'passengerInfo'] )->name('passenger.info'); //step 3
+    Route::get('/passengerInfo', [BookingController::class, 'submitPassengerInfo'] )->name('passenger.info'); //step 3
     Route::get('/submit-passengerInfo', [BookingController::class, 'submitPassengerInfo'])->name('submit.passenger.info'); //step 4
 });
 
