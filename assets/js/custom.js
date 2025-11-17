@@ -318,6 +318,7 @@ function setupCustomAutocomplete(inputId, suggestionsListId, hiddenAirportFieldI
     if (onSelectCallback) onSelectCallback(place);
   }
 
+  if(!input || !suggestionsContainer) return;
   // Handle input with debounce
   input.addEventListener('input', function() {
     clearTimeout(debounceTimer);
@@ -745,7 +746,7 @@ function initMap(pickupPlace, dropoffPlace) {
           styles: mapStyle,
           disableDefaultUI: true,
           zoomControl: true,
-          gestureHandling: 'cooperative',
+          gestureHandling: 'greedy',
       });
   } else {
       // Smoothly update the map center if needed
@@ -1361,6 +1362,7 @@ searchForm.addEventListener('submit', async function (event) {
     event.target.submit();
 });
 }
+
 
 const form = document.querySelector('#hourForm');
 if (form) {

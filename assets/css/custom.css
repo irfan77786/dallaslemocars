@@ -1,10 +1,13 @@
 input[type="checkbox"] {
   accent-color: #1A6982;
 }
-.btn-primary {
+.login-now, .register-now {
+    display: none;
+}
+.btn-primary, .bg-primary {
     background: linear-gradient(to right, #1A6982, #1B9CCC) !important;
 }
-.text-primary {
+.text-primary, .text-p2 {
     color: #1A6982 !important;
 }
 .booking_step_container {
