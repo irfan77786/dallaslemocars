@@ -618,3 +618,61 @@ html, body {
 .widget-list a {
     line-height: 2.3rem;
 }
+
+.shadow-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 4px #6e6e6e;
+}
+
+.input-group-container {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #757575;
+  font-size: 18px;
+}
+
+.input-text-container .form-label {
+  margin-bottom: 4px;
+  font-size: 13px;
+  color: #666;
+  font-weight: 400;
+}
+
+.input-text-container .input-group .form-control {
+  box-shadow: none;
+}
+
+.ph-wrap .fake-ph {
+  position: absolute !important;
+  top: 50% !important;
+  left: 0px !important;
+  transform: translateY(-50%) !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+@supports (-webkit-touch-callout: none) {
+  @media screen and (max-width: 991.98px) {
+    .ph-wrap .fake-ph {
+      position: absolute !important;
+      top: 50% !important;
+      left: 2px !important;
+      transform: translateY(-50%) !important;
+      pointer-events: none !important;
+      z-index: 1 !important;
+    }
+    .ph-wrap input:focus + .fake-ph,
+    .ph-wrap input:valid + .fake-ph {
+      display: none !important;
+    }
+  }
+}

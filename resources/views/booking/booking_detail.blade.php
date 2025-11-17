@@ -128,7 +128,7 @@
         <div class="modal-dialog modal-dialog-centered  modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title font-weight-bold" id="returnReservationModalLabel">Return Reservation</h5>
+                    <h5 class="modal-title font-weight-bold mb-2" id="returnReservationModalLabel">Return Reservation</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="font-size: 2rem;">&times;</span>
                     </button>

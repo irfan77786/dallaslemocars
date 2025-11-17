@@ -97,6 +97,13 @@
                         .floating-bordered-input .form-control {
                             padding-right: 40px !important;
                         }
+                        @supports (-webkit-overflow-scrolling: touch) {
+                            #swap-locations {
+                                transform: rotate(180deg);
+                                transform-origin: center;
+                                display: inline-block;
+                            }
+                        }
                     </style>
 
                     <button type="submit" class="btn w-100 search_btn point-button"
