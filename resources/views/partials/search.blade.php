@@ -52,7 +52,7 @@
 
 
                     <div class="floating-bordered-input mb-1 position-relative pl-3">
-                        <input type="text" name="pickup_datetime" id="pickup-datetime" class="form-control flatpickr"
+                        <input type="text" name="pickup_datetime" id="pickup-datetime" class="form-control"
                             value="{{ session('pickup_datetime') ? \Carbon\Carbon::parse(session('pickup_datetime'))->format('Y-m-d H:i') : '' }}"
                             placeholder="Pick-up Data / Time" required>
                         <span class="input-icon-right"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="31" height="31">
@@ -76,7 +76,7 @@
 
                     <div class="floating-bordered-input mb-1 position-relative return-trip pl-3" style="display: none;">
                         <input type="text" name="return_datetime_hourly" id="return-datetime-hourly"
-                            class="form-control flatpickr" placeholder="Return Trip Pick-up Data / Time"
+                            class="form-control" placeholder="Return Trip Pick-up Data / Time"
                             value="{{ session('return_datetime_hourly') ? \Carbon\Carbon::parse(session('return_datetime_hourly'))->format('Y-m-d H:i') : '' }}">
                         <span class="input-icon-right"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="31" height="31">
                             <path d="M0 0 C10.23 0 20.46 0 31 0 C31 10.23 31 20.46 31 31 C20.77 31 10.54 31 0 31 C0 20.77 0 10.54 0 0 Z " fill="#FEFEFE" transform="translate(0,0)"/>
@@ -94,7 +94,7 @@
                             transform: translateY(-50%);
                             color: #757575;
                         }
-                        .flatpickr-input {
+                        .floating-bordered-input .form-control {
                             padding-right: 40px !important;
                         }
                     </style>
@@ -146,7 +146,7 @@
                     <!-- Pick-up Date & Time (Hourly) -->
                     <div class="floating-bordered-input mb-4 position-relative pl-3">
                         <input type="text" name="pickup_datetime_hourly" id="pickup-datetime-hourly"
-                            class="form-control flatpickr" placeholder="Pick-up Data / Time"
+                            class="form-control" placeholder="Pick-up Data / Time"
                             value="{{ session('pickup_datetime_hourly') ? \Carbon\Carbon::parse(session('pickup_datetime_hourly'))->format('Y-m-d H:i') : '' }}"
                             required>
                         <span class="input-icon-right"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="31" height="31">
@@ -167,28 +167,3 @@
         </div>
     </div>
 </div>
-
-@push('scripts')
-    <script>
-        (function() {
-            if (typeof window.flatpickr !== 'function') return;
-
-            var commonOpts = {
-                enableTime: true,
-                dateFormat: 'Y-m-d H:i',
-                minDate: 'today',
-                time_24hr: false,
-                defaultHour: 9,
-                defaultMinute: 30,
-                disableMobile: true,
-                appendTo: document.body
-            };
-
-            var p2pEl = document.querySelector('#pickup-datetime');
-            if (p2pEl) window.flatpickr(p2pEl, commonOpts);
-
-            var hourlyEl = document.querySelector('#pickup-datetime-hourly');
-            if (hourlyEl) window.flatpickr(hourlyEl, commonOpts);
-        })();
-    </script>
-@endpush

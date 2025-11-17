@@ -56,6 +56,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css" integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-material-datetimepicker.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     @yield('styles')
 </head>
@@ -124,6 +126,8 @@
     }
     </script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment-with-locales.min.js"></script>
+    <script src="{{ asset('assets/js/bootstrap-material-datetimepicker.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -261,6 +265,32 @@
                 $('#book-ride-label-' + $(this).data('key')).removeClass('slide-up-text');
             }
             );
+
+            (function() {
+                if (typeof $ !== 'function' || typeof $.fn.bootstrapMaterialDatePicker !== 'function') return;
+                function initMDP(sel) {
+                    var $el = $(sel);
+                    if (!$el.length) return;
+                    var val = $el.val();
+                    var opts = {
+                        format: 'YYYY-MM-DD HH:mm',
+                        minDate: moment(),
+                        shortTime: true,
+                        clearButton: false,
+                        switchOnClick: true,
+                        weekStart: 0
+                    };
+                    if (val) {
+                        opts.currentDate = moment(val, 'YYYY-MM-DD HH:mm', true);
+                    } else {
+                        opts.currentDate = moment().hour(9).minute(30);
+                    }
+                    $el.bootstrapMaterialDatePicker(opts);
+                }
+                initMDP('#pickup-datetime');
+                initMDP('#pickup-datetime-hourly');
+                initMDP('#return-datetime-hourly');
+            })();
 
                 flatpickr(".flatpickr", {
                     enableTime: true,
