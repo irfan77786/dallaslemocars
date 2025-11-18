@@ -1,5 +1,5 @@
 input[type="checkbox"] {
-  accent-color: #1A6982;
+  accent-color: #2c314a;
 }
 button:focus {
     outline: none !important;
@@ -9,10 +9,10 @@ button:focus {
     display: none;
 }
 .btn-primary, .bg-primary {
-    background: linear-gradient(to right, #1A6982, #1B9CCC) !important;
+    background: linear-gradient(to right, #2c314a, #1B9CCC) !important;
 }
 .text-primary, .text-p2 {
-    color: #1A6982 !important;
+    color: #2c314a !important;
 }
 .booking_step_container {
     margin-bottom: 3dvh;
@@ -23,11 +23,11 @@ button:focus {
   transition: all 0.2s ease;
 }
 .floating-bordered-input:focus-within {
-  border-color: #1A6982;
-  box-shadow: 0 0 0 1px #1A6982;
+  border-color: #2c314a;
+  box-shadow: 0 0 0 1px #2c314a;
 }
 .selected {
-    background: #1A6982 !important ;
+    background: #2c314a !important ;
 }
 .rotate-90 {
   display: inline-block !important;
@@ -38,7 +38,7 @@ input, select, strong {
     color: black !important;
 }
 .meanmenu-reveal{
-    width: 18px !important;
+    width: 27px !important;
     height: 18px !important;
     padding: 9px 13px 11px !important;
     top: 18px !important;
