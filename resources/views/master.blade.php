@@ -56,6 +56,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css" integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.css">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-material-datetimepicker.css') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -113,6 +114,8 @@
         setupCustomAutocomplete('pickup-location', 'pickup-suggestions', 'is-airport', function(place) {
             pickupPlacePoint = place;
             handlePointToPointUpdate();
+            updateMapWidth();
+            window.addEventListener('resize', updateMapWidth);
         });
 
         setupCustomAutocomplete('dropoff-location', 'dropoff-suggestions', 'is-airport-dropoff', function(place) {
@@ -129,9 +132,9 @@
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment-with-locales.min.js"></script>
     <script src="{{ asset('assets/js/bootstrap-material-datetimepicker.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-
             document.querySelectorAll('.selectable-card').forEach(card => {
                 card.addEventListener('click', function(e) {
                     // Ignore clicks on interactive elements inside the card
@@ -224,6 +227,15 @@
                 google.maps.event.trigger(window.autocompletePickup, 'place_changed');
                 google.maps.event.trigger(window.autocompleteDropoff, 'place_changed');
             });
+
+            if ($('#round-trip').is(':checked')) {
+                $('.return-trip').show();
+                $('.point-button').addClass('mt-4');
+            } else {
+                $('.return-trip').hide();
+                $('.point-button').removeClass('mt-4');
+            }
+
             // Handle swap locations button click
             $('#round-trip').on('change', function() {
                 if ($(this).is(':checked')) {
@@ -234,6 +246,7 @@
                     $('.point-button').removeClass('mt-4');
                 }
             });
+
             $('.intercity-rides').on('click', function() {
                 $('html, body').animate({ scrollTop: 0 }, 'slow');
             });
@@ -273,15 +286,15 @@
                     if (!$el.length) return;
                     var val = $el.val();
                     var opts = {
-                        format: 'YYYY-MM-DD HH:mm',
+                        format: 'ddd, MMM Do, YYYY h:mm A',
                         minDate: moment(),
                         shortTime: true,
                         clearButton: false,
-                        switchOnClick: true,
+                        switchOnClick: false,
                         weekStart: 0
                     };
                     if (val) {
-                        opts.currentDate = moment(val, 'YYYY-MM-DD HH:mm', true);
+                        opts.currentDate = moment(val, 'ddd, MMM Do, YYYY h:mm A', true);
                     } else {
                         opts.currentDate = moment().hour(9).minute(30);
                     }
@@ -292,26 +305,80 @@
                 initMDP('#return-datetime-hourly');
             })();
 
-                flatpickr(".flatpickr", {
+                const fpInstances = flatpickr(".flatpickr", {
                     enableTime: true,
-                    dateFormat: "Y-m-d h:i K",  // Changed to 12-hour format with AM/PM
+                    dateFormat: "Y-m-d h:i K",
                     altInput: true,
-                    altFormat: "F j, Y h:i K",  // More readable display format
+                    altFormat: "D, M jS, Y h:i K",
                     minDate: "today",
-                    time_24hr: false,  // Changed to false to show AM/PM
+                    time_24hr: false,
                     minuteIncrement: 15,
                     defaultHour: new Date().getHours(),
-                    defaultMinute: Math.ceil(new Date().getMinutes() / 15) * 15, // Round to nearest 15 minutes
-                    disableMobile: true, // Better UX on mobile devices
-                    allowInput: true,   // Allow manual input
-                    clickOpens: true,   // Open calendar on click
-                    time_zone: "",      // Use local timezone
+                    defaultMinute: Math.ceil(new Date().getMinutes() / 15) * 15,
+                    disableMobile: true,
+                    allowInput: true,
+                    clickOpens: true,
+                    closeOnSelect: false,
+                    plugins: [confirmDatePlugin({ showAlways: true })],
                     onReady: function(selectedDates, dateStr, instance) {
                         instance.set('hourElement').value = instance.currentHour;
                         instance.set('minuteElement').value = instance.currentMinute;
                     }
                 });
+
+                if (Array.isArray(fpInstances)) {
+                    fpInstances.forEach(function(instance) {
+                        const inputEl = instance.altInput || instance.input;
+                        if (!inputEl) return;
+                        const container = document.createElement('span');
+                        container.style.marginLeft = '8px';
+                        const calBtn = document.createElement('button');
+                        calBtn.type = 'button';
+                        calBtn.className = 'btn btn-outline-secondary btn-sm';
+                        calBtn.style.marginRight = '6px';
+                        calBtn.innerHTML = '<i class="bi bi-calendar3"></i>';
+                        const clockBtn = document.createElement('button');
+                        clockBtn.type = 'button';
+                        clockBtn.className = 'btn btn-outline-secondary btn-sm';
+                        clockBtn.innerHTML = '<i class="bi bi-clock"></i>';
+                        container.appendChild(calBtn);
+                        container.appendChild(clockBtn);
+                        inputEl.insertAdjacentElement('afterend', container);
+                        calBtn.addEventListener('click', function() {
+                            instance.open();
+                        });
+                        clockBtn.addEventListener('click', function() {
+                            instance.open();
+                            setTimeout(function() {
+                                if (instance.hourElement) instance.hourElement.focus();
+                            }, 0);
+                        });
+                    });
+                }
+            updateMapWidth();
+            window.addEventListener('resize', updateMapWidth);
         });
+
+        function updateMapWidth() {
+            const map = document.getElementById("map");
+            if (!map) return;
+
+            const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+
+            if (window.innerWidth >= 1600) {
+                // Big LCD screens
+                map.style.setProperty("width", Math.round(vh * 1.32) + "px", "important");
+            }
+            else if (window.innerWidth >= 1024) {
+                // Small laptops
+                map.style.setProperty("width", Math.round(vh * 1.70) + "px", "important");
+            }
+            else {
+                // Mobile
+                map.style.setProperty("width", "100%", "important");
+            }
+        }
+
     </script>
     @yield('scripts')
 </body>

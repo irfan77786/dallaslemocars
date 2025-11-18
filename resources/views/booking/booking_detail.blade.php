@@ -22,16 +22,12 @@
     .switch-wrapper input:checked + .switch-slider{background:var(--dark-bg-btn,#1A6982)}
     .switch-wrapper input:checked + .switch-slider:before{transform:translateX(20px)}
     </style>
-    <a href="tel:+1888375547" class="float" target="_blank">
-        <img src="{{ asset('images/platinum-cls-phone.webp') }}" width="256" height="41"
-            alt="premierCLS Black Car Service">
-    </a>
 
     @include('partials.bookig-top_area')
 
     <?php $is_airport = session('is_airport'); ?>
 
-    <div class="container py-5">
+    <div class="container py-md-5">
         <div class="row">
             <div class="col-md-8 px-4 mb-3 mobile-mg-dc">
                 <form method="POST" action="{{ url('/bookRide') }}" class="d-flex flex-column loader-form">

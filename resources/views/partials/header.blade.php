@@ -1,12 +1,12 @@
     <!-- header section start -->
-    <header class="header-section" style="box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1);">
+    <header class="header-section" style="position: relative !important;">
         <!-- main menu -->
         <div class="main-header">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 logo" style="padding-left: 8px; padding-right: 0px;">
-                        <a class="navbar-brand" href="{{ route('booking') }}" style="position: absolute">
-                            <img src="{{ asset('assets/img/site/black-car-service-dallas-logo.webp') }}" class="logo-display" alt="shipo">
+                        <a class="navbar-brand" style="position: absolute; z-index: 1000000;">
+                            <img onclick="window.location.href = '{{ route('booking') }}'" src="{{ asset('assets/img/site/black-car-service-dallas-logo.webp') }}" style="z-index: 1000000;" class="logo-display" alt="shipo">
                         </a>
                     <div class="col-12">
                         <div class="responsive-menu"></div>

@@ -495,7 +495,7 @@ $features = [
                                 @else
                                     <div class="text-danger font-weight-bold">Fare calculation failed</div>
                                 @endif
-                                <a class="feature-section" style="z-index: 8;" data-toggle="collapse" href="#collapse-{{ $value['id'] }}" role="button" aria-expanded="false" aria-controls="collapse-{{ $value['id'] }}" data-id="{{ $value['id'] }}" onclick="toggleFeatureCollapse(event)">
+                                <a class="feature-section" style="z-index: 7;" data-toggle="collapse" href="#collapse-{{ $value['id'] }}" role="button" aria-expanded="false" aria-controls="collapse-{{ $value['id'] }}" data-id="{{ $value['id'] }}" onclick="toggleFeatureCollapse(event)">
                                     <span class="mr-1 featureExpandText">Features</span>
                                     <i class="bi bi-chevron-down featureExpandArrow"></i>
                                 </a>
@@ -517,9 +517,9 @@ $features = [
                                                     @endif
                                                 </div>
                                             @endforeach
-                                        </div> 
+                                        </div>
                                     </div>
-                                </div>                                   
+                                </div>
                             </div>
                         </div>
                         <!-- Tick icon -->
@@ -549,15 +549,15 @@ $features = [
 
                     <hr>
                     <h6 class="card-title">Secure payments</h6>
-
+                    <img src="{{ asset('assets/img/credit-cards.png') }}" alt="Payment methods" class="img-fluid" >
                     <hr>
                     <h6 class="card-title text-primary"><i class="bi bi-chat-left-text-fill"></i>Email Support</h6>
                     <p class="card-text">Reach us anytime for quick assistance.</p>
-                    <a href="mailto:info@dallasblackcarslimoservice.com" class="mail_side d-block text-decoration-none small text-primary">info@dallasblackcarslimoservice.com</a>
+                    <a href="mailto:info@dallaslimoandblackcars.com" class="mail_side d-block text-decoration-none small text-primary">info@dallaslimoandblackcars.com</a>
                     <hr>
                     <p class="mb-0 call_heading text-primary"><i class="bi bi-telephone-fill"></i>Call Support</p>
                     <p class="mb-0">
-                        <a href="tel:+12143058671" class="number_side d-block text-decoration-none text-primary">+1 214-305-8671</a>
+                        <a href="tel:+12148978056" class="number_side d-block text-decoration-none text-primary">214-897-8056</a>
                     </p>
                 </div>
             </div>

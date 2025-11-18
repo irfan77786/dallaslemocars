@@ -80,11 +80,6 @@
     </style>
 @endsection
 
-<a href="tel:+1888375547" class="float" target="_blank">
-    <img src="{{ asset('images/platinum-cls-phone.webp') }}" width="256" height="41"
-        alt="premierCLS Black Car Service">
-</a>
-
 @include('partials.bookig-top_area')
 
 <div class="container py-5 only-for-payments">
@@ -155,7 +150,7 @@
                     </p>
 
                     <p class="terms-paragraph">
-                        For any questions or concerns, contact us at <strong>info@dallasblackcarslimoservice.com</strong> or call.
+                        For any questions or concerns, contact us at <strong>info@dallaslimoandblackcars.com</strong> or call.
                     </p>
 
                     <h4 class="terms-heading">1. Definitions</h4>
@@ -226,7 +221,7 @@
 
                     <h4 class="terms-heading">10. Copyright And Intellectual Property</h4>
                     <p class="terms-paragraph">All content is protected. Unauthorized use is prohibited.</p>
-                    <p class="terms-paragraph"><strong>Reporting Infringements:</strong> Contact us with a description of the content, your contact info, and proof of ownership at <strong>info@dallasblackcarslimoservice.com</strong>.</p>
+                    <p class="terms-paragraph"><strong>Reporting Infringements:</strong> Contact us with a description of the content, your contact info, and proof of ownership at <strong>info@dallaslimoandblackcars.com</strong>.</p>
                     </div>
 </div>
 </div>

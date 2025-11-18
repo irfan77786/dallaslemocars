@@ -21,7 +21,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                             </p>
                             <p class="bt-text">24/7 Service Available, Click to Call Now!</p>
                             <div class="bottom-banner-btn" bis_skin_checked="1">
-                                <a class="call-phonea hover-up d-inline-block mb-20" href="tel:+12143058671" bis_skin_checked="1">Call: +1 214-305-8671</a>
+                                <a class="call-phonea hover-up d-inline-block mb-20" href="tel:+12148978056" bis_skin_checked="1">Call: 214-897-8056</a>
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                     </p>
                     <p class="bt-text">24/7 Service – Call Now</p>
                     <div class="bottom-banner-btn" bis_skin_checked="1">
-                        <a class="call-phonea hover-up d-inline-block mb-20" href="tel:+12143058671" bis_skin_checked="1">Call: +1 214-305-8671</a>
+                        <a class="call-phonea hover-up d-inline-block mb-20" href="tel:+12148978056" bis_skin_checked="1">Call: 214-897-8056</a>
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                         </p>
                         <p>
                             <strong>Email:</strong>
-                            <a href="mailto:info@dallasblackcarslimoservice.com">info@dallasblackcarslimoservice.com</a>
+                            <a href="mailto:info@dallaslimoandblackcars.com">info@dallaslimoandblackcars.com</a>
                         </p>
                     </div>
 
@@ -343,7 +343,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                     </p>
                     <p>
                         <strong>Email:</strong>
-                        <a href="mailto:info@dallasblackcarslimoservice.com">info@dallasblackcarslimoservice.com</a>
+                        <a href="mailto:info@dallaslimoandblackcars.com">info@dallaslimoandblackcars.com</a>
                     </p>
                 </div>
 

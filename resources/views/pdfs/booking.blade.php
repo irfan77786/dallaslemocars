@@ -208,12 +208,12 @@
             <div>100 Crescent Court, 7th Floor</div>
             <div>Dallas, TX 75201</div>
             <div><strong>Phone:</strong>&nbsp;+1 (214) 305-8671</div>
-            <div><strong>Email:</strong>&nbsp;info@dallasblackcarslimoservice.com</div>
+            <div><strong>Email:</strong>&nbsp;info@dallaslimoandblackcars.com</div>
            </div>
         </div>
       </div>
     </header>
-    
+
     <div class="sections">
     <h2 class="custom-large-heading section-light">Booking Confirmation #{{ $bookingData['booking_id'] ?? 'N/A' }}</h2>
     <div class="section-content">
@@ -239,7 +239,7 @@
             <div class="col-sm-9">{{ \Carbon\Carbon::parse($bookingData['pickup_time'])->format('h:i A') }}</div>
           </div>
           @endif
-          
+
           {{-- Hours --}}
           @if($bookingData['hours'])
             <div class="row">
@@ -320,7 +320,7 @@
           </div>
         </div>
       </div>
-      
+
       {{-- Booker Info (if booking for others) --}}
       @if(!empty($bookingData['isBookingForOthers']) && ($bookingData['booker_first_name'] || $bookingData['booker_last_name'] || $bookingData['booker_email'] || $bookingData['booker_number']))
       <div class="sections section-light">
@@ -502,7 +502,7 @@
           <strong class="mian-cc">Contact:</strong>
           </div>
           <div class="col-sm-9">
-          Email: info@dallasblackcarslimoservice.com<br>
+          Email: info@dallaslimoandblackcars.com<br>
           Phone: +1 (214) 305-8671
           </div>
         </div>
@@ -668,14 +668,14 @@
       <div class="section-content">
         <p>
           We are committed to fair and professional service.<br>
-          Contact us: info@dallasblackcarslimoservice.com | +1 (214) 305-8671</p>
+          Contact us: info@dallaslimoandblackcars.com | +1 (214) 305-8671</p>
       </div>
     </div>
 
 
     <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; font-size: 12px; color: #666;">
       <p>Thank you for choosing Dallas Black Car Service. If you have any questions about your booking, please contact our customer support.</p>
-      <p>+1 214-305-8671 | info@dallasblackcarslimoservice.com</p>
+      <p>214-897-8056 | info@dallaslimoandblackcars.com</p>
     </footer>
   </div>
 </body>

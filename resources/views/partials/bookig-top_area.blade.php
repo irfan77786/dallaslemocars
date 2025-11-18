@@ -143,7 +143,7 @@
 .summary_text {
     margin: 0 0 12px!important;
     line-height: 1.4!important;
-    font-size: 1rem!important;
+    font-size: 0.8rem!important;
     font-weight:400!important;
     color: #646e73 !important;
 }
@@ -160,7 +160,7 @@
 .summary_text{
      margin: 0 0 12px;
          line-height: 1.4;
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: black !important;
 }
 .summary-row{ display:flex; align-items:center; gap:8px; }
@@ -201,6 +201,8 @@
 @media screen and (max-width:768px){
     .stepper{
         gap:8px;
+        overflow-x:auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .mob_stepper_container{
@@ -218,8 +220,19 @@
     }
     .step{
         position:relative;
-        /*padding-right:35px;*/
+        flex: 0 0 auto;
     }
+
+    .step-label-pill{
+        white-space: nowrap;
+    }
+
+    .mob-step-dots{ display:flex; flex-wrap:nowrap !important; white-space:nowrap; gap:8px; overflow-x:auto; -webkit-overflow-scrolling:touch; width:100%; align-items:center; }
+    .mob-step-dots::-webkit-scrollbar{ display:none; }
+    .mob-step-dot{ flex:0 0 auto; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; border:2px solid #e5e7eb; background:#fff; color:#6b7280; }
+    .mob-step-dot.completed{ border-color:#1A6982; background:#1A6982; color:#fff; }
+    .mob-step-dot.active{ border-color:#1A6982; background:#1A6982; color:#fff; }
+    .mob-step-dot.upcoming{ border-color:#e5e7eb; background:#fff; color:#9ca3af; }
 
     /*.step::after{*/
     /*    content: "";*/
@@ -284,7 +297,7 @@
     </div>
 </div>
 
-<div class="d-md-none mb-3">
+<div class="d-md-none mb-md-3">
     <!-- Header with "Booking Summary" and Expand toggle -->
  <div class="d-flex justify-content-between align-items-center px-3 py-2 bg-white" data-toggle="collapse" data-target="#mobileRideSummary" aria-expanded="false" style="cursor: pointer;" onclick="toggleCollapse()">
         <h6 class="step-label-pill is-active">Booking Summary</h6>
@@ -302,28 +315,53 @@
             <div class="summary-row">
                 <p class="summary-label-inline">Pickup Location</p>
                 <span class="summary-leader"></span>
-                <p class="summary-value-inline">{{ session('pickup_location') }}</p>
+                <p class="summary-value-inline">
+                    @if(session('pickup_location'))
+                        → {{ session('pickup_location') }}
+                    @endif
+                </p>
             </div>
+            @if(session('round_trip') == 'on' && session('dropoff_location'))
+            <div class="summary-row">
+                <p class="summary-label-inline">Pickup Location</p>
+                <span class="summary-leader"></span>
+                <p class="summary-value-inline">← {{ session('dropoff_location') }}</p>
+            </div>
+            @endif
             <div class="summary-row">
                 <p class="summary-label-inline">{{ session('dropoff_location') ? 'Destination' : 'Selected Hours' }}</p>
                 <span class="summary-leader"></span>
                 <p class="summary-value-inline">
                     @if(session('dropoff_location'))
-                        {{ session('dropoff_location') }}
+                        → {{ session('dropoff_location') }}
                     @else
                         Hours {{ session('select_hours') }}
                     @endif
                 </p>
             </div>
+            @if(session('round_trip') == 'on' && session('pickup_location') && session('dropoff_location'))
+            <div class="summary-row">
+                <p class="summary-label-inline">{{ session('dropoff_location') ? 'Destination' : 'Selected Hours' }}</p>
+                <span class="summary-leader"></span>
+                <p class="summary-value-inline">← {{ session('pickup_location') }}</p>
+            </div>
+            @endif
             <div class="summary-row">
                 <p class="summary-label-inline">Pick-Up Date & Time</p>
                 <span class="summary-leader"></span>
                 <p class="summary-value-inline">
                     @if(session('pickup_date') && session('pickup_time'))
-                        {{ \Carbon\Carbon::parse(session('pickup_date'))->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse(session('pickup_time'))->format('h:i A') }}
+                        → {{ \Carbon\Carbon::parse(session('pickup_date'))->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse(session('pickup_time'))->format('h:i A') }}
                     @endif
                 </p>
             </div>
+            @if(session('round_trip') == 'on' && session('return_pickup_date') && session('return_pickup_time'))
+            <div class="summary-row">
+                <p class="summary-label-inline">Pick-Up Date & Time</p>
+                <span class="summary-leader"></span>
+                <p class="summary-value-inline">← {{ \Carbon\Carbon::parse(session('return_pickup_date'))->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse(session('return_pickup_time'))->format('h:i A') }}</p>
+            </div>
+            @endif
             <?php if($step > 2){ ?>
             <div class="summary-row">
                 <p class="summary-label-inline">Car Type</p>
@@ -344,6 +382,13 @@
                     {{ $selectedVehicleName ?? 'Sedan' }}
                 </p>
             </div>
+            @if(session('round_trip') == 'on')
+            <div class="summary-row">
+                <p class="summary-label-inline">Car Type</p>
+                <span class="summary-leader"></span>
+                <p class="summary-value-inline">{{ $selectedVehicleName ?? 'Sedan' }}</p>
+            </div>
+            @endif
             <?php } ?>
             <div class="mt-2">
                 <a href="/booking?edit=1">
@@ -363,24 +408,40 @@
     <div class="return-inline">
       <div class="return-item">
         <p class="summary_label">Pickup Location</p>
-        <p class="summary_text mb-0">{{ session('pickup_location') }}</p>
+        <p class="summary_text mb-0">
+          @if(session('pickup_location'))
+            → {{ session('pickup_location') }}
+          @endif
+        </p>
+        @if(session('round_trip') == 'on' && session('dropoff_location'))
+          <p class="summary_text mb-0">← {{ session('dropoff_location') }}</p>
+        @endif
       </div>
       <div class="return-item">
         <p class="summary_label">{{ session('dropoff_location') ? 'Destination' : 'Selected Hours' }}</p>
         <p class="summary_text mb-0">
           @if(session('dropoff_location'))
-              {{ session('dropoff_location') }}
+              → {{ session('dropoff_location') }}
           @else
               Hours {{ session('select_hours') }}
           @endif
         </p>
+        @if(session('round_trip') == 'on' && session('pickup_location') && session('dropoff_location'))
+          <p class="summary_text mb-0">← {{ session('pickup_location') }}</p>
+        @endif
       </div>
       <div class="return-item">
         <p class="summary_label">Pick-Up Date & Time</p>
-        <p class="summary_text mb-0">@if(session('pickup_date') && session('pickup_time'))
-                        {{ \Carbon\Carbon::parse(session('pickup_date'))->format('D, M jS, Y') }}
-                        {{ \Carbon\Carbon::parse(session('pickup_time'))->format('h:i A') }}
-                    @endif</p>
+        <p class="summary_text mb-0">
+          @if(session('pickup_date') && session('pickup_time'))
+            → {{ \Carbon\Carbon::parse(session('pickup_date'))->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse(session('pickup_time'))->format('h:i A') }}
+          @endif
+        </p>
+        @if(session('round_trip') == 'on' && session('return_pickup_date') && session('return_pickup_time'))
+          <p class="summary_text mb-0">
+            ← {{ \Carbon\Carbon::parse(session('return_pickup_date'))->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse(session('return_pickup_time'))->format('h:i A') }}
+          </p>
+        @endif
       </div>
       <div class="return-item">
         <p class="summary_label">Car Type</p>
@@ -399,6 +460,9 @@
           @endphp
           {{ $selectedVehicleName ?? 'Sedan' }}
         </p>
+        @if(session('round_trip') == 'on')
+          <p class="summary_text mb-0">{{ $selectedVehicleName ?? 'Sedan' }}</p>
+        @endif
       </div>
     </div>
     <div>
@@ -409,74 +473,6 @@
   </div>
 </div>
 
-@if(session('return_service') == 1 && session('return_pickup_location'))
-<!-- Return Service summary row under top area (desktop only for now) -->
-<div class="container px-3 py-3 d-none d-md-block bg-white mt-2">
-  <div class="d-flex align-items-center justify-content-between">
-    <div class="return-inline">
-      <div class="return-item">
-        <div class="return-item-label"></div>
-        <div class="return-item-value" id="rs-pickup">{{ session('return_pickup_location') }}</div>
-      </div>
-      <div class="return-item">
-        <div class="return-item-label"></div>
-        <div class="return-item-value" id="rs-dropoff">{{ session('return_dropoff_location') }}</div>
-      </div>
-      <div class="return-item">
-        <div class="return-item-label"></div>
-        <div class="return-item-value" id="rs-datetime">
-          @php
-            $rd = session('return_pickup_date');
-            $rt = session('return_pickup_time');
-            $prettyDate = $rd ? \Carbon\Carbon::parse($rd)->format('Y-m-d') : '';
-            $prettyTime = $rt ? \Carbon\Carbon::parse($rt)->format('H:i') : '';
-          @endphp
-          {{ trim($prettyDate . ' ' . $prettyTime) }}
-        </div>
-      </div>
-      <div class="return-item">
-        <div class="return-item-label"></div>
-        <div class="return-item-value" id="return-vehicle-name">
-          @php
-            $returnVehicleName = null;
-            try {
-                $rid = session('return_vehicle_id');
-                if ($rid) {
-                    $rv = \App\Models\Vehicle::find($rid);
-                    $returnVehicleName = $rv ? $rv->vehicle_name : null;
-                }
-            } catch (\Throwable $e) {
-                $returnVehicleName = null;
-            }
-          @endphp
-          {{ $returnVehicleName ?? 'Not selected' }}
-        </div>
-      </div>
-    </div>
-    <div>
-      <button type="button" class="btn btn-primary px-3 py-1 font-weight-bold" id="edit-return-service">EDIT</button>
-    </div>
-  </div>
-  @if(session('return_flight_details') || session('return_flight_number'))
-    <div class="pt-3 mt-2 border-top">
-      <div class="row">
-        @if(session('return_flight_details'))
-        <div class="col-md-6">
-          <div class="return-item-label">Flight Details</div>
-          <div class="summary_text mb-0">{{ session('return_flight_details') }}</div>
-        </div>
-        @endif
-        @if(session('return_flight_number'))
-        <div class="col-md-6">
-          <div class="return-item-label">Flight Number</div>
-          <div class="summary_text mb-0">{{ session('return_flight_number') }}</div>
-        </div>
-        @endif
-      </div>
-    </div>
-  @endif
-</div>
-@endif
 
 </div>
 
@@ -495,3 +491,23 @@
         }
     }
 </script>
+<div class="d-md-none px-3 py-2">
+    <p class="step-header mb-1">STEP {{ $currentStep }} OF {{ count($steps) }}</p>
+    <div class="row">
+        <div class="col-6">
+            <h5 class="step-title mb-2">{{ $steps[$currentStep]['label'] }}</h5>
+        </div>
+        <div class="col-6">
+            <div class="mob-step-dots d-flex align-items-center">
+                @foreach ($steps as $index => $stepData)
+                    @php
+                        $isCompleted = ($index < $currentStep);
+                        $isActive = ($index === $currentStep);
+                        $cls = $isCompleted ? 'completed' : ($isActive ? 'active' : 'upcoming');
+                    @endphp
+                    <span class="mob-step-dot {{ $cls }}">@if($isCompleted)&#10003;@else{{ $index }}@endif</span>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</div>

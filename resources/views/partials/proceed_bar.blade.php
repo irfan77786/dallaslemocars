@@ -1,13 +1,18 @@
-    @section('styles')
+@section('styles')
     <style>
         .continue-button {
-            width: 290px;
-            height: 45px;
+            width: 310px;
+            height: 50px;
             font-size: 20px;
         }
         @media only screen and (max-width: 767px) {
             .bottom-header {
                 padding: 10px 0px 10px !important;
+            }
+            .continue-button {
+                width: 360px;
+                height: 40px;
+                font-size: 20px;
             }
         }
     </style>

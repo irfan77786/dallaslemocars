@@ -126,9 +126,9 @@
             <div>100 Crescent Court, 7th Floor</div>
             <div>Dallas, TX 75201</div>
             <div><strong>Phone:</strong>&nbsp;+1 (214) 305-8671</div>
-            <div><strong>Email:</strong>&nbsp;info@dallasblackcarslimoservice.com</div>
+            <div><strong>Email:</strong>&nbsp;info@dallaslimoandblackcars.com</div>
             <div><strong>Website:</strong>&nbsp;www.dallasblackcarslimoservice.com</div>
-          </div>        
+          </div>
         </div>
       </div>
     </header>
@@ -139,7 +139,7 @@
           Dallas Black Cars Limo Service strives to provide excellent service while maintaining a clear, fair, and simple cancellation, deposit, and service policy. By booking with us, you agree to the following terms.</p>
 
         <p><strong>Contact:</strong><br>
-          Email: info@dallasblackcarslimoservice.com<br>
+          Email: info@dallaslimoandblackcars.com<br>
           Phone: +1 (214) 305-8671</p>
 
         <p><strong>1. General Cancellation Policy:</strong><br>
@@ -198,14 +198,14 @@
 
         <p><strong>Thank you for choosing Dallas Black Cars Limo Service.</strong><br>
           We are committed to fair and professional service.<br>
-          Contact us: info@dallasblackcarslimoservice.com | +1 (214) 305-8671</p>
+          Contact us: info@dallaslimoandblackcars.com | +1 (214) 305-8671</p>
 
       </div>
     </div>
 
     <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; font-size: 12px; color: #666;">
     <p>Thank you for choosing Dallas Black Car Service. If you have any questions about your booking, please contact our customer support.</p>
-    <p>+1 214-305-8671 | info@dallasblackcarslimoservice.com</p>
+    <p>214-897-8056 | info@dallaslimoandblackcars.com</p>
   </footer>
   </div>
 </body>

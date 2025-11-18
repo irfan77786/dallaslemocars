@@ -67,7 +67,7 @@
                     <div class="d-flex align-items-center mb-2">
                         <div class="form-check me-2">
                             <input type="checkbox" name="round_trip" id="round-trip" class="form-check-input"
-                                style="height: 18px; width: 18px; cursor: pointer; margin-top: 10px;">
+                                style="height: 18px; width: 18px; cursor: pointer; margin-top: 10px;" @session('round_trip') checked @endsession>
                             <label for="round-trip" class="form-check-label ms-2 ml-2" style="cursor: pointer; font-size: 18px; margin-top: 0.4rem; color: black !important; font-weight: 100">
                                 Add a return Trip
                             </label>

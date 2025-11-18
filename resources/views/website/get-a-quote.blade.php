@@ -19,7 +19,7 @@ $isHourly = session('service_type') === 'hourlyHire';
               <p>Request Instant Pricing for Black Car, SUV, Sprinter, or Group Travel in DFW.</p>
               <p class="bt-text">24/7 Service Available, Click to Call Now!</p>
               <div class="bottom-banner-btn" bis_skin_checked="1">
-                <a class="call-phonea hover-up d-inline-block mb-20" href="tel:+12143058671" bis_skin_checked="1">Call: +1 214-305-8671</a>
+                <a class="call-phonea hover-up d-inline-block mb-20" href="tel:+12148978056" bis_skin_checked="1">Call: 214-897-8056</a>
               </div>
             </div>
           </div>
@@ -62,7 +62,7 @@ $isHourly = session('service_type') === 'hourlyHire';
           <p>Request Instant Pricing for Black Car, SUV, Sprinter, or Group Travel in DFW.</p>
           <p class="bt-text">24/7 Service – Call Now</p>
           <div class="bottom-banner-btn" bis_skin_checked="1">
-            <a class="call-phonea hover-up d-inline-block mb-20" href="tel:+12143058671" bis_skin_checked="1">Call: +1 214-305-8671</a>
+            <a class="call-phonea hover-up d-inline-block mb-20" href="tel:+12148978056" bis_skin_checked="1">Call: 214-897-8056</a>
           </div>
         </div>
       </div>
@@ -329,7 +329,7 @@ $isHourly = session('service_type') === 'hourlyHire';
           </span>
           <div class="serviceHeadings">
             <h3>Email Quote</h3>
-            <p><strong>Send trip details to:</strong> <a href="mailto:info@dallasblackcarslimoservice.com">info@dallasblackcarslimoservice.com </a>
+            <p><strong>Send trip details to:</strong> <a href="mailto:info@dallaslimoandblackcars.com">info@dallaslimoandblackcars.com </a>
               <br><strong>Include:</strong> pickup, destination, vehicle type, number of passengers.
             </p>
           </div>

@@ -1,6 +1,10 @@
 input[type="checkbox"] {
   accent-color: #1A6982;
 }
+button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
 .login-now, .register-now {
     display: none;
 }
@@ -11,7 +15,6 @@ input[type="checkbox"] {
     color: #1A6982 !important;
 }
 .booking_step_container {
-    margin-top: 8dvh;
     margin-bottom: 3dvh;
 }
 .floating-bordered-input:hover {
@@ -46,7 +49,7 @@ input, select, strong {
 .header-section{
     position: fixed;
     width: 100%;
-    z-index: 9999;
+    z-index: 8;
 }
 .search-tab-wrap{
     top: 24% !important;
@@ -78,7 +81,7 @@ input, select, strong {
     position: relative;
     z-index: 2;
     width: 100%;
-    margin-top: 10dvh !important;
+    margin-top: 0px !important;
 }
 #map:focus {
     border: none !important;
@@ -213,10 +216,6 @@ html, body {
         background-repeat: no-repeat;
         overflow: hidden;
         display: block !important;
-    }
-
-    .search-section {
-        margin-top: 13dvh !important;
     }
 
     .carousel-section {

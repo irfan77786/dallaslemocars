@@ -64,11 +64,6 @@
     </style>
 @endsection
 
-<a href="tel:+1888375547" class="float" target="_blank">
-    <img src="{{ asset('images/platinum-cls-phone.webp') }}" width="256" height="41"
-        alt="premierCLS Black Car Service">
-</a>
-
 @include('partials.bookig-top_area')
 
 <div class="container py-5 only-for-payments">

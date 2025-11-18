@@ -163,6 +163,8 @@ class BookingController extends Controller
         'is_airport' => $data['is_airport'],
         'pickup_date' => $data['pickup_date'],
         'pickup_time' => $data['pickup_time'],
+        'round_trip' => $request->round_trip,
+        'return_datetime' => $request->return_datetime_hourly,
         'select_hours' => null,
         'stops' => json_encode($data['stops'] ?? []),
         'service_type' => 'pointToPoint',
@@ -181,6 +183,7 @@ class BookingController extends Controller
     // Handle Hourly Hire form submission
   public function handleHourlyHire(Request $request)
 {
+    session()->forget('round_trip');
     session([
         'booking_completed' => false
     ]);

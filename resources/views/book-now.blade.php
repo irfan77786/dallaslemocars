@@ -700,8 +700,8 @@
                         <h3>Email Reservations</h3>
 
                         <p>Have a special request or need a custom itinerary?<br><a
-                                href="mailto:info@dallasblackcarslimoservice.com"><strong>Email:</strong>
-                                info@dallasblackcarslimoservice.com</a></p>
+                                href="mailto:info@dallaslimoandblackcars.com"><strong>Email:</strong>
+                                info@dallaslimoandblackcars.com</a></p>
                     </div>
                 </div>
             </div>
