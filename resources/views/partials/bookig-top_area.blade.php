@@ -5,13 +5,13 @@
         2 => ['label' => 'Vehicle Class', 'route' => session('service_type') === 'pointToPoint'
                     ? route('booking.pointToPoint.show')
                     : route('booking.hourlyHire.show')],
-        3 => ['label' => 'Login', 'route' => session()->has('vehicle_id') && session()->has('calculated_price')
-                    ? route('passenger.info', ['id' => session('vehicle_id'), 'price' => session('calculated_price')])
+        3 => ['label' => 'Login', 'route' => (session()->has('vehicle_id') && (session()->has('calculated_price') || session()->has('price') || ($currentStep >= 3)))
+                    ? route('user_login', ['id' => session('vehicle_id'), 'price' => session('calculated_price') ?? session('price')])
                     : null],
-        4 => ['label' => 'Booking Detail', 'route' => session()->has('first_name')
-                    ? url('/submit-passengerInfo/' . session('vehicle_id'))
+        4 => ['label' => 'Booking Detail', 'route' => ($currentStep >= 4 || session()->has('first_name'))
+                    ? route('submit.passenger.info')
                     : null],
-        5 => ['label' => 'Payment', 'route' => null] // future step
+        5 => ['label' => 'Payment', 'route' => null]
     ];
 @endphp
 
@@ -231,7 +231,7 @@
     .mob-step-dots::-webkit-scrollbar{ display:none; }
     .mob-step-dot{ flex:0 0 auto; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; border:2px solid #e5e7eb; background:#fff; color:#6b7280; }
     .mob-step-dot.completed{ border-color:#1A6982; background:#1A6982; color:#fff; }
-    .mob-step-dot.active{ border-color:#1A6982; background:#1A6982; color:#fff; }
+    .mob-step-dot.active{ border-color:#1A6982; background:#1A6982; color:#fff !important; }
     .mob-step-dot.upcoming{ border-color:#e5e7eb; background:#fff; color:#9ca3af; }
 
     /*.step::after{*/
@@ -476,6 +476,33 @@
 
 </div>
 
+<div class="d-md-none px-3 py-2">
+    <p class="step-header mb-1">STEP {{ $currentStep }} OF {{ count($steps) }}</p>
+    <div class="row">
+        <div class="col-6">
+            <h5 class="step-title mb-2">{{ $steps[$currentStep]['label'] }}</h5>
+        </div>
+        <div class="col-6">
+            <div class="mob-step-dots d-flex align-items-center">
+                @foreach ($steps as $index => $stepData)
+                    @php
+                        $isCompleted = ($index < $currentStep);
+                        $isActive = ($index === $currentStep);
+                        $cls = $isCompleted ? 'completed' : ($isActive ? 'active' : 'upcoming');
+                    @endphp
+                    @if($stepData['route'])
+                        <a href="{{ $stepData['route'] }}" class="trigger-loader">
+                            <span class="mob-step-dot {{ $cls }}">@if($isCompleted)&#10003;@else{{ $index }}@endif</span>
+                        </a>
+                    @else
+                        <span class="mob-step-dot {{ $cls }}">@if($isCompleted)&#10003;@else{{ $index }}@endif</span>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     function toggleCollapse() {
         const expandText = document.getElementById('expandText');
@@ -491,23 +518,4 @@
         }
     }
 </script>
-<div class="d-md-none px-3 py-2">
-    <p class="step-header mb-1">STEP {{ $currentStep }} OF {{ count($steps) }}</p>
-    <div class="row">
-        <div class="col-6">
-            <h5 class="step-title mb-2">{{ $steps[$currentStep]['label'] }}</h5>
-        </div>
-        <div class="col-6">
-            <div class="mob-step-dots d-flex align-items-center">
-                @foreach ($steps as $index => $stepData)
-                    @php
-                        $isCompleted = ($index < $currentStep);
-                        $isActive = ($index === $currentStep);
-                        $cls = $isCompleted ? 'completed' : ($isActive ? 'active' : 'upcoming');
-                    @endphp
-                    <span class="mob-step-dot {{ $cls }}">@if($isCompleted)&#10003;@else{{ $index }}@endif</span>
-                @endforeach
-            </div>
-        </div>
-    </div>
-</div>
+

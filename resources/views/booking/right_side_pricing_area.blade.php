@@ -5,13 +5,13 @@
         2 => ['label' => 'Vehicle Class', 'route' => session('service_type') === 'pointToPoint'
             ? route('booking.pointToPoint.show')
             : route('booking.hourlyHire.show')],
-        3 => ['label' => 'Passenger Info', 'route' => session()->has('vehicle_id') && session()->has('calculated_price')
-                    ? route('passenger.info', ['id' => session('vehicle_id'), 'price' => session('calculated_price')])
+        3 => ['label' => 'Passenger Info', 'route' => (session()->has('vehicle_id') && (session()->has('calculated_price') || session()->has('price') || ($currentStep >= 3)))
+                    ? route('user_login', ['id' => session('vehicle_id'), 'price' => session('calculated_price') ?? session('price')])
                     : null],
-        4 => ['label' => 'Booking Detail', 'route' => session()->has('first_name')
-                    ? url('/submit-passengerInfo/' . session('vehicle_id'))
+        4 => ['label' => 'Booking Detail', 'route' => ($currentStep >= 4 || session()->has('first_name'))
+                    ? route('submit.passenger.info')
                     : null],
-        5 => ['label' => 'Payment', 'route' => null] // future step
+        5 => ['label' => 'Payment', 'route' => null]
     ];
 @endphp
 <style>

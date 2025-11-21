@@ -33,7 +33,7 @@ Route::middleware('checkBookingCompletion')->group(function () {
     Route::get('/book-now/', [BookingController::class, 'BookNow'])->name('book_now');
     Route::get('/allVehicle/', [BookingController::class, 'showAll']);
     Route::post('/submit-passengerInfo/{id}', [BookingController::class, 'submitPassengerInfo']);
-    Route::post('/bookRide', [BookingController::class, 'bookRide']);
+    Route::match(['get', 'post'], '/bookRide', [BookingController::class, 'bookRide']);
     Route::post('/completeBook', [BookingController::class, 'completeBook']);
     Route::get('/calculate-return-trip/', [BookingController::class, 'CalculateReturnTrip']);
     Route::post('/save-return-service', [BookingController::class, 'saveReturnService']);

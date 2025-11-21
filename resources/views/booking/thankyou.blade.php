@@ -3,7 +3,7 @@
 
 @section('styles')
 <style>
-.thankyou-wrapper{padding:120px 0 40px}
+.thankyou-wrapper{padding:40px 0 40px}
 .thankyou-card{max-width:760px;margin:0 auto;background:#fff;border-radius:12px;padding:32px; padding-top: 0px !important;}
 .success-icon{width:56px;height:56px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#e7f3f7;color:#1A6982;font-size:28px;margin-bottom:16px}
 .thankyou-subtitle{font-size:18px;color:#6c757d}
@@ -22,7 +22,7 @@
                 <img src="{{ asset('assets/img/site/black-car-service.webp') }}" alt="Black Car Service" class="img-fluid thankyou-img" />
             </div>
 
-            <p class="text-secondary mb-4">Your reservation has been successfully confirmed. We look forward to providing you with a seamless and luxurious travel experience.</p>
+            <p class="text-secondary mb-4">Your reservation has been successfully confirmed.</p>
 
             <a href="{{ route('booking') }}" class="btn btn-primary btn-lg px-4">Back to Home</a>
         </div>

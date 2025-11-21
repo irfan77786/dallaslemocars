@@ -10,7 +10,7 @@ class Booking extends Model
     use HasFactory;
     protected $fillable = [
         'user_id', 'booking_id' ,'booker_id', 'vehicle_id', 'pickup_location', 'dropoff_location',
-        'pickup_date', 'pickup_time', 'total_price', 'payment_status','return_service_id','note'
+        'pickup_date', 'pickup_time', 'total_price', 'payment_status','return_service_id','note', 'round_trip'
     ];
 
     public function user() {
@@ -24,7 +24,7 @@ class Booking extends Model
     public function booker() {
         return $this->belongsTo(Booker::class);
     }
-    
+
     public function passengers() {
         return $this->hasMany(Passenger::class);
     }

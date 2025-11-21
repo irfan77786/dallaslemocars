@@ -24,6 +24,9 @@
                             </div>
                             <p class="mb-1"><strong>Route:</strong> {{ $booking->pickup_location }} to {{ $booking->dropoff_location }}</p>
                             <p class="mb-1"><strong>Date/Time:</strong> {{ $booking->pickup_date }} @ {{ $booking->pickup_time }}</p>
+                            @if ($booking->round_trip)
+                                <span class="badge bg-info text-dark">Round Trip</span>
+                            @endif
                             <div class="d-flex justify-content-between align-items-center mt-2">
                                 <span class="{{ $status_class }}">{{ ucfirst($booking->payment_status) }}</span>
                                 <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingDetailModal" onclick="showBookingDetails({{ $bookingJson }})">View Details</button>
@@ -71,6 +74,7 @@
                                 <li class="list-group-item d-flex justify-content-between py-2"><strong>Dropoff:</strong> <span id="modal-dropoff-location"></span></li>
                                 <li class="list-group-item d-flex justify-content-between py-2"><strong>Date:</strong> <span id="modal-pickup-date"></span></li>
                                 <li class="list-group-item d-flex justify-content-between py-2"><strong>Time:</strong> <span id="modal-pickup-time"></span></li>
+                                <li class="list-group-item d-flex justify-content-between py-2"><strong>Trip Type:</strong> <span id="modal-trip-type"></span></li>
                             </ul>
                         </div>
                     </div>
@@ -122,6 +126,8 @@
             document.getElementById('modal-dropoff-location').textContent = bookingData.dropoff_location;
             document.getElementById('modal-pickup-date').textContent = bookingData.pickup_date;
             document.getElementById('modal-pickup-time').textContent = bookingData.pickup_time;
+            const isRoundTrip = !!bookingData.round_trip && (bookingData.round_trip === true || bookingData.round_trip === 1 || bookingData.round_trip === 'on');
+            document.getElementById('modal-trip-type').textContent = isRoundTrip ? 'Round Trip' : 'One-way';
 
             if (vehicle) {
                 document.getElementById('modal-vehicle-name').textContent = vehicle.vehicle_name || 'N/A';

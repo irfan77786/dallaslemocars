@@ -1344,7 +1344,7 @@ searchForm.addEventListener('submit', async function (event) {
         return value;
     }).filter(Boolean); // Remove empty or invalid entries
 
-    const form = document.querySelector('#pointToPoint');  // Get the form element
+    const pointToPointForm = document.querySelector('#pointToPoint');
     // Clear any existing hidden inputs
     // const existingHiddenStops = form.querySelectorAll('[name^="stop_"]');
     // existingHiddenStops.forEach(input => input.remove());
@@ -1355,7 +1355,7 @@ searchForm.addEventListener('submit', async function (event) {
         hiddenInput.type = 'hidden';
         hiddenInput.name = 'stops[]'; // Set the name dynamically
         hiddenInput.value = address; // Set the stop address as the value
-        form.appendChild(hiddenInput);
+        pointToPointForm.appendChild(hiddenInput);
     });
 
 
@@ -1364,8 +1364,8 @@ searchForm.addEventListener('submit', async function (event) {
 }
 
 
-const form = document.querySelector('#hourForm');
-if (form) {
+const hourForm = document.querySelector('#hourForm');
+if (hourForm) {
   document.querySelector('#hourForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent default form submission
 
@@ -1388,7 +1388,7 @@ if (form) {
         return value;
     }).filter(Boolean); // Remove empty or invalid entries
 
-    const form = document.querySelector('#hourForm');  // Get the form element
+    const hourFormEl = document.querySelector('#hourForm');
     // Clear any existing hidden inputs
     // const existingHiddenStops = form.querySelectorAll('[name^="stop_"]');
     // existingHiddenStops.forEach(input => input.remove());
@@ -1399,7 +1399,7 @@ if (form) {
         hiddenInput.type = 'hidden';
         hiddenInput.name = 'stops[]'; // Set the name dynamically
         hiddenInput.value = address; // Set the stop address as the value
-        form.appendChild(hiddenInput);
+        hourFormEl.appendChild(hiddenInput);
     });
 
 
