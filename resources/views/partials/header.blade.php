@@ -1,12 +1,12 @@
-    <!-- header section start -->
+<!-- header section start -->
     <header class="header-section" style="position: relative !important;">
         <!-- main menu -->
         <div class="main-header">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 logo" style="padding-left: 8px; padding-right: 0px;">
-                        <a class="navbar-brand" style="position: absolute; z-index: 1000000;">
-                            <img onclick="window.location.href = '{{ route('booking') }}'" src="{{ asset('assets/img/site/black-car-service-dallas-logo.webp') }}" style="z-index: 1000000;" class="logo-display" alt="shipo">
+                        <a class="navbar-brand" style="position: relative; z-index: 1;">
+                            <img onclick="window.location.href = '{{ route('booking') }}'" src="{{ asset('assets/img/site/black-car-service-dallas-logo.webp') }}" class="logo-display" alt="shipo">
                         </a>
                     <div class="col-12">
                         <div class="responsive-menu"></div>
@@ -65,8 +65,66 @@
                             <a href="#" class="btn-booking-start">Book Now</a>
                         </nav>
                     </div> <!-- /. col-md-9 d-none d-lg-block -->
+                    <div class="col-md-9 d-lg-none d-flex justify-content-end align-items-center" style="position: absolute; margin-top: 12px; z-index: 4;">
+                        <button id="mobile-menu-toggle" class="btn btn-link p-0 mobile-menu-toggle" aria-controls="mobile-drawer" aria-expanded="false" aria-label="Open menu">
+                            <i class="bi bi-list" style="font-size: 1.8rem;"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+        <div id="drawer-overlay" class="drawer-overlay"></div>
+        <aside id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+            <div class="drawer-header d-flex justify-content-between align-items-center">
+                <a class="navbar-brand">
+                    <img src="{{ asset('assets/img/site/black-car-service-dallas-logo.webp') }}" class="logo-display" alt="shipo" style="height: 40px;">
+                </a>
+                <button class="btn btn-link p-0 drawer-close" aria-label="Close menu">
+                    <i class="bi bi-x-lg" style="font-size: 1.4rem;"></i>
+                </button>
+            </div>
+            <nav class="drawer-nav">
+                <ul class="drawer-menu list-unstyled">
+                    <li><a href="about.html">About us</a></li>
+                    <li class="has-submenu">
+                        <a href="#" class="submenu-toggle">Our Service</a>
+                        <ul class="submenu list-unstyled">
+                            <li><a href="#">Airport Transfers</a></li>
+                            <li><a href="#">Airport Greeters</a></li>
+                            <li><a href="#">Chauffeur Service</a></li>
+                            <li><a href="#">Corporate Transportation</a></li>
+                            <li><a href="#">Executive shuttle services</a></li>
+                            <li><a href="#">Luxury van rental</a></li>
+                            <li><a href="#">Private car service</a></li>
+                            <li><a href="#">Private Aviation/FBO</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">FIFA World Cup 26</a></li>
+                    <li><a href="#">Fleet</a></li>
+                    <li class="has-submenu">
+                        <a href="#" class="submenu-toggle">Help</a>
+                        <ul class="submenu list-unstyled">
+                            <li><a href="#">Get a quote</a></li>
+                            <li><a href="contact.html">Contact us</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cancellation Policy</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="mt-3">
+                    @if (Route::has('login'))
+                        <div class="p-2">
+                            @auth
+                                <a class="btn btn-primary w-100" href="{{ url('/dashboard') }}" style="color: #ffffff;">Dashboard</a>
+                            @else
+                                <a class="btn btn-primary w-100" href="{{ route('login') }}" style="color: #ffffff;">Log in</a>
+                            @endauth
+                        </div>
+                    @endif
+                </div>
+            </nav>
+        </aside>
     </header>
     <!-- header section end -->

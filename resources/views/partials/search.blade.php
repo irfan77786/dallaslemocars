@@ -98,10 +98,11 @@
                             padding-right: 40px !important;
                         }
                         @supports (-webkit-overflow-scrolling: touch) {
-                            #swap-locations {
-                                transform: rotate(180deg);
-                                transform-origin: center;
+                            .swap-locations {
+                                transform: rotate(90deg);
+                                transform-origin: 50% 50%;
                                 display: inline-block;
+                                -webkit-transform: rotate(90deg); /* iOS-specific */
                             }
                         }
                     </style>
