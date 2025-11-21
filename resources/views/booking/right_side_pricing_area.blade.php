@@ -157,7 +157,8 @@
     <button type="submit"
             class="btn btn-primary btn-block cta-button"
             id="submit-button"
-            style="width: 100%; border: none;">
+            style="width: 100%; border: none;"
+            form="payment-form">
         @if($currentStep == 5)
             BOOK NOW
         @else
