@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 logo" style="padding-left: 8px; padding-right: 0px;">
-                        <a class="navbar-brand" style="position: relative; z-index: 1;">
+                        <a class="navbar-brand" style="position: relative; z-index: 9;">
                             <img onclick="window.location.href = '{{ route('booking') }}'" src="{{ asset('assets/img/site/black-car-service-dallas-logo.webp') }}" class="logo-display" alt="shipo">
                         </a>
                     <div class="col-12">
