@@ -30,7 +30,7 @@
     <div class="container py-md-5">
         <div class="row">
             <div class="col-md-8 px-4 mb-3 mobile-mg-dc">
-                <form method="POST" action="{{ url('/bookRide') }}" class="d-flex flex-column loader-form">
+                <form method="POST" action="{{ url('/bookRide') }}" class="d-flex flex-column loader-form" id="booking-detail-form">
                     @csrf
 
                     <input type="hidden" name="vehicle_id" id="hidden-vehicle-id" value="{{ session('vehicle_id') }}">

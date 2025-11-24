@@ -154,18 +154,19 @@
                         </span>
                     </div>
 <div class="text-center mt-3">
+    @php $targetForm = $currentStep == 5 ? 'payment-form' : 'booking-detail-form'; @endphp
     <button type="submit"
             class="btn btn-primary btn-block cta-button"
             id="submit-button"
             style="width: 100%; border: none;"
-            form="payment-form">
+            form="{{ $targetForm }}">
         @if($currentStep == 5)
             BOOK NOW
         @else
             CONTINUE TO PAYMENT
         @endif
     </button>
-</div>
+    </div>
 
 @if($currentStep == 5)
     <p class="text-muted small mt-3 text-center">
