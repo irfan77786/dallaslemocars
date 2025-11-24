@@ -25,7 +25,7 @@
     @else
     @endisset
     <!-- ======== Page title ============ -->
-    <title>Listico - Listing & Directory HTML Template</title>
+    <title>Black Car Service Dallas</title>
     <!-- ========== Favicon Icon ========== -->
     <link rel="shortcut icon" href="{{ asset('assets/img/site/dallas-black-car-service-favicon.png') }}">
     <!-- ===========  All Stylesheet ================= -->
