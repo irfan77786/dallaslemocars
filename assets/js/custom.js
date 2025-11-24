@@ -481,6 +481,7 @@ function onLocationChanged() {
 
     // Clear directions if either field is empty
     if ((pickupVal === '' || dropoffVal === '') && directionsRenderer) {
+        $('.below-map').addClass('main-hero');
         directionsRenderer.setMap(null);
         directionsRenderer = null;
     }
@@ -638,6 +639,7 @@ function initMap(pickupPlace, dropoffPlace) {
       mapElement.style.removeProperty('background-size');
       mapElement.style.removeProperty('background-position');
       mapElement.style.removeProperty('background-repeat');
+      $('.below-map').removeClass('main-hero');
   }
 
   const mapStyle = [

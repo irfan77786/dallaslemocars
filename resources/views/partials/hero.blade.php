@@ -1,6 +1,6 @@
 <div class="hero-container">
     <div class="search-form-row position-relative">
-        <div class="container h-100 main-hero p-0">
+        <div class="container h-100 main-hero below-map p-0">
             <div class="row h-100 main-head-row">
                 <div class="col-lg-5 col-md-8 ms-auto d-flex search-form-internal" style="position: absolute;">
                     <h1 class="web-hero">Your Personal Chauffeur Service</h1>
