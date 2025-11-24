@@ -165,8 +165,17 @@ class BookingController extends Controller
         ]);
     }
 
-    list($pickup_date, $pickup_time) = explode(' ', $request->pickup_datetime);
-    list($return_date, $return_time) = explode(' ', $request->return_datetime_hourly);
+    $pickupDateTime = Carbon::parse($request->pickup_datetime);
+    $pickup_date = $pickupDateTime->format('Y-m-d');
+    $pickup_time = $pickupDateTime->format('H:i:s');
+
+    $return_date = null;
+    $return_time = null;
+    if ($request->filled('return_datetime_hourly')) {
+        $returnDateTime = Carbon::parse($request->return_datetime_hourly);
+        $return_date = $returnDateTime->format('Y-m-d');
+        $return_time = $returnDateTime->format('H:i:s');
+    }
 
      $validator = Validator::make($request->all(), [
         'pickup_location' => 'required|string',
@@ -819,22 +828,23 @@ public function completeBook(Request $request)
         // Create Booking
         // -------------------------
         $pickupDateYmd = $this->safeFormatDate($pickup_date);
-        $returnDateYmd = $this->safeFormatDate($return_date);
+        $isRoundTrip = session('round_trip') ? true : false;
+        $returnDateYmd = $isRoundTrip ? $this->safeFormatDate($return_date) : null;
 
         if (!$pickupDateYmd) {
             return redirect()->back()->with('error', 'Invalid pickup date');
         }
-        if (!$returnDateYmd) {
+        if ($isRoundTrip && !$returnDateYmd) {
             return redirect()->back()->with('error', 'Invalid return date');
         }
 
         $pickupTimeHis = $this->safeFormatTime($pickup_time);
-        $returnTimeHis = $this->safeFormatTime($return_time);
+        $returnTimeHis = $isRoundTrip ? $this->safeFormatTime($return_time) : null;
 
         if (!$pickupTimeHis) {
             return redirect()->back()->with('error', 'Invalid pickup time');
         }
-        if (!$returnTimeHis) {
+        if ($isRoundTrip && !$returnTimeHis) {
             return redirect()->back()->with('error', 'Invalid return time');
         }
 

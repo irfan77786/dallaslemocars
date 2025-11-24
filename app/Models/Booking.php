@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Booking extends Model
 {
@@ -42,4 +43,26 @@ public function breakdown()
 {
     return $this->hasOne(BookingBreakdown::class);
 }
+
+    public function setPickupTimeAttribute($value)
+    {
+        $this->attributes['pickup_time'] = $this->normalizeTime($value);
+    }
+
+    public function setReturnTimeAttribute($value)
+    {
+        $this->attributes['return_time'] = $this->normalizeTime($value);
+    }
+
+    protected function normalizeTime($value)
+    {
+        if (!$value) {
+            return null;
+        }
+        try {
+            return Carbon::parse($value)->format('H:i:s');
+        } catch (\Exception $e) {
+            return null;
+        }
+    }
 }
