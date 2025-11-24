@@ -59,7 +59,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.css">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-material-datetimepicker.css') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
     @yield('styles')
 </head>
 
@@ -378,7 +377,6 @@
                 map.style.setProperty("width", "100%", "important");
             }
         }
-
     </script>
     @yield('scripts')
 </body>

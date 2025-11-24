@@ -1,6 +1,9 @@
 input[type="checkbox"] {
   accent-color: #2c314a;
 }
+.material-icons {
+    color: white !important;
+}
 button:focus {
     outline: none !important;
     box-shadow: none !important;
@@ -113,7 +116,6 @@ html, body {
 
 /* Mobile styles */
 @media (max-width: 768px) {
-
     .side_section {
         margin-bottom: 4.5rem !important;
     }
@@ -232,7 +234,9 @@ html, body {
 
 /* Desktop styles */
 @media (min-width: 769px) {
-
+    .car-section {
+        padding-bottom: 8% !important;
+    }
     .form-check-label{
         font-size: 16px !important;
         font-weight: 300 !important;
