@@ -355,11 +355,11 @@
                     @endif
                 </p>
             </div>
-            @if(session('round_trip') == 'on' && session('return_pickup_date') && session('return_pickup_time'))
+            @if(session('round_trip') == 'on' && session('return_datetime') && session('return_datetime'))
             <div class="summary-row">
                 <p class="summary-label-inline">Pick-Up Date & Time</p>
                 <span class="summary-leader"></span>
-                <p class="summary-value-inline">← {{ \Carbon\Carbon::parse(session('return_pickup_date'))->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse(session('return_pickup_time'))->format('h:i A') }}</p>
+                <p class="summary-value-inline">← {{ \Carbon\Carbon::parse(session('return_datetime'))->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse(session('return_datetime'))->format('h:i A') }}</p>
             </div>
             @endif
             <?php if($step > 2){ ?>
@@ -437,9 +437,9 @@
             → {{ \Carbon\Carbon::parse(session('pickup_date'))->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse(session('pickup_time'))->format('h:i A') }}
           @endif
         </p>
-        @if(session('round_trip') == 'on' && session('return_pickup_date') && session('return_pickup_time'))
+        @if(session('round_trip') == 'on' && session('return_datetime'))
           <p class="summary_text mb-0">
-            ← {{ \Carbon\Carbon::parse(session('return_pickup_date'))->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse(session('return_pickup_time'))->format('h:i A') }}
+            ← {{ \Carbon\Carbon::parse(session('return_datetime'))->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse(session('return_datetime'))->format('h:i A') }}
           </p>
         @endif
       </div>
