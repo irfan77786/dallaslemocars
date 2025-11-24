@@ -166,6 +166,7 @@ class BookingController extends Controller
     }
 
     list($pickup_date, $pickup_time) = explode(' ', $request->pickup_datetime);
+    list($return_date, $return_time) = explode(' ', $request->return_datetime_hourly);
 
      $validator = Validator::make($request->all(), [
         'pickup_location' => 'required|string',
@@ -210,12 +211,13 @@ class BookingController extends Controller
         'is_airport' => $data['is_airport'],
         'pickup_date' => $data['pickup_date'],
         'pickup_time' => $data['pickup_time'],
+        'return_date' => $return_date,
+        'return_time' => $return_time,
         'round_trip' => $request->round_trip,
         'return_datetime' => $request->return_datetime_hourly,
         'select_hours' => null,
         'stops' => json_encode($data['stops'] ?? []),
         'service_type' => 'pointToPoint',
-
     ]);
 
     return view('booking.confirmation', [
@@ -684,6 +686,8 @@ public function completeBook(Request $request)
         $dropoff_location    = session('dropoff_location');
         $pickup_date         = session('pickup_date');
         $pickup_time         = session('pickup_time');
+        $return_date         = session('return_date');
+        $return_time         = session('return_time');
         $first_name          = $user->first_name ?? ($guest['first_name'] ?? null);
         $last_name           = $user->last_name  ?? ($guest['last_name'] ?? null);
         $email               = $user->email      ?? ($guest['email'] ?? null);
@@ -799,12 +803,12 @@ public function completeBook(Request $request)
         // -------------------------
         $returnServiceId = null;
         if (session('return_service')) {
-            $returnPickupDate = session('return_pickup_date') ? $this->safeFormatDate(session('return_pickup_date')) : null;
-            $returnPickupTime = session('return_pickup_time') ? $this->safeFormatTime(session('return_pickup_time')) : now()->format('H:i:s');
+            $returnPickupDate = session('return_date') ? $this->safeFormatDate(session('return_date')) : null;
+            $returnPickupTime = session('return_time') ? $this->safeFormatTime(session('return_time')) : now()->format('H:i:s');
             $returnService = ReturnService::create([
                 'vehicle_id' => $vehicle_id,
-                'pickup_location' => session('return_pickup_location'),
-                'dropoff_location' => session('return_dropoff_location'),
+                'pickup_location' => session('dropoff_location'),
+                'dropoff_location' => session('pickup_location'),
                 'pickup_date' => $returnPickupDate ?? now()->format('Y-m-d'),
                 'pickup_time' => $returnPickupTime,
             ]);
@@ -815,12 +819,23 @@ public function completeBook(Request $request)
         // Create Booking
         // -------------------------
         $pickupDateYmd = $this->safeFormatDate($pickup_date);
+        $returnDateYmd = $this->safeFormatDate($return_date);
+
         if (!$pickupDateYmd) {
             return redirect()->back()->with('error', 'Invalid pickup date');
         }
+        if (!$returnDateYmd) {
+            return redirect()->back()->with('error', 'Invalid return date');
+        }
+
         $pickupTimeHis = $this->safeFormatTime($pickup_time);
+        $returnTimeHis = $this->safeFormatTime($return_time);
+
         if (!$pickupTimeHis) {
             return redirect()->back()->with('error', 'Invalid pickup time');
+        }
+        if (!$returnTimeHis) {
+            return redirect()->back()->with('error', 'Invalid return time');
         }
 
         $booking = Booking::create([
@@ -832,6 +847,8 @@ public function completeBook(Request $request)
             'dropoff_location' => $dropoff_location,
             'pickup_date' => $pickupDateYmd,
             'pickup_time' => $pickupTimeHis,
+            'return_date' => $returnDateYmd,
+            'return_time' => $returnTimeHis,
             'total_price' => $selected_price,
             'payment_status' => "Paid",
             'return_service_id' => $returnServiceId,

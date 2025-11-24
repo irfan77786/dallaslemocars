@@ -13,7 +13,10 @@ use App\Http\Controllers\ProfileController;
 use App\Models\Booking;
 
 Route::get('/dashboard', function () {
-    $bookings = Booking::with('booker', 'vehicle')->where('user_id', auth()->id())->latest()->paginate(10);
+    $bookings = Booking::with('booker', 'vehicle', 'returnService')
+        ->where('user_id', auth()->id())
+        ->latest()
+        ->paginate(10);
     return view('dashboard', compact('bookings'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 

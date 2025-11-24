@@ -24,7 +24,9 @@
                             </div>
                             <p class="mb-1"><strong>Route:</strong> {{ $booking->pickup_location }} to {{ $booking->dropoff_location }}</p>
                             <p class="mb-1"><strong>Date/Time:</strong> {{ $booking->pickup_date }} @ {{ $booking->pickup_time }}</p>
-                            @if ($booking->round_trip)
+                            @if ($booking->round_trip === 1)
+                                <p class="mb-1"><strong>Return:</strong> {{ $booking->dropoff_location }} to {{ $booking->pickup_location }}</p>
+                                <p class="mb-1"><strong>Return Date/Time:</strong> {{ $booking->return_date }} @ {{ $booking->return_time }}</p>
                                 <span class="badge bg-info text-dark">Round Trip</span>
                             @endif
                             <div class="d-flex justify-content-between align-items-center mt-2">
@@ -72,9 +74,19 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item d-flex justify-content-between py-2"><strong>Pickup:</strong> <span id="modal-pickup-location"></span></li>
                                 <li class="list-group-item d-flex justify-content-between py-2"><strong>Dropoff:</strong> <span id="modal-dropoff-location"></span></li>
-                                <li class="list-group-item d-flex justify-content-between py-2"><strong>Date:</strong> <span id="modal-pickup-date"></span></li>
-                                <li class="list-group-item d-flex justify-content-between py-2"><strong>Time:</strong> <span id="modal-pickup-time"></span></li>
+                                <li class="list-group-item d-flex justify-content-between py-2"><strong>Pickup Date &amp; Time:</strong> <span id="modal-pickup-datetime"></span></li>
                                 <li class="list-group-item d-flex justify-content-between py-2"><strong>Trip Type:</strong> <span id="modal-trip-type"></span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3" id="return-card" style="display:none;">
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-3">Return Details</h6>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between py-2"><strong>Return Pickup:</strong> <span id="modal-return-pickup-location"></span></li>
+                                <li class="list-group-item d-flex justify-content-between py-2"><strong>Return Dropoff:</strong> <span id="modal-return-dropoff-location"></span></li>
+                                <li class="list-group-item d-flex justify-content-between py-2"><strong>Return Date &amp; Time:</strong> <span id="modal-return-datetime"></span></li>
                             </ul>
                         </div>
                     </div>
@@ -119,15 +131,35 @@
             const statusElement = document.getElementById('modal-status');
             const noteCard = document.getElementById('modal-note-card');
             const vehicle = bookingData.vehicle;
+            const returnService = bookingData.returnService || bookingData.return_service || null;
 
             document.getElementById('modal-booking-id').textContent = bookingData.booking_id;
             document.getElementById('modal-total-price').textContent = `$${parseFloat(bookingData.total_price).toFixed(2)}`;
             document.getElementById('modal-pickup-location').textContent = bookingData.pickup_location;
             document.getElementById('modal-dropoff-location').textContent = bookingData.dropoff_location;
-            document.getElementById('modal-pickup-date').textContent = bookingData.pickup_date;
-            document.getElementById('modal-pickup-time').textContent = bookingData.pickup_time;
-            const isRoundTrip = !!bookingData.round_trip && (bookingData.round_trip === true || bookingData.round_trip === 1 || bookingData.round_trip === 'on');
-            document.getElementById('modal-trip-type').textContent = isRoundTrip ? 'Round Trip' : 'One-way';
+            const pickupDate = bookingData.pickup_date || '';
+            const pickupTime = bookingData.pickup_time || '';
+            document.getElementById('modal-pickup-datetime').textContent = (pickupDate && pickupTime) ? `${pickupDate} @ ${pickupTime}` : (pickupDate || pickupTime);
+            document.getElementById('modal-trip-type').textContent = bookingData.round_trip == 1 ? 'Round Trip' : 'One-way';
+
+            const returnCard = document.getElementById('return-card');
+            if (returnService) {
+                document.getElementById('modal-return-pickup-location').textContent = returnService.pickup_location || '';
+                document.getElementById('modal-return-dropoff-location').textContent = returnService.dropoff_location || '';
+                const returnDate = returnService.pickup_date || '';
+                const returnTime = returnService.pickup_time || '';
+                document.getElementById('modal-return-datetime').textContent = (returnDate && returnTime) ? `${returnDate} @ ${returnTime}` : (returnDate || returnTime);
+                returnCard.style.display = 'block';
+            } else if (bookingData.round_trip == 1) {
+                document.getElementById('modal-return-pickup-location').textContent = bookingData.dropoff_location || '';
+                document.getElementById('modal-return-dropoff-location').textContent = bookingData.pickup_location || '';
+                const returnDate = bookingData.return_date || '';
+                const returnTime = bookingData.return_time || '';
+                document.getElementById('modal-return-datetime').textContent = (returnDate && returnTime) ? `${returnDate} @ ${returnTime}` : (returnDate || returnTime);
+                returnCard.style.display = 'block';
+            } else {
+                returnCard.style.display = 'none';
+            }
 
             if (vehicle) {
                 document.getElementById('modal-vehicle-name').textContent = vehicle.vehicle_name || 'N/A';
