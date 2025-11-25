@@ -291,16 +291,8 @@
 
             (function() {
                 if (typeof $ !== 'function' || typeof $.fn.bootstrapMaterialDatePicker !== 'function') return;
-                var startHour = 8;
-                var endHour = 23;
                 function computeTarget(now) {
                     var t = moment(now).add(2, 'hours');
-                    if (t.isSame(now, 'day') && t.hour() < startHour) {
-                        t = moment(now).hour(startHour).minute(0);
-                    }
-                    if (t.hour() >= endHour) {
-                        t = moment(now).add(1, 'day').hour(startHour).minute(0);
-                    }
                     if (t.isBefore(now)) {
                         t = now;
                     }
@@ -338,16 +330,8 @@
             })();
 
                 (function() {
-                    var startHour = 8;
-                    var endHour = 23;
                     var now = moment();
                     var target = moment(now).add(2, 'hours');
-                    if (target.isSame(now, 'day') && target.hour() < startHour) {
-                        target = moment(now).hour(startHour).minute(0);
-                    }
-                    if (target.hour() >= endHour) {
-                        target = moment(now).add(1, 'day').hour(startHour).minute(0);
-                    }
                     if (target.isBefore(now)) {
                         target = now;
                     }
