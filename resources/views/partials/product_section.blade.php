@@ -26,7 +26,7 @@ $features = [
 }
 .btn-primary {
     background-color: #1981A1 !important;
-    border: none !important;
+    border: 1px solid #1981A1 !important;
     box-shadow: none !important;
 }
 .vehical-card {
@@ -549,7 +549,7 @@ $features = [
 
                     <hr>
                     <h6 class="card-title">Secure payments</h6>
-                    <img src="{{ asset('assets/img/credit-cards.png') }}" alt="Payment methods" class="img-fluid" >
+                    <img src="{{ asset('assets/img/credit-cards.png') }}" alt="Payment methods" class="img-fluid payment-methods" >
                     <hr>
                     <h6 class="card-title text-primary"><i class="bi bi-chat-left-text-fill"></i>Email Support</h6>
                     <p class="card-text">Reach us anytime for quick assistance.</p>

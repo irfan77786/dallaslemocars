@@ -234,7 +234,7 @@
                     <input type="hidden" id="booker_number" name="booker_number" value="">
                     <input type="text" name="type" value="guest" hidden>
 
-                    <button type="submit" class="continue-btn">CONTINUE AS GUEST</button>
+                    <button type="submit" class="continue-btn btn btn-primary btn-uniform w-100">CONTINUE AS GUEST</button>
                 </form>
             </div>
         </div>
@@ -297,7 +297,7 @@
 
                     <input type="text" name="type" value="real" hidden>
 
-                    <button id="continue_right" type="submit" class="login-btn">Continue</button>
+                    <button id="continue_right" type="submit" class="login-btn btn btn-primary btn-uniform w-100">Continue</button>
                 </form>
 
                 <!-- Benefits Section -->

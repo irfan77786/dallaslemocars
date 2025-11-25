@@ -227,6 +227,17 @@
                 google.maps.event.trigger(window.autocompleteDropoff, 'place_changed');
             });
 
+            (function(){
+                var selector = 'input[id$="-location"]';
+                $(document).on('focus click', selector, function(){
+                    var el = this;
+                    setTimeout(function(){ try { el.select(); } catch(e){} }, 0);
+                });
+                $(document).on('mouseup', selector, function(e){
+                    e.preventDefault();
+                });
+            })();
+
             if ($('#round-trip').is(':checked')) {
                 $('.return-trip').show();
                 $('.point-button').addClass('mt-4');
@@ -280,22 +291,44 @@
 
             (function() {
                 if (typeof $ !== 'function' || typeof $.fn.bootstrapMaterialDatePicker !== 'function') return;
+                var startHour = 8;
+                var endHour = 23;
+                function computeTarget(now) {
+                    var t = moment(now).add(2, 'hours');
+                    if (t.isSame(now, 'day') && t.hour() < startHour) {
+                        t = moment(now).hour(startHour).minute(0);
+                    }
+                    if (t.hour() >= endHour) {
+                        t = moment(now).add(1, 'day').hour(startHour).minute(0);
+                    }
+                    if (t.isBefore(now)) {
+                        t = now;
+                    }
+                    return t;
+                }
                 function initMDP(sel) {
                     var $el = $(sel);
                     if (!$el.length) return;
+                    var now = moment();
+                    var minTarget = computeTarget(now);
                     var val = $el.val();
                     var opts = {
                         format: 'ddd, MMM Do, YYYY h:mm A',
-                        minDate: moment(),
+                        minDate: minTarget,
                         shortTime: true,
                         clearButton: false,
                         switchOnClick: false,
                         weekStart: 0
                     };
                     if (val) {
-                        opts.currentDate = moment(val, 'ddd, MMM Do, YYYY h:mm A', true);
+                        var parsed = moment(val, 'ddd, MMM Do, YYYY h:mm A', true);
+                        if (parsed.isValid()) {
+                            opts.currentDate = parsed.isBefore(minTarget) ? minTarget : parsed;
+                        } else {
+                            opts.currentDate = minTarget;
+                        }
                     } else {
-                        opts.currentDate = moment().hour(9).minute(30);
+                        opts.currentDate = minTarget;
                     }
                     $el.bootstrapMaterialDatePicker(opts);
                 }
@@ -304,26 +337,78 @@
                 initMDP('#return-datetime-hourly');
             })();
 
-                const fpInstances = flatpickr(".flatpickr", {
-                    enableTime: true,
-                    dateFormat: "Y-m-d h:i K",
-                    altInput: true,
-                    altFormat: "D, M jS, Y h:i K",
-                    minDate: "today",
-                    time_24hr: false,
-                    minuteIncrement: 15,
-                    defaultHour: new Date().getHours(),
-                    defaultMinute: Math.ceil(new Date().getMinutes() / 15) * 15,
-                    disableMobile: true,
-                    allowInput: true,
-                    clickOpens: true,
-                    closeOnSelect: false,
-                    plugins: [confirmDatePlugin({ showAlways: true })],
-                    onReady: function(selectedDates, dateStr, instance) {
-                        instance.set('hourElement').value = instance.currentHour;
-                        instance.set('minuteElement').value = instance.currentMinute;
+                (function() {
+                    var startHour = 8;
+                    var endHour = 23;
+                    var now = moment();
+                    var target = moment(now).add(2, 'hours');
+                    if (target.isSame(now, 'day') && target.hour() < startHour) {
+                        target = moment(now).hour(startHour).minute(0);
                     }
-                });
+                    if (target.hour() >= endHour) {
+                        target = moment(now).add(1, 'day').hour(startHour).minute(0);
+                    }
+                    if (target.isBefore(now)) {
+                        target = now;
+                    }
+                    var minuteInc = 15;
+                    var roundedMin = Math.ceil(target.minute() / minuteInc) * minuteInc;
+                    if (roundedMin === 60) {
+                        target.add(1, 'hour');
+                        roundedMin = 0;
+                    }
+                    var defaultTarget = moment(target).minute(roundedMin).second(0).millisecond(0);
+                    const fpInstances = flatpickr(".flatpickr", {
+                        enableTime: true,
+                        dateFormat: "Y-m-d h:i K",
+                        altInput: true,
+                        altFormat: "D, M jS, Y h:i K",
+                        minDate: defaultTarget.toDate(),
+                        time_24hr: false,
+                        minuteIncrement: minuteInc,
+                        defaultHour: defaultTarget.hour(),
+                        defaultMinute: defaultTarget.minute(),
+                        defaultDate: defaultTarget.toDate(),
+                        disableMobile: true,
+                        allowInput: true,
+                        clickOpens: true,
+                        closeOnSelect: false,
+                        plugins: [confirmDatePlugin({ showAlways: true })],
+                        onReady: function(selectedDates, dateStr, instance) {
+                            instance.set('hourElement').value = instance.currentHour;
+                            instance.set('minuteElement').value = instance.currentMinute;
+                        }
+                    });
+                    if (Array.isArray(fpInstances)) {
+                        fpInstances.forEach(function(instance) {
+                            const inputEl = instance.altInput || instance.input;
+                            if (!inputEl) return;
+                            const container = document.createElement('span');
+                            container.style.marginLeft = '8px';
+                            const calBtn = document.createElement('button');
+                            calBtn.type = 'button';
+                            calBtn.className = 'btn btn-outline-secondary btn-sm';
+                            calBtn.style.marginRight = '6px';
+                            calBtn.innerHTML = '<i class="bi bi-calendar3"></i>';
+                            const clockBtn = document.createElement('button');
+                            clockBtn.type = 'button';
+                            clockBtn.className = 'btn btn-outline-secondary btn-sm';
+                            clockBtn.innerHTML = '<i class="bi bi-clock"></i>';
+                            container.appendChild(calBtn);
+                            container.appendChild(clockBtn);
+                            inputEl.insertAdjacentElement('afterend', container);
+                            calBtn.addEventListener('click', function() {
+                                instance.open();
+                            });
+                            clockBtn.addEventListener('click', function() {
+                                instance.open();
+                                setTimeout(function() {
+                                    if (instance.hourElement) instance.hourElement.focus();
+                                }, 0);
+                            });
+                        });
+                    }
+                })();
 
                 if (Array.isArray(fpInstances)) {
                     fpInstances.forEach(function(instance) {

@@ -1,6 +1,27 @@
 input[type="checkbox"] {
   accent-color: #2c314a;
 }
+.skip-btn {
+    width: 30% !important;
+}
+.btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show>.btn-outline-primary.dropdown-toggle, .btn-outline-primary:hover {
+    color: white !important;
+    background: linear-gradient(to right, #1A6982, #1B9CCC) !important;
+    border: 1px solid #1A6982 !important;
+}
+.btn-outline-primary {
+    color: #1A6982;
+    border: 1px solid #1A6982 !important;
+}
+.btn-primary {
+    padding: .475rem .75rem !important;
+}
+.payment-methods {
+    display: flex !important;
+    justify-self: center !important;
+    margin-top: 8px !important;
+    max-width: 75% !important;
+}
 .material-icons {
     color: white !important;
 }
@@ -12,7 +33,7 @@ button:focus {
     display: none;
 }
 .btn-primary, .bg-primary {
-    background: linear-gradient(to right, #2c314a, #1B9CCC) !important;
+    background: linear-gradient(to right, #1A6982, #1B9CCC) !important;
 }
 .text-primary, .text-p2 {
     color: #2c314a !important;
@@ -477,7 +498,7 @@ html, body {
 
 .floating-bordered-input .floating-label {
     position: absolute;
-    top: -0.9rem;
+    top: -0.96rem;
     left: .5rem;
     font-size: 0.85rem;
     color: #3a3a3a;

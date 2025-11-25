@@ -129,7 +129,7 @@
                 <!-- BUTTON + SUPPORTED CARDS -->
                 <div class="d-md-flex justify-content-between">
                     <img src="{{ asset('assets/img/credit-cards.png') }}" alt="Supported Credit Cards"
-                        class="img-fluid" style="max-width: 400px;">
+                        class="img-fluid" style="max-width: 280px;">
 
                     <button type="submit"
                         style="width: 100%; max-width: 250px;"

@@ -44,7 +44,6 @@
 
 .btn-primary{
     background-color:#1E1E1E;
-    border-color: #1E1E1E;
 }
 
 .step{
@@ -234,6 +233,14 @@
     .mob-step-dot.active{ border-color:#1A6982; background:#1A6982; color:#fff !important; }
     .mob-step-dot.upcoming{ border-color:#e5e7eb; background:#fff; color:#9ca3af; }
 
+    .summary-row{ flex-wrap:wrap; align-items:flex-start; gap:0; margin-bottom:10px; }
+    .summary-label-inline{ flex:0 0 100%; margin-bottom:2px; }
+    .summary-leader{ display:none; }
+    .summary-value-inline{ flex:0 0 100%; white-space:normal; overflow:visible; text-overflow:clip; color:#6b7280 !important; }
+    .summary-section-title{ font-weight:700; color:#1f2937; }
+    .summary-section-divider{ height:0; border-bottom:1px solid #e5e7eb; margin:8px 0; }
+}
+
     /*.step::after{*/
     /*    content: "";*/
     /*    position: absolute;*/
@@ -309,92 +316,87 @@
         </div>
     </div>
 
-    <!-- Collapsible Ride Info Summary -->
-    <div class="collapse " id="mobileRideSummary">
-        <div class="px-3  mob_top_summary">
+    <div class="collapse" id="mobileRideSummary">
+        <div class="px-3 mob_top_summary">
+            @php
+                $selectedVehicleName = null;
+                try {
+                    $selId = session('vehicle_id');
+                    if ($selId) {
+                        $v = \App\Models\Vehicle::find($selId);
+                        $selectedVehicleName = $v ? $v->vehicle_name : null;
+                    }
+                } catch (\Throwable $e) {
+                    $selectedVehicleName = null;
+                }
+                $showReturn = (session('round_trip') == 'on') || session('return_service');
+                $returnPickup = session('return_pickup_location') ?? (session('dropoff_location'));
+                $returnDropoff = session('return_dropoff_location') ?? (session('pickup_location'));
+                $returnDate = session('return_pickup_date');
+                $returnTime = session('return_pickup_time');
+                $returnDT = session('return_datetime');
+            @endphp
+
+            <div class="mb-2 summary-section-title">Outward Trip</div>
             <div class="summary-row">
                 <p class="summary-label-inline">Pickup Location</p>
                 <span class="summary-leader"></span>
-                <p class="summary-value-inline">
-                    @if(session('pickup_location'))
-                        → {{ session('pickup_location') }}
-                    @endif
-                </p>
+                <p class="summary-value-inline">{{ session('pickup_location') }}</p>
             </div>
-            @if(session('round_trip') == 'on' && session('dropoff_location'))
-            <div class="summary-row">
-                <p class="summary-label-inline">Pickup Location</p>
-                <span class="summary-leader"></span>
-                <p class="summary-value-inline">← {{ session('dropoff_location') }}</p>
-            </div>
-            @endif
             <div class="summary-row">
                 <p class="summary-label-inline">{{ session('dropoff_location') ? 'Destination' : 'Selected Hours' }}</p>
                 <span class="summary-leader"></span>
-                <p class="summary-value-inline">
-                    @if(session('dropoff_location'))
-                        → {{ session('dropoff_location') }}
-                    @else
-                        Hours {{ session('select_hours') }}
-                    @endif
-                </p>
+                <p class="summary-value-inline">@if(session('dropoff_location')){{ session('dropoff_location') }}@else Hours {{ session('select_hours') }} @endif</p>
             </div>
-            @if(session('round_trip') == 'on' && session('pickup_location') && session('dropoff_location'))
             <div class="summary-row">
-                <p class="summary-label-inline">{{ session('dropoff_location') ? 'Destination' : 'Selected Hours' }}</p>
+                <p class="summary-label-inline">Date & Time</p>
                 <span class="summary-leader"></span>
-                <p class="summary-value-inline">← {{ session('pickup_location') }}</p>
+                <p class="summary-value-inline">@if(session('pickup_date') && session('pickup_time')){{ \Carbon\Carbon::parse(session('pickup_date'))->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse(session('pickup_time'))->format('h:i A') }}@endif</p>
             </div>
-            @endif
-            <div class="summary-row">
-                <p class="summary-label-inline">Pick-Up Date & Time</p>
-                <span class="summary-leader"></span>
-                <p class="summary-value-inline">
-                    @if(session('pickup_date') && session('pickup_time'))
-                        → {{ \Carbon\Carbon::parse(session('pickup_date'))->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse(session('pickup_time'))->format('h:i A') }}
-                    @endif
-                </p>
-            </div>
-            @if(session('round_trip') == 'on' && session('return_datetime') && session('return_datetime'))
-            <div class="summary-row">
-                <p class="summary-label-inline">Pick-Up Date & Time</p>
-                <span class="summary-leader"></span>
-                <p class="summary-value-inline">← {{ \Carbon\Carbon::parse(session('return_datetime'))->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse(session('return_datetime'))->format('h:i A') }}</p>
-            </div>
-            @endif
-            <?php if($step > 2){ ?>
-            <div class="summary-row">
-                <p class="summary-label-inline">Car Type</p>
-                <span class="summary-leader"></span>
-                <p class="summary-value-inline">
-                    @php
-                        $selectedVehicleName = null;
-                        try {
-                            $selId = session('vehicle_id');
-                            if ($selId) {
-                                $v = \App\Models\Vehicle::find($selId);
-                                $selectedVehicleName = $v ? $v->vehicle_name : null;
-                            }
-                        } catch (\Throwable $e) {
-                            $selectedVehicleName = null;
-                        }
-                    @endphp
-                    {{ $selectedVehicleName ?? 'Sedan' }}
-                </p>
-            </div>
-            @if(session('round_trip') == 'on')
+            @if($step > 2)
             <div class="summary-row">
                 <p class="summary-label-inline">Car Type</p>
                 <span class="summary-leader"></span>
                 <p class="summary-value-inline">{{ $selectedVehicleName ?? 'Sedan' }}</p>
             </div>
             @endif
-            <?php } ?>
+
+            @if($showReturn)
+            <div class="summary-section-divider"></div>
+            <div class="mt-3 mb-2 summary-section-title">Return Trip</div>
+            <div class="summary-row">
+                <p class="summary-label-inline">Pickup Location</p>
+                <span class="summary-leader"></span>
+                <p class="summary-value-inline">{{ $returnPickup }}</p>
+            </div>
+            <div class="summary-row">
+                <p class="summary-label-inline">Destination</p>
+                <span class="summary-leader"></span>
+                <p class="summary-value-inline">{{ $returnDropoff }}</p>
+            </div>
+            <div class="summary-row">
+                <p class="summary-label-inline">Date & Time</p>
+                <span class="summary-leader"></span>
+                <p class="summary-value-inline">
+                    @if($returnDate && $returnTime)
+                        {{ \Carbon\Carbon::parse($returnDate)->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse($returnTime)->format('h:i A') }}
+                    @elseif($returnDT)
+                        {{ \Carbon\Carbon::parse($returnDT)->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse($returnDT)->format('h:i A') }}
+                    @endif
+                </p>
+            </div>
+            @if($step > 2)
+            <div class="summary-row">
+                <p class="summary-label-inline">Car Type</p>
+                <span class="summary-leader"></span>
+                <p class="summary-value-inline">{{ $selectedVehicleName ?? 'Sedan' }}</p>
+            </div>
+            @endif
+            @endif
+
             <div class="mt-2">
                 <a href="/booking?edit=1">
-                    <button class="btn btn-primary btn-sm px-3 py-1 font-weight-bold" style="font-size: 14px;padding: 5px 8px !important;">
-                        EDIT
-                    </button>
+                    <button class="btn btn-primary btn-sm px-3 py-1 font-weight-bold" style="font-size: 14px;padding: 5px 8px !important;">EDIT</button>
                 </a>
             </div>
         </div>
@@ -518,4 +520,3 @@
         }
     }
 </script>
-

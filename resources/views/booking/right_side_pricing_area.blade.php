@@ -65,11 +65,10 @@
 }
 .cta-button {
     width: 100%;
-    max-width: 320px;
     margin: 12px auto 0;
     display: block;
     font-weight: 600;
-    letter-spacing: 0.5px;
+    letter-spacing: 2px;
 }
 </style>
 <div class="col-md-4" id="pricing-area-wrapper">
@@ -156,9 +155,9 @@
 <div class="text-center mt-3">
     @php $targetForm = $currentStep == 5 ? 'payment-form' : 'booking-detail-form'; @endphp
     <button type="submit"
-            class="btn btn-primary btn-block cta-button"
+            class="btn btn-primary w-100 btn-uniform cta-button"
             id="submit-button"
-            style="width: 100%; border: none;"
+            style="width: 100%; text-transform: uppercase; padding: 0.575rem .75rem !important; border-color: unset;"
             form="{{ $targetForm }}">
         @if($currentStep == 5)
             BOOK NOW
@@ -169,15 +168,15 @@
     </div>
 
 @if($currentStep == 5)
-    <p class="text-muted small mt-3 text-center">
+    <p class="text-muted small mt-3 text-center mb-0">
         By clicking "BOOK NOW", you agree to our
         <a href="#" class="hover-black" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Terms &amp; Conditions</a>
     </p>
 @endif
 
                     <div class="payment_method_info_box">
-                        <p>Secure payments</p>
-                        <img src="{{ asset('assets/img/credit-cards.png') }}" alt="Payment methods" class="img-fluid" >
+                        <p class="mb-0 mt-2">Secure payments</p>
+                        <img src="{{ asset('assets/img/credit-cards.png') }}" alt="Payment methods" class="img-fluid payment-methods" >
 
                     </div>
                 </div>
