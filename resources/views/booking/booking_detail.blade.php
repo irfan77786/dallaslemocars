@@ -111,9 +111,8 @@
                         <button type="submit" class="btn btn-primary btn-uniform flex-fill">CONTINUE TO PAYMENT</button>
                     </div>
                     <div class="mt-4 d-flex justify-content-start d-md-none">
-                        <button type="submit" class="btn btn-primary btn-block" style="padding: 0.575rem .75rem !important;">
-                            CONTINUE TO PAYMENT
-                        </button>
+                        <button type="submit" class="btn btn-outline-primary btn-uniform mr-2 skip-btn">SKIP</button>
+                        <button type="submit" class="btn btn-primary btn-block" style="padding: 0.575rem .75rem !important;">CONTINUE TO PAYMENT</button>
                     </div>
             </div>
 

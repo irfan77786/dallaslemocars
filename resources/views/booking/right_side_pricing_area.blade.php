@@ -71,7 +71,7 @@
     letter-spacing: 2px;
 }
 </style>
-<div class="col-md-4" id="pricing-area-wrapper">
+<div class="col-md-4 mb-4" id="pricing-area-wrapper">
 
             @php
                 $breakdown = session('breakdown_data');

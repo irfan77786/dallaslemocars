@@ -137,6 +137,9 @@ html, body {
 
 /* Mobile styles */
 @media (max-width: 768px) {
+    .skip-btn {
+        width: 100% !important;
+    }
     .side_section {
         margin-bottom: 4.5rem !important;
     }
