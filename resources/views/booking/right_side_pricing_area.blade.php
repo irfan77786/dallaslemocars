@@ -100,10 +100,10 @@
                             ${{ $whole}}<span class="price-decimal">.{{ $decimal }}</span> USD
                         </span>
                     </div>
-                    @if($breakdown && isset($breakdown['hours']))
+                    @if(($breakdown && isset($breakdown['hours'])) || session()->has('select_hours'))
                         <div class="d-flex justify-content-between mb-1">
                             <span class="pricing_summary_label">Total Hours</span>
-                            <span class="pricing_summary_price">{{ $breakdown['hours']? $breakdown['hours' ]: session('select_hours') }}</span>
+                            <span class="pricing_summary_price">{{ ($breakdown && isset($breakdown['hours'])) ? $breakdown['hours'] : session('select_hours') }}</span>
                         </div>
                     @endif
                         <div id="return-trip-section" style="{{ (session('round_trip') == 'on' && session('return_price')) ? '' : 'display: none;' }}">
