@@ -2,36 +2,42 @@
 @section('content')
 
 @section('styles')
-<style>
+    <style>
     .ElementsApp .Icon-fill {
       fill: black !important;
     }
     #card-element{
-        background:transparent !important;
-        padding: 1.2rem!important;
-        background-color: #EEEFF1 !important;
+        background: transparent !important;
+        padding: 0 !important;
     }
     #card-errors{
         line-height: 18px !important;
-        margin-left: 5px;
-        margin-top: 55px;
-    }
-    @media (min-width: 769px) {
-        #card-errors {
-            margin-top: 50px !important;
-        }
+        margin-left: 0;
     }
   .form-control {
     -webkit-appearance: none;
     padding-left: 15px !important;
     border: 1px solid rgba(0, 0, 0, 0.23) !important;
     font-size: 16px;
-        height: 45px;  /* Adjust as needed */
+    height: 45px;
     max-width: 100%;
 }
- #card-name, #card-element {
-        border-radius: 3px; /* Optional: rounded corners */
-    }
+
+ .floating-bordered-input {
+   padding-left: 14px;
+   padding-right: 14px;
+ }
+
+ .floating-bordered-input .form-control {
+   border: none !important;
+   box-shadow: none !important;
+   margin-top: 10px !important;
+ }
+
+#card-element.form-control {
+  height: 45px;
+  padding: 0 10px;
+}
      .text-primary{
         color:var(--dark-bg-btn) !important;
     }
@@ -97,28 +103,17 @@
                 <input type="hidden" name="payment_method_id" id="payment_method_id">
 
                 <!-- NAME ON CARD -->
-                <div class="mb-4 margin-pc-payment">
-                    <div class="input-text-container">
-                        <div class="p-1">
-                            <input type="text" id="card-name" class="form-control border border-secondary"
-                                placeholder="Name on Card"
-                                style="height: 60px; background-color: #EEEFF1 !important;" required>
-                        </div>
-                    </div>
+                <div class="floating-bordered-input position-relative mb-4 margin-pc-payment">
+                    <span class="floating-label">Full Name</span>
+                    <input id="card-name" type="text" class="form-control" required autofocus placeholder=" ">
                 </div>
 
                 <!-- CARD ELEMENT -->
-                <div class="input mb-3 margin-pc-payment">
-                    <div class="input-text-container">
-                        <div class="p-1">
-                            <div id="card-element"
-                                class="form-control border border-secondary p-1"
-                                style="height: 60px; background-color: #EEEFF1 !important;">
-                            </div>
-                        </div>
-                    </div>
-                    <div id="card-errors" class="text-danger small"></div>
+                <div class="floating-bordered-input position-relative mb-1 margin-pc-payment">
+                    <span class="floating-label">Card Number</span>
+                    <div id="card-element" class="form-control"></div>
                 </div>
+                <div id="card-errors" class="text-danger small mt-1"></div>
 
                 <p class="text-muted small mt-4 mb-3 d-none d-md-block text-center" style="margin-top: 40px !important;">
                     By clicking "BOOK NOW", you agree to our
@@ -127,7 +122,7 @@
                 </p>
 
                 <!-- BUTTON + SUPPORTED CARDS -->
-                <div class="d-md-flex justify-content-between">
+                <div class="d-md-flex justify-content-between mt-2">
                     <img src="{{ asset('assets/img/credit-cards.png') }}" alt="Supported Credit Cards"
                         class="img-fluid" style="max-width: 280px;">
 
@@ -282,6 +277,7 @@
             base: {
                 fontSize: '16px',
                 color: '#212529',
+                lineHeight: '45px',
             }
         }
     });
@@ -306,12 +302,14 @@
     function updatePricingAreaMargin(hasError) {
         const pricingArea = document.getElementById('pricing-area-wrapper');
         const isMobile = window.innerWidth <= 768;
-
-        pricingArea.style.marginTop = hasError && isMobile ? '55px' : '';
     }
 
     card.on('change', function(event) {
         updatePricingAreaMargin(!!event.error || event.empty || !event.complete);
+        const err = document.getElementById('card-errors');
+        if (err) {
+            err.textContent = event.error ? event.error.message : '';
+        }
     });
 
     const form = document.getElementById('payment-form');

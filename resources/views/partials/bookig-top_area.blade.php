@@ -304,8 +304,35 @@
     </div>
 </div>
 
+<!-- Mobile Steps: moved above summary -->
+<div class="d-md-none px-3 py-2">
+    <p class="step-header mb-1">STEP {{ $currentStep }} OF {{ count($steps) }}</p>
+    <div class="row">
+        <div class="col-6">
+            <h5 class="step-title mb-2">{{ $steps[$currentStep]['label'] }}</h5>
+        </div>
+        <div class="col-6">
+            <div class="mob-step-dots d-flex align-items-center">
+                @foreach ($steps as $index => $stepData)
+                    @php
+                        $isCompleted = ($index < $currentStep);
+                        $isActive = ($index === $currentStep);
+                        $cls = $isCompleted ? 'completed' : ($isActive ? 'active' : 'upcoming');
+                    @endphp
+                    @if($stepData['route'])
+                        <a href="{{ $stepData['route'] }}" class="trigger-loader">
+                            <span class="mob-step-dot {{ $cls }}">@if($isCompleted)&#10003;@else{{ $index }}@endif</span>
+                        </a>
+                    @else
+                        <span class="mob-step-dot {{ $cls }}">@if($isCompleted)&#10003;@else{{ $index }}@endif</span>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="d-md-none mb-md-3">
-    <!-- Header with "Booking Summary" and Expand toggle -->
  <div class="d-flex justify-content-between align-items-center px-3 py-2 bg-white" data-toggle="collapse" data-target="#mobileRideSummary" aria-expanded="false" style="cursor: pointer;" onclick="toggleCollapse()">
         <h6 class="step-label-pill is-active">Booking Summary</h6>
         <div class="d-flex align-items-center summary_toggle_container">
@@ -403,7 +430,6 @@
     </div>
 </div>
 
-
 <!-- DESKTOP VIEW (hidden on small devices) -->
 <div class="container px-3 py-3 d-none d-md-block bg-white">
   <div class="d-flex align-items-start justify-content-between">
@@ -478,32 +504,7 @@
 
 </div>
 
-<div class="d-md-none px-3 py-2">
-    <p class="step-header mb-1">STEP {{ $currentStep }} OF {{ count($steps) }}</p>
-    <div class="row">
-        <div class="col-6">
-            <h5 class="step-title mb-2">{{ $steps[$currentStep]['label'] }}</h5>
-        </div>
-        <div class="col-6">
-            <div class="mob-step-dots d-flex align-items-center">
-                @foreach ($steps as $index => $stepData)
-                    @php
-                        $isCompleted = ($index < $currentStep);
-                        $isActive = ($index === $currentStep);
-                        $cls = $isCompleted ? 'completed' : ($isActive ? 'active' : 'upcoming');
-                    @endphp
-                    @if($stepData['route'])
-                        <a href="{{ $stepData['route'] }}" class="trigger-loader">
-                            <span class="mob-step-dot {{ $cls }}">@if($isCompleted)&#10003;@else{{ $index }}@endif</span>
-                        </a>
-                    @else
-                        <span class="mob-step-dot {{ $cls }}">@if($isCompleted)&#10003;@else{{ $index }}@endif</span>
-                    @endif
-                @endforeach
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <script>
     function toggleCollapse() {

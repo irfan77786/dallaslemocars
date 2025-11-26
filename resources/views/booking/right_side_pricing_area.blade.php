@@ -91,8 +91,11 @@
                         $price = number_format($base, 2);
                         [$whole, $decimal] = explode('.', $price);
                     @endphp
+                    @php
+                        $isRoundTrip = session('round_trip') == 'on';
+                    @endphp
                     <div class="d-flex justify-content-between mb-1">
-                        <span class="pricing_summary_label">Base Fare</span>
+                        <span class="pricing_summary_label">{{ $isRoundTrip ? 'Outward Trip' : 'Base Fare' }}</span>
                         <span id="trip-price" class="pricing_summary_price">
                             ${{ $whole}}<span class="price-decimal">.{{ $decimal }}</span> USD
                         </span>
@@ -103,8 +106,7 @@
                             <span class="pricing_summary_price">{{ $breakdown['hours']? $breakdown['hours' ]: session('select_hours') }}</span>
                         </div>
                     @endif
-                     {{-- Return Trip Section (Hidden by default) --}}
-                        <div id="return-trip-section" style="{{ session('return_price') ? '' : 'display: none;' }}">
+                        <div id="return-trip-section" style="{{ (session('round_trip') == 'on' && session('return_price')) ? '' : 'display: none;' }}">
                             <hr />
                             <!--<h2 class="mb-3 step-title font-weight-bold" style="font-size: 16px">Return Trip</h2>-->
 
@@ -122,7 +124,7 @@
                             <!--</div>-->
 @if(session('return_price'))
     <div class="d-flex justify-content-between mb-1">
-        <span class="pricing_summary_label">Return Base Price</span>
+        <span class="pricing_summary_label">Return Trip</span>
         @php
             $price = number_format(session('return_price'), 2);
             [$whole, $decimal] = explode('.', $price);

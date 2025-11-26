@@ -481,17 +481,46 @@ class BookingController extends Controller
             $selectedId = session('vehicle_id');
             if ($selectedId && isset($distanceData[$selectedId]) && empty($distanceData[$selectedId]['error'])) {
                 $basePrice = (float)($distanceData[$selectedId]['price'] ?? 0);
-                $returnPrice = (float)session('return_price', 0);
                 $insidePickupFee = (float)session('inside_pickup_fee', 0);
-                $final = (session('return_service') && $returnPrice)
-                    ? ($basePrice + $returnPrice + $insidePickupFee)
-                    : ($basePrice + $insidePickupFee);
 
                 session([
                     'calculated_price' => $basePrice,
                     'breakdown_data' => $distanceData[$selectedId],
-                    'final_price' => $final,
                 ]);
+
+                $pickupLocation = session('pickup_location');
+                $dropoffLocation = session('dropoff_location');
+                $isRoundTrip = session('round_trip') == 'on';
+
+                $final = $basePrice + $insidePickupFee;
+
+                if ($isRoundTrip && $pickupLocation && $dropoffLocation) {
+                    $selectedVehicle = Vehicle::find($selectedId);
+                    if ($selectedVehicle) {
+                        $returnData = $this->calculateDistanceWithStops(
+                            $dropoffLocation,
+                            $pickupLocation,
+                            [],
+                            $selectedVehicle->base_fare,
+                            null,
+                            $selectedVehicle->per_km_rate,
+                            $selectedVehicle->base_hourly_fare
+                        );
+
+                        if (empty($returnData['error'])) {
+                            $returnPrice = (float)($returnData['price'] ?? 0);
+                            session([
+                                'return_price' => $returnPrice,
+                                'return_base_fare' => $selectedVehicle->base_fare,
+                                'return_per_km_rate' => $selectedVehicle->per_km_rate,
+                                'return_km' => $returnData['distance_km'],
+                            ]);
+                            $final = $basePrice + $returnPrice + $insidePickupFee;
+                        }
+                    }
+                }
+
+                session(['final_price' => $final]);
             }
 
             return view('booking.booking_detail', [
@@ -650,7 +679,7 @@ try {
     $returnPrice = session('return_price', 0); // Fetch return price if available
     $insidePickupFee = $validated['inside_pickup_fee'] ?? 0;
 
-    if ($request->input('return_pickup_location') && $request->has('return-service')) {
+    if ((session('round_trip') == 'on' && $returnPrice) || ($request->input('return_pickup_location') && $request->has('return-service'))) {
         $total = $basePrice + $returnPrice + $insidePickupFee;
     } else {
         $total = $basePrice + $insidePickupFee;

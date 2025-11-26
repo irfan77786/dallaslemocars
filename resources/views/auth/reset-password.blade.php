@@ -2,7 +2,7 @@
 
 @section('guest_data')
 
-<div class="container d-flex align-items-center justify-content-center" style="min-height: -webkit-fill-available;">
+<div class="container d-flex align-items-center justify-content-center" style="height: 70%;">
     <div class="card shadow-sm" style="max-width: 420px; width: 100%;">
         <div class="card-body p-4">
             <h3 class="text-center mb-4">{{ __('Reset Password') }}</h3>

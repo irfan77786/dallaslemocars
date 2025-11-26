@@ -1,5 +1,9 @@
 @section('styles')
     <style>
+        .main-header {
+            background: #fff;
+            padding: 10px 0px;
+        }
         .continue-button {
             width: 310px;
             height: 50px;

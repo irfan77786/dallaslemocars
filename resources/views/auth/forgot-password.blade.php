@@ -2,7 +2,7 @@
 
 @section('guest_data')
 
-<div class="container d-flex align-items-center justify-content-center" style="min-height: -webkit-fill-available;">
+<div class="container d-flex align-items-center justify-content-center" style="height: 70%;">
     <div class="shadow-card p-4" style="max-width: 420px; width: 100%;">
             <h3 class="text-center mb-4">{{ __('Forgot Password') }}</h3>
 

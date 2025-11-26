@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 logo" style="padding-left: 8px; padding-right: 0px;">
-                        <img style="position: relative; z-index: 6 !important;" onclick="window.location.href='{{ url('/') }}'" src="{{ asset('assets/img/site/black-car-service-dallas-logo.webp') }}" class="logo-display" alt="shipo">
+                        <img style="position: relative; z-index: 6 !important; cursor: pointer;" onclick="window.location.href='{{ url('/') }}'" src="{{ asset('assets/img/site/black-car-service-dallas-logo.webp') }}" class="logo-display" alt="shipo">
                     <div class="col-12">
                         <div class="responsive-menu"></div>
                     </div>

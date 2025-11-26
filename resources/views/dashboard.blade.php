@@ -1,8 +1,20 @@
-@extends('layouts.admin')
+@extends('layouts.guest')
 
-@section('content')
-    <h4 class="font-weight-bold py-3 mb-4">{{ __('Bookings') }}</h4>
-    <div class="container-fluid">
+@section('guest_data')
+
+    <div class="container-fluid p-md-5 mt-4">
+        <h2 class="text-center">Welcome back, {{ Auth::user()->first_name }}</h2>
+        <ul class="nav nav-tabs mb-4" id="dashboardTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="bookings-tab" href="#tab-bookings" role="tab">Bookings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" href="#tab-profile" role="tab">Profile Settings</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="tab-bookings" role="tabpanel" aria-labelledby="bookings-tab">
         <div class="row">
             @forelse ($bookings as $booking)
                 @php
@@ -27,10 +39,10 @@
                             @if ($booking->round_trip === 1)
                                 <p class="mb-1"><strong>Return:</strong> {{ $booking->dropoff_location }} to {{ $booking->pickup_location }}</p>
                                 <p class="mb-1"><strong>Return Date/Time:</strong> {{ $booking->return_date }} @ {{ $booking->return_time }}</p>
-                                <span class="badge bg-info text-dark">Round Trip</span>
+                                <span class="badge bg-info text-white">Round Trip</span>
                             @endif
                             <div class="d-flex justify-content-between align-items-center mt-2">
-                                <span class="{{ $status_class }}">{{ ucfirst($booking->payment_status) }}</span>
+                                <span class="{{ $status_class }} text-white">{{ ucfirst($booking->payment_status) }}</span>
                                 <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingDetailModal" onclick="showBookingDetails({{ $bookingJson }})">View Details</button>
                             </div>
                         </div>
@@ -43,13 +55,161 @@
             @endforelse
         </div>
         <div class="mt-4">{{ $bookings->links() }}</div>
+            </div>
+
+            <div class="tab-pane fade" id="tab-profile" role="tabpanel" aria-labelledby="profile-tab">
+                @php $user = auth()->user(); @endphp
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 col-lg-6">
+                        <div class="card mb-4">
+                            <h6 class="card-header">Update Profile Information</h6>
+                            <div class="card-body">
+                                <form method="post" action="{{ route('profile.update') }}">
+                                    @csrf
+                                    @method('patch')
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label class="form-label">First Name</label>
+                                            <input type="text" name="first_name" class="form-control" value="{{ old('first_name', $user->first_name ?? '') }}" required autocomplete="given-name">
+                                            @if($errors->has('first_name'))
+                                                <small class="text-danger">{{ $errors->first('first_name') }}</small>
+                                            @endif
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="form-label">Last Name</label>
+                                            <input type="text" name="last_name" class="form-control" value="{{ old('last_name', $user->last_name ?? '') }}" required autocomplete="family-name">
+                                            @if($errors->has('last_name'))
+                                                <small class="text-danger">{{ $errors->first('last_name') }}</small>
+                                            @endif
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" name="email" class="form-control" value="{{ old('email', $user->email ?? '') }}" required autocomplete="username">
+                                        @if($errors->has('email'))
+                                            <small class="text-danger">{{ $errors->first('email') }}</small>
+                                        @endif
+                                        <div class="clearfix"></div>
+                                        @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
+                                            <div class="alert alert-warning mt-3 mb-0">
+                                                Your email address is unverified.
+                                                <form id="send-verification" method="post" action="{{ route('verification.send') }}" class="d-inline">
+                                                    @csrf
+                                                    <button class="btn btn-sm btn-outline-warning">Resend verification email</button>
+                                                </form>
+                                            </div>
+                                            @if (session('status') === 'verification-link-sent')
+                                                <small class="text-success d-block mt-2">A new verification link has been sent to your email address.</small>
+                                            @endif
+                                        @endif
+                                    </div>
+
+                                    @if (session('status') === 'profile-updated')
+                                        <div class="alert alert-success">Saved.</div>
+                                    @endif
+
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="card mb-4">
+                            <h6 class="card-header">Update Password</h6>
+                            <div class="card-body">
+                                <form method="post" action="{{ route('password.update') }}">
+                                    @csrf
+                                    @method('put')
+
+                                    <div class="form-group">
+                                        <label class="form-label">Current Password</label>
+                                        <input type="password" name="current_password" class="form-control" autocomplete="current-password">
+                                        @if($errors->updatePassword->has('current_password'))
+                                            <small class="text-danger">{{ $errors->updatePassword->first('current_password') }}</small>
+                                        @endif
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label class="form-label">New Password</label>
+                                            <input type="password" name="password" class="form-control" autocomplete="new-password">
+                                            @if($errors->updatePassword->has('password'))
+                                                <small class="text-danger">{{ $errors->updatePassword->first('password') }}</small>
+                                            @endif
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="form-label">Confirm Password</label>
+                                            <input type="password" name="password_confirmation" class="form-control" autocomplete="new-password">
+                                            @if($errors->updatePassword->has('password_confirmation'))
+                                                <small class="text-danger">{{ $errors->updatePassword->first('password_confirmation') }}</small>
+                                            @endif
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+
+                                    @if (session('status') === 'password-updated')
+                                        <div class="alert alert-success">Saved.</div>
+                                    @endif
+
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="card mb-4">
+                            <h6 class="card-header">Delete Account</h6>
+                            <div class="card-body">
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAccountModal">Delete Account</button>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="deleteAccountModal" tabindex="-1" role="dialog" aria-labelledby="deleteAccountLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="deleteAccountLabel">Confirm Account Deletion</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form method="post" action="{{ route('profile.destroy') }}">
+                                        @csrf
+                                        @method('delete')
+                                        <div class="modal-body">
+                                            <p>Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm.</p>
+                                            <div class="form-group">
+                                                <label class="form-label">Password</label>
+                                                <input type="password" name="password" class="form-control" placeholder="Password">
+                                                @if($errors->userDeletion->has('password'))
+                                                    <small class="text-danger">{{ $errors->userDeletion->first('password') }}</small>
+                                                @endif
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                            <button type="submit" class="btn btn-danger">Delete Account</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="modal fade" id="bookingDetailModal" tabindex="-1" aria-labelledby="bookingDetailModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content rounded-3 shadow-lg">
                 <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title font-weight-bold mb-2" id="bookingDetailModalLabel">Booking Details: <span id="modal-booking-id"></span></h5>
+                    <h5 class="modal-title font-weight-bold mb-2 text-white" id="bookingDetailModalLabel">Booking Details: <span class="text-white" id="modal-booking-id"></span></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
@@ -58,7 +218,7 @@
                             <div class="row align-items-center">
                                 <div class="col-6">
                                     <span class="text-muted d-block mb-1">Status</span>
-                                    <span id="modal-status" class="badge"></span>
+                                    <span id="modal-status" class="badge" style="color: white !important;"></span>
                                 </div>
                                 <div class="col-6 text-end">
                                     <span class="text-muted d-block mb-1">Total Price</span>
@@ -118,6 +278,24 @@
     </div>
 
     <script>
+        (function() {
+            var links = document.querySelectorAll('#dashboardTabs .nav-link');
+            var panes = {
+                '#tab-bookings': document.getElementById('tab-bookings'),
+                '#tab-profile': document.getElementById('tab-profile')
+            };
+            links.forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    links.forEach(function(l){ l.classList.remove('active'); });
+                    Object.values(panes).forEach(function(p){ p.classList.remove('show'); p.classList.remove('active'); });
+                    link.classList.add('active');
+                    var target = link.getAttribute('href');
+                    if (panes[target]) { panes[target].classList.add('show'); panes[target].classList.add('active'); }
+                });
+            });
+        })();
+
         function getStatusClass(status) {
             if (!status) return 'badge bg-secondary';
             const s = status.toLowerCase();
