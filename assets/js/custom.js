@@ -91,10 +91,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const $hourly = $('#pickup-location-hourly');
   const map = document.getElementById('map');
   const mapOverlay = document.querySelector('.map-overlay');
+  let locChangeTimer;
 
   // Only react to actual user input (not focus/blur). Avoid 'change' to prevent blur-triggered logic.
   $pickup.add($dropoff).on('input', function() {
-    onLocationChanged();
+    clearTimeout(locChangeTimer);
+    locChangeTimer = setTimeout(function(){ onLocationChanged(); }, 200);
   });
 
 $('#pickup-location, #dropoff-location').on('keyup', function () {
@@ -379,7 +381,7 @@ function setupCustomAutocomplete(inputId, suggestionsListId, hiddenAirportFieldI
           suggestionsContainer.style.display = 'block';
         }
       );
-    }, 300); // 300ms debounce
+    }, 500);
   });
 
   // Hide suggestions when clicking outside
@@ -1283,7 +1285,6 @@ function calculateDistance(pickupPlace, dropoffPlace, callback) {
 
         } else {
             console.error('DistanceMatrixService error:', status);
-            alert('Distance calculation failed: ' + status);
         }
     });
 }
