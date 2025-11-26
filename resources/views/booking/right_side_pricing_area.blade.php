@@ -100,7 +100,7 @@
                             ${{ $whole}}<span class="price-decimal">.{{ $decimal }}</span> USD
                         </span>
                     </div>
-                    @if($breakdown && isset($breakdown['hours'] && session('select_hours')))
+                    @if($breakdown && isset($breakdown['hours']) && session('select_hours'))
                         <div class="d-flex justify-content-between mb-1">
                             <span class="pricing_summary_label">Total Hours</span>
                             <span class="pricing_summary_price">{{ $breakdown['hours']? $breakdown['hours' ]: session('select_hours') }}</span>
