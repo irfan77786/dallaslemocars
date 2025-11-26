@@ -91,11 +91,11 @@ class BookingController extends Controller
         }
 
         $seo = [
-            'title' => 'Black Car Service Dallas | Luxury Chauffeur and Airport Car Service',
-            'description' => 'Experience reliable Black Car Service Dallas for airport transfers, corporate travel & luxury rides. 24/7 chauffeurs, clean fleet & on-time service across DFW.',
-            'keywords' => 'Black car service Dallas, Dallas Black Car Service, Black car service near me, Luxury Car Service Dallas',
-            'og_title' => 'Black car service dallas',
-            'og_description' => 'Experience reliable Black Car Service Dallas for airport transfers, corporate travel & luxury rides. 24/7 chauffeurs, clean fleet & on-time service across DFW.',
+            'title' => 'Dallas Limo And Black Cars | Luxury Chauffeur and Airport Car Service',
+            'description' => 'Experience reliable Dallas Limo And Black Cars for airport transfers, corporate travel & luxury rides. 24/7 chauffeurs, clean fleet & on-time service across DFW.',
+            'keywords' => 'Dallas Limo And Black Cars, Dallas Black Car Service, Black car service near me, Luxury Car Service Dallas',
+            'og_title' => 'Dallas Limo And Black Cars',
+            'og_description' => 'Experience reliable Dallas Limo And Black Cars for airport transfers, corporate travel & luxury rides. 24/7 chauffeurs, clean fleet & on-time service across DFW.',
             'og_image' => asset('img/black-car-service-dallas.webp'),
         ];
 
@@ -113,7 +113,7 @@ class BookingController extends Controller
         $seo = [
             'title' => 'Airport Car Service Dallas � Book Your Ride Now',
             'description' => 'Book your Airport Car Service Dallas today. Reliable, luxury sedans & SUVs with professional chauffeurs for DFW & Love Field. 24/7 airport transfers � reserve now.',
-            'keywords' => 'Airport Car Service Dallas, DFW Car Service, Black Car Service Dallas',
+            'keywords' => 'Airport Car Service Dallas, DFW Car Service, Dallas Limo And Black Cars',
             'og_title' => 'Airport Car Service Dallas � Book Your Ride Now',
             'og_description' => 'Book your Airport Car Service Dallas today. Reliable, luxury sedans & SUVs with professional chauffeurs for DFW & Love Field. 24/7 airport transfers � reserve now.',
             'og_image' => asset('img/black-car-service-dallas.webp')

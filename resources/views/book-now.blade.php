@@ -396,7 +396,7 @@
                     </div>
                 </div>
             </div>
-            <img src="/img/black-car-service-dallas.webp" alt="Black car service Dallas">
+            <img src="/img/black-car-service-dallas.webp" alt="Dallas Limo And Black Cars">
         </div>
     </div>
 </div>

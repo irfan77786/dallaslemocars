@@ -130,7 +130,7 @@ $isHourly = session('service_type') === 'hourlyHire';
 
                     <img
                         src="/img/dallas-black-car-service.webp"
-                        alt="City-to-City Black Car Service Dallas Luxury Fleet" />
+                        alt="City-to-City Dallas Limo And Black Cars Luxury Fleet" />
                 </div>
 
 

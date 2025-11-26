@@ -19,13 +19,13 @@
     @endif
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ url()->current() }}" />
-    <meta property="og:site_name" content="Black Car Service Dallas">
+    <meta property="og:site_name" content="Dallas Limo And Black Cars">
     <link rel="canonical" href="{{ url()->current() }}/" />
     @show
     @else
     @endisset
     <!-- ======== Page title ============ -->
-    <title>Black Car Service Dallas</title>
+    <title>Dallas Limo And Black Cars</title>
     <!-- ========== Favicon Icon ========== -->
     <link rel="shortcut icon" href="{{ asset('assets/img/site/dallas-black-car-service-favicon.png') }}">
     <!-- ===========  All Stylesheet ================= -->

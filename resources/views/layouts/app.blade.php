@@ -7,7 +7,7 @@
 
         <link rel="shortcut icon" href="{{ asset('assets/img/site/dallas-black-car-service-favicon.png') }}">
 
-        <title>{{ config('app.name', 'Black Car Service Dallas') }}</title>
+        <title>{{ config('app.name', 'Dallas Limo And Black Cars') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

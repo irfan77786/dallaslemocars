@@ -118,7 +118,7 @@ $isHourly = session('service_type') === 'hourlyHire';
         <p class="tagline-bottom"> Choose our Dallas black car service at Love Field for peace of mind, comfort, and professional chauffeurs.</p>
                     <img
                         src="/images/img/black-suv-service-dallas.webp"
-                        alt="luxury black car service dallas" />
+                        alt="luxury Dallas Limo And Black Cars" />
                 </div>
                 <div class="btom-btn">
                     <a style="cursor: pointer;" class="quick-book-link" href="#">Ride in Dallas – Book Now</a>
