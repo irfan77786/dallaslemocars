@@ -50,18 +50,26 @@
                         <div id="dropoff-suggestions" class="location-suggestions"></div>
                     </div>
 
+                    <div class="floating-bordered-input position-relative mb-1">
+                        <span class="floating-label">Pick-up Date / Time</span>
 
-                    <div class="floating-bordered-input mb-1 position-relative pl-3">
-                        <input type="text" name="pickup_datetime" id="pickup-datetime" class="form-control"
-                            value="{{ session('pickup_datetime') ? \Carbon\Carbon::parse(session('pickup_datetime'))->format('Y-m-d H:i') : '' }}"
-                            placeholder="Pick-up Data / Time" required>
-                        <span class="input-icon-right"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="31" height="31">
-                            <path d="M0 0 C10.23 0 20.46 0 31 0 C31 10.23 31 20.46 31 31 C20.77 31 10.54 31 0 31 C0 20.77 0 10.54 0 0 Z " fill="#FEFEFE" transform="translate(0,0)"/>
-                            <path d="M0 0 C0.66 0 1.32 0 2 0 C2 0.66 2 1.32 2 2 C4.64 2 7.28 2 10 2 C10 1.34 10 0.68 10 0 C10.66 0 11.32 0 12 0 C12 0.66 12 1.32 12 2 C12.99 2.33 13.98 2.66 15 3 C15.02684679 5.64590014 15.04676357 8.29153096 15.0625 10.9375 C15.07087891 11.69224609 15.07925781 12.44699219 15.08789062 13.22460938 C15.09652441 15.14994313 15.05224333 17.07535581 15 19 C13.17883997 20.82116003 10.69328236 20.1323508 8.2734375 20.13671875 C7.52320313 20.13285156 6.77296875 20.12898438 6 20.125 C4.87464844 20.13080078 4.87464844 20.13080078 3.7265625 20.13671875 C-1.87338947 20.12661053 -1.87338947 20.12661053 -3 19 C-3.07319621 16.30345146 -3.09242537 13.63308542 -3.0625 10.9375 C-3.05798828 10.17888672 -3.05347656 9.42027344 -3.04882812 8.63867188 C-3.0370068 6.75908129 -3.01907078 4.87953101 -3 3 C-2.01 2.67 -1.02 2.34 0 2 C0 1.34 0 0.68 0 0 Z " fill="#757575" transform="translate(9,6)"/>
-                            <path d="M0 0 C4.62 0 9.24 0 14 0 C14 3.63 14 7.26 14 11 C9.38 11 4.76 11 0 11 C0 7.37 0 3.74 0 0 Z " fill="#FFFFFF" transform="translate(8,13)"/>
-                            <path d="M0 0 C1.65 0 3.3 0 5 0 C5 1.65 5 3.3 5 5 C3.35 5 1.7 5 0 5 C0 3.35 0 1.7 0 0 Z " fill="#757575" transform="translate(15,17)"/>
+                        <span class="input-icon-left">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 384 432">
+                                <path fill="currentColor" d="M299 240v107H192V240h107zM277 5h43v43h21q18 0 30.5 12.5T384 91v298q0 18-12.5 30.5T341 432H43q-18 0-30.5-12.5T0 389V91q0-18 12.5-30.5T43 48h21V5h43v43h170V5zm64 384V155H43v234h298z"/>
                             </svg>
                         </span>
+
+                        <input type="text"
+                            id="pickup-datetime"
+                            name="pickup_datetime"
+                            class="form-control"
+                            value="{{ session('pickup_datetime') ? \Carbon\Carbon::parse(session('pickup_datetime'))->format('Y-m-d H:i') : '' }}"
+                            required
+                            placeholder=" ">
+
+                        @error('pickup_datetime')
+                            <div class="text-danger small mt-1">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="d-flex align-items-center mb-2">
@@ -74,18 +82,27 @@
                         </div>
                     </div>
 
-                    <div class="floating-bordered-input mb-1 position-relative return-trip pl-3" style="display: none;">
-                        <input type="text" name="return_datetime_hourly" id="return-datetime-hourly"
-                            class="form-control" placeholder="Return Trip Pick-up Data / Time"
-                            value="{{ session('return_datetime_hourly') ? \Carbon\Carbon::parse(session('return_datetime_hourly'))->format('Y-m-d H:i') : '' }}">
-                        <span class="input-icon-right"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="31" height="31">
-                            <path d="M0 0 C10.23 0 20.46 0 31 0 C31 10.23 31 20.46 31 31 C20.77 31 10.54 31 0 31 C0 20.77 0 10.54 0 0 Z " fill="#FEFEFE" transform="translate(0,0)"/>
-                            <path d="M0 0 C0.66 0 1.32 0 2 0 C2 0.66 2 1.32 2 2 C4.64 2 7.28 2 10 2 C10 1.34 10 0.68 10 0 C10.66 0 11.32 0 12 0 C12 0.66 12 1.32 12 2 C12.99 2.33 13.98 2.66 15 3 C15.02684679 5.64590014 15.04676357 8.29153096 15.0625 10.9375 C15.07087891 11.69224609 15.07925781 12.44699219 15.08789062 13.22460938 C15.09652441 15.14994313 15.05224333 17.07535581 15 19 C13.17883997 20.82116003 10.69328236 20.1323508 8.2734375 20.13671875 C7.52320313 20.13285156 6.77296875 20.12898438 6 20.125 C4.87464844 20.13080078 4.87464844 20.13080078 3.7265625 20.13671875 C-1.87338947 20.12661053 -1.87338947 20.12661053 -3 19 C-3.07319621 16.30345146 -3.09242537 13.63308542 -3.0625 10.9375 C-3.05798828 10.17888672 -3.05347656 9.42027344 -3.04882812 8.63867188 C-3.0370068 6.75908129 -3.01907078 4.87953101 -3 3 C-2.01 2.67 -1.02 2.34 0 2 C0 1.34 0 0.68 0 0 Z " fill="#757575" transform="translate(9,6)"/>
-                            <path d="M0 0 C4.62 0 9.24 0 14 0 C14 3.63 14 7.26 14 11 C9.38 11 4.76 11 0 11 C0 7.37 0 3.74 0 0 Z " fill="#FFFFFF" transform="translate(8,13)"/>
-                            <path d="M0 0 C1.65 0 3.3 0 5 0 C5 1.65 5 3.3 5 5 C3.35 5 1.7 5 0 5 C0 3.35 0 1.7 0 0 Z " fill="#757575" transform="translate(15,17)"/>
+                    <div class="floating-bordered-input position-relative return-trip mb-1" style="display: none;">
+                        <span class="floating-label">Return Trip Pick-up Date / Time</span>
+
+                        <span class="input-icon-left">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 384 432">
+                                <path fill="currentColor" d="M299 240v107H192V240h107zM277 5h43v43h21q18 0 30.5 12.5T384 91v298q0 18-12.5 30.5T341 432H43q-18 0-30.5-12.5T0 389V91q0-18 12.5-30.5T43 48h21V5h43v43h170V5zm64 384V155H43v234h298z"/>
                             </svg>
                         </span>
+
+                        <input type="text"
+                            name="return_datetime_hourly"
+                            id="return-datetime-hourly"
+                            class="form-control"
+                            value="{{ session('return_datetime_hourly') ? \Carbon\Carbon::parse(session('return_datetime_hourly'))->format('Y-m-d H:i') : '' }}"
+                            placeholder=" ">
+
+                        @error('return_datetime_hourly')
+                            <div class="text-danger small mt-1">{{ $message }}</div>
+                        @enderror
                     </div>
+
                     <style>
                         .input-icon-right {
                             position: absolute;
@@ -152,18 +169,26 @@
 
 
                     <!-- Pick-up Date & Time (Hourly) -->
-                    <div class="floating-bordered-input mb-4 position-relative pl-3">
-                        <input type="text" name="pickup_datetime_hourly" id="pickup-datetime-hourly"
-                            class="form-control" placeholder="Pick-up Data / Time"
-                            value="{{ session('pickup_datetime_hourly') ? \Carbon\Carbon::parse(session('pickup_datetime_hourly'))->format('Y-m-d H:i') : '' }}"
-                            required>
-                        <span class="input-icon-right"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="31" height="31">
-                            <path d="M0 0 C10.23 0 20.46 0 31 0 C31 10.23 31 20.46 31 31 C20.77 31 10.54 31 0 31 C0 20.77 0 10.54 0 0 Z " fill="#FEFEFE" transform="translate(0,0)"/>
-                            <path d="M0 0 C0.66 0 1.32 0 2 0 C2 0.66 2 1.32 2 2 C4.64 2 7.28 2 10 2 C10 1.34 10 0.68 10 0 C10.66 0 11.32 0 12 0 C12 0.66 12 1.32 12 2 C12.99 2.33 13.98 2.66 15 3 C15.02684679 5.64590014 15.04676357 8.29153096 15.0625 10.9375 C15.07087891 11.69224609 15.07925781 12.44699219 15.08789062 13.22460938 C15.09652441 15.14994313 15.05224333 17.07535581 15 19 C13.17883997 20.82116003 10.69328236 20.1323508 8.2734375 20.13671875 C7.52320313 20.13285156 6.77296875 20.12898438 6 20.125 C4.87464844 20.13080078 4.87464844 20.13080078 3.7265625 20.13671875 C-1.87338947 20.12661053 -1.87338947 20.12661053 -3 19 C-3.07319621 16.30345146 -3.09242537 13.63308542 -3.0625 10.9375 C-3.05798828 10.17888672 -3.05347656 9.42027344 -3.04882812 8.63867188 C-3.0370068 6.75908129 -3.01907078 4.87953101 -3 3 C-2.01 2.67 -1.02 2.34 0 2 C0 1.34 0 0.68 0 0 Z " fill="#757575" transform="translate(9,6)"/>
-                            <path d="M0 0 C4.62 0 9.24 0 14 0 C14 3.63 14 7.26 14 11 C9.38 11 4.76 11 0 11 C0 7.37 0 3.74 0 0 Z " fill="#FFFFFF" transform="translate(8,13)"/>
-                            <path d="M0 0 C1.65 0 3.3 0 5 0 C5 1.65 5 3.3 5 5 C3.35 5 1.7 5 0 5 C0 3.35 0 1.7 0 0 Z " fill="#757575" transform="translate(15,17)"/>
+                    <div class="floating-bordered-input position-relative mb-4">
+                        <span class="floating-label">Pick-up Date / Time</span>
+
+                        <span class="input-icon-left">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 384 432">
+                                <path fill="currentColor" d="M299 240v107H192V240h107zM277 5h43v43h21q18 0 30.5 12.5T384 91v298q0 18-12.5 30.5T341 432H43q-18 0-30.5-12.5T0 389V91q0-18 12.5-30.5T43 48h21V5h43v43h170V5zm64 384V155H43v234h298z"/>
                             </svg>
                         </span>
+
+                        <input type="text"
+                            name="pickup_datetime_hourly"
+                            id="pickup-datetime-hourly"
+                            class="form-control"
+                            value="{{ session('pickup_datetime_hourly') ? \Carbon\Carbon::parse(session('pickup_datetime_hourly'))->format('Y-m-d H:i') : '' }}"
+                            required
+                            placeholder=" ">
+
+                        @error('pickup_datetime_hourly')
+                            <div class="text-danger small mt-1">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <button type="submit" class="btn btn-primary w-100"
