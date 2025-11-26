@@ -245,33 +245,53 @@ class BookingController extends Controller
     session([
         'booking_completed' => false
     ]);
-    // Validate the input fields (no drop-off location needed for Hourly Hire)
-    $data = $request->validate([
+
+    $validator = Validator::make($request->all(), [
         'pickup_location_hourly' => 'required|string',
-        'pickup_date' => 'required|date_format:Y-m-d',
-        'pickup_time' => 'required|date_format:H:i',
         'select_hours' => 'required|integer|min:1|max:24',
-        'stops' => 'nullable|array', // optional
-        'stops.*' => 'string' // each stop must be a string
+        'stops' => 'nullable|array',
+        'stops.*' => 'string'
     ]);
 
-    // Fetch all vehicles with related carSeat data
+    if ($validator->fails()) {
+        return redirect()->back()->withErrors($validator)->withInput();
+    }
+
+    $pickupDateTime = null;
+    if ($request->filled('pickup_datetime_hourly')) {
+        try {
+            $pickupDateTime = Carbon::parse($request->input('pickup_datetime_hourly'));
+        } catch (\Exception $e) {
+            $pickupDateTime = null;
+        }
+    } elseif ($request->filled('pickup_date') && $request->filled('pickup_time')) {
+        try {
+            $pickupDateTime = Carbon::parse($request->input('pickup_date') . ' ' . $request->input('pickup_time'));
+        } catch (\Exception $e) {
+            $pickupDateTime = null;
+        }
+    }
+
+    if (!$pickupDateTime) {
+        return redirect()->back()->withErrors(['pickup_datetime_hourly' => 'Please provide a valid pickup date and time.'])->withInput();
+    }
+
+    $data = $validator->validated();
+    $data['pickup_date'] = $pickupDateTime->format('Y-m-d');
+    $data['pickup_time'] = $pickupDateTime->format('H:i');
+
     $vehicles = Vehicle::with(['carSeat'])->get();
 
-    // Prepare an array to store distance/price data per vehicle
     $distanceData = [];
-
     foreach ($vehicles as $vehicle) {
         $baseFare = $vehicle->base_fare;
         $hourlyFare = $vehicle->base_hourly_fare;
         $perKmRate = $vehicle->per_km_rate;
 
-        // Calculate distance and price for each vehicle (no dropoff for hourly hire)
         $distanceData[$vehicle->id] = $this->calculateDistanceWithStops(
             $data['pickup_location_hourly'],
             null,
             $data['stops'] ?? [],
-
             $baseFare,
             $hourlyFare,
             $perKmRate,
@@ -279,8 +299,6 @@ class BookingController extends Controller
         );
     }
 
-
-    // Store session data (general for booking, price varies per vehicle so stored separately)
     session([
         'pickup_location' => $data['pickup_location_hourly'],
         'dropoff_location' => null,
@@ -288,16 +306,15 @@ class BookingController extends Controller
         'pickup_date' => $data['pickup_date'],
         'pickup_time' => $data['pickup_time'],
         'stops' => json_encode($data['stops'] ?? []),
-        'service_type' => 'hourlyHire' // Flag to distinguish Hourly Hire booking
+        'service_type' => 'hourlyHire'
     ]);
 
-    // Return the confirmation view with vehicles and distance data per vehicle
     return view('booking.confirmation', [
         'step'=>2,
         'data' => $vehicles,
         'distance' => $distanceData,
         'userData' => $data,
-        'service_type' => 'hourlyHire' // Flag to distinguish Hourly Hire booking
+        'service_type' => 'hourlyHire'
     ]);
 }
 

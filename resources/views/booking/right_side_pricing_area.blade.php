@@ -122,18 +122,18 @@
                             <!--    <span class="text-muted">Distance in Miles</span>-->
                             <!--    <span id="return-distance">{{ session('return_km') }} Miles</span>-->
                             <!--</div>-->
-@if(session('return_price'))
-    <div class="d-flex justify-content-between mb-1">
-        <span class="pricing_summary_label">Return Trip</span>
-        @php
-            $price = number_format(session('return_price'), 2);
-            [$whole, $decimal] = explode('.', $price);
-        @endphp
-        <span id="return-trip-price" class="pricing_summary_price">
-            ${{ $whole }}<span class="price-decimal">.{{ $decimal }}</span>
-        </span>
-    </div>
-@endif
+                        @if(session('return_price'))
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="pricing_summary_label">Return Trip</span>
+                                @php
+                                    $price = number_format(session('return_price'), 2);
+                                    [$whole, $decimal] = explode('.', $price);
+                                @endphp
+                                <span id="return-trip-price" class="pricing_summary_price">
+                                    ${{ $whole }}<span class="price-decimal">.{{ $decimal }}</span>
+                                </span>
+                            </div>
+                        @endif
 
                         </div>
 
