@@ -28,7 +28,7 @@
             <div class="container">
                 <div class="row" style="justify-content: center;">
                     <button class="btn btn-primary continue-button">
-                        Continue <i class="bi bi-arrow-right"></i>
+                        Continue &nbsp; <i class="bi bi-arrow-right"></i>
                     </button>
                 </div>
             </div>

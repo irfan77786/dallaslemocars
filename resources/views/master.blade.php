@@ -136,24 +136,27 @@
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.selectable-card').forEach(card => {
                 card.addEventListener('click', function(e) {
-                    // Ignore clicks on interactive elements inside the card
                     const ignoreSelector = 'a, button, [role="button"], [data-toggle="collapse"], .collapse, .info-icon, .feature-item, .feature_items_cont';
                     if (e.target.closest(ignoreSelector)) {
-                        return; // do not toggle selection when interacting with features/collapse
+                        return;
                     }
-
+                    if (window.innerWidth <= 767 && typeof window.openVehicleBottomSheet === 'function') {
+                        window.openVehicleBottomSheet(card);
+                        return;
+                    }
                     document.querySelectorAll('.selectable-card').forEach(c => c.classList.remove('selected'));
                     card.classList.toggle('selected');
                     const selectedId = card.dataset.id;
-                    console.log("Selected vehicle ID:", selectedId);
                 });
             });
-            // Default select the first product card on load
-            const firstCard = document.querySelector('.selectable-card');
-            if (firstCard) {
-                document.querySelectorAll('.selectable-card').forEach(c => c.classList.remove('selected'));
-                firstCard.classList.add('selected');
-                console.log("Default selected vehicle ID:", firstCard.dataset.id);
+            // Default select first card only on desktop
+            if (window.innerWidth > 767) {
+                const firstCard = document.querySelector('.selectable-card');
+                if (firstCard) {
+                    document.querySelectorAll('.selectable-card').forEach(c => c.classList.remove('selected'));
+                    firstCard.classList.add('selected');
+                    console.log("Default selected vehicle ID:", firstCard.dataset.id);
+                }
             }
             const continueBtn = document.querySelector('.continue-button');
             if (continueBtn) {

@@ -293,6 +293,8 @@ $features = [
         padding-right: 0;
         margin-left: 10px !important;
     }
+    .tick-overlay { display: none !important; }
+    .vehical-card.selected { border-color: #ccc !important; background-color: #fff !important; }
 }
 
 /* ==== Legacy / Old classes unrelated to vehicle cards - untouched ==== */
@@ -450,6 +452,75 @@ $features = [
   background: linear-gradient(180deg, #ffffff 0%, #f7fcf9 100%);
 }
 
+#mbs-backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1040;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+
+#mbs-sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: 1050;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  box-shadow: 0 -8px 24px rgba(0,0,0,0.2);
+  transform: translateY(100%);
+  transition: transform .2s ease;
+  max-height: 85vh;
+}
+
+.mbs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.mbs-title {
+  font-weight: 700;
+  font-size: 16px;
+}
+.mbs-close {
+  border: 0;
+  background: transparent;
+  font-size: 24px;
+  line-height: 1;
+}
+.mbs-content {
+  padding: 12px 16px 0 16px;
+  overflow-y: auto;
+  max-height: calc(85vh - 54px);
+}
+.mbs-hero img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.mbs-info { margin-top: 8px; }
+.mbs-line { font-size: .95rem; margin-bottom: 6px; color: #1E1E1E; }
+.mbs-desc { font-size: .9rem; color: #555; margin-top: 4px; }
+.mbs-price { margin-top: 8px; }
+.mbs-actions { position: sticky; bottom: 0; background: #fff; padding: 8px 16px; border-top: 1px solid rgba(0,0,0,0.06); }
+.mbs-actions .btn { width: 100%; margin: 0 !important; }
+.mbs-features { margin-top: 12px; }
+.mbs-features-title { font-weight: 600; margin-bottom: 6px; }
+.mbs-feature { display: flex; align-items: center; gap: 8px; padding: 6px 0; }
+.mbs-feature i { color: #1981A1; }
+
+@media (min-width: 768px) {
+  #mbs-backdrop, #mbs-sheet { display: none !important; }
+}
+
 </style>
 
 
@@ -565,6 +636,14 @@ $features = [
     </div>
 </div>
 </div>
+<div id="mbs-backdrop" style="display:none"></div>
+<div id="mbs-sheet" style="display:none">
+    <div class="mbs-header">
+        <div class="mbs-title"></div>
+        <button type="button" class="mbs-close">×</button>
+    </div>
+    <div class="mbs-content"></div>
+</div>
 <script>
     function toggleFeatureCollapse(event) {
         const featureSection = event.currentTarget.closest('.feature-section');
@@ -578,4 +657,67 @@ $features = [
             expandArrow.style.transform = 'rotate(0deg)';
         }
     }
+    (function(){
+        var backdrop = document.getElementById('mbs-backdrop');
+        var sheet = document.getElementById('mbs-sheet');
+        var content = document.querySelector('#mbs-sheet .mbs-content');
+        var titleEl = document.querySelector('#mbs-sheet .mbs-title');
+        var step = parseInt("{{ $step ?? 2 }}");
+        function closeSheet(){
+            sheet.style.transform = 'translateY(100%)';
+            setTimeout(function(){ sheet.style.display = 'none'; }, 200);
+            backdrop.style.opacity = '0';
+            setTimeout(function(){ backdrop.style.display = 'none'; }, 200);
+        }
+        function openForCard(card){
+            var name = (card.querySelector('.vehicle-name')||{}).textContent||'';
+            var img = (card.querySelector('.vehicle_img')||{}).src||'';
+            var passengers = (card.querySelector('.pass-luggage-info > div:nth-child(1)')||{}).textContent||'';
+            var luggage = (card.querySelector('.pass-luggage-info > div:nth-child(2)')||{}).textContent||'';
+            var desc = (card.querySelector('.vehicle-description')||{}).textContent||'';
+            var priceHtml = (card.querySelector('.car-price h4')||{}).innerHTML||'';
+            titleEl.textContent = name;
+            content.innerHTML = ''+
+                '<div class="mbs-hero">'+
+                    '<img src="'+img+'" alt="'+name+'" />'+
+                '</div>'+
+                '<div class="mbs-info">'+
+                    '<div class="mbs-line">'+passengers+'</div>'+
+                    '<div class="mbs-line">'+luggage+'</div>'+
+                    (desc ? '<div class="mbs-desc">'+desc+'</div>' : '')+
+                '</div>'+
+                '<div class="mbs-price">'+priceHtml+'</div>'+
+                '<div class="mbs-features">'+
+                    '<div class="mbs-features-title">Included</div>'+
+                    '<?php foreach($features as $f){ echo '<div class="mbs-feature"><i class="bi '. $f['icon'] .'"></i><span>'. $f['text'] .'</span></div>'; } ?>'+
+                '</div>'+
+                '<div class="mbs-actions">'+
+                    '<button type="button" class="btn btn-primary mbs-select">SELECT VEHICLE</button>'+
+                '</div>';
+            backdrop.style.display = 'block';
+            sheet.style.display = 'block';
+            requestAnimationFrame(function(){
+                backdrop.style.opacity = '1';
+                sheet.style.transform = 'translateY(0)';
+            });
+            var selectBtn = document.querySelector('#mbs-sheet .mbs-select');
+            selectBtn.onclick = function(){
+                var id = card.dataset.id;
+                var priceEl = card.querySelector('.pricing_summary_price');
+                var priceMatch = (priceEl && (priceEl.textContent || '')).match(/[0-9]+(?:\.[0-9]+)?/);
+                var price = priceMatch ? priceMatch[0] : null;
+                if (step === 2 && id && price) {
+                    window.location.href = '/user-login/' + id + '/' + price;
+                    return;
+                }
+                document.querySelectorAll('.selectable-card').forEach(function(c){ c.classList.remove('selected'); });
+                card.classList.add('selected');
+                closeSheet();
+            };
+        }
+        var closeBtn = document.querySelector('#mbs-sheet .mbs-close');
+        if(closeBtn){ closeBtn.addEventListener('click', closeSheet); }
+        if(backdrop){ backdrop.addEventListener('click', closeSheet); }
+        window.openVehicleBottomSheet = function(card){ openForCard(card); };
+    })();
 </script>
