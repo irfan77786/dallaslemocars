@@ -165,7 +165,7 @@ $isHourly = session('service_type') === 'hourlyHire';
             across the Dallas–Fort Worth Metroplex. Based in Dallas, TX, we
             provide
             <a
-              href="https://dallasblackcarslimoservice.com/"
+              href="https://dallaslimoandblackcars.com/"
               class="internal-links">premium black car service</a>, executive transportation, and private limo rides to clients
             throughout DFW, Frisco, Plano, Las Colinas, Love Field, and
             beyond.

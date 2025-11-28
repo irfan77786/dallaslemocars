@@ -305,7 +305,7 @@
 
                                                 <!-- Vehicle Image and Capacity Info -->
                                                 <div class="col-12 col-md-4 mb-3 d-flex flex-column align-items-center">
-                                                    <img src="{{ 'https://admin.dallasblackcarslimoservice.com/storage/' . $value->vehicle_image }}"
+                                                    <img src="{{ 'https://admin.dallaslimoandblackcars.com/storage/' . $value->vehicle_image }}"
                                                         alt="Vehicle Image" class="img-fluid rounded-3 vehicle_img"
                                                         style="max-height: 200px; object-fit: cover;">
 

@@ -163,7 +163,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                         Skilled chauffeurs know the best routes. They save your time &
                         avoid delays. The
                         <a
-                            href="https://dallasblackcarslimoservice.com/"
+                            href="https://dallaslimoandblackcars.com/"
                             class="internal-links-w">corporate shuttle in Dallas</a>
                         is the right choice for meetings, events & airport travel. Book
                         your Dallas shuttle today & ride with confidence.

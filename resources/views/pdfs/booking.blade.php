@@ -196,7 +196,7 @@
       <div style="display: table-row;">
         <div style="display: table-cell; vertical-align: middle; width: 62%;">
           @php
-          $logoUrl = 'https://dallasblackcarslimoservice.com/img/black-car-service-dallas-logo.webp';
+          $logoUrl = 'https://dallaslimoandblackcars.com/img/black-car-service-dallas-logo.webp';
           $context = stream_context_create(['ssl' => ['verify_peer' => false, 'verify_peer_name' => false]]);
           $logoData = base64_encode(file_get_contents($logoUrl, false, $context));
           @endphp

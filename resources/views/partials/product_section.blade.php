@@ -537,7 +537,7 @@ $features = [
                         <div class="d-flex align-items-center justify-content-between w-100 mb-2">
                             <!-- Vehicle Image -->
                             <div class="vehicle-img-container d-flex align-items-center">
-                                <img src="{{ 'https://admin.dallasblackcarslimoservice.com/storage/' . $value['vehicle_image'] }}" alt="Vehicle Image" class="img-fluid rounded-3 vehicle_img">
+                                <img src="{{ 'https://admin.dallaslimoandblackcars.com/storage/' . $value['vehicle_image'] }}" alt="Vehicle Image" class="img-fluid rounded-3 vehicle_img">
                             </div>
 
                             <!-- Vehicle Info -->

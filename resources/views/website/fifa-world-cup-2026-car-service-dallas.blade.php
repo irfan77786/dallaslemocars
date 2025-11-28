@@ -341,7 +341,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                     <ul>
                         <li>
                             <a
-                                href="https://dallasblackcarslimoservice.com/"
+                                href="https://dallaslimoandblackcars.com/"
                                 class="internal-links">Dallas</a>
                         </li>
                         <li>Arlington</li>

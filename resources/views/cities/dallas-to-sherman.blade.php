@@ -368,14 +368,14 @@ $isHourly = session('service_type') === 'hourlyHire';
                             <strong>Cities &amp; Regional Communities </strong> We proudly
                             serve major cities like Dallas and Fort Worth, along with
                             Plano,
-                            <a href="https://dallasblackcarslimoservice.com/locations/black-car-service-frisco-texas/" class="internal-links">Frisco</a>, McKinney, and Allen. Our network also extends to Southlake,
+                            <a href="https://dallaslimoandblackcars.com/locations/black-car-service-frisco-texas/" class="internal-links">Frisco</a>, McKinney, and Allen. Our network also extends to Southlake,
                             Keller, Flower Mound, Carrollton, Richardson, Denton, Garland,
                             Mesquite, and The Colony.
                         </li>
                         <li>
                             <strong>Airports &amp; Aviation Access </strong>DFW International
                             Airport,
-                            <a href="https://dallasblackcarslimoservice.com/airport/dallas-love-field-black-car-service/" class="internal-links">Dallas Love Field</a>, Addison Airport, McKinney National Airport, Fort Worth
+                            <a href="https://dallaslimoandblackcars.com/airport/dallas-love-field-black-car-service/" class="internal-links">Dallas Love Field</a>, Addison Airport, McKinney National Airport, Fort Worth
                             Alliance Airport, and VIP FBO Terminals.
                         </li>
                         <li>

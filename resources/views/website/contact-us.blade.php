@@ -84,7 +84,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                         <p>
                             At
                             <a
-                                href="https://dallasblackcarslimoservice.com/"
+                                href="https://dallaslimoandblackcars.com/"
                                 class="internal-links">Dallas Black Cars Limo Service</a>, we make it easy to reach us for questions, bookings, and
                             special transportation requests. Whether you need a
                             last-minute airport ride, a
@@ -306,7 +306,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                     <p>
                         At
                         <a
-                            href="https://dallasblackcarslimoservice.com/"
+                            href="https://dallaslimoandblackcars.com/"
                             class="internal-links">Dallas Black Cars Limo Service</a>, we make it easy to reach us for questions, bookings, and
                         special transportation requests. Whether you need a
                         last-minute airport ride, a
