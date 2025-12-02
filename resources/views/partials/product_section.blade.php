@@ -477,6 +477,7 @@ $features = [
   transform: translateY(100%);
   transition: transform .2s ease;
   max-height: 85vh;
+  overflow-x: hidden;
 }
 
 .mbs-header {
@@ -493,20 +494,36 @@ $features = [
 .mbs-close {
   border: 0;
   background: transparent;
-  font-size: 24px;
+  font-size: 30px;
   line-height: 1;
 }
 .mbs-content {
   padding: 12px 16px 0 16px;
   overflow-y: auto;
+  overflow-x: hidden;
   max-height: calc(85vh - 54px);
 }
+.mbs-content .row { margin-left: 0; margin-right: 0; }
 .mbs-hero img {
   width: 100%;
   height: auto;
   border-radius: 8px;
 }
 .mbs-info { margin-top: 8px; }
+.mbs-top { align-items: flex-start; margin-bottom: 8px; }
+.mbs-meta { display: inline-flex; gap: 12px; flex-wrap: wrap; }
+.mbs-meta .mbs-line { display: inline-flex; align-items: center; gap: 6px; }
+.mbs-title-row { margin-top: 8px; }
+.mbs-content-title { font-weight: 700; margin: 8px 0 4px; flex: 1 1 auto; min-width: 0; }
+.mbs-features { margin-top: 12px; }
+.mbs-features-title { font-weight: 700; margin-bottom: 8px; color: #1981A1; }
+.mbs-features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
+@media (max-width: 767.98px) { .mbs-features-grid { grid-template-columns: 1fr; } }
+.mbs-feature { display: inline-flex; align-items: center; gap: 8px; }
+.mbs-feature i { font-size: 1rem; color: #2B3252; }
+.mbs-feature span { font-size: 0.95rem; color: #1E1E1E; }
+.mbs-footer { position: sticky; bottom: 0; background: #fff; padding: 12px 16px; border-top: 1px solid rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: space-between; }
+.mbs-footer .mbs-price h4 { margin: 0; }
 .mbs-line { font-size: .95rem; margin-bottom: 6px; color: #1E1E1E; }
 .mbs-desc { font-size: .9rem; color: #555; margin-top: 4px; }
 .mbs-price { margin-top: 8px; }
@@ -639,10 +656,45 @@ $features = [
 <div id="mbs-backdrop" style="display:none"></div>
 <div id="mbs-sheet" style="display:none">
     <div class="mbs-header">
-        <div class="mbs-title"></div>
         <button type="button" class="mbs-close">×</button>
     </div>
-    <div class="mbs-content"></div>
+    <div class="mbs-content">
+        <div class="mbs-top row">
+            <div class="col-sm-6">
+                <div class="mbs-hero">
+                    <img src="" alt="" />
+                </div>
+            </div>
+        </div>
+        <div class="mbs-title-row d-flex align-items-center justify-content-between flex-wrap">
+            <h5 class="mbs-content-title"></h5>
+            <div class="mbs-meta mr-2">
+                <span class="mbs-line"><i class="bi bi-people-fill"></i><span class="mbs-passengers-count"></span></span>
+                <span class="mbs-line"><i class="bi bi-bag-fill"></i><span class="mbs-luggage-count"></span></span>
+            </div>
+        </div>
+        <p class="mbs-desc" style="display:none"></p>
+        <div class="mbs-features">
+            <div class="mbs-features-title">Included</div>
+            <div class="mbs-features-grid">
+                @foreach($features as $f)
+                    <div class="mbs-feature">
+                        <i class="bi {{ $f['icon'] }}"></i>
+                        <span>{{ $f['text'] }}</span>
+                        @if(isset($f['tooltip']))
+                            <i class="bi bi-info-circle info-icon" data-tooltip="{{ $f['tooltip'] }}"></i>
+                        @endif
+                    </div>
+                @endforeach
+            </div>
+        </div>
+        <div class="mbs-footer">
+            <div class="mbs-price">
+                <h4 class="mbs-price-number"></h4>
+            </div>
+            <button type="button" class="btn btn-primary mbs-select">SELECT VEHICLE</button>
+        </div>
+    </div>
 </div>
 <script>
     function toggleFeatureCollapse(event) {
@@ -661,7 +713,7 @@ $features = [
         var backdrop = document.getElementById('mbs-backdrop');
         var sheet = document.getElementById('mbs-sheet');
         var content = document.querySelector('#mbs-sheet .mbs-content');
-        var titleEl = document.querySelector('#mbs-sheet .mbs-title');
+        var titleEl = content.querySelector('.mbs-content-title');
         var step = parseInt("{{ $step ?? 2 }}");
         function closeSheet(){
             sheet.style.transform = 'translateY(100%)';
@@ -675,45 +727,55 @@ $features = [
             var passengers = (card.querySelector('.pass-luggage-info > div:nth-child(1)')||{}).textContent||'';
             var luggage = (card.querySelector('.pass-luggage-info > div:nth-child(2)')||{}).textContent||'';
             var desc = (card.querySelector('.vehicle-description')||{}).textContent||'';
-            var priceHtml = (card.querySelector('.car-price h4')||{}).innerHTML||'';
+            var priceText = ((card.querySelector('.car-price h4')||{}).textContent)||'';
+
             titleEl.textContent = name;
-            content.innerHTML = ''+
-                '<div class="mbs-hero">'+
-                    '<img src="'+img+'" alt="'+name+'" />'+
-                '</div>'+
-                '<div class="mbs-info">'+
-                    '<div class="mbs-line">'+passengers+'</div>'+
-                    '<div class="mbs-line">'+luggage+'</div>'+
-                    (desc ? '<div class="mbs-desc">'+desc+'</div>' : '')+
-                '</div>'+
-                '<div class="mbs-price">'+priceHtml+'</div>'+
-                '<div class="mbs-features">'+
-                    '<div class="mbs-features-title">Included</div>'+
-                    '<?php foreach($features as $f){ echo '<div class="mbs-feature"><i class="bi '. $f['icon'] .'"></i><span>'. $f['text'] .'</span></div>'; } ?>'+
-                '</div>'+
-                '<div class="mbs-actions">'+
-                    '<button type="button" class="btn btn-primary mbs-select">SELECT VEHICLE</button>'+
-                '</div>';
+
+            var heroImg = content.querySelector('.mbs-hero img');
+            if (heroImg) { heroImg.src = img; heroImg.alt = name; }
+
+            var passengersCountMatch = (passengers || '').match(/[0-9]+/);
+            var passengersCount = passengersCountMatch ? passengersCountMatch[0] : '';
+            var passengersCountEl = sheet.querySelector('.mbs-passengers-count');
+            if (passengersCountEl) { passengersCountEl.textContent = passengersCount; }
+
+            var luggageCountMatch = (luggage || '').match(/[0-9]+/);
+            var luggageCount = luggageCountMatch ? luggageCountMatch[0] : '';
+            var luggageCountEl = sheet.querySelector('.mbs-luggage-count');
+            if (luggageCountEl) { luggageCountEl.textContent = luggageCount; }
+
+            var descEl = content.querySelector('.mbs-desc');
+            if (descEl) {
+                if (desc) { descEl.textContent = desc; descEl.style.display = ''; }
+                else { descEl.textContent = ''; descEl.style.display = 'none'; }
+            }
+
+            var priceNumEl = content.querySelector('.mbs-price-number');
+            if (priceNumEl) { priceNumEl.textContent = priceText; }
+
             backdrop.style.display = 'block';
             sheet.style.display = 'block';
             requestAnimationFrame(function(){
                 backdrop.style.opacity = '1';
                 sheet.style.transform = 'translateY(0)';
             });
-            var selectBtn = document.querySelector('#mbs-sheet .mbs-select');
-            selectBtn.onclick = function(){
-                var id = card.dataset.id;
-                var priceEl = card.querySelector('.pricing_summary_price');
-                var priceMatch = (priceEl && (priceEl.textContent || '')).match(/[0-9]+(?:\.[0-9]+)?/);
-                var price = priceMatch ? priceMatch[0] : null;
-                if (step === 2 && id && price) {
-                    window.location.href = '/user-login/' + id + '/' + price;
-                    return;
-                }
-                document.querySelectorAll('.selectable-card').forEach(function(c){ c.classList.remove('selected'); });
-                card.classList.add('selected');
-                closeSheet();
-            };
+
+            var selectBtn = content.querySelector('.mbs-select');
+            if (selectBtn) {
+                selectBtn.onclick = function(){
+                    var id = card.dataset.id;
+                    var priceEl = card.querySelector('.pricing_summary_price');
+                    var priceMatch = (priceEl && (priceEl.textContent || '')).match(/[0-9]+(?:\.[0-9]+)?/);
+                    var price = priceMatch ? priceMatch[0] : null;
+                    if (step === 2 && id && price) {
+                        window.location.href = '/user-login/' + id + '/' + price;
+                        return;
+                    }
+                    document.querySelectorAll('.selectable-card').forEach(function(c){ c.classList.remove('selected'); });
+                    card.classList.add('selected');
+                    closeSheet();
+                };
+            }
         }
         var closeBtn = document.querySelector('#mbs-sheet .mbs-close');
         if(closeBtn){ closeBtn.addEventListener('click', closeSheet); }

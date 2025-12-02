@@ -10,6 +10,7 @@
             font-size: 20px;
         }
         @media only screen and (max-width: 767px) {
+            #proceed-bar { display: none; }
             .bottom-header {
                 padding: 10px 0px 10px !important;
             }
@@ -22,7 +23,7 @@
     </style>
     @endsection
     <!-- header section start -->
-    <header class="header-section" style="bottom: 0 !important; box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1); overflow: hidden;">
+    <header id="proceed-bar" class="header-section" style="bottom: 0 !important; box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1); overflow: hidden;">
         <!-- main menu -->
         <div class="main-header bottom-header">
             <div class="container">
