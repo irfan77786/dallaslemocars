@@ -10,15 +10,113 @@ use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ProfileController;
+use Yajra\DataTables\Facades\DataTables;
 use App\Models\Booking;
 
-Route::get('/dashboard', function () {
-    $bookings = Booking::with('booker', 'vehicle', 'returnService')
+Route::get('/dashboard', function (Request $request) {
+    if ($request->ajax()) {
+
+        $query = Booking::with(['booker', 'vehicle', 'returnService'])
         ->where('user_id', auth()->id())
-        ->latest()
-        ->paginate(10);
-    return view('dashboard', compact('bookings'));
+        ->latest();
+
+        $rideType = $request->input('ride_type');
+        $startDate = $request->input('start_date');
+        $endDate = $request->input('end_date');
+        $searchText = $request->input('search_text');
+
+        if ($rideType === 'one') {
+            $query->where('round_trip', 0);
+        } elseif ($rideType === 'round') {
+            $query->where('round_trip', 1);
+        }
+
+        if ($startDate && $endDate) {
+            $query->whereBetween('pickup_date', [$startDate, $endDate]);
+        } elseif ($startDate) {
+            $query->where('pickup_date', '>=', $startDate);
+        } elseif ($endDate) {
+            $query->where('pickup_date', '<=', $endDate);
+        }
+
+        if ($searchText) {
+            $query->where(function($q) use ($searchText) {
+                $q->where('booking_id', 'like', "%$searchText%")
+                  ->orWhere('pickup_location', 'like', "%$searchText%")
+                  ->orWhere('dropoff_location', 'like', "%$searchText%")
+                  ->orWhereHas('booker', function($qb) use ($searchText) {
+                      $qb->where('first_name', 'like', "%$searchText%")
+                         ->orWhere('last_name', 'like', "%$searchText%");
+                  });
+            });
+        }
+
+        return DataTables::eloquent($query)
+
+            // Checkbox
+            ->addColumn('checkbox', fn($row) =>
+                '<input type="checkbox" class="row-checkbox" value="'.$row->id.'">'
+            )
+
+            // Conf #
+            ->addColumn('confirmation', fn($row) => $row->booking_id)
+
+            // Date
+            ->addColumn('date', fn($row) =>
+                $row->pickup_date . ' @ ' . $row->pickup_time
+            )
+
+            // Passenger
+            ->addColumn('passenger', function ($row) {
+                if (!$row->booker) return '-';
+                return $row->booker->first_name . ' ' . $row->booker->last_name;
+            })
+
+            // Routing Information
+            ->addColumn('routing', function ($row) {
+                $text = "<strong>{$row->pickup_location}</strong> → <strong>{$row->dropoff_location}</strong>";
+                if ($row->round_trip == 1) {
+                    $text .= "<br><small>Return: {$row->return_date} @ {$row->return_time}</small>";
+                }
+                return $text;
+            })
+
+            // Status
+            ->addColumn('status', function ($row) {
+                $status = strtolower($row->payment_status);
+                $class = match ($status) {
+                    'paid' => 'badge bg-success',
+                    'pending' => 'badge bg-warning text-dark',
+                    'cancelled' => 'badge bg-danger',
+                    default => 'badge bg-secondary',
+                };
+                return "<span class='{$class}'>".ucfirst($status)."</span>";
+            })
+
+            // Total
+            ->addColumn('total', fn($row) =>
+                '$'.number_format($row->total_price, 2)
+            )
+
+            // Actions
+            ->addColumn('actions', function ($row) {
+                return '
+                    <button class="btn btn-sm btn-primary"
+                        onclick=\'showBookingDetails('.json_encode($row).')\'
+                        data-toggle="modal"
+                        data-target="#bookingDetailModal">
+                        View
+                    </button>
+                ';
+            })
+
+            ->rawColumns(['checkbox','routing','status','actions'])
+            ->make(true);
+    }
+
+    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::get('/user-login/{id}/{price}', [BookingController::class, 'userLogin'])->name('user_login');
 

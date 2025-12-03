@@ -15,46 +15,56 @@
 
         <div class="tab-content">
             <div class="tab-pane fade show active" id="tab-bookings" role="tabpanel" aria-labelledby="bookings-tab">
-        <div class="row">
-            @forelse ($bookings as $booking)
-                @php
-                    $status = strtolower($booking->payment_status);
-                    $status_class = match ($status) {
-                        'paid' => 'badge bg-success',
-                        'pending' => 'badge bg-warning text-dark',
-                        'cancelled' => 'badge bg-danger',
-                        default => 'badge bg-secondary',
-                    };
-                    $bookingJson = $booking->toJson();
-                @endphp
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h5 class="mb-0">{{ $booking->booking_id }}</h5>
-                                <span class="h5 mb-0 text-success">${{ number_format($booking->total_price, 2) }}</span>
+                <div class="row">
+                    <div class="col-12 mb-3 d-flex align-items-center gap-2">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary" id="filter-toggle">Filter <span class="ml-1">-</span></button>
+                        </div>
+                    </div>
+
+                    <div id="filters-panel" class="card card-body mb-3" style="display:none;">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-3 mb-2 mb-md-0">
+                                <select class="form-control" id="filter-ride-type">
+                                    <option value="">All Rides</option>
+                                    <option value="one">One-way</option>
+                                    <option value="round">Round Trip</option>
+                                </select>
                             </div>
-                            <p class="mb-1"><strong>Route:</strong> {{ $booking->pickup_location }} to {{ $booking->dropoff_location }}</p>
-                            <p class="mb-1"><strong>Date/Time:</strong> {{ $booking->pickup_date }} @ {{ $booking->pickup_time }}</p>
-                            @if ($booking->round_trip === 1)
-                                <p class="mb-1"><strong>Return:</strong> {{ $booking->dropoff_location }} to {{ $booking->pickup_location }}</p>
-                                <p class="mb-1"><strong>Return Date/Time:</strong> {{ $booking->return_date }} @ {{ $booking->return_time }}</p>
-                                <span class="badge bg-info text-white">Round Trip</span>
-                            @endif
-                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                <span class="{{ $status_class }} text-white">{{ ucfirst($booking->payment_status) }}</span>
-                                <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingDetailModal" onclick="showBookingDetails({{ $bookingJson }})">View Details</button>
+                            <div class="col-12 col-md-5 mb-2 mb-md-0">
+                                <div class="d-flex align-items-center">
+                                    <input type="date" class="form-control" id="filter-start-date">
+                                    <span class="mx-2">to</span>
+                                    <input type="date" class="form-control" id="filter-end-date">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-2 mb-2 mb-md-0">
+                                <input type="text" class="form-control" id="filter-search-text" placeholder="Conf #, Pax Name, etc.">
+                            </div>
+                            <div class="col-12 col-md-2 text-md-right">
+                                <button type="button" class="btn btn-primary" id="go-filter">Go</button>
+                                <a href="javascript:void(0)" class="ml-3" id="clear-filter">Clear Filter</a>
                             </div>
                         </div>
                     </div>
+
+                    <div class="table-responsive">
+                    <table id="bookings-table" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="select-all"></th>
+                                <th>Conf. #</th>
+                                <th>Date</th>
+                                <th>Passenger</th>
+                                <th>Routing Information</th>
+                                <th>Status</th>
+                                <th>Total</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    </div>
                 </div>
-            @empty
-                <div class="col-12">
-                    <div class="text-center py-4 text-muted">No bookings found in your history.</div>
-                </div>
-            @endforelse
-        </div>
-        <div class="mt-4">{{ $bookings->links() }}</div>
             </div>
 
             <div class="tab-pane fade" id="tab-profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -276,6 +286,7 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('assets/js/jquery-1.12.4.min.js') }}"></script>
 
     <script>
         (function() {
@@ -365,5 +376,48 @@
             const baseUrl = "{{ route('dashboard') }}";
             bookingLink.href = `${baseUrl}/${bookingData.id}`;
         }
+        $(function () {
+            var dt = $('#bookings-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "{{ route('dashboard') }}",
+                    data: function(d) {
+                        d.ride_type = $('#filter-ride-type').val();
+                        d.start_date = $('#filter-start-date').val();
+                        d.end_date = $('#filter-end-date').val();
+                        d.search_text = $('#filter-search-text').val();
+                    }
+                },
+                responsive: true,
+                columns: [
+                    { data: 'checkbox', name: 'checkbox', orderable: false, searchable: false },
+                    { data: 'confirmation', name: 'booking_id' },
+                    { data: 'date', name: 'pickup_date' },
+                    { data: 'passenger', name: 'booker.name' },
+                    { data: 'routing', name: 'pickup_location' },
+                    { data: 'status', name: 'payment_status' },
+                    { data: 'total', name: 'total_price' },
+                    { data: 'actions', orderable: false, searchable: false }
+                ]
+            });
+
+            $('#filter-toggle').on('click', function() {
+                var panel = $('#filters-panel');
+                panel.toggle();
+            });
+
+            $('#go-filter').on('click', function() {
+                dt.ajax.reload();
+            });
+
+            $('#clear-filter').on('click', function() {
+                $('#filter-ride-type').val('');
+                $('#filter-start-date').val('');
+                $('#filter-end-date').val('');
+                $('#filter-search-text').val('');
+                dt.ajax.reload();
+            });
+        });
     </script>
 @endsection

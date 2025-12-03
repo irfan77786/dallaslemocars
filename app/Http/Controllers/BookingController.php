@@ -879,15 +879,12 @@ public function completeBook(Request $request)
             $lastNumericId = (int)$matches[1] + 1;
         }
 
-        $booker = null;
-        if ($isBookingForOthers) {
-            $booker = Booker::create([
-                'first_name' => $booker_first_name,
-                'last_name'  => $booker_last_name,
-                'email'      => $booker_email,
-                'phone_number' => $booker_number,
-            ]);
-        }
+        $booker = Booker::create([
+            'first_name' => $booker_first_name,
+            'last_name'  => $booker_last_name,
+            'email'      => $booker_email,
+            'phone_number' => $booker_number,
+        ]);
 
         $customBookingId = 'pm_' . $lastNumericId;
 
