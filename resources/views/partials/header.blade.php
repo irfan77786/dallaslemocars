@@ -84,6 +84,15 @@
             <nav class="drawer-nav">
                 <ul class="drawer-menu list-unstyled">
                     <li><a href="about.html">About us</a></li>
+                    @auth
+                        <li><a href="#tab-bookings" class="drawer-tab-link">Rides</a></li>
+                        <li><a href="#tab-users" class="drawer-tab-link">Users</a></li>
+                        <li><a href="#tab-payments" class="drawer-tab-link">Payment Methods</a></li>
+                        <li><a href="#tab-invoice" class="drawer-tab-link">Invoices</a></li>
+                        <li><a href="#tab-profile" class="drawer-tab-link">Account Info</a></li>
+                        <li><a href="#tab-locations" class="drawer-tab-link">Stored Locations</a></li>
+                    @endauth
+                    <li><a href="about.html">About us</a></li>
                     <li class="has-submenu">
                         <a href="#" class="submenu-toggle">Our Service</a>
                         <ul class="submenu list-unstyled">
@@ -125,4 +134,31 @@
             </nav>
         </aside>
     </header>
+
+    <script>
+        const drawerLinks = document.querySelectorAll('.drawer-tab-link');
+
+        drawerLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+
+                // Remove active from all nav-links
+                document.querySelectorAll('.nav-link').forEach(tab => tab.classList.remove('active'));
+
+                // Add active to the clicked nav-link
+                const navLink = document.querySelector(`.nav-link[href="#${targetId}"]`);
+                if (navLink) navLink.classList.add('active');
+
+                // Remove active/show from all tab-panes
+                document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active', 'show'));
+
+                // Show the target tab-pane
+                const tabPane = document.getElementById(targetId);
+                if (tabPane) tabPane.classList.add('active', 'show');
+            });
+        });
+    </script>
+
     <!-- header section end -->

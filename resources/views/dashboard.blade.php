@@ -1,28 +1,120 @@
 @extends('layouts.guest')
+<style>
+.table-responsive{
+  overflow-x: hidden !important;
+}
+.nav-link {
+    color: black !important;
+}
+/* Desktop layout */
+.litepicker .layout-wrapper {
+    display: flex;
+    background: #fff;
+}
 
+/* Presets panel */
+.litepicker .preset-panel {
+    width: 180px;
+    border-right: 1px solid #e3e3e3;
+    background: #fff;
+    padding: 10px 0;
+    flex-shrink: 0;
+}
+
+.litepicker .preset-panel button {
+    width: 100%;
+    padding: 8px 14px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.litepicker .preset-panel button:hover {
+    background: #f0f6ff;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+    .container-fluid {
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+    }
+    .desktopTabs {
+        display: none !important;
+    }
+    /* Stack vertically */
+    .litepicker .layout-wrapper {
+        flex-direction: column;
+    }
+
+    /* Full width presets */
+    .litepicker .preset-panel {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e3e3e3;
+    }
+
+    /* Single-month calendar */
+    .litepicker .container__main {
+        width: 100%;
+        padding-left: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .container-fluid {
+        padding-top: 0px !important;
+        padding-bottom: 30px !important;
+    }
+    .desktopTabs {
+        display: flex !important;
+    }
+}
+
+</style>
 @section('guest_data')
-
-    <div class="container-fluid p-md-5 mt-4">
-        <h2 class="text-center">Welcome back, {{ Auth::user()->first_name }}</h2>
-        <ul class="nav nav-tabs mb-4" id="dashboardTabs" role="tablist">
+    <div class="container-fluid">
+        <ul class="nav nav-tabs mb-4 desktopTabs" id="dashboardTabs" role="tablist" style="border-bottom: 0px !important; justify-content: center; margin-top: 35px;">
             <li class="nav-item">
-                <a class="nav-link active" id="bookings-tab" href="#tab-bookings" role="tab">Bookings</a>
+                <a class="nav-link active" id="bookings-tab" href="#tab-bookings" role="tab">Rides</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="profile-tab" href="#tab-profile" role="tab">Profile Settings</a>
+                <a class="nav-link" id="users-tab" href="#tab-users" role="tab">Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="payments-tab" href="#tab-payments" role="tab">Payment Methods</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="invoices-tab" href="#tab-invoice" role="tab">Invoices</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" href="#tab-profile" role="tab">Account Info</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="locations-tab" href="#tab-locations" role="tab">Stored Locations</a>
             </li>
         </ul>
 
         <div class="tab-content">
             <div class="tab-pane fade show active" id="tab-bookings" role="tabpanel" aria-labelledby="bookings-tab">
-                <div class="row">
-                    <div class="col-12 mb-3 d-flex align-items-center gap-2">
-                        <div class="btn-group">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10">
+                        <div class="col-12 mb-3 d-flex align-items-center gap-2" style="padding: 0px;">
                             <button type="button" class="btn btn-primary" id="filter-toggle">Filter <span class="ml-1">-</span></button>
-                        </div>
-                    </div>
 
-                    <div id="filters-panel" class="card card-body mb-3" style="display:none;">
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Export
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Download as PDF</a>
+                                    <a class="dropdown-item" href="#">Download as XLS</a>
+                                </div>
+                            </div>
+                        </div>
+                    <div id="filters-panel" class="card card-body mb-3 pl-0 pr-0" style="display:none; padding-top: 0px; padding-bottom: 0px; border: none !important;">
                         <div class="row align-items-center">
                             <div class="col-12 col-md-3 mb-2 mb-md-0">
                                 <select class="form-control" id="filter-ride-type">
@@ -32,11 +124,7 @@
                                 </select>
                             </div>
                             <div class="col-12 col-md-5 mb-2 mb-md-0">
-                                <div class="d-flex align-items-center">
-                                    <input type="date" class="form-control" id="filter-start-date">
-                                    <span class="mx-2">to</span>
-                                    <input type="date" class="form-control" id="filter-end-date">
-                                </div>
+                                <input type="text" class="form-control" id="date-range" placeholder="Select range">
                             </div>
                             <div class="col-12 col-md-2 mb-2 mb-md-0">
                                 <input type="text" class="form-control" id="filter-search-text" placeholder="Conf #, Pax Name, etc.">
@@ -63,6 +151,7 @@
                             </tr>
                         </thead>
                     </table>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -287,7 +376,8 @@
         </div>
     </div>
     <script src="{{ asset('assets/js/jquery-1.12.4.min.js') }}"></script>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
     <script>
         (function() {
             var links = document.querySelectorAll('#dashboardTabs .nav-link');
@@ -380,6 +470,8 @@
             var dt = $('#bookings-table').DataTable({
                 processing: true,
                 serverSide: true,
+                lengthChange: false,  // hides "Show X entries" dropdown
+                searching: false,
                 ajax: {
                     url: "{{ route('dashboard') }}",
                     data: function(d) {
@@ -420,4 +512,30 @@
             });
         });
     </script>
+<script>
+const dateInput = document.getElementById('date-range');
+
+function getColumns() {
+    return window.innerWidth <= 768 ? 1 : 2; // 1 month on mobile, 2 on desktop
+}
+
+const picker = new Litepicker({
+    element: dateInput,
+    singleMode: false,       // Range mode
+    numberOfMonths: getColumns(),
+    numberOfColumns: getColumns(),
+    autoApply: false,        // Keep user in control
+    autoHide: false,         // ⭐ Keep calendar open after selecting second date
+    format: 'YYYY-MM-DD',
+});
+
+// Update number of months dynamically on resize
+window.addEventListener('resize', () => {
+    picker.setOptions({
+        numberOfMonths: getColumns(),
+        numberOfColumns: getColumns(),
+    });
+});
+</script>
+
 @endsection
