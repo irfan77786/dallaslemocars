@@ -1,6 +1,16 @@
 input[type="checkbox"] {
   accent-color: #2c314a;
 }
+.page-item.active .page-link {
+    background: #1B9CCC !important;
+    border-color: #1B9CCC !important;
+}
+select:focus, input:focus {
+    color: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: #1B9CCC !important;
+}
 .internal-links {
     color: black !important;
 }
@@ -799,3 +809,47 @@ body.drawer-open {
     .drawer-overlay,
     .mobile-drawer { display: none !important; }
 }
+
+.day-item.is-start-date, .day-item.is-end-date, .day-item.is-selected, .button-apply {
+    background-color: #1B9CCC !important;
+}
+
+.day-item:hover {
+    border-color: #1B9CCC !important;
+}
+
+.btn-primary-transparent-hover {
+  color: #1B9CCC !important;               /* text color default */
+  background-color: transparent !important; /* transparent background */
+  border: 1px solid #1B9CCC !important;    /* primary border */
+  font-size: 1rem;
+  padding: .475rem .75rem !important;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  text-decoration: none;
+}
+
+/* Hover and focus: filled background, white text */
+.btn-primary-transparent-hover:hover,
+.btn-primary-transparent-hover:focus {
+  background: linear-gradient(to right, #1A6982, #1B9CCC) !important;   /* primary background */
+  border-color: #1B9CCC !important;       /* keep border */
+  color: #fff !important;                 /* white text */
+  text-decoration: none;
+  outline: none;
+}
+
+/* Active / clicked: same as hover */
+.btn-primary-transparent-hover:active,
+.btn-primary-transparent-hover.active {
+  background-color: linear-gradient(to right, #1A6982, #1B9CCC) !important;
+  border-color: #1B9CCC !important;
+  color: #fff !important;
+}
+
