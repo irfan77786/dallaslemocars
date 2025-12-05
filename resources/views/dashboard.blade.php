@@ -466,51 +466,85 @@
             const baseUrl = "{{ route('dashboard') }}";
             bookingLink.href = `${baseUrl}/${bookingData.id}`;
         }
-        $(function () {
-            var dt = $('#bookings-table').DataTable({
-                processing: true,
-                serverSide: true,
-                lengthChange: false,  // hides "Show X entries" dropdown
-                searching: false,
-                ajax: {
-                    url: "{{ route('dashboard') }}",
-                    data: function(d) {
-                        d.ride_type = $('#filter-ride-type').val();
-                        d.start_date = $('#filter-start-date').val();
-                        d.end_date = $('#filter-end-date').val();
-                        d.search_text = $('#filter-search-text').val();
-                    }
-                },
-                responsive: true,
-                columns: [
-                    { data: 'checkbox', name: 'checkbox', orderable: false, searchable: false },
-                    { data: 'confirmation', name: 'booking_id' },
-                    { data: 'date', name: 'pickup_date' },
-                    { data: 'passenger', name: 'booker.name' },
-                    { data: 'routing', name: 'pickup_location' },
-                    { data: 'status', name: 'payment_status' },
-                    { data: 'total', name: 'total_price' },
-                    { data: 'actions', orderable: false, searchable: false }
-                ]
-            });
+$(function () {
 
-            $('#filter-toggle').on('click', function() {
-                var panel = $('#filters-panel');
-                panel.toggle();
-            });
+    const dateInput = document.getElementById('date-range');
 
-            $('#go-filter').on('click', function() {
-                dt.ajax.reload();
-            });
+    // --- LITEPICKER RANGE PICKER ---
+    const picker = new Litepicker({
+        element: dateInput,
+        singleMode: false,
+        numberOfMonths: getColumns(),
+        numberOfColumns: getColumns(),
+        autoApply: false,
+        autoHide: false,
+        format: 'YYYY-MM-DD',
+    });
 
-            $('#clear-filter').on('click', function() {
-                $('#filter-ride-type').val('');
-                $('#filter-start-date').val('');
-                $('#filter-end-date').val('');
-                $('#filter-search-text').val('');
-                dt.ajax.reload();
-            });
-        });
+    // DataTable
+    var dt = $('#bookings-table').DataTable({
+        processing: true,
+        serverSide: true,
+        lengthChange: false,
+        searching: false,
+
+        ajax: {
+            url: "{{ route('dashboard') }}",
+            data: function (d) {
+
+                // ---- READ DATES FROM LITEPICKER ----
+                let start = picker.getStartDate();
+                let end   = picker.getEndDate();
+
+                if (start && end) {
+                    d.start_date = start.format('YYYY-MM-DD');
+                    d.end_date   = end.format('YYYY-MM-DD');
+                } else {
+                    d.start_date = null;
+                    d.end_date   = null;
+                }
+
+                // Other filters
+                d.ride_type   = $('#filter-ride-type').val();
+                d.search_text = $('#filter-search-text').val();
+            }
+        },
+
+        responsive: true,
+
+        columns: [
+            { data: 'checkbox', orderable: false, searchable: false },
+            { data: 'confirmation', name: 'booking_id' },
+            { data: 'date', name: 'pickup_date' },
+            { data: 'passenger', name: 'booker.first_name' },
+            { data: 'routing', name: 'pickup_location' },
+            { data: 'status', name: 'payment_status' },
+            { data: 'total', name: 'total_price' },
+            { data: 'actions', orderable: false, searchable: false }
+        ]
+    });
+
+    // Toggle filter panel
+    $('#filter-toggle').on('click', function () {
+        $('#filters-panel').toggle();
+    });
+
+    // Apply filters
+    $('#go-filter').on('click', function () {
+        dt.ajax.reload();
+    });
+
+    // Clear filters
+    $('#clear-filter').on('click', function () {
+        $('#filter-ride-type').val('');
+        $('#filter-search-text').val('');
+        picker.clearSelection();  // ⭐ Properly clears range in Litepicker
+
+        dt.ajax.reload();
+    });
+
+});
+
     </script>
 <script>
 const dateInput = document.getElementById('date-range');
@@ -518,16 +552,6 @@ const dateInput = document.getElementById('date-range');
 function getColumns() {
     return window.innerWidth <= 768 ? 1 : 2; // 1 month on mobile, 2 on desktop
 }
-
-const picker = new Litepicker({
-    element: dateInput,
-    singleMode: false,       // Range mode
-    numberOfMonths: getColumns(),
-    numberOfColumns: getColumns(),
-    autoApply: false,        // Keep user in control
-    autoHide: false,         // ⭐ Keep calendar open after selecting second date
-    format: 'YYYY-MM-DD',
-});
 
 // Update number of months dynamically on resize
 window.addEventListener('resize', () => {
