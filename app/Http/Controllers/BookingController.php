@@ -489,6 +489,12 @@ class BookingController extends Controller
 
     public function submitPassengerInfo(Request $request)
     {
+        if(auth()->check()){
+            $user = auth()->user();
+            session()->put('booker_first_name', $user->first_name);
+            session()->put('booker_last_name', $user->last_name);
+            session()->put('booker_email', $user->email);
+        }
         // First check for required session data before any other processing
         if (!session('pickup_location') || !session('pickup_date')) {
             // If AJAX request, return JSON response

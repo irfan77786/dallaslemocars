@@ -47,6 +47,10 @@ class LoginRequest extends FormRequest
             throw ValidationException::withMessages([
                 'email' => trans('auth.failed'),
             ]);
+        }else{
+            session()->put('booker_first_name', $this->first_name);
+            session()->put('booker_last_name', $this->last_name);
+            session()->put('booker_email', $this->email);
         }
 
         RateLimiter::clear($this->throttleKey());
