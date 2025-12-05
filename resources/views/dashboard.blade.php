@@ -97,7 +97,7 @@
             </li>
             <li class="nav-item mr-3">
                 <a class="@if(Route::is('invoices')) btn-primary @else btn-primary-transparent-hover @endif" id="invoices-tab" href="#tab-invoice" role="tab">
-                    <i class="fas fa-file-invoice"></i> Invoices
+                    <i class="fas fa-file-alt"></i> Invoices
                 </a>
             </li>
             <li class="nav-item mr-3">
