@@ -853,3 +853,7 @@ body.drawer-open {
   color: #fff !important;
 }
 
+.form-check-input:checked {
+    background-color: #1A6982 !important;
+    border-color: #1A6982 !important;
+}
