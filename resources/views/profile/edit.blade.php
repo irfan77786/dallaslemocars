@@ -1,5 +1,9 @@
 @extends('layouts.guest')
-
+<style>
+    .container-fluid > .row {
+        justify-content: center !important;
+    }
+</style>
 @section('guest_data')
     <div class="container-fluid">
         @include('partials.dashboard_tabs')

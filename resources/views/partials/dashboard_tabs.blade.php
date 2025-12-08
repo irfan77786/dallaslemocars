@@ -9,6 +9,7 @@
     .desktopTabs {
         display: flex;
         justify-content: center;
+        margin-right: 32px !important;
         gap: 10px;
         flex-wrap: nowrap;     /* prevents going to next line */
     }
