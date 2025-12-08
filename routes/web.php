@@ -12,6 +12,98 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\ProfileController;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\Booking;
+use App\Models\User;
+use Illuminate\Support\Str;
+use Illuminate\Database\QueryException;
+
+Route::get('/users', function (Request $request) {
+
+    if ($request->ajax()) {
+
+        $query = User::select('id', 'first_name', 'last_name', 'email', 'phone', 'contact_type', 'email_verified_at')
+            ->where('user_id', auth()->id())
+            ->orderBy('id', 'desc');
+
+        $searchText = $request->input('search_text');
+        $contactType = $request->input('contact_type');
+        $status      = $request->input('status');
+
+        if ($searchText) {
+            $query->where(function ($q) use ($searchText) {
+                $q->where('first_name', 'like', "%$searchText%")
+                  ->orWhere('last_name', 'like', "%$searchText%")
+                  ->orWhere('email', 'like', "%$searchText%")
+                  ->orWhere('phone', 'like', "%$searchText%");
+            });
+        }
+
+        if (!empty($contactType)) {
+            $query->where('contact_type', $contactType);
+        }
+
+        if ($status === 'verified') {
+            $query->whereNotNull('email_verified_at');
+        } elseif ($status === 'unverified') {
+            $query->whereNull('email_verified_at');
+        }
+
+        return DataTables::eloquent($query)
+
+            ->addColumn('checkbox', fn($row) =>
+                '<input type="checkbox" class="user-checkbox" value="'.$row->id.'">'
+            )
+
+            ->addColumn('account', fn($row) => $row->id)
+
+            ->addColumn('name', fn($row) => trim(($row->first_name ?? '').' '.($row->last_name ?? '')) ?: '-')
+
+            ->addColumn('phone', fn($row) => $row->phone ?? '-')
+
+            ->addColumn('type', fn($row) => ucfirst($row->contact_type ?? 'Passenger'))
+
+            ->addColumn('status', function ($row) {
+                $verified = !is_null($row->email_verified_at);
+                $class = $verified ? 'badge bg-success' : 'badge bg-secondary';
+                $text  = $verified ? 'Verified' : 'Unverified';
+                return "<span class='${class}'>${text}</span>";
+            })
+
+            ->rawColumns(['checkbox','status'])
+            ->make(true);
+    }
+
+    return view('users');
+})->middleware(['auth'])->name('users');
+
+Route::post('/users', function (Request $request) {
+    $data = $request->validate([
+        'first_name'   => ['required','string','max:100'],
+        'last_name'    => ['required','string','max:100'],
+        'email'        => ['required','email','max:255'],
+        'phone'        => ['nullable','string','max:50'],
+        'contact_type' => ['required','in:passenger,billing,booking'],
+    ]);
+
+    $exists = User::where('email', $data['email'])->where('user_id', auth()->id())->exists();
+    if ($exists) {
+        return response()->json(['message' => 'Email already exists'], 422);
+    }
+
+    $data['user_id'] = auth()->id();
+    $data['password'] = bcrypt(Str::random(12));
+
+    try {
+        User::create($data);
+    } catch (QueryException $e) {
+        if ($e->getCode() === '23000') {
+            return response()->json(['message' => 'Email already exists'], 422);
+        }
+        throw $e;
+    }
+
+    return response()->json(['message' => 'Contact created']);
+})->middleware(['auth'])->name('users.store');
+
 
 Route::get('/dashboard', function (Request $request) {
     if ($request->ajax()) {
