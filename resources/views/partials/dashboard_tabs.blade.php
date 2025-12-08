@@ -47,7 +47,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="btn @if(Route::is('payment_methods')) btn-primary @else btn-primary-transparent-hover @endif" href="#tab-payments">
+        <a class="btn @if(Route::is('cards.index')) btn-primary @else btn-primary-transparent-hover @endif" href="{{ route('cards.index') }}">
             <i class="fas fa-credit-card mr-2"></i> Payment Methods
         </a>
     </li>

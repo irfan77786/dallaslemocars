@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Artisan;
@@ -218,6 +219,34 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+        // ✅ List all cards
+    Route::get('/payment-methods', [PaymentMethodController::class, 'index'])
+        ->name('cards.index');
+
+    // ✅ Add new card UI
+    Route::get('/payment-methods/create', [PaymentMethodController::class, 'create'])
+        ->name('cards.add');
+
+    // ✅ Create Setup Intent (AJAX)
+    Route::post('/payment-methods/setup-intent', [PaymentMethodController::class, 'createSetupIntent'])
+        ->name('cards.setup');
+
+    // ✅ Save Preferred Card
+    Route::post('/payment-methods/preferred', [PaymentMethodController::class, 'savePreferred'])
+        ->name('cards.preferred');
+
+    // ✅ Edit Billing UI
+    Route::get('/payment-methods/{id}/edit', [PaymentMethodController::class, 'edit'])
+        ->name('cards.edit');
+
+    // ✅ Update Billing Address
+    Route::post('/payment-methods/{id}/update', [PaymentMethodController::class, 'update'])
+        ->name('cards.update');
+
+    // ✅ Delete Card
+    Route::delete('/payment-methods/{id}', [PaymentMethodController::class, 'destroy'])
+        ->name('cards.delete');
 });
 
 // ------------------------------------- BOOKING ROUTES -------------------------------------------------:
