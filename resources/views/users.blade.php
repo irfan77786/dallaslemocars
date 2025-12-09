@@ -199,7 +199,7 @@
         processing: true,
         serverSide: true,
         lengthChange: false,
-        searching: true,
+        searching: false,
         responsive: true,
         paging: true,
         pageLength: 10,
