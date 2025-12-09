@@ -1,6 +1,9 @@
 input[type="checkbox"] {
   accent-color: #2c314a;
 }
+.submenu {
+    padding: 0 !important;
+}
 .page-item.active .page-link {
     background: #1B9CCC !important;
     border-color: #1B9CCC !important;
