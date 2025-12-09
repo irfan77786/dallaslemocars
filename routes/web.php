@@ -11,6 +11,7 @@ use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StoredLocationsController;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\Booking;
 use App\Models\User;
@@ -104,7 +105,6 @@ Route::post('/users', function (Request $request) {
 
     return response()->json(['message' => 'Contact created']);
 })->middleware(['auth'])->name('users.store');
-
 
 Route::get('/dashboard', function (Request $request) {
     if ($request->ajax()) {
@@ -210,7 +210,6 @@ Route::get('/dashboard', function (Request $request) {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-
 Route::get('/user-login/{id}/{price}', [BookingController::class, 'userLogin'])->name('user_login');
 
 Route::post('/check-email-exists', [ProfileController::class, 'checkEmailExists'])->name('check.email.exists');
@@ -220,31 +219,51 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-        // ✅ List all cards
+    // ------------------------- Location Routes -----------------------------------------:
+
+    Route::get('/storedLocations/list', [StoredLocationsController::class, 'index'])
+        ->name('storedLocations.index');
+
+    // Show create form
+    Route::get('/storedLocations/create', [StoredLocationsController::class, 'create'])
+        ->name('storedLocations.add');
+
+    // Store new location
+    Route::post('/storedLocations/store', [StoredLocationsController::class, 'store'])
+        ->name('storedLocations.store');
+
+    // Show edit form
+    Route::get('/storedLocations/{id}/edit', [StoredLocationsController::class, 'edit'])
+        ->name('storedLocations.edit');
+
+    // Update location
+    Route::put('/storedLocations/{id}', [StoredLocationsController::class, 'update'])
+        ->name('storedLocations.update');
+
+    // Delete location
+    Route::delete('/storedLocations/{id}', [StoredLocationsController::class, 'destroy'])
+        ->name('storedLocations.delete');
+
+    // ------------------------- Payment Routes -----------------------------------------:
+
     Route::get('/payment-methods', [PaymentMethodController::class, 'index'])
-        ->name('cards.index');
+    ->name('cards.index');
 
-    // ✅ Add new card UI
     Route::get('/payment-methods/create', [PaymentMethodController::class, 'create'])
-        ->name('cards.add');
+    ->name('cards.add');
 
-    // ✅ Create Setup Intent (AJAX)
     Route::post('/payment-methods/setup-intent', [PaymentMethodController::class, 'createSetupIntent'])
         ->name('cards.setup');
 
-    // ✅ Save Preferred Card
     Route::post('/payment-methods/preferred', [PaymentMethodController::class, 'savePreferred'])
         ->name('cards.preferred');
 
-    // ✅ Edit Billing UI
     Route::get('/payment-methods/{id}/edit', [PaymentMethodController::class, 'edit'])
         ->name('cards.edit');
 
-    // ✅ Update Billing Address
     Route::post('/payment-methods/{id}/update', [PaymentMethodController::class, 'update'])
         ->name('cards.update');
 
-    // ✅ Delete Card
     Route::delete('/payment-methods/{id}', [PaymentMethodController::class, 'destroy'])
         ->name('cards.delete');
 });

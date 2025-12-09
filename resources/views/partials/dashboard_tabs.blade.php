@@ -65,7 +65,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="btn @if(Route::is('stored_locations')) btn-primary @else btn-primary-transparent-hover @endif" href="#tab-locations">
+        <a class="btn @if(Route::is('storedLocations.index')) btn-primary @else btn-primary-transparent-hover @endif" href="{{ route('storedLocations.index') }}">
             <i class="fas fa-map-marker-alt mr-2"></i> Stored Locations
         </a>
     </li>
