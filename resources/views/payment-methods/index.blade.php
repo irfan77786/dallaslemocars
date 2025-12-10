@@ -76,7 +76,22 @@
                 <tbody>
                     @forelse($cards as $card)
                     <tr>
-                        <td data-label="Credit Card #">{{ strtoupper($card->card->brand) }} ** {{ $card->card->last4 }}</td>
+                        <td data-label="Credit Card #">
+                            @php $brand = strtolower($card->card->brand); @endphp
+                            @if($brand === 'visa')
+                                <i class="fab fa-cc-visa text-primary"></i>
+                            @elseif($brand === 'mastercard')
+                                <i class="fab fa-cc-mastercard text-danger"></i>
+                            @elseif($brand === 'amex')
+                                <i class="fab fa-cc-amex text-info"></i>
+                            @elseif($brand === 'discover')
+                                <i class="fab fa-cc-discover text-warning"></i>
+                            @else
+                                <i class="far fa-credit-card"></i>
+                            @endif
+                            <strong class="ms-1">{{ strtoupper($card->card->brand) }}</strong>
+                            •• {{ $card->card->last4 }}
+                        </td>
                         <td data-label="Exp Date">{{ $card->card->exp_month }}/{{ substr($card->card->exp_year, -2) }}</td>
                         <td data-label="Name">{{ $card->billing_details->name }}</td>
                         <td data-label="Billing Address">

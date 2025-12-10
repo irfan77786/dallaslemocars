@@ -3,9 +3,9 @@
 
 @section('styles')
     <style>
-    .ElementsApp .Icon-fill {
-      fill: black !important;
-    }
+        .payment-card-option {
+            color: #1A6982 !important;
+        }
     #card-element{
         background: transparent !important;
         padding: 0 !important;
@@ -34,15 +34,10 @@
    margin-top: 10px !important;
  }
 
-#card-element.form-control {
-  height: 45px;
-  padding: 0 10px;
-}
-     .text-primary{
-        color:var(--dark-bg-btn) !important;
-    }
-
-
+        #card-element.form-control {
+        height: 45px;
+        padding: 0 10px;
+        }
         #payment-form {
             width: 100%;
             margin: 0 auto;
@@ -89,264 +84,193 @@
 @include('partials.bookig-top_area')
 
 <div class="container py-5 only-for-payments">
-    <div class="row">
-        <div class="col-md-8">
-            <h5 class="font-weight-bold mb-2">Payment Information</h5>
-            <p class="text-muted small mb-4">
-                All transactions are secure and encrypted. Safe and secure payments powered by <strong>Stripe</strong>
-            </p>
+<div class="row">
+<div class="col-md-8">
 
-            <!-- FORM START -->
-            <form id="payment-form" method="POST" action="{{ url('/completeBook') }}" data-submitted="false">
-                @csrf
-                <input type="hidden" name="form_token" value="{{ session('form_token') }}">
-                <input type="hidden" name="payment_method_id" id="payment_method_id">
+<h5 class="fw-bold mb-2">Payment Information</h5>
 
-                <!-- NAME ON CARD -->
-                <div class="floating-bordered-input position-relative mb-4 margin-pc-payment">
-                    <span class="floating-label">Full Name</span>
-                    <input id="card-name" type="text" class="form-control" required autofocus placeholder=" ">
-                </div>
+<form id="payment-form" method="POST" action="{{ url('/completeBook') }}">
+@csrf
+<input type="hidden" name="payment_method_id" id="payment_method_id">
 
-                <!-- CARD ELEMENT -->
-                <div class="floating-bordered-input position-relative mb-1 margin-pc-payment">
-                    <span class="floating-label">Card Number</span>
-                    <div id="card-element" class="form-control"></div>
-                </div>
-                <div id="card-errors" class="text-danger small mt-1"></div>
+<label class="d-flex align-items-center mb-3 border p-3 rounded payment-card-option">
+    <input type="radio"
+           name="payment_method"
+           class="me-2 saved-card-radio"
+           value=""
+           checked> <!-- default selected -->
 
-                <p class="text-muted small mt-4 mb-3 d-none d-md-block text-center" style="margin-top: 40px !important;">
-                    By clicking "BOOK NOW", you agree to our
-                    <a href="#" class="hover-black" data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop">Terms & Conditions</a>
-                </p>
+    <i class="far fa-credit-card fs-2 me-3"></i>
+    <span>Pay with a new card</span>
+</label>
 
-                <!-- BUTTON + SUPPORTED CARDS -->
-                <div class="d-md-flex justify-content-between mt-2">
-                    <img src="{{ asset('assets/img/credit-cards.png') }}" alt="Supported Credit Cards"
-                        class="img-fluid" style="max-width: 280px;">
+{{-- ✅ SAVED CARDS --}}
+@forelse($cards as $card)
+@php
+    $brand = strtolower($card->card->brand);
+    $holder = $card->billing_details->name ?? '';
+@endphp
 
-                    <button type="submit"
-                        style="width: 100%; max-width: 250px;"
-                        class="btn btn-primary d-none d-md-block"
-                        id="final-pay-button">
-                        <span id="button-text">BOOK NOW</span>
-                        <span id="button-spinner"
-                            class="spinner-border spinner-border-sm d-none"
-                            role="status" aria-hidden="true"></span>
-                    </button>
-                </div>
-            </form>
-            <!-- FORM END -->
+<label class="d-flex align-items-center mb-3 border p-3 rounded payment-card-option">
+    <input type="radio"
+           name="payment_method"
+           class="me-2 saved-card-radio"
+           value="{{ $card->id }}"
+           data-holder="{{ $holder }}">
 
-        </div>
-        <!-- RIGHT SIDE PRICING INSIDE THE FORM (IMPORTANT) -->
-        @include('booking.right_side_pricing_area')
-        <!-- TERMS & CONDITIONS MODAL -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
-            data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header pb-0" style="height: 65px !important;">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel" style="font-size: 24px;">
-                            Terms & Conditions
-                        </h1>
-                        <p data-bs-dismiss="modal" aria-label="Close"
-                            style="font-size: 18px; cursor: pointer;">
-                            <svg fill="#000000" width="30px" height="30px"
-                                viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M18.8,16l5.5-5.5c0.8-0.8,0.8-2,0-2.8l0,0C24,7.3,23.5,7,23,7c-0.5,0-1,0.2-1.4,0.6L16,13.2l-5.5-5.5  c-0.8-0.8-2.1-0.8-2.8,0C7.3,8,7,8.5,7,9.1s0.2,1,0.6,1.4l5.5,5.5l-5.5,5.5C7.3,21.9,7,22.4,7,23c0,0.5,0.2,1,0.6,1.4  C8,24.8,8.5,25,9,25c0.5,0,1-0.2,1.4-0.6l5.5-5.5l5.5,5.5c0.8,0.8,2.1,0.8,2.8,0c0.8-0.8,0.8-2.1,0-2.8L18.8,16z" />
-                            </svg>
-                        </p>
-                    </div>
+    {{-- FONT AWESOME ICON --}}
+    @if($brand === 'visa')
+        <i class="fab fa-cc-visa text-primary fs-2 me-3"></i>
+    @elseif($brand === 'mastercard')
+        <i class="fab fa-cc-mastercard text-danger fs-2 me-3"></i>
+    @elseif($brand === 'amex')
+        <i class="fab fa-cc-amex text-info fs-2 me-3"></i>
+    @elseif($brand === 'discover')
+        <i class="fab fa-cc-discover text-warning fs-2 me-3"></i>
+    @else
+        <i class="far fa-credit-card fs-2 me-3"></i>
+    @endif
 
-                    <div class="modal-body">
-                        <!-- Your Terms Content Here -->
-                        <div style="font-size: 14px; line-height: 1.6; color: #333;">
+    <span>
+        **** **** **** {{ $card->card->last4 }}
+        ({{ strtoupper($card->card->brand) }})
+        Exp: {{ $card->card->exp_month }}/{{ $card->card->exp_year }}
+    </span>
+</label>
+@empty
+<p class="text-danger">No saved cards found — Please enter card below</p>
+@endforelse
 
-                            <p class="terms-paragraph">
-                                Welcome to Dallas Black Cars Limo Service! These Terms and Conditions govern your use of this website
-                                and our services. By accessing and using this website and our services, you agree to be bound by these Terms.
-                                If you do not agree, you may not use our services or this website. Dallas Black Cars Limo Service may update
-                                these Terms at any time without notice. Please review them periodically.
-                            </p>
 
-                            <p class="terms-paragraph">
-                                For any questions or concerns, contact us at <strong>info@dallaslimoandblackcars.com</strong> or call.
-                            </p>
+{{-- ✅ FULL NAME + CARD NUMBER (SAME GROUP) --}}
+<div id="new-card-fields">
 
-                            <h4 class="terms-heading">1. Definitions</h4>
-                            <p class="terms-paragraph"><strong>Dallas Black Cars Limo Service, "we", "our", or "us":</strong> Refers to the company, the website, its owners, operators, and affiliates.</p>
-                            <p class="terms-paragraph"><strong>"You" or "User":</strong> Individuals or entities using our website or services.</p>
-                            <p class="terms-paragraph"><strong>Services:</strong> Chauffeured limousine arrangements, bookings, customer interactions, and related services.</p>
-
-                            <h4 class="terms-heading">2. Acknowledgment And Agreement To Terms</h4>
-                            <p class="terms-paragraph">By using our site or services, you acknowledge that you have read and agreed to these Terms. If you disagree, do not use our site or services.</p>
-                            <p class="terms-paragraph">We may revise the Terms at any time. Continued use means you accept the updates.</p>
-
-                            <h4 class="terms-heading">3. Services Offered</h4>
-                            <p class="terms-paragraph">We offer professional chauffeured services, including:</p>
-                            <ul>
-                                <li>Airport Transfers</li>
-                                <li>Corporate and Executive Transportation</li>
-                                <li>Special Event Services</li>
-                                <li>Hourly and Point-to-Point Services</li>
-                            </ul>
-                            <p class="terms-paragraph">Users must confirm all booking details. Confirmations will be sent via email or SMS.</p>
-
-                            <h4 class="terms-heading">4. Booking And Payment Policy</h4>
-                            <ul>
-                                <li>Book online or by phone.</li>
-                                <li>Payment is required at booking. Debit/credit cards accepted.</li>
-                                <li>Booking confirmation is sent via email or SMS.</li>
-                                <li><strong>Automatic Charges:</strong> Charged one day before service.</li>
-                                <li><strong>Declined Payments:</strong> May result in cancellation if not resolved.</li>
-                            </ul>
-
-                            <h4 class="terms-heading">5. User Responsibilities</h4>
-                            <p class="terms-paragraph">Users must:</p>
-                            <ul>
-                                <li>Provide accurate booking details.</li>
-                                <li>Use services legally and ethically.</li>
-                                <li>Respect staff and chauffeurs.</li>
-                                <li>Non-compliance may lead to service refusal or cancellation.</li>
-                            </ul>
-
-                            <h4 class="terms-heading">6. Forbidden Actions</h4>
-                            <p class="terms-paragraph">The following are prohibited:</p>
-                            <ul>
-                                <li>Illegal use of the website.</li>
-                                <li>Copying or altering content without permission.</li>
-                                <li>Distributing malware or spam.</li>
-                                <li>Hacking or bypassing site security.</li>
-                            </ul>
-
-                            <h4 class="terms-heading">7. Disputes And Arbitration</h4>
-                            <ul>
-                                <li>Contact us first for dispute resolution.</li>
-                                <li>If unresolved, disputes go to binding arbitration.</li>
-                                <li>Class action waivers apply.</li>
-                            </ul>
-
-                            <h4 class="terms-heading">8. Data Protection And Privacy</h4>
-                            <p class="terms-paragraph">We value your privacy. By using our services, you consent to data collection as per our Privacy Policy.</p>
-                            <ul>
-                                <li><strong>Data Usage:</strong> Information is securely stored and used only as needed.</li>
-                                <li><strong>User Rights:</strong> You may request data access, edits, or deletion.</li>
-                            </ul>
-
-                            <h4 class="terms-heading">9. Liability And Indemnification</h4>
-                            <ul>
-                                <li>We are not liable for delays due to weather, traffic, or third parties.</li>
-                                <li>You agree to indemnify us from claims arising from your use of our services.</li>
-                            </ul>
-
-                            <h4 class="terms-heading">10. Copyright And Intellectual Property</h4>
-                            <p class="terms-paragraph">All content is protected. Unauthorized use is prohibited.</p>
-                            <p class="terms-paragraph">
-                                <strong>Reporting Infringements:</strong> Contact us with a description of the content, your contact info,
-                                and proof of ownership at <strong>info@dallaslimoandblackcars.com</strong>.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
+    <!-- Full Name -->
+    <div class="floating-bordered-input position-relative mb-3">
+        <input type="text" id="card-name" class="form-control" required>
+        <span class="floating-label">Full Name</span>
     </div>
+
+    <!-- Card Number -->
+    <div class="floating-bordered-input position-relative mb-3">
+        <span class="floating-label">Card Number</span>
+        <div id="card-element" class="form-control"></div>
+    </div>
+
+    <div id="card-errors" class="text-danger small mb-2"></div>
 </div>
 
-@if(session('error'))
-    <div class="alert alert-danger" role="alert" style="margin-top:12px;">
-        {{ session('error') }}
-    </div>
-@endif
+
+
+<div id="card-errors" class="text-danger small mb-2"></div>
+
+{{-- ✅ BUTTON --}}
+<button type="submit" id="final-pay-button" class="btn btn-primary mt-3 w-100">
+BOOK NOW
+</button>
+
+</form>
+</div>
+
+@include('booking.right_side_pricing_area')
+
+</div>
+</div>
 
 <script src="https://js.stripe.com/v3/"></script>
+
 <script>
-    const stripe = Stripe('pk_test_51S81pVPvyAVXbs5QJfcsADAnQWcmEs5UjwJ5xoVEK6Hv5Zj4wFC08ogmw9zReRvAZIN4UVyECK6TEmMmAlEDm2iV00n6mftUq0');
+document.addEventListener('DOMContentLoaded', function () {
+    const stripe = Stripe("{{ config('services.stripe.key') }}");
     const elements = stripe.elements();
-
-    const card = elements.create('card', {
-        style: {
-            base: {
-                fontSize: '16px',
-                color: '#212529',
-                lineHeight: '45px',
-            }
-        }
-    });
-
+    const card = elements.create('card');
     card.mount('#card-element');
-
-    // Enable button on load
-    document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('final-pay-button').disabled = false;
-    });
-
-    function setLoading(isLoading) {
-        const submitButton = document.getElementById('final-pay-button');
-        const buttonText = document.getElementById('button-text');
-        const buttonSpinner = document.getElementById('button-spinner');
-
-        submitButton.disabled = isLoading;
-        buttonText.textContent = isLoading ? 'Processing...' : 'BOOK NOW';
-        buttonSpinner.classList.toggle('d-none', !isLoading);
-    }
-
-    function updatePricingAreaMargin(hasError) {
-        const pricingArea = document.getElementById('pricing-area-wrapper');
-        const isMobile = window.innerWidth <= 768;
-    }
-
-    card.on('change', function(event) {
-        updatePricingAreaMargin(!!event.error || event.empty || !event.complete);
-        const err = document.getElementById('card-errors');
-        if (err) {
-            err.textContent = event.error ? event.error.message : '';
-        }
-    });
 
     const form = document.getElementById('payment-form');
     const errorDiv = document.getElementById('card-errors');
+    const cardNameInput = document.getElementById('card-name');
+    const hiddenPaymentMethod = document.getElementById('payment_method_id');
+    const savedRadios = document.querySelectorAll('.saved-card-radio');
+    const newCardFields = document.getElementById('new-card-fields');
 
-    form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        setLoading(true);
-        errorDiv.textContent = '';
-        updatePricingAreaMargin(false);
+    function toggleNewCardFields(show) {
+        newCardFields.style.display = show ? 'block' : 'none';
 
-        try {
-            const { paymentMethod, error } = await stripe.createPaymentMethod({
-                type: 'card',
-                card,
-                billing_details: {
-                    name: document.getElementById('card-name').value
-                }
-            });
+        // Enable/disable input based on visibility
+        cardNameInput.required = show;   // required only if showing
+        cardNameInput.disabled = !show;  // disable if hidden
 
-            if (error) throw error;
+        // For Stripe Card Element, you can't set disabled, but hiding is enough
+        if (!show) cardNameInput.value = '';
+    }
 
-            // Store payment method id in hidden input
-            document.getElementById('payment_method_id').value = paymentMethod.id;
 
-            // Mark form as submitted (for back button logic)
-            form.dataset.submitted = 'true';
 
-            // Now safely submit POST request to Laravel
-            form.submit();
+    // ✅ INITIAL STATE: SHOW NEW CARD FIELDS
+    toggleNewCardFields(true);
 
-        } catch (error) {
-            errorDiv.textContent = error.message;
-            updatePricingAreaMargin(true);
-            setLoading(false);
+    // ✅ WHEN RADIO CHANGES
+    savedRadios.forEach(radio => {
+        radio.addEventListener('change', function () {
+            hiddenPaymentMethod.value = radio.value;
+
+            if (radio.value) {
+                // saved card selected → hide new card
+                const holderName = radio.dataset.holder || '';
+                cardNameInput.value = holderName;
+                toggleNewCardFields(false);
+            } else {
+                // custom card selected → show new card
+                toggleNewCardFields(true);
+            }
+
+            errorDiv.innerText = '';
+        });
+    });
+
+
+    // ✅ IF USER TYPES MANUALLY → SWITCH TO NEW CARD MODE
+    cardNameInput.addEventListener('input', function () {
+        savedRadios.forEach(r => r.checked = false);
+        hiddenPaymentMethod.value = '';
+        toggleNewCardFields(true);
+    });
+
+    // ✅ FINAL PAYMENT HANDLER
+form.addEventListener('submit', async function (event) {
+    event.preventDefault();
+    errorDiv.innerText = '';
+
+    // If a saved card is selected, submit form directly
+    if (hiddenPaymentMethod.value && hiddenPaymentMethod.value !== '') {
+        form.submit();
+        return;
+    }
+
+    // Otherwise, new card → validate and create PaymentMethod
+    const cardholder = cardNameInput.value.trim();
+    if (!cardholder) {
+        errorDiv.innerText = 'Card holder name is required.';
+        return;
+    }
+
+    const { paymentMethod, error } = await stripe.createPaymentMethod({
+        type: 'card',
+        card: card,
+        billing_details: {
+            name: cardholder
         }
     });
-</script>
 
+    if (error) {
+        errorDiv.innerText = error.message;
+        return;
+    }
+
+    hiddenPaymentMethod.value = paymentMethod.id;
+    form.submit();
+});
+
+});
+</script>
 @endsection

@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use Stripe\Exception\ApiErrorException;
+use Stripe\PaymentMethod;
+use Stripe\Stripe;
 
 class BookingController extends Controller
 {
@@ -690,6 +692,8 @@ public function bookRide(Request $request)
 {
 
 try {
+    $user = null;
+    $cards = null;
     // Validate request fields
     $validated = $request->validate([
         'pickup_flight_details' => 'nullable|string|max:255',
@@ -700,6 +704,17 @@ try {
         'return-service' => 'nullable',
         'note' => 'nullable|string|max:500',
     ]);
+
+    Stripe::setApiKey(config('services.stripe.secret'));
+
+    if(auth()->check()){
+        $user = auth()->user();
+        $cards = PaymentMethod::all([
+            'customer' => $user->stripe_customer_id,
+            'type' => 'card',
+        ]);
+    }
+
 
 } catch (ValidationException $e) {
     dd($e->errors());
@@ -749,7 +764,7 @@ try {
     session(['final_price' => $total]);
 
     // Redirect to payment view (or wherever step 5 is)
-    return view('booking.payment', ['step' => 5]);
+    return view('booking.payment', ['step' => 5, 'cards' => $cards]);
 }
 private function generateUniqueBookingId(): string
 {
@@ -774,7 +789,7 @@ public function completeBook(Request $request)
         return redirect()->back()->withErrors($validator)->withInput();
     }
 
-    \Stripe\Stripe::setApiKey('sk_test_51S81pVPvyAVXbs5QBqZwFdHwLTsQreH31LSF574OqXBuG5uBptERAQYZ136akK9k7JLX3eV5q0Wictx2YQH5lPkQ00pfxqJ0eF');
+    \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
 
     try {
         $user = auth()->user();
@@ -834,17 +849,16 @@ public function completeBook(Request $request)
             }
         }
 
-        // Attach PaymentMethod to Customer
-        \Stripe\PaymentMethod::retrieve($request->payment_method_id)->attach([
-            'customer' => $stripeCustomerId,
-        ]);
-
-        // -------------------------
-        // Create PaymentIntent
-        // -------------------------
-        $amountInCents = (int) round(((float) $selected_price) * 100);
-
         try {
+            // Attach PaymentMethod to Customer
+            \Stripe\PaymentMethod::retrieve($request->payment_method_id)->attach([
+                'customer' => $stripeCustomerId,
+            ]);
+
+            // -------------------------
+            // Create PaymentIntent
+            // -------------------------
+            $amountInCents = (int) round(((float) $selected_price) * 100);
             $paymentIntent = \Stripe\PaymentIntent::create([
                 'amount' => $amountInCents,
                 'currency' => 'usd',
@@ -1039,7 +1053,7 @@ public function completeBook(Request $request)
             'booking_id' => $customBookingId,
         ]);
 
-        return $user ? redirect()->route('dashboard') : redirect()->route('thankyou');
+        return $user ? redirect()->route('dashboard')->with('success', 'Booking completed successfully!') : redirect()->route('thankyou');
 
     } catch (\Stripe\Exception\CardException $e) {
         return redirect()->back()->with('error', $e->getError()->message);

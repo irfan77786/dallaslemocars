@@ -79,6 +79,14 @@
 </style>
 @section('guest_data')
     <div class="container-fluid">
+        @session('success')
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endsession
         @include('partials.dashboard_tabs')
         <div class="tab-content">
             <div class="tab-pane fade show active" id="tab-bookings" role="tabpanel" aria-labelledby="bookings-tab">
