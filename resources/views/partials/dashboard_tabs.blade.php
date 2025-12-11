@@ -53,7 +53,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="btn @if(Route::is('invoices')) btn-primary @else btn-primary-transparent-hover @endif" href="#tab-invoice">
+        <a class="btn @if(Route::is('invoices.index')) btn-primary @else btn-primary-transparent-hover @endif" href="{{ route('invoices.index') }}">
             <i class="fas fa-file-alt mr-2"></i> Invoices
         </a>
     </li>
@@ -70,4 +70,3 @@
         </a>
     </li>
 </ul>
-

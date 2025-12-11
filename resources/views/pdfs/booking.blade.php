@@ -50,14 +50,14 @@
     .sections h2:not(.custom-large-heading) {
       margin: 5px 0 3px 0 !important;
       padding: 4px 15px;
-      background: #9e7c1e !important;
+      background: #12143e !important;
       color: #ffffff !important;
       border-radius: 0;
       font-size: 16px;
     }
 
     .section h2 {
-      background: #9e7c1e !important;
+      background: #12143e !important;
       margin: 0;
       padding: 6px 15px;
       font-size: 16px;
@@ -67,7 +67,7 @@
     }
 
     .section-light h2 {
-      background: #EFEADB;
+      background: #baddfc;
       margin: 0 0 20px 0;
       padding: 6px 15px;
       font-size: 16px;
@@ -78,7 +78,7 @@
     .custom-large-heading {
       padding: 6px 15px !important;
       margin: 10px 0 3px 0 !important;
-      background: #9e7c1e !important;
+      background: #12143e !important;
       font-size: 16px !important;
       color: #ffffff !important;
       border-bottom: 1px solid #e0e0e0 !important;
@@ -196,11 +196,22 @@
       <div style="display: table-row;">
         <div style="display: table-cell; vertical-align: middle; width: 62%;">
           @php
-          $logoUrl = 'https://dallaslimoandblackcars.com/img/black-car-service-dallas-logo.webp';
-          $context = stream_context_create(['ssl' => ['verify_peer' => false, 'verify_peer_name' => false]]);
-          $logoData = base64_encode(file_get_contents($logoUrl, false, $context));
+            $candidates = [
+              public_path('assets/img/site/black-car-service-dallas-logo.png'),
+              public_path('assets/img/site/black-car-service-dallas-logo.webp'),
+              public_path('assets/img/black-car-service-dallas-logo.webp'),
+              public_path('assets/img/black-car-service-dallas-logo.png'),
+            ];
+            $logoPath = null;
+            foreach ($candidates as $p) { if (file_exists($p)) { $logoPath = $p; break; } }
+            $logoData = $logoPath ? base64_encode(file_get_contents($logoPath)) : null;
+            $mime = $logoPath && strtolower(pathinfo($logoPath, PATHINFO_EXTENSION)) === 'png' ? 'image/png' : 'image/webp';
           @endphp
-          <img src="data:image/png;base64,{{ $logoData }}" alt="Logo" style="height: 60px;" />
+          @if($logoData)
+            <img src="data:{{ $mime }};base64,{{ $logoData }}" alt="Logo" style="height: 60px;" />
+          @else
+            <div style="font-weight: bold; font-size: 18px;">Dallas Black Cars Limo Service</div>
+          @endif
         </div>
         <div style="text-align: right;">
           <div style="font-size: 12px; text-align: left;">

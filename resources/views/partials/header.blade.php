@@ -85,12 +85,12 @@
                 <ul class="drawer-menu list-unstyled">
                     <li><a href="about.html">About us</a></li>
                     @auth
-                        <li><a href="#tab-bookings" class="drawer-tab-link">Rides</a></li>
-                        <li><a href="#tab-users" class="drawer-tab-link">Users</a></li>
-                        <li><a href="#tab-payments" class="drawer-tab-link">Payment Methods</a></li>
-                        <li><a href="#tab-invoice" class="drawer-tab-link">Invoices</a></li>
-                        <li><a href="#tab-profile" class="drawer-tab-link">Account Info</a></li>
-                        <li><a href="#tab-locations" class="drawer-tab-link">Stored Locations</a></li>
+                        <li><a href="{{ route('dashboard') }}" class="drawer-tab-link">Rides</a></li>
+                        <li><a href="{{ route('users') }}" class="drawer-tab-link">Users</a></li>
+                        <li><a href="{{ route('cards.index') }}" class="drawer-tab-link">Payment Methods</a></li>
+                        <li><a href="{{ route('invoices.index') }}" class="drawer-tab-link">Invoices</a></li>
+                        <li><a href="{{ route('profile.edit') }}" class="drawer-tab-link">Account Info</a></li>
+                        <li><a href="{{ route('storedLocations.index') }}" class="drawer-tab-link">Stored Locations</a></li>
                     @endauth
                     <li><a href="about.html">About us</a></li>
                     <li class="has-submenu">

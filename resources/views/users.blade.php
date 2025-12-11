@@ -103,8 +103,8 @@
                                     Export
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="exportDropdown">
-                                    <a class="dropdown-item" href="#">Download as PDF</a>
-                                    <a class="dropdown-item" href="#">Download as XLS</a>
+                                    <a class="dropdown-item" href="#" id="export-users-pdf">Download as PDF</a>
+                                    <a class="dropdown-item" href="#" id="export-users-xls">Download as XLS</a>
                                 </div>
                             </div>
                         </div>
@@ -275,6 +275,32 @@
                 }
             }
         });
+    });
+
+    $('#export-users-xls').on('click', function (e) {
+        e.preventDefault();
+        const params = new URLSearchParams();
+        const searchText = $('#filter-search-text').val();
+        const contactType = $('#filter-contact-type').val();
+        const status = $('#filter-status').val();
+        if (searchText) params.set('search_text', searchText);
+        if (contactType) params.set('contact_type', contactType);
+        if (status) params.set('status', status);
+        const baseUrl = "{{ route('users.export.xls') }}";
+        window.location.href = baseUrl + (params.toString() ? ('?' + params.toString()) : '');
+    });
+
+    $('#export-users-pdf').on('click', function (e) {
+        e.preventDefault();
+        const params = new URLSearchParams();
+        const searchText = $('#filter-search-text').val();
+        const contactType = $('#filter-contact-type').val();
+        const status = $('#filter-status').val();
+        if (searchText) params.set('search_text', searchText);
+        if (contactType) params.set('contact_type', contactType);
+        if (status) params.set('status', status);
+        const baseUrl = "{{ route('users.export.pdf') }}";
+        window.location.href = baseUrl + (params.toString() ? ('?' + params.toString()) : '');
     });
 
     });

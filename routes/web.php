@@ -8,6 +8,7 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\ExportController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ProfileController;
@@ -17,6 +18,7 @@ use App\Models\Booking;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\QueryException;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 Route::get('/users', function (Request $request) {
 
@@ -76,6 +78,13 @@ Route::get('/users', function (Request $request) {
 
     return view('users');
 })->middleware(['auth'])->name('users');
+
+Route::get('/users/export/xls', [ExportController::class, 'usersXls'])
+    ->middleware(['auth'])
+    ->name('users.export.xls');
+Route::get('/users/export/pdf', [ExportController::class, 'usersPdf'])
+    ->middleware(['auth'])
+    ->name('users.export.pdf');
 
 Route::post('/users', function (Request $request) {
     $data = $request->validate([
@@ -209,6 +218,120 @@ Route::get('/dashboard', function (Request $request) {
 
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard/export/xls', [ExportController::class, 'dashboardXls'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard.export.xls');
+Route::get('/dashboard/export/pdf', [ExportController::class, 'dashboardPdf'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard.export.pdf');
+
+Route::get('/invoices', function (Request $request) {
+    if ($request->ajax()) {
+        $query = Booking::with(['booker', 'vehicle', 'returnService'])
+            ->where('user_id', auth()->id())
+            ->latest();
+
+        $rideType   = $request->input('ride_type');
+        $startDate  = $request->input('start_date');
+        $endDate    = $request->input('end_date');
+        $searchText = $request->input('search_text');
+
+        if ($rideType === 'one') {
+            $query->where('round_trip', 0);
+        } elseif ($rideType === 'round') {
+            $query->where('round_trip', 1);
+        }
+
+        if ($startDate && $endDate) {
+            $query->whereBetween('pickup_date', [$startDate, $endDate]);
+        } elseif ($startDate) {
+            $query->where('pickup_date', '>=', $startDate);
+        } elseif ($endDate) {
+            $query->where('pickup_date', '<=', $endDate);
+        }
+
+        if ($searchText) {
+            $query->where(function($q) use ($searchText) {
+                $q->where('booking_id', 'like', "%$searchText%")
+                  ->orWhere('pickup_location', 'like', "%$searchText%")
+                  ->orWhere('dropoff_location', 'like', "%$searchText%")
+                  ->orWhereHas('booker', function($qb) use ($searchText) {
+                      $qb->where('first_name', 'like', "%$searchText%")
+                         ->orWhere('last_name', 'like', "%$searchText%");
+                  });
+            });
+        }
+
+        return DataTables::eloquent($query)
+            ->addColumn('checkbox', fn($row) => '<input type="checkbox" class="row-checkbox" value="'.$row->id.'">')
+            ->addColumn('confirmation', fn($row) => $row->booking_id)
+            ->addColumn('date', fn($row) => $row->pickup_date . ' @ ' . $row->pickup_time)
+            ->addColumn('passenger', function ($row) {
+                if (!$row->booker) return '-';
+                return $row->booker->first_name . ' ' . $row->booker->last_name;
+            })
+            ->addColumn('routing', function ($row) {
+                $text = "<strong>{$row->pickup_location}</strong> → <strong>{$row->dropoff_location}</strong>";
+                if ($row->round_trip == 1) {
+                    $text .= "<br><small>Return: {$row->return_date} @ {$row->return_time}</small>";
+                }
+                return $text;
+            })
+            ->addColumn('status', function ($row) {
+                $status = strtolower($row->payment_status);
+                $class = match ($status) {
+                    'paid' => 'badge bg-success',
+                    'pending' => 'badge bg-warning text-dark',
+                    'cancelled' => 'badge bg-danger',
+                    default => 'badge bg-secondary',
+                };
+                return "<span class='{$class}'>".ucfirst($status)."</span>";
+            })
+            ->addColumn('total', fn($row) => '$'.number_format($row->total_price, 2))
+            ->addColumn('actions', function ($row) {
+                $downloadUrl = route('invoices.download', ['booking_id' => $row->booking_id]);
+                return '<a class="btn btn-sm btn-primary" href="'.$downloadUrl.'">Download Invoice</a>';
+            })
+            ->rawColumns(['checkbox','routing','status','actions'])
+            ->make(true);
+    }
+
+    return view('invoices.index');
+})->middleware(['auth', 'verified'])->name('invoices.index');
+
+Route::get('/invoices/{booking_id}/download', function ($booking_id) {
+    $booking = Booking::with(['booker', 'vehicle'])->where('booking_id', $booking_id)->where('user_id', auth()->id())->firstOrFail();
+    $filePath = public_path('pdfs/'.$booking->booking_id.'.pdf');
+    if (!file_exists($filePath)) {
+        $bookingData = [
+            'booking_id' => $booking->booking_id,
+            'passenger_name' => $booking->booker ? ($booking->booker->first_name.' '.$booking->booker->last_name) : null,
+            'email' => $booking->booker->email ?? null,
+            'phone' => $booking->booker->phone_number ?? null,
+            'pickup_location' => $booking->pickup_location,
+            'dropoff_location' => $booking->dropoff_location,
+            'hours' => null,
+            'pickup_date' => $booking->pickup_date,
+            'pickup_time' => $booking->pickup_time,
+            'vehicle_type' => $booking->vehicle->vehicle_name ?? 'Standard',
+            'passengers' => 1,
+            'total_amount' => $booking->total_price,
+            'payment_status' => $booking->payment_status,
+            'special_instructions' => $booking->note,
+            'flight_details' => null,
+            'booker_first_name' => $booking->booker->first_name ?? null,
+            'booker_last_name' => $booking->booker->last_name ?? null,
+            'booker_email' => $booking->booker->email ?? null,
+            'booker_number' => $booking->booker->phone_number ?? null,
+            'isBookingForOthers' => false,
+        ];
+        $pdf = Pdf::loadView('pdfs.booking', ['bookingData' => $bookingData]);
+        if (!file_exists(public_path('pdfs'))) { @mkdir(public_path('pdfs'), 0777, true); }
+        $pdf->save($filePath);
+    }
+    return response()->file($filePath, ['Content-Type' => 'application/pdf']);
+})->middleware(['auth', 'verified'])->name('invoices.download');
 
 Route::get('/user-login/{id}/{price}', [BookingController::class, 'userLogin'])->name('user_login');
 
