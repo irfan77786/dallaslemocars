@@ -8,6 +8,9 @@
 .success-icon{width:56px;height:56px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#e7f3f7;color:#1A6982;font-size:28px;margin-bottom:16px}
 .thankyou-subtitle{font-size:18px;color:#6c757d}
 .thankyou-img{border-radius:10px}
+.text-primary {
+    color: #1B9CCC !important;
+}
 @media (min-width:767px){.thankyou-img{max-width:520px}}
 </style>
 @endsection

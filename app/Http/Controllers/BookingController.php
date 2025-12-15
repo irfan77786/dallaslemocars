@@ -8,14 +8,14 @@ use App\Models\Booking;
 use App\Models\Vehicle;
 use App\Models\Booker;
 use App\Models\FlightDetail;
+use App\Models\RateVehicle;
 use App\Models\ReturnService;
-use Auth;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
-use Stripe\Exception\ApiErrorException;
 use Stripe\PaymentMethod;
 use Stripe\Stripe;
 
@@ -60,16 +60,7 @@ class BookingController extends Controller
                 $distance = $this->computeRouteDistance($pickup, $dropoff, $stops ?? []);
                 session(['route_distance_km' => $distance]);
             }
-            $price = $vehicle->base_fare + ((float)$distance * $vehicle->per_km_rate);
-            $result = [
-                'distance_km' => round((float)$distance, 2),
-                'price' => round($price, 2),
-                'baseFare' => $vehicle->base_fare,
-                'hourlyFare' => null,
-                'perKmRate' => $vehicle->per_km_rate,
-                'hours' => null,
-                'type' => 'PointToPoint'
-            ];
+            $result = $this->calculateDistanceBasedPrice($vehicle, (float)$distance);
         }
 
         $calculatedPrice = is_array($result) && isset($result['price']) ? $result['price'] : (float) $price;
@@ -155,16 +146,7 @@ class BookingController extends Controller
         session(['route_distance_km' => $distance]);
         $distanceData = [];
         foreach ($vehicles as $vehicle) {
-            $price = $vehicle->base_fare + ((float)$distance * $vehicle->per_km_rate);
-            $distanceData[$vehicle->id] = [
-                'distance_km' => round((float)$distance, 2),
-                'price' => round($price, 2),
-                'baseFare' => $vehicle->base_fare,
-                'hourlyFare' => null,
-                'perKmRate' => $vehicle->per_km_rate,
-                'hours' => null,
-                'type' => 'PointToPoint'
-            ];
+            $distanceData[$vehicle->id] = $this->calculateDistanceBasedPrice($vehicle, (float)$distance);
         }
 
         return view('booking.confirmation', [
@@ -213,16 +195,7 @@ class BookingController extends Controller
     session(['route_distance_km' => $distance]);
     $distanceData = [];
     foreach ($vehicles as $vehicle) {
-        $price = $vehicle->base_fare + ((float)$distance * $vehicle->per_km_rate);
-        $distanceData[$vehicle->id] = [
-            'distance_km' => round((float)$distance, 2),
-            'price' => round($price, 2),
-            'baseFare' => $vehicle->base_fare,
-            'hourlyFare' => null,
-            'perKmRate' => $vehicle->per_km_rate,
-            'hours' => null,
-            'type' => 'PointToPoint'
-        ];
+        $distanceData[$vehicle->id] = $this->calculateDistanceBasedPrice($vehicle, (float)$distance);
     }
 
     session([
@@ -357,60 +330,60 @@ class BookingController extends Controller
     // }
 
     private function calculateDistanceWithStops($pickup, $dropoff, array $stops, $baseFare , $hourlyFare , $perKmRate,$hours = null)
-{
-    if ($dropoff == null) {
-        // Hourly booking only (no dropoff or stops)
-        $price =  ($hourlyFare * $hours);
+    {
+        if ($dropoff == null) {
+            // Hourly booking only (no dropoff or stops)
+            $price =  ($hourlyFare * $hours);
 
-        return [
-            'distance_km' => 0,
-            'price' => round($price, 2),
-            'baseFare'=>$baseFare,
-            'hourlyFare'=>$hourlyFare,
-            'hours'=>$hours,
-            'type' => 'Hourly'
-        ];
-    }
-
-    $locations = array_filter([$pickup, ...$stops, $dropoff]);
-    $totalDistance = 0;
-
-    for ($i = 0; $i < count($locations) - 1; $i++) {
-        $origin = $locations[$i];
-        $destination = $locations[$i + 1];
-
-        $response = Http::get('https://maps.googleapis.com/maps/api/distancematrix/json', [
-            'origins' => $origin,
-            'destinations' => $destination,
-            'key' => 'AIzaSyCUqn8Dg3GICSzhyvw7DjXXHkyoGMCoTpM', // Replace hardcoded key with env
-        ]);
-
-        $data = $response->json();
-
-        if ($data['status'] !== 'OK' || empty($data['rows'][0]['elements'][0]['distance'])) {
-            return ['error' => 'Distance calculation failed between ' . $origin . ' and ' . $destination];
+            return [
+                'distance_km' => 0,
+                'price' => round($price, 2),
+                'baseFare'=>$baseFare,
+                'hourlyFare'=>$hourlyFare,
+                'hours'=>$hours,
+                'type' => 'Hourly'
+            ];
         }
 
-        $segmentDistance = $data['rows'][0]['elements'][0]['distance']['value']; // in meters
-        $totalDistance += $segmentDistance;
+        $locations = array_filter([$pickup, ...$stops, $dropoff]);
+        $totalDistance = 0;
+
+        for ($i = 0; $i < count($locations) - 1; $i++) {
+            $origin = $locations[$i];
+            $destination = $locations[$i + 1];
+
+            $response = Http::get('https://maps.googleapis.com/maps/api/distancematrix/json', [
+                'origins' => $origin,
+                'destinations' => $destination,
+                'key' => 'AIzaSyCUqn8Dg3GICSzhyvw7DjXXHkyoGMCoTpM', // Replace hardcoded key with env
+            ]);
+
+            $data = $response->json();
+
+            if ($data['status'] !== 'OK' || empty($data['rows'][0]['elements'][0]['distance'])) {
+                return ['error' => 'Distance calculation failed between ' . $origin . ' and ' . $destination];
+            }
+
+            $segmentDistance = $data['rows'][0]['elements'][0]['distance']['value']; // in meters
+            $totalDistance += $segmentDistance;
+        }
+
+        $distanceKm = $totalDistance / 1609.34; //miles
+        // echo $baseFare ."+".($distanceKm .'*'. $perKmRate);
+        // exit();
+        $price = $baseFare + ($distanceKm * $perKmRate);
+        $totalPrice = $price + ($hours ? ($hourlyFare * $hours) : 0);
+
+        return [
+            'distance_km' => round($distanceKm, 2),
+            'price' => round($totalPrice, 2),
+            'baseFare'=>$baseFare,
+            'hourlyFare'=>$hourlyFare,
+            'perKmRate'=>$perKmRate,
+            'hours'=>$hours,
+            'type' => !empty($dropoff)?'PointToPoint':'Hourly'
+        ];
     }
-
-    $distanceKm = $totalDistance / 1609.34; //miles
-    // echo $baseFare ."+".($distanceKm .'*'. $perKmRate);
-    // exit();
-    $price = $baseFare + ($distanceKm * $perKmRate);
-    $totalPrice = $price + ($hours ? ($hourlyFare * $hours) : 0);
-
-    return [
-        'distance_km' => round($distanceKm, 2),
-        'price' => round($totalPrice, 2),
-        'baseFare'=>$baseFare,
-        'hourlyFare'=>$hourlyFare,
-        'perKmRate'=>$perKmRate,
-        'hours'=>$hours,
-        'type' => !empty($dropoff)?'PointToPoint':'Hourly'
-    ];
-}
     private function computeRouteDistance($pickup, $dropoff, array $stops)
     {
         $locations = array_filter([$pickup, ...$stops, $dropoff]);
@@ -433,7 +406,6 @@ class BookingController extends Controller
         return $total / 1609.34;
     }
 
-
     public function calculateReturnTrip(Request $request){
         $pickup = $request->input('pickup_location');
         $dropoff = $request->input('dropoff_location');
@@ -444,22 +416,20 @@ class BookingController extends Controller
             return response()->json(['success' => false, 'message' => 'Missing required data']);
         }
 
-        // Example logic for distance & pricing
-       $vehicle = Vehicle::findOrFail($vehicleId);
+        $vehicle = Vehicle::findOrFail($vehicleId);
         $distanceData = $this->calculateDistanceWithStops(
-            $pickup, //1
-            $dropoff, //2
-            $stops ?? [],     //3
-            $vehicle->base_fare,  //4
-            null, // no hourly booking here   //5
-            $vehicle->per_km_rate,       //6
-            $vehicle->base_hourly_fare   //7
+            $pickup,
+            $dropoff,
+            $stops ?? [],
+            $vehicle->base_fare,
+            null,
+            $vehicle->per_km_rate,
+            $vehicle->base_hourly_fare
         );
-
-
-        $baseFare = $vehicle->base_fare;
-        $perKmRate = $vehicle->per_km_rate;
-        $price = $baseFare + ($perKmRate * $distanceData['distance_km']);
+        $computed = $this->calculateDistanceBasedPrice($vehicle, (float)$distanceData['distance_km']);
+        $baseFare = $computed['baseFare'];
+        $perKmRate = $computed['perKmRate'];
+        $price = $computed['price'];
 
         // Store in session (for use in Blade later)
         session([
@@ -468,10 +438,10 @@ class BookingController extends Controller
             'return_km' => round($distanceData['distance_km'], 2),
             'return_price' => round($price, 2),
             'return_breakdown_data' => [
-                'distance_km' => round($distanceData['distance_km'], 2),
-                'price' => round($price, 2),
-                'baseFare' => $baseFare,
-                'perKmRate' => $perKmRate,
+                'distance_km' => round($computed['distance_km'], 2),
+                'price' => round($computed['price'], 2),
+                'baseFare' => $computed['baseFare'],
+                'perKmRate' => $computed['perKmRate'],
                 'type' => 'PointToPoint'
             ]
         ]);
@@ -528,16 +498,7 @@ class BookingController extends Controller
 
             $distanceData = [];
             foreach ($vehicles_all as $vehicle) {
-                $price = $vehicle->base_fare + ((float)$distance * $vehicle->per_km_rate);
-                $distanceData[$vehicle->id] = [
-                    'distance_km' => round((float)$distance, 2),
-                    'price' => round($price, 2),
-                    'baseFare' => $vehicle->base_fare,
-                    'hourlyFare' => null,
-                    'perKmRate' => $vehicle->per_km_rate,
-                    'hours' => null,
-                    'type' => 'PointToPoint'
-                ];
+                $distanceData[$vehicle->id] = $this->calculateDistanceBasedPrice($vehicle, (float)$distance);
             }
 
             $selectedId = session('vehicle_id');
@@ -570,12 +531,13 @@ class BookingController extends Controller
                         );
 
                         if (empty($returnData['error'])) {
-                            $returnPrice = (float)($returnData['price'] ?? 0);
+                            $computed = $this->calculateDistanceBasedPrice($selectedVehicle, (float)$returnData['distance_km']);
+                            $returnPrice = (float)($computed['price'] ?? 0);
                             session([
                                 'return_price' => $returnPrice,
-                                'return_base_fare' => $selectedVehicle->base_fare,
-                                'return_per_km_rate' => $selectedVehicle->per_km_rate,
-                                'return_km' => $returnData['distance_km'],
+                                'return_base_fare' => $computed['baseFare'] ?? $selectedVehicle->base_fare,
+                                'return_per_km_rate' => $computed['perKmRate'] ?? $selectedVehicle->per_km_rate,
+                                'return_km' => $computed['distance_km'] ?? $returnData['distance_km'],
                             ]);
                             $final = $basePrice + $returnPrice + $insidePickupFee;
                         }
@@ -693,7 +655,7 @@ public function bookRide(Request $request)
 
 try {
     $user = null;
-    $cards = null;
+    $cards = [];
     // Validate request fields
     $validated = $request->validate([
         'pickup_flight_details' => 'nullable|string|max:255',
@@ -709,10 +671,11 @@ try {
 
     if(auth()->check()){
         $user = auth()->user();
-        $cards = PaymentMethod::all([
+        $cardsList = PaymentMethod::all([
             'customer' => $user->stripe_customer_id,
             'type' => 'card',
         ]);
+        $cards = $cardsList->data ?? [];
     }
 
 
@@ -1305,5 +1268,109 @@ private function getDistanceBetweenAddresses(string $origin, string $destination
                 'message' => 'An error occurred while saving return service: ' . $e->getMessage()
             ], 500);
         }
+    }
+
+    public function calculateDistanceRate(Request $request)
+    {
+        $validated = $request->validate([
+            'vehicle_id' => 'required|exists:vehicles,id',
+            'distance_rates' => 'array',
+            'waiting_time_rates' => 'array',
+            'gratuity' => 'nullable|numeric',
+            'base_rate' => 'nullable|numeric',
+        ]);
+
+        $payload = [
+            'distance_rates' => json_encode(self::normalizeRates($validated['distance_rates'] ?? [])),
+            'waiting_time_rates' => json_encode(self::normalizeTimeRates($validated['waiting_time_rates'] ?? [])),
+            'gratuity' => $validated['gratuity'] ?? 0,
+            'base_rate' => $validated['base_rate'] ?? 0,
+        ];
+
+        $rate = RateVehicle::where('vehicle_id', $validated['vehicle_id'])->first();
+        if ($rate) {
+            $rate->fill($payload)->save();
+        } else {
+            $rate = RateVehicle::create(array_merge(['vehicle_id' => $validated['vehicle_id']], $payload));
+        }
+
+        return response()->json([
+            'message' => 'Rate created',
+            'id' => $rate->id,
+        ], 201);
+    }
+
+    private static function normalizeRates(array $rates): array
+    {
+        return array_map(function ($item) {
+            return [
+                'distance' => (string)($item['distance'] ?? ''),
+                'rate' => (float)($item['rate'] ?? 0),
+                '_id' => (string)($item['_id'] ?? Str::lower(Str::random(24))),
+            ];
+        }, $rates);
+    }
+
+    private static function normalizeTimeRates(array $rates): array
+    {
+        return array_map(function ($item) {
+            return [
+                'time' => (string)($item['time'] ?? ''),
+                'rate' => (float)($item['rate'] ?? 0),
+                '_id' => (string)($item['_id'] ?? Str::lower(Str::random(24))),
+            ];
+        }, $rates);
+    }
+    private function calculateDistanceBasedPrice($vehicle, float $distanceMiles): array
+    {
+        $rateModel = RateVehicle::where('vehicle_id', $vehicle->id)->first();
+        $base = $rateModel && isset($rateModel->base_rate) ? (float)$rateModel->base_rate : (float)$vehicle->base_fare;
+        $perRate = $vehicle->per_km_rate;
+        if ($rateModel && is_array($rateModel->distance_rates)) {
+            foreach ($rateModel->distance_rates as $item) {
+                $d = (string)($item['distance'] ?? '');
+                $r = (float)($item['rate'] ?? 0);
+                if ($d === '') {
+                    continue;
+                }
+                if (strpos($d, '+') !== false) {
+                    $v = (float)str_replace('+', '', $d);
+                    if ($distanceMiles >= $v) {
+                        $perRate = $r;
+                        break;
+                    }
+                } elseif (strpos($d, '-') !== false) {
+                    $parts = explode('-', $d);
+                    $min = isset($parts[0]) ? (float)$parts[0] : 0.0;
+                    $max = isset($parts[1]) ? (float)$parts[1] : $min;
+                    if ($distanceMiles >= $min && $distanceMiles <= $max) {
+                        $perRate = $r;
+                        break;
+                    }
+                } elseif (strpos($d, '>=') === 0) {
+                    $v = (float)substr($d, 2);
+                    if ($distanceMiles >= $v) {
+                        $perRate = $r;
+                        break;
+                    }
+                } elseif (strpos($d, '<=') === 0) {
+                    $v = (float)substr($d, 2);
+                    if ($distanceMiles <= $v) {
+                        $perRate = $r;
+                        break;
+                    }
+                }
+            }
+        }
+        $price = round($base + ($perRate * $distanceMiles), 2);
+        return [
+            'distance_km' => round($distanceMiles, 2),
+            'price' => $price,
+            'baseFare' => $base,
+            'hourlyFare' => null,
+            'perKmRate' => $perRate,
+            'hours' => null,
+            'type' => 'PointToPoint'
+        ];
     }
 }
