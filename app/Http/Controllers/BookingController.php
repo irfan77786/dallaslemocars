@@ -368,14 +368,15 @@ class BookingController extends Controller
             $totalDistance += $segmentDistance;
         }
 
-        $distanceKm = $totalDistance / 1609.34; //miles
-        // echo $baseFare ."+".($distanceKm .'*'. $perKmRate);
+        $distanceMiles = $totalDistance / 1609.34; //miles
+        // echo $baseFare ."+".($distanceMiles .'*'. $perKmRate);
         // exit();
-        $price = $baseFare + ($distanceKm * $perKmRate);
+        $price = $baseFare + ($distanceMiles * $perKmRate);
         $totalPrice = $price + ($hours ? ($hourlyFare * $hours) : 0);
 
         return [
-            'distance_km' => round($distanceKm, 2),
+            'distance_km' => round($distanceMiles, 2), // Legacy key, actually returns miles
+            'distance_miles' => round($distanceMiles, 2),
             'price' => round($totalPrice, 2),
             'baseFare'=>$baseFare,
             'hourlyFare'=>$hourlyFare,
@@ -439,6 +440,7 @@ class BookingController extends Controller
             'return_price' => round($price, 2),
             'return_breakdown_data' => [
                 'distance_km' => round($computed['distance_km'], 2),
+                'distance_miles' => round($computed['distance_miles'], 2),
                 'price' => round($computed['price'], 2),
                 'baseFare' => $computed['baseFare'],
                 'perKmRate' => $computed['perKmRate'],
@@ -1106,8 +1108,8 @@ private function getDistanceBetweenAddresses(string $origin, string $destination
             $data['rows'][0]['elements'][0]['status'] === 'OK'
         ) {
             $distanceMeters = $data['rows'][0]['elements'][0]['distance']['value'];
-            $distanceKm = $distanceMeters / 1000; // Convert meters to kilometers
-            return round($distanceKm, 2);
+            $distanceMiles = $distanceMeters / 1609.34; // Convert meters to miles
+            return round($distanceMiles, 2);
         }
     }
 
@@ -1321,56 +1323,59 @@ private function getDistanceBetweenAddresses(string $origin, string $destination
             ];
         }, $rates);
     }
+
     private function calculateDistanceBasedPrice($vehicle, float $distanceMiles): array
     {
         $rateModel = RateVehicle::where('vehicle_id', $vehicle->id)->first();
-        $base = $rateModel && isset($rateModel->base_rate) ? (float)$rateModel->base_rate : (float)$vehicle->base_fare;
-        $perRate = $vehicle->per_km_rate;
-        if ($rateModel && is_array($rateModel->distance_rates)) {
-            foreach ($rateModel->distance_rates as $item) {
-                $d = (string)($item['distance'] ?? '');
-                $r = (float)($item['rate'] ?? 0);
-                if ($d === '') {
-                    continue;
-                }
-                if (strpos($d, '+') !== false) {
-                    $v = (float)str_replace('+', '', $d);
-                    if ($distanceMiles >= $v) {
-                        $perRate = $r;
-                        break;
-                    }
-                } elseif (strpos($d, '-') !== false) {
-                    $parts = explode('-', $d);
-                    $min = isset($parts[0]) ? (float)$parts[0] : 0.0;
-                    $max = isset($parts[1]) ? (float)$parts[1] : $min;
-                    if ($distanceMiles >= $min && $distanceMiles <= $max) {
-                        $perRate = $r;
-                        break;
-                    }
-                } elseif (strpos($d, '>=') === 0) {
-                    $v = (float)substr($d, 2);
-                    if ($distanceMiles >= $v) {
-                        $perRate = $r;
-                        break;
-                    }
-                } elseif (strpos($d, '<=') === 0) {
-                    $v = (float)substr($d, 2);
-                    if ($distanceMiles <= $v) {
-                        $perRate = $r;
-                        break;
-                    }
-                }
+
+        $base = ($rateModel && isset($rateModel->base_rate))
+            ? (float) $rateModel->base_rate
+            : (float) $vehicle->base_fare;
+
+        $tiers = ($rateModel && !empty($rateModel->distance_rates))
+            ? json_decode($rateModel->distance_rates)
+            : [];
+
+        $remainingDistance = $distanceMiles;
+        $distanceCost = 0.0;
+        
+        foreach ($tiers as $tier) {
+            if ($remainingDistance <= 0) {
+                break;
             }
+
+            $rate = isset($tier->rate) ? (float) $tier->rate : 0.0;
+            $distanceValue = $tier->distance ?? null;
+
+            // Remaining slab
+            if ($distanceValue === 'remaining') {
+                $distanceCost += $remainingDistance * $rate;
+                $remainingDistance = 0;
+                break;
+            }
+
+            // Numeric slabs
+            $tierDistance = (float) $distanceValue;
+            if ($tierDistance <= 0) {
+                continue;
+            }
+
+            $appliedDistance = min($remainingDistance, $tierDistance);
+            $distanceCost += $appliedDistance * $rate;
+            $remainingDistance -= $appliedDistance;
         }
-        $price = round($base + ($perRate * $distanceMiles), 2);
+
+        $totalPrice = round($base + $distanceCost, 2);
+
         return [
-            'distance_km' => round($distanceMiles, 2),
-            'price' => $price,
-            'baseFare' => $base,
-            'hourlyFare' => null,
-            'perKmRate' => $perRate,
-            'hours' => null,
-            'type' => 'PointToPoint'
+            'distance_km'     => round($distanceMiles, 2), // legacy
+            'distance_miles'  => round($distanceMiles, 2),
+            'price'           => $totalPrice,
+            'baseFare'        => $base,
+            'hourlyFare'      => null,
+            'perKmRate'       => null,
+            'hours'           => null,
+            'type'            => 'PointToPoint'
         ];
     }
 }
