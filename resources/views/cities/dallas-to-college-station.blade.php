@@ -91,7 +91,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                 <div class="btom">
                     <div class="btom-bottom">
                         <h2>
-                            Dallas Black Cars Limo Service – Luxury Rides to College Station
+                            Dallas Limo And Black Cars Service – Luxury Rides to College Station
                         </h2>
                         <p>
                          Heading to Texas A&M in College Station? Our fleet makes the journey from Dallas efficient and comfortable.

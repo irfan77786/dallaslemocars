@@ -91,7 +91,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                 <div class="btom">
                     <div class="btom-bottom">
                         <h2>
-                            Dallas Black Cars Limo Service – Fleet for Frisco Travelers
+                            Dallas Limo And Black Cars Service – Fleet for Frisco Travelers
                         </h2>
                         <p>
                            Whether it’s an <a href="/airport/car-service-dallas-fort-worth-international-airport/" class="internal-links">airport ride</a>, corporate event, or a trip to Omni PGA Frisco, our fleet is built for comfort and class.

@@ -90,7 +90,7 @@ $isHourly = session('service_type') === 'hourlyHire';
             <div class="col-md-12">
                 <div class="btom">
                     <div class="btom-bottom">
-                        <h2>Dallas Black Cars Limo Service – Luxury Fleet for City-to-City Travel</h2>
+                        <h2>Dallas Limo And Black Cars Service – Luxury Fleet for City-to-City Travel</h2>
                         <p>
                             Traveling between Dallas and nearby cities like Austin, Waco, or College Station?
                             Our fleet offers the perfect balance of comfort, style, and long-distance reliability.

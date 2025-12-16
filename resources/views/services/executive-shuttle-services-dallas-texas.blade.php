@@ -93,7 +93,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                 <div class="btom">
                     <div class="btom-bottom">
                         <h2>
-                           Dallas Black Cars Limo Service – Fleet for Elegant Limousine Travel
+                           Dallas Limo And Black Cars Service – Fleet for Elegant Limousine Travel
                         </h2>
                         <p>
                            Our fleet delivers the perfect blend of luxury and sophistication for <a href="/services/dfw-limo-service/" class="internal-links">Dallas limousine service</a>, ideal for weddings, proms, galas, or executive functions.</>

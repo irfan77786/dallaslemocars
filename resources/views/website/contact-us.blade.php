@@ -15,7 +15,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                 <div class="row justify-content-end">
                     <div class="col-sm-7 bottom-banner-inside banner-hidden-mobile" bis_skin_checked="1" id="hide_on_map" style="padding-top: 65px; {{ session('pickup_location') && session('dropoff_location') ? 'display: none' : '' }}">
                         <div class="bottom-banner-text" bis_skin_checked="1">
-                            <h1>Contact Us – Dallas Black Cars Limo Service</h1>
+                            <h1>Contact Us – Dallas Limo And Black Cars Service</h1>
                             <p>
                                 Let’s Get You There in Style – Reach Out Anytime, Day or Night.
                             </p>
@@ -60,7 +60,7 @@ $isHourly = session('service_type') === 'hourlyHire';
         <div class="row">
             <div class="col-md-12">
                 <div class="bottom-banner-text" bis_skin_checked="1">
-                    <h2>Contact Us – Dallas Black Cars Limo Service</h2>
+                    <h2>Contact Us – Dallas Limo And Black Cars Service</h2>
                     <p>
                         Let’s Get You There in Style – Reach Out Anytime, Day or Night.
                     </p>
@@ -85,7 +85,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                             At
                             <a
                                 href="https://dallaslimoandblackcars.com/"
-                                class="internal-links">Dallas Black Cars Limo Service</a>, we make it easy to reach us for questions, bookings, and
+                                class="internal-links">Dallas Limo And Black Cars Service</a>, we make it easy to reach us for questions, bookings, and
                             special transportation requests. Whether you need a
                             last-minute airport ride, a
                             <a
@@ -139,7 +139,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                     <div class="sub-hub-text">
                         <h3>Business Address</h3>
                         <p>
-                            Dallas Black Cars Limo Service 200 Crescent Court Dallas,
+                            Dallas Limo And Black Cars Service 200 Crescent Court Dallas,
                             Texas 75201
                         </p>
                         <p>(For correspondence and pre-arranged meetings)</p>
@@ -256,7 +256,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                     <div class="form-group mt-4">
                         <div class="form-check p-0">
                             <p class="small text-muted mb-2">
-                                Do you agree to receive texts from Dallas Black Cars Limo
+                                Do you agree to receive texts from Dallas Limo And Black Cars
                                 Service (214-305-8671)? Messages may include reservation
                                 reminders/updates. Msg & data rates may apply. Reply STOP
                                 to unsubscribe or HELP for support.
@@ -307,7 +307,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                         At
                         <a
                             href="https://dallaslimoandblackcars.com/"
-                            class="internal-links">Dallas Black Cars Limo Service</a>, we make it easy to reach us for questions, bookings, and
+                            class="internal-links">Dallas Limo And Black Cars Service</a>, we make it easy to reach us for questions, bookings, and
                         special transportation requests. Whether you need a
                         last-minute airport ride, a
                         <a
@@ -361,7 +361,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                 <div class="sub-hub-text">
                     <h3>Business Address</h3>
                     <p>
-                        Dallas Black Cars Limo Service 200 Crescent Court Dallas,
+                        Dallas Limo And Black Cars Service 200 Crescent Court Dallas,
                         Texas 75201
                     </p>
                     <p>(For correspondence and pre-arranged meetings)</p>

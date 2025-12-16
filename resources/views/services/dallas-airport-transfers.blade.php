@@ -74,7 +74,7 @@ $isHourly = session('service_type') === 'hourlyHire';
       <div class="col-md-12">
         <div class="btom">
           <div class="btom-bottom">
-            <h2>Dallas Black Cars Limo Service – Premium Fleet for Airport Transfers</h2>
+            <h2>Dallas Limo And Black Cars Service – Premium Fleet for Airport Transfers</h2>
             <p>
               Arrive and depart in style with our luxury fleet designed for seamless
               <a href="/airport/car-service-dallas-fort-worth-international-airport/" class="internal-links">

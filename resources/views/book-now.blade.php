@@ -413,7 +413,7 @@
 
             <div class="col-sm-5 banner-hidden-mobile">
                 <div class="bottom-banner-text banner-text-service">
-                    <h1>Book Now – Dallas Black Cars Limo Service</h1>
+                    <h1>Book Now – Dallas Limo And Black Cars Service</h1>
 
 
                 </div>
@@ -726,7 +726,7 @@
                 <div class="pt-section-title-box ">
                     <h5 class="pt-section-titles">Instant Black Car Booking – Simple, Secure, Seamless</h5>
                     <p class="pt-section-description">Booking your ride with <a href="#"
-                            class="internal-links">Dallas Black Cars Limo Service</a> is quick and stress-free. Whether
+                            class="internal-links">Dallas Limo And Black Cars Service</a> is quick and stress-free. Whether
                         you're headed to <a href="/airport/car-service-dallas-fort-worth-international-airport/"
                             class="internal-links">DFW Airport</a>, attending an executive meeting in Plano, or need a
                         <a href="/city-to-city-ride/dallas-to-austin/" class="internal-links">city-to-city ride from

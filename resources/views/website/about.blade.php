@@ -6,7 +6,7 @@ $isHourly = session('service_type') === 'hourlyHire';
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta name="point-to-point-url" content="{{ url('/booking/point-to-point') }}">
 @if(!session('pickup_location') && !session('dropoff_location'))
-@include('partials.banner', ['title' => "About Us – Dallas Black Cars Limo Service"])
+@include('partials.banner', ['title' => "About Us – Dallas Limo And Black Cars Service"])
 @endif
 <div class="bottom-banner" style="{{ session('pickup_location') && session('dropoff_location') ? 'background-image: none' : '' }}">
   <div class="row">
@@ -15,7 +15,7 @@ $isHourly = session('service_type') === 'hourlyHire';
         <div class="row justify-content-end">
           <div class="col-sm-7 bottom-banner-inside banner-hidden-mobile" bis_skin_checked="1" id="hide_on_map" style="padding-top: 65px; {{ session('pickup_location') && session('dropoff_location') ? 'display: none' : '' }}">
             <div class="bottom-banner-text" bis_skin_checked="1">
-              <h1>About Us – Dallas Black Cars Limo Service</h1>
+              <h1>About Us – Dallas Limo And Black Cars Service</h1>
               <p>
                 <!-- Add About Text here -->
               </p>
@@ -60,7 +60,7 @@ $isHourly = session('service_type') === 'hourlyHire';
     <div class="row">
       <div class="col-md-12">
         <div class="bottom-banner-text" bis_skin_checked="1">
-          <h2>About Us – Dallas Black Cars Limo Service</h2>
+          <h2>About Us – Dallas Limo And Black Cars Service</h2>
           <p>
             <!-- Add About Text here -->
           </p>
@@ -161,7 +161,7 @@ $isHourly = session('service_type') === 'hourlyHire';
           <h2>Who We Are</h2>
 
           <p class="pt-section-description text-gc">
-            At Dallas Black Cars Limo Service, we redefine luxury travel
+            At Dallas Limo And Black Cars Service, we redefine luxury travel
             across the Dallas–Fort Worth Metroplex. Based in Dallas, TX, we
             provide
             <a
@@ -251,7 +251,7 @@ $isHourly = session('service_type') === 'hourlyHire';
       </div>
 
       <div class="col-md-8">
-        <h2>Why Choose Dallas Black Cars Limo Service?</h2>
+        <h2>Why Choose Dallas Limo And Black Cars Service?</h2>
 
         <p class="section-description">
           We’re not just another limo company in Dallas—we’re the gold

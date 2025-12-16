@@ -90,7 +90,7 @@ $isHourly = session('service_type') === 'hourlyHire';
             <div class="col-md-12">
                 <div class="btom">
                     <div class="btom-bottom">
-                        <h2>Dallas Black Cars Limo Service – Premium Fleet for DFW Airport Transfers</h2>
+                        <h2>Dallas Limo And Black Cars Service – Premium Fleet for DFW Airport Transfers</h2>
                         <p>
                          Our fleet is tailored for DFW airport car service, providing comfort, space, and professionalism for business and leisure travelers.
                         </p>

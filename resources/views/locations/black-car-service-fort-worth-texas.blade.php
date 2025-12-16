@@ -90,7 +90,7 @@ $isHourly = session('service_type') === 'hourlyHire';
             <div class="col-md-12">
                 <div class="btom">
                     <div class="btom-bottom">
-                        <h2>Dallas Black Cars Limo Service – Premium Fleet in Fort Worth</h2>
+                        <h2>Dallas Limo And Black Cars Service – Premium Fleet in Fort Worth</h2>
                         <p>
                         Serving downtown, Stockyards, and DFW connections, our fleet delivers luxury chauffeur service Fort Worth for all occasions.
                         </p>

@@ -15,16 +15,16 @@ class WebsiteController extends Controller
             session()->flush();
             $request->session()->regenerateToken();
         }
-        
+
         $seo = [
-            'title' => 'About Us | Dallas Black Cars Limo Service',
-            'description' => 'Learn about Dallas Black Cars Limo Service, Dallas–Fort Worth’s premier luxury black car & limousine service. Professional chauffeurs, premium fleet, DFW & Love Field coverage.',
+            'title' => 'About Us | Dallas Limo And Black Cars Service',
+            'description' => 'Learn about Dallas Limo And Black Cars Service, Dallas–Fort Worth’s premier luxury black car & limousine service. Professional chauffeurs, premium fleet, DFW & Love Field coverage.',
             'keywords' => 'Black Car Service in Dallas, Executive Chauffeur Service DFW, Luxury Airport Transfer Love Field, DFW Car Service',
-            'og_title' => 'About Us | Dallas Black Cars Limo Service',
-            'og_description' => 'Learn about Dallas Black Cars Limo Service, Dallas–Fort Worth’s premier luxury black car & limousine service. Professional chauffeurs, premium fleet, DFW & Love Field coverage.',
+            'og_title' => 'About Us | Dallas Limo And Black Cars Service',
+            'og_description' => 'Learn about Dallas Limo And Black Cars Service, Dallas–Fort Worth’s premier luxury black car & limousine service. Professional chauffeurs, premium fleet, DFW & Love Field coverage.',
             'og_image' => asset('img/black-car-service-dallas.webp')
         ];
-        
+
         return view('website.about', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
             'mobileImage' => 'img/black-car-service-dallas.webp',
@@ -39,7 +39,7 @@ class WebsiteController extends Controller
             session()->flush();
             $request->session()->regenerateToken();
         }
-        
+
         $seo = [
             'title' => 'FIFA 2026 Car Service Dallas | Luxury Rides to AT&T Stadium',
             'description' => 'Experience premium car service for FIFA World Cup 2026 in Dallas. Luxury sedans, SUVs, and buses for seamless transfers to AT&T Stadium. Book your ride today!',
@@ -48,7 +48,7 @@ class WebsiteController extends Controller
             'og_description' => 'Experience premium car service for FIFA World Cup 2026 in Dallas. Luxury sedans, SUVs, and buses for seamless transfers to AT&T Stadium. Book your ride today!',
             'og_image' => asset('img/black-car-service-fifa-world-cup-banner.webp')
         ];
-        
+
         return view('website.fifa-world-cup-2026-car-service-dallas', [
             'backgroundImage' => '/img/black-car-service-fifa-world-cup-banner.webp',
             'mobileImage' => 'img/black-car-service-dallas.webp',
@@ -63,7 +63,7 @@ class WebsiteController extends Controller
             session()->flush();
             $request->session()->regenerateToken();
         }
-        
+
         $seo = [
             'title' => 'Dallas Black Car Service Fleet – Luxury Sedans, SUVs, Sprinter Vans',
             'description' => 'Discover our Dallas black car service fleet – luxury sedans, SUVs & Sprinter vans for business trips, airport transfers & group events.',
@@ -72,7 +72,7 @@ class WebsiteController extends Controller
             'og_description' => 'Discover our Dallas black car service fleet – luxury sedans, SUVs & Sprinter vans for business trips, airport transfers & group events.',
             'og_image' => asset('img/black-car-service-dallas.webp')
         ];
-        
+
         return view('website.our-fleet', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
             'mobileImage' => 'img/black-car-service-dallas.webp',
@@ -87,7 +87,7 @@ class WebsiteController extends Controller
             session()->flush();
             $request->session()->regenerateToken();
         }
-        
+
         $seo = [
             'title' => 'Get a Quote – Dallas Black Car and Limousine Service',
             'description' => 'Instantly receive a transparent quote for your luxury ride in Dallas. Choose from sedans, SUVs, or Sprinter vans for airport transfers, corporate events, and more.',
@@ -96,7 +96,7 @@ class WebsiteController extends Controller
             'og_description' => 'Instantly receive a transparent quote for your luxury ride in Dallas. Choose from sedans, SUVs, or Sprinter vans for airport transfers, corporate events, and more.',
             'og_image' => asset('img/black-car-service-dallas.webp')
         ];
-        
+
         return view('website.get-a-quote', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
             'mobileImage' => 'img/black-car-service-dallas.webp',
@@ -111,7 +111,7 @@ class WebsiteController extends Controller
             session()->flush();
             $request->session()->regenerateToken();
         }
-        
+
         $seo = [
             'title' => 'Contact Dallas Black Car Service – Luxury Airport & Corporate Transportation',
             'description' => 'Reach Dallas Black Car Service for reliable black car rides, airport transfers, corporate travel, and group transportation. Call, email, or book online today!',
@@ -120,7 +120,7 @@ class WebsiteController extends Controller
             'og_description' => 'Reach Dallas Black Car Service for reliable black car rides, airport transfers, corporate travel, and group transportation. Call, email, or book online today!',
             'og_image' => asset('img/black-car-service-dallas.webp')
         ];
-        
+
         return view('website.contact-us', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
             'mobileImage' => 'img/black-car-service-dallas.webp',

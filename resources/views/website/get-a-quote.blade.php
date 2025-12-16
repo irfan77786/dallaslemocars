@@ -15,7 +15,7 @@ $isHourly = session('service_type') === 'hourlyHire';
         <div class="row justify-content-end">
           <div class="col-sm-7 bottom-banner-inside banner-hidden-mobile" bis_skin_checked="1" id="hide_on_map" style="padding-top: 65px; {{ session('pickup_location') && session('dropoff_location') ? 'display: none' : '' }}">
             <div class="bottom-banner-text" bis_skin_checked="1">
-              <h1>Get a Quote – Dallas Black Cars Limo Service</h1>
+              <h1>Get a Quote – Dallas Limo And Black Cars Service</h1>
               <p>Request Instant Pricing for Black Car, SUV, Sprinter, or Group Travel in DFW.</p>
               <p class="bt-text">24/7 Service Available, Click to Call Now!</p>
               <div class="bottom-banner-btn" bis_skin_checked="1">
@@ -58,7 +58,7 @@ $isHourly = session('service_type') === 'hourlyHire';
     <div class="row">
       <div class="col-md-12">
         <div class="bottom-banner-text" bis_skin_checked="1">
-          <h2>Get a Quote – Dallas Black Cars Limo Service</h2>
+          <h2>Get a Quote – Dallas Limo And Black Cars Service</h2>
           <p>Request Instant Pricing for Black Car, SUV, Sprinter, or Group Travel in DFW.</p>
           <p class="bt-text">24/7 Service – Call Now</p>
           <div class="bottom-banner-btn" bis_skin_checked="1">

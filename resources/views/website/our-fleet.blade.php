@@ -83,7 +83,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                 <div class="btom bottom-fleet-tx">
                     <h3>Ride in the Best. Arrive in Style <br />Black Car Service</h3>
                     <p>
-                        At Dallas Black Cars Limo Service, we offer a carefully curated
+                        At Dallas Limo And Black Cars Service, we offer a carefully curated
                         fleet of late-model luxury vehicles designed to provide maximum
                         comfort, safety, and sophistication. Whether you’re heading to
                         <a

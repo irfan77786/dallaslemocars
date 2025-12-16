@@ -90,7 +90,7 @@ $isHourly = session('service_type') === 'hourlyHire';
             <div class="col-md-12">
                 <div class="btom">
                     <div class="btom-bottom">
-                        <h2>Dallas Black Cars Limo Service – Serving Allen, TX with Luxury Transportation</h2>
+                        <h2>Dallas Limo And Black Cars Service – Serving Allen, TX with Luxury Transportation</h2>
                         <p>
                             Our Allen fleet connects you seamlessly to DFW, Love Field, and Dallas corporate hubs, ensuring style and safety.
                         </p>

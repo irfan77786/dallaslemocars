@@ -92,9 +92,9 @@ $isHourly = session('service_type') === 'hourlyHire';
             <div class="col-md-12">
                 <div class="btom">
                     <div class="btom-bottom">
-                        <h2>Dallas Black Cars Limo Service – Luxury Fleet for Private Car Service</h2>
+                        <h2>Dallas Limo And Black Cars Service – Luxury Fleet for Private Car Service</h2>
                         <p>
-                         <a href="https://dallaslimoandblackcars.com/" class="internal-links">Dallas Black Cars Limo Service</a> – Luxury Fleet for Private Car Service
+                         <a href="https://dallaslimoandblackcars.com/" class="internal-links">Dallas Limo And Black Cars Service</a> – Luxury Fleet for Private Car Service
 Enjoy discretion, privacy, and comfort with our private car service Dallas, designed for individuals, families, and executives.
                         </p>
                     </div>
@@ -147,7 +147,7 @@ Enjoy discretion, privacy, and comfort with our private car service Dallas, desi
             <div class="col-md-6">
                 <div class="pt-section-title-box">
                     <h5 class="pt-section-title">
-                        Professional Dallas Car Service with Dallas Black Cars Limo
+                        Professional Dallas Car Service with Dallas Limo And Black Cars
                     </h5>
                     <p class="pt-section-description">
                         Experience comfort, safety & peace of mind with our Dallas Black

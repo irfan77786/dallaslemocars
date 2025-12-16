@@ -90,7 +90,7 @@ $isHourly = session('service_type') === 'hourlyHire';
             <div class="col-md-12">
                 <div class="btom">
                     <div class="btom-bottom">
-                        <h2>Dallas Black Cars Limo Service – Premium Fleet for Dallas to Sherman Travel</h2>
+                        <h2>Dallas Limo And Black Cars Service – Premium Fleet for Dallas to Sherman Travel</h2>
                         <p>
                             For business or leisure, our Dallas to Sherman car service ensures comfort, style, and safety.
                         </p>

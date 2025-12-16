@@ -92,7 +92,7 @@ $isHourly = session('service_type') === 'hourlyHire';
             <div class="col-md-12">
                 <div class="btom">
                     <div class="btom-bottom">
-                        <h2>Dallas Black Cars Limo Service – Waco Regional (ACT) Shuttle Service</h2>
+                        <h2>Dallas Limo And Black Cars Service – Waco Regional (ACT) Shuttle Service</h2>
                         <p>
                             Traveling from Dallas to Waco ACT Airport or in need of group shuttles? Our fleet is built for long-distance comfort and style.
                         </p>

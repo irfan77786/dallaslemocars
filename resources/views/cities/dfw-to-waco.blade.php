@@ -90,7 +90,7 @@ $isHourly = session('service_type') === 'hourlyHire';
             <div class="col-md-12">
                 <div class="btom">
                     <div class="btom-bottom">
-                        <h2>Dallas Black Cars Limo Service – Fleet for Dallas to Waco Shuttle Service</h2>
+                        <h2>Dallas Limo And Black Cars Service – Fleet for Dallas to Waco Shuttle Service</h2>
                         <p>
                             Whether it’s for business, leisure, or university events, our Dallas to Waco shuttle service ensures safe and stylish travel.
                             Our chauffeurs deliver dependable long-distance transportation with comfort and professionalism for every passenger.

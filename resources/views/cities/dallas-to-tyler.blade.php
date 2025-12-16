@@ -90,7 +90,7 @@ $isHourly = session('service_type') === 'hourlyHire';
             <div class="col-md-12">
                 <div class="btom">
                     <div class="btom-bottom">
-                        <h2>Dallas Black Cars Limo Service – Fleet for Dallas to Tyler Rides</h2>
+                        <h2>Dallas Limo And Black Cars Service – Fleet for Dallas to Tyler Rides</h2>
                         <p>
                             Travel in comfort on your Dallas to Tyler journey with our versatile fleet, designed for executives, families, and groups.
                         </p>

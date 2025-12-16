@@ -94,7 +94,7 @@ $isHourly = session('service_type') === 'hourlyHire';
       <div class="col-md-12">
         <div class="btom">
           <div class="btom-bottom">
-            <h2>Dallas Black Cars Limo Service – Fleet for Elegant Limousine Travel</h2>
+            <h2>Dallas Limo And Black Cars Service – Fleet for Elegant Limousine Travel</h2>
             <p>
               Our fleet delivers the perfect blend of luxury and sophistication for
               Dallas limousine service, ideal for weddings, proms, galas, or executive
@@ -350,7 +350,7 @@ $isHourly = session('service_type') === 'hourlyHire';
         <div class="pt-section-title-box">
           <h5 class="pt-section-titles">Why Choose Us</h5>
           <p class="pt-section-description">
-            At Dallas Black Cars Limo Service is a simple mission—to make
+            At Dallas Limo And Black Cars Service is a simple mission—to make
             every ride safe, reliable, & comfortable. We built our service
             on trust, professionalism, & care for our passengers. Whether
             you’re traveling for work, leisure, or a special event, we focus

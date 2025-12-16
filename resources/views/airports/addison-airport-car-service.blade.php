@@ -87,7 +87,7 @@ $isHourly = session('service_type') === 'hourlyHire';
             <div class="col-md-12">
                 <div class="btom">
                     <div class="btom-bottom">
-                        <h2>Dallas Black Cars Limo Service – Serving Addison Airport (ADS)</h2>
+                        <h2>Dallas Limo And Black Cars Service – Serving Addison Airport (ADS)</h2>
                         <p>
                             For private jet and business aviation travelers, our fleet provides luxury transfers to and from Addison Airport.
                         </p>

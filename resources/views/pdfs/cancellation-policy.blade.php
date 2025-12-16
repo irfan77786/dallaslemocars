@@ -122,7 +122,7 @@
         </div>
         <div style="text-align: right;">
           <div style="font-size: 12px; text-align: left;">
-            <div style="font-weight: bold; font-size: 12px;">Dallas Black Cars Limo Service</div>
+            <div style="font-weight: bold; font-size: 12px;">Dallas Limo And Black Cars Service</div>
             <div>100 Crescent Court, 7th Floor</div>
             <div>Dallas, TX 75201</div>
             <div><strong>Phone:</strong>&nbsp;+1 (214) 305-8671</div>
@@ -136,7 +136,7 @@
       <h2>Cancellation, Deposit & Service Policy</h2>
       <div class="section-content">
         <p><strong>Cancellation, Deposit & Service Policy</strong><br>
-          Dallas Black Cars Limo Service strives to provide excellent service while maintaining a clear, fair, and simple cancellation, deposit, and service policy. By booking with us, you agree to the following terms.</p>
+          Dallas Limo And Black Cars Service strives to provide excellent service while maintaining a clear, fair, and simple cancellation, deposit, and service policy. By booking with us, you agree to the following terms.</p>
 
         <p><strong>Contact:</strong><br>
           Email: info@dallaslimoandblackcars.com<br>
@@ -175,7 +175,7 @@
           We are not liable for interruptions or cancellations due to events beyond our control (e.g., weather, disasters, terrorism, mechanical issues). We will attempt to reschedule or refund (minus non-refundable costs).</p>
 
         <p><strong>7. Indemnification:</strong><br>
-          By booking, you agree to indemnify and hold Dallas Black Cars Limo Service harmless for any claims arising from:<br>
+          By booking, you agree to indemnify and hold Dallas Limo And Black Cars Service harmless for any claims arising from:<br>
           - Your use of services<br>
           - Policy violations<br>
           - Damage caused by you or your party</p>
@@ -196,7 +196,7 @@
           - Approved refunds are processed within 5–7 business days.<br>
           - No refunds for Motor Coaches, Mini Buses, or Special Events after cancellation window closes.</p>
 
-        <p><strong>Thank you for choosing Dallas Black Cars Limo Service.</strong><br>
+        <p><strong>Thank you for choosing Dallas Limo And Black Cars Service.</strong><br>
           We are committed to fair and professional service.<br>
           Contact us: info@dallaslimoandblackcars.com | +1 (214) 305-8671</p>
 

@@ -210,12 +210,12 @@
           @if($logoData)
             <img src="data:{{ $mime }};base64,{{ $logoData }}" alt="Logo" style="height: 60px;" />
           @else
-            <div style="font-weight: bold; font-size: 18px;">Dallas Black Cars Limo Service</div>
+            <div style="font-weight: bold; font-size: 18px;">Dallas Limo And Black Cars Service</div>
           @endif
         </div>
         <div style="text-align: right;">
           <div style="font-size: 12px; text-align: left;">
-            <div style="font-weight: bold; font-size: 12px;">Dallas Black Cars Limo Service</div>
+            <div style="font-weight: bold; font-size: 12px;">Dallas Limo And Black Cars Service</div>
             <div>100 Crescent Court, 7th Floor</div>
             <div>Dallas, TX 75201</div>
             <div><strong>Phone:</strong>&nbsp;+1 (214) 305-8671</div>
@@ -507,7 +507,7 @@
       <h2 class="custom-large-heading">Cancellation Policy: Cancellation, Deposit & Service Policy</h2>
       <div class="section-content">
         <p>
-          Dallas Black Cars Limo Service strives to provide excellent service while maintaining a clear, fair, and simple cancellation, deposit, and service policy. By booking with us, you agree to the following terms.</p>
+          Dallas Limo And Black Cars Service strives to provide excellent service while maintaining a clear, fair, and simple cancellation, deposit, and service policy. By booking with us, you agree to the following terms.</p>
         <div class="row">
           <div class="col-sm-3">
           <strong class="mian-cc">Contact:</strong>
@@ -620,7 +620,7 @@
       <h2>7. Indemnification:</h2>
       <div class="section-content">
         <p>
-          By booking, you agree to indemnify and hold Dallas Black Cars Limo Service harmless for any claims arising from:<br>
+          By booking, you agree to indemnify and hold Dallas Limo And Black Cars Service harmless for any claims arising from:<br>
           - Your use of services<br>
           - Policy violations<br>
           - Damage caused by you or your party</p>
@@ -675,7 +675,7 @@
       </div>
     </div>
     <div class="sections section-light">
-      <h2>Thank you for choosing Dallas Black Cars Limo Service.</h2>
+      <h2>Thank you for choosing Dallas Limo And Black Cars Service.</h2>
       <div class="section-content">
         <p>
           We are committed to fair and professional service.<br>

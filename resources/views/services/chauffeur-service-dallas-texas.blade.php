@@ -92,7 +92,7 @@ $isHourly = session('service_type') === 'hourlyHire';
             <div class="col-md-12">
                 <div class="btom">
                     <div class="btom-bottom">
-                        <h2>Dallas Black Cars Limo Service – Professional Chauffeur Fleet</h2>
+                        <h2>Dallas Limo And Black Cars Service – Professional Chauffeur Fleet</h2>
                         <p>
                             Our chauffeur-driven fleet is the gold standard for
                             <a href="/services/dallas-corporate-transportation/" class="internal-links">corporate limo service Dallas</a>,
