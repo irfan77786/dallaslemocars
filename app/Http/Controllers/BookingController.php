@@ -9,6 +9,7 @@ use App\Models\Vehicle;
 use App\Models\Booker;
 use App\Models\FlightDetail;
 use App\Models\RateVehicle;
+use App\Models\RateVehicleCity;
 use App\Models\ReturnService;
 use Exception;
 use Illuminate\Http\Request;
@@ -1326,35 +1327,70 @@ private function getDistanceBetweenAddresses(string $origin, string $destination
 
     private function calculateDistanceBasedPrice($vehicle, float $distanceMiles): array
     {
-        $rateModel = RateVehicle::where('vehicle_id', $vehicle->id)->first();
+        $pickupLocation = session('return_pickup_location') ?: session('pickup_location');
+
+        $rateModel = null;
+        $useCityRates = false;
+
+        if (!empty($pickupLocation)) {
+            $cityRates = RateVehicleCity::where('vehicle_id', $vehicle->id)->get();
+            foreach ($cityRates as $cityRate) {
+                $cityName = trim((string)($cityRate->city_name ?? ''));
+                if ($cityName !== '' && stripos($pickupLocation, $cityName) !== false) {
+                    $rateModel = $cityRate;
+                    $useCityRates = true;
+                    break;
+                }
+            }
+        }
+
+        if (!$useCityRates) {
+            $rateModel = RateVehicle::where('vehicle_id', $vehicle->id)->first();
+        }
 
         $base = ($rateModel && isset($rateModel->base_rate))
             ? (float) $rateModel->base_rate
             : (float) $vehicle->base_fare;
 
-        $tiers = ($rateModel && !empty($rateModel->distance_rates))
-            ? json_decode($rateModel->distance_rates)
+        $tiersRaw = ($rateModel && !empty($rateModel->distance_rates))
+            ? $rateModel->distance_rates
             : [];
+
+        // Normalize tiers to array of associative arrays
+        if (is_string($tiersRaw)) {
+            $decoded = json_decode($tiersRaw, true);
+            $tiers = is_array($decoded) ? $decoded : [];
+        } elseif (is_array($tiersRaw)) {
+            $tiers = $tiersRaw;
+        } else {
+            $tiers = [];
+        }
 
         $remainingDistance = $distanceMiles;
         $distanceCost = 0.0;
-        
+
         foreach ($tiers as $tier) {
             if ($remainingDistance <= 0) {
                 break;
             }
 
-            $rate = isset($tier->rate) ? (float) $tier->rate : 0.0;
-            $distanceValue = $tier->distance ?? null;
+            $rate = 0.0;
+            $distanceValue = null;
 
-            // Remaining slab
+            if (is_array($tier)) {
+                $rate = isset($tier['rate']) ? (float) $tier['rate'] : 0.0;
+                $distanceValue = $tier['distance'] ?? null;
+            } else {
+                $rate = isset($tier->rate) ? (float) $tier->rate : 0.0;
+                $distanceValue = $tier->distance ?? null;
+            }
+
             if ($distanceValue === 'remaining') {
                 $distanceCost += $remainingDistance * $rate;
                 $remainingDistance = 0;
                 break;
             }
 
-            // Numeric slabs
             $tierDistance = (float) $distanceValue;
             if ($tierDistance <= 0) {
                 continue;
@@ -1368,7 +1404,7 @@ private function getDistanceBetweenAddresses(string $origin, string $destination
         $totalPrice = round($base + $distanceCost, 2);
 
         return [
-            'distance_km'     => round($distanceMiles, 2), // legacy
+            'distance_km'     => round($distanceMiles, 2),
             'distance_miles'  => round($distanceMiles, 2),
             'price'           => $totalPrice,
             'baseFare'        => $base,
