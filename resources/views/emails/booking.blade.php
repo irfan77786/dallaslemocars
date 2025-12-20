@@ -11,7 +11,7 @@
 <body style="font-family: 'Abel', 'Helvetica', 'Arial', sans-serif; line-height: 1.6; color: #333333; margin: 0; padding: 0; background-color: #f4f4f4;">
     <div class="container" style="max-width: 600px; margin: 0 auto; padding: 6px; background-color: #ffffff;">
         <div class="header" style="padding: 20px 10px; text-align: center; border-bottom: 1px solid #eee;">
-            <img src="{{ public_path('assets/img/site/black-car-service-dallas-logo.png') }}" alt="Company Logo" style="max-width: 250px; margin-bottom: 10px; height: auto;">
+            <img src="{{ $message->embed(public_path('assets/img/site/black-car-service-dallas-logo.png')) }}" alt="Company Logo" style="max-width: 250px; margin-bottom: 10px; height: auto;">
             <h2 style="margin: 0; font-size: 22px; color: #12143e;">Booking {{ $isAdmin ? 'Notification' : 'Confirmation' }}</h2>
             <p style="margin: 5px 0 0; font-size: 15px; color: #555;">{{ $isAdmin ? 'New booking received' : 'Your reservation has been confirmed!' }}</p>
         </div>
@@ -65,6 +65,14 @@
                             @else N/A @endif
                         </td>
                     </tr>
+                    @if(!empty($bookingData['return_date']))
+                    <tr>
+                        <td style="font-weight: bold; color: #666; width: 40%; padding: 4px 0;">Return Date & Time:</td>
+                        <td style="color: #333; padding: 4px 0;">
+                            {{ \Carbon\Carbon::parse($bookingData['return_date'].' '.($bookingData['return_time'] ?? ''))->format('F j, Y \a\t g:i A') }}
+                        </td>
+                    </tr>
+                    @endif
                     <tr>
                         <td style="font-weight: bold; color: #666; padding: 4px 0;">Service Type:</td>
                         <td style="color: #333; padding: 4px 0;">{{ !empty($bookingData['hours']) ? 'Hourly/As Directed' : 'To Airport' }}</td>

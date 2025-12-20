@@ -243,6 +243,22 @@
           </div>
           @endif
 
+          {{-- Return Date --}}
+          @if(!empty($bookingData['return_date']))
+          <div class="row">
+            <div class="col-sm-3"><strong class="mian-cc">Return Date:</strong></div>
+            <div class="col-sm-9">{{ \Carbon\Carbon::parse($bookingData['return_date'])->format('m/d/Y - l') }}</div>
+          </div>
+          @endif
+
+          {{-- Return Time --}}
+          @if(!empty($bookingData['return_time']))
+          <div class="row">
+            <div class="col-sm-3"><strong class="mian-cc">Return Time:</strong></div>
+            <div class="col-sm-9">{{ \Carbon\Carbon::parse($bookingData['return_time'])->format('h:i A') }}</div>
+          </div>
+          @endif
+
           {{-- Hours --}}
           @if($bookingData['hours'])
             <div class="row">
