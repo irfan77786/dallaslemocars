@@ -196,16 +196,8 @@
       <div style="display: table-row;">
         <div style="display: table-cell; vertical-align: middle; width: 62%;">
           @php
-            $candidates = [
-              public_path('assets/img/site/black-car-service-dallas-logo.png'),
-              public_path('assets/img/site/black-car-service-dallas-logo.webp'),
-              public_path('assets/img/black-car-service-dallas-logo.webp'),
-              public_path('assets/img/black-car-service-dallas-logo.png'),
-            ];
-            $logoPath = null;
-            foreach ($candidates as $p) { if (file_exists($p)) { $logoPath = $p; break; } }
-            $logoData = $logoPath ? base64_encode(file_get_contents($logoPath)) : null;
-            $mime = $logoPath && strtolower(pathinfo($logoPath, PATHINFO_EXTENSION)) === 'png' ? 'image/png' : 'image/webp';
+            $logoData = base64_encode(file_get_contents(public_path('assets/img/site/black-car-service-dallas-logo.png')));
+            $mime = 'image/png';
           @endphp
           @if($logoData)
             <img src="data:{{ $mime }};base64,{{ $logoData }}" alt="Logo" style="height: 60px;" />
