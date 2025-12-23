@@ -111,9 +111,7 @@
                             transform: translateY(-50%);
                             color: #757575;
                         }
-                        .floating-bordered-input .form-control {
-                            padding-right: 40px !important;
-                        }
+
                         @supports (-webkit-overflow-scrolling: touch) {
                             .swap-locations {
                                 transform: rotate(90deg);
