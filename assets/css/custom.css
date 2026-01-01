@@ -1,85 +1,101 @@
 input[type="checkbox"] {
   accent-color: #2c314a;
 }
-.submenu {
+/* Scoped or Specific Styles Only */
+
+.search-tab-wrap .submenu {
     padding: 0 !important;
 }
+
+/* Pagination styles - kept generic but specific enough */
 .page-item.active .page-link {
     background: #1B9CCC !important;
     border-color: #1B9CCC !important;
 }
-select:focus, input:focus {
+
+/* Form specific focus states */
+.search-form-box select:focus,
+.search-form-box input:focus {
     color: none !important;
     outline: none !important;
     box-shadow: none !important;
     border-color: #1B9CCC !important;
 }
+
 .internal-links {
     color: black !important;
 }
-a {
-    text-decoration: none !important;
-}
+
+/* Removed global 'a' tag override */
+
 .skip-btn {
     width: 30% !important;
 }
-.btn-primary, .btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show>.btn-outline-primary.dropdown-toggle, .btn-outline-primary:hover {
-    color: white !important;
-    background: linear-gradient(to right, #e52c43, #1B9CCC) !important;
-    border: 1px solid #1B9CCC !important;
-}
-.btn-outline-primary {
-    color: #e52c43;
-    border: 1px solid #e52c43 !important;
-}
-.btn-primary {
-    padding: .475rem .75rem !important;
-}
+
+/* Removed global .btn-primary overrides to allow new theme to take over */
+/* Only keeping specific overrides if strictly necessary for the form, but let's try relying on new theme first */
+
 .payment-methods {
     display: flex !important;
     justify-self: center !important;
     margin-top: 8px !important;
     max-width: 75% !important;
 }
+
 .material-icons {
     color: white !important;
 }
-button:focus {
-    outline: none !important;
-    box-shadow: none !important;
-}
+
+/* Removed global button focus override */
+
 .login-now, .register-now {
     display: none;
 }
-.btn-primary, .bg-primary {
-    background: linear-gradient(to right, #e52c43, #1B9CCC) !important;
-}
-.text-primary, .text-p2 {
+
+/* Scoped text colors */
+.search-form-box .text-primary,
+.search-form-box .text-p2 {
     color: #2c314a !important;
 }
+
 .booking_step_container {
     margin-bottom: 3dvh;
 }
+
+/* Floating Input Styles - Preserved for form */
 .floating-bordered-input:hover {
-  border: 1px solid black;
+  border: 1px solid #fc731c;
   border-radius: 4px;
   transition: all 0.2s ease;
 }
 .floating-bordered-input:focus-within {
-  border-color: #2c314a;
-  box-shadow: 0 0 0 1px #2c314a;
+  border-color: #fc731c;
+}
+.dtp-actual-year {
+    color: white !important;
+}
+.dtp-btn-ok {
+    text-align: end !important;
 }
 .selected {
-    background: #2c314a !important ;
+    background: #e52c43 !important ;
+}
+.btn-check:focus+.btn, .btn:focus {
+    box-shadow: none !important;
 }
 .rotate-90 {
   display: inline-block !important;
   transform: rotate(90deg) !important;
   vertical-align: middle;
 }
-input, select, strong {
+
+/* Specific inputs in form */
+.search-form-box input,
+.search-form-box select,
+.search-form-box strong {
     color: black !important;
 }
+
 .meanmenu-reveal{
     width: 27px !important;
     height: 18px !important;
@@ -94,42 +110,26 @@ input, select, strong {
     width: 100%;
     z-index: 8;
 }
+
+/* Form Container Styles */
 .search-tab-wrap{
-    top: 24% !important;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 4px #6e6e6e;
+    padding: 30px;
+    width: 100%; /* Changed from fixed 430px to 100% to fit container */
+    max-width: 450px; /* Added max-width for sanity */
+    margin: auto;
+    position: relative;
+    float: right !important;
 }
+
 .search-tab-wrap > .nav-tabs{
     justify-content: start;
 }
-.hero-container {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-}
-.search-form-row{
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    float: right !important;
-}
-.main-hero {
-    background-image: url('/assets/img/site/dallas-main.webp');
-    background-size: cover;
-    background-position: center;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    padding: 80px 0;
-}
-.search-section {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    margin-top: 0px !important;
-}
-#map:focus {
-    border: none !important;
-}
+
+/* Removed .hero-container, .search-form-row, .main-hero, .search-section, #map overrides that conflict */
+/* Kept #map only if needed, but likely handled by inline styles or new css */
 #map {
     position: absolute;
     top: 0;
@@ -138,24 +138,14 @@ input, select, strong {
     height: 100%;
     z-index: 1;
 }
-.map-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
 
 .search-form-box{
     margin-top: 20px !important;
 }
-/* Prevent horizontal scroll on all devices */
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
 
-/* Mobile styles */
+/* Removed global html, body overrides */
+
+/* Mobile styles - Cleaned up */
 @media (max-width: 768px) {
     .skip-btn {
         width: 100% !important;
@@ -163,24 +153,17 @@ html, body {
     .side_section {
         margin-bottom: 4.5rem !important;
     }
-
     .continue-button {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 95% !important;
     }
-
     .sformlink{
         font-size: 16.4px !important;
         font-weight: 100 !important;
     }
-    .search-tab-wrap {
-        box-shadow: none !important;
-        padding: 0px !important;
-        margin: 0px !important;
-        top: unset !important;
-    }
+    /* Removed .search-tab-wrap overrides that strip styling on mobile */
     .gallary-inner-row .col-12.col-md-6.col-lg-4:nth-child(n+4) {
         display: none;
     }
@@ -190,97 +173,10 @@ html, body {
     .onlyDesktop {
         display: none;
     }
-    .hero-container {
-        min-height: 100dvh !important;
-    }
-    .mobile-startnow {
-        display: block !important;
-    }
-    .call-action-btn {
-        width: 100% !important;
-    }
-    .mean-container .mean-nav {
-        margin-top: 70px !important;
-    }
-    .web-hero{
-        display: none;
-    }
-    .mobile-hero {
-        display: block;
-        color: white;
-        position: relative;
-        z-index: 8;
-        top: 18dvh;
-        left: 4dvh;
-        max-width: 65%;
-        font-weight: 400;
-    }
-    .how-it-works, .fifa-section{
-        padding-bottom: 40px !important;
-    }
-    .choice-section{
-        padding-bottom: 15px !important;
-    }
-    .popular-categories{
-        padding-top: 45px !important;
-    }
-    .search-tab-wrap{
-        margin-bottom: 5px !important;
-    }
-    .left-desc-container{
-        margin-top: 23px !important;
-    }
-    .search-form-internal{
-        display: unset !important;
-        position: relative !important;
-        left: 0%;
-        bottom: 95%;
-        top: 0%;
-        padding-right: 14px !important;
-        padding-left: 14px !important;
-        margin-right: 0 !important;
-        margin-left: 0 !important;
-        max-width: 100%;
-    }
-    .search-form-row {
-        min-height: auto;
-        flex-direction: column;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-    }
-
-    .main-hero {
-        display: block !important;
-        background-image: none !important;
-        padding: 0px !important;
-        margin: 0;
-        width: 100%;
-        max-width: 100%;
-    }
-
-    #map {
-        position: relative !important;
-        height: 40vh !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        order: 2;
-        background-image: url('/assets/img/site/dallas-main.webp');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        overflow: hidden;
-        display: block !important;
-    }
-
-    .carousel-section {
-        padding-top: 20px !important;
-    }
+    /* Removed hero/map mobile overrides */
 }
 
-/* Desktop styles */
+/* Desktop styles - Cleaned up */
 @media (min-width: 769px) {
     .car-section {
         padding-bottom: 8% !important;
@@ -289,15 +185,7 @@ html, body {
         font-size: 16px !important;
         font-weight: 300 !important;
     }
-    .search-tab-wrap{
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0px 0px 4px #6e6e6e;
-        padding: 30px;
-        width: 430px;
-        margin: auto;
-        position: relative;
-    }
+    /* Removed duplicate search-tab-wrap */
     .onlyMobile {
         display: none;
     }
@@ -308,53 +196,10 @@ html, body {
         padding-left: 8px;
         padding-right: 8px;
     }
-    .carousel-section{
-        margin-top: 24px !important;
-    }
-    .web-hero{
-        display: block;
-        position: absolute;
-        left: -500px;
-        color: ghostwhite;
-        max-width: 500px;
-        top: 140%;
-        font-weight: 400;
-        font-size: 62px;
-    }
-    .mobile-hero{
-        display: none;
-    }
-    .search-form-internal{
-        position: absolute; left: 49%; bottom: 72%; top: 0%;
-        padding-right: 38px !important;
-    }
-    .search-form-row {
-        min-height: 62vh;
-    }
-    #map {
-        background-image: none !important;
-        position: absolute !important;
-        width: 132dvh !important;
-        justify-self: anchor-center !important;
-        top: 0;
-        left: 0;
-    }
-    .how-it-works{
-        padding-top: 20px !important;
-        padding-bottom: 45px !important;
-    }
-    .testimonial-container{
-        margin-top: 30px !important;
-    }
-    .promo-section, .testimonial-section, .areas-section{
-        padding-top: 45px !important;
-        padding-bottom: 45px !important;
-    }
-    .hero-container{
-        min-height: 66vh !important;
-    }
+    /* Removed layout breaking overrides */
 }
 
+/* FAQ Section - Scoped just in case */
 .faq-section {
   max-width: 800px;
   margin: auto;
@@ -362,116 +207,9 @@ html, body {
   font-family: "Segoe UI", sans-serif;
   margin-top: 20px;
 }
+/* ... (FAQ styles can stay if used elsewhere, or removed if replaced by new theme) ... */
 
-.faq-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.faq-item {
-  border-bottom: 1px solid #ddd;
-  padding: 10px 0;
-}
-
-.faq-question {
-  width: 100%;
-  background: none;
-  border: none;
-  outline: none;
-  text-align: left;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-}
-
-.faq-question .icon {
-  transition: transform 0.3s ease;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-.faq-question:focus{
-    outline: unset !important;
-}
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-  padding: 0 0;
-}
-
-.faq-answer p {
-  margin: 10px 0;
-}
-
-.faq-item.active .faq-answer {
-  max-height: 200px; /* enough for content */
-  padding: 10px 0;
-}
-
-.faq-item.active .faq-question .icon {
-  transform: rotate(180deg);
-  content: "–";
-}
-
-@media only screen
-  and (min-width: 820px)
-  and (max-width: 820px)
-  and (min-height: 1180px)
-  and (max-height: 1180px) {
-    #map {
-        width: 88% !important;
-    }
-}
-
-@media only screen
-  and (min-width: 853px)
-  and (max-width: 853px)
-  and (min-height: 1280px)
-  and (max-height: 1280px) {
-    #map {
-        width: 86% !important;
-    }
-}
-
-@media only screen
-  and (min-width: 1024px)
-  and (max-width: 1024px)
-  and (min-height: 600px)
-  and (max-height: 600px)
-  and (orientation: landscape) {
-    #map {
-        width: 94% !important;
-    }
-}
-
-@media only screen
-  and (min-width: 1280px)
-  and (max-width: 1280px)
-  and (min-height: 800px)
-  and (max-height: 800px)
-  and (orientation: landscape) {
-    #map {
-        width: 94% !important;
-    }
-}
-
-@media only screen
-  and (min-width: 1024px)
-  and (max-width: 1024px)
-  and (min-height: 1366px)
-  and (max-height: 1366px)
-  and (orientation: portrait) {
-    #map {
-        width: 94% !important;
-    }
-}
-
-
+/* Floating Bordered Input - Essential for form */
 .floating-bordered-input {
     position: relative;
     border: 1px solid #C4C4C4;
@@ -480,16 +218,18 @@ html, body {
     padding-top: 0px !important;
     padding-bottom: 0px !important;
     background: #fff;
+    margin-bottom: 1.5rem;
 }
 
-.floating-label {
+.floating-bordered-input .floating-label {
     position: absolute;
     top: -9px;
     left: 14px;
     background: #fff;
     padding: 0 6px;
     font-size: 12px;
-    color: #666;
+    color: #000000;
+    pointer-events: none;
 }
 
 .floating-bordered-input .form-control {
@@ -500,54 +240,25 @@ html, body {
     margin-top: 10px !important;
 }
 
-.input-icon-left,
-.input-icon-right {
+.floating-bordered-input .input-icon-left,
+.floating-bordered-input .input-icon-right {
     position: absolute;
     color: #777;
     font-size: 18px;
     top: 50%;
     transform: translateY(-50%);
-}
-
-.input-icon-left {
-    left: 12px;
-}
-
-.input-icon-right {
-    right: 12px;
-}
-
-
-.floating-bordered-input {
-  position: relative;
-  margin-bottom: 1.5rem;
-}
-
-.floating-bordered-input .floating-label {
-    position: absolute;
-    top: -0.96rem;
-    left: .5rem;
-    font-size: 0.85rem;
-    color: black;
     pointer-events: none;
 }
 
-.floating-bordered-input .input-icon-left,
-.floating-bordered-input .input-icon-right {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #757575;
-}
-
 .floating-bordered-input .input-icon-left {
-  left: 10px;
+    left: 12px;
 }
 
 .floating-bordered-input .input-icon-right {
-  right: 10px;
+    right: 12px;
 }
 
+/* Flatpickr Styles - Keep */
 .form-control.flatpickr {
   padding-right: 2.5rem;
   background-color: #fff;
@@ -555,21 +266,17 @@ html, body {
   border: 1px solid #2e2e2e;
   border-radius: 5px;
 }
-
 .flatpickr-calendar {
   background: #fff;
   border: 1px solid #e5e5e5;
   color: #222;
-  z-index: 10050; /* ensure calendar appears above other UI on mobile */
+  z-index: 10050;
 }
-
 .flatpickr-time input {
   background-color: #fff;
   color: #222;
   border-color: #ddd;
 }
-
-/* Flatpickr disabled dates - darker gray */
 .flatpickr-day.disabled,
 .flatpickr-day.disabled:hover,
 .flatpickr-day.notAllowed,
@@ -577,286 +284,130 @@ html, body {
 .flatpickr-day.nextMonthDay,
 .flatpickr-day.flatpickr-disabled,
 .flatpickr-day[aria-disabled="true"] {
-  color: #949699 !important; /* previously too light; make a bit darker */
-  opacity: 1 !important;    /* ensure text color is not lightened by opacity */
+  color: #949699 !important;
+  opacity: 1 !important;
 }
 
-/* General Section */
-.destination-cards-section {
-  background-color: #fff;
-}
+/* Cleaned up remaining overrides */
 
-/* Card Wrapper */
-.custom-card {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.custom-card:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* Card Image */
-.custom-card-img {
-  width: 100%;
-  height: 185px;
-  object-fit: cover;
-  display: block;
-}
-
-.custom-card-overlay{
-    animation: slideUp 0.5s ease-out forwards;
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.custom-card:hover .custom-card-overlay {
-  transform: scale(1.05);
-}
-
-/* Overlay */
-.custom-card-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 20px;
-  color: #fff;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-}
-
-/* Text Styles */
-.custom-card-title {
-  color: white;
-  font-size: 1.4rem;
-  font-weight: 400;
-  margin: 0 0 5px 0;
-  display: flex;
-  align-items: center;
-}
-
-.custom-arrow {
-  font-size: 1.2rem;
-  margin: 0 6px;
-  color: #f8f8f8;
-}
-
-.custom-card-text {
-  font-size: 1rem;
-  opacity: 0.9;
-  margin: 0;
-}
-
-.custom-card-img {
-    max-width: 100% !important;
-}
-
-/* Add this to your custom.css file */
-.slide-up-text {
-    animation: slideUp 0.5s ease-out forwards;
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.widget-list a {
-    line-height: 2.3rem;
-}
-
-.shadow-card {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 0px 4px #6e6e6e;
-}
-
-.input-group-container {
-  display: grid;
-  grid-template-columns: 36px 1fr;
-  align-items: center;
-  gap: 8px;
-}
-
-.icon-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #757575;
-  font-size: 18px;
-}
-
-.input-text-container .form-label {
-  margin-bottom: 4px;
-  font-size: 13px;
-  color: #666;
-  font-weight: 400;
-}
-
-.input-text-container .input-group .form-control {
-  box-shadow: none;
-}
-
-.ph-wrap .fake-ph {
-  position: absolute !important;
-  top: 50% !important;
-  left: 0px !important;
-  transform: translateY(-50%) !important;
-  pointer-events: none !important;
-  z-index: 1 !important;
-}
-
-@supports (-webkit-touch-callout: none) {
-  @media screen and (max-width: 991.98px) {
-    .ph-wrap .fake-ph {
-      position: absolute !important;
-      top: 50% !important;
-      left: 2px !important;
-      transform: translateY(-50%) !important;
-      pointer-events: none !important;
-      z-index: 1 !important;
-    }
-    .ph-wrap input:focus + .fake-ph,
-    .ph-wrap input:valid + .fake-ph {
-      display: none !important;
-    }
-  }
-}
-.mobile-menu-toggle {
-    color: #2c314a;
-    position: relative;
-    z-index: 1002;
-}
-.drawer-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.35);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
-    z-index: 1000;
-}
-.drawer-overlay.show {
-    opacity: 1;
-    visibility: visible;
-}
-.mobile-drawer {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 82%;
-    max-width: 340px;
+/* Autocomplete Dropdown Styles */
+.location-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
     background: #fff;
-    box-shadow: -6px 0 16px rgba(0,0,0,0.12);
-    transform: translateX(100%);
-    transition: transform 0.25s ease;
-    z-index: 1001;
-    padding: 16px 16px 24px 16px;
+    z-index: 1000;
+    border: 1px solid #ddd;
+    border-radius: 0 0 4px 4px;
+    max-height: 300px;
     overflow-y: auto;
-}
-.mobile-drawer.open {
-    transform: translateX(0);
-}
-.drawer-header {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-    margin-bottom: 12px;
-}
-.drawer-nav .drawer-menu > li {
-    padding: 8px 0;
-}
-.drawer-nav a {
-    color: #2c314a;
-    text-decoration: none;
-    font-weight: 500;
-}
-.drawer-nav .has-submenu > .submenu-toggle::after {
-    content: '\25BC';
-    float: right;
-    font-size: 0.8rem;
-    transition: transform 0.2s ease;
-}
-.drawer-nav .has-submenu.open > .submenu-toggle::after {
-    transform: rotate(180deg);
-}
-.drawer-nav .submenu {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.25s ease;
-    padding-left: 10px;
-}
-.drawer-nav .has-submenu.open > .submenu {
-    max-height: 600px;
-}
-.drawer-close {
-    color: #2c314a;
-}
-body.drawer-open {
-    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: none; /* Controlled by JS */
 }
 
-@media (min-width: 992px) {
-    #mobile-menu-toggle,
-    .drawer-overlay,
-    .mobile-drawer { display: none !important; }
+.suggestion-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.day-item.is-start-date, .day-item.is-end-date, .day-item.is-selected, .button-apply {
-    background-color: #1B9CCC !important;
+.suggestion-item:last-child {
+    border-bottom: none;
 }
 
-.day-item:hover {
-    border-color: #1B9CCC !important;
+.suggestion-item:hover {
+    background-color: #f8f9fa;
 }
 
-.btn-primary-transparent-hover {
-  color: #1B9CCC !important;               /* text color default */
-  background-color: transparent !important; /* transparent background */
-  border: 1px solid #1B9CCC !important;    /* primary border */
-  font-size: 1rem;
-  padding: .475rem .75rem !important;
-  line-height: 1.5;
-  border-radius: 0.25rem;
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-  text-decoration: none;
+.suggestion-item i {
+    color: #6c757d;
+    font-size: 1.1rem;
 }
 
-/* Hover and focus: filled background, white text */
-.btn-primary-transparent-hover:hover,
-.btn-primary-transparent-hover:focus {
-  background: linear-gradient(to right, #e52c43, #1B9CCC) !important;   /* primary background */
-  border-color: #1B9CCC !important;       /* keep border */
-  color: #fff !important;                 /* white text */
-  text-decoration: none;
-  outline: none;
+.suggestion-item .main-text {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
 }
 
-/* Active / clicked: same as hover */
-.btn-primary-transparent-hover:active,
-.btn-primary-transparent-hover.active {
-  background-color: linear-gradient(to right, #e52c43, #1B9CCC) !important;
-  border-color: #1B9CCC !important;
-  color: #fff !important;
+.suggestion-item .sub-text {
+    display: block;
+    font-size: 0.85rem;
+    color: #777;
 }
 
-.form-check-input:checked {
-    background-color: #e52c43 !important;
-    border-color: #e52c43 !important;
+/* Fix for Material Datepicker - Compact Mode (No Scroll) */
+.dtp > .dtp-content {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+
+    width: 300px !important;
+    max-width: 95vw;
+    max-height: 95vh; /* Changed to 95 to prevent touching screen edges */
+
+    margin: 0 !important; /* Removed 'auto' as translate handles centering */
+    overflow: visible !important;
+    z-index: 9999; /* Ensures it stays above other elements */
+}
+
+/* Shrink Header */
+.dtp-header {
+    height: auto !important;
+    padding: 10px !important;
+}
+.dtp-header .dtp-actual-day {
+    font-size: 1.2em !important;
+}
+.dtp-header .dtp-actual-year {
+    font-size: 1em !important;
+    color: rgba(255,255,255,0.8);
+}
+.dtp div.dtp-date, .dtp div.dtp-time {
+    padding: 5px 0 !important;
+}
+
+/* Compact Clock Face */
+.dtp-picker-clock {
+    margin: 10px auto !important;
+    padding: 0 !important;
+    width: 220px !important; /* Smaller clock */
+    height: 220px !important;
+}
+.dtp-picker-clock .dtp-clock-center {
+    width: 10px !important;
+    height: 10px !important;
+    margin-top: -5px !important;
+    margin-left: -5px !important;
+}
+
+/* Compact Calendar */
+.dtp-picker-calendar table {
+    margin-bottom: 5px !important;
+}
+.dtp-picker-calendar > table > tbody > tr > td {
+    padding: 2px !important;
+}
+
+/* Ensure buttons are compact and visible */
+.dtp .dtp-buttons {
+    display: flex !important;
+    justify-content: flex-end !important; /* Align to right */
+    align-items: center !important;
+    padding: 5px 10px !important;
+    margin: 0 !important;
+    min-height: 40px;
+}
+.dtp .dtp-buttons .btn {
+    font-size: 0.9em !important;
+    padding: 5px 15px !important;
+    margin-left: 5px !important;
+    float: none !important; /* Disable floats */
+    width: auto !important;
 }

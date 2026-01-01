@@ -58,6 +58,10 @@ function resetMap() {
     mapElement.style.removeProperty('display');
   }
 
+  // Show the header text content again
+  $('#home-text-content').css('visibility', 'visible');
+  $('#home-text-content').css('pointer-events', 'auto');
+
   pickupPlacePoint = null;
   dropoffPlacePoint = null;
 
@@ -181,6 +185,12 @@ function triggerPlaceChangedIfPrefilled() {
           }
 
           document.getElementById('map').style.display = 'block';
+          // Hide header text when map is shown via prefill
+          if(document.getElementById('home-text-content')) {
+             document.getElementById('home-text-content').style.visibility = 'hidden';
+             document.getElementById('home-text-content').style.pointerEvents = 'none';
+          }
+
           initMap(pickupPlace, dropoffPlace); // Show whatever location is available
       });
   } catch (exception) {}
@@ -264,7 +274,7 @@ function getBootstrapIconForPlace(place = {}) {
   };
 
   const types = place.types || [];
-  const name = (place.name || place.structured_formatting?.main_text || place.description || '').toLowerCase();
+  const name = place.name?.toLowerCase() || '';
   const addressComponents = place.address_components || [];
 
   for (const type of types) {
@@ -298,103 +308,97 @@ function setupCustomAutocomplete(inputId, suggestionsListId, hiddenAirportFieldI
 
   // Function to handle place selection
   function selectPlace(place) {
-    if (!place) return;
-
-    // Set input value
-    const address = place.name || place.formatted_address;
-    input.value = address;
-    suggestionsContainer.innerHTML = '';
+    input.value = place.formatted_address || place.name;
     suggestionsContainer.style.display = 'none';
 
-    // Check if airport
+    // Check if it's an airport
     let isAirport = false;
-    if (place.types?.includes('airport') || (place.name && place.name.toLowerCase().includes('airport'))) {
-        isAirport = true;
-    } else if (place.address_components) {
-        for (const comp of place.address_components) {
-            if (comp.types.includes('airport') ||
-                (comp.long_name && comp.long_name.toLowerCase().includes('airport')) ||
-                (comp.short_name && comp.short_name.toLowerCase().includes('airport'))) {
-                isAirport = true;
-                break;
-            }
+    if (place.name && place.name.toLowerCase().includes('airport')) isAirport = true;
+    if (place.types && place.types.includes('airport')) isAirport = true;
+    if (place.address_components) {
+      for (const comp of place.address_components) {
+        if (comp.types.includes('airport') ||
+            (comp.long_name && comp.long_name.toLowerCase().includes('airport')) ||
+            (comp.short_name && comp.short_name.toLowerCase().includes('airport'))) {
+          isAirport = true;
+          break;
         }
+      }
     }
 
-    if (hiddenAirport) {
-        hiddenAirport.value = isAirport ? '1' : '0';
-    }
-
-    // Trigger callback
+    if (hiddenAirport) hiddenAirport.value = isAirport ? '1' : '0';
     if (onSelectCallback) onSelectCallback(place);
-
-    // Trigger input event to update map
-    $(input).trigger('input');
   }
 
-  // Handle input changes with debounce
+  if(!input || !suggestionsContainer) return;
+  // Handle input with debounce
   input.addEventListener('input', function() {
-    const value = this.value;
-
     clearTimeout(debounceTimer);
+    const query = this.value.trim();
+
+    if (query.length < 2) {
+      suggestionsContainer.style.display = 'none';
+      return;
+    }
+
     debounceTimer = setTimeout(() => {
-        if (!value) {
-            suggestionsContainer.innerHTML = '';
+      autocompleteService.getPlacePredictions(
+        {
+          input: query,
+          types: ['geocode', 'establishment'],
+          componentRestrictions: {country: 'us'}
+        },
+        (predictions, status) => {
+          if (status !== google.maps.places.PlacesServiceStatus.OK || !predictions) {
             suggestionsContainer.style.display = 'none';
             return;
-        }
+          }
 
-        autocompleteService.getPlacePredictions({
-            input: value,
-            componentRestrictions: { country: 'us' },
-            types: ['geocode', 'establishment']
-        }, (predictions, status) => {
-            if (status !== google.maps.places.PlacesServiceStatus.OK || !predictions) {
-                suggestionsContainer.innerHTML = '';
-                suggestionsContainer.style.display = 'none';
-                return;
-            }
+          // Clear previous suggestions
+          suggestionsContainer.innerHTML = '';
 
-            suggestionsContainer.innerHTML = '';
-            predictions.forEach(prediction => {
-                const item = document.createElement('div');
-                item.className = 'suggestion-item';
+          // Add new suggestions
+          predictions.forEach(prediction => {
+            const item = document.createElement('div');
+            item.className = 'suggestion-item';
+            item.innerHTML = `
+              <i class="bi ${getBootstrapIconForPlace(prediction)}"></i>
+              <div>
+                <span class="main-text">${prediction.structured_formatting.main_text}</span>
+                <span class="sub-text">${prediction.structured_formatting.secondary_text}</span>
+              </div>
+            `;
 
-                // Get appropriate icon
-                const iconClass = getBootstrapIconForPlace(prediction);
-
-                item.innerHTML = `
-                    <i class="bi ${iconClass}"></i>
-                    <div>
-                        <span class="main-text">${prediction.structured_formatting.main_text}</span>
-                        <span class="sub-text">${prediction.structured_formatting.secondary_text}</span>
-                    </div>
-                `;
-
-                item.addEventListener('click', () => {
-                    placesService.getDetails({
-                        placeId: prediction.place_id,
-                        fields: ['formatted_address', 'name', 'address_components', 'types', 'geometry']
-                    }, (place, status) => {
-                        if (status === google.maps.places.PlacesServiceStatus.OK) {
-                            selectPlace(place);
-                        }
-                    });
-                });
-
-                suggestionsContainer.appendChild(item);
+            item.addEventListener('click', () => {
+              // Get place details when a suggestion is clicked
+              placesService.getDetails(
+                {
+                  placeId: prediction.place_id,
+                  fields: ['formatted_address', 'name', 'address_components', 'types', 'geometry']
+                },
+                (place, status) => {
+                  if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    selectPlace(place);
+                  }
+                }
+              );
             });
-            suggestionsContainer.style.display = 'block';
-        });
-    }, 300);
+
+            suggestionsContainer.appendChild(item);
+          });
+
+          // Show suggestions
+          suggestionsContainer.style.display = 'block';
+        }
+      );
+    }, 500);
   });
 
   // Hide suggestions when clicking outside
-  document.addEventListener('click', function(e) {
-      if (!input.contains(e.target) && !suggestionsContainer.contains(e.target)) {
-          suggestionsContainer.innerHTML = '';
-          suggestionsContainer.style.display = 'none';
-      }
+  document.addEventListener('click', (e) => {
+    if (!input.contains(e.target) && !suggestionsContainer.contains(e.target)) {
+      suggestionsContainer.style.display = 'none';
+    }
   });
 
   // Handle keyboard navigation
@@ -406,14 +410,14 @@ function setupCustomAutocomplete(inputId, suggestionsListId, hiddenAirportFieldI
     if (e.key === 'ArrowDown') {
       e.preventDefault();
       const nextIndex = (activeIndex + 1) % visibleItems.length;
-      if (visibleItems[nextIndex]) visibleItems[nextIndex].focus();
+      visibleItems[nextIndex].focus();
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
       const prevIndex = (activeIndex - 1 + visibleItems.length) % visibleItems.length;
       if (prevIndex === visibleItems.length - 1) {
         input.focus();
       } else {
-        if (visibleItems[prevIndex]) visibleItems[prevIndex].focus();
+        visibleItems[prevIndex].focus();
       }
     } else if (e.key === 'Enter' && activeItem.classList.contains('suggestion-item')) {
       e.preventDefault();
@@ -421,41 +425,6 @@ function setupCustomAutocomplete(inputId, suggestionsListId, hiddenAirportFieldI
     }
   });
 }
-
-// Initialize Material Date Time Picker and Checkbox
-$(document).ready(function() {
-    console.log('Initializing Custom JS components...');
-
-    // Initialize Material Date Time Picker
-    if ($.fn.bootstrapMaterialDatePicker) {
-        $('#pickup-datetime, #pickup-datetime-hourly, #return-datetime-hourly').bootstrapMaterialDatePicker({
-            format: 'YYYY-MM-DD HH:mm',
-            minDate: new Date(),
-            lang: 'en',
-            weekStart: 0,
-            shortTime: false,
-            cancelText: 'Back',
-            okText: 'OK'
-        });
-    } else {
-        console.error('bootstrapMaterialDatePicker plugin is not loaded');
-    }
-
-    // Handle Return Trip Checkbox
-    $(document).on('change', '#round-trip', function() {
-        if ($(this).is(':checked')) {
-            $('.return-trip').slideDown();
-        } else {
-            $('.return-trip').slideUp();
-            $('#return-datetime-hourly').val('');
-        }
-    });
-
-    // Initial check for return trip
-    if ($('#round-trip').is(':checked')) {
-        $('.return-trip').show();
-    }
-});
 
 let pickupPlacePoint = null;
 let dropoffPlacePoint = null;
@@ -536,6 +505,9 @@ function onLocationChanged() {
             // Fade out effect
             $(mapElement).fadeOut(animationDuration);
             $('#hide_on_map').fadeIn(animationDuration);
+            // Show header text
+            $('#home-text-content').css('visibility', 'visible');
+            $('#home-text-content').css('pointer-events', 'auto');
         }
     } else if (map) {
         // Ensure map is visible
@@ -543,6 +515,9 @@ function onLocationChanged() {
             mapElement.style.display = 'block';
             $('#hide_on_map').hide();
             $(mapElement).hide().fadeIn(animationDuration);
+            // Hide header text
+            $('#home-text-content').css('visibility', 'hidden');
+            $('#home-text-content').css('pointer-events', 'none');
         }
 
         // Animate to the appropriate marker
@@ -685,102 +660,74 @@ function initMap(pickupPlace, dropoffPlace) {
       $('.below-map').removeClass('main-hero');
   }
 
-  const mapStyle = [
-    {
-      "featureType": "all",
-      "elementType": "geometry.fill",
-      "stylers": [
-        { "color": "#f8faff" }
-      ]
-    },
-    {
-      "featureType": "all",
-      "elementType": "geometry.stroke",
-      "stylers": [
-        { "color": "#d6e0ff" },
-        { "weight": 0.5 }
-      ]
-    },
-    {
-      "featureType": "water",
-      "elementType": "geometry.fill",
-      "stylers": [
-        { "color": "#e6f0ff" },
-        { "lightness": 10 }
-      ]
-    },
-    {
-      "featureType": "road",
-      "elementType": "geometry.fill",
-      "stylers": [
-        { "color": "#ffffff" }
-      ]
-    },
-    {
-      "featureType": "road.highway",
-      "elementType": "geometry.fill",
-      "stylers": [
-        { "color": "#f0f5ff" }
-      ]
-    },
-    {
-      "featureType": "poi",
-      "elementType": "geometry.fill",
-      "stylers": [
-        { "color": "#f0f5ff" }
-      ]
-    },
-    {
-      "featureType": "poi.park",
-      "elementType": "geometry.fill",
-      "stylers": [
-        { "color": "#e6f0ff" }
-      ]
-    },
-    {
-      "featureType": "transit",
-      "elementType": "geometry.fill",
-      "stylers": [
-        { "color": "#e6f0ff" }
-      ]
-    },
-    {
-      "featureType": "administrative",
-      "elementType": "labels.text.fill",
-      "stylers": [
-        { "color": "#4a5d8a" },
-        { "weight": 0.5 }
-      ]
-    },
-    {
-      "featureType": "poi",
-      "elementType": "labels.text.fill",
-      "stylers": [
-        { "color": "#4a5d8a" }
-      ]
-    },
-    {
-      "featureType": "road",
-      "elementType": "labels.text.fill",
-      "stylers": [
-        { "color": "#4a5d8a" }
-      ]
-    },
-    {
-      "featureType": "transit",
-      "elementType": "labels.text.fill",
-      "stylers": [
-        { "color": "#4a5d8a" }
-      ]
-    },
-    {
-      "featureType": "water",
-      "elementType": "labels.text.fill",
-      "stylers": [
-        { "color": "#7d9cff" }
-      ]
-    }
-  ];
+const mapStyle = [
+  {
+    "featureType": "all",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#FFFBF8" } // Almost white with a tiny hint of orange/cream
+    ]
+  },
+  {
+    "featureType": "all",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      { "color": "#FEECE2" }, // Very pale peach border
+      { "weight": 0.5 }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#FDE0D2" } // Soft, very light orange-tinted water
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#ffffff" } // Pure white roads to make them "clean"
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#FFD9C2" } // Subtle, light orange for main roads
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#FFF0E8" }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#F2F5F0" } // Keeping parks slightly neutral/green-tinted for clarity
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      { "color": "#8C6D62" }, // Soft brown-grey text (easier on the eyes than black)
+      { "weight": 0.4 }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      { "color": "#B39286" }
+    ]
+  }
+];
+
   const mapCenter = hasPickup ? pickupPlace.geometry.location : dropoffPlace.geometry.location;
 
   // Reuse global map instance or create new one
@@ -811,7 +758,7 @@ function initMap(pickupPlace, dropoffPlace) {
           map: map,
           suppressMarkers: true,
           polylineOptions: {
-              strokeColor: '#e52c43',  // Site button color
+              strokeColor: '#e52c43',  // Lighter shade of #e52c43
               strokeOpacity: 0.9,
               strokeWeight: 6
           }
@@ -836,7 +783,7 @@ function initMap(pickupPlace, dropoffPlace) {
           const newMarker = new google.maps.Marker({
               position: position,
               map: map,
-              icon: createCustomMarker(isPickup ? '#e52c43' : '#e52c43', ''), // Removed 'A' and 'B' labels
+              icon: createCustomMarker(isPickup ? '#e52c43' : '#FF6C00', ''), // Removed 'A' and 'B' labels
               animation: google.maps.Animation.DROP
           });
 
@@ -884,7 +831,7 @@ function initMap(pickupPlace, dropoffPlace) {
 
   // Function to create a custom marker with centered label
   function createCustomMarker() {
-    const svg = `<svg fill="#e52c43" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34px" height="34px" viewBox="0 0 466.583 466.582" xml:space="preserve" stroke="#e52c43"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="13.064324000000003"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M233.292,0c-85.1,0-154.334,69.234-154.334,154.333c0,34.275,21.887,90.155,66.908,170.834 c31.846,57.063,63.168,104.643,64.484,106.64l22.942,34.775l22.941-34.774c1.317-1.998,32.641-49.577,64.483-106.64 c45.023-80.68,66.908-136.559,66.908-170.834C387.625,69.234,318.391,0,233.292,0z M233.292,233.291c-44.182,0-80-35.817-80-80 s35.818-80,80-80c44.182,0,80,35.817,80,80S277.473,233.291,233.292,233.291z"></path> </g> </g></svg>`;
+    const svg = `<svg viewBox="0 0 466.583 466.582" width="34px" height="34px" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="rgb(229,44,67)"/><stop offset="100%" stop-color="rgb(255,108,0)"/></linearGradient></defs><path fill="url(#g)" d="M233.292,0c-85.1,0-154.334,69.234-154.334,154.333c0,34.275,21.887,90.155,66.908,170.834 c31.846,57.063,63.168,104.643,64.484,106.64l22.942,34.775l22.941-34.774c1.317-1.998,32.641-49.577,64.483-106.64 c45.023-80.68,66.908-136.559,66.908-170.834C387.625,69.234,318.391,0,233.292,0z M233.292,233.291c-44.182,0-80-35.817-80-80 s35.818-80,80-80c44.182,0,80,35.817,80,80S277.473,233.291,233.292,233.291z"/></svg>`;
     return {
         url: "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg),
         scaledSize: new google.maps.Size(32, 32),
@@ -1081,6 +1028,8 @@ function calculateRoute(swapped = false) {
     const mapElement = document.getElementById('map');
     if (mapElement) {
         mapElement.style.display = 'block';
+        $('#home-text-content').css('visibility', 'hidden');
+        $('#home-text-content').css('pointer-events', 'none');
     }
 
     // Get and display the route
@@ -1136,137 +1085,6 @@ function calculateRoute(swapped = false) {
                     anchor: new google.maps.Point(12, 12)
                 },
                 title: 'Dropoff: ' + dropoffInput.value
-            });
-
-            // Extend bounds to include all points
-            bounds.extend(pickupPlace.geometry.location);
-            bounds.extend(dropoffPlace.geometry.location);
-            waypoints.forEach(waypoint => bounds.extend(waypoint.location));
-
-            // Fit map to bounds with padding
-            window.map.fitBounds(bounds, {
-                top: 50, right: 50, bottom: 50, left: 50
-            });
-
-        } else {
-            console.error('Directions request failed due to ' + status);
-        }
-    });
-
-    // Recalculate the distance
-    calculateDistance(pickupPlace, dropoffPlace, waypoints);
-}
-
-// Helper function to render the route with given places
-function renderRoute(pickupPlace, dropoffPlace, waypoints) {
-    if (!pickupPlace || !dropoffPlace || !pickupPlace.geometry || !dropoffPlace.geometry) {
-        console.error('Invalid pickup or dropoff place');
-        return;
-    }
-
-    // Make the request to the Directions API with waypoints (stops)
-    const request = {
-        origin: pickupPlace.geometry.location,
-        destination: dropoffPlace.geometry.location,
-        waypoints: waypoints,
-        travelMode: 'DRIVING',
-        optimizeWaypoints: true
-    };
-
-    // Initialize the map if not already done
-    if (!window.map) {
-        // Create a new map instance
-        const mapElement = document.getElementById('map');
-        if (mapElement) {
-            window.map = new google.maps.Map(mapElement, {
-                zoom: 12,
-                center: { lat: 32.7767, lng: -96.7970 }, // Default to Dallas
-                styles: [
-                    {
-                        featureType: 'all',
-                        elementType: 'geometry.fill',
-                        stylers: [{ color: '#f8faff' }]
-                    },
-                    {
-                        featureType: 'road',
-                        elementType: 'geometry.fill',
-                        stylers: [{ color: '#ffffff' }]
-                    },
-                    {
-                        featureType: 'water',
-                        elementType: 'geometry.fill',
-                        stylers: [{ color: '#e6f0ff' }]
-                    }
-                ]
-            });
-        }
-    }
-
-    // Ensure we have a valid map instance
-    if (!window.map) {
-        console.error('Failed to initialize map');
-        return;
-    }
-
-    // Show the map if it was hidden
-    const mapElement = document.getElementById('map');
-    if (mapElement) {
-        mapElement.style.display = 'block';
-    }
-
-    // Get and display the route
-    window.directionsService = window.directionsService || new google.maps.DirectionsService();
-
-    window.directionsService.route(request, function(response, status) {
-        if (status === 'OK') {
-            // Initialize or update directions renderer
-            if (!window.directionsRenderer) {
-                window.directionsRenderer = new google.maps.DirectionsRenderer({
-                    map: window.map,
-                    suppressMarkers: true,
-                    polylineOptions: {
-                        strokeColor: '#2a41e8',
-                        strokeWeight: 4,
-                        strokeOpacity: 0.8
-                    }
-                });
-            }
-            window.directionsRenderer.setDirections(response);
-
-            // Update markers with the correct positions
-            if (window.pickupMarker) window.pickupMarker.setMap(null);
-            if (window.dropoffMarker) window.dropoffMarker.setMap(null);
-
-            // Add custom markers
-            const route = response.routes[0];
-            const bounds = new google.maps.LatLngBounds();
-
-            // Add pickup marker
-            window.pickupMarker = new google.maps.Marker({
-                position: pickupPlace.geometry.location,
-                map: window.map,
-                icon: {
-                    url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
-                        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%232a41e8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>'
-                    ),
-                    scaledSize: new google.maps.Size(32, 32),
-                    anchor: new google.maps.Point(12, 12)
-                },
-                title: 'Pickup: ' + (pickupPlace.name || pickupPlace.formatted_address || 'Pickup')
-            });
-
-            // Add dropoff marker
-            window.dropoffMarker = new google.maps.Marker({
-                position: dropoffPlace.geometry.location,
-                map: window.map,
-                icon: {
-                    url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
-                        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23ff4d4d" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>'
-                    ),
-                    scaledSize: new google.maps.Size(32, 32),
-                    anchor: new google.maps.Point(12, 12)
-                },
-                title: 'Dropoff: ' + (dropoffPlace.name || dropoffPlace.formatted_address || 'Dropoff')
             });
 
             // Extend bounds to include all points
@@ -1506,5 +1324,28 @@ window.addEventListener('load', triggerPlaceChangedIfPrefilled);
 window.addEventListener('pageshow', function(event) {
     if (event.persisted) {   // true if coming from bfcache (back-forward cache)
         triggerPlaceChangedIfPrefilled();
+    }
+});
+
+// Initialize Material Date Time Picker
+$(document).ready(function() {
+    if ($.fn.bootstrapMaterialDatePicker) {
+        $('#pickup-datetime, #pickup-datetime-hourly, #return-datetime-hourly').bootstrapMaterialDatePicker({
+            format: 'ddd, MMM Do, YYYY h:mm A',
+            minDate: new Date(),
+            lang: 'en',
+            weekStart: 0,
+            shortTime: true,
+            cancelText: 'Back',
+            okText: 'OK'
+        });
+
+        // Ensure clicking the icon triggers the input
+        $('.input-icon-left').on('click', function() {
+            $(this).next('input').focus();
+        });
+
+    } else {
+        console.error('bootstrapMaterialDatePicker plugin is not loaded');
     }
 });

@@ -127,7 +127,7 @@ a:active {
     color: #fff;
 }
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
-    background: #e52c43;
+    background: #1A6982;
 }
 .owl-theme .owl-nav.disabled+.owl-dots {
     margin-bottom: -13px;
@@ -229,7 +229,7 @@ h2 {
     width:30px;
     height:30px;
     border-radius:50% 50% 50% 0;
-    background :#e52c43;
+    background :#1A6982;
     position :absolute;
     transform: rotate(-45deg);
     left :50%;
@@ -268,7 +268,7 @@ h2 {
     animation : pulsate 1s ease-out;
     animation-iteration-count: infinite;
     opacity :0.0;
-    box-shadow: 0 0 1px 3px #e52c43;
+    box-shadow: 0 0 1px 3px #1A6982;
 }
 @keyframes pulsate{
   0%{
@@ -290,7 +290,7 @@ nav {
 
  /* go to  up */
 #scrollUp {
-  background-color: #e52c43;
+  background-color: #1A6982;
   border-radius: 50%;
   bottom: 20px;
   color: #ffffff;
@@ -315,7 +315,7 @@ nav {
     align-items: center;
 }
 .main-menu ul li a.active {
-    color: #e52c43;
+    color: #1A6982;
 }
 .main-menu ul li, .main-menu ul li a {
     display: inline-block;
@@ -334,7 +334,7 @@ nav {
 .main-menu ul li a::before {
     width: 0%;
     height: 2px;
-    background: #e52c43;
+    background: #1A6982;
     content: "";
     left: 0;
     bottom: 0;
@@ -349,7 +349,7 @@ nav {
     width: 100%;
 }
 .main-menu > ul li:hover a {
-    color: #e52c43;
+    color: #1A6982;
 }
 .main-menu ul li ul.submenu {
     position: absolute;
@@ -358,7 +358,7 @@ nav {
     top: 220%;
     z-index: 99;
     text-align: center;
-    background: #e52c43;
+    background: #1A6982;
     opacity: 0;
     visibility: hidden;
     transition: all .4s linear;
@@ -387,7 +387,7 @@ nav {
 
 
 .top-bar-header {
-    background: #e52c43;
+    background: #1A6982;
     padding: 10px 0px;
 }
 .user-setting li, .user-setting li a {
@@ -409,12 +409,12 @@ nav {
 }
 a.btn-booking-start {
     border-width: 1px;
-    border-color: #e52c43;
+    border-color: #1A6982;
     border-style: solid;
     border-radius: 2px;
     display: inline-block;
     padding: 12px 30px;
-    color: #e52c43;
+    color: #1A6982;
     font-weight: 500;
     margin-left: 35px;
     text-align: center;
@@ -425,7 +425,7 @@ a.btn-booking-start {
     padding: 20px 0px;
 }
 a.btn-booking-start:hover {
-    background: #e52c43;
+    background: #1A6982;
     color: #fff;
 }
 
@@ -449,7 +449,7 @@ form.search-form button {
     border: none;
     width: 100%;
     height: 44px;
-    background: #e52c43;
+    background: #1A6982;
     color: #fff;
     margin-bottom: 10px;
 }
@@ -475,7 +475,7 @@ form.search-form button:hover {
     position: relative;
 }
 .active {
-    color: #e52c43 !important;
+    color: #1A6982 !important;
 }
 ul.nav.nav-tabs li a, ul.nav.nav-tabs li a.active {
     border: none;
@@ -484,7 +484,7 @@ ul.nav.nav-tabs li a, ul.nav.nav-tabs li a.active {
     text-transform: uppercase;
 }
 ul.nav.nav-tabs li a.active {
-    border-bottom: 2px solid #e52c43;
+    border-bottom: 2px solid #1A6982;
 }
 .slide-icon {
     border-width: 1px;
@@ -512,7 +512,7 @@ ul.nav.nav-tabs li a.active {
     display: inline-block;
 }
 .slick-current .slide-icon {
-    background: #e52c43;
+    background: #1A6982;
     color: #fff;
 }
 .slick-current .slide-icon img {
@@ -540,7 +540,7 @@ ul.nav.nav-tabs li a.active {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     width: 40px;
-    background: #e52c43;
+    background: #1A6982;
     height: 40px;
     line-height: 42px;
     display: inline-block;
@@ -608,11 +608,11 @@ a.btn-wishlist {
     margin-bottom: 7px;
 }
 .item-content h4:hover a {
-    color: #e52c43;
+    color: #1A6982;
 }
 .cat-icon {
     border-radius: 50%;
-    background-color: #e52c43;
+    background-color: #1A6982;
     width: 42px;
     height: 42px;
     text-align: center;
@@ -620,7 +620,7 @@ a.btn-wishlist {
     display: inline-block;
  }
 .tags li a {
-    background-color: #e52c43;
+    background-color: #1A6982;
     color: #fff;
     padding: 2px 17px;
     border-radius: 30px;
@@ -644,7 +644,7 @@ a.btn-wishlist {
     margin-right: 25px;
 }
 .item-feedback li i {
-    color: #e52c43;
+    color: #1A6982;
 }
 .item-feedback ul {
     margin-right: 15px;
@@ -681,7 +681,7 @@ a.btn-wishlist {
 a.btn-wishlist {
     position: absolute;
     right: 20px;
-    color: #e52c43;
+    color: #1A6982;
     transition: all .4s;
 }
 .brand img {
@@ -778,7 +778,7 @@ a.btn-wishlist {
 /* promo section */
 a.btn-promo {
     display: inline-block;
-    background: #e52c43;
+    background: #1A6982;
     text-transform: capitalize;
     padding: 8px 35px;
     font-weight: 700;
@@ -833,7 +833,7 @@ a.btn-promo:hover {
 }
 .location-tag span {
     border-radius: 3px;
-    background-color: #e52c43;
+    background-color: #1A6982;
     padding: 7px 15px;
     font-size: 14px;
     line-height: 1;
@@ -845,7 +845,7 @@ a.btn-promo:hover {
 }
 a.call-action-btn {
     border-radius: 3px;
-    background-color: #e52c43;
+    background-color: #1A6982;
     color: #fff;
     text-transform: capitalize;
     display: inline-block;
@@ -855,7 +855,7 @@ a.call-action-btn {
     transition: all .4s ease-in-out;
 }
 .call-action-btn:hover {
-    background-color: #e52c43;
+    background-color: #1A6982;
 }
 a.call-action-btn i {
     margin-right: 5px;
@@ -917,15 +917,15 @@ footer ul li a, footer span, footer h4, footer p {
     left: 0;
     bottom: 0;
     content: "";
-    background: #e52c43;
+    background: #1A6982;
     transform: translateY(50%);
 }
 .widget-cats li a:hover {
-    color: #e52c43;
+    color: #1A6982;
 }
 
 .footer-section ul li:hover a {
-    color: #e52c43;
+    color: #1A6982;
 }
 .social-icons {
     margin-top: 30px;
@@ -957,7 +957,7 @@ footer ul li a, footer span, footer h4, footer p {
 .subscribe-box form button {
     border-radius: 2px;
     height: 40px;
-    background: #e52c43;
+    background: #1A6982;
     color: #fff;
     text-transform: uppercase;
     position: absolute;
@@ -1010,11 +1010,11 @@ footer ul li a, footer span, footer h4, footer p {
     content: "";
     left: 0;
     top: 9px;
-    background: #e52c43;
+    background: #1A6982;
 }
 a.btn-button {
     display: inline-block;
-    background-color: #e52c43;
+    background-color: #1A6982;
     color: #fff;
     text-transform: capitalize;
     font-weight: 700;
@@ -1058,7 +1058,7 @@ a.btn-button {
     position: absolute;
     right: 0;
     top: 0;
-    background: #e52c43;
+    background: #1A6982;
     width: 15%;
     color: #fff;
     font-weight: 700;
@@ -1106,7 +1106,7 @@ button.btn-search {
     width: 100%;
     height: 40px;
     border: none;
-    background: #e52c43;
+    background: #1A6982;
     color: #fff;
     text-transform: capitalize;
     transition: all .5s;
@@ -1150,7 +1150,7 @@ form.advance-search-form h4 {
 }
 
 .tags-sidebar ul li:hover a::before {
-    border: 1px solid #e52c43;
+    border: 1px solid #1A6982;
 }
 .listico-explors-map-search {
   background: #f9f9f9;
@@ -1198,7 +1198,7 @@ form.advance-search-form h4 {
 }
 .banner-icon {
     margin-right: 20px;
-    background: #e52c43;
+    background: #1A6982;
     text-align: center;
     width: 60px;
     height: 60px;
@@ -1240,13 +1240,13 @@ form.advance-search-form h4 {
 }
 
 .feedback-option a:hover, .feedback-option a:hover i {
-    color: #e52c43;
+    color: #1A6982;
 }
 
 .feedback-option a:hover i {
 }
 .all-reviews i {
-    color: #e52c43;
+    color: #1A6982;
 }
 .banner-content h3 {
     font-size: 25px;
@@ -1267,7 +1267,7 @@ form.advance-search-form h4 {
     display: inline-block;
 }
 .social-link-share li a {
-    color: #e52c43;
+    color: #1A6982;
     padding-left: 15px;
     font-size: 18px;
     transition: all .5s;
@@ -1284,7 +1284,7 @@ form.advance-search-form h4 {
     margin-right: 20px;
 }
 .details-nav a:hover {
-    color: #e52c43;
+    color: #1A6982;
 }
 .single-details-navbar {
     background-color: rgb(255, 255, 255);
@@ -1309,7 +1309,7 @@ form.advance-search-form h4 {
     right: 0;
 }
 .menu-item-price li:hover {
-    color: #e52c43;
+    color: #1A6982;
     cursor: pointer;
 }
 .menu-item-price {
@@ -1344,7 +1344,7 @@ form.search-form input::placeholder, form.search-form select::placeholder {
     color: #666;
 }
 .widgets li a:hover {
-    color: #e52c43;
+    color: #1A6982;
 }
 .widgets.market-time li, .market-time li {
     position: relative;
@@ -1403,7 +1403,7 @@ form.search-form input::placeholder, form.search-form select::placeholder {
 }
 .btn-submit {
     border: none;
-    background-color: #e52c43;
+    background-color: #1A6982;
     height: 50px;
     color: #fff;
     width: 100%;
@@ -1438,7 +1438,7 @@ form.search-form input::placeholder, form.search-form select::placeholder {
 .rate-base-layer,
 .rate-select-layer,
 .rate-hover-layer {
-    color: #e52c43;
+    color: #1A6982;
 }
 
 .check-box input {
@@ -1556,7 +1556,7 @@ form.search-form input::placeholder, form.search-form select::placeholder {
 .contact-form form input:hover, .contact-form form textarea:hover {
   border-style: solid;
   border-width: 1px;
-  border-color: #e52c43;
+  border-color: #1A6982;
   border-radius: 5px;
   background-color: rgb(255, 247, 248);
 }
@@ -1591,7 +1591,7 @@ form.search-form input::placeholder, form.search-form select::placeholder {
 }
 .contact-form form button {
   border-radius: 5px;
-  background-color: #e52c43;
+  background-color: #1A6982;
   -webkit-box-shadow: 0px 8px 16px 0px rgba(255, 90, 39, 0.48);
           box-shadow: 0px 8px 16px 0px rgba(255, 90, 39, 0.48);
   color: #fff;
@@ -1609,7 +1609,7 @@ form.search-form input::placeholder, form.search-form select::placeholder {
 }
 a.btn-loadmore {
     border-width: 2px;
-    border-color: #e52c43;
+    border-color: #1A6982;
     border-style: solid;
     text-align: center;
     display: inline-block;
@@ -1622,13 +1622,13 @@ a.btn-loadmore {
     transition: all .3s cubic-bezier(0.4, 0, 1, 1);
 }
 a.btn-loadmore:hover {
-    background-color: #e52c43;
+    background-color: #1A6982;
     color: #fff;
 }
 .tags li {}
 
 .tags ul li:first-child:hover a {
-    background: #e52c43;
+    background: #1A6982;
     color: #fff;
 }
 .tags li a:hover, #scrollUp:hover, .login-form form .btn-submit:hover,
@@ -1641,11 +1641,11 @@ a.btn-wishlist:hover, .item-meta-data li a:hover, .social-link-share li a:hover 
 }
 .item-content h4 a:hover,
 .login-form form a:hover {
-    color: #e52c43;
+    color: #1A6982;
 }
 .item-meta-data li a {
     padding-left: 5px;
-    color: #e52c43;
+    color: #1A6982;
 }
 .item-meta-data li:nth-child(2) {
     float: right;
@@ -1695,8 +1695,8 @@ a.btn-wishlist:hover, .item-meta-data li a:hover, .social-link-share li a:hover 
     margin-top: 10px;
 }
 .single-details-navbar button.navbar-toggler {
-    color: #e52c43;
-    border-color: #e52c43;
+    color: #1A6982;
+    border-color: #1A6982;
     border-radius: 0;
 }
 .main-header button.navbar-toggler {
