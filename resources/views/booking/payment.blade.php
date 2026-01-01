@@ -4,7 +4,7 @@
 @section('styles')
     <style>
         .payment-card-option {
-            color: #1A6982 !important;
+            color: #e52c43 !important;
         }
     #card-element{
         background: transparent !important;

@@ -138,7 +138,7 @@
                         </div>
 
                     <div class="d-flex justify-content-between total_price_box">
-                        <span class="pricing_total_label" style="color: #1A6982;">Total</span>
+                        <span class="pricing_total_label" style="color: #e52c43;">Total</span>
                         @php
                             $base = session('calculated_price');
                             if ($base === null && $breakdown && isset($breakdown['hourlyFare'])) {
@@ -150,7 +150,7 @@
                             $formattedTotal = number_format($rawTotal, 2);
                             [$whole, $decimal] = explode('.', $formattedTotal);
                         @endphp
-                        <span class="pricing_total_price total-trip-price" style="color: #1A6982;">
+                        <span class="pricing_total_price total-trip-price" style="color: #e52c43;">
                             ${{ $whole }}<span class="price-decimal">.{{ $decimal }}</span> USD
                         </span>
                     </div>

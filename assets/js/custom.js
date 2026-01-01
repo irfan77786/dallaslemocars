@@ -264,7 +264,7 @@ function getBootstrapIconForPlace(place = {}) {
   };
 
   const types = place.types || [];
-  const name = place.name?.toLowerCase() || '';
+  const name = (place.name || place.structured_formatting?.main_text || place.description || '').toLowerCase();
   const addressComponents = place.address_components || [];
 
   for (const type of types) {
@@ -298,97 +298,103 @@ function setupCustomAutocomplete(inputId, suggestionsListId, hiddenAirportFieldI
 
   // Function to handle place selection
   function selectPlace(place) {
-    input.value = place.formatted_address || place.name;
+    if (!place) return;
+
+    // Set input value
+    const address = place.name || place.formatted_address;
+    input.value = address;
+    suggestionsContainer.innerHTML = '';
     suggestionsContainer.style.display = 'none';
 
-    // Check if it's an airport
+    // Check if airport
     let isAirport = false;
-    if (place.name && place.name.toLowerCase().includes('airport')) isAirport = true;
-    if (place.types && place.types.includes('airport')) isAirport = true;
-    if (place.address_components) {
-      for (const comp of place.address_components) {
-        if (comp.types.includes('airport') ||
-            (comp.long_name && comp.long_name.toLowerCase().includes('airport')) ||
-            (comp.short_name && comp.short_name.toLowerCase().includes('airport'))) {
-          isAirport = true;
-          break;
+    if (place.types?.includes('airport') || (place.name && place.name.toLowerCase().includes('airport'))) {
+        isAirport = true;
+    } else if (place.address_components) {
+        for (const comp of place.address_components) {
+            if (comp.types.includes('airport') ||
+                (comp.long_name && comp.long_name.toLowerCase().includes('airport')) ||
+                (comp.short_name && comp.short_name.toLowerCase().includes('airport'))) {
+                isAirport = true;
+                break;
+            }
         }
-      }
     }
 
-    if (hiddenAirport) hiddenAirport.value = isAirport ? '1' : '0';
+    if (hiddenAirport) {
+        hiddenAirport.value = isAirport ? '1' : '0';
+    }
+
+    // Trigger callback
     if (onSelectCallback) onSelectCallback(place);
+
+    // Trigger input event to update map
+    $(input).trigger('input');
   }
 
-  if(!input || !suggestionsContainer) return;
-  // Handle input with debounce
+  // Handle input changes with debounce
   input.addEventListener('input', function() {
+    const value = this.value;
+
     clearTimeout(debounceTimer);
-    const query = this.value.trim();
-
-    if (query.length < 2) {
-      suggestionsContainer.style.display = 'none';
-      return;
-    }
-
     debounceTimer = setTimeout(() => {
-      autocompleteService.getPlacePredictions(
-        {
-          input: query,
-          types: ['geocode', 'establishment'],
-          componentRestrictions: {country: 'us'}
-        },
-        (predictions, status) => {
-          if (status !== google.maps.places.PlacesServiceStatus.OK || !predictions) {
+        if (!value) {
+            suggestionsContainer.innerHTML = '';
             suggestionsContainer.style.display = 'none';
             return;
-          }
-
-          // Clear previous suggestions
-          suggestionsContainer.innerHTML = '';
-
-          // Add new suggestions
-          predictions.forEach(prediction => {
-            const item = document.createElement('div');
-            item.className = 'suggestion-item';
-            item.innerHTML = `
-              <i class="bi ${getBootstrapIconForPlace(prediction)}"></i>
-              <div>
-                <span class="main-text">${prediction.structured_formatting.main_text}</span>
-                <span class="sub-text">${prediction.structured_formatting.secondary_text}</span>
-              </div>
-            `;
-
-            item.addEventListener('click', () => {
-              // Get place details when a suggestion is clicked
-              placesService.getDetails(
-                {
-                  placeId: prediction.place_id,
-                  fields: ['formatted_address', 'name', 'address_components', 'types', 'geometry']
-                },
-                (place, status) => {
-                  if (status === google.maps.places.PlacesServiceStatus.OK) {
-                    selectPlace(place);
-                  }
-                }
-              );
-            });
-
-            suggestionsContainer.appendChild(item);
-          });
-
-          // Show suggestions
-          suggestionsContainer.style.display = 'block';
         }
-      );
-    }, 500);
+
+        autocompleteService.getPlacePredictions({
+            input: value,
+            componentRestrictions: { country: 'us' },
+            types: ['geocode', 'establishment']
+        }, (predictions, status) => {
+            if (status !== google.maps.places.PlacesServiceStatus.OK || !predictions) {
+                suggestionsContainer.innerHTML = '';
+                suggestionsContainer.style.display = 'none';
+                return;
+            }
+
+            suggestionsContainer.innerHTML = '';
+            predictions.forEach(prediction => {
+                const item = document.createElement('div');
+                item.className = 'suggestion-item';
+
+                // Get appropriate icon
+                const iconClass = getBootstrapIconForPlace(prediction);
+
+                item.innerHTML = `
+                    <i class="bi ${iconClass}"></i>
+                    <div>
+                        <span class="main-text">${prediction.structured_formatting.main_text}</span>
+                        <span class="sub-text">${prediction.structured_formatting.secondary_text}</span>
+                    </div>
+                `;
+
+                item.addEventListener('click', () => {
+                    placesService.getDetails({
+                        placeId: prediction.place_id,
+                        fields: ['formatted_address', 'name', 'address_components', 'types', 'geometry']
+                    }, (place, status) => {
+                        if (status === google.maps.places.PlacesServiceStatus.OK) {
+                            selectPlace(place);
+                        }
+                    });
+                });
+
+                suggestionsContainer.appendChild(item);
+            });
+            suggestionsContainer.style.display = 'block';
+        });
+    }, 300);
   });
 
   // Hide suggestions when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!input.contains(e.target) && !suggestionsContainer.contains(e.target)) {
-      suggestionsContainer.style.display = 'none';
-    }
+  document.addEventListener('click', function(e) {
+      if (!input.contains(e.target) && !suggestionsContainer.contains(e.target)) {
+          suggestionsContainer.innerHTML = '';
+          suggestionsContainer.style.display = 'none';
+      }
   });
 
   // Handle keyboard navigation
@@ -400,14 +406,14 @@ function setupCustomAutocomplete(inputId, suggestionsListId, hiddenAirportFieldI
     if (e.key === 'ArrowDown') {
       e.preventDefault();
       const nextIndex = (activeIndex + 1) % visibleItems.length;
-      visibleItems[nextIndex].focus();
+      if (visibleItems[nextIndex]) visibleItems[nextIndex].focus();
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
       const prevIndex = (activeIndex - 1 + visibleItems.length) % visibleItems.length;
       if (prevIndex === visibleItems.length - 1) {
         input.focus();
       } else {
-        visibleItems[prevIndex].focus();
+        if (visibleItems[prevIndex]) visibleItems[prevIndex].focus();
       }
     } else if (e.key === 'Enter' && activeItem.classList.contains('suggestion-item')) {
       e.preventDefault();
@@ -415,6 +421,41 @@ function setupCustomAutocomplete(inputId, suggestionsListId, hiddenAirportFieldI
     }
   });
 }
+
+// Initialize Material Date Time Picker and Checkbox
+$(document).ready(function() {
+    console.log('Initializing Custom JS components...');
+
+    // Initialize Material Date Time Picker
+    if ($.fn.bootstrapMaterialDatePicker) {
+        $('#pickup-datetime, #pickup-datetime-hourly, #return-datetime-hourly').bootstrapMaterialDatePicker({
+            format: 'YYYY-MM-DD HH:mm',
+            minDate: new Date(),
+            lang: 'en',
+            weekStart: 0,
+            shortTime: false,
+            cancelText: 'Back',
+            okText: 'OK'
+        });
+    } else {
+        console.error('bootstrapMaterialDatePicker plugin is not loaded');
+    }
+
+    // Handle Return Trip Checkbox
+    $(document).on('change', '#round-trip', function() {
+        if ($(this).is(':checked')) {
+            $('.return-trip').slideDown();
+        } else {
+            $('.return-trip').slideUp();
+            $('#return-datetime-hourly').val('');
+        }
+    });
+
+    // Initial check for return trip
+    if ($('#round-trip').is(':checked')) {
+        $('.return-trip').show();
+    }
+});
 
 let pickupPlacePoint = null;
 let dropoffPlacePoint = null;
@@ -770,7 +811,7 @@ function initMap(pickupPlace, dropoffPlace) {
           map: map,
           suppressMarkers: true,
           polylineOptions: {
-              strokeColor: '#1B9CCC',  // Lighter shade of #1A6982
+              strokeColor: '#e52c43',  // Site button color
               strokeOpacity: 0.9,
               strokeWeight: 6
           }
@@ -795,7 +836,7 @@ function initMap(pickupPlace, dropoffPlace) {
           const newMarker = new google.maps.Marker({
               position: position,
               map: map,
-              icon: createCustomMarker(isPickup ? '#1A6982' : '#1A6982', ''), // Removed 'A' and 'B' labels
+              icon: createCustomMarker(isPickup ? '#e52c43' : '#e52c43', ''), // Removed 'A' and 'B' labels
               animation: google.maps.Animation.DROP
           });
 
@@ -843,7 +884,7 @@ function initMap(pickupPlace, dropoffPlace) {
 
   // Function to create a custom marker with centered label
   function createCustomMarker() {
-    const svg = `<svg fill="#1A6982" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34px" height="34px" viewBox="0 0 466.583 466.582" xml:space="preserve" stroke="#1A6982"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="13.064324000000003"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M233.292,0c-85.1,0-154.334,69.234-154.334,154.333c0,34.275,21.887,90.155,66.908,170.834 c31.846,57.063,63.168,104.643,64.484,106.64l22.942,34.775l22.941-34.774c1.317-1.998,32.641-49.577,64.483-106.64 c45.023-80.68,66.908-136.559,66.908-170.834C387.625,69.234,318.391,0,233.292,0z M233.292,233.291c-44.182,0-80-35.817-80-80 s35.818-80,80-80c44.182,0,80,35.817,80,80S277.473,233.291,233.292,233.291z"></path> </g> </g></svg>`;
+    const svg = `<svg fill="#e52c43" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34px" height="34px" viewBox="0 0 466.583 466.582" xml:space="preserve" stroke="#e52c43"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="13.064324000000003"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M233.292,0c-85.1,0-154.334,69.234-154.334,154.333c0,34.275,21.887,90.155,66.908,170.834 c31.846,57.063,63.168,104.643,64.484,106.64l22.942,34.775l22.941-34.774c1.317-1.998,32.641-49.577,64.483-106.64 c45.023-80.68,66.908-136.559,66.908-170.834C387.625,69.234,318.391,0,233.292,0z M233.292,233.291c-44.182,0-80-35.817-80-80 s35.818-80,80-80c44.182,0,80,35.817,80,80S277.473,233.291,233.292,233.291z"></path> </g> </g></svg>`;
     return {
         url: "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg),
         scaledSize: new google.maps.Size(32, 32),
@@ -1053,7 +1094,7 @@ function calculateRoute(swapped = false) {
                     map: window.map,
                     suppressMarkers: true,
                     polylineOptions: {
-                        strokeColor: '#2a41e8',
+                        strokeColor: '#e52c43',
                         strokeWeight: 4,
                         strokeOpacity: 0.8
                     }
@@ -1075,7 +1116,7 @@ function calculateRoute(swapped = false) {
                 map: window.map,
                 icon: {
                     url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
-                        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%232a41e8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>'
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23e52c43" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>'
                     ),
                     scaledSize: new google.maps.Size(32, 32),
                     anchor: new google.maps.Point(12, 12)
@@ -1089,7 +1130,7 @@ function calculateRoute(swapped = false) {
                 map: window.map,
                 icon: {
                     url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
-                        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23ff4d4d" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>'
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23e52c43" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>'
                     ),
                     scaledSize: new google.maps.Size(32, 32),
                     anchor: new google.maps.Point(12, 12)

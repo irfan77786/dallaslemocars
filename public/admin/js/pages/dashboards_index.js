@@ -70,14 +70,14 @@ $(document).ready(function() {
             series2.strokeWidth = 4;
             series2.tensionY = 1;
             series2.tensionX = 0.8;
-            series2.fill = am4core.color("#1A6982");
-            series2.stroke = am4core.color("#1A6982");
+            series2.fill = am4core.color("#e52c43");
+            series2.stroke = am4core.color("#e52c43");
             var dropShadow = new am4core.DropShadowFilter();
             dropShadow.dy = 15;
             dropShadow.dx = 1;
             dropShadow.blur = 8;
             dropShadow.opacity = 0.5;
-            dropShadow.color = '#1A6982';
+            dropShadow.color = '#e52c43';
             series2.filters.push(dropShadow);
 
             // Add cursor
@@ -232,7 +232,7 @@ function buildchart() {
                 [7, 26],
                 [8, 10],
             ],
-            color: "#1A6982",
+            color: "#e52c43",
             lines: {
                 show: true,
                 fill: false,

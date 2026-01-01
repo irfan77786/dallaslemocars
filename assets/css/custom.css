@@ -25,12 +25,12 @@ a {
 }
 .btn-primary, .btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show>.btn-outline-primary.dropdown-toggle, .btn-outline-primary:hover {
     color: white !important;
-    background: linear-gradient(to right, #1A6982, #1B9CCC) !important;
+    background: linear-gradient(to right, #e52c43, #1B9CCC) !important;
     border: 1px solid #1B9CCC !important;
 }
 .btn-outline-primary {
-    color: #1A6982;
-    border: 1px solid #1A6982 !important;
+    color: #e52c43;
+    border: 1px solid #e52c43 !important;
 }
 .btn-primary {
     padding: .475rem .75rem !important;
@@ -52,7 +52,7 @@ button:focus {
     display: none;
 }
 .btn-primary, .bg-primary {
-    background: linear-gradient(to right, #1A6982, #1B9CCC) !important;
+    background: linear-gradient(to right, #e52c43, #1B9CCC) !important;
 }
 .text-primary, .text-p2 {
     color: #2c314a !important;
@@ -109,6 +109,7 @@ input, select, strong {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    float: right !important;
 }
 .main-hero {
     background-image: url('/assets/img/site/dallas-main.webp');
@@ -527,8 +528,7 @@ html, body {
     top: -0.96rem;
     left: .5rem;
     font-size: 0.85rem;
-    color: #3a3a3a;
-    font-weight: 100;
+    color: black;
     pointer-events: none;
 }
 
@@ -841,7 +841,7 @@ body.drawer-open {
 /* Hover and focus: filled background, white text */
 .btn-primary-transparent-hover:hover,
 .btn-primary-transparent-hover:focus {
-  background: linear-gradient(to right, #1A6982, #1B9CCC) !important;   /* primary background */
+  background: linear-gradient(to right, #e52c43, #1B9CCC) !important;   /* primary background */
   border-color: #1B9CCC !important;       /* keep border */
   color: #fff !important;                 /* white text */
   text-decoration: none;
@@ -851,12 +851,12 @@ body.drawer-open {
 /* Active / clicked: same as hover */
 .btn-primary-transparent-hover:active,
 .btn-primary-transparent-hover.active {
-  background-color: linear-gradient(to right, #1A6982, #1B9CCC) !important;
+  background-color: linear-gradient(to right, #e52c43, #1B9CCC) !important;
   border-color: #1B9CCC !important;
   color: #fff !important;
 }
 
 .form-check-input:checked {
-    background-color: #1A6982 !important;
-    border-color: #1A6982 !important;
+    background-color: #e52c43 !important;
+    border-color: #e52c43 !important;
 }

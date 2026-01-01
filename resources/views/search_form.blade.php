@@ -38,11 +38,11 @@ margin-bottom: 6px !important;
 </style>
 <div class="shadow-card">
   <!-- Nav tabs -->
-  <ul class="nav nav-pills mb-3" id="serviceTabs" role="tablist">
-    <li class="nav-item mt-0" role="presentation">
+  <ul class="mb-3 nav nav-pills" id="serviceTabs" role="tablist">
+    <li class="mt-0 nav-item" role="presentation">
       <a class="nav-link {{ !$isHourly ? 'active' : '' }} m-0" id="pointToPoint-tab" data-bs-toggle="pill" href="#pointToPoint" role="tab" aria-controls="pointToPoint" aria-selected="true">Point to Point</a>
     </li>
-    <li class="nav-item mt-0" role="presentation">
+    <li class="mt-0 nav-item" role="presentation">
       <a class="nav-link {{ $isHourly ? 'active' : '' }} m-0" id="hourlyHire-tab" data-bs-toggle="pill" href="#hourlyHire" role="tab" aria-controls="hourlyHire" aria-selected="false">Hourly Hire</a>
     </li>
   </ul>
@@ -54,32 +54,32 @@ margin-bottom: 6px !important;
         <input type="hidden" name="is_airport" id="is-airport" value="{{ session('is_airport') ?? 0 }}">
 
         <!-- Pick-up Location -->
-        <div class="input-group-container mb-1">
+        <div class="mb-1 input-group-container">
           <div class="icon-container"><i class="bi bi-geo-alt-fill"></i></div>
           <div class="input-text-container">
             <label for="pickup-location" class="form-label">Pick-up Location</label>
             <div class="input-group">
               <input type="text" class="form-control" value="{{ session('pickup_location') }}" name="pickup_location" id="pickup-location" placeholder="Address, airport, hotel..." onfocus="geolocate()" required>
-              <ul id="pickup-suggestions" class="list-group position-absolute w-100 mt-1 shadow" style="z-index:1050; max-height: 300px; overflow-y: auto;"></ul>
+              <ul id="pickup-suggestions" class="mt-1 shadow list-group position-absolute w-100" style="z-index:1050; max-height: 300px; overflow-y: auto;"></ul>
             </div>
           </div>
         </div>
 
         <!-- Drop-off Location -->
-        <div class="input-group-container mb-1">
+        <div class="mb-1 input-group-container">
           <div class="icon-container"><i class="bi bi-geo-alt-fill"></i></div>
           <div class="input-text-container">
             <label for="dropoff-location" class="form-label">Destination</label>
             <div class="input-group">
               <input type="text" class="form-control" value="{{ session('dropoff_location') }}" name="dropoff_location" id="dropoff-location" placeholder="Address, airport, hotel..." onfocus="geolocate()" required>
-              <ul id="dropoff-suggestions" class="list-group position-absolute w-100 mt-1 shadow" style="z-index:1050; max-height: 300px; overflow-y: auto;"></ul>
+              <ul id="dropoff-suggestions" class="mt-1 shadow list-group position-absolute w-100" style="z-index:1050; max-height: 300px; overflow-y: auto;"></ul>
               <input type="hidden" id="dropoff-is-airport" />
             </div>
           </div>
         </div>
 
         <!-- Pick-Up Date -->
-        <div class="input-group-container mb-1">
+        <div class="mb-1 input-group-container">
           <div class="icon-container"><i class="bi bi-calendar-fill"></i></div>
           <div class="input-text-container">
             <label for="pickup-date" class="form-label">Pick-up Date</label>
@@ -139,8 +139,8 @@ margin-bottom: 6px !important;
         </div>
 
         <!-- Submit -->
-        <div class="text-left mb-1">
-          <p class="small text-muted mb-2 mt-2 text-center">Chauffeur will wait 15 minutes free of charge</p>
+        <div class="mb-1 text-left">
+          <p class="mt-2 mb-2 text-center small text-muted">Chauffeur will wait 15 minutes free of charge</p>
           <button type="submit" class="btn btn-primary w-100 search_btn">GET MY PRICES</button>
         </div>
       </form>
@@ -152,20 +152,20 @@ margin-bottom: 6px !important;
         @csrf
 
         <!-- Pick-up Location -->
-        <div class="input-group-container mb-1">
+        <div class="mb-1 input-group-container">
           <div class="icon-container"><i class="bi bi-geo-alt-fill"></i></div>
           <div class="input-text-container">
             <label for="pickup-location-hourly" class="form-label">Pick-up Location</label>
             <div class="input-group">
               <input type="hidden" name="is_airport_hourly" id="is-airport_hourly" value="{{ session('is_airport') ?? 0 }}">
               <input type="text" class="form-control" value="{{ session('pickup_location', '') }}" name="pickup_location_hourly" id="pickup-location-hourly" placeholder="Address, airport, hotel..." onFocus="geolocate()" required>
-              <ul id="pickup-location-hourly-suggestions" class="list-group position-absolute w-100 mt-1 shadow" style="z-index: 1050; max-height: 300px; overflow-y: auto;"></ul>
+              <ul id="pickup-location-hourly-suggestions" class="mt-1 shadow list-group position-absolute w-100" style="z-index: 1050; max-height: 300px; overflow-y: auto;"></ul>
             </div>
           </div>
         </div>
 
         <!-- Select Hours -->
-        <div class="input-group-container mb-1">
+        <div class="mb-1 input-group-container">
           <div class="icon-container"><i class="bi bi-clock-fill"></i></div>
           <div class="input-text-container">
             <label for="select-hours" class="form-label">Select Hours</label>
@@ -181,7 +181,7 @@ margin-bottom: 6px !important;
         </div>
 
         <!-- Pick-Up Date -->
-        <div class="input-group-container mb-1">
+        <div class="mb-1 input-group-container">
           <div class="icon-container"><i class="bi bi-calendar-fill"></i></div>
           <div class="input-text-container">
             <label for="pickup-date-hourly" class="form-label">Pick-up Date</label>
@@ -225,8 +225,8 @@ margin-bottom: 6px !important;
         </div>
 
         <!-- Submit -->
-        <div class="text-left mb-1">
-          <p class="small text-muted mb-2 mt-2 text-center">Chauffeur will wait 15 minutes free of charge</p>
+        <div class="mb-1 text-left">
+          <p class="mt-2 mb-2 text-center small text-muted">Chauffeur will wait 15 minutes free of charge</p>
           <button type="submit" class="btn btn-primary w-100 search_btn">GET MY PRICES</button>
         </div>
       </form>

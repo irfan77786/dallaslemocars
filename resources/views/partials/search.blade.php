@@ -5,19 +5,19 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" style="padding-left: 18px; padding-right: 18px; padding-bottom: 10px;">
         <li class="nav-item" style="flex: 1">
-            <a class="nav-link {{ !$isHourly ? 'active' : '' }} text-center pt-0 sformlink" style="font-size: 13px; color: #757575" data-toggle="tab"
+            <a class="nav-link {{ !$isHourly ? 'active' : '' }} text-center pt-0 sformlink" style="font-size: 13px; color: #757575" data-bs-toggle="tab"
                 href="#place">Point to Point</a>
         </li>
         <li class="nav-item" style="flex: 1">
             <a class="nav-link {{ $isHourly ? 'active' : '' }} text-center pt-0 sformlink" style="font-size: 13px; color: #757575"
-                data-toggle="tab" href="#event">Hourly</a>
+                data-bs-toggle="tab" href="#event">Hourly</a>
         </li>
     </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
         <!-- Point to Point -->
-        <div class="tab-pane container {{ !$isHourly ? 'active show' : '' }}" id="place">
+        <div class="tab-pane container p-0 {{ !$isHourly ? 'active show' : '' }}" id="place">
             <div class="search-form-box">
                 <form class="search-form loader-form" action="{{ url('/booking/point-to-point') }}" method="POST">
                     @csrf
@@ -50,7 +50,7 @@
                         <div id="dropoff-suggestions" class="location-suggestions"></div>
                     </div>
 
-                    <div class="floating-bordered-input position-relative mb-1">
+                    <div class="mb-1 floating-bordered-input position-relative">
                         <span class="floating-label">Pick-up Date / Time</span>
 
                         <span class="input-icon-left">
@@ -68,21 +68,21 @@
                             placeholder=" ">
 
                         @error('pickup_datetime')
-                            <div class="text-danger small mt-1">{{ $message }}</div>
+                            <div class="mt-1 text-danger small">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    <div class="d-flex align-items-center mb-2">
+                    <div class="mb-2 d-flex align-items-center">
                         <div class="form-check me-2">
                             <input type="checkbox" name="round_trip" id="round-trip" class="form-check-input"
                                 style="height: 18px; width: 18px; cursor: pointer; margin-top: 10px;" @session('round_trip') checked @endsession>
-                            <label for="round-trip" class="form-check-label ms-2 ml-2 mb-2" style="cursor: pointer; font-size: 18px; margin-top: 0.4rem; color: black !important; font-weight: 100">
+                            <label for="round-trip" class="mb-2 ml-2 form-check-label ms-2" style="cursor: pointer; font-size: 18px; margin-top: 0.4rem; color: black !important; font-weight: 100">
                                 Add a return Trip
                             </label>
                         </div>
                     </div>
 
-                    <div class="floating-bordered-input position-relative return-trip mb-1" style="display: none;">
+                    <div class="mb-1 floating-bordered-input position-relative return-trip" style="display: none;">
                         <span class="floating-label">Return Trip Pick-up Date / Time</span>
 
                         <span class="input-icon-left">
@@ -99,7 +99,7 @@
                             placeholder=" ">
 
                         @error('return_datetime_hourly')
-                            <div class="text-danger small mt-1">{{ $message }}</div>
+                            <div class="mt-1 text-danger small">{{ $message }}</div>
                         @enderror
                     </div>
 
@@ -122,8 +122,8 @@
                         }
                     </style>
 
-                    <button type="submit" class="btn w-100 search_btn point-button"
-                        style="text-transform: uppercase; background: linear-gradient(to right, #1A6982, #1B9CCC); letter-spacing: 2px;">Get
+                    <button type="submit" class="btn btn-primary w-100 search_btn point-button"
+                        style="text-transform: uppercase; letter-spacing: 2px;">Get
                         My Prices
                         <i class="bi bi-arrow-right" style="font-size: 20px; margin: 2px;"></i></button>
                 </form>
@@ -131,7 +131,7 @@
         </div>
 
         <!-- Hourly Hire -->
-        <div class="tab-pane container {{ $isHourly ? 'active show' : '' }}" id="event">
+        <div class="tab-pane container p-0 {{ $isHourly ? 'active show' : '' }}" id="event">
             <div class="search-form-box">
                 <form class="search-form loader-form" action="{{ url('/booking/hourly-hire') }}" method="POST">
                     @csrf
@@ -167,7 +167,7 @@
 
 
                     <!-- Pick-up Date & Time (Hourly) -->
-                    <div class="floating-bordered-input position-relative mb-4">
+                    <div class="mb-1 floating-bordered-input position-relative">
                         <span class="floating-label">Pick-up Date / Time</span>
 
                         <span class="input-icon-left">
@@ -185,12 +185,22 @@
                             placeholder=" ">
 
                         @error('pickup_datetime_hourly')
-                            <div class="text-danger small mt-1">{{ $message }}</div>
+                            <div class="mt-1 text-danger small">{{ $message }}</div>
                         @enderror
                     </div>
 
+                    <!-- Spacer to match Point-to-Point form height (Hidden "Add Return Trip" equivalent) -->
+                    <div class="mb-2 d-flex align-items-center" style="visibility: hidden;">
+                        <div class="form-check me-2">
+                            <input type="checkbox" class="form-check-input" style="height: 18px; width: 18px; margin-top: 10px;" disabled>
+                            <label class="mb-2 ml-2 form-check-label ms-2" style="font-size: 18px; margin-top: 0.4rem; font-weight: 100">
+                                Add a return Trip
+                            </label>
+                        </div>
+                    </div>
+
                     <button type="submit" class="btn btn-primary w-100"
-                        style="text-transform: uppercase; background: linear-gradient(to right, #1A6982, #1B9CCC); letter-spacing: 2px;">Get
+                        style="text-transform: uppercase; letter-spacing: 2px;">Get
                         My
                         Prices <i class="bi bi-arrow-right" style="font-size: 20px; margin: 2px;"></i></button>
                 </form>

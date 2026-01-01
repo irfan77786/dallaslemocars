@@ -71,13 +71,13 @@
 
 .input-group-container input:focus {
     outline: none;
-    border-color: #1A6982;
+    border-color: #e52c43;
 }
 
 .continue-btn {
     width: 100%;
     padding: 11px;
-    background: #1A6982;
+    background: #e52c43;
     border: none;
     color: #fff;
     font-size: 14px;
@@ -112,7 +112,7 @@
 }
 
 .benefit-item i {
-    color: #1A6982;
+    color: #e52c43;
     margin-right: 8px;
     margin-top: 2px;
     font-size: 14px;
@@ -135,7 +135,7 @@
 .login-btn {
     width: 100%;
     padding: 11px;
-    background: #1A6982;
+    background: #e52c43;
     border: none;
     color: #fff;
     font-size: 14px;
