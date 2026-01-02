@@ -21,12 +21,12 @@ $features = [
     border: none !important;
 }
 .feature-section{
-    color: #1981A1 !important;
+    color: #e52c43 !important;
     font-weight: bold;
 }
 .btn-primary {
-    background-color: #1981A1 !important;
-    border: 1px solid #1981A1 !important;
+    background-color: #e52c43 !important;
+    border: 1px solid #e52c43 !important;
     box-shadow: none !important;
 }
 .vehical-card {
@@ -41,11 +41,11 @@ $features = [
 }
 
 .vehical-card:hover {
-    border-color: #1981A1;
+    border-color: #e52c43;
 }
 
 .vehical-card.selected {
-    border-color: #1981A1 !important;
+    border-color: #e52c43 !important;
     background-color: transparent !important;
 }
 
@@ -58,7 +58,7 @@ $features = [
     right: 20px;
     top: 6px;
     font-size: 1.5rem;
-    color: #1981A1;
+    color: #e52c43;
     display: none; /* hidden by default */
 }
 
@@ -214,7 +214,7 @@ $features = [
 
 .select_car_btn:hover,
 .select_car_btn:focus {
-    background-color: #1981A1;
+    background-color: #e52c43;
     color: #fff !important;
     text-decoration: none;
 }
@@ -393,7 +393,7 @@ $features = [
 .side_section .card {
   border: 0 !important;
   background: linear-gradient(180deg, #ffffff 0%, #f7fbfd 100%);
-  outline: 1px solid rgba(25, 129, 161, 0.12);
+  outline: 1px solid rgba(229, 44, 67, 0.12);
 }
 
 .side_section .card + .card {
@@ -405,13 +405,13 @@ $features = [
 }
 
 .side_section .card .card-title i {
-  color: #1981A1 !important;
+  color: #e52c43 !important;
 }
 
 .side_section .card hr {
   border: 0;
   height: 1px;
-  background: linear-gradient(90deg, rgba(25,129,161,0.25), rgba(25,129,161,0.05));
+  background: linear-gradient(90deg, rgba(229, 44, 67, 0.25), rgba(229, 44, 67, 0.05));
   margin: 30px 0 14px 0;
 }
 
@@ -421,7 +421,7 @@ $features = [
 }
 
 .feaures_ul li i {
-  color: #1981A1;
+  color: #e52c43;
 }
 
 .side_section .card .card-text {
@@ -441,15 +441,17 @@ $features = [
 }
 
 .side_section .card:nth-of-type(1) {
-  background: linear-gradient(180deg, #ffffff 0%, #eef8fb 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #fff7f0 100%);
 }
 
 .side_section .card:nth-of-type(2) {
-  background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #fff7f0 100%)
+
 }
 
 .side_section .card:nth-of-type(3) {
-  background: linear-gradient(180deg, #ffffff 0%, #f7fcf9 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #fff7f0 100%)
+
 }
 
 #mbs-backdrop {
@@ -516,7 +518,7 @@ $features = [
 .mbs-title-row { margin-top: 8px; }
 .mbs-content-title { font-weight: 700; margin: 8px 0 4px; flex: 1 1 auto; min-width: 0; }
 .mbs-features { margin-top: 12px; }
-.mbs-features-title { font-weight: 700; margin-bottom: 8px; color: #1981A1; }
+.mbs-features-title { font-weight: 700; margin-bottom: 8px; color: #e52c43; }
 .mbs-features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
 @media (max-width: 767.98px) { .mbs-features-grid { grid-template-columns: 1fr; } }
 .mbs-feature { display: inline-flex; align-items: center; gap: 8px; }
@@ -532,7 +534,7 @@ $features = [
 .mbs-features { margin-top: 12px; }
 .mbs-features-title { font-weight: 600; margin-bottom: 6px; }
 .mbs-feature { display: flex; align-items: center; gap: 8px; padding: 6px 0; }
-.mbs-feature i { color: #1981A1; }
+.mbs-feature i { color: #e52c43; }
 
 @media (min-width: 768px) {
   #mbs-backdrop, #mbs-sheet { display: none !important; }
@@ -542,7 +544,7 @@ $features = [
 
 
 
-<div class="container pl-0 pr-0">
+<div class="container pr-0 pl-0">
 
 <div class="px-2">
     <div class="row">
@@ -551,14 +553,14 @@ $features = [
             <div class="row no-gutters">
                 <div class="col-12">
                     <div class="vehical-card selectable-card" data-id="{{ $value['id'] }}">
-                        <div class="d-flex align-items-center justify-content-between w-100 mb-2">
+                        <div class="mb-2 d-flex align-items-center justify-content-between w-100">
                             <!-- Vehicle Image -->
                             <div class="vehicle-img-container d-flex align-items-center">
                                 <img src="{{ 'https://admin.dallaslimoandblackcars.com/storage/' . $value['vehicle_image'] }}" alt="Vehicle Image" class="img-fluid rounded-3 vehicle_img">
                             </div>
 
                             <!-- Vehicle Info -->
-                            <div class="vehicle-info flex-grow-1 mx-3">
+                            <div class="mx-3 vehicle-info flex-grow-1">
                                 <h5 class="vehicle-name">{{ $value['vehicle_name'] }}</h5>
                                 <div class="pass-luggage-info">
                                     <div><i class="bi bi-people-fill"></i> Max. {{ $value['number_of_passengers'] }}</div>
@@ -568,7 +570,7 @@ $features = [
                             </div>
 
                             <!-- Price -->
-                            <div class="car-price-container text-right mr-2">
+                            <div class="mr-2 text-right car-price-container">
                                 @php $vehicleDistance = $distance[$value['id']] ?? null; @endphp
                                 @if($vehicleDistance && empty($vehicleDistance['error']))
                                     @php
@@ -576,7 +578,7 @@ $features = [
                                         [$whole, $decimal] = explode('.', $price);
                                     @endphp
                                     <div class="car-price">
-                                        <h4 class="mb-1 mt-4">
+                                        <h4 class="mt-4 mb-1">
                                             <span class="pricing_summary_price">${{ $whole }}<span class="price-decimal">.{{ $decimal }}</span></span> USD
                                         </h4>
                                     </div>
@@ -619,7 +621,7 @@ $features = [
             </div>
             @endforeach
         </div>
-        <div class="col-12 col-md-3 col-lg-3 side_section mb-4">
+        <div class="mb-4 col-12 col-md-3 col-lg-3 side_section">
             <!-- Help Card -->
 
             <!-- Perks + Payments + Support Combined Card -->
@@ -628,11 +630,11 @@ $features = [
                     <h6 class="card-title hassle_free text-primary">Stress-Free Travel</h6>
                     <hr>
                     <ul class="list-unstyled small feaures_ul">
-                        <li><i class="bi bi-check-circle-fill mr-2"></i>All fares include tolls and gratuity</li>
-                        <li><i class="bi bi-check-circle-fill mr-2"></i>Timely reliable arrivals guaranteed</li>
-                        <li><i class="bi bi-check-circle-fill mr-2"></i>Courteous professional drivers</li>
-                        <li><i class="bi bi-check-circle-fill mr-2"></i>Simple all-inclusive price system</li>
-                        <li><i class="bi bi-check-circle-fill mr-2"></i>Premium luxury vehicles provided</li>
+                        <li><i class="mr-2 bi bi-check-circle-fill"></i>All fares include tolls and gratuity</li>
+                        <li><i class="mr-2 bi bi-check-circle-fill"></i>Timely reliable arrivals guaranteed</li>
+                        <li><i class="mr-2 bi bi-check-circle-fill"></i>Courteous professional drivers</li>
+                        <li><i class="mr-2 bi bi-check-circle-fill"></i>Simple all-inclusive price system</li>
+                        <li><i class="mr-2 bi bi-check-circle-fill"></i>Premium luxury vehicles provided</li>
                     </ul>
 
                     <hr>
@@ -666,9 +668,9 @@ $features = [
                 </div>
             </div>
         </div>
-        <div class="mbs-title-row d-flex align-items-center justify-content-between flex-wrap">
+        <div class="flex-wrap mbs-title-row d-flex align-items-center justify-content-between">
             <h5 class="mbs-content-title"></h5>
-            <div class="mbs-meta mr-2">
+            <div class="mr-2 mbs-meta">
                 <span class="mbs-line"><i class="bi bi-people-fill"></i><span class="mbs-passengers-count"></span></span>
                 <span class="mbs-line"><i class="bi bi-bag-fill"></i><span class="mbs-luggage-count"></span></span>
             </div>
@@ -715,6 +717,37 @@ $features = [
         var content = document.querySelector('#mbs-sheet .mbs-content');
         var titleEl = content.querySelector('.mbs-content-title');
         var step = parseInt("{{ $step ?? 2 }}");
+        
+        // Handle Card Clicks (Desktop & Mobile trigger)
+        var cards = document.querySelectorAll('.selectable-card');
+        cards.forEach(function(card){
+            card.addEventListener('click', function(e){
+                // If clicking on features toggle or content, ignore
+                if(e.target.closest('.feature-section') || e.target.closest('.collapse') || e.target.closest('.collapseCardBody')) return;
+                
+                // If mobile, open bottom sheet
+                if(window.innerWidth < 768) {
+                    openForCard(card);
+                    return;
+                }
+
+                // Desktop Selection Logic
+                var id = card.dataset.id;
+                var priceEl = card.querySelector('.pricing_summary_price');
+                var priceMatch = (priceEl && (priceEl.textContent || '')).match(/[0-9]+(?:\.[0-9]+)?/);
+                var price = priceMatch ? priceMatch[0] : null;
+                
+                if (step === 2 && id && price) {
+                    window.location.href = '/user-login/' + id + '/' + price;
+                    return;
+                }
+                
+                // Visual selection for desktop if not redirecting immediately
+                document.querySelectorAll('.selectable-card').forEach(function(c){ c.classList.remove('selected'); });
+                card.classList.add('selected');
+            });
+        });
+
         function closeSheet(){
             sheet.style.transform = 'translateY(100%)';
             setTimeout(function(){ sheet.style.display = 'none'; }, 200);

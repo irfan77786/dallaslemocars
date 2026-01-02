@@ -148,7 +148,13 @@
 .login-btn:hover {
     background: #145570;
 }
-
+.cta-button {
+    width: 100%;
+    margin: 12px auto 0;
+    display: block;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
 @media (min-width: 992px) {
     .loginguestrow {
         margin-top: 30px;
@@ -184,7 +190,7 @@
 <div class="passenger-info-container">
     <div class="row loginguestrow">
         <!-- Left Column: Guest Form -->
-        <div class="col-lg-6 mb-4">
+        <div class="mb-4 col-lg-6">
             <div class="info-card">
                 <h2 class="section-title">Continue as Guest</h2>
                 <form id="passengerForm" method="POST" action="{{ route('login') }}">
@@ -195,7 +201,7 @@
                     <div class="floating-bordered-input position-relative">
                         <span class="floating-label">Email address *</span>
                         <input type="email" id="guest_email" name="email" value="{{ old('email', session('email')) }}" class="form-control" placeholder=" " autocomplete="email" required>
-                        <div class="text-danger small mt-1" id="error_email"></div>
+                        <div class="mt-1 text-danger small" id="error_email"></div>
                     </div>
 
                     <!-- First Name & Last Name -->
@@ -204,16 +210,16 @@
                             <div class="floating-bordered-input position-relative">
                                 <span class="floating-label">First name *</span>
                                 <input type="text" id="first_name" name="first_name" value="{{ old('first_name', session('first_name')) }}" class="form-control" placeholder=" " autocomplete="given-name" required>
-                                <div class="text-danger small mt-1" id="error_first_name"></div>
-                                @error('first_name')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+                                <div class="mt-1 text-danger small" id="error_first_name"></div>
+                                @error('first_name')<div class="mt-1 text-danger small">{{ $message }}</div>@enderror
                             </div>
                         </div>
                         <div>
                             <div class="floating-bordered-input position-relative">
                                 <span class="floating-label">Last name *</span>
                                 <input type="text" id="last_name" name="last_name" value="{{ old('last_name', session('last_name')) }}" class="form-control" placeholder=" " autocomplete="family-name" required>
-                                <div class="text-danger small mt-1" id="error_last_name"></div>
-                                @error('last_name')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+                                <div class="mt-1 text-danger small" id="error_last_name"></div>
+                                @error('last_name')<div class="mt-1 text-danger small">{{ $message }}</div>@enderror
                             </div>
                         </div>
                     </div>
@@ -222,8 +228,8 @@
                     <div class="floating-bordered-input position-relative">
                         <span class="floating-label">Phone *</span>
                         <input type="tel" id="number" name="number" value="{{ old('number', session('number')) }}" class="form-control" placeholder=" " autocomplete="tel" required>
-                        <div class="text-danger small mt-1" id="error_number"></div>
-                        @error('number')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+                        <div class="mt-1 text-danger small" id="error_number"></div>
+                        @error('number')<div class="mt-1 text-danger small">{{ $message }}</div>@enderror
                     </div>
 
                     <!-- Hidden fields for booking for someone else -->
@@ -234,13 +240,13 @@
                     <input type="hidden" id="booker_number" name="booker_number" value="">
                     <input type="text" name="type" value="guest" hidden>
 
-                    <button type="submit" class="continue-btn btn btn-primary btn-uniform w-100" style="padding: .475rem .75rem !important;">CONTINUE AS GUEST</button>
+                    <button type="submit" class="continue-btn btn btn-primary btn-uniform w-100 cta-button" style="padding: .575rem .75rem !important; text-transform: uppercase;">CONTINUE AS GUEST</button>
                 </form>
             </div>
         </div>
 
         <!-- Right Column: Login/Account Benefits -->
-        <div class="col-lg-6 mb-4 col-divider">
+        <div class="mb-4 col-lg-6 col-divider">
             <div class="benefits-section">
                 <h2 class="section-title">Login or Create account</h2>
 
@@ -258,7 +264,7 @@
                         <div class="floating-bordered-input position-relative">
                             <span class="floating-label">Email address</span>
                             <input type="email" id="email_login" name="email" value="{{ old('email') }}" class="form-control" placeholder=" " required autofocus>
-                            @error('email')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+                            @error('email')<div class="mt-1 text-danger small">{{ $message }}</div>@enderror
                         </div>
 
                         <div class="register-now">
@@ -267,37 +273,37 @@
                                     <div class="floating-bordered-input position-relative">
                                         <span class="floating-label">First name *</span>
                                         <input type="text" id="first_name" name="first_name" value="{{ old('first_name', session('first_name')) }}" class="form-control" placeholder=" " autocomplete="given-name" required>
-                                        <div class="text-danger small mt-1" id="error_first_name"></div>
-                                        @error('first_name')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+                                        <div class="mt-1 text-danger small" id="error_first_name"></div>
+                                        @error('first_name')<div class="mt-1 text-danger small">{{ $message }}</div>@enderror
                                     </div>
                                 </div>
                                 <div>
                                     <div class="floating-bordered-input position-relative">
                                         <span class="floating-label">Last name *</span>
                                         <input type="text" id="last_name" name="last_name" value="{{ old('last_name', session('last_name')) }}" class="form-control" placeholder=" " autocomplete="family-name" required>
-                                        <div class="text-danger small mt-1" id="error_last_name"></div>
-                                        @error('last_name')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+                                        <div class="mt-1 text-danger small" id="error_last_name"></div>
+                                        @error('last_name')<div class="mt-1 text-danger small">{{ $message }}</div>@enderror
                                     </div>
                                 </div>
                             </div>
                             <div class="floating-bordered-input position-relative">
                                 <span class="floating-label">Phone *</span>
                                 <input type="text" id="phone" name="phone" value="{{ old('phone', session('phone')) }}" class="form-control" placeholder=" " autocomplete="tel" required>
-                                <div class="text-danger small mt-1" id="error_phone"></div>
+                                <div class="mt-1 text-danger small" id="error_phone"></div>
                             </div>
                         </div>
 
                         <div class="floating-bordered-input position-relative login-now">
                             <span class="floating-label">Password *</span>
                             <input type="password" id="password" name="password" value="{{ old('password', session('password')) }}" class="form-control" placeholder=" " autocomplete="current-password" required>
-                            <div class="text-danger small mt-1" id="error_password"></div>
+                            <div class="mt-1 text-danger small" id="error_password"></div>
                         </div>
 
                     @endif
 
                     <input type="text" name="type" value="real" hidden>
 
-                    <button id="continue_right" type="submit" class="login-btn btn btn-primary btn-uniform w-100" style="padding: .475rem .75rem !important;">Continue</button>
+                    <button id="continue_right" type="submit" class="login-btn btn btn-primary btn-uniform w-100 cta-button" style="padding: .575rem .75rem !important; text-transform: uppercase;">Continue</button>
                 </form>
 
                 <!-- Benefits Section -->

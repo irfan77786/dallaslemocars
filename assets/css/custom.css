@@ -1,6 +1,179 @@
 input[type="checkbox"] {
-  accent-color: #2c314a;
+  accent-color: #e52c43;
 }
+
+/* Branding Color Fixes - Overriding #1A6982 with #e52c43 */
+
+/* Header Navigation */
+.main-menu ul li a.active {
+    color: #e52c43 !important;
+}
+.main-menu ul li a::before {
+    background: #e52c43 !important;
+}
+.main-menu > ul li:hover a {
+    color: #e52c43 !important;
+}
+.main-menu ul li ul.submenu {
+    background: #e52c43 !important;
+}
+
+/* Booking Tabs */
+ul.nav.nav-tabs li a.active {
+    border-bottom: 2px solid #e52c43 !important;
+    color: #e52c43 !important;
+}
+.active {
+    color: #e52c43 !important;
+}
+
+/* Buttons */
+a.btn-booking-start {
+    border-color: #e52c43 !important;
+    color: #e52c43 !important;
+}
+a.btn-booking-start:hover {
+    background: #e52c43 !important;
+    color: #fff !important;
+}
+.btn-primary {
+    background-color: #e52c43 !important;
+    border-color: #e52c43 !important;
+}
+.btn-primary:hover {
+    background-color: #c41e33 !important; /* Slightly darker for hover */
+    border-color: #c41e33 !important;
+}
+
+/* General Brand Color Replacements */
+.loader-wrap .pin {
+    background: #e52c43 !important;
+}
+.loader-wrap .pulse::after {
+    box-shadow: 0 0 1px 3px #e52c43 !important;
+}
+#scrollUp {
+    background-color: #e52c43 !important;
+}
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: #e52c43 !important;
+}
+form.search-form button {
+    background: #e52c43 !important;
+}
+.slick-current .slide-icon {
+    background: #e52c43 !important;
+}
+.slick-prev::before, .slick-next::before {
+    background: #e52c43 !important;
+}
+.cat-icon {
+    background-color: #e52c43 !important;
+}
+.tags li a {
+    background-color: #e52c43 !important;
+}
+.item-content h4:hover a {
+    color: #e52c43 !important;
+}
+.item-feedback li i {
+    color: #e52c43 !important;
+}
+a.btn-wishlist {
+    color: #e52c43 !important;
+}
+a.btn-promo {
+    background: #e52c43 !important;
+}
+.location-tag span {
+    background-color: #e52c43 !important;
+}
+a.call-action-btn {
+    background-color: #e52c43 !important;
+}
+a.call-action-btn:hover {
+    background-color: #c41e33 !important;
+}
+.widget-title::before {
+    background: #e52c43 !important;
+}
+.widget-cats li a:hover {
+    color: #e52c43 !important;
+}
+.footer-section ul li:hover a {
+    color: #e52c43 !important;
+}
+.subscribe-box form button {
+    background: #e52c43 !important;
+}
+.about-us-content-left ul li::before {
+    background: #e52c43 !important;
+}
+a.btn-button {
+    background-color: #e52c43 !important;
+}
+.single-experiance span {
+    background: #e52c43 !important;
+}
+button.btn-search {
+    background: #e52c43 !important;
+}
+.tags-sidebar ul li:hover a::before {
+    border: 1px solid #e52c43 !important;
+}
+.banner-icon {
+    background: #e52c43 !important;
+}
+.feedback-option a:hover, .feedback-option a:hover i {
+    color: #e52c43 !important;
+}
+.all-reviews i {
+    color: #e52c43 !important;
+}
+.social-link-share li a {
+    color: #e52c43 !important;
+}
+.details-nav a:hover {
+    color: #e52c43 !important;
+}
+.menu-item-price li:hover {
+    color: #e52c43 !important;
+}
+.widgets li a:hover {
+    color: #e52c43 !important;
+}
+.btn-submit {
+    background-color: #e52c43 !important;
+}
+.rate-base-layer, .rate-select-layer, .rate-hover-layer {
+    color: #e52c43 !important;
+}
+.contact-form form input:hover, .contact-form form textarea:hover {
+    border-color: #e52c43 !important;
+}
+.contact-form form button {
+    background-color: #e52c43 !important;
+}
+a.btn-loadmore {
+    border-color: #e52c43 !important;
+}
+a.btn-loadmore:hover {
+    background-color: #e52c43 !important;
+}
+.tags ul li:first-child:hover a {
+    background: #e52c43 !important;
+}
+.item-content h4 a:hover, .login-form form a:hover {
+    color: #e52c43 !important;
+}
+.item-meta-data li a {
+    color: #e52c43 !important;
+}
+.single-details-navbar button.navbar-toggler {
+    color: #e52c43 !important;
+    border-color: #e52c43 !important;
+}
+
 /* Scoped or Specific Styles Only */
 
 .search-tab-wrap .submenu {

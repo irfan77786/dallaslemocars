@@ -106,11 +106,10 @@
     border: none !important;
 }
 .select_car_btn:active{
-    background-color: #1981A1 !important;
+    background-color: #e52c43 !important;
 }
 .active {
     border-color: #e52c43 !important;
-    background: #e52c43 !important;
 }
 
 .upcoming { border-color: #e5e7eb; background: #fff; }
@@ -128,8 +127,8 @@
 .step-label-pill.is-active{
     color: white;
     font-weight: 600;
-    background: #1981A1;
-    border-color: #1981A1;
+    background: #e52c43;
+    border-color: #e52c43;
 }
 
 
@@ -273,9 +272,9 @@
 }
 </style>
 <div class="container-fluid step-wrapper md-py-3">
-    <div class="row container align-items-center justify-content-between ml-auto mr-auto px-md-0 px-sm-0 px-0 booking_step_container">
+    <div class="container px-0 mr-auto ml-auto row align-items-center justify-content-between px-md-0 px-sm-0 booking_step_container">
         <div class="col-12 col-md-12 d-none d-md-block">
-            <div class=" stepper d-flex justify-content-start justify-content-md-end flex-nowrap pt-1 w-100 mt-4">
+            <div class="flex-nowrap pt-1 mt-4 stepper d-flex justify-content-start justify-content-md-end w-100">
               @foreach ($steps as $index => $stepData)
                 @php
                     $isCompleted = ($index < $currentStep);
@@ -284,9 +283,9 @@
                 @endphp
 
                 @if($stepData['route'])
-                    <a href="{{ $stepData['route'] }}" class="step text-center trigger-loader">
+                    <a href="{{ $stepData['route'] }}" class="text-center step trigger-loader">
                 @else
-                    <div class="step text-center disabled-link" style="pointer-events: none;">
+                    <div class="text-center step disabled-link" style="pointer-events: none;">
                 @endif
 
                     <div class="step-label-pill {{ $isActive ? 'is-active' : '' }}">{{ $stepData['label'] }}</div>
@@ -305,11 +304,11 @@
 </div>
 
 <!-- Mobile Steps: moved above summary -->
-<div class="d-md-none px-3 py-2">
-    <p class="step-header mb-1">STEP {{ $currentStep }} OF {{ count($steps) }}</p>
+<div class="px-3 py-2 d-md-none">
+    <p class="mb-1 step-header">STEP {{ $currentStep }} OF {{ count($steps) }}</p>
     <div class="row">
         <div class="col-6">
-            <h5 class="step-title mb-2">{{ $steps[$currentStep]['label'] }}</h5>
+            <h5 class="mb-2 step-title">{{ $steps[$currentStep]['label'] }}</h5>
         </div>
         <div class="col-6">
             <div class="mob-step-dots d-flex align-items-center">
@@ -333,7 +332,7 @@
 </div>
 
 <div class="d-md-none mb-md-3">
- <div class="d-flex justify-content-between align-items-center px-3 py-2 bg-white" data-toggle="collapse" data-target="#mobileRideSummary" aria-expanded="false" style="cursor: pointer;" onclick="toggleCollapse()">
+ <div class="px-3 py-2 bg-white d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#mobileRideSummary" aria-expanded="false" style="cursor: pointer;" onclick="toggleCollapse()">
         <h6 class="step-label-pill is-active">Booking Summary</h6>
         <div class="d-flex align-items-center summary_toggle_container">
             <span id="expandText" class="mr-1">Expand</span>
@@ -423,7 +422,7 @@
 
             <div class="mt-2">
                 <a href="/booking?edit=1">
-                    <button class="btn btn-primary btn-sm px-3 py-1 font-weight-bold" style="font-size: 14px;padding: 5px 8px !important;">EDIT</button>
+                    <button class="px-3 py-1 btn btn-primary btn-sm font-weight-bold" style="font-size: 14px;padding: 5px 8px !important;">EDIT</button>
                 </a>
             </div>
         </div>
@@ -431,23 +430,23 @@
 </div>
 
 <!-- DESKTOP VIEW (hidden on small devices) -->
-<div class="container px-3 py-3 d-none d-md-block bg-white">
+<div class="container px-3 py-3 bg-white d-none d-md-block">
   <div class="d-flex align-items-start justify-content-between">
     <div class="return-inline">
       <div class="return-item">
         <p class="summary_label">Pickup Location</p>
-        <p class="summary_text mb-0">
+        <p class="mb-0 summary_text">
           @if(session('pickup_location'))
             → {{ session('pickup_location') }}
           @endif
         </p>
         @if(session('round_trip') == 'on' && session('dropoff_location'))
-          <p class="summary_text mb-0">← {{ session('dropoff_location') }}</p>
+          <p class="mb-0 summary_text">← {{ session('dropoff_location') }}</p>
         @endif
       </div>
       <div class="return-item">
         <p class="summary_label">{{ session('dropoff_location') ? 'Destination' : 'Selected Hours' }}</p>
-        <p class="summary_text mb-0">
+        <p class="mb-0 summary_text">
           @if(session('dropoff_location'))
               → {{ session('dropoff_location') }}
           @else
@@ -455,25 +454,25 @@
           @endif
         </p>
         @if(session('round_trip') == 'on' && session('pickup_location') && session('dropoff_location'))
-          <p class="summary_text mb-0">← {{ session('pickup_location') }}</p>
+          <p class="mb-0 summary_text">← {{ session('pickup_location') }}</p>
         @endif
       </div>
       <div class="return-item">
         <p class="summary_label">Pick-Up Date & Time</p>
-        <p class="summary_text mb-0">
+        <p class="mb-0 summary_text">
           @if(session('pickup_date') && session('pickup_time'))
             → {{ \Carbon\Carbon::parse(session('pickup_date'))->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse(session('pickup_time'))->format('h:i A') }}
           @endif
         </p>
         @if(session('round_trip') == 'on' && session('return_datetime'))
-          <p class="summary_text mb-0">
+          <p class="mb-0 summary_text">
             ← {{ \Carbon\Carbon::parse(session('return_datetime'))->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse(session('return_datetime'))->format('h:i A') }}
           </p>
         @endif
       </div>
       <div class="return-item">
         <p class="summary_label">Car Type</p>
-        <p class="summary_text mb-0">
+        <p class="mb-0 summary_text">
           @php
               $selectedVehicleName = null;
               try {
@@ -489,13 +488,13 @@
           {{ $selectedVehicleName ?? 'Sedan' }}
         </p>
         @if(session('round_trip') == 'on')
-          <p class="summary_text mb-0">{{ $selectedVehicleName ?? 'Sedan' }}</p>
+          <p class="mb-0 summary_text">{{ $selectedVehicleName ?? 'Sedan' }}</p>
         @endif
       </div>
     </div>
     <div>
       <a href="/booking?edit=1">
-        <button class="select_car_btn btn btn_dark mt-2 btn-primary trigger-loader" style="font-size: 14px;padding: 5px 8px !important;">EDIT</button>
+        <button class="mt-2 select_car_btn btn btn_dark btn-primary trigger-loader" style="font-size: 14px;padding: 5px 8px !important;">EDIT</button>
       </a>
     </div>
   </div>

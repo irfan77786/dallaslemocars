@@ -181,8 +181,8 @@ public function handlePointToPoint(Request $request)
     ]);
 
     if ($validator->fails()) {
-        dd($validator->errors()); // Dump and die with the validation errors
-        // return redirect()->back()->withErrors($validator)->withInput();
+        // dd($validator->errors()); // Dump and die with the validation errors
+        return redirect()->back()->withErrors($validator)->withInput();
     }
 
     $data = $validator->validated();

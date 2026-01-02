@@ -254,48 +254,31 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function getBootstrapIconForPlace(place = {}) {
-  const map = {
-    airport: 'bi-airplane',
-    restaurant: 'bi-egg-fried',
-    lodging: 'bi-building',
-    hotel: 'bi-building',
-    park: 'bi-tree',
-    bar: 'bi-cup-straw',
-    university: 'bi-mortarboard',
-    hospital: 'bi-hospital',
-    train_station: 'bi-train-front',
-    subway_station: 'bi-train-front',
-    gas_station: 'bi-fuel-pump',
-    shopping_mall: 'bi-shop',
-    store: 'bi-basket',
-    school: 'bi-book',
-    point_of_interest: 'bi-geo-alt',
-    default: 'bi-geo-alt'
-  };
-
   const types = place.types || [];
   const name = place.name?.toLowerCase() || '';
   const addressComponents = place.address_components || [];
 
-  for (const type of types) {
-    if (map[type]) return map[type];
+  // Check types for airport
+  if (types.includes('airport')) {
+    return 'bi-airplane';
   }
 
-  for (const key of Object.keys(map)) {
-    if (key !== 'default' && name.includes(key)) return map[key];
+  // Check name for airport
+  if (name.includes('airport')) {
+    return 'bi-airplane';
   }
 
+  // Check address components for airport
   for (const comp of addressComponents) {
     const longName = comp.long_name.toLowerCase();
     const shortName = comp.short_name.toLowerCase();
-    for (const key of Object.keys(map)) {
-      if (key !== 'default' && (longName.includes(key) || shortName.includes(key))) {
-        return map[key];
-      }
+    if (longName.includes('airport') || shortName.includes('airport')) {
+      return 'bi-airplane';
     }
   }
 
-  return map.default;
+  // Default icon for everything else
+  return 'bi-geo-alt';
 }
 
 function setupCustomAutocomplete(inputId, suggestionsListId, hiddenAirportFieldId, onSelectCallback = null) {

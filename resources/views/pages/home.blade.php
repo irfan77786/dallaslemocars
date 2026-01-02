@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="home-banner-section">
-        <div class="py-60 ah-container position-relative py-sm-70 py-md-80 py-lg-100"
+        <div id="hero-banner-container" class="py-60 ah-container position-relative py-sm-70 py-md-80 py-lg-100"
              style="z-index: 2; background-image: url('{{ asset('new_assets/assets/banner-4.jpg') }}');">
             <!-- Map Container (Initially hidden, shows up when location is selected) -->
             <div id="map" class="position-absolute w-100 h-100" style="top:0; left:0; z-index: 1; display:none;">
@@ -23,7 +23,9 @@
                 </div>
                 <div class="col-12 col-md-6" style="pointer-events: auto; position: relative; z-index: 2;">
                     <!-- Booking Form -->
-                    @include('partials.search')
+                    <div class="search-form-wrapper-desktop">
+                        @include('partials.search')
+                    </div>
                 </div>
             </div>
         </div>
