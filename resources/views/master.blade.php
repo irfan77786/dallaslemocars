@@ -39,8 +39,8 @@
                     </div>
                 </div>
                 <div class="col-6 col-lg-9 d-flex align-items-center justify-content-end">
-                    <nav class="custom-navbar navbar navbar-expand-lg p-0 position-static">
-                        <button class="navbar-toggler ms-auto " type="button" data-bs-toggle="collapse"
+                    <nav class="p-0 custom-navbar navbar navbar-expand-lg position-static">
+                        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                             <svg width="28px" height="28px" viewBox="0 0 24 24" fill="none"
@@ -51,41 +51,48 @@
                             </svg>
                         </button>
                         <div class="collapse navbar-collapse ms-auto" id="navbarSupportedContent">
-                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <ul class="mb-2 navbar-nav ms-auto mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="/">Home</a>
+                                    <a class="nav-link @if(request()->path() == '/') active @endif" href="/">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/about-us">About us</a>
+                                    <a class="nav-link @if(request()->path() == 'about-us') active @endif"
+                                    href="/about-us">
+                                    About us
+                                    </a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle {{ request()->is('services*') ? 'active' : '' }}"
+                                        href="#"
+                                        id="navbarDropdown"
+                                        role="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false">
                                         Our Service
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item"
-                                                href="/services/airport-transfer-dallas">Airport
+                                        <li><a class="dropdown-item {{ request()->is('services/airport-transfers-dallas') ? 'active' : '' }}"
+                                                href="/services/airport-transfers-dallas">Airport
                                                 Transfers</a></li>
-                                        <li><a class="dropdown-item"
+                                        <li><a class="dropdown-item {{ request()->is('services/chauffeur-service-dallas') ? 'active' : '' }}"
                                                 href="/services/chauffeur-service-dallas">Chauffeur
                                                 Service</a></li>
-                                        <li><a class="dropdown-item"
+                                        <li><a class="dropdown-item {{ request()->is('services/corporate-transportation-dallas') ? 'active' : '' }}"
                                                 href="/services/corporate-transportation-dallas">Corporate
                                                 Transportation</a></li>
-                                        <li><a class="dropdown-item"
+                                        <li><a class="dropdown-item {{ request()->is('services/executive-shuttle-services-dallas') ? 'active' : '' }}"
                                                 href="/services/executive-shuttle-services-dallas">Executive
                                                 shuttle
                                                 services</a></li>
-                                        <li><a class="dropdown-item"
+                                        <li><a class="dropdown-item {{ request()->is('services/luxury-van-rental-dallas') ? 'active' : '' }}"
                                                 href="/services/luxury-van-rental-dallas">Luxury
                                                 van
                                                 rental</a></li>
-                                        <li><a class="dropdown-item"
-                                                href="/services/private-car-service-dallas">Private
+                                        <li><a class="dropdown-item {{ request()->is('services/private-car-service-in-dallas') ? 'active' : '' }}"
+                                                href="/services/private-car-service-in-dallas">Private
                                                 car
                                                 service</a></li>
-                                        <li><a class="dropdown-item"
+                                        <li><a class="dropdown-item {{ request()->is('services/private-aviation-dallas') ? 'active' : '' }}"
                                                 href="/services/private-aviation-dallas">Private
                                                 Aviation/FBO</a></li>
 
@@ -100,14 +107,15 @@
                                         <li><a class="dropdown-item"
                                                 href="/airports/addison-airport-car-service">Addison
                                                 Airport (ADS)</a></li>
-                                        <li><a class="dropdown-item" href="/airports/dfw-car-service">Dallas/Fort
+                                        <li><a class="dropdown-item"
+                                                href="/airports/dfw-car-service">Dallas/Fort
                                                 Worth
                                                 Airport (DFW)</a></li>
                                         <li><a class="dropdown-item"
-                                                href="/airports/love-field-airport-car-service">Dallas Love Field
+                                                href="/airports/dallas-love-field-airport-car-service">Dallas Love Field
                                                 Airport (DAL)</a></li>
                                         <li><a class="dropdown-item"
-                                                href="/airports/signature-flight-support-car-service">McKinney
+                                                href="/airports/mckinney-national-airport-car-service">McKinney
                                                 National
                                                 Airport (TKI)</a></li>
                                         <li><a class="dropdown-item"
@@ -117,15 +125,15 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/our-fleet">Fleet
+                                    <a class="nav-link @if(request()->path() == 'our-fleet') active @endif" href="/our-fleet">Fleet
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/fifa-world-cup-2026-car-service-dallas">FIFA World
+                                    <a class="nav-link @if(request()->path() == 'fifa-world-cup-2026-car-service-dallas') active @endif" href="/fifa-world-cup-2026-car-service-dallas">FIFA World
                                         Cup 26</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/booking">Book Now
+                                    <a class="nav-link @if(request()->path() == 'booking') active @endif" href="/booking">Book Now
                                     </a>
                                 </li>
                                 <li class="nav-item d-lg-none">
@@ -145,7 +153,7 @@
     </main>
     <footer class="footer bg-blue">
         <div class="py-30 d-md-none social-network-link">
-            <ul class="list-unstyled d-flex justify-content-center mb-0">
+            <ul class="mb-0 list-unstyled d-flex justify-content-center">
                 <li class="mx-15"><a href="#">
                         <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                             <path
@@ -177,7 +185,7 @@
             <div class="ah-container">
                 <div class="row footer-nav-list">
                     <div class="col-12">
-                        <h5 class="h4 fw-bold mb-10 mb-md-3 text-white">Company</h5>
+                        <h5 class="mb-10 text-white h4 fw-bold mb-md-3">Company</h5>
                         <ul class="footer-nav-list-item list-unstyled mb-30 mb-lg-0">
                             <li><a href="/">Home</a></li>
                             <li><a href="/about-us">About us</a></li>
@@ -188,7 +196,7 @@
                         </ul>
                     </div>
                     <div class="col-12">
-                        <h5 class="h4 fw-bold mb-10 mb-md-3 text-white">Our Service</h5>
+                        <h5 class="mb-10 text-white h4 fw-bold mb-md-3">Our Service</h5>
                         <ul class="footer-nav-list-item list-unstyled mb-30 mb-lg-0">
                             <li><a href="/services/airport-transfer-dallas">Airport
                                     Transfers</a></li>
@@ -205,7 +213,7 @@
                         </ul>
                     </div>
                     <div class="col-12">
-                        <h5 class="h4 fw-bold mb-10 mb-md-3 text-white">Popular Cities</h5>
+                        <h5 class="mb-10 text-white h4 fw-bold mb-md-3">Popular Cities</h5>
                         <ul class="footer-nav-list-item list-unstyled mb-30 mb-lg-0">
                             <li><a href="/texas/black-car-service-allen-tx">Allen</a>
                             </li>
@@ -221,7 +229,7 @@
                         </ul>
                     </div>
                     <div class="col-12">
-                        <h5 class="h4 fw-bold mb-10 mb-md-3 text-white">City-to-City Rides</h5>
+                        <h5 class="mb-10 text-white h4 fw-bold mb-md-3">City-to-City Rides</h5>
                         <ul class="footer-nav-list-item list-unstyled mb-30 mb-lg-0">
                             <li><a href="/dallas-to-austin-car-service">Dallas -
                                     Austin</a></li>
@@ -238,9 +246,9 @@
                         </ul>
                     </div>
                     <div class="col-12">
-                        <h5 class="h4 fw-bold mb-10 mb-md-3 text-white">Contact Details</h5>
+                        <h5 class="mb-10 text-white h4 fw-bold mb-md-3">Contact Details</h5>
                         <ul class="footer-nav-list-item list-unstyled mb-30 mb-lg-0">
-                            <li class="d-flex gap-2 align-items-center">
+                            <li class="gap-2 d-flex align-items-center">
                                 <svg width="19" height="19" viewBox="0 0 19 18" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -254,7 +262,7 @@
                                 <a class="single-line-ellipses" href="mailto:info@dallaslimoandblackcars.com"
                                     style="width: 200px;">info@dallaslimoandblackcars.com</a>
                             </li>
-                            <li class="d-flex gap-2 align-items-center">
+                            <li class="gap-2 d-flex align-items-center">
                                 <svg width="19" height="19" viewBox="0 0 19 18" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -266,7 +274,7 @@
                                 </svg>
                                 <a href="tel:+12134526789">+1 214-897-8056</a>
                             </li>
-                            <li class="d-flex gap-2 align-items-center">
+                            <li class="gap-2 d-flex align-items-center">
                                 <svg width="19" height="19" viewBox="0 0 19 18" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -293,14 +301,14 @@
             </div>
         </div>
         <div class="footer-area">
-            <div class="ah-container py-20">
+            <div class="py-20 ah-container">
                 <div class="row align-items-center">
-                    <div class="col-12 col-md-6 text-center text-md-start">
-                        <p class="font-sm mb-0"><a href="/">Dallas Limo and Black Cars</a> © 2025. All rights reserved.
+                    <div class="text-center col-12 col-md-6 text-md-start">
+                        <p class="mb-0 font-sm"><a href="/">Dallas Limo and Black Cars</a> © 2025. All rights reserved.
                         </p>
                     </div>
                     <div class="col-12 col-md-6 d-none d-md-block">
-                        <ul class="list-unstyled d-flex justify-content-end mb-0">
+                        <ul class="mb-0 list-unstyled d-flex justify-content-end">
                             <li class="ml-20"><a href="#">
                                     <svg width="22" height="22" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 640 640">
@@ -348,10 +356,10 @@
     <script src="{{ asset('assets/js/bootstrap-material-datetimepicker.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.js"></script>
-    
+
     <!-- Google Maps -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUqn8Dg3GICSzhyvw7DjXXHkyoGMCoTpM&libraries=places&loading=async&callback=initAutocomplete" async defer></script>
-    
+
       <script>
             window.dataLayer = window.dataLayer || [];
 

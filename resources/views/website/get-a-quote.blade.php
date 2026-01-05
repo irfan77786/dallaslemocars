@@ -1,456 +1,275 @@
 @extends('master')
+
 @section('content')
-@php
-$isHourly = session('service_type') === 'hourlyHire';
-@endphp
-<meta name="csrf-token" content="{{ csrf_token() }}">
-<meta name="point-to-point-url" content="{{ url('/booking/point-to-point') }}">
-@if(!session('pickup_location') && !session('dropoff_location'))
-@include('partials.banner', ['title' => "Get a Quote"])
-@endif
-<div class="bottom-banner" style="{{ session('pickup_location') && session('dropoff_location') ? 'background-image: none' : '' }}">
-  <div class="row">
-    <div class="col-sm-12 back-container">
-      <div class="container">
-        <div class="row justify-content-end">
-          <div class="col-sm-7 bottom-banner-inside banner-hidden-mobile" bis_skin_checked="1" id="hide_on_map" style="padding-top: 65px; {{ session('pickup_location') && session('dropoff_location') ? 'display: none' : '' }}">
-            <div class="bottom-banner-text" bis_skin_checked="1">
-              <h1>Get a Quote – Dallas Limo And Black Cars Service</h1>
-              <p>Request Instant Pricing for Black Car, SUV, Sprinter, or Group Travel in DFW.</p>
-              <p class="bt-text">24/7 Service Available, Click to Call Now!</p>
-              <div class="bottom-banner-btn" bis_skin_checked="1">
-                <a class="call-phonea hover-up d-inline-block mb-20" href="tel:+12148978056" bis_skin_checked="1">Call: 214-897-8056</a>
-              </div>
+    <section class="home-banner-section">
+        <div id="hero-banner-container" class="py-60 ah-container position-relative py-sm-70 py-md-80 py-lg-100"
+             style="z-index: 2; background-image: url('{{ asset('new_assets/assets/banner-4.jpg') }}');">
+            <!-- Map Container (Initially hidden, shows up when location is selected) -->
+            <div id="map" class="position-absolute w-100 h-100" style="top:0; left:0; z-index: 1; display:none;">
             </div>
-          </div>
-          <div class="col-md-5 col-12 p-0 booking_card_container">
-            @include('partials.search_form')
-          </div>
-        </div>
 
-        <!-- Map to display after form input -->
-      </div>
-    </div>
-
-    <div id="map" style="height: 100%; width: 100%; display: none; border-radius: 15px; overflow: hidden; left:0;z-index: 9 !important; top:0">
-      <div class="map-overlay"></div>
-    </div>
-
-    <div id="route-info-box" style="
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      background: white;
-      color: black;
-      padding: 12px 16px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      font-size: 14px;
-      z-index: 999;
-      display: none;">
-      <div><strong>Distance:</strong> <span id="route-distance">-</span></div>
-      <div><strong>Duration:</strong> <span id="route-duration">-</span></div>
-    </div>
-  </div>
-</div>
-<div class="hero-mobile">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="bottom-banner-text" bis_skin_checked="1">
-          <h2>Get a Quote – Dallas Limo And Black Cars Service</h2>
-          <p>Request Instant Pricing for Black Car, SUV, Sprinter, or Group Travel in DFW.</p>
-          <p class="bt-text">24/7 Service – Call Now</p>
-          <div class="bottom-banner-btn" bis_skin_checked="1">
-            <a class="call-phonea hover-up d-inline-block mb-20" href="tel:+12148978056" bis_skin_checked="1">Call: 214-897-8056</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<section class="section get-form">
-  <div class="container-sub">
-    <div class="mw-770">
-      <h2
-        class="heading-44-medium mb-30 text-center wow fadeInUp"
-        style="visibility: visible; animation-name: fadeInUp">
-        Get A Quote
-      </h2>
-      <div
-        class="form-contact form-comment wow fadeInUp"
-        style="visibility: visible; animation-name: fadeInUp">
-        <div class="expMessage"></div>
-        <form
-          class="positioned"
-          name="sentMessage"
-          id="contactus"
-          action=""
-          method="post"
-          novalidate="novalidate">
-          <label for="cars">Select Vehicles Option:</label>
-
-          <select
-            name="formInput[Vehicles Option]"
-            id="cars"
-            class="filled">
-            <option value="Luxury Sedan">Luxury Sedan</option>
-            <option value="Premium SUV">Premium SUV</option>
-            <option value="Luxury SUV">Luxury SUV</option>
-            <option value="Sprinter Van">Sprinter Van</option>
-            <option value="Mini Bus">Mini-Bus</option>
-          </select>
-
-          <label for="cars">Select Trip Type:</label>
-
-          <select name="formInput[Vehicles Type]" id="cars" class="filled">
-            <option value="Point to Point">Point to Point</option>
-            <option value="Airport Services">Airport Services</option>
-            <option value="Hourly/As Directed">Hourly/As Directed</option>
-          </select>
-
-          <label for="cars">No. of Passengers </label>
-          <input
-            name="formInput[Number Of Passengers]"
-            id="senderName"
-            placeholder="Number of Pax"
-            required=""
-            type="text" />
-
-          <label for="cars">Trip Date</label>
-          <input type="date" id="date" name="formInput[date]" required="" />
-
-          <label for="cars">Trip Time </label>
-          <input
-            type="time"
-            id="appt"
-            name="formInput[Trip Time]"
-            required="" />
-
-          <label for="pickup-address">Pickup Address </label>
-          <div class="position-relative">
-            <input
-              name="formInput[Pickup Address]"
-              id="pickup-address"
-              class="form-control"
-              placeholder="street, city, state"
-              type="text"
-              autocomplete="off" />
-          </div>
-
-          <label for="dropoff-address" class="mt-3">Drop Off Address </label>
-          <div class="position-relative">
-            <input
-              name="formInput[Drop Off Address]"
-              id="dropoff-address"
-              class="form-control"
-              placeholder="street, city, state"
-              type="text"
-              autocomplete="off" />
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <label for="cars">First Name </label>
-              <input
-                name="formInput[First Name]"
-                id="sendermessage"
-                placeholder="your first name"
-                required=""
-                type="text" />
-            </div>
-            <div class="col-md-6">
-              <label for="cars">Last Name </label>
-              <input
-                name="formInput[Last Name]"
-                id="sendermessage"
-                placeholder="your last name"
-                required=""
-                type="text" />
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <label for="cars">Email </label>
-              <input
-                name="formInput[Email]"
-                id="sendermessage"
-                placeholder="your email address"
-                required=""
-                type="text" />
-            </div>
-            <div class="col-md-6">
-              <label for="cars">Phone </label>
-              <input
-                name="formInput[phone]"
-                id="sendermessage"
-                placeholder="your phone number"
-                required=""
-                type="phone" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <label for="cars">Message </label>
-              <textarea
-                id="subject"
-                name="formInput[Message]"
-                placeholder="your Message"
-                style="height: 200px"></textarea>
-            </div>
-            </din>
-            <button type="submit" class="btn btn-primary btn-ico bton-qury">
-              Send Now
-            </button>
-
-            <input
-              type="hidden"
-              name="action"
-              value="submitform"
-              class="filled" />
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<section class="about-uss city-pages">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="pt-chauffeur-1"><img src="/img/sprinter-van-rental-dallas.webp" alt="Chauffeured black car service in Dallas">
-        </div>
-
-      </div>
-
-
-      <div class="col-md-8">
-        <div class="pt-section-title-box ">
-          <h5 class="pt-section-titles">Plan Ahead. Quote Instantly. Ride in Comfort
-          </h5>
-
-
-
-
-          <p class="pt-section-description">Looking for a price before you book? Whether you're scheduling a <a href="/airport/car-service-dallas-fort-worth-international-airport/" class="internal-links">DFW Airport pickup</a>, a wedding Sprinter Van, or a <a href="/city-to-city-ride/dallas-to-austin/" class="internal-links">city-to-city ride</a> from Dallas to Houston, our team is ready to provide a clear, upfront quote.
-
-          </p>
-          <p class="pt-section-description">We respond within minutes—day or night.</p>
-
-
-
-
-          <h5 class="pt-section-titles">What Type of Ride Do You Need?
-          </h5>
-          <p class="pt-section-description">We customize quotes based on your ride type, location, group size, and vehicle choice. Select from:</p>
-
-
-          <ul>
-            <li>Airport Transfers (DFW, DAL, FBOs) </li>
-            <li>Hourly Charters (corporate, shopping, events) </li>
-            <li>City-to-City Rides (<a href="/city-to-city-ride/dallas-to-austin/" class="internal-links">Dallas to Austin</a>, Houston, Waco, etc.)</li>
-            <li>Sprinter Vans for Weddings & Groups </li>
-            <li>Mini & Charter Bus Quotes for 23–56 Passengers</li>
-            <li>Long-Distance & Overnight Service</li>
-          </ul>
-
-
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="about-us city-pages special-w">
-  <div class="container">
-    <div class="row">
-
-      <div class="col-md-6">
-        <div class="pt-section-title-box ">
-
-          <h5 class="pt-section-title">Quote Response Time
-          </h5>
-
-          <p>
-            Most quote requests are answered within 15 minutes or less.
-            For Sprinters and group buses, please allow up to 1 hour for detailed coordination.
-          </p>
-          <h5 class="pt-section-title">Service Areas Covered
-          </h5>
-
-          <p>We provide quotes and service throughout:</p>
-          <ul>
-
-            <li>Dallas, <a href="/locations/black-car-service-fort-worth-texas/" class="internal-links-w">Fort Worth</a>, Plano, Frisco, Irving, Arlington </li>
-            <li>DFW Airport, Dallas Love Field, Signature Aviation, Million Air </li>
-            <li>City-to-city travel across Texas: Austin, Houston, San Antonio, Tyler, Waco</li>
-          </ul>
-
-
-
-        </div>
-
-
-      </div>
-      <div class="col-md-6">
-        <div class="pt-chauffeur-1"><img src="/images/img/airport-pickup-service-dallas.webp" width="522" height="564" alt="Reliable black car service near Dallas">
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-<div id="bottomServices-defcitiy icon-h-page" class="margin-ff">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4 text-center">
-        <div class="pz-bottom-servicei mt-cts">
-          <span class="serviceImage1">
-            <img src="/img/booking.webp" alt="Online Portal">
-          </span>
-          <div class="serviceHeadings">
-            <h3>
-              Online Form (Fastest)
-            </h3>
-            <p>Fill out our simple quote form with pickup location, drop-off, date, and passenger count. <br> <strong>Request a Quote Online</strong></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4 text-center">
-        <div class="pz-bottom-servicei mt-cts">
-          <span class="serviceImage1">
-            <img src="/img/conformation.webp" alt="Clear-Cut All-Inclusive Pricing">
-          </span>
-          <div class="serviceHeadings">
-            <h3>Email Quote</h3>
-            <p><strong>Send trip details to:</strong> <a href="mailto:info@dallaslimoandblackcars.com">info@dallaslimoandblackcars.com </a>
-              <br><strong>Include:</strong> pickup, destination, vehicle type, number of passengers.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4 text-center">
-        <div class="pz-bottom-servicei mt-cts">
-          <span class="serviceImage1">
-            <img src="/img/chauffeur.webp" alt="Expert Chauffeurs">
-          </span>
-          <div class="serviceHeadings">
-            <h3>Call or Text</h3>
-            <p>Speak with our team anytime at <a href="tel:214-305-8671">214-305-8671</a>.<br> We’ll get you a quote within minutes—24/7. </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<section class="about-uss city-pages">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="pt-chauffeur-1"><img src="/images/img/dallas-executive-black-car.webp" alt="concerts and sporting events">
-        </div>
-      </div>
-      <div class="col-md-8">
-        <div class="pt-section-title-box ">
-          <h5 class="pt-section-titles">Our Vehicle Categories</h5>
-          <ul>
-            <li>Executive Sedans – Cadillac CT6, Audi A8</li>
-            <li>Premier SUVs – Suburban, Yukon XL </li>
-            <li>Luxury SUVs – Escalade, Navigator </li>
-            <li><a href="/services/luxury-van-rental-dallas-texas/" class="internal-links">Sprinter Vans</a> – Executive, VIP, Shuttle</li>
-            <li>Mini Buses – 23–38 Passenger </li>
-            <li>Charter Coaches – 50+ Passenger</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="about-us testimonials-sec">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 testimonials-sec">
-        <div class="pt-section-title-box ">
-          <h5 class="pt-section-title text-center">What Our Corporate Clients and Executive Assistants Are Saying
-          </h5>
-          <div class="button-prevs text-right">
-            <div class="row">
-              <div class="col-md-8">
-              </div>
-              <div class="col-md-4 testi">
-                <button class="prev"><i class="fa fa-arrow-left" aria-hidden="true"></i>
-                </button>
-                <button class="next"><i class="fa fa-arrow-right"></i></button>
-              </div>
-            </div>
-          </div>
-          <div class="banner-slids">
-            <div class="tns-outer tns-ovh"><button data-action="stop" type="button"><span class="tns-visually-hidden">stop animation</span>stop</button>
-              <div class="tns-inner" id="tns1-iw">
-                <div class="slider tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal" id="tns1" style="transform: translateX(-28%); transition-duration: 0.3s;">
-                  <div class="slide tns-item" aria-hidden="true" tabindex="-1">
-                    <div class="slide__item">
-
-                      <p>I submitted the form at 10 PM and had a quote within 10 minutes. I booked a black Suburban to Frisco for 6 AM the next day. Seamless.
-                      </p>
-                      <p>
-                        <bold>— Tom G.</bold> Frisco, TX
-                      </p>
-                    </div>
-                  </div>
-                  <div class="slide tns-item" aria-hidden="true" tabindex="-1">
-                    <div class="slide__item">
-                      <p>Needed a quote for a 27-passenger mini bus from Plano to AT&T Stadium. They responded faster than anyone and had it confirmed within an hour.
-                      </p>
-                      <p>
-                        <bold>— Rachel M.</bold> Plano, TX
-                      </p>
-                    </div>
-                  </div>
-                  <div class="slide tns-item" aria-hidden="true" tabindex="-1">
-                    <div class="slide__item">
-                      <p>They worked out pricing for a Sprinter Van to Houston with multiple stops. Extremely professional and quick to respond.
-                      </p>
-                      <p>
-                        <bold>— David H.</bold> Dallas, TX
-                      </p>
-                    </div>
-                  </div>
+            <div class="row" style="pointer-events: none;">
+                <div id="home-text-content" class="col-12 col-md-6 d-flex flex-column justify-content-center" style="pointer-events: auto; position: relative; z-index: 0;">
+                    <h1 class="text-white h1 fw-bold mb-15">Black Car Service Dallas</h1>
+                    <p class="text-white font-lg fw-medium mb-30">Lorem Ipsum is simply dummy text of the printing
+                        and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since
+                        the 1500s, when an unknown printer tooks,</p>
+                    <span class="text-white font-base">24/7 Service Available – <strong class="font-lg fw-semibold">Click to Call
+                            Now</strong></span>
+                    <p class="text-white font-base d-flex align-items-center mb-30 mb-md-0">
+                        Call: <a href="tel:+12148978056" class="mx-2 fw-bold font-lg theme-color">+1
+                            214-897-8056</a>
+                    </p>
                 </div>
-              </div>
+                <div class="col-12 col-md-6" style="pointer-events: auto; position: relative; z-index: 2;">
+                    <!-- Booking Form -->
+                    <div class="search-form-wrapper-desktop">
+                        @include('partials.search')
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-@include('partials.faq_section')
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-1">
-      </div>
-
-      <div class="col-md-10">
-        <h3><span class="main-color">Make Every Mile </span><br>First-Class</h3>
-        <a href="/fifa-world-cup-2026-car-service-dallas/" class="bottom-cta-vtb-c">Reserve Your Black Car Today</a>
-      </div>
-      <div class="col-md-1">
-      </div>
-    </div>
-  </div>
-</div>
-@section('body-scripts')
-<script src="{{ asset('js/industrie-custom.js') }}"></script>
-<script src="{{ asset('js/custom.js') }}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUqn8Dg3GICSzhyvw7DjXXHkyoGMCoTpM&libraries=places&loading=async&callback=initAutocomplete" async defer></script>
-@endsection
+    </section>
+            <section class="bg-gray py-50 py-sm-60 py-md-70 py-lg-80">
+            <div class="ah-container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-11 col-xl-10 text-center mb-20 mb-md-30 mb-lg-40">
+                        <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30">Get A Quote</h2>
+                        <p class="font-base">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                            unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-11 col-xl-10">
+                        <form action="#" method="post" class="get-a-quote-form bg-white px-20 px-sm-30 py-30">
+                            <div class="row">
+                                <div class="col-12 col-md-6 col-lg-4 mb-15">
+                                    <label for="" class="form-label mb-1 fw-medium">Select Vehicles Option:</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option value="Luxury Sedan">Luxury Sedan</option>
+                                        <option value="Premium SUV">Premium SUV</option>
+                                        <option value="Luxury SUV">Luxury SUV</option>
+                                        <option value="Sprinter Van">Sprinter Van</option>
+                                        <option value="Mini-Bus">Mini-Bus</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4 mb-15">
+                                    <label for="" class="form-label mb-1 fw-medium">Select Trip Type:</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option value="Point to Point">Point to Point</option>
+                                        <option value="Airport Services">Airport Services</option>
+                                        <option value="Hourly/As Directed">Hourly/As Directed</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4 mb-15">
+                                    <label for="No_of_Passengers" class="form-label mb-1 fw-medium">No. of
+                                        Passengers</label>
+                                    <input type="text" class="form-control" id="No_of_Passengers"
+                                        placeholder="Number of Pax">
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4 mb-15">
+                                    <label for="Trip_Date_field" class="form-label mb-1 fw-medium">Trip Date</label>
+                                    <input type="date" class="form-control" id="Trip_Date_field">
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4 mb-15">
+                                    <label for="Trip_Time_field" class="form-label mb-1 fw-medium">Trip Time</label>
+                                    <input type="time" class="form-control" id="Trip_Time_field">
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4 mb-15">
+                                    <label for="pickup_field" class="form-label mb-1 fw-medium">Pickup Address</label>
+                                    <input type="text" class="form-control" id="pickup_field"
+                                        placeholder="Street, City, State">
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4 mb-15">
+                                    <label for="drop_address_field" class="form-label mb-1 fw-medium">Drop Off
+                                        Address</label>
+                                    <input type="text" class="form-control" id="drop_address_field"
+                                        placeholder="Street, City, State">
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4 mb-15 d-none d-md-flex d-lg-none"></div>
+                                <div class="col-12 col-md-6 col-lg-4 mb-15">
+                                    <label for="full_name" class="form-label mb-1 fw-medium">Full Name</label>
+                                    <input type="text" class="form-control" id="full_name" placeholder="Full Name">
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4 mb-15">
+                                    <label for="email" class="form-label mb-1 fw-medium">Email</label>
+                                    <input type="email" class="form-control" id="email"
+                                        placeholder="your email address">
+                                </div>
+                                <div class="col-12 mb-15">
+                                    <label for="message" class="form-label mb-1 fw-medium">Message</label>
+                                    <textarea class="form-control" id="message"></textarea>
+                                </div>
+                                <div class="col-12 text-end">
+                                    <button class="btn btn-primary fw-bold">Send Now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="detail-content-section py-50 py-sm-60 py-md-70 py-lg-80">
+            <div class="ah-container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-11 col-xl-10 text-center mb-20 mb-md-30 mb-lg-40">
+                        <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30">Plan Ahead. Quote Instantly. Ride in Comfort</h2>
+                        <p class="font-base">Looking for a price before you book? Whether you're scheduling a DFW Airport
+                            pickup, a wedding Sprinter Van, or a city-to-city ride from Dallas to Houston, our team is
+                            ready to provide a clear, upfront quote.
+                        </p>
+                    </div>
+                </div>
+                <div class="row align-items-center py-20">
+                    <div class="col-12 col-md-6 pr-xl-50">
+                        <h3 class="h5 fw-semibold">What Type of Ride Do You Need?</h3>
+                        <p>We customize quotes based on your ride type, location, group size, and
+                            vehicle choice. Select from:</p>
+                        <ul class="custom-unorder-list pl-0">
+                            <li class="mb-1">
+                                <p class="mb-0">Airport Transfers (DFW, DAL, FBOs)</p>
+                            </li>
+                            <li class="mb-1">
+                                <p class="mb-0">Hourly Charters (corporate, shopping, events)</p>
+                            </li>
+                            <li class="mb-1">
+                                <p class="mb-0">City-to-City Rides (Dallas to Austin, Houston, Waco, etc.)</p>
+                            </li>
+                            <li class="mb-1">
+                                <p class="mb-0">Sprinter Vans for Weddings & Groups</p>
+                            </li>
+                            <li class="mb-1">
+                                <p class="mb-0">Mini & Charter Bus Quotes for 23–56 Passengers</p>
+                            </li>
+                            <li class="mb-1">
+                                <p class="mb-0">Long-Distance & Overnight Service</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6 h-100">
+                        <div class="img-holder ms-md-auto">
+                            <img src="{{ asset('new_assets/assets/image-01.png') }}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="fleet-section py-50 py-sm-60 py-md-70 py-lg-80">
+            <div class="ah-container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-xl-10 text-center">
+                        <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30">Our Premium Fleet – Ride in Comfort and Style
+                            with <span class="theme-color fw-bold">Dallas Limo and Black Cars Service</span></h2>
+                    </div>
+                    <div class="col-12 mb-15">
+                        <p class="font-base">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                            unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+                            survived not only five centuries, but also the leap into electronic typesetting, remaining
+                            essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+                            containing Lorem Ipsum passages, and more recently.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <ul class="list-unstyled">
+                            <li>
+                                <strong class="font-lg gray-700 fw-bold d-block mb-2">Luxury Sedans:</strong>
+                                <p class="font-base">Pick from the Cadillac CT6, Volvo S90, or Mercedes-Benz S-Class for
+                                    effortless driving to the DFW airport, meetings, or any other special event.</p>
+                            </li>
+                            <li>
+                                <strong class="font-lg gray-700 fw-bold d-block mb-2">Black SUVs:</strong>
+                                <p class="font-base">Our Cadillac Escalade, Chevy Suburban, and GMC Yukon XL provide
+                                    spacious, stylish transportation for groups, corporate travelers, or extra luggage.
+                                </p>
+                            </li>
+                            <li>
+                                <strong class="font-lg gray-700 fw-bold d-block mb-2">Executive Sprinter Vans:</strong>
+                                <p class="font-base"> Ideal for large gatherings such as meetings and weddings events,
+                                    our
+                                    Mercedes-Benz Sprinter Vans offer ample storage as well as comfortable and spacious
+                                    seating.</p>
+                            </li>
+                            <li>
+                                <strong class="font-lg gray-700 fw-bold d-block mb-2">Mini Bus Luxury Bus (23-27
+                                    Passengers):</strong>
+                                <p class="font-base">Confortable seating & Wi-Fi make our Luxury Mini Buses best for
+                                    smaller groups, corporate meeting, or <a class="fw-bold font-lg mx-2 theme-color"
+                                        href="">airport
+                                        transfers</a>. Comfortably seats 23-27 passengers.</p>
+                            </li>
+                            <li>
+                                <strong class="font-lg gray-700 fw-bold d-block mb-2">Mini Bus (31-38
+                                    Passengers):</strong>
+                                <p class="font-base"> Ideal for large gatherings such as meetings and weddings events,
+                                    our
+                                    Mercedes-Benz Sprinter Vans offer ample storage as well as comfortable and spacious
+                                    seating.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="img-holder">
+                            <img src="{{ asset('new_assets/assets/fleet-img.webp') }}" alt="Fleet Image" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-12 text-center pt-15">
+                        <a href="#" class="btn btn-primary">Quick Quote </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bg-gray pt-50 pb-25 pt-sm-60 pb-sm-35 pt-md-70 pb-md-40">
+            <div class="ah-container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30 d-flex ">
+                        <article class="custom-card d-flex flex-column w-100 bg-white">
+                            <span class="icon-holder mb-20">
+                                <img src="{{ asset('new_assets/assets/icon-03.svg') }}" alt="Booking" class="img-fluid">
+                            </span>
+                            <h3 class="h4 fw-semibold">Online Form (Fastest)</h3>
+                            <p class="font-base">Fill out our simple quote form with pickup location, drop-off, date, and
+                                passenger count. <br><strong>Request a Quote Online</strong></p>
+                        </article>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30 d-flex ">
+                        <article class="custom-card d-flex flex-column w-100 bg-white">
+                            <span class="icon-holder mb-20">
+                                <img src="{{ asset('new_assets/assets/icon-02.svg') }}" alt="Confirmation" class="img-fluid">
+                            </span>
+                            <h3 class="h3 fw-semibold">Email Quote</h3>
+                            <p class="font-base">
+                                <strong>Send trip details to:</strong>
+                                <span class="single-line-ellipses w-100 d-inline-block" style="max-width: 296px;vertical-align: middle;">
+                                    <a class="fw-bold font-lg" href="mailto:info@dallaslimoandblackcars.com">info@dallaslimoandblackcars.com </a>
+                                </span>
+                                <br>
+                                <strong>Include:</strong> pickup, destination, vehicle type, number of
+                                passengers.</p>
+                        </article>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30 d-flex ">
+                        <article class="custom-card d-flex flex-column w-100 bg-white">
+                            <span class="icon-holder mb-20">
+                                <img src="{{ asset('new_assets/assets/icon-01.svg') }}" alt="Driver" class="img-fluid">
+                            </span>
+                            <h3 class="h3 fw-semibold">Call or Text</h3>
+                            <p class="font-base">Speak with our team anytime:
+                                <a class="fw-bold font-lg ms-2 theme-color" style="word-break: break-all;" href="tel:+12148978056">+1
+                                    214-897-8056</a>.
+                                <br> We’ll get you a quote within
+                                minutes—24/7.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        @include('partials.companies_strip')
+        @include('partials.testimonials')
+        @include('partials.faq')
 @endsection

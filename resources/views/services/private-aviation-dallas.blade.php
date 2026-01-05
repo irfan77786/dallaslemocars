@@ -1,59 +1,7 @@
 @extends('master')
 @section('content')
-        @include('partials.search_form')
-        <section class="detail-content-section bg-gray py-50 py-sm-60 py-md-70 py-lg-80">
-            <div class="ah-container">
-                <div class="row justify-content-center">
-                    <div class="mb-20 text-center col-12 col-lg-11 col-xl-10 mb-md-30 mb-lg-40">
-                        <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30">Why Choose Us for <span
-                                class="theme-color">Airport Transfers</span></h2>
-                        <p class="font-base">Traveling to or from the airport should be safe & stress-free. We make sure
-                            your journey is smooth, whether you’re catching an early flight or arriving late at night.
-                            Our goal is to give you comfort, reliability & peace of mind every time.</p>
-                    </div>
-                </div>
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-6">
-                        <ul class="pl-0 custom-unorder-list">
-                            <li>
-                                <p class="mb-0"><b>Friendly, Professional Greeters:</b> Courteous staff ready to assist
-                                    with every detail.</p>
-                            </li>
-                            <li>
-                                <p class="mb-0"><b>Seamless Meet and Greet:</b> We wait for you at the gate or arrival
-                                    hall with clear signage.</p>
-                            </li>
-                            <li>
-                                <p class="mb-0"><b>Luggage Assistance:</b> Helping you handle bags with ease from
-                                    arrival to car pickup.</p>
-                            </li>
-                            <li>
-                                <p class="mb-0"><b>Fast-Track Guidance:</b> Support with check-in, security & boarding
-                                    for quicker flow.</p>
-                            </li>
-                            <li>
-                                <p class="mb-0"><b>24/7 Availability:</b> No matter the time, we’re ready to welcome
-                                    you.</p>
-                            </li>
-                            <li>
-                                <p class="mb-0"><b>Trusted by Families and VIPs:</b> Perfect for first-time flyers,
-                                    elderly travelers, & executives.</p>
-                            </li>
-                            <li>
-                                <p class="mb-0"><b>Stress-Free Experience:</b> We take care of details so you can relax
-                                    & enjoy the journey.</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-md-6 h-100">
-                        <div class="img-holder ms-md-auto">
-                            <img src="{{ asset('new_assets/assets/airport-transfer.JPG') }}" class="img-fluid" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-                <section class="fleet-section py-50 py-sm-60 py-md-70 py-lg-80">
+@include('partials.search_form')
+        <section class="fleet-section py-50 py-sm-60 py-md-70 py-lg-80">
             <div class="ah-container">
                 <div class="row justify-content-center">
                     <div class="text-center col-12 col-xl-10">
@@ -125,7 +73,7 @@
                 <div class="row justify-content-center">
                     <div class="mb-20 text-center col-12 col-lg-11 col-xl-10 mb-md-30 mb-lg-40">
                         <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30">Why Choose Us for <span
-                                class="theme-color">Chauffeur Service</span></h2>
+                                class="theme-color">Private Aviation/FBO</span></h2>
                         <p class="font-base">Traveling to or from the airport should be safe & stress-free. We make sure
                             your journey is smooth, whether you’re catching an early flight or arriving late at night.
                             Our goal is to give you comfort, reliability & peace of mind every time.</p>
@@ -166,7 +114,7 @@
                     </div>
                     <div class="col-12 col-md-6 h-100">
                         <div class="img-holder ms-md-auto">
-                            <img src="{{ asset('new_assets/assets/chauffeur-service.JPG') }}" class="img-fluid" alt="">
+                            <img src="{{ asset('new_assets/assets/private-aviation.JPG') }}" class="img-fluid" alt="">
                         </div>
                     </div>
                 </div>
@@ -305,6 +253,7 @@
                 </div>
             </div>
         </section>
+        @include('partials.top-cities')
         @include('partials.companies_strip')
         @include('partials.testimonials')
         @include('partials.fifa')

@@ -1,526 +1,203 @@
 @extends('master')
 @section('content')
-@php
-$isHourly = session('service_type') === 'hourlyHire';
-@endphp
-<meta name="csrf-token" content="{{ csrf_token() }}">
-<meta name="point-to-point-url" content="{{ url('/booking/point-to-point') }}">
-@if(!session('pickup_location') && !session('dropoff_location'))
-@include('partials.banner', ['title' => "Executive Shuttle Services Dallas"])
-@endif
-<div class="bottom-banner" style="{{ session('pickup_location') && session('dropoff_location') ? 'background-image: none' : '' }}">
-    <div class="row">
-        <div class="col-sm-12 back-container">
-            <div class="container">
-                <div class="row justify-content-end">
-                    <div class="col-sm-7 bottom-banner-inside banner-hidden-mobile" bis_skin_checked="1" id="hide_on_map" style="padding-top: 65px; {{ session('pickup_location') && session('dropoff_location') ? 'display: none' : '' }}">
-                        <div class="bottom-banner-text" bis_skin_checked="1">
-                            <h1>Executive Shuttle Services Dallas</h1>
-                            <p>
-                                Move your team or guests with ease using our professional
-                                executive shuttle services. Perfect for corporate events,
-                                conferences, or group travel, we provide luxury vans & shuttles
-                                with professional chauffeurs. Enjoy punctual service, comfort, &
-                                efficiency across Dallas & the surrounding areas. Book your
-                                Dallas executive shuttle service today for reliable group
-                                transportation.
-                            </p>
-                            <p class="bt-text">24/7 Service Available, Click to Call Now!</p>
-                            <div class="bottom-banner-btn" bis_skin_checked="1">
-                                <a class="call-phonea hover-up d-inline-block mb-20" href="tel:+12148978056" bis_skin_checked="1">Call: 214-897-8056</a>
-                            </div>
+@include('partials.search_form')
+        <section class="fleet-section py-50 py-sm-60 py-md-70 py-lg-80">
+            <div class="ah-container">
+                <div class="row justify-content-center">
+                    <div class="text-center col-12 col-xl-10">
+                        <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30">Our Premium Fleet – Ride in Comfort and Style
+                            with <span class="theme-color fw-bold">Dallas Limo and Black Cars Service</span></h2>
+                    </div>
+                    <div class="col-12 mb-15">
+                        <p class="font-base">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                            unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+                            survived not only five centuries, but also the leap into electronic typesetting, remaining
+                            essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+                            containing Lorem Ipsum passages, and more recently.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <ul class="list-unstyled">
+                            <li>
+                                <strong class="mb-2 font-lg gray-700 fw-bold d-block">Luxury Sedans:</strong>
+                                <p class="font-base">Pick from the Cadillac CT6, Volvo S90, or Mercedes-Benz S-Class for
+                                    effortless driving to the DFW airport, meetings, or any other special event.</p>
+                            </li>
+                            <li>
+                                <strong class="mb-2 font-lg gray-700 fw-bold d-block">Black SUVs:</strong>
+                                <p class="font-base">Our Cadillac Escalade, Chevy Suburban, and GMC Yukon XL provide
+                                    spacious, stylish transportation for groups, corporate travelers, or extra luggage.
+                                </p>
+                            </li>
+                            <li>
+                                <strong class="mb-2 font-lg gray-700 fw-bold d-block">Executive Sprinter Vans:</strong>
+                                <p class="font-base"> Ideal for large gatherings such as meetings and weddings events,
+                                    our
+                                    Mercedes-Benz Sprinter Vans offer ample storage as well as comfortable and spacious
+                                    seating.</p>
+                            </li>
+                            <li>
+                                <strong class="mb-2 font-lg gray-700 fw-bold d-block">Mini Bus Luxury Bus (23-27
+                                    Passengers):</strong>
+                                <p class="font-base">Confortable seating & Wi-Fi make our Luxury Mini Buses best for
+                                    smaller groups, corporate meeting, or <a class="fw-semibold" href="">airport
+                                        transfers</a>. Comfortably seats 23-27 passengers.</p>
+                            </li>
+                            <li>
+                                <strong class="mb-2 font-lg gray-700 fw-bold d-block">Mini Bus (31-38
+                                    Passengers):</strong>
+                                <p class="font-base"> Ideal for large gatherings such as meetings and weddings events,
+                                    our
+                                    Mercedes-Benz Sprinter Vans offer ample storage as well as comfortable and spacious
+                                    seating.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="img-holder">
+                            <img src="{{ asset('new_assets/assets/fleet-img.webp') }}" alt="Fleet Image" class="img-fluid">
                         </div>
                     </div>
-                    <div class="col-md-5 col-12 p-0 booking_card_container">
-                        @include('partials.search_form')
-                    </div>
-                </div>
-
-                <!-- Map to display after form input -->
-            </div>
-        </div>
-
-        <div id="map" style="height: 100%; width: 100%; display: none; border-radius: 15px; overflow: hidden; left:0;z-index: 9 !important; top:0">
-            <div class="map-overlay"></div>
-        </div>
-
-        <div id="route-info-box" style="
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      background: white;
-      color: black;
-      padding: 12px 16px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      font-size: 14px;
-      z-index: 999;
-      display: none;">
-            <div><strong>Distance:</strong> <span id="route-distance">-</span></div>
-            <div><strong>Duration:</strong> <span id="route-duration">-</span></div>
-        </div>
-    </div>
-</div>
-<div class="hero-mobile">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="bottom-banner-text" bis_skin_checked="1">
-                    <h2>Executive Shuttle Services Dallas</h2>
-                    <p>
-                        Move your team or guests with ease using our professional
-                        executive shuttle services. Perfect for corporate events,
-                        conferences, or group travel, we provide luxury vans & shuttles
-                        with professional chauffeurs. Enjoy punctual service, comfort, &
-                        efficiency across Dallas & the surrounding areas. Book your
-                        Dallas executive shuttle service today for reliable group
-                        transportation.
-                    </p>
-                    <p class="bt-text">24/7 Service – Call Now</p>
-                    <div class="bottom-banner-btn" bis_skin_checked="1">
-                        <a class="call-phonea hover-up d-inline-block mb-20" href="tel:+12148978056" bis_skin_checked="1">Call: 214-897-8056</a>
+                    <div class="text-center col-12 pt-15">
+                        <a href="#" class="btn btn-primary">Quick Quote </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<section class="container-fluid ait">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="btom">
-                    <div class="btom-bottom">
-                        <h2>
-                           Dallas Limo And Black Cars Service – Fleet for Elegant Limousine Travel
-                        </h2>
-                        <p>
-                           Our fleet delivers the perfect blend of luxury and sophistication for <a href="/services/dfw-limo-service/" class="internal-links">Dallas limousine service</a>, ideal for weddings, proms, galas, or executive functions.</>
-                        </p>
-                    </div>
-
-
-  <p>
-                        <strong class="strong-c-color">Luxury Sedans:</strong> Cadillac CT6, Volvo S90, and Mercedes-Benz S-Class for private limo-style rides.
-                    </p>
-
-
-
-                    <p>
-                        <strong class="strong-c-color">Luxury SUVs:</strong>
-                        Escalade ESV, Suburban, Yukon XL, and Navigator for upscale group travel with luxury finishes.
-                    </p>
-
-                    <p>
-                        <strong class="strong-c-color">Executive Sprinter Vans:</strong>
-                     Mercedes-Benz Sprinters provide a limousine-style experience for larger parties and events.
-                    </p>
-
-                       <p> <strong class="strong-c-color">23–38 Passenger Mini Bus:</strong>
-                     Great for wedding shuttles, concert transportation, or upscale group rides.
-                    </p>
-
-                       <p>
-                        <strong class="strong-c-color">Luxury Motor Coaches (55–60 Passengers):</strong>
-                    The ultimate option for gala events, conventions, or large VIP travel groups. With our Dallas limo service, every ride is styled for elegance and lasting impressions.
-                    </p>
-
-
-
-
-                    <img
-                        src="/img/dallas-black-car-service.webp"
-                        alt="luxury Dallas Limo And Black Cars" />
-                </div>
-                <div class="btom-btn">
-                    <a style="cursor: pointer;" class="quick-book-link" href="#">Ride in Dallas – Book Now</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="about-us city-pages">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="pt-section-title-box">
-                    <h5 class="pt-section-title">
-                        Premium Shuttle for
-                        <span class="main-color">Professionals</span>
-                    </h5>
-                    <p class="pt-section-description">
-                        Our Dallas executive shuttle is for business travelers & groups
-                        who need safe & comfy rides. Going to
-                        <a
-                            href="/airport/car-service-dallas-fort-worth-international-airport/"
-                            class="internal-links-w">DFW Airport</a>, Love Field Airport, or office-to-office in Dallas? We get you
-                        there on time. We offer luxury SUVs & big vans with lots of
-                        space. Perfect for groups who want comfort & style.
-                    </p>
-                    <p class="pt-section-description">
-                        Skilled chauffeurs know the best routes. They save your time &
-                        avoid delays. The
-                        <a
-                            href="https://dallaslimoandblackcars.com/"
-                            class="internal-links-w">corporate shuttle in Dallas</a>
-                        is the right choice for meetings, events & airport travel. Book
-                        your Dallas shuttle today & ride with confidence.
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="pt-chauffeur-1">
-                    <img
-                        src="/img/sprinter-van-rental-dallas.webp"
-                        width="522"
-                        height="564"
-                        alt="Reliable black car service near Dallas" />
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-
-            <div class="col-md-10">
-                <h5>
-                    <span class="main-color">Going to the airport,</span> a business
-                    meeting, or the big game?
-                </h5>
-
-                <p class="bottom-cta-content">
-                    Your private chauffeur is ready for DFW Airport, Plano business
-                    districts, Legacy West, or AT&amp;T Stadium game days.
-                </p>
-
-                <a style="cursor: pointer;" class="quick-book-link bottom-cta-vtb-c" href="#">Travel in Comfort – Book Now</a>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
-</div>
-
-<section class="about-uss city-pages">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="pt-chauffeur-1">
-                    <img
-                        src="/img/dallas-luxury-van-rental.webp"
-                        alt="Chauffeured black car service in Dallas" />
-                </div>
-            </div>
-
-            <div class="col-md-8">
-                <div class="pt-section-title-box">
-                    <h5 class="pt-section-titles">
-                        Group Travel <span class="main-color">Made Easy</span>
-                    </h5>
-
-                    <p class="pt-section-description">
-                        Group trips for work or events don’t have to be hard. Our
-                        executive group shuttle makes it simple. SUVs & vans give space
-                        for people & bags so everyone stays together. We serve
-                        <a
-                            href="/locations/black-car-service-frisco-texas/"
-                            class="internal-links">Frisco</a>, Plano, McKinney & nearby areas. We offer smooth rides to
-                        airports, hotels & offices.
-                    </p>
-                    <p class="pt-section-description">
-                        From on-time pickups to safe driving, our pro chauffeurs handle
-                        it all. Moving colleagues to a meeting or guests to an event?
-                        Our Dallas corporate shuttle keeps it easy, reliable &
-                        stress-free. Reserve your group shuttle today & enjoy a smooth
-                        ride.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-
-            <div class="col-md-10">
-                <img
-                    src="/img/fifa-world-cup-2026-car-service-dallas.jpg"
-                    alt="fifa world cup 2026 car service dallas" />
-
-                <a
-                    href="/fifa-world-cup-2026-car-service-dallas/"
-                    class="bottom-cta-vtb-c">Visit our fifa world cup 2026 page</a>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
-</div>
-
-<div id="bottomServices-defcitiy icon-h-page">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4 text-center">
-                <div class="pz-bottom-servicei">
-                    <span class="serviceImage1">
-                        <img
-                            src="/img/booking.webp"
-                            alt="Online Portal
- " />
-                    </span>
-
-                    <div class="serviceHeadings">
-                        <h3>Book Online or Call</h3>
-
-                        <p>Use our form or call to schedule your ride.</p>
+        </section>
+        <section class="detail-content-section bg-gray py-50 py-sm-60 py-md-70 py-lg-80">
+            <div class="ah-container">
+                <div class="row justify-content-center">
+                    <div class="mb-20 text-center col-12 col-lg-11 col-xl-10 mb-md-30 mb-lg-40">
+                        <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30">Why Choose Us for <span
+                                class="theme-color">Executive Shuttle Services</span></h2>
+                        <p class="font-base">Traveling to or from the airport should be safe & stress-free. We make sure
+                            your journey is smooth, whether you’re catching an early flight or arriving late at night.
+                            Our goal is to give you comfort, reliability & peace of mind every time.</p>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-sm-4 text-center">
-                <div class="pz-bottom-servicei">
-                    <span class="serviceImage1">
-                        <img
-                            src="/img/conformation.webp"
-                            alt="Clear-Cut All-Inclusive Pricing
- " />
-                    </span>
-
-                    <div class="serviceHeadings">
-                        <h3>Get Instant Confirmation</h3>
-
-                        <p>Receive driver and trip details via text or email.</p>
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-6">
+                        <ul class="pl-0 custom-unorder-list">
+                            <li>
+                                <p class="mb-0"><b>Friendly, Professional Greeters:</b> Courteous staff ready to assist
+                                    with every detail.</p>
+                            </li>
+                            <li>
+                                <p class="mb-0"><b>Seamless Meet and Greet:</b> We wait for you at the gate or arrival
+                                    hall with clear signage.</p>
+                            </li>
+                            <li>
+                                <p class="mb-0"><b>Luggage Assistance:</b> Helping you handle bags with ease from
+                                    arrival to car pickup.</p>
+                            </li>
+                            <li>
+                                <p class="mb-0"><b>Fast-Track Guidance:</b> Support with check-in, security & boarding
+                                    for quicker flow.</p>
+                            </li>
+                            <li>
+                                <p class="mb-0"><b>24/7 Availability:</b> No matter the time, we’re ready to welcome
+                                    you.</p>
+                            </li>
+                            <li>
+                                <p class="mb-0"><b>Trusted by Families and VIPs:</b> Perfect for first-time flyers,
+                                    elderly travelers, & executives.</p>
+                            </li>
+                            <li>
+                                <p class="mb-0"><b>Stress-Free Experience:</b> We take care of details so you can relax
+                                    & enjoy the journey.</p>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-sm-4 text-center">
-                <div class="pz-bottom-servicei">
-                    <span class="serviceImage1">
-                        <img
-                            src="/img/chauffeur.webp"
-                            alt="Expert Chauffeurs
- " />
-                    </span>
-
-                    <div class="serviceHeadings">
-                        <h3>Meet Your Chauffeur</h3>
-
-                        <p>On-time, professional, and ready to assist</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<section class="about-uss city-pages">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="pt-chauffeur-1">
-                    <img
-                        src="/img/mercedes-sprinter-van-rental.webp"
-                        alt="concerts and sporting events" />
-                </div>
-            </div>
-
-            <div class="col-md-8">
-                <div class="pt-section-title-box">
-                    <h5 class="pt-section-titles">
-                        Why Choose Us for
-                        <span class="main-color">Executive Shuttle Services</span>
-                    </h5>
-
-                    <p class="pt-section-description">
-                        Group travel for business or events should be easy, comfortable,
-                        & well-organized. Our executive shuttles are designed to move
-                        teams, guests, & clients with the highest level of care &
-                        efficiency.
-                    </p>
-
-                    <ul>
-                        <li>
-                            <strong class="strong-c-color"><a
-                                    href="/services/chauffeur-service-dallas-texas/"
-                                    class="internal-links">Professional Chauffeurs</a>: </strong>Skilled drivers who ensure safety & courtesy.
-                        </li>
-                        <li>
-                            <strong class="strong-c-color">On-Time Service: </strong>Reliable scheduling ensures your group never has to wait.
-                        </li>
-                        <li>
-                            <strong class="strong-c-color">Clear, Flat Rates: </strong>No
-                            hidden costs, straightforward pricing for every ride.
-                        </li>
-                        <li>
-                            <strong class="strong-c-color">Spacious, Luxury Shuttles: </strong>Clean, comfortable seating with room for everyone.
-                        </li>
-                        <li>
-                            <strong class="strong-c-color">24/7 Availability: </strong>Ready whenever your company or event requires transport.
-                        </li>
-                        <li>
-                            <strong class="strong-c-color">Trusted by Businesses and Event Planners: </strong>The choice for conferences, meetings, & VIP gatherings.
-                        </li>
-                        <li>
-                            <strong class="strong-c-color">Complimentary Perks: </strong>Wi-Fi, chargers, & bottled water available for all
-                            passengers.
-                        </li>
-                    </ul>
-
-                    <p class="pt-section-description">
-                        With our executive shuttle service, your group travels together
-                        in comfort, style, & complete reliability.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-
-            <div class="col-md-10">
-                <h5>
-                    <span class="main-color">Don’t leave</span><br />your next trip to
-                    chance
-                </h5>
-                <a style="cursor: pointer;" class="quick-book-link bottom-cta-vtb-c" href="#">Book your ride now</a>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
-</div>
-
-<section class="about-us testimonials-sec">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 testimonials-sec">
-                <div class="pt-section-title-box">
-                    <h5 class="pt-section-title text-center">
-                        What Our Corporate Clients and
-                        <span class="main-color">Executive Assistants Are Saying</span>
-                    </h5>
-
-                    <div class="button-prevs text-right">
-                        <div class="row">
-                            <div class="col-md-8"></div>
-
-                            <div class="col-md-4 testi">
-                                <button class="prev">
-                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                                </button>
-                                <button class="next">
-                                    <i class="fa fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="banner-slids">
-                        <div class="tns-outer tns-ovh">
-                            <button data-action="stop" type="button">
-                                <span class="tns-visually-hidden">stop animation</span>stop
-                            </button>
-                            <div class="tns-inner" id="tns1-iw">
-                                <div
-                                    class="slider tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal"
-                                    id="tns1"
-                                    style="
-                        transform: translateX(-28%);
-                        transition-duration: 0.3s;
-                      ">
-                                    <div
-                                        class="slide tns-item"
-                                        aria-hidden="true"
-                                        tabindex="-1">
-                                        <div class="slide__item">
-                                            <p>
-                                                Booked their Executive Shuttle Service Dallas for a
-                                                conference. The vehicle was spacious, comfortable,
-                                                and perfect for the whole team. Driver was
-                                                professional. Definitely booking again for our next
-                                                event.
-                                            </p>
-                                            <p>
-                                                <bold>— Madison C.</bold> Addison, TX
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        class="slide tns-item"
-                                        aria-hidden="true"
-                                        tabindex="-1">
-                                        <div class="slide__item">
-                                            <p>
-                                                Our company used Executive Shuttle Service Dallas to
-                                                transport staff during a corporate retreat. Everyone
-                                                praised the comfort & punctuality. It was smooth,
-                                                safe, & very well-organized from start to finish.
-                                            </p>
-                                            <p>
-                                                <bold>— Kimberly H.</bold> Dallas, TX
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        class="slide tns-item"
-                                        aria-hidden="true"
-                                        tabindex="-1">
-                                        <div class="slide__item">
-                                            <p>
-                                                I’ve tried multiple shuttle services, but their
-                                                Executive Shuttle Service Dallas truly stood out.
-                                                Timely pickups, clean interior, courteous
-                                                driver—made our client transfers effortless. Great
-                                                impression for our business.
-                                            </p>
-                                            <p>
-                                                <bold>— Natalie R.</bold> Dallas, TX
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="col-12 col-md-6 h-100">
+                        <div class="img-holder ms-md-auto">
+                            <img src="{{ asset('new_assets/assets/SUV-02.JPG') }}" class="img-fluid" alt="">
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-@include('partials.faq_section')
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1">
+        </section>
+        <section class="pt-50 pb-25 pt-sm-60 pb-sm-35 pt-md-70 pb-md-40">
+            <div class="ah-container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30 d-flex">
+                        <article class="custom-card d-flex flex-column w-100">
+                            <span class="mb-20 icon-holder">
+                                <img src="{{ asset('new_assets/assets/icon-03.svg') }}" alt="Booking" class="img-fluid">
+                            </span>
+                            <h3 class="h3 fw-semibold">Book Online or Call</h3>
+                            <p class="font-lg">Use our form or call to schedule your ride.</p>
+                        </article>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30 d-flex">
+                        <article class="custom-card d-flex flex-column w-100">
+                            <span class="mb-20 icon-holder">
+                                <img src="{{ asset('new_assets/assets/icon-02.svg') }}" alt="Confirmation" class="img-fluid">
+                            </span>
+                            <h3 class="h3 fw-semibold">Get Instant Confirmation</h3>
+                            <p class="font-lg">Receive driver and trip details via text or email.</p>
+                        </article>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30 d-flex">
+                        <article class="custom-card d-flex flex-column w-100">
+                            <span class="mb-20 icon-holder">
+                                <img src="{{ asset('new_assets/assets/icon-01.svg') }}" alt="Driver" class="img-fluid">
+                            </span>
+                            <h3 class="h3 fw-semibold">Meet Your Chauffeur</h3>
+                            <p class="font-lg">On-time, professional, and ready to assist.</p>
+                        </article>
+                    </div>
+                </div>
             </div>
-
-            <div class="col-md-10">
-                <h3><span class="main-color">Make Every Mile </span><br>First-Class</h3>
-                <a href="/fifa-world-cup-2026-car-service-dallas/" class="bottom-cta-vtb-c">Reserve Your Black Car Today</a>
+        </section>
+        <section class="detail-content-section bg-gray py-50 py-sm-60 py-md-70 py-lg-80">
+            <div class="ah-container">
+                <div class="row justify-content-center">
+                    <div class="mb-20 text-center col-12 col-lg-11 col-xl-10 mb-md-30 mb-lg-40">
+                        <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30">Why Choose Our <span class="theme-color"> Black
+                                Car Service?</span></h2>
+                        <p class="font-base">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                    </div>
+                </div>
+                <div class="py-20 row align-items-center">
+                    <div class="col-12 col-md-6 pr-xl-50">
+                        <h3 class="h5 fw-semibold">What sets our service apart from others?</h3>
+                        <p class="font-base">We focus on well-maintained vehicles and trained drivers for smooth
+                            rides. Every detail, from pickup timing to vehicle comfort, is handled with care. Our
+                            service values <strong>safety and calm travel</strong> for every passenger.</p>
+                    </div>
+                    <div class="col-12 col-md-6 h-100">
+                        <div class="img-holder ms-md-auto">
+                            <img src="{{ asset('new_assets/assets/image-01.png') }}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-row-reverse py-20 row align-items-center">
+                    <div class="mb-20 col-12 col-md-6 pr-xl-50">
+                        <h3 class="h5 fw-semibold">Why do business travelers rely on us?</h3>
+                        <p class="font-base">Corporate clients trust our Black Car Service for its reliability and
+                            professional standards. Quiet rides allow focus and privacy, while drivers respect
+                            schedules and understand business needs. In Dallas, we support meetings, events, and
+                            executive travel with consistent, high-quality service.</p>
+                        <a href="/about-us"
+                            class="btn btn-primary sm fw-medium">Learn
+                            More</a>
+                    </div>
+                    <div class="col-12 col-md-6 h-100">
+                        <div class="img-holder">
+                            <img src="{{ asset('new_assets/assets/image-02.png') }}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-1">
-            </div>
-
-
-        </div>
-    </div>
-</div>
-@section('body-scripts')
-<script src="{{ asset('js/industrie-custom.js') }}"></script>
-<script src="{{ asset('js/custom.js') }}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUqn8Dg3GICSzhyvw7DjXXHkyoGMCoTpM&libraries=places&loading=async&callback=initAutocomplete" async defer></script>
-@endsection
+        </section>
+        @include('partials.top-cities')
+        @include('partials.companies_strip')
+        @include('partials.testimonials')
+        @include('partials.fifa')
+        @include('partials.faq')
 @endsection

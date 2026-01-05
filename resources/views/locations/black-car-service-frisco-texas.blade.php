@@ -389,7 +389,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                         Make every trip special with our Frisco limo service. Perfect
                         for
                         <a
-                            href="/services/dallas-airport-transfers/"
+                            href="/services/airport-transfer-dallas/"
                             class="internal-links">airport transfers</a>, weddings, proms & special events. We serve nearby areas like
                         Prosper, Little Elm & Hebron.
                     </p>

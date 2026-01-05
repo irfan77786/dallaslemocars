@@ -411,15 +411,16 @@ Route::middleware('checkBookingCompletion')->group(function () {
 // Other Pages:
 
 Route::prefix('services')->group(function(){
-    Route::get('/dallas-airport-transfers/', [ServiceController::class, 'AirportTransfer'])->name('airport_transfer');
+    Route::get('/airport-transfers-dallas/', [ServiceController::class, 'AirportTransfer'])->name('airport_transfer');
     Route::get('/dallas-airport-greeters/', [ServiceController::class, 'AirportGreeters'])->name('airport_greeters');
-    Route::get('/dallas-corporate-transportation/', [ServiceController::class, 'CorporateTransportation'])->name('corporate_transportation');
-    Route::get("/executive-shuttle-services-dallas-texas/", [ServiceController::class, 'ExecutiveShuttleServices'])->name('executive_shuttle_services');
-    Route::get("/luxury-van-rental-dallas-texas/", [ServiceController::class, 'LuxuryVanRental'])->name('luxury_van_rental');
-    Route::get('/chauffeur-service-dallas-texas/', [ServiceController::class, 'ChauffeurService'])->name('chauffeur_service');
-    Route::get('/private-car-service-in-dallas-texas/', [ServiceController::class, 'PrivateCarService'])->name('private_car_service');
+    Route::get('/corporate-transportation-dallas/', [ServiceController::class, 'CorporateTransportation'])->name('corporate_transportation');
+    Route::get("/executive-shuttle-services-dallas/", [ServiceController::class, 'ExecutiveShuttleServices'])->name('executive_shuttle_services');
+    Route::get("/luxury-van-rental-dallas/", [ServiceController::class, 'LuxuryVanRental'])->name('luxury_van_rental');
+    Route::get('/chauffeur-service-dallas/', [ServiceController::class, 'ChauffeurService'])->name('chauffeur_service');
+    Route::get('/private-car-service-in-dallas/', [ServiceController::class, 'PrivateCarService'])->name('private_car_service');
     Route::get('/city-to-city-rides/', [ServiceController::class, 'CityToCityRides'])->name('city_to_city_rides');
     Route::get('/dfw-limo-service/', [ServiceController::class, 'DfwLimoService'])->name('dfw_limo_service');
+    Route::get('/private-aviation-dallas/', [ServiceController::class, 'PrivateAviation'])->name('private_aviation');
 });
 
 Route::prefix('airport')->group(function(){

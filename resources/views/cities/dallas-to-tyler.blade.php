@@ -337,7 +337,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                             extensive knowledge of the Dallas–Tyler route.
                         </li>
                         <li>
-                            <strong>Direct Transfers: </strong>Non-stop, <a href="/services/dallas-airport-transfers/" class="internal-links">door-to-door
+                            <strong>Direct Transfers: </strong>Non-stop, <a href="/services/airport-transfer-dallas/" class="internal-links">door-to-door
                                 service</a> without the hassle of shuttles or multiple stops.
                         </li>
                         <li>

@@ -1,525 +1,247 @@
 @extends('master')
+
 @section('content')
-@php
-$isHourly = session('service_type') === 'hourlyHire';
-@endphp
-<meta name="csrf-token" content="{{ csrf_token() }}">
-<meta name="point-to-point-url" content="{{ url('/booking/point-to-point') }}">
-@if(!session('pickup_location') && !session('dropoff_location'))
-@include('partials.banner', ['title' => "Our Fleet"])
-@endif
-<div class="bottom-banner" style="{{ session('pickup_location') && session('dropoff_location') ? 'background-image: none' : '' }}">
-    <div class="row">
-        <div class="col-sm-12 back-container">
-            <div class="container">
-                <div class="row justify-content-end">
-                    <div class="col-sm-7 bottom-banner-inside banner-hidden-mobile" bis_skin_checked="1" id="hide_on_map" style="padding-top: 65px; {{ session('pickup_location') && session('dropoff_location') ? 'display: none' : '' }}">
-                        <div class="bottom-banner-text" bis_skin_checked="1">
-                            <h1>Dallas Fleet – Comfort Meets Class</h1>
-                            <p>
-                                Luxury Vehicles for Every Occasion. First-Class Comfort on Every
-                                Mile.
-                            </p>
-                            <p class="bt-text">24/7 Service Available, Click to Call Now!</p>
-                            <div class="bottom-banner-btn" bis_skin_checked="1">
-                                <a class="call-phonea hover-up d-inline-block mb-20" href="tel:+12148978056" bis_skin_checked="1">Call: 214-897-8056</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5 col-12 p-0 booking_card_container">
-                        @include('partials.search_form')
-                    </div>
-                </div>
-
-                <!-- Map to display after form input -->
+    <section class="home-banner-section">
+        <div id="hero-banner-container" class="py-60 ah-container position-relative py-sm-70 py-md-80 py-lg-100"
+             style="z-index: 2; background-image: url('{{ asset('new_assets/assets/banner-4.jpg') }}');">
+            <!-- Map Container (Initially hidden, shows up when location is selected) -->
+            <div id="map" class="position-absolute w-100 h-100" style="top:0; left:0; z-index: 1; display:none;">
             </div>
-        </div>
 
-        <div id="map" style="height: 100%; width: 100%; display: none; border-radius: 15px; overflow: hidden; left:0;z-index: 9 !important; top:0">
-            <div class="map-overlay"></div>
-        </div>
-
-        <div id="route-info-box" style="
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      background: white;
-      color: black;
-      padding: 12px 16px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      font-size: 14px;
-      z-index: 999;
-      display: none;">
-            <div><strong>Distance:</strong> <span id="route-distance">-</span></div>
-            <div><strong>Duration:</strong> <span id="route-duration">-</span></div>
-        </div>
-    </div>
-</div>
-<div class="hero-mobile">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="bottom-banner-text" bis_skin_checked="1">
-                    <h2>Dallas Fleet – Comfort Meets Class</h2>
-                    <p>
-                        Luxury Vehicles for Every Occasion. First-Class Comfort on Every
-                        Mile.
-                    </p>
-                    <p class="bt-text">24/7 Service – Call Now</p>
-                    <div class="bottom-banner-btn" bis_skin_checked="1">
-                        <a class="call-phonea hover-up d-inline-block mb-20" href="tel:+12148978056" bis_skin_checked="1">Call: 214-897-8056</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<section class="container-fluid ait fleet-footer-x">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <div class="btom bottom-fleet-tx">
-                    <h3>Ride in the Best. Arrive in Style <br />Black Car Service</h3>
-                    <p>
-                        At Dallas Limo And Black Cars Service, we offer a carefully curated
-                        fleet of late-model luxury vehicles designed to provide maximum
-                        comfort, safety, and sophistication. Whether you’re heading to
-                        <a
-                            href="/airport/car-service-dallas-fort-worth-international-airport/"
-                            class="internal-links">DFW Airport</a>, planning a corporate event in Frisco, or traveling from
-                        <a
-                            href="/city-to-city-ride/dallas-to-austin/"
-                            class="internal-links">Dallas to Austin</a>, our fleet delivers elegance on demand.
+            <div class="row" style="pointer-events: none;">
+                <div id="home-text-content" class="col-12 col-md-6 d-flex flex-column justify-content-center" style="pointer-events: auto; position: relative; z-index: 0;">
+                    <h1 class="text-white h1 fw-bold mb-15">Black Car Service Dallas</h1>
+                    <p class="text-white font-lg fw-medium mb-30">Lorem Ipsum is simply dummy text of the printing
+                        and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since
+                        the 1500s, when an unknown printer tooks,</p>
+                    <span class="text-white font-base">24/7 Service Available – <strong class="font-lg fw-semibold">Click to Call
+                            Now</strong></span>
+                    <p class="text-white font-base d-flex align-items-center mb-30 mb-md-0">
+                        Call: <a href="tel:+12148978056" class="mx-2 fw-bold font-lg theme-color">+1
+                            214-897-8056</a>
                     </p>
                 </div>
+                <div class="col-12 col-md-6" style="pointer-events: auto; position: relative; z-index: 2;">
+                    <!-- Booking Form -->
+                    <div class="search-form-wrapper-desktop">
+                        @include('partials.search')
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="container tabs">
+    </section>
+    <section class="fleet-section py-50 py-sm-60 py-md-70 py-lg-80">
+        <div class="ah-container">
+            <div class="row justify-content-center">
+                <div class="text-center col-12 col-xl-10">
+                    <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30">Our Premium Fleet – Ride in Comfort and Style
+                        with <span class="theme-color fw-bold">Dallas Limo and Black Cars Service</span></h2>
+                </div>
+                <div class="col-12 mb-15">
+                    <p class="font-base">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                        unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+                        survived not only five centuries, but also the leap into electronic typesetting, remaining
+                        essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+                        containing Lorem Ipsum passages, and more recently.</p>
+                </div>
+            </div>
             <div class="row">
-                <div class="col-md-12">
-                    <ul class="list-inline tab-list col-md-12">
-                        <li id="select-1" class="active fleet-btn">
-                            <h3>Business sedan</h3>
+                <div class="col-12">
+                    <ul class="list-unstyled">
+                        <li>
+                            <strong class="mb-2 font-lg gray-700 fw-bold d-block">Luxury Sedans:</strong>
+                            <p class="font-base">Pick from the Cadillac CT6, Volvo S90, or Mercedes-Benz S-Class for
+                                effortless driving to the DFW airport, meetings, or any other special event.</p>
                         </li>
-
-                        <li id="select-2" class="fleet-btn">
-                            <h3>Luxury SUV</h3>
+                        <li>
+                            <strong class="mb-2 font-lg gray-700 fw-bold d-block">Black SUVs:</strong>
+                            <p class="font-base">Our Cadillac Escalade, Chevy Suburban, and GMC Yukon XL provide
+                                spacious, stylish transportation for groups, corporate travelers, or extra luggage.
+                            </p>
                         </li>
-
-                        <li id="select-3" class="fleet-btn">
-                            <h3>Business SUV</h3>
+                        <li>
+                            <strong class="mb-2 font-lg gray-700 fw-bold d-block">Executive Sprinter Vans:</strong>
+                            <p class="font-base"> Ideal for large gatherings such as meetings and weddings events,
+                                our
+                                Mercedes-Benz Sprinter Vans offer ample storage as well as comfortable and spacious
+                                seating.</p>
                         </li>
-                        <li id="select-4" class="fleet-btn">
-                            <h3>Executive Sprinter</h3>
+                        <li>
+                            <strong class="mb-2 font-lg gray-700 fw-bold d-block">Mini Bus Luxury Bus (23-27
+                                Passengers):</strong>
+                            <p class="font-base">Confortable seating & Wi-Fi make our Luxury Mini Buses best for
+                                smaller groups, corporate meeting, or <a class="fw-semibold" href="">airport
+                                    transfers</a>. Comfortably seats 23-27 passengers.</p>
                         </li>
-                        <li id="select-5" class="fleet-btn">
-                            <h3>Mini Buses</h3>
+                        <li>
+                            <strong class="mb-2 font-lg gray-700 fw-bold d-block">Mini Bus (31-38
+                                Passengers):</strong>
+                            <p class="font-base"> Ideal for large gatherings such as meetings and weddings events,
+                                our
+                                Mercedes-Benz Sprinter Vans offer ample storage as well as comfortable and spacious
+                                seating.</p>
                         </li>
                     </ul>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="img-holder">
+                        <img src="{{ asset('new_assets/assets/fleet-img.webp') }}" alt="Fleet Image" class="img-fluid">
+                    </div>
+                </div>
+                <div class="text-center col-12 pt-15">
+                    <a href="#" class="btn btn-primary">Quick Quote </a>
+                </div>
+            </div>
         </div>
-
+    </section>
+    <section class="detail-content-section bg-gray py-50 py-sm-60 py-md-70 py-lg-80">
         <div class="container">
-            <div class="tabs-content bar-chart active" id="content-select-1">
-                <div class="tab-header col-md-12 text-center">
-                    <img src="/image/business-sedan.webp" alt="busines sedan" />
-                    <p>
-                        <strong>Perfect for:</strong> Business travelers, airport
-                        transfers, solo executive rides.
-                    </p>
-
-                    <ul>
-                        <li>
-                            <strong>Models:</strong> Cadillac CT6, Mercedes-Benz S-Class,
-                            Audi A8 L.
-                        </li>
-                        <li><strong>Seating:</strong> Up to 3 passengers.</li>
-                        <li>
-                            <strong>Amenities:</strong> Leather interior, climate control,
-                            USB charging, tinted windows.
-                        </li>
-                    </ul>
-                    <a href="/book-now/">Book Now</a>
+            <div class="row justify-content-center">
+                <div class="mb-20 text-center col-12 col-lg-11 col-xl-10 mb-md-30 mb-lg-40">
+                    <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30">Why Choose Us for <span
+                            class="theme-color">Black Car Service</span></h2>
+                    <p class="font-base">Traveling to or from the airport should be safe & stress-free. We make sure
+                        your journey is smooth, whether you’re catching an early flight or arriving late at night.
+                        Our goal is to give you comfort, reliability & peace of mind every time.</p>
                 </div>
             </div>
-        </div>
-
-        <div class="container">
-            <div class="tabs-content bar-chart" id="content-select-2">
-                <div class="tab-header col-md-12 text-center">
-                    <img src="/image/luxury-suv.webp" alt="luxury suv" />
-                    <p>
-                        <strong>Perfect for:</strong> Families, groups with luggage,
-                        casual business travel.
-                    </p>
-
-                    <ul>
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6">
+                    <ul class="pl-0 custom-unorder-list">
                         <li>
-                            <strong>Models:</strong> Chevrolet Suburban, GMC Yukon XL.
-                        </li>
-                        <li><strong>Seating:</strong> Up to 6 passengers.</li>
-                        <li>
-                            <strong>Use Cases:</strong> DFW Airport transfers, FBO
-                            pickups, weekend getaways.
+                            <p class="mb-0"><b>Friendly, Professional Greeters:</b> Courteous staff ready to assist
+                                with every detail.</p>
                         </li>
                         <li>
-                            <strong>Features:</strong> Spacious interiors, rear climate
-                            zones, ample luggage room.
+                            <p class="mb-0"><b>Seamless Meet and Greet:</b> We wait for you at the gate or arrival
+                                hall with clear signage.</p>
+                        </li>
+                        <li>
+                            <p class="mb-0"><b>Luggage Assistance:</b> Helping you handle bags with ease from
+                                arrival to car pickup.</p>
+                        </li>
+                        <li>
+                            <p class="mb-0"><b>Fast-Track Guidance:</b> Support with check-in, security & boarding
+                                for quicker flow.</p>
+                        </li>
+                        <li>
+                            <p class="mb-0"><b>24/7 Availability:</b> No matter the time, we’re ready to welcome
+                                you.</p>
+                        </li>
+                        <li>
+                            <p class="mb-0"><b>Trusted by Families and VIPs:</b> Perfect for first-time flyers,
+                                elderly travelers, & executives.</p>
+                        </li>
+                        <li>
+                            <p class="mb-0"><b>Stress-Free Experience:</b> We take care of details so you can relax
+                                & enjoy the journey.</p>
                         </li>
                     </ul>
-                    <a href="/book-now/">Book Now</a>
+                </div>
+                <div class="col-12 col-md-6 h-100">
+                    <div class="img-holder ms-md-auto">
+                        <img src="{{ asset('new_assets/assets/image-02.png') }}" class="img-fluid" alt="">
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="container">
-            <div class="tabs-content bar-chart" id="content-select-3">
-                <div class="tab-header col-md-12 text-center">
-                    <img src="/image/business-suv.webp" alt="business suv" />
-                    <p>
-                        <strong>Perfect for:</strong> VIPs, corporate executives,
-                        red-carpet occasions.
-                    </p>
-
-                    <ul>
-                        <li>
-                            <strong>Models:</strong> Cadillac Escalade ESV, Lincoln
-                            Navigator L.
-                        </li>
-                        <li><strong>Seating:</strong> Up to 6 passengers</li>
-                        <li>
-                            <strong>Use Cases:</strong> Black-tie events, board meetings,
-                            high-level transportation
-                        </li>
-                        <li>
-                            <strong>Features:</strong> Premium leather, ambient lighting,
-                            extended legroom, premium ride quality.
-                        </li>
-                    </ul>
-                    <a href="/book-now/">Book Now</a>
+    </section>
+    <section class="where-we-serve-section bg-gray pt-50 pb-25 pt-sm-60 pb-sm-35 pt-md-70 pb-md-45 pt-lg-80 pb-lg-50">
+        <div class="ah-container">
+            <div class="row justify-content-center">
+                <div class="text-center col-12 col-lg-11 col-xl-10 mb-25 mb-md-30 mb-lg-40">
+                    <h2 class="h2 fw-bold mb-15 mb-lg-20">Where we serve</h2>
+                    <p class="font-base">Providing chauffeur services across the Dallas-Fort Worth Metroplex with
+                        access to:</p>
                 </div>
             </div>
-        </div>
-
-        <div class="container">
-            <div class="tabs-content bar-chart" id="content-select-4">
-                <div class="tab-header col-md-12 text-center">
-                    <img src="/image/luxury-sprinter.webp" alt="luxury sprinter" />
-
-                    <p>
-                        <strong>Perfect for:</strong> Group transportation, corporate
-                        shuttles, wedding parties.
-                    </p>
-
-                    <p><strong>Configurations:</strong></p>
-                    <ul>
-                        <li>Executive Style (up to 8 passengers).</li>
-                        <li>VIP Style (captain chairs + table, 7–8 passengers).</li>
-                        <li>Shuttle Style (up to 13 passengers).</li>
-                        <li>
-                            <strong>Features:</strong> Privacy shades, surround sound,
-                            wood flooring, high roof.
-                        </li>
-                    </ul>
-
-                    <a href="/book-now/">Book Now</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="tabs-content bar-chart" id="content-select-5">
-                <div class="tab-header col-md-12 text-center">
-                    <img src="/image/mini-bus.webp" alt="executive sprinter" />
-                    <p>
-                        <strong>Perfect for:</strong> Conferences, sporting events,
-                        employee group transport.
-                    </p>
-
-                    <p><strong>Sizes Available:</strong></p>
-
-                    <ul>
-                        <li>
-                            23–27 passenger (luxury leather, overhead storage, Wi-Fi).
-                        </li>
-                        <li>
-                            31–38 passenger (high capacity, group coordination, rear
-                            luggage storage).
-                        </li>
-                        <li>
-                            <strong>Amenities:</strong> PA system, interior lighting,
-                            premium seating.
-                        </li>
-                    </ul>
-
-                    <a href="/book-now/">Book Now</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="about-uss">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="pt-chauffeur-1">
-                    <img
-                        src="/image/affordable-luxury-dfw-car-service-to-airport.webp"
-                        alt="Premier Black Car Service"
-                        width="403"
-                        height="233" />
-                </div>
-            </div>
-
-            <div class="col-md-8">
-                <div class="pt-section-title-box">
-                    <h2 class="pt-section-titles">
-                        Why Our Clients Choose Our Fleet
-                    </h2>
-                    <ul>
-                        <li>
-                            <a
-                                href="/services/chauffeur-service-dallas-texas/"
-                                class="internal-links">Professional Chauffeurs</a>
-                            (background-checked & trained)
-                        </li>
-                        <li>Real-Time Flight & Traffic Tracking</li>
-                        <li>24/7 Availability Across DFW & North Texas</li>
-                        <li>Fleet Maintained to Executive Standards</li>
-                        <li>Fully Licensed, Insured & GPS-Monitored</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="about-us testimonials-sec">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 testimonials-sec">
-                <div class="pt-section-title-box">
-                    <h5 class="pt-section-title text-center">
-                        What Our Corporate Clients and Executive Assistants Are Saying
-                    </h5>
-
-                    <div class="button-prevs text-right">
-                        <div class="row">
-                            <div class="col-md-8"></div>
-
-                            <div class="col-md-4 testi">
-                                <button class="prev">
-                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                                </button>
-                                <button class="next">
-                                    <i class="fa fa-arrow-right"></i>
-                                </button>
-                            </div>
+            <div class="row">
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
+                    <article class="we-serve-item custom-card mb-30 mb-md-35">
+                        <div class="img-holder">
+                            <img src="{{ asset('new_assets/assets/image-05.jpg') }}" alt="" class="img-fluid">
                         </div>
-                    </div>
-
-                    <div class="banner-slids">
-                        <div class="tns-outer tns-ovh">
-                            <button data-action="stop" type="button">
-                                <span class="tns-visually-hidden">stop animation</span>stop
-                            </button>
-                            <div class="tns-inner" id="tns1-iw">
-                                <div
-                                    class="slider tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal"
-                                    id="tns1"
-                                    style="
-                        transform: translateX(-28%);
-                        transition-duration: 0.3s;
-                      ">
-                                    <div
-                                        class="slide tns-item"
-                                        aria-hidden="true"
-                                        tabindex="-1">
-                                        <div class="slide__item">
-                                            <p>
-                                                The Cadillac Escalade was spotless, roomy, and ideal
-                                                for our Love Field pickup. Our executive was beyond
-                                                impressed.
-                                            </p>
-                                            <p>
-                                                <bold>— Janet B.</bold> Uptown Dallas
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        class="slide tns-item"
-                                        aria-hidden="true"
-                                        tabindex="-1">
-                                        <div class="slide__item">
-                                            <p>
-                                                Our law firm used their Mercedes VIP Sprinter to
-                                                visit three corporate sites in Plano and Frisco. The
-                                                captain chairs and onboard Wi-Fi were exactly what
-                                                we needed.
-                                            </p>
-                                            <p>
-                                                <bold>— Mark T.</bold> Plano, TX
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        class="slide tns-item"
-                                        aria-hidden="true"
-                                        tabindex="-1">
-                                        <div class="slide__item">
-                                            <p>
-                                                We reserved a 38-passenger mini bus for a group
-                                                event at AT&T Stadium. Everyone was comfortable and
-                                                on time, and the ride was smooth and professional.
-                                            </p>
-                                            <p>
-                                                <bold>— Allison R.</bold> Arlington, TX
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="text-detail">
+                            <h3 class="mb-10 h4 fw-semibold">Cities & Regional Communities</h3>
+                            <p class="mb-0 font-base">We proudly serve major cities like Dallas and Fort Worth, along with
+                                Plano, Frisco, McKinney, and Allen. Our network also extends to Southlake.</p>
                         </div>
-                    </div>
+                    </article>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
+                    <article class="we-serve-item custom-card mb-30 mb-md-35">
+                        <div class="img-holder">
+                            <img src="{{ asset('new_assets/assets/image-06.jpg') }}" alt="" class="img-fluid">
+                        </div>
+                        <div class="text-detail">
+                            <h3 class="mb-10 h4 fw-semibold">Airports & Aviation Access</h3>
+                            <p class="mb-0 font-base">DFW International Airport, Dallas Love Field, Addison Airport, McKinney National Airport, Fort Worth Alliance Airport, and VIP FBO Terminals.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
+                    <article class="we-serve-item custom-card mb-30 mb-md-35">
+                        <div class="img-holder">
+                            <img src="{{ asset('new_assets/assets/image-07.jpg') }}" alt="" class="img-fluid">
+                        </div>
+                        <div class="text-detail">
+                            <h3 class="mb-10 h4 fw-semibold">Corporate & Lifestyle Zones</h3>
+                            <p class="mb-0 font-base">Legacy West (Plano), The Star (Frisco), Downtown Dallas, Las Colinas (Irving), Dallas Arts District, and Preston Hollow.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
+                    <article class="we-serve-item custom-card mb-30 mb-md-35">
+                        <div class="img-holder">
+                            <img src="{{ asset('new_assets/assets/image-08.jpg') }}" alt="" class="img-fluid">
+                        </div>
+                        <div class="text-detail">
+                            <h3 class="mb-10 h4 fw-semibold">Sports & Entertainment Venues</h3>
+                            <p class="mb-0 font-base">AT&T Stadium, Globe Life Field, American Airlines Center, Toyota Stadium, PGA Frisco, and Toyota Music Factory.</p>
+                        </div>
+                    </article>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
-<div class="wrapper">
-    <div class="container">
-        <h3 class="text-center">Frequently asked questions</h3>
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="container">
-                    <div class="question">
-                        What areas do you serve with your fleet?
-                    </div>
-                    <div class="answercont">
-                        <div class="answer">
-                            We serve all of Dallas–Fort Worth, including Frisco, Plano,
-                            Irving, Arlington, and airport transfers from DFW
-                            International, Dallas Love Field, and private FBOs like
-                            Signature Aviation and Million Air.
-                        </div>
-                    </div>
+    </section>
+    <section class="pt-50 pb-25 pt-sm-60 pb-sm-35 pt-md-70 pb-md-40">
+        <div class="ah-container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30 d-flex">
+                    <article class="custom-card d-flex flex-column w-100">
+                        <span class="mb-20 icon-holder">
+                            <img src="{{ asset('new_assets/assets/icon-03.svg') }}" alt="Booking" class="img-fluid">
+                        </span>
+                        <h3 class="h3 fw-semibold">Book Online or Call</h3>
+                        <p class="font-lg">Use our form or call to schedule your ride.</p>
+                    </article>
                 </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="container">
-                    <div class="question">
-                        Which fleet vehicle is best for airport transfers?
-                    </div>
-                    <div class="answercont">
-                        <div class="answer">
-                            For DFW Airport or Love Field pickups, our Executive Sedans
-                            and Premier SUVs (like Suburban or Yukon XL) are most popular
-                            for 1–4 passengers with luggage. For groups, a Sprinter Van or
-                            Mini Bus may be more suitable.
-                        </div>
-                    </div>
+                <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30 d-flex">
+                    <article class="custom-card d-flex flex-column w-100">
+                        <span class="mb-20 icon-holder">
+                            <img src="{{ asset('new_assets/assets/icon-02.svg') }}" alt="Confirmation" class="img-fluid">
+                        </span>
+                        <h3 class="h3 fw-semibold">Get Instant Confirmation</h3>
+                        <p class="font-lg">Receive driver and trip details via text or email.</p>
+                    </article>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30 d-flex">
+                    <article class="custom-card d-flex flex-column w-100">
+                        <span class="mb-20 icon-holder">
+                            <img src="{{ asset('new_assets/assets/icon-01.svg') }}" alt="Driver" class="img-fluid">
+                        </span>
+                        <h3 class="h3 fw-semibold">Meet Your Chauffeur</h3>
+                        <p class="font-lg">On-time, professional, and ready to assist.</p>
+                    </article>
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="container">
-                    <div class="question">
-                        Can I use your vehicles for out-of-town or long-distance rides?
-                    </div>
-                    <div class="answercont">
-                        <div class="answer">
-                            Yes. Our entire fleet is available for city-to-city travel
-                            across Texas, including popular routes like Dallas to Austin,
-                            Dallas to Houston, and overnight stays.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="container">
-                    <div class="question">
-                        Are Sprinters or buses available for corporate or group events?
-                    </div>
-                    <div class="answercont">
-                        <div class="answer">
-                            Absolutely. We offer Mercedes Sprinter Vans for 7–13
-                            passengers and Mini Buses for up to 38 guests. These are
-                            perfect for meetings, conferences, and team-building retreats
-                            in Plano, Downtown Dallas, and event centers.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="container">
-                    <div class="question">How clean and safe are the vehicles?</div>
-                    <div class="answercont">
-                        <div class="answer">
-                            Every vehicle is professionally detailed daily and inspected
-                            before every trip. Our fleet meets all luxury car service
-                            standards and is fully insured and licensed in Texas.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="container">
-                    <div class="question">
-                        Can I request specific vehicles like an Escalade or Sprinter
-                        VIP?
-                    </div>
-                    <div class="answercont">
-                        <div class="answer">
-                            Yes. While fleet availability depends on demand, we do accept
-                            vehicle-specific requests—especially for Cadillac Escalade,
-                            Lincoln Navigator, and our VIP Sprinter Van with captain
-                            chairs and table.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-@include('partials.faq_section')
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1">
-            </div>
-
-            <div class="col-md-10">
-                <h3><span class="main-color">Make Every Mile </span><br>First-Class</h3>
-                <a href="/fifa-world-cup-2026-car-service-dallas/" class="bottom-cta-vtb-c">Reserve Your Black Car Today</a>
-            </div>
-            <div class="col-md-1">
-            </div>
-
-
-        </div>
-    </div>
-</div>
-@section('body-scripts')
-<script src="{{ asset('js/industrie-custom.js') }}"></script>
-<script src="{{ asset('js/custom.js') }}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUqn8Dg3GICSzhyvw7DjXXHkyoGMCoTpM&libraries=places&loading=async&callback=initAutocomplete" async defer></script>
-@endsection
+    </section>
+    @include('partials.top-cities')
+    @include('partials.companies_strip')
+    @include('partials.testimonials')
+    @include('partials.faq')
 @endsection

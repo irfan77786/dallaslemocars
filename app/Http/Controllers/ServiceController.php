@@ -13,7 +13,7 @@ class ServiceController extends Controller
             session()->flush();
             $request->session()->regenerateToken();
         }
-        
+
         $seo = [
             'title' => 'Airport Transfer Service | Reliable Transfers to DFW and Love Field',
             'description' => 'Professional airport transfer service in Dallas. On-time pickups, meet & greet, and comfortable rides to/from all major airports. Book your transfer now!',
@@ -22,8 +22,8 @@ class ServiceController extends Controller
             'og_description' => 'Professional airport transfer service in Dallas. On-time pickups, meet & greet, and comfortable rides to/from all major airports.',
             'og_image' => asset('img/dallas-airport-transfers-banner.jpg')
         ];
-        
-        return view('services.dallas-airport-transfers', [
+
+        return view('services.airport-transfer-dallas', [
             'backgroundImage' => '/img/dallas-airport-transfers-banner.jpg',
             'mobileImage' => '/img/dallas-airport-transfers-banner.jpg',
             'seo' => $seo
@@ -37,7 +37,7 @@ class ServiceController extends Controller
             session()->flush();
             $request->session()->regenerateToken();
         }
-        
+
         $seo = [
             'title' => 'Dallas Airport Greeters – Smooth, Fast, and Personalized Service',
             'description' => 'Make your arrival or departure effortless with our dedicated airport greeter service. From assisting with luggage to guiding you through DFW or Love Field, our courteous team ensures a smooth & stress-free journey. Enjoy personalized attention, comfort, & efficiency. Book your “Dallas airport greeter” today for a welcoming, hassle-free travel experience.',
@@ -46,7 +46,7 @@ class ServiceController extends Controller
             'og_description' => 'Make your arrival or departure effortless with our dedicated airport greeter service. From assisting with luggage to guiding you through DFW or Love Field, our courteous team ensures a smooth & stress-free journey. Enjoy personalized attention, comfort, & efficiency. Book your “Dallas airport greeter” today for a welcoming, hassle-free travel experience.',
             'og_image' => asset('img/dallas-airport-greeters-banner.jpg')
         ];
-        
+
         return view('services.dallas-airport-greeters', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
             'mobileImage' => 'img/black-car-service-dallas.webp',
@@ -61,7 +61,7 @@ class ServiceController extends Controller
             session()->flush();
             $request->session()->regenerateToken();
         }
-        
+
         $seo = [
             'title' => 'Dallas Corporate Transportation – Executive Car Service for Business Travel',
             'description' => 'Arrive in style & on time with our premium corporate transportation services. We offer luxury sedans, SUVs, & executive vehicles tailored for business travel, meetings, & events across Dallas. With professional chauffeurs, punctual pickups, & complete comfort, we make every journey seamless. Book your Dallas corporate transportation today for reliable, first-class service.',
@@ -70,7 +70,7 @@ class ServiceController extends Controller
             'og_description' => 'Elevate your business travel with our Dallas Corporate Transportation services. Offering luxury sedans, SUVs, and executive vehicles with professional chauffeurs for seamless meetings, events, and airport transfers.',
             'og_image' => asset('img/black-car-service-dallas.webp')
         ];
-        
+
         return view('services.dallas-corporate-transportation', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
             'mobileImage' => 'img/black-car-service-dallas.webp',
@@ -85,7 +85,7 @@ class ServiceController extends Controller
             session()->flush();
             $request->session()->regenerateToken();
         }
-        
+
         $seo = [
             'title' => 'Executive Shuttle Dallas TX | Group & Event Transport',
             'description' => 'Reliable and comfortable executive shuttle services in Dallas, Texas. Ideal for corporate events, conferences, and group travel. Book your shuttle today.',
@@ -94,7 +94,7 @@ class ServiceController extends Controller
             'og_description' => 'Reliable and comfortable executive shuttle services in Dallas, Texas. Ideal for corporate events, conferences, and group travel. Book your shuttle today.',
             'og_image' => asset('img/black-car-service-dallas.webp')
         ];
-        
+
         return view('services.executive-shuttle-services-dallas-texas', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
             'mobileImage' => 'img/black-car-service-dallas.webp',
@@ -109,7 +109,7 @@ class ServiceController extends Controller
             session()->flush();
             $request->session()->regenerateToken();
         }
-        
+
         $seo = [
             'title' => 'Luxury Van Rental Dallas, TX – Premium Group Transportation',
             'description' => 'Experience comfort and style with our luxury van rentals in Dallas, Texas. Ideal for family trips, corporate outings, and group events. Book your ride today.',
@@ -118,7 +118,7 @@ class ServiceController extends Controller
             'og_description' => 'Experience comfort and style with our luxury van rentals in Dallas, Texas. Ideal for family trips, corporate outings, and group events. Book your ride today.',
             'og_image' => asset('img/black-car-service-dallas.webp')
         ];
-        
+
         return view('services.luxury-van-rental-dallas-texas', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
             'mobileImage' => 'img/black-car-service-dallas.webp',
@@ -133,7 +133,7 @@ class ServiceController extends Controller
             session()->flush();
             $request->session()->regenerateToken();
         }
-        
+
         $seo = [
             'title' => 'Chauffeur Service Dallas TX | Luxury Car for Business & Leisure',
             'description' => 'Experience premium chauffeur services in Dallas, Texas. Whether for business meetings, airport transfers, or special events, our professional drivers ensure timely and comfortable transportation in luxury vehicles.',
@@ -142,7 +142,7 @@ class ServiceController extends Controller
             'og_description' => 'Experience premium chauffeur services in Dallas, Texas. Whether for business meetings, airport transfers, or special events, our professional drivers ensure timely and comfortable transportation in luxury vehicles.',
             'og_image' => asset('img/black-car-service-dallas.webp')
         ];
-        
+
         return view('services.chauffeur-service-dallas-texas', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
             'mobileImage' => 'img/black-car-service-dallas.webp',
@@ -157,7 +157,7 @@ class ServiceController extends Controller
             session()->flush();
             $request->session()->regenerateToken();
         }
-        
+
         $seo = [
             'title' => 'Private Car Service Dallas, Texas – Luxury Chauffeured Transportation',
             'description' => 'Experience top-tier private car service in Dallas, Texas. Our luxury sedans, SUVs, and executive vehicles offer 24/7 reliable transportation for business, leisure, and special events. Book now for a seamless travel experience.',
@@ -166,7 +166,7 @@ class ServiceController extends Controller
             'og_description' => 'Experience top-tier private car service in Dallas, Texas. Our luxury sedans, SUVs, and executive vehicles offer 24/7 reliable transportation for business, leisure, and special events. Book now for a seamless travel experience.',
             'og_image' => asset('img/black-car-service-dallas.webp')
         ];
-        
+
         return view('services.private-car-service-in-dallas-texas', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
             'mobileImage' => 'img/black-car-service-dallas.webp',
@@ -181,7 +181,7 @@ class ServiceController extends Controller
             session()->flush();
             $request->session()->regenerateToken();
         }
-        
+
         $seo = [
             'title' => 'City-to-City Car Service Dallas | Luxury Travel Texas',
             'description' => 'Book our City-to-City Car Service Dallas for luxury travel to Fort Worth, Austin, Houston & more. Professional chauffeurs, sedans & SUVs. Reserve your ride today!',
@@ -190,7 +190,7 @@ class ServiceController extends Controller
             'og_description' => 'Book our City-to-City Car Service Dallas for luxury travel to Fort Worth, Austin, Houston & more. Professional chauffeurs, sedans & SUVs. Reserve your ride today!',
             'og_image' => asset('img/black-car-service-dallas.webp')
         ];
-        
+
         return view('services.city-to-city-rides', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
             'mobileImage' => 'img/black-car-service-dallas.webp',
@@ -205,7 +205,7 @@ class ServiceController extends Controller
             session()->flush();
             $request->session()->regenerateToken();
         }
-        
+
         $seo = [
             'title' => 'DFW Limo Service – Luxury Airport Transfers in Dallas and Fort Worth',
             'description' => 'Experience premium DFW limo service with luxury sedans, SUVs, and minibuses. Ideal for airport transfers, business trips, weddings, and events. Book your ride today!',
@@ -214,8 +214,32 @@ class ServiceController extends Controller
             'og_description' => 'Experience premium DFW limo service with luxury sedans, SUVs, and minibuses. Ideal for airport transfers, business trips, weddings, and events. Book your ride today!',
             'og_image' => asset('img/black-car-service-dallas.webp')
         ];
-        
+
         return view('services.dfw-limo-service', [
+            'backgroundImage' => '/img/black-car-service-frisco.webp',
+            'mobileImage' => 'img/black-car-service-dallas.webp',
+            'seo' => $seo
+        ]);
+    }
+
+    public function PrivateAviation(Request $request){
+        if($request->edit){
+            session(['edit'=>1]);
+        }else{
+            session()->flush();
+            $request->session()->regenerateToken();
+        }
+
+        $seo = [
+            'title' => 'Private Aviation Service in Dallas, Texas | Luxury Flight Transportation',
+            'description' => 'Experience top-tier private aviation service in Dallas, Texas. Our professional pilots offer safe, comfortable, and luxurious flight transportation for business, leisure, and special events. Book now for a seamless travel experience.',
+            'keywords' => 'Private aviation service Dallas, luxury aviation service Dallas, chauffeur aviation service Dallas',
+            'og_title' => 'Private Aviation Service in Dallas, Texas | Luxury Flight Transportation',
+            'og_description' => 'Experience top-tier private aviation service in Dallas, Texas. Our professional pilots offer safe, comfortable, and luxurious flight transportation for business, leisure, and special events. Book now for a seamless travel experience.',
+            'og_image' => asset('img/black-car-service-dallas.webp')
+        ];
+
+        return view('services.private-aviation-dallas', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
             'mobileImage' => 'img/black-car-service-dallas.webp',
             'seo' => $seo

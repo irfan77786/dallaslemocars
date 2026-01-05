@@ -351,7 +351,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                         and stress-free. Whether you’re flying for business or leisure,
                         we make sure your
                         <a
-                            href="/services/dallas-airport-transfers/"
+                            href="/services/airport-transfer-dallas/"
                             class="internal-links">airport transfer</a>
                         is smooth, reliable, & comfortable from start to finish.
                     </p>

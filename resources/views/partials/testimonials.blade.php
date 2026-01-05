@@ -1,66 +1,90 @@
-    <!-- happy client testimonial section start -->
-    <section class="testimonial-section bg-overlay section-padding bg-cover parallax" style="background: black">
-        <div class="testimonial-container container">
-            <div class="row">
-                <div class="col-sm-12 col-xl-12 text-center">
-                    <div class="section-title white-color">
-                        <h2>Happy Clients</h2>
-                        <span>Why our clients trust us for their luxury transportation needs in Dallas</span>
+<section class="testimonial-section bg-blue py-50 py-sm-60 py-md-70 py-lg-80">
+<div class="ah-container">
+    <div class="row">
+        <div class="col-12 text-center mb-10 mb-md-20">
+            <h2 class="h2 fw-bold text-white">Testimonials</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="swiper testimonial-slider py-50 py-lg-80 bg-white overflow-hidden">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide px-30 px-sm-50 px-lg-80">
+                        <div class="testimonial-slider-item">
+                            <cite class="name fw-bold mb-2 text-capitalize text-center d-block">Sarah
+                                Thompson</cite>
+                            <span class="location fw-semibold mb-20 font-lg text-center d-block">Dallas,
+                                TX</span>
+                            <blockquote class="mb-30">
+                                <!-- <span class="quote">“</span> -->
+                                <p class="font-lg fw-medium text-center mb-0">
+                                    I booked a Black Car Service Dallas for an important business meeting.
+                                    The
+                                    car was luxurious and quiet, and I could prepare for my presentation
+                                    during
+                                    the ride. Everything was smooth and on time.
+                                </p>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="swiper-slide px-30 px-sm-50 px-lg-80">
+                        <div class="testimonial-slider-item">
+                            <cite class="name fw-bold mb-2 text-capitalize text-center d-block"> Rajiv
+                                Patel</cite>
+                            <span class="location fw-semibold mb-20 font-lg text-center d-block">Fort Worth,
+                                TX</span>
+                            <blockquote class="mb-30">
+                                <p class="font-lg fw-medium text-center mb-0">
+                                    Driver Michael was excellent—friendly, professional, and attentive. He
+                                    drove
+                                    us from DFW Airport to our hotel in Dallas, and the ride was comfortable
+                                    and
+                                    stress-free. I will definitely use this service again.
+                                </p>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="swiper-slide px-30 px-sm-50 px-lg-80">
+                        <div class="testimonial-slider-item">
+                            <cite class="name fw-bold mb-2 text-capitalize text-center d-block">Sarah
+                                Thompson</cite>
+                            <span class="location fw-semibold mb-20 font-lg text-center d-block">Dallas,
+                                TX</span>
+                            <blockquote class="mb-30">
+                                <!-- <span class="quote">“</span> -->
+                                <p class="font-lg fw-medium text-center mb-0">
+                                    I booked a Black Car Service Dallas for an important business meeting.
+                                    The
+                                    car was luxurious and quiet, and I could prepare for my presentation
+                                    during
+                                    the ride. Everything was smooth and on time.
+                                </p>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="swiper-slide px-30 px-sm-50 px-lg-80">
+                        <div class="testimonial-slider-item">
+                            <cite class="name fw-bold mb-2 text-capitalize text-center d-block"> Rajiv
+                                Patel</cite>
+                            <span class="location fw-semibold mb-20 font-lg text-center d-block">Fort Worth,
+                                TX</span>
+                            <blockquote class="mb-30">
+                                <p class="font-lg fw-medium text-center mb-0">
+                                    Driver Michael was excellent—friendly, professional, and attentive. He
+                                    drove
+                                    us from DFW Airport to our hotel in Dallas, and the ride was comfortable
+                                    and
+                                    stress-free. I will definitely use this service again.
+                                </p>
+                            </blockquote>
+                        </div>
                     </div>
                 </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
             </div>
-            <div class="row">
-                <div class="col-md-12 testimonial-carousel owl-carousel">
-                    <div class="single-testimonial text-center">
-                        <div class="testimonials">
-                            <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span>Outstanding service! The driver was early, professional, and the car was immaculate. Made my airport transfer completely stress-free. Will definitely use again for all my business trips to Dallas.</span>
-                        </div>
-                        <div class="client-info">
-                            <h4>Michael R.</h4>
-                            <span>Frequent Business Traveler</span>
-                        </div>
-                    </div> <!-- ./ single testimonail end -->
-                    <div class="single-testimonial text-center">
-                        <div class="testimonials">
-                            <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span>Used their service for a special anniversary dinner. The driver was incredibly courteous and the car was spotless. They even had chilled water and mints waiting. Made our evening extra special!</span>
-                        </div>
-                        <div class="client-info">
-                            <h4>Sarah & James L.</h4>
-                            <span>Local Residents</span>
-                        </div>
-                    </div> <!-- ./ single testimonail end -->
-                    <div class="single-testimonial text-center">
-                        <div class="testimonials">
-                            <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <span>As a CEO who values punctuality, I'm extremely satisfied with their corporate car service. The drivers are always on time, professional, and the vehicles are top-notch. Our clients are always impressed.</span>
-                        </div>
-                        <div class="client-info">
-                            <h4>Alex Johnson</h4>
-                            <span>CEO, TechStart</span>
-                        </div>
-                    </div> <!-- ./ single testimonail end -->
-                </div>
-            </div> <!-- /.col-md-12 testimonial-carousel owl-carousel -->
         </div>
-    </section>
-    <!-- happy client testimonial section end -->
+    </div>
+</div>
+</section>

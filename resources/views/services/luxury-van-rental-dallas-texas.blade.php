@@ -1,525 +1,203 @@
 @extends('master')
 @section('content')
-@php
-$isHourly = session('service_type') === 'hourlyHire';
-@endphp
-<meta name="csrf-token" content="{{ csrf_token() }}">
-<meta name="point-to-point-url" content="{{ url('/booking/point-to-point') }}">
-@if(!session('pickup_location') && !session('dropoff_location'))
-@include('partials.banner', ['title' => "Luxury Van Rental Dallas"])
-@endif
-<div class="bottom-banner" style="{{ session('pickup_location') && session('dropoff_location') ? 'background-image: none' : '' }}">
-    <div class="row">
-        <div class="col-sm-12 back-container">
-            <div class="container">
-                <div class="row justify-content-end">
-                    <div class="col-sm-7 bottom-banner-inside banner-hidden-mobile" bis_skin_checked="1" id="hide_on_map" style="padding-top: 65px; {{ session('pickup_location') && session('dropoff_location') ? 'display: none' : '' }}">
-                        <div class="bottom-banner-text" bis_skin_checked="1">
-                            <h1>Luxury Van Rental Dallas</h1>
-                            <p>
-                                Travel in comfort & style with our premium luxury van rentals.
-                                Ideal for family trips, corporate outings, & group events, our
-                                spacious vans feature modern amenities & professional chauffeurs
-                                for a smooth ride. Enjoy reliable_ service across Dallas &
-                                beyond. Book your Dallas luxury van rental today for
-                                convenience, comfort, & peace of mind.
-                            </p>
-                            <p class="bt-text">24/7 Service Available, Click to Call Now!</p>
-                            <div class="bottom-banner-btn" bis_skin_checked="1">
-                                <a class="call-phonea hover-up d-inline-block mb-20" href="tel:+12148978056" bis_skin_checked="1">Call: 214-897-8056</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5 col-12 p-0 booking_card_container">
-                        @include('partials.search_form')
-                    </div>
-                </div>
-
-                <!-- Map to display after form input -->
+@include('partials.search_form')
+<section class="fleet-section py-50 py-sm-60 py-md-70 py-lg-80">
+    <div class="ah-container">
+        <div class="row justify-content-center">
+            <div class="text-center col-12 col-xl-10">
+                <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30">Our Premium Fleet – Ride in Comfort and Style
+                    with <span class="theme-color fw-bold">Dallas Limo and Black Cars Service</span></h2>
+            </div>
+            <div class="col-12 mb-15">
+                <p class="font-base">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                    unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+                    survived not only five centuries, but also the leap into electronic typesetting, remaining
+                    essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+                    containing Lorem Ipsum passages, and more recently.</p>
             </div>
         </div>
-
-        <div id="map" style="height: 100%; width: 100%; display: none; border-radius: 15px; overflow: hidden; left:0;z-index: 9 !important; top:0">
-            <div class="map-overlay"></div>
-        </div>
-
-        <div id="route-info-box" style="
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      background: white;
-      color: black;
-      padding: 12px 16px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      font-size: 14px;
-      z-index: 999;
-      display: none;">
-            <div><strong>Distance:</strong> <span id="route-distance">-</span></div>
-            <div><strong>Duration:</strong> <span id="route-duration">-</span></div>
-        </div>
-    </div>
-</div>
-<div class="hero-mobile">
-    <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <div class="bottom-banner-text" bis_skin_checked="1">
-                    <h2>Luxury Van Rental Dallas</h2>
-                    <p>
-                        Travel in comfort & style with our premium luxury van rentals.
-                        Ideal for family trips, corporate outings, & group events, our
-                        spacious vans feature modern amenities & professional chauffeurs
-                        for a smooth ride. Enjoy reliable_ service across Dallas &
-                        beyond. Book your Dallas luxury van rental today for
-                        convenience, comfort, & peace of mind.
-                    </p>
-                    <p class="bt-text">24/7 Service – Call Now</p>
-                    <div class="bottom-banner-btn" bis_skin_checked="1">
-                        <a class="call-phonea hover-up d-inline-block mb-20" href="tel:+12148978056" bis_skin_checked="1">Call: 214-897-8056</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<section class="container-fluid ait">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="btom">
-                    <div class="btom-bottom">
-                        <h2>
-                           Dallas Limo And Black Cars Service – Travel in Comfort with Our Vans
-                        </h2>
-                        <p>
-                           Our fleet delivers the perfect blend of luxury and sophistication for <a href="/services/dfw-limo-service/" class="internal-links">Dallas limousine service</a>, ideal for weddings, proms, galas, or executive functions.</>
+            <div class="col-12">
+                <ul class="list-unstyled">
+                    <li>
+                        <strong class="mb-2 font-lg gray-700 fw-bold d-block">Luxury Sedans:</strong>
+                        <p class="font-base">Pick from the Cadillac CT6, Volvo S90, or Mercedes-Benz S-Class for
+                            effortless driving to the DFW airport, meetings, or any other special event.</p>
+                    </li>
+                    <li>
+                        <strong class="mb-2 font-lg gray-700 fw-bold d-block">Black SUVs:</strong>
+                        <p class="font-base">Our Cadillac Escalade, Chevy Suburban, and GMC Yukon XL provide
+                            spacious, stylish transportation for groups, corporate travelers, or extra luggage.
                         </p>
-                    </div>
-
-
-  <p>
-                        <strong class="strong-c-color">Luxury Sedans:</strong> Cadillac CT6, Volvo S90, and Mercedes-Benz S-Class for private limo-style rides.
-                    </p>
-
-
-
-                    <p>
-                        <strong class="strong-c-color">Luxury SUVs:</strong>
-                        Escalade ESV, Suburban, Yukon XL, and Navigator for upscale group travel with luxury finishes.
-                    </p>
-
-                    <p>
-                        <strong class="strong-c-color">Executive Sprinter Vans:</strong>
-                     Mercedes-Benz Sprinters provide a limousine-style experience for larger parties and events.
-                    </p>
-
-                       <p> <strong class="strong-c-color">23–38 Passenger Mini Bus:</strong>
-                     Great for wedding shuttles, concert transportation, or upscale group rides.
-                    </p>
-
-                       <p>
-                        <strong class="strong-c-color">Luxury Motor Coaches (55–60 Passengers):</strong>
-                    The ultimate option for gala events, conventions, or large VIP travel groups. With our Dallas limo service, every ride is styled for elegance and lasting impressions.
-                    </p>
-
-
-
-
-                    <img
-                        src="/img/dallas-black-car-service.webp"
-                        alt="luxury Dallas Limo And Black Cars" />
+                    </li>
+                    <li>
+                        <strong class="mb-2 font-lg gray-700 fw-bold d-block">Executive Sprinter Vans:</strong>
+                        <p class="font-base"> Ideal for large gatherings such as meetings and weddings events,
+                            our
+                            Mercedes-Benz Sprinter Vans offer ample storage as well as comfortable and spacious
+                            seating.</p>
+                    </li>
+                    <li>
+                        <strong class="mb-2 font-lg gray-700 fw-bold d-block">Mini Bus Luxury Bus (23-27
+                            Passengers):</strong>
+                        <p class="font-base">Confortable seating & Wi-Fi make our Luxury Mini Buses best for
+                            smaller groups, corporate meeting, or <a class="fw-semibold" href="">airport
+                                transfers</a>. Comfortably seats 23-27 passengers.</p>
+                    </li>
+                    <li>
+                        <strong class="mb-2 font-lg gray-700 fw-bold d-block">Mini Bus (31-38
+                            Passengers):</strong>
+                        <p class="font-base"> Ideal for large gatherings such as meetings and weddings events,
+                            our
+                            Mercedes-Benz Sprinter Vans offer ample storage as well as comfortable and spacious
+                            seating.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="img-holder">
+                    <img src="{{ asset('new_assets/assets/fleet-img.webp')}}" alt="Fleet Image" class="img-fluid">
                 </div>
-                <div class="btom-btn">
-                    <a style="cursor: pointer;" class="quick-book-link" href="#">Ride in Dallas – Book Now</a>
+            </div>
+            <div class="text-center col-12 pt-15">
+                <a href="#" class="btn btn-primary">Quick Quote </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="detail-content-section bg-gray py-50 py-sm-60 py-md-70 py-lg-80">
+    <div class="ah-container">
+        <div class="row justify-content-center">
+            <div class="mb-20 text-center col-12 col-lg-11 col-xl-10 mb-md-30 mb-lg-40">
+                <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30">Why Choose Us for <span
+                        class="theme-color">Luxury Van Rental</span></h2>
+                <p class="font-base">Traveling to or from the airport should be safe & stress-free. We make sure
+                    your journey is smooth, whether you’re catching an early flight or arriving late at night.
+                    Our goal is to give you comfort, reliability & peace of mind every time.</p>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-12 col-md-6">
+                <ul class="pl-0 custom-unorder-list">
+                    <li>
+                        <p class="mb-0"><b>Friendly, Professional Greeters:</b> Courteous staff ready to assist
+                            with every detail.</p>
+                    </li>
+                    <li>
+                        <p class="mb-0"><b>Seamless Meet and Greet:</b> We wait for you at the gate or arrival
+                            hall with clear signage.</p>
+                    </li>
+                    <li>
+                        <p class="mb-0"><b>Luggage Assistance:</b> Helping you handle bags with ease from
+                            arrival to car pickup.</p>
+                    </li>
+                    <li>
+                        <p class="mb-0"><b>Fast-Track Guidance:</b> Support with check-in, security & boarding
+                            for quicker flow.</p>
+                    </li>
+                    <li>
+                        <p class="mb-0"><b>24/7 Availability:</b> No matter the time, we’re ready to welcome
+                            you.</p>
+                    </li>
+                    <li>
+                        <p class="mb-0"><b>Trusted by Families and VIPs:</b> Perfect for first-time flyers,
+                            elderly travelers, & executives.</p>
+                    </li>
+                    <li>
+                        <p class="mb-0"><b>Stress-Free Experience:</b> We take care of details so you can relax
+                            & enjoy the journey.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 h-100">
+                <div class="img-holder ms-md-auto">
+                    <img src="{{ asset('new_assets/assets/luxury-van-rental.JPG')}}" class="img-fluid" alt="">
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<section class="about-us city-pages">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="pt-section-title-box">
-                    <h5 class="pt-section-title">
-                        Spacious Vans for <span class="main-color">Every Trip</span>
-                    </h5>
-                    <p class="pt-section-description">
-                        Traveling with a big group is easier when everyone stays
-                        together. Our luxury van rental in Dallas is built for comfort,
-                        style & convenience. Wide seating makes every ride easy. Large
-                        luggage space gives room for all bags. Our vans are perfect for
-                        family vacations. They also work for
-                        <a
-                            href="/services/dallas-airport-transfers/"
-                            class="internal-links-w">airport transfers</a>. They fit well for business travel too. We serve Dallas,
-                        Plano, Frisco & nearby areas. We ensure smooth trips to DFW
-                        Airport or
-                        <a
-                            href="/airport/dallas-love-field-black-car-service/"
-                            class="internal-links-w">Love Field Airport</a>. Each van is clean & well-maintained.
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="pt-chauffeur-1">
-                    <img
-                        src="/img/luxury-van-rental-dallas-texas.webp"
-                        width="522"
-                        height="564"
-                        alt="Reliable black car service near Dallas" />
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-
-            <div class="col-md-10">
-                <h5>
-                    <span class="main-color">Going to the airport,</span> a business
-                    meeting, or the big game?
-                </h5>
-
-                <p class="bottom-cta-content">
-                    Your private chauffeur is ready for DFW Airport, Plano business
-                    districts, Legacy West, or AT&amp;T Stadium game days.
-                </p>
-
-                <a style="cursor: pointer;" class="quick-book-link bottom-cta-vtb-c" href="#">Travel in Comfort – Book Now</a>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
-</div>
-
-<section class="about-uss city-pages">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="pt-chauffeur-1">
-                    <img
-                        src="/img/premium-van-rental-dallas-texas.webp"
-                        alt="Chauffeured black car service in Dallas" />
-                </div>
-            </div>
-
-            <div class="col-md-8">
-                <div class="pt-section-title-box">
-                    <h5 class="pt-section-titles">
-                        Comfort & Style on <span class="main-color">the Road</span>
-                    </h5>
-
-                    <p class="pt-section-description">
-                        Group travel does not need to be stressful. Our chauffeured
-                        luxury vans keep rides simple & relaxing. Every van has spacious
-                        interiors. Soft seating makes travel easy. Modern features add
-                        comfort. They are perfect for
-                        <a
-                            href="/services/private-car-service-in-dallas-texas/"
-                            class="internal-links">weddings & corporate events</a>. They fit family tours & nights out in Dallas. A pro driver
-                        comes with every van. The driver is punctual & polite. They know
-                        the best routes in the city. You can sit back & enjoy your time.
-                    </p>
-                    <p class="pt-section-description">
-                        Our vans are good for long trips. They also fit short, stylish
-                        rides. We cover every detail from luggage help to smooth
-                        transfers.
-                        <a style="cursor: pointer;" class="quick-book-link internal-links">Reserve your luxury van now</a>
-                        & travel in style.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-
-            <div class="col-md-10">
-                <img
-                    src="/img/fifa-world-cup-2026-car-service-dallas.jpg"
-                    alt="fifa world cup 2026 car service dallas" />
-
-                <a
-                    href="/fifa-world-cup-2026-car-service-dallas/"
-                    class="bottom-cta-vtb-c">Visit our fifa world cup 2026 page</a>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
-</div>
-
-<div id="bottomServices-defcitiy icon-h-page">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4 text-center">
-                <div class="pz-bottom-servicei">
-                    <span class="serviceImage1">
-                        <img
-                            src="/img/booking.webp"
-                            alt="Online Portal
- " />
+<section class="pt-50 pb-25 pt-sm-60 pb-sm-35 pt-md-70 pb-md-40">
+    <div class="ah-container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30 d-flex">
+                <article class="custom-card d-flex flex-column w-100">
+                    <span class="mb-20 icon-holder">
+                        <img src="{{ asset('new_assets/assets/icon-03.svg')}}" alt="Booking" class="img-fluid">
                     </span>
-
-                    <div class="serviceHeadings">
-                        <h3>Book Online or Call</h3>
-
-                        <p>Use our form or call to schedule your ride.</p>
-                    </div>
-                </div>
+                    <h3 class="h3 fw-semibold">Book Online or Call</h3>
+                    <p class="font-lg">Use our form or call to schedule your ride.</p>
+                </article>
             </div>
-
-            <div class="col-sm-4 text-center">
-                <div class="pz-bottom-servicei">
-                    <span class="serviceImage1">
-                        <img
-                            src="/img/conformation.webp"
-                            alt="Clear-Cut All-Inclusive Pricing
- " />
+            <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30 d-flex">
+                <article class="custom-card d-flex flex-column w-100">
+                    <span class="mb-20 icon-holder">
+                        <img src="{{ asset('new_assets/assets/icon-02.svg')}}" alt="Confirmation" class="img-fluid">
                     </span>
-
-                    <div class="serviceHeadings">
-                        <h3>Get Instant Confirmation</h3>
-
-                        <p>Receive driver and trip details via text or email.</p>
-                    </div>
-                </div>
+                    <h3 class="h3 fw-semibold">Get Instant Confirmation</h3>
+                    <p class="font-lg">Receive driver and trip details via text or email.</p>
+                </article>
             </div>
-
-            <div class="col-sm-4 text-center">
-                <div class="pz-bottom-servicei">
-                    <span class="serviceImage1">
-                        <img
-                            src="/img/chauffeur.webp"
-                            alt="Expert Chauffeurs
- " />
+            <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30 d-flex">
+                <article class="custom-card d-flex flex-column w-100">
+                    <span class="mb-20 icon-holder">
+                        <img src="{{ asset('new_assets/assets/icon-01.svg')}}" alt="Driver" class="img-fluid">
                     </span>
-
-                    <div class="serviceHeadings">
-                        <h3>Meet Your Chauffeur</h3>
-
-                        <p>On-time, professional, and ready to assist</p>
-                    </div>
-                </div>
+                    <h3 class="h3 fw-semibold">Meet Your Chauffeur</h3>
+                    <p class="font-lg">On-time, professional, and ready to assist.</p>
+                </article>
             </div>
         </div>
     </div>
-</div>
-<section class="about-uss city-pages">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="pt-chauffeur-1">
-                    <img
-                        src="/img/executive-luxury-van-dallas-texas.webp"
-                        alt="concerts and sporting events" />
+</section>
+<section class="detail-content-section bg-gray py-50 py-sm-60 py-md-70 py-lg-80">
+    <div class="ah-container">
+        <div class="row justify-content-center">
+            <div class="mb-20 text-center col-12 col-lg-11 col-xl-10 mb-md-30 mb-lg-40">
+                <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30">Why Choose Our <span class="theme-color"> Black
+                        Car Service?</span></h2>
+                <p class="font-base">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+            </div>
+        </div>
+        <div class="py-20 row align-items-center">
+            <div class="col-12 col-md-6 pr-xl-50">
+                <h3 class="h5 fw-semibold">What sets our service apart from others?</h3>
+                <p class="font-base">We focus on well-maintained vehicles and trained drivers for smooth
+                    rides. Every detail, from pickup timing to vehicle comfort, is handled with care. Our
+                    service values <strong>safety and calm travel</strong> for every passenger.</p>
+            </div>
+            <div class="col-12 col-md-6 h-100">
+                <div class="img-holder ms-md-auto">
+                    <img src="{{ asset('new_assets/assets/image-01.png')}}" class="img-fluid" alt="">
                 </div>
             </div>
-
-            <div class="col-md-8">
-                <div class="pt-section-title-box">
-                    <h5 class="pt-section-titles">
-                        Why Choose Us for
-                        <span class="main-color">Luxury Van Rental</span>
-                    </h5>
-
-                    <p class="pt-section-description">
-                        When you need space, style, & comfort all in one,
-                        <a href="/our-fleet/" class="internal-links">our luxury vans</a>
-                        are the perfect choice. Whether it’s for family trips, group
-                        outings, or business travel, we make sure every ride is as
-                        smooth & enjoyable as possible. With us, you get the right
-                        balance of elegance & practicality.
-                    </p>
-
-                    <ul>
-                        <li>
-                            <strong class="strong-c-color"><a
-                                    href="/services/chauffeur-service-dallas-texas/"
-                                    class="internal-links">Professional Chauffeurs</a>: </strong>Courteous, trained drivers for a stress-free ride.
-                        </li>
-                        <li>
-                            <strong class="strong-c-color">Always On Time: </strong>Punctual pickups & drop-offs for your convenience.
-                        </li>
-                        <li>
-                            <strong class="strong-c-color">Flat, Transparent Rates: </strong>No hidden fees—clear pricing every time.
-                        </li>
-                        <li>
-                            <strong class="strong-c-color">Spacious, Luxury Vans: </strong>Plush seating with room for passengers & luggage.
-                        </li>
-                        <li>
-                            <strong class="strong-c-color">24/7 Availability: </strong>Travel any time, day or night, without worry.
-                        </li>
-                        <li>
-                            <strong class="strong-c-color">Trusted by Families and Executives: </strong>Ideal for vacations, business trips, or special events.
-                        </li>
-                        <li>
-                            <strong class="strong-c-color">Complimentary Amenities: </strong>Wi-Fi, phone chargers, & bottled water included for your
-                            comfort.
-                        </li>
-                    </ul>
-
-                    <p class="pt-section-description">
-                        With our
-                        <a
-                            href="/services/executive-shuttle-services-dallas-texas/"
-                            class="internal-links">luxury van rentals</a>, you and your group can travel together in comfort, style, &
-                        peace of mind.
-                    </p>
+        </div>
+        <div class="flex-row-reverse py-20 row align-items-center">
+            <div class="mb-20 col-12 col-md-6 pr-xl-50">
+                <h3 class="h5 fw-semibold">Why do business travelers rely on us?</h3>
+                <p class="font-base">Corporate clients trust our Black Car Service for its reliability and
+                    professional standards. Quiet rides allow focus and privacy, while drivers respect
+                    schedules and understand business needs. In Dallas, we support meetings, events, and
+                    executive travel with consistent, high-quality service.</p>
+                <a href="/about-us"
+                    class="btn btn-primary sm fw-medium">Learn
+                    More</a>
+            </div>
+            <div class="col-12 col-md-6 h-100">
+                <div class="img-holder">
+                    <img src="{{ asset('new_assets/assets/image-02.png')}}" class="img-fluid" alt="">
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-
-            <div class="col-md-10">
-                <h5>
-                    <span class="main-color">Don’t leave</span><br />your next trip to
-                    chance
-                </h5>
-                <a style="cursor: pointer;" class="quick-book-link bottom-cta-vtb-c" href="#">Book your ride now</a>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
-</div>
-
-<section class="about-us testimonials-sec">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 testimonials-sec">
-                <div class="pt-section-title-box">
-                    <h5 class="pt-section-title text-center">
-                        What Our Corporate Clients and
-                        <span class="main-color">Executive Assistants Are Saying</span>
-                    </h5>
-
-                    <div class="button-prevs text-right">
-                        <div class="row">
-                            <div class="col-md-8"></div>
-
-                            <div class="col-md-4 testi">
-                                <button class="prev">
-                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                                </button>
-                                <button class="next">
-                                    <i class="fa fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="banner-slids">
-                        <div class="tns-outer tns-ovh">
-                            <button data-action="stop" type="button">
-                                <span class="tns-visually-hidden">stop animation</span>stop
-                            </button>
-                            <div class="tns-inner" id="tns1-iw">
-                                <div
-                                    class="slider tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal"
-                                    id="tns1"
-                                    style="
-                        transform: translateX(-28%);
-                        transition-duration: 0.3s;
-                      ">
-                                    <div
-                                        class="slide tns-item"
-                                        aria-hidden="true"
-                                        tabindex="-1">
-                                        <div class="slide__item">
-                                            <p>
-                                                I hired Luxury Van Rental Dallas last month when We
-                                                went on a family trip Oh my god the seats were so
-                                                much space Secratet of luxury the seround were all
-                                                of to of e driver was very good. The van was so
-                                                clean.
-                                            </p>
-                                            <p>
-                                                <bold>— Amanda C.</bold> Fort Worth, TX
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        class="slide tns-item"
-                                        aria-hidden="true"
-                                        tabindex="-1">
-                                        <div class="slide__item">
-                                            <p>
-                                                I hired Luxury Van Rental Dallas for a bachelorette
-                                                party. First of all, I want to say that the van
-                                                looked even better in real life and the ride was as
-                                                smooth as everyone had mentioned. I highly recommend
-                                                using them for any kind of special event. They
-                                                really made our experience one of a kind.
-                                            </p>
-                                            <p>
-                                                <bold>— Nicole A.</bold> Plano, TX
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        class="slide tns-item"
-                                        aria-hidden="true"
-                                        tabindex="-1">
-                                        <div class="slide__item">
-                                            <p>
-                                                It was a great experience from the beginning till
-                                                the end. The inside was clean, the air conditioning
-                                                very good and the driver was professional. It was a
-                                                great time spent together moving to different places
-                                                around the city. Luxury Van Rental Dallas.
-                                            </p>
-                                            <p>
-                                                <bold>— Rachel M.</bold> Frisco, TX
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-@include('partials.faq_section')
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1">
-            </div>
-
-            <div class="col-md-10">
-                <h3><span class="main-color">Make Every Mile </span><br>First-Class</h3>
-                <a href="/fifa-world-cup-2026-car-service-dallas/" class="bottom-cta-vtb-c">Reserve Your Black Car Today</a>
-            </div>
-            <div class="col-md-1">
-            </div>
-        </div>
-    </div>
-</div>
-@section('body-scripts')
-<script src="{{ asset('js/industrie-custom.js') }}"></script>
-<script src="{{ asset('js/custom.js') }}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUqn8Dg3GICSzhyvw7DjXXHkyoGMCoTpM&libraries=places&loading=async&callback=initAutocomplete" async defer></script>
-@endsection
+@include('partials.top-cities')
+@include('partials.companies_strip')
+@include('partials.testimonials')
+@include('partials.fifa')
+@include('partials.faq')
 @endsection
