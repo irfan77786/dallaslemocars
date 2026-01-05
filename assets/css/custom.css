@@ -580,3 +580,6 @@ a.btn-loadmore:hover {
     float: none !important; /* Disable floats */
     width: auto !important;
 }
+.nav-tabs .nav-link {
+    border: none !important;
+}

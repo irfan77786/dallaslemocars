@@ -1312,6 +1312,25 @@ window.addEventListener('pageshow', function(event) {
 
 // Initialize Material Date Time Picker
 $(document).ready(function() {
+    // Return Trip Checkbox Logic - Moved outside to ensure it works regardless of datepicker
+    function toggleReturnTrip() {
+        if ($('#round-trip').is(':checked')) {
+            $('.return-trip').slideDown();
+            $('.point-button').addClass('mt-4');
+        } else {
+            $('.return-trip').slideUp();
+            $('.point-button').removeClass('mt-4');
+        }
+    }
+
+    // Initial check
+    toggleReturnTrip();
+
+    // Handle change event
+    $('#round-trip').on('change', function() {
+        toggleReturnTrip();
+    });
+
     if ($.fn.bootstrapMaterialDatePicker) {
         $('#pickup-datetime, #pickup-datetime-hourly, #return-datetime-hourly').bootstrapMaterialDatePicker({
             format: 'ddd, MMM Do, YYYY h:mm A',
