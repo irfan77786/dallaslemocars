@@ -6271,20 +6271,3 @@ li {
     background-color: #e52c43 !important;
     border-color: #e52c43 !important;
 }
-
-/* Search Form Absolute on Desktop to prevent Hero expansion */
-@media (min-width: 768px) {
-    #hero-banner-container {
-        min-height: 650px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .search-form-wrapper-desktop {
-        position: absolute;
-        top: -100px;
-        left: 12px;
-        right: 12px;
-        z-index: 10;
-    }
-}
