@@ -24,6 +24,10 @@ ul.nav.nav-tabs li a.active {
     color: #e52c43 !important;
     font-weight: 500 !important;
 }
+
+ul.nav.nav-tabs li {
+   font-weight: 500 !important;
+}
 /* Buttons */
 a.btn-booking-start {
     border-color: #e52c43 !important;
