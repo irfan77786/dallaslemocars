@@ -583,3 +583,7 @@ a.btn-loadmore:hover {
 .nav-tabs .nav-link {
     border: none !important;
 }
+
+#round-trip {
+    border: 1px solid gray !important;
+}

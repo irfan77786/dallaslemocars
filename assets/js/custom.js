@@ -1315,10 +1315,10 @@ $(document).ready(function() {
     // Return Trip Checkbox Logic - Moved outside to ensure it works regardless of datepicker
     function toggleReturnTrip() {
         if ($('#round-trip').is(':checked')) {
-            $('.return-trip').slideDown();
+            $('.return-trip').show();
             $('.point-button').addClass('mt-4');
         } else {
-            $('.return-trip').slideUp();
+            $('.return-trip').hide();
             $('.point-button').removeClass('mt-4');
         }
     }
