@@ -587,3 +587,8 @@ a.btn-loadmore:hover {
 #round-trip {
     border: 1px solid gray !important;
 }
+
+.form-check-input:checked {
+    background-color: #e52c43 !important;
+    border-color: #e52c43 !important;
+}
