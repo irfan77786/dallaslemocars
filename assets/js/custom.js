@@ -721,7 +721,7 @@ const mapStyle = [
           styles: mapStyle,
           disableDefaultUI: true,
           zoomControl: true,
-          gestureHandling: 'greedy',
+          gestureHandling: 'cooperative',
       });
   } else {
       // Smoothly update the map center if needed
@@ -980,6 +980,7 @@ function calculateRoute(swapped = false) {
             window.map = new google.maps.Map(mapElement, {
                 zoom: 12,
                 center: { lat: 32.7767, lng: -96.7970 }, // Default to Dallas
+                gestureHandling: 'cooperative',
                 styles: [
                     {
                         featureType: 'all',
@@ -1008,9 +1009,9 @@ function calculateRoute(swapped = false) {
     }
 
     // Show the map if it was hidden
-    const mapElement = document.getElementById('map');
-    if (mapElement) {
-        mapElement.style.display = 'block';
+    const mapDisplayElement = document.getElementById('map');
+    if (mapDisplayElement) {
+        mapDisplayElement.style.display = 'block';
         $('#home-text-content').css('visibility', 'hidden');
         $('#home-text-content').css('pointer-events', 'none');
     }
