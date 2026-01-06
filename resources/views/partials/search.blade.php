@@ -5,11 +5,11 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" style="padding-left: 18px; padding-right: 18px; padding-bottom: 10px;">
         <li class="nav-item" style="flex: 1">
-            <a class="nav-link {{ !$isHourly ? 'active' : '' }} text-center pt-0 sformlink" style="font-size: 13px; color: #757575; font-weight: 500;" data-bs-toggle="tab"
+            <a class="nav-link {{ !$isHourly ? 'active' : '' }} text-center pt-0 sformlink" style="font-size: 13px !important; color: #757575; font-weight: 500;" data-bs-toggle="tab"
                 href="#place">Point to Point</a>
         </li>
         <li class="nav-item" style="flex: 1">
-            <a class="nav-link {{ $isHourly ? 'active' : '' }} text-center pt-0 sformlink" style="font-size: 13px; color: #757575; font-weight: 500;"
+            <a class="nav-link {{ $isHourly ? 'active' : '' }} text-center pt-0 sformlink" style="font-size: 13px !important; color: #757575; font-weight: 500;"
                 data-bs-toggle="tab" href="#event">Hourly</a>
         </li>
     </ul>
