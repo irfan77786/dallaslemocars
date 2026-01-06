@@ -40,6 +40,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Preload critical JavaScript files -->
+    <link rel="preload" href="{{ asset('assets/js/custom.js') }}" as="script">
+    <link rel="preload" href="{{ asset('new_assets/js/jquery.js') }}" as="script">
+    
+    <!-- Preload logo image for faster rendering -->
+    <link rel="preload" href="{{ asset('new_assets/assets/black-car-service-dallas-logo.png') }}" as="image">
+    
     @yield('styles')
 </head>
 
@@ -370,21 +378,28 @@
             </div>
         </div>
     </footer>
+    
+    <!-- Critical Scripts - Load First -->
     <script src="{{ asset('new_assets/js/jquery.js') }}"></script>
-    <script src="{{ asset('new_assets/js/bootstrap-min.js') }}"></script>
-    <script src="{{ asset('new_assets/js/swiper-min.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
-    <script src="{{ asset('new_assets/js/slick-min.js') }}"></script>
-    <script src="{{ asset('new_assets/js/custom_new.js') }}"></script>
+    
+    <!-- Load custom.js immediately after jQuery (contains map functions) -->
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+    
+    <!-- Google Maps - Load after custom.js so initAutocomplete can find the functions -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUqn8Dg3GICSzhyvw7DjXXHkyoGMCoTpM&libraries=places&callback=initAutocomplete"></script>
+    
+    <!-- Other Scripts - Can be deferred -->
+    <script src="{{ asset('new_assets/js/bootstrap-min.js') }}" defer></script>
+    <script src="{{ asset('new_assets/js/swiper-min.js') }}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js" defer></script>
+    <script src="{{ asset('new_assets/js/slick-min.js') }}" defer></script>
+    <script src="{{ asset('new_assets/js/custom_new.js') }}" defer></script>
 
-    <!-- Old Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment-with-locales.min.js"></script>
-    <script src="{{ asset('assets/js/bootstrap-material-datetimepicker.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.js"></script>
-
-    <!-- Google Maps -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUqn8Dg3GICSzhyvw7DjXXHkyoGMCoTpM&libraries=places&loading=async&callback=initAutocomplete" async defer></script>
+    <!-- Date/Time Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment-with-locales.min.js" defer></script>
+    <script src="{{ asset('assets/js/bootstrap-material-datetimepicker.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.js" defer></script>
 
       <script>
             window.dataLayer = window.dataLayer || [];
@@ -424,7 +439,6 @@
         });
     }
     </script>
-    <script src="{{ asset('assets/js/custom.js') }}"></script>
     <script>
         // Compatibility script for old map logic
         function updateMapWidth() {
