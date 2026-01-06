@@ -49,7 +49,7 @@ class ServiceController extends Controller
 
         return view('services.dallas-airport-greeters', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
-            'mobileImage' => 'img/black-car-service-dallas.webp',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
             'seo' => $seo
         ]);
     }
@@ -68,12 +68,12 @@ class ServiceController extends Controller
             'keywords' => 'Corporate Transportation, Dallas Corporate Transportation, DFW Corporate Transportation',
             'og_title' => 'Dallas Corporate Transportation – Executive Car Service for Business Travel',
             'og_description' => 'Elevate your business travel with our Dallas Corporate Transportation services. Offering luxury sedans, SUVs, and executive vehicles with professional chauffeurs for seamless meetings, events, and airport transfers.',
-            'og_image' => asset('img/black-car-service-dallas.webp')
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
         ];
 
         return view('services.dallas-corporate-transportation', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
-            'mobileImage' => 'img/black-car-service-dallas.webp',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
             'seo' => $seo
         ]);
     }
@@ -92,12 +92,12 @@ class ServiceController extends Controller
             'keywords' => 'Executive shuttle services Dallas, group transportation Dallas, corporate shuttle service Dallas',
             'og_title' => 'Executive Shuttle Dallas TX | Group & Event Transport',
             'og_description' => 'Reliable and comfortable executive shuttle services in Dallas, Texas. Ideal for corporate events, conferences, and group travel. Book your shuttle today.',
-            'og_image' => asset('img/black-car-service-dallas.webp')
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
         ];
 
         return view('services.executive-shuttle-services-dallas-texas', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
-            'mobileImage' => 'img/black-car-service-dallas.webp',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
             'seo' => $seo
         ]);
     }
@@ -116,12 +116,12 @@ class ServiceController extends Controller
             'keywords' => 'Luxury van rental Dallas, group transportation Dallas, executive van service Dallas',
             'og_title' => 'Luxury Van Rental Dallas, TX – Premium Group Transportation',
             'og_description' => 'Experience comfort and style with our luxury van rentals in Dallas, Texas. Ideal for family trips, corporate outings, and group events. Book your ride today.',
-            'og_image' => asset('img/black-car-service-dallas.webp')
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
         ];
 
         return view('services.luxury-van-rental-dallas-texas', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
-            'mobileImage' => 'img/black-car-service-dallas.webp',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
             'seo' => $seo
         ]);
     }
@@ -140,12 +140,12 @@ class ServiceController extends Controller
             'keywords' => 'Chauffeur service Dallas, Dallas luxury car service, executive chauffeur Dallas',
             'og_title' => 'Chauffeur Service Dallas TX | Luxury Car for Business & Leisure',
             'og_description' => 'Experience premium chauffeur services in Dallas, Texas. Whether for business meetings, airport transfers, or special events, our professional drivers ensure timely and comfortable transportation in luxury vehicles.',
-            'og_image' => asset('img/black-car-service-dallas.webp')
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
         ];
 
         return view('services.chauffeur-service-dallas-texas', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
-            'mobileImage' => 'img/black-car-service-dallas.webp',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
             'seo' => $seo
         ]);
     }
@@ -164,12 +164,12 @@ class ServiceController extends Controller
             'keywords' => 'Private car service Dallas, luxury car service Dallas, executive car service Dallas, chauffeur service Dallas',
             'og_title' => 'Private Car Service Dallas, Texas – Luxury Chauffeured Transportation',
             'og_description' => 'Experience top-tier private car service in Dallas, Texas. Our luxury sedans, SUVs, and executive vehicles offer 24/7 reliable transportation for business, leisure, and special events. Book now for a seamless travel experience.',
-            'og_image' => asset('img/black-car-service-dallas.webp')
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
         ];
 
         return view('services.private-car-service-in-dallas-texas', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
-            'mobileImage' => 'img/black-car-service-dallas.webp',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
             'seo' => $seo
         ]);
     }
@@ -188,12 +188,12 @@ class ServiceController extends Controller
             'keywords' => 'City-to-City Car Service Dallas, Dallas to Fort Worth car service, Dallas to Austin car service',
             'og_title' => 'City-to-City Car Service Dallas | Luxury Travel Texas',
             'og_description' => 'Book our City-to-City Car Service Dallas for luxury travel to Fort Worth, Austin, Houston & more. Professional chauffeurs, sedans & SUVs. Reserve your ride today!',
-            'og_image' => asset('img/black-car-service-dallas.webp')
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
         ];
 
         return view('services.city-to-city-rides', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
-            'mobileImage' => 'img/black-car-service-dallas.webp',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
             'seo' => $seo
         ]);
     }
@@ -212,12 +212,12 @@ class ServiceController extends Controller
             'keywords' => 'DFW limo service, Dallas limo service, Fort Worth limo service',
             'og_title' => 'DFW Limo Service – Luxury Airport Transfers in Dallas and Fort Worth',
             'og_description' => 'Experience premium DFW limo service with luxury sedans, SUVs, and minibuses. Ideal for airport transfers, business trips, weddings, and events. Book your ride today!',
-            'og_image' => asset('img/black-car-service-dallas.webp')
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
         ];
 
         return view('services.dfw-limo-service', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
-            'mobileImage' => 'img/black-car-service-dallas.webp',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
             'seo' => $seo
         ]);
     }
@@ -236,12 +236,12 @@ class ServiceController extends Controller
             'keywords' => 'Private aviation service Dallas, luxury aviation service Dallas, chauffeur aviation service Dallas',
             'og_title' => 'Private Aviation Service in Dallas, Texas | Luxury Flight Transportation',
             'og_description' => 'Experience top-tier private aviation service in Dallas, Texas. Our professional pilots offer safe, comfortable, and luxurious flight transportation for business, leisure, and special events. Book now for a seamless travel experience.',
-            'og_image' => asset('img/black-car-service-dallas.webp')
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
         ];
 
         return view('services.private-aviation-dallas', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
-            'mobileImage' => 'img/black-car-service-dallas.webp',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
             'seo' => $seo
         ]);
     }
