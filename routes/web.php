@@ -418,24 +418,35 @@ Route::prefix('services')->group(function(){
     Route::get("/luxury-van-rental-dallas/", [ServiceController::class, 'LuxuryVanRental'])->name('luxury_van_rental');
     Route::get('/chauffeur-service-dallas/', [ServiceController::class, 'ChauffeurService'])->name('chauffeur_service');
     Route::get('/private-car-service-in-dallas/', [ServiceController::class, 'PrivateCarService'])->name('private_car_service');
-    Route::get('/city-to-city-rides/', [ServiceController::class, 'CityToCityRides'])->name('city_to_city_rides');
-    Route::get('/dfw-limo-service/', [ServiceController::class, 'DfwLimoService'])->name('dfw_limo_service');
     Route::get('/private-aviation-dallas/', [ServiceController::class, 'PrivateAviation'])->name('private_aviation');
 });
 
-Route::prefix('airport')->group(function(){
+    Route::get('/city-to-city-rides/', [ServiceController::class, 'CityToCityRides'])->name('city_to_city_rides');
+    Route::get('/limousine-service-dallas/', [ServiceController::class, 'DfwLimoService'])->name('dfw_limo_service');
+    Route::get('/dallas-to-austin-car-service', [LocationController::class, 'DallasToAustinCarService'])->name('dallas_to_austin_car_service');
+    Route::get('/dallas-to-arlington-car-service', [LocationController::class, 'DallasToArlingtonCarService'])->name('dallas_to_arlington_car_service');
+    Route::get('/dallas-to-crowley-car-service', [LocationController::class, 'DallasToCrowleyCarService'])->name('dallas_to_crowley_car_service');
+    Route::get('/dallas-to-anna-car-service', [LocationController::class, 'DallasToAnnaCarService'])->name('dallas_to_anna_car_service');
+    Route::get('/dallas-to-tyler-car-service', [LocationController::class, 'DallasToTylerCarService'])->name('dallas_to_tyler_car_service');
+    Route::get('/dfw-to-waco-car-service', [LocationController::class, 'DfwToWacoCarService'])->name('dfw_to_waco_car_service');
+    Route::get('/cancellation-policy', [WebsiteController::class, 'CancellationPolicy'])->name('cancellation_policy');
+    Route::get('/terms-and-conditions', [WebsiteController::class, 'TermsAndConditions'])->name('terms_and_conditions');
+    Route::get('/privacy-policy', [WebsiteController::class, 'PrivacyPolicy'])->name('privacy_policy');
+
+Route::prefix('airports')->group(function(){
     Route::get('/addison-airport-car-service/', [AirportController::class, 'AddisonAirportCarService'])->name('addison_airport_car_service');
-    Route::get('/car-service-dallas-fort-worth-international-airport/', [AirportController::class, 'CarServiceInDallasFortWorthInternationalAirport'])->name('car_service_in_dallas_fort_worth_international_airport');
-    Route::get('/dallas-love-field-black-car-service/', [AirportController::class, 'DallasLoveFieldBlackCarService'])->name('dallas_love_field_black_car_service');
-    Route::get('/signature-flight-support/', [AirportController::class, 'SignatureFlightSupport'])->name('signature_flight_support');
-    Route::get('/waco-regional-airport/', [AirportController::class, 'WacoRegionalAirport'])->name('waco_regional_airport');
+    Route::get('/dfw-car-service/', [AirportController::class, 'CarServiceInDallasFortWorthInternationalAirport'])->name('car_service_in_dallas_fort_worth_international_airport');
+    Route::get('/dallas-love-field-airport-car-service/', [AirportController::class, 'DallasLoveFieldBlackCarService'])->name('dallas_love_field_black_car_service');
+    Route::get('/mckinney-national-airport-car-service/', [AirportController::class, 'SignatureFlightSupport'])->name('signature_flight_support');
+    Route::get('/waco-regional-airport-car-service/', [AirportController::class, 'WacoRegionalAirport'])->name('waco_regional_airport');
 });
 
-Route::prefix('locations')->group(function(){
-    Route::get('/black-car-service-allen-texas/', [LocationController::class, 'BlackCarServiceAllenTexas'])->name('black_car_service_allen_texas');
-    Route::get('/black-car-service-fort-worth-texas/', [LocationController::class, 'BlackCarServiceFortWorthTexas'])->name('black_car_service_fort_worth_texas');
-    Route::get('/black-car-service-frisco-texas/', [LocationController::class, 'BlackCarServiceFriscoTexas'])->name('black_car_service_frisco_texas');
-    Route::get('/black-car-service-plano-texas/', [LocationController::class, 'BlackCarServicePlanoTexas'])->name('black_car_service_plano_texas');
+Route::prefix('texas')->group(function(){
+    Route::get('/black-car-service-allen-tx/', [LocationController::class, 'BlackCarServiceAllenTexas'])->name('black_car_service_allen_texas');
+    Route::get('/black-car-service-anna-tx/', [LocationController::class, 'BlackCarServiceAnnaTexas'])->name('black_car_service_anna_texas');
+    Route::get('/black-car-service-fort-worth-tx/', [LocationController::class, 'BlackCarServiceFortWorthTexas'])->name('black_car_service_fort_worth_texas');
+    Route::get('/black-car-service-frisco-tx/', [LocationController::class, 'BlackCarServiceFriscoTexas'])->name('black_car_service_frisco_texas');
+    Route::get('/black-car-service-plano-tx/', [LocationController::class, 'BlackCarServicePlanoTexas'])->name('black_car_service_plano_texas');
 });
 
 Route::prefix('city-to-city-ride')->group(function(){

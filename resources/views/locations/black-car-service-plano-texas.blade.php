@@ -1,567 +1,203 @@
 @extends('master')
 @section('content')
-@php
-$isHourly = session('service_type') === 'hourlyHire';
-@endphp
-<meta name="csrf-token" content="{{ csrf_token() }}">
-<meta name="point-to-point-url" content="{{ url('/booking/point-to-point') }}">
-@if(!session('pickup_location') && !session('dropoff_location'))
-@include('partials.banner', ['title' => "Black Car Service Plano"])
-@endif
-<div class="bottom-banner" style="{{ session('pickup_location') && session('dropoff_location') ? 'background-image: none' : '' }}">
-    <div class="row">
-        <div class="col-sm-12 back-container">
-            <div class="container">
-                <div class="row justify-content-end">
-                    <div class="col-sm-7 bottom-banner-inside banner-hidden-mobile" bis_skin_checked="1" id="hide_on_map" style="padding-top: 65px; {{ session('pickup_location') && session('dropoff_location') ? 'display: none' : '' }}">
-                        <div class="bottom-banner-text" bis_skin_checked="1">
-                            <h1>Black Car Service Plano</h1>
-                            <p>
-                                Discover a smarter way to travel in Plano with our luxury car
-                                service. Perfect for business meetings, evenings out, or airport
-                                connections, we combine style with convenience. Our professional
-                                chauffeurs ensure a smooth, timely ride in premium vehicles.
-                                Upgrade your Plano transportation experience: Reserve your
-                                private black car today
-                            </p>
-                            <p class="bt-text">24/7 Service Available, Click to Call Now!</p>
-                            <div class="bottom-banner-btn" bis_skin_checked="1">
-                                <a class="call-phonea hover-up d-inline-block mb-20" href="tel:+12148978056" bis_skin_checked="1">Call: 214-897-8056</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5 col-12 p-0 booking_card_container">
-                        @include('partials.search_form')
-                    </div>
-                </div>
-
-                <!-- Map to display after form input -->
+@include('partials.search_form')
+<section class="fleet-section py-50 py-sm-60 py-md-70 py-lg-80">
+    <div class="ah-container">
+        <div class="row justify-content-center">
+            <div class="text-center col-12 col-xl-10">
+                <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30">Our Premium Fleet – Ride in Comfort and Style
+                    with <span class="theme-color fw-bold">Dallas Limo and Black Cars Service</span></h2>
+            </div>
+            <div class="col-12 mb-15">
+                <p class="font-base">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                    unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+                    survived not only five centuries, but also the leap into electronic typesetting, remaining
+                    essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+                    containing Lorem Ipsum passages, and more recently.</p>
             </div>
         </div>
-
-        <div id="map" style="height: 100%; width: 100%; display: none; border-radius: 15px; overflow: hidden; left:0;z-index: 9 !important; top:0">
-            <div class="map-overlay"></div>
-        </div>
-
-        <div id="route-info-box" style="
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      background: white;
-      color: black;
-      padding: 12px 16px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      font-size: 14px;
-      z-index: 999;
-      display: none;">
-            <div><strong>Distance:</strong> <span id="route-distance">-</span></div>
-            <div><strong>Duration:</strong> <span id="route-duration">-</span></div>
-        </div>
-    </div>
-</div>
-<div class="hero-mobile">
-    <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <div class="bottom-banner-text" bis_skin_checked="1">
-                    <h2>Black Car Service Plano</h2>
-                    <p>
-                        Discover a smarter way to travel in Plano with our luxury car
-                        service. Perfect for business meetings, evenings out, or airport
-                        connections, we combine style with convenience. Our professional
-                        chauffeurs ensure a smooth, timely ride in premium vehicles.
-                        Upgrade your Plano transportation experience: Reserve your
-                        private black car today
-                    </p>
-                    <p class="bt-text">24/7 Service – Call Now</p>
-                    <div class="bottom-banner-btn" bis_skin_checked="1">
-                        <a class="call-phonea hover-up d-inline-block mb-20" href="tel:+12148978056" bis_skin_checked="1">Call: 214-897-8056</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<section class="container-fluid ait">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="btom">
-                    <div class="btom-bottom">
-                        <h2>
-                            Dallas Limo And Black Cars Service – Luxury Fleet Serving Plano
-                        </h2>
-                        <p>
-                        From corporate headquarters to DFW transfers, our Plano fleet is built for executives, families, and groups alike.
+            <div class="col-12">
+                <ul class="list-unstyled">
+                    <li>
+                        <strong class="mb-2 font-lg gray-700 fw-bold d-block">Luxury Sedans:</strong>
+                        <p class="font-base">Pick from the Cadillac CT6, Volvo S90, or Mercedes-Benz S-Class for
+                            effortless driving to the DFW airport, meetings, or any other special event.</p>
+                    </li>
+                    <li>
+                        <strong class="mb-2 font-lg gray-700 fw-bold d-block">Black SUVs:</strong>
+                        <p class="font-base">Our Cadillac Escalade, Chevy Suburban, and GMC Yukon XL provide
+                            spacious, stylish transportation for groups, corporate travelers, or extra luggage.
                         </p>
-                    </div>
-
-                    <p>
-                        <strong class="strong-c-color">Luxury Sedans:</strong>  Cadillac CT6, Volvo S90, and Mercedes-Benz S-Class for discreet, private car service Plano.
-
-                    </p>
-
-
-                             <p>
-                        <strong class="strong-c-color">Luxury SUVs:</strong> Escalade ESV, Suburban, Yukon XL, and Navigator for airport rides, corporate meetings, or family travel.
-                    </p>
-
-                           <p>
-                        <strong class="strong-c-color">Executive Sprinter Vans:</strong> Mercedes-Benz Sprinters for team travel, weddings, or executive transportation.
-                    </p>
-
-                           <p>
-                        <strong class="strong-c-color">23–38 Passenger Mini Bus:</strong> Perfect for community events, conventions, or small corporate shuttles.
-                    </p>
-                           <p>
-                        <strong class="strong-c-color">Luxury Motor Coaches (55–60 Passengers):</strong> Large-scale travel solutions for Plano businesses, schools, or group tours.
-                    </p>
-
-
-               <p class="tagline-bottom">Trust our Plano black car service for premium comfort, safety, and seamless travel.</p>
-
-
-                    <img
-                        src="/img/dallas-black-car-service.webp"
-                        alt="Black Car Service Plano luxury sedan for business travel" />
+                    </li>
+                    <li>
+                        <strong class="mb-2 font-lg gray-700 fw-bold d-block">Executive Sprinter Vans:</strong>
+                        <p class="font-base"> Ideal for large gatherings such as meetings and weddings events,
+                            our
+                            Mercedes-Benz Sprinter Vans offer ample storage as well as comfortable and spacious
+                            seating.</p>
+                    </li>
+                    <li>
+                        <strong class="mb-2 font-lg gray-700 fw-bold d-block">Mini Bus Luxury Bus (23-27
+                            Passengers):</strong>
+                        <p class="font-base">Confortable seating & Wi-Fi make our Luxury Mini Buses best for
+                            smaller groups, corporate meeting, or <a class="fw-semibold" href="">airport
+                                transfers</a>. Comfortably seats 23-27 passengers.</p>
+                    </li>
+                    <li>
+                        <strong class="mb-2 font-lg gray-700 fw-bold d-block">Mini Bus (31-38
+                            Passengers):</strong>
+                        <p class="font-base"> Ideal for large gatherings such as meetings and weddings events,
+                            our
+                            Mercedes-Benz Sprinter Vans offer ample storage as well as comfortable and spacious
+                            seating.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="img-holder">
+                    <img src="{{ asset('new_assets/assets/fleet-img.webp') }}" alt="Fleet Image" class="img-fluid">
                 </div>
-                <div class="btom-btn">
-                    <a style="cursor: pointer;" class="quick-book-link" href="#">Ride in Plano – Book Now</a>
+            </div>
+            <div class="text-center col-12 pt-15">
+                <a href="#" class="btn btn-primary">Quick Quote </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="detail-content-section bg-gray py-50 py-sm-60 py-md-70 py-lg-80">
+    <div class="ah-container">
+        <div class="row justify-content-center">
+            <div class="mb-20 text-center col-12 col-lg-11 col-xl-10 mb-md-30 mb-lg-40">
+                <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30">Why Choose Us for <span
+                        class="theme-color">Airport Transfers</span></h2>
+                <p class="font-base">Traveling to or from the airport should be safe & stress-free. We make sure
+                    your journey is smooth, whether you’re catching an early flight or arriving late at night.
+                    Our goal is to give you comfort, reliability & peace of mind every time.</p>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-12 col-md-6">
+                <ul class="pl-0 custom-unorder-list">
+                    <li>
+                        <p class="mb-0"><b>Friendly, Professional Greeters:</b> Courteous staff ready to assist
+                            with every detail.</p>
+                    </li>
+                    <li>
+                        <p class="mb-0"><b>Seamless Meet and Greet:</b> We wait for you at the gate or arrival
+                            hall with clear signage.</p>
+                    </li>
+                    <li>
+                        <p class="mb-0"><b>Luggage Assistance:</b> Helping you handle bags with ease from
+                            arrival to car pickup.</p>
+                    </li>
+                    <li>
+                        <p class="mb-0"><b>Fast-Track Guidance:</b> Support with check-in, security & boarding
+                            for quicker flow.</p>
+                    </li>
+                    <li>
+                        <p class="mb-0"><b>24/7 Availability:</b> No matter the time, we’re ready to welcome
+                            you.</p>
+                    </li>
+                    <li>
+                        <p class="mb-0"><b>Trusted by Families and VIPs:</b> Perfect for first-time flyers,
+                            elderly travelers, & executives.</p>
+                    </li>
+                    <li>
+                        <p class="mb-0"><b>Stress-Free Experience:</b> We take care of details so you can relax
+                            & enjoy the journey.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 h-100">
+                <div class="img-holder ms-md-auto">
+                    <img src="{{ asset('new_assets/assets/airport-transfer.JPG') }}" class="img-fluid" alt="">
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<section class="about-us city-pages">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="pt-section-title-box">
-                    <h5 class="pt-section-title">
-                        Luxurious Travel Around Plano
-                    </h5>
-                    <p class="pt-section-description">
-                        Experience first-class comfort & style with our
-                        <a href="/services/dfw-limo-service/" class="internal-links-w">Plano limo service</a>. We serve areas like West Plano, Legacy & Prestonwood. We
-                        offer sleek business sedans for executives.
-                    </p>
-                    <p class="pt-section-description">
-                        Roomy luxury SUVs are great for families or groups. Going to DFW
-                        Airport,
-                        <a
-                            href="/airport/car-service-dallas-fort-worth-international-airport/"
-                            class="internal-links-w">Love Field</a>, corporate events, or social occasions? Our pro chauffeurs
-                        ensure smooth & stress-free rides. Every
-                        <a href="/our-fleet/" class="internal-links-w">vehicle is well-maintained</a>
-                        for safety, comfort & elegance. From weddings to business
-                        meetings, our Plano luxury transport lets you relax & enjoy the
-                        ride. Every trip is seamless, stylish & made just for you.
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="pt-chauffeur-1">
-                    <img
-                        src="/images/img/dallas-executive-black-car.webp"
-                        width="522"
-                        height="564"
-                        alt="Plano airport car service to DFW and Love Field" />
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-
-            <div class="col-md-10">
-                <h5>
-                    <span class="main-color">Going to the airport,</span> a business
-                    meeting, or the big game?
-                </h5>
-
-                <p class="bottom-cta-content">
-                    Your private chauffeur is ready for DFW Airport, Plano business
-                    districts, Legacy West, or AT&amp;T Stadium game days.
-                </p>
-
-                <a style="cursor: pointer;" class="quick-book-link bottom-cta-vtb-c" href="#">Travel in Comfort – Book Now</a>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
-</div>
-
-<section class="about-uss city-pages">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="pt-chauffeur-1">
-                    <img
-                        src="/img/love-field-airport-ride-luxury.webp"
-                        alt="Professional chauffeurs providing Black Car Service Plano" />
-                </div>
-            </div>
-
-            <div class="col-md-8">
-                <div class="pt-section-title-box">
-                    <h5 class="pt-section-titles">
-                        Airport & Corporate Transfers
-                    </h5>
-
-                    <p class="pt-section-description">
-                        Our Plano airport limo & corporate car service gives reliable,
-                        efficient & stylish rides. We serve
-                        <a
-                            href="/services/executive-shuttle-services-dallas-texas/"
-                            class="internal-links">business travelers & groups</a>
-                        in areas like The Shops at Legacy, McDermott & Plano East.
-                        Luxury sedans are for solo trips. Spacious SUVs work for groups.
-                        Pro chauffeurs handle traffic, routes & luggage. We make sure
-                        you arrive on time at DFW Airport, Love Field, or corporate
-                        appointments.
-                    </p>
-
-                    <p class="pt-section-description">
-                        With a focus on professionalism, comfort & style, our executive
-                        car service in Plano ensures a travel experience made for
-                        convenience & luxury.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-
-            <div class="col-md-10">
-                <img
-                    src="/img/fifa-world-cup-2026-car-service-dallas.jpg"
-                    alt="fifa world cup 2026 car service dallas" />
-
-                <a
-                    href="/fifa-world-cup-2026-car-service-dallas/"
-                    class="bottom-cta-vtb-c">Visit our fifa world cup 2026 page</a>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
-</div>
-
-<section class="about-us city-pages special-w">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="pt-section-title-box">
-                    <h5 class="pt-section-title">
-                        Areas We Serve to/from Plano, TX
-                    </h5>
-
-                    <p>
-                        Providing reliable transportation services in Plano & throughout
-                        the Dallas-Fort Worth Metroplex, covering:
-                    </p>
-                    <ul>
-                        <li>
-                            <strong>Cities & Surrounding Neighborhoods</strong> We serve
-                            Plano, Allen, Frisco, McKinney, Richardson, Garland, Murphy,
-                            Wylie & Sachse. Our coverage also extends to Little Elm, The
-                            Colony, Prosper, Celina, Dallas & Carrollton.
-                        </li>
-                        <li>
-                            <strong>Airports & Flight Terminals</strong> DFW International
-                            Airport, Dallas Love Field, Addison Airport, McKinney National
-                            Airport, Fort Worth Alliance Airport, and
-                            <a
-                                href="/airport/waco-regional-airport/"
-                                class="internal-links-w">Private FBO Terminals</a>.
-                        </li>
-                        <li>
-                            <strong>Corporate & Lifestyle Districts</strong> Legacy West
-                            (Plano), Downtown Dallas, The Star District (Frisco), Las
-                            Colinas (Irving), Uptown Dallas, and Dallas Arts District.
-                        </li>
-                        <li>
-                            <strong>Sports & Event Venues</strong> AT&T Stadium, Globe
-                            Life Field, American Airlines Center, Toyota Stadium, PGA
-                            Frisco, and Toyota Music Factory.
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-<div id="bottomServices-defcitiy icon-h-page">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4 text-center">
-                <div class="pz-bottom-servicei">
-                    <span class="serviceImage1">
-                        <img
-                            src="/img/booking.webp"
-                            alt="Luxury SUV service Plano for families and groups
- " />
+<section class="pt-50 pb-25 pt-sm-60 pb-sm-35 pt-md-70 pb-md-40">
+    <div class="ah-container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30 d-flex">
+                <article class="custom-card d-flex flex-column w-100">
+                    <span class="mb-20 icon-holder">
+                        <img src="{{ asset('new_assets/assets/icon-03.svg') }}" alt="Booking" class="img-fluid">
                     </span>
-
-                    <div class="serviceHeadings">
-                        <h3>Book Online or Call</h3>
-
-                        <p>Use our form or call to schedule your ride.</p>
-                    </div>
-                </div>
+                    <h3 class="h3 fw-semibold">Book Online or Call</h3>
+                    <p class="font-lg">Use our form or call to schedule your ride.</p>
+                </article>
             </div>
-
-            <div class="col-sm-4 text-center">
-                <div class="pz-bottom-servicei">
-                    <span class="serviceImage1">
-                        <img
-                            src="/img/conformation.webp"
-                            alt="Clear-Cut All-Inclusive Pricing
- " />
+            <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30 d-flex">
+                <article class="custom-card d-flex flex-column w-100">
+                    <span class="mb-20 icon-holder">
+                        <img src="{{ asset('new_assets/assets/icon-02.svg') }}" alt="Confirmation" class="img-fluid">
                     </span>
-
-                    <div class="serviceHeadings">
-                        <h3>Get Instant Confirmation</h3>
-
-                        <p>Receive driver and trip details via text or email.</p>
-                    </div>
-                </div>
+                    <h3 class="h3 fw-semibold">Get Instant Confirmation</h3>
+                    <p class="font-lg">Receive driver and trip details via text or email.</p>
+                </article>
             </div>
-
-            <div class="col-sm-4 text-center">
-                <div class="pz-bottom-servicei">
-                    <span class="serviceImage1">
-                        <img
-                            src="/img/chauffeur.webp"
-                            alt="Expert Chauffeurs
- " />
+            <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30 d-flex">
+                <article class="custom-card d-flex flex-column w-100">
+                    <span class="mb-20 icon-holder">
+                        <img src="{{ asset('new_assets/assets/icon-01.svg') }}" alt="Driver" class="img-fluid">
                     </span>
-
-                    <div class="serviceHeadings">
-                        <h3>Meet Your Chauffeur</h3>
-
-                        <p>On-time, professional, and ready to assist</p>
-                    </div>
-                </div>
+                    <h3 class="h3 fw-semibold">Meet Your Chauffeur</h3>
+                    <p class="font-lg">On-time, professional, and ready to assist.</p>
+                </article>
             </div>
         </div>
     </div>
-</div>
-<section class="about-uss city-pages">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="pt-chauffeur-1">
-                    <img src="/img/sprinter-van-rental-dallas.webp" width="522" height="564" alt="Reliable black car service near Dallas">
+</section>
+<section class="detail-content-section bg-gray py-50 py-sm-60 py-md-70 py-lg-80">
+    <div class="ah-container">
+        <div class="row justify-content-center">
+            <div class="mb-20 text-center col-12 col-lg-11 col-xl-10 mb-md-30 mb-lg-40">
+                <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30">Why Choose Our <span class="theme-color"> Black
+                        Car Service?</span></h2>
+                <p class="font-base">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+            </div>
+        </div>
+        <div class="py-20 row align-items-center">
+            <div class="col-12 col-md-6 pr-xl-50">
+                <h3 class="h5 fw-semibold">What sets our service apart from others?</h3>
+                <p class="font-base">We focus on well-maintained vehicles and trained drivers for smooth
+                    rides. Every detail, from pickup timing to vehicle comfort, is handled with care. Our
+                    service values <strong>safety and calm travel</strong> for every passenger.</p>
+            </div>
+            <div class="col-12 col-md-6 h-100">
+                <div class="img-holder ms-md-auto">
+                    <img src="{{ asset('new_assets/assets/image-01.png') }}" class="img-fluid" alt="">
                 </div>
             </div>
-
-            <div class="col-md-8">
-                <div class="pt-section-title-box">
-                    <h5 class="pt-section-titles">
-                        Why Choose Us for Plano Transportation
-                    </h5>
-
-                    <p class="pt-section-description">
-                        When it comes to getting around Plano, you need a service that
-                        blends reliability, comfort, & professionalism. Whether you’re
-                        heading to the airport, a
-                        <a
-                            href="/services/dallas-corporate-transportation/"
-                            class="internal-links">business meeting</a>, or enjoying a night out in town, we deliver a transportation
-                        experience that’s tailored to your lifestyle.
-                    </p>
-
-                    <ul>
-                        <li>
-                            <strong>Expert Chauffeurs: </strong>Skilled drivers familiar
-                            with Plano & nearby areas.
-                        </li>
-                        <li>
-                            <strong>On-Time Service: </strong>We value your time with
-                            punctual pickups & drop-offs.
-                        </li>
-                        <li>
-                            <strong>Transparent Pricing: </strong>Flat, upfront rates
-                            without hidden fees or surprises.
-                        </li>
-                        <li>
-                            <strong>Premium Fleet: </strong>Clean, comfortable, & stylish
-                            vehicles for any occasion.
-                        </li>
-                        <li>
-                            <strong>Round-the-Clock Rides: </strong>Available 24/7 to fit
-                            your schedule.
-                        </li>
-                        <li>
-                            <strong>Trusted by Many: </strong>A reliable choice for
-                            professionals, families, & visitors.
-                        </li>
-                        <li>
-                            <strong>Added Amenities: </strong>Complimentary Wi-Fi, phone
-                            chargers, & bottled water for your convenience.
-                        </li>
-                    </ul>
-
-                    <p class="pt-section-description">
-                        With us, traveling in Plano is more than just reaching your
-                        destination; it’s about enjoying a
-                        <a style="cursor: pointer;" class="quick-book-link internal-links">seamless, safe, & dependable journey</a>
-                        every single time.
-                    </p>
+        </div>
+        <div class="flex-row-reverse py-20 row align-items-center">
+            <div class="mb-20 col-12 col-md-6 pr-xl-50">
+                <h3 class="h5 fw-semibold">Why do business travelers rely on us?</h3>
+                <p class="font-base">Corporate clients trust our Black Car Service for its reliability and
+                    professional standards. Quiet rides allow focus and privacy, while drivers respect
+                    schedules and understand business needs. In Dallas, we support meetings, events, and
+                    executive travel with consistent, high-quality service.</p>
+                <a href="/about-us"
+                    class="btn btn-primary sm fw-medium">Learn
+                    More</a>
+            </div>
+            <div class="col-12 col-md-6 h-100">
+                <div class="img-holder">
+                    <img src="{{ asset('new_assets/assets/image-02.png') }}" class="img-fluid" alt="">
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-
-            <div class="col-md-10">
-                <h5>
-                    <span class="main-color">Don’t leave</span><br />your next trip to
-                    chance
-                </h5>
-                <a style="cursor: pointer;" class="quick-book-link bottom-cta-vtb-c" href="#">Book your ride now</a>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
-</div>
-
-<section class="about-us testimonials-sec">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 testimonials-sec">
-                <div class="pt-section-title-box">
-                    <h5 class="pt-section-title text-center">
-                        What Our Corporate Clients and Executive Assistants Are Saying
-                    </h5>
-
-                    <div class="button-prevs text-right">
-                        <div class="row">
-                            <div class="col-md-8"></div>
-
-                            <div class="col-md-4 testi">
-                                <button class="prev">
-                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                                </button>
-                                <button class="next">
-                                    <i class="fa fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="banner-slids">
-                        <div class="tns-outer tns-ovh">
-                            <button data-action="stop" type="button">
-                                <span class="tns-visually-hidden">stop animation</span>stop
-                            </button>
-                            <div class="tns-inner" id="tns1-iw">
-                                <div
-                                    class="slider tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal"
-                                    id="tns1"
-                                    style="
-                        transform: translateX(-28%);
-                        transition-duration: 0.3s;
-                      ">
-                                    <div
-                                        class="slide tns-item"
-                                        aria-hidden="true"
-                                        tabindex="-1">
-                                        <div class="slide__item">
-                                            <p>
-                                                I have used Black Car Service Plano a few times and
-                                                have always had them arrive on time and have
-                                                provided clean, comfortable cars with friendly and
-                                                professional drivers.
-                                            </p>
-                                            <p>
-                                                <bold>— Lauren D.</bold> Plano, TX
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        class="slide tns-item"
-                                        aria-hidden="true"
-                                        tabindex="-1">
-                                        <div class="slide__item">
-                                            <p>
-                                                My whole experience with Black Car Service Plano was
-                                                great from the time I booked to the driver knowing
-                                                the fastest route. They provided a very dependable
-                                                service.
-                                            </p>
-                                            <p>
-                                                <bold>— Katherine R.</bold> Plano, TX
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        class="slide tns-item"
-                                        aria-hidden="true"
-                                        tabindex="-1">
-                                        <div class="slide__item">
-                                            <p>
-                                                Black Car Service Plano is my first choice for any
-                                                of my business trips. They keep the cars spotless
-                                                and always provide great service. I highly recommend
-                                                Black Car Service Plano.
-                                            </p>
-                                            <p>
-                                                <bold>— Danielle P.</bold> Plano, TX
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-@include('partials.faq_section')
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1">
-            </div>
-
-            <div class="col-md-10">
-                <h3><span class="main-color">Make Every Mile </span><br>First-Class</h3>
-                <a href="/fifa-world-cup-2026-car-service-dallas/" class="bottom-cta-vtb-c">Reserve Your Black Car Today</a>
-            </div>
-            <div class="col-md-1">
-            </div>
-
-
-        </div>
-    </div>
-</div>
-@section('body-scripts')
-<script src="{{ asset('js/industrie-custom.js') }}"></script>
-<script src="{{ asset('js/custom.js') }}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUqn8Dg3GICSzhyvw7DjXXHkyoGMCoTpM&libraries=places&loading=async&callback=initAutocomplete" async defer></script>
-@endsection
+@include('partials.top-cities')
+@include('partials.companies_strip')
+@include('partials.testimonials')
+@include('partials.fifa')
+@include('partials.faq')
 @endsection

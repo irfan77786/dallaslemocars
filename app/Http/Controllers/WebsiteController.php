@@ -139,4 +139,76 @@ class WebsiteController extends Controller
             return redirect()->back()->with('error', 'Mail not sent: ' . $e->getMessage());
         }
     }
+
+    public function CancellationPolicy(Request $request){
+        if($request->edit){
+            session(['edit'=>1]);
+        }else{
+            session()->flush();
+            $request->session()->regenerateToken();
+        }
+
+        $seo = [
+            'title' => 'Cancellation Policy – Dallas Black Car Service',
+            'description' => 'Learn about our cancellation policy for Dallas black car service. Book your ride today and experience our transparent and flexible cancellation process.',
+            'keywords' => 'Dallas black car service cancellation policy, luxury car service cancellation policy Dallas, airport car service cancellation policy Dallas',
+            'og_title' => 'Cancellation Policy – Dallas Black Car Service',
+            'og_description' => 'Learn about our cancellation policy for Dallas black car service. Book your ride today and experience our transparent and flexible cancellation process.',
+            'og_image' => asset('img/black-car-service-dallas.webp')
+        ];
+
+        return view('website.cancellation-policy', [
+            'backgroundImage' => '/img/black-car-service-frisco.webp',
+            'mobileImage' => 'img/black-car-service-dallas.webp',
+            'seo' => $seo
+        ]);
+    }
+
+    public function TermsAndConditions(Request $request){
+        if($request->edit){
+            session(['edit'=>1]);
+        }else{
+            session()->flush();
+            $request->session()->regenerateToken();
+        }
+
+        $seo = [
+            'title' => 'Terms and Conditions – Dallas Black Car Service',
+            'description' => 'Review our terms and conditions for Dallas black car service. Understand your rights and obligations when using our services.',
+            'keywords' => 'Dallas black car service terms and conditions, luxury car service terms and conditions Dallas, airport car service terms and conditions Dallas',
+            'og_title' => 'Terms and Conditions – Dallas Black Car Service',
+            'og_description' => 'Review our terms and conditions for Dallas black car service. Understand your rights and obligations when using our services.',
+            'og_image' => asset('img/black-car-service-dallas.webp')
+        ];
+
+        return view('website.terms-and-conditions', [
+            'backgroundImage' => '/img/black-car-service-frisco.webp',
+            'mobileImage' => 'img/black-car-service-dallas.webp',
+            'seo' => $seo
+        ]);
+    }
+
+    public function PrivacyPolicy(Request $request){
+        if($request->edit){
+            session(['edit'=>1]);
+        }else{
+            session()->flush();
+            $request->session()->regenerateToken();
+        }
+
+        $seo = [
+            'title' => 'Privacy Policy – Dallas Black Car Service',
+            'description' => 'Review our privacy policy for Dallas black car service. Understand how we collect, use, and safeguard your personal information.',
+            'keywords' => 'Dallas black car service privacy policy, luxury car service privacy policy Dallas, airport car service privacy policy Dallas',
+            'og_title' => 'Privacy Policy – Dallas Black Car Service',
+            'og_description' => 'Review our privacy policy for Dallas black car service. Understand how we collect, use, and safeguard your personal information.',
+            'og_image' => asset('img/black-car-service-dallas.webp')
+        ];
+
+        return view('website.privacy-policy', [
+            'backgroundImage' => '/img/black-car-service-frisco.webp',
+            'mobileImage' => 'img/black-car-service-dallas.webp',
+            'seo' => $seo
+        ]);
+    }
 }

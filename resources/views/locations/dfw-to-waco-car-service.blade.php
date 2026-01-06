@@ -59,7 +59,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="img-holder">
-                    <img src="{{ asset('new_assets/assets/fleet-img.webp') }}" alt="Fleet Image" class="img-fluid">
+                    <img src="{{ asset('new_assets/assets/fleet-img.webp') }} alt="Fleet Image" class="img-fluid">
                 </div>
             </div>
             <div class="text-center col-12 pt-15">
@@ -195,6 +195,7 @@
         </div>
     </div>
 </section>
+@include('partials.top-cities')
 @include('partials.companies_strip')
 @include('partials.testimonials')
 @include('partials.fifa')

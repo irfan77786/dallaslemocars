@@ -122,10 +122,12 @@
                         }
                     </style>
 
-                    <button type="submit" class="btn btn-primary w-100 search_btn point-button"
-                        style="text-transform: uppercase; letter-spacing: 2px;">Get
-                        My Prices
-                        <i class="bi bi-arrow-right" style="font-size: 20px; margin: 2px;"></i></button>
+<button type="submit" class="btn btn-primary w-100 search_btn point-button"
+    style="text-transform: uppercase; letter-spacing: 2px;">
+    Get My Prices
+    <i class="fa-solid fa-arrow-right" style="font-size: 20px; margin: 2px;"></i>
+</button>
+
                 </form>
             </div>
         </div>
@@ -202,7 +204,7 @@
                     <button type="submit" class="btn btn-primary w-100"
                         style="text-transform: uppercase; letter-spacing: 2px;">Get
                         My
-                        Prices <i class="bi bi-arrow-right" style="font-size: 20px; margin: 2px;"></i></button>
+                        Prices <i class="fa-solid fa-arrow-right" style="font-size: 20px; margin: 2px;"></i></button>
                 </form>
             </div>
         </div>

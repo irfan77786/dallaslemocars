@@ -22,7 +22,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @yield('styles')
 </head>
 
@@ -99,27 +99,36 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle {{ request()->is('airports*') ? 'active' : '' }}"
+                                        href="#"
+                                        id="navbarDropdown"
+                                        role="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false">
                                         Airports
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item"
-                                                href="/airports/addison-airport-car-service">Addison
+                                        <li><a class="dropdown-item {{ request()->is('airports/addison-airport-car-service') ? 'active' : '' }}"
+                                                href="/airports/addison-airport-car-service"
+                                                >Addison
                                                 Airport (ADS)</a></li>
-                                        <li><a class="dropdown-item"
-                                                href="/airports/dfw-car-service">Dallas/Fort
+                                        <li><a class="dropdown-item {{ request()->is('airports/dfw-car-service') ? 'active' : '' }}"
+                                                href="/airports/dfw-car-service"
+                                                >Dallas/Fort
                                                 Worth
                                                 Airport (DFW)</a></li>
-                                        <li><a class="dropdown-item"
-                                                href="/airports/dallas-love-field-airport-car-service">Dallas Love Field
+                                        <li><a class="dropdown-item {{ request()->is('airports/dallas-love-field-airport-car-service') ? 'active' : '' }}"
+                                                href="/airports/dallas-love-field-airport-car-service"
+                                                >Dallas Love Field
                                                 Airport (DAL)</a></li>
-                                        <li><a class="dropdown-item"
-                                                href="/airports/mckinney-national-airport-car-service">McKinney
+                                        <li><a class="dropdown-item {{ request()->is('airports/mckinney-national-airport-car-service') ? 'active' : '' }}"
+                                                href="/airports/mckinney-national-airport-car-service"
+                                                >McKinney
                                                 National
                                                 Airport (TKI)</a></li>
-                                        <li><a class="dropdown-item"
-                                                href="/airports/waco-regional-airport-car-service">Waco
+                                        <li><a class="dropdown-item {{ request()->is('airports/waco-regional-airport-car-service') ? 'active' : '' }}"
+                                                href="/airports/waco-regional-airport-car-service"
+                                                >Waco
                                                 Regional
                                                 Airport (ACT)</a></li>
                                     </ul>
@@ -198,11 +207,11 @@
                     <div class="col-12">
                         <h5 class="mb-10 text-white h4 fw-bold mb-md-3">Our Service</h5>
                         <ul class="footer-nav-list-item list-unstyled mb-30 mb-lg-0">
-                            <li><a href="/services/airport-transfer-dallas">Airport
+                            <li><a href="/services/airport-transfers-dallas">Airport
                                     Transfers</a></li>
                             <li><a href="/services/chauffeur-service-dallas">Chauffeur
                                     Service</a></li>
-                            <li><a href="/services/private-car-service-dallas">Private
+                            <li><a href="/services/private-car-service-in-dallas">Private
                                     car service</a></li>
                             <li><a href="/services/luxury-van-rental-dallas">Luxury
                                     van rental</a></li>
