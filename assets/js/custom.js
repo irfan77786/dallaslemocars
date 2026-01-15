@@ -530,7 +530,7 @@ function onLocationChanged() {
         if (targetPosition) {
             // Smooth pan and zoom
             map.panTo(targetPosition);
-            map.setZoom(zoomLevel);
+            map.setZoom(15);
         }
     }
 
@@ -852,13 +852,21 @@ const mapStyle = [
   if (hasDropoff) bounds.extend(dropoffPlace.geometry.location);
 
   // Only fit bounds if we have valid bounds
-  if (!bounds.isEmpty()) {
-      // Add some padding around the markers
-      const padding = 100; // pixels
-      map.fitBounds(bounds, {
-          padding: {top: padding, right: padding, bottom: padding, left: padding}
-      });
-  }
+    if (!bounds.isEmpty()) {
+        if (hasPickup && !hasDropoff) {
+            map.setCenter(pickupPlace.geometry.location);
+            map.setZoom(15);
+        } else if (!hasPickup && hasDropoff) {
+            map.setCenter(dropoffPlace.geometry.location);
+            map.setZoom(15);
+        } else {
+            // Add some padding around the markers
+            const padding = 100; // pixels
+            map.fitBounds(bounds, {
+                padding: {top: padding, right: padding, bottom: padding, left: padding}
+            });
+        }
+    }
 
   if (hasPickup && hasDropoff) {
       const request = {

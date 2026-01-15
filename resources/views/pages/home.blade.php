@@ -1,6 +1,14 @@
 @extends('master')
 
 @section('content')
+    <section class="d-md-none">
+        <div class="ah-container">
+            <div class="search-form-mobile">
+                @include('partials.search')
+            </div>
+        </div>
+    </section>
+
     <section class="home-banner-section">
         <div id="hero-banner-container" class="py-60 ah-container position-relative py-sm-70 py-md-80 py-lg-100"
              style="z-index: 2; background-image: url('{{ asset('new_assets/assets/banner-4.jpg') }}');">
@@ -21,7 +29,7 @@
                             214-897-8056</a>
                     </p>
                 </div>
-                <div class="col-12 col-md-6" style="pointer-events: auto; position: relative; z-index: 2;">
+                <div class="d-none col-12 col-md-6 d-md-block" style="pointer-events: auto; position: relative; z-index: 2;">
                     <!-- Booking Form -->
                     <div class="search-form-wrapper-desktop">
                         @include('partials.search')

@@ -285,6 +285,11 @@ a.btn-loadmore:hover {
     z-index: 8;
 }
 
+.search-form-mobile{
+    position: relative;
+    z-index: 20;
+}
+
 /* Form Container Styles */
 .search-tab-wrap{
     background: #fff;
