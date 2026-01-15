@@ -249,7 +249,7 @@ a.btn-loadmore:hover {
     color: white !important;
 }
 .dtp-btn-ok {
-    text-align: end !important;
+    text-align: center !important;
 }
 .selected {
     background: #e52c43 !important ;
@@ -335,7 +335,7 @@ a.btn-loadmore:hover {
     }
     .sformlink{
         font-size: 16.4px !important;
-        font-weight: 100 !important;
+        font-weight: 300 !important;
     }
     /* Removed .search-tab-wrap overrides that strip styling on mobile */
     .gallary-inner-row .col-12.col-md-6.col-lg-4:nth-child(n+4) {
@@ -486,6 +486,7 @@ a.btn-loadmore:hover {
     border-bottom: 1px solid #f0f0f0;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     gap: 10px;
 }
 
@@ -497,9 +498,13 @@ a.btn-loadmore:hover {
     background-color: #f8f9fa;
 }
 
-.suggestion-item i {
+.suggestion-item i,
+.suggestion-item svg {
     color: #6c757d;
+    fill: currentColor;
     font-size: 1.1rem;
+    width: 1.1rem;
+    height: 1.1rem;
 }
 
 .suggestion-item .main-text {
@@ -572,18 +577,21 @@ a.btn-loadmore:hover {
 /* Ensure buttons are compact and visible */
 .dtp .dtp-buttons {
     display: flex !important;
-    justify-content: flex-end !important; /* Align to right */
+    justify-content: center !important;
     align-items: center !important;
-    padding: 5px 10px !important;
+    padding: 8px 12px !important;
     margin: 0 !important;
     min-height: 40px;
+    gap: 24px;
 }
 .dtp .dtp-buttons .btn {
     font-size: 0.9em !important;
-    padding: 5px 15px !important;
-    margin-left: 5px !important;
-    float: none !important; /* Disable floats */
+    padding: 5px 12px !important;
+    margin: 0 !important;
+    float: none !important;
     width: auto !important;
+    flex: 0 0 auto;
+    text-align: center;
 }
 .nav-tabs .nav-link {
     border: none !important;

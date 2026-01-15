@@ -281,6 +281,22 @@ function getBootstrapIconForPlace(place = {}) {
   return 'bi-geo-alt';
 }
 
+function getPlaceIconSvg(place = {}) {
+  const iconClass = getBootstrapIconForPlace(place);
+
+  if (iconClass === 'bi-airplane') {
+    const getAirplaneIcon = (s="18px", c="currentColor") => `
+    <svg width="${s}" height="${s}" viewBox="0 0 16 16" fill="${c}" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.854.146a.5.5 0 0 1 .11.525L13.04 8l2.924 7.329a.5.5 0 0 1-.707.618l-6.297-4.198c-.42-.28-.56-.832-.356-1.285L10.2 6.5 4.5 9.5a.5.5 0 0 1-.68-.195L.05 3.305a.5.5 0 0 1 .68-.68l3.3 3.3L6.5 4.5l-1.933-1.609a.5.5 0 0 1 .356-1.285L15.329.036a.5.5 0 0 1 .525.11Z"/>
+    </svg>`;
+    // CHANGE THIS LINE: Add the parentheses to execute the function
+    return getAirplaneIcon();
+  }
+
+  // This part is already returning a string, so it works fine.
+  return '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a5.53 5.53 0 0 0-5.5 5.5C2.5 9.086 6.6 15 8 15s5.5-5.914 5.5-9.5A5.53 5.53 0 0 0 8 0m0 3a2.5 2.5 0 1 1 0 5A2.5 2.5 0 0 1 8 3"/></svg>';
+}
+
 function setupCustomAutocomplete(inputId, suggestionsListId, hiddenAirportFieldId, onSelectCallback = null) {
   const input = document.getElementById(inputId);
   const suggestionsContainer = document.getElementById(suggestionsListId);
@@ -345,7 +361,7 @@ function setupCustomAutocomplete(inputId, suggestionsListId, hiddenAirportFieldI
             const item = document.createElement('div');
             item.className = 'suggestion-item';
             item.innerHTML = `
-              <i class="bi ${getBootstrapIconForPlace(prediction)}"></i>
+              <span class="suggestion-icon">${getPlaceIconSvg(prediction)}</span>
               <div>
                 <span class="main-text">${prediction.structured_formatting.main_text}</span>
                 <span class="sub-text">${prediction.structured_formatting.secondary_text}</span>
@@ -1340,7 +1356,8 @@ $(document).ready(function() {
             weekStart: 0,
             shortTime: true,
             cancelText: 'Back',
-            okText: 'OK'
+            okText: 'OK',
+            switchOnClick: true
         });
 
         // Ensure clicking the icon triggers the input

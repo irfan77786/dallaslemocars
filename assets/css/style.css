@@ -1496,13 +1496,15 @@ form.search-form input::placeholder, form.search-form select::placeholder {
     border-bottom: 1px solid #eee;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
 }
 
 .location-suggestions .suggestion-item:hover {
     background-color: #f8f9fa;
 }
 
-.location-suggestions .suggestion-item i {
+.location-suggestions .suggestion-item i,
+.location-suggestions .suggestion-item svg {
     margin-right: 10px;
     color: #6c757d;
     font-size: 1.2em;

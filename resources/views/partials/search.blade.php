@@ -5,11 +5,11 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" style="padding-left: 18px; padding-right: 18px; padding-bottom: 10px;">
         <li class="nav-item" style="flex: 1">
-            <a class="nav-link {{ !$isHourly ? 'active' : 'inactive-tab' }} text-center pt-0 sformlink" style="font-size: 13px !important; color: #757575; font-weight: 500;" data-bs-toggle="tab"
+            <a class="nav-link {{ !$isHourly ? 'active' : 'inactive-tab' }} text-center pt-0 sformlink" style="font-size: 13px !important; font-weight: 500;" data-bs-toggle="tab"
                 href="#place">Point to Point</a>
         </li>
         <li class="nav-item" style="flex: 1">
-            <a class="nav-link {{ $isHourly ? 'active' : 'inactive-tab' }} text-center pt-0 sformlink" style="font-size: 13px !important; color: #757575; font-weight: 500;"
+            <a class="nav-link {{ $isHourly ? 'active' : 'inactive-tab' }} text-center pt-0 sformlink" style="font-size: 13px !important; font-weight: 500;"
                 data-bs-toggle="tab" href="#event">Hourly</a>
         </li>
     </ul>
@@ -76,7 +76,7 @@
                         <div class="form-check me-2">
                             <input type="checkbox" name="round_trip" id="round-trip" class="form-check-input"
                                 style="height: 18px; width: 18px; cursor: pointer; margin-top: 10px;" @session('round_trip') checked @endsession>
-                            <label for="round-trip" class="mb-2 ml-2 form-check-label ms-2" style="cursor: pointer; font-size: 18px; margin-top: 0.4rem; color: black !important; font-weight: 100">
+                            <label for="round-trip" class="mb-2 ml-2 form-check-label ms-2" style="cursor: pointer; font-size: 14px; margin-top: 0.4rem; color: black !important; font-weight: 400">
                                 Add a return Trip
                             </label>
                         </div>
@@ -195,7 +195,7 @@
                     <div class="mb-2 d-flex align-items-center" style="visibility: hidden;">
                         <div class="form-check me-2">
                             <input type="checkbox" class="form-check-input" style="height: 18px; width: 18px; margin-top: 10px;" disabled>
-                            <label class="mb-2 ml-2 form-check-label ms-2" style="font-size: 18px; margin-top: 0.4rem; font-weight: 100">
+                            <label class="mb-2 ml-2 form-check-label ms-2" style="font-size: 16px; margin-top: 0.4rem; font-weight: 600">
                                 Add a return Trip
                             </label>
                         </div>
