@@ -59,9 +59,6 @@ a.btn-booking-start:hover {
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
     background: #e52c43 !important;
 }
-form.search-form button {
-    background: #e52c43 !important;
-}
 .slick-current .slide-icon {
     background: #e52c43 !important;
 }
