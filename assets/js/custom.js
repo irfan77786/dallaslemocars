@@ -285,10 +285,8 @@ function getPlaceIconSvg(place = {}) {
   const iconClass = getBootstrapIconForPlace(place);
 
   if (iconClass === 'bi-airplane') {
-    const getAirplaneIcon = (s="18px", c="currentColor") => `
-    <svg width="${s}" height="${s}" viewBox="0 0 16 16" fill="${c}" xmlns="http://www.w3.org/2000/svg">
-    <path d="M15.854.146a.5.5 0 0 1 .11.525L13.04 8l2.924 7.329a.5.5 0 0 1-.707.618l-6.297-4.198c-.42-.28-.56-.832-.356-1.285L10.2 6.5 4.5 9.5a.5.5 0 0 1-.68-.195L.05 3.305a.5.5 0 0 1 .68-.68l3.3 3.3L6.5 4.5l-1.933-1.609a.5.5 0 0 1 .356-1.285L15.329.036a.5.5 0 0 1 .525.11Z"/>
-    </svg>`;
+    const getAirplaneIcon = (s="18px", c="black") => `<svg width="${s}" height="${s}" viewBox="0 0 128 128" fill="${c}" xmlns="http://www.w3.org/2000/svg"><path d="M119.7,18.2c7.8-7.8-3-17.9-10.7-10.3L80.7,36.3L15.8,19.2L5,30l53.5,28.2L36.8,79.8L20,77.7l-8.6,8.6l19.1,10l10,19.1l8.6-8.6l-2-16.7l21.6-21.6l27.6,53.2l10.8-10.8L90.8,47.2L119.7,18.2z"/></svg>`;
+
     // CHANGE THIS LINE: Add the parentheses to execute the function
     return getAirplaneIcon();
   }
@@ -530,7 +528,7 @@ function onLocationChanged() {
         if (targetPosition) {
             // Smooth pan and zoom
             map.panTo(targetPosition);
-            map.setZoom(15);
+            map.setZoom(zoomLevel);
         }
     }
 
@@ -852,21 +850,13 @@ const mapStyle = [
   if (hasDropoff) bounds.extend(dropoffPlace.geometry.location);
 
   // Only fit bounds if we have valid bounds
-    if (!bounds.isEmpty()) {
-        if (hasPickup && !hasDropoff) {
-            map.setCenter(pickupPlace.geometry.location);
-            map.setZoom(15);
-        } else if (!hasPickup && hasDropoff) {
-            map.setCenter(dropoffPlace.geometry.location);
-            map.setZoom(15);
-        } else {
-            // Add some padding around the markers
-            const padding = 100; // pixels
-            map.fitBounds(bounds, {
-                padding: {top: padding, right: padding, bottom: padding, left: padding}
-            });
-        }
-    }
+  if (!bounds.isEmpty()) {
+      // Add some padding around the markers
+      const padding = 100; // pixels
+      map.fitBounds(bounds, {
+          padding: {top: padding, right: padding, bottom: padding, left: padding}
+      });
+  }
 
   if (hasPickup && hasDropoff) {
       const request = {

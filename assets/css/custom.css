@@ -295,7 +295,7 @@ a.btn-loadmore:hover {
     background: #fff;
     border-radius: 8px;
     box-shadow: 0px 0px 4px #6e6e6e;
-    padding: 30px;
+    padding: 20px;
     width: 100%; /* Changed from fixed 430px to 100% to fit container */
     max-width: 450px; /* Added max-width for sanity */
     margin: auto;
@@ -326,8 +326,35 @@ a.btn-loadmore:hover {
 
 /* Mobile styles - Cleaned up */
 @media (max-width: 768px) {
+    .search-tab-wrap {
+        padding-top: 10px !important;
+        float: none !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-shadow: none !important;
+    }
     .skip-btn {
         width: 100% !important;
+    }
+
+    /* Mobile Layout Fixes */
+    .search-form-mobile {
+        background-color: #fff !important;
+        display: block !important;
+        width: 100% !important;
+    }
+
+    .home-banner-section,
+    #hero-banner-container {
+        margin-top: 0 !important;
+        min-height: auto !important;
+    }
+
+    #hero-banner-container {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+        height: auto !important;
     }
     .side_section {
         margin-bottom: 4.5rem !important;
