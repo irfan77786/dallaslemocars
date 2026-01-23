@@ -32,7 +32,7 @@
                 <div class="d-none col-12 col-md-6 d-md-block" style="pointer-events: auto; position: relative; z-index: 2;">
                     <!-- Booking Form -->
                     <div class="search-form-wrapper-desktop">
-                        @include('partials.search', ['id_suffix' => '_desktop'])
+                        @include('partials.search', ['id_suffix' => ''])
                     </div>
                 </div>
             </div>

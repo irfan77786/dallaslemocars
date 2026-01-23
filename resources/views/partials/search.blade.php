@@ -22,20 +22,20 @@
             <div class="search-form-box">
                 <form class="search-form loader-form" action="{{ url('/booking/point-to-point') }}" method="POST">
                     @csrf
-                    <input type="hidden" name="is_airport" id="is-airport" value="{{ session('is_airport') ?? 0 }}">
+                    <input type="hidden" name="is_airport" id="is-airport{{ $tabSuffix }}" value="{{ session('is_airport') ?? 0 }}">
 
                     <!-- Pick-up Location -->
                     <div class="floating-bordered-input position-relative">
                         <span class="floating-label">Pick-up Location</span>
                         <span class="input-icon-left"><svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="#757575" d="M32,0C18.746,0,8,10.746,8,24c0,5.219,1.711,10.008,4.555,13.93c0.051,0.094,0.059,0.199,0.117,0.289l16,24 C29.414,63.332,30.664,64,32,64s2.586-0.668,3.328-1.781l16-24c0.059-0.09,0.066-0.195,0.117-0.289C54.289,34.008,56,29.219,56,24 C56,10.746,45.254,0,32,0z M32,32c-4.418,0-8-3.582-8-8s3.582-8,8-8s8,3.582,8,8S36.418,32,32,32z"></path> </g></svg></span>
 
-                        <input type="text" name="pickup_location" id="pickup-location" class="form-control"
+                        <input type="text" name="pickup_location" id="pickup-location{{ $tabSuffix }}" class="form-control"
                             value="{{ session('pickup_location') }}" placeholder=" " required autocomplete="off">
-                        <span id="swap-locations" class="swap-locations" style="cursor: pointer; position: absolute; right: 0; top: 27%; z-index: 1; background: white; padding: 0 10px;">
+                        <span id="swap-locations{{ $tabSuffix }}" class="swap-locations" style="cursor: pointer; position: absolute; right: 0; top: 27%; z-index: 1; background: white; padding: 0 10px;">
                             <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(270)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 3.93a.75.75 0 0 1 1.177-.617l4.432 3.069a.75.75 0 0 1 0 1.233l-4.432 3.069A.75.75 0 0 1 16 10.067V8H4a1 1 0 0 1 0-2h12V3.93zm-9.177 9.383A.75.75 0 0 1 8 13.93V16h12a1 1 0 1 1 0 2H8v2.067a.75.75 0 0 1-1.177.617l-4.432-3.069a.75.75 0 0 1 0-1.233l4.432-3.069z" fill="#757575"></path></g></svg>
                         </span>
                         <!-- Suggestions -->
-                        <div id="pickup-suggestions" class="location-suggestions"></div>
+                        <div id="pickup-suggestions{{ $tabSuffix }}" class="location-suggestions"></div>
                     </div>
 
 
@@ -44,14 +44,14 @@
                         <span class="floating-label">Destination</span>
                         <span class="input-icon-left"><svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="#757575" d="M32,0C18.746,0,8,10.746,8,24c0,5.219,1.711,10.008,4.555,13.93c0.051,0.094,0.059,0.199,0.117,0.289l16,24 C29.414,63.332,30.664,64,32,64s2.586-0.668,3.328-1.781l16-24c0.059-0.09,0.066-0.195,0.117-0.289C54.289,34.008,56,29.219,56,24 C56,10.746,45.254,0,32,0z M32,32c-4.418,0-8-3.582-8-8s3.582-8,8-8s8,3.582,8,8S36.418,32,32,32z"></path> </g></svg></span>
 
-                        <input type="text" name="dropoff_location" id="dropoff-location" class="form-control"
+                        <input type="text" name="dropoff_location" id="dropoff-location{{ $tabSuffix }}" class="form-control"
                             value="{{ session('dropoff_location') }}" placeholder=" " required autocomplete="off">
 
                         <!-- Suggestions -->
-                        <div id="dropoff-suggestions" class="location-suggestions"></div>
+                        <div id="dropoff-suggestions{{ $tabSuffix }}" class="location-suggestions"></div>
                     </div>
 
-                    <div class="mb-2 floating-bordered-input position-relative">
+                    <div class="mb-1 floating-bordered-input position-relative">
                         <span class="floating-label">Pick-up Date / Time</span>
 
                         <span class="input-icon-left">
@@ -73,7 +73,7 @@
                         @enderror
                     </div>
 
-                    <div class="mb-2 d-flex align-items-center">
+                    <div class="mb-1 d-flex align-items-center">
                         <div class="form-check me-2">
                             <input type="checkbox" name="round_trip" id="round-trip" class="form-check-input"
                                 style="height: 18px; width: 18px; cursor: pointer; margin-top: 10px;" @session('round_trip') checked @endsession>
@@ -143,12 +143,12 @@
                         <span class="floating-label">Pick-up Location</span>
                         <span class="input-icon-left"><svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="#757575" d="M32,0C18.746,0,8,10.746,8,24c0,5.219,1.711,10.008,4.555,13.93c0.051,0.094,0.059,0.199,0.117,0.289l16,24 C29.414,63.332,30.664,64,32,64s2.586-0.668,3.328-1.781l16-24c0.059-0.09,0.066-0.195,0.117-0.289C54.289,34.008,56,29.219,56,24 C56,10.746,45.254,0,32,0z M32,32c-4.418,0-8-3.582-8-8s3.582-8,8-8s8,3.582,8,8S36.418,32,32,32z"></path> </g></svg></span>
 
-                        <input type="text" name="pickup_location_hourly" id="pickup-location-hourly"
+                        <input type="text" name="pickup_location_hourly" id="pickup-location-hourly{{ $tabSuffix }}"
                             class="form-control" value="{{ session('pickup_location', '') }}" placeholder=" " required
                             autocomplete="off">
 
                         <!-- Suggestions -->
-                        <div id="pickup-location-hourly-suggestions" class="location-suggestions"></div>
+                        <div id="pickup-location-hourly-suggestions{{ $tabSuffix }}" class="location-suggestions"></div>
                     </div>
 
 
@@ -157,7 +157,7 @@
                         <span class="floating-label">Select Duration</span>
                         <span class="input-icon-left" style="margin-top: 4px;"><i class="bi bi-clock-fill"></i></span>
 
-                        <select name="select_hours" id="select-hours" class="form-control" required>
+                        <select name="select_hours" id="select-hours{{ $tabSuffix }}" class="form-control" required>
                             <option value=""></option>
                             @foreach (range(3, 24) as $hour)
                                 <option value="{{ $hour }}"
@@ -170,7 +170,7 @@
 
 
                     <!-- Pick-up Date & Time (Hourly) -->
-                    <div class="mb-2 floating-bordered-input position-relative">
+                    <div class="mb-1 floating-bordered-input position-relative">
                         <span class="floating-label">Pick-up Date / Time</span>
 
                         <span class="input-icon-left">
@@ -181,7 +181,7 @@
 
                         <input type="text"
                             name="pickup_datetime_hourly"
-                            id="pickup-datetime-hourly"
+                            id="pickup-datetime-hourly{{ $tabSuffix }}"
                             class="form-control"
                             value="{{ session('pickup_datetime_hourly') ? \Carbon\Carbon::parse(session('pickup_datetime_hourly'))->format('Y-m-d H:i') : '' }}"
                             required
@@ -193,7 +193,7 @@
                     </div>
 
                     <!-- Spacer to match Point-to-Point form height (Hidden "Add Return Trip" equivalent) -->
-                    <div class="mb-2 d-flex align-items-center" style="visibility: hidden;">
+                    <div class="mb-1 d-flex align-items-center" style="visibility: hidden;">
                         <div class="form-check me-2">
                             <input type="checkbox" class="form-check-input" style="height: 18px; width: 18px; margin-top: 10px;" disabled>
                             <label class="mb-2 ml-2 form-check-label ms-2" style="font-size: 16px; margin-top: 0.4rem; font-weight: 600">

@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+
     {{-- SEO Meta Tags --}}
     <title>{{ $seo['title'] ?? 'DALLAS LIMOS AND BLACK CAR SERVICE' }}</title>
     <meta name="description" content="{{ $seo['description'] ?? 'Premium black car and limousine service in Dallas, Texas. Luxury transportation for airport transfers, corporate events, and special occasions.' }}">
     <meta name="keywords" content="{{ $seo['keywords'] ?? 'Dallas black car service, Dallas limo service, luxury car service Dallas, airport transportation Dallas' }}">
-    
+
     {{-- Open Graph Meta Tags --}}
     <meta property="og:title" content="{{ $seo['og_title'] ?? $seo['title'] ?? 'DALLAS LIMOS AND BLACK CAR SERVICE' }}">
     <meta property="og:description" content="{{ $seo['og_description'] ?? $seo['description'] ?? 'Premium black car and limousine service in Dallas, Texas.' }}">
     <meta property="og:image" content="{{ $seo['og_image'] ?? asset('new_assets/assets/black-car-service-dallas-logo.png') }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
-    
+
     {{-- Twitter Card Meta Tags --}}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ $seo['og_title'] ?? $seo['title'] ?? 'DALLAS LIMOS AND BLACK CAR SERVICE' }}">
@@ -40,14 +40,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
     <!-- Preload critical JavaScript files -->
     <link rel="preload" href="{{ asset('assets/js/custom.js') }}" as="script">
     <link rel="preload" href="{{ asset('new_assets/js/jquery.js') }}" as="script">
-    
+
     <!-- Preload logo image for faster rendering -->
     <link rel="preload" href="{{ asset('new_assets/assets/black-car-service-dallas-logo.png') }}" as="image">
-    
+
     @yield('styles')
 </head>
 
@@ -378,16 +378,16 @@
             </div>
         </div>
     </footer>
-    
+
     <!-- Critical Scripts - Load First -->
     <script src="{{ asset('new_assets/js/jquery.js') }}"></script>
-    
+
     <!-- Load custom.js immediately after jQuery (contains map functions) -->
     <script src="{{ asset('assets/js/custom.js') }}"></script>
-    
+
     <!-- Google Maps - Load after custom.js so initAutocomplete can find the functions -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUqn8Dg3GICSzhyvw7DjXXHkyoGMCoTpM&libraries=places&callback=initAutocomplete"></script>
-    
+
     <!-- Other Scripts - Can be deferred -->
     <script src="{{ asset('new_assets/js/bootstrap-min.js') }}" defer></script>
     <script src="{{ asset('new_assets/js/swiper-min.js') }}" defer></script>
@@ -422,8 +422,12 @@
         // Initialize autocomplete after Google Maps API is loaded
     function initAutocomplete() {
         // Initialize autocomplete for all location inputs
+        // Desktop / Default
         setupCustomAutocomplete('pickup-location', 'pickup-suggestions', 'is-airport', function(place) {
             pickupPlacePoint = place;
+            // Sync with mobile
+            $('#pickup-location_mobile').val($('#pickup-location').val());
+            $('#is-airport_mobile').val($('#is-airport').val());
             handlePointToPointUpdate();
             updateMapWidth();
             window.addEventListener('resize', updateMapWidth);
@@ -431,10 +435,49 @@
 
         setupCustomAutocomplete('dropoff-location', 'dropoff-suggestions', 'is-airport-dropoff', function(place) {
             dropoffPlacePoint = place;
+            // Sync with mobile
+            $('#dropoff-location_mobile').val($('#dropoff-location').val());
             handlePointToPointUpdate();
         });
 
         setupCustomAutocomplete('pickup-location-hourly', 'pickup-location-hourly-suggestions', 'is-airport-hourly', function(place) {
+            initMap(place, null);
+        });
+
+        // Mobile
+        setupCustomAutocomplete('pickup-location_mobile', 'pickup-suggestions_mobile', 'is-airport_mobile', function(place) {
+            pickupPlacePoint = place;
+            // Sync with desktop
+            $('#pickup-location').val($('#pickup-location_mobile').val());
+            $('#is-airport').val($('#is-airport_mobile').val());
+            handlePointToPointUpdate();
+        });
+
+        setupCustomAutocomplete('dropoff-location_mobile', 'dropoff-suggestions_mobile', 'is-airport-dropoff_mobile', function(place) {
+            dropoffPlacePoint = place;
+             // Sync with desktop
+            $('#dropoff-location').val($('#dropoff-location_mobile').val());
+            handlePointToPointUpdate();
+        });
+
+         setupCustomAutocomplete('pickup-location-hourly_mobile', 'pickup-location-hourly-suggestions_mobile', 'is-airport-hourly_mobile', function(place) {
+             initMap(place, null);
+         });
+
+         // Form (Service Pages)
+         setupCustomAutocomplete('pickup-location_form', 'pickup-suggestions_form', 'is-airport_form', function(place) {
+            pickupPlacePoint = place;
+            handlePointToPointUpdate();
+            updateMapWidth();
+            window.addEventListener('resize', updateMapWidth);
+        });
+
+        setupCustomAutocomplete('dropoff-location_form', 'dropoff-suggestions_form', 'is-airport-dropoff_form', function(place) {
+            dropoffPlacePoint = place;
+            handlePointToPointUpdate();
+        });
+
+        setupCustomAutocomplete('pickup-location-hourly_form', 'pickup-location-hourly-suggestions_form', 'is-airport-hourly_form', function(place) {
             initMap(place, null);
         });
     }

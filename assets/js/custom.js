@@ -90,9 +90,9 @@ window.resetMap = resetMap;
   });
 
 document.addEventListener('DOMContentLoaded', function () {
-  const $pickup = $('#pickup-location');
-  const $dropoff = $('#dropoff-location');
-  const $hourly = $('#pickup-location-hourly');
+  const $pickup = $('#pickup-location, #pickup-location_mobile, #pickup-location_form');
+  const $dropoff = $('#dropoff-location, #dropoff-location_mobile, #dropoff-location_form');
+  const $hourly = $('#pickup-location-hourly, #pickup-location-hourly_mobile, #pickup-location-hourly_form');
   const map = document.getElementById('map');
   const mapOverlay = document.querySelector('.map-overlay');
   let locChangeTimer;
@@ -103,9 +103,11 @@ document.addEventListener('DOMContentLoaded', function () {
     locChangeTimer = setTimeout(function(){ onLocationChanged(); }, 200);
   });
 
-$('#pickup-location, #dropoff-location').on('keyup', function () {
-  const pickupEmpty = $pickup.val().trim() === '';
-  const dropoffEmpty = $dropoff.val().trim() === '';
+$('#pickup-location, #dropoff-location, #pickup-location_mobile, #dropoff-location_mobile, #pickup-location_form, #dropoff-location_form').on('keyup', function () {
+  const activePickup = $('#pickup-location').val() || $('#pickup-location_mobile').val() || $('#pickup-location_form').val() || '';
+  const activeDropoff = $('#dropoff-location').val() || $('#dropoff-location_mobile').val() || $('#dropoff-location_form').val() || '';
+  const pickupEmpty = activePickup.trim() === '';
+  const dropoffEmpty = activeDropoff.trim() === '';
 
   // When both fields are empty → show image overlay, but don't re-create it if it already exists
   if (pickupEmpty && dropoffEmpty) {
@@ -115,14 +117,16 @@ $('#pickup-location, #dropoff-location').on('keyup', function () {
 
   } else {
     // When at least one field has value → show real map
-    const overlay = map.querySelector('.map-overlay');
-    if (overlay) overlay.remove(); // cleanly remove overlay if present
+    if (map) {
+      const overlay = map.querySelector('.map-overlay');
+      if (overlay) overlay.remove(); // cleanly remove overlay if present
 
-    // Remove fallback image styles
-    map.style.removeProperty('background-image');
-    map.style.removeProperty('background-size');
-    map.style.removeProperty('background-position');
-    map.style.removeProperty('background-repeat');
+      // Remove fallback image styles
+      map.style.removeProperty('background-image');
+      map.style.removeProperty('background-size');
+      map.style.removeProperty('background-position');
+      map.style.removeProperty('background-repeat');
+    }
   }
 });
 
@@ -480,11 +484,11 @@ function initializeStopAutocomplete(formId) {
 
 // Handle pickup and dropoff location changes with smooth transitions
 function onLocationChanged() {
-    const $pickup = $('#pickup-location');
-    const $dropoff = $('#dropoff-location');
+    const $pickup = $('#pickup-location').length ? $('#pickup-location') : ($('#pickup-location_mobile').length ? $('#pickup-location_mobile') : $('#pickup-location_form'));
+    const $dropoff = $('#dropoff-location').length ? $('#dropoff-location') : ($('#dropoff-location_mobile').length ? $('#dropoff-location_mobile') : $('#dropoff-location_form'));
     const mapElement = document.getElementById('map');
-    const pickupVal = $pickup.val().trim();
-    const dropoffVal = $dropoff.val().trim();
+    const pickupVal = $pickup.val() ? $pickup.val().trim() : '';
+    const dropoffVal = $dropoff.val() ? $dropoff.val().trim() : '';
     const zoomLevel = 12;
     const animationDuration = 500; // ms
 
@@ -1267,7 +1271,11 @@ if (hourForm) {
 })
 }
 
- const inputIds = ['pickup-location', 'pickup-location-hourly', 'dropoff-location'];
+ const inputIds = [
+    'pickup-location', 'pickup-location-hourly', 'dropoff-location',
+    'pickup-location_mobile', 'pickup-location-hourly_mobile', 'dropoff-location_mobile',
+    'pickup-location_form', 'pickup-location-hourly_form', 'dropoff-location_form'
+];
 
   function positionAutocomplete(input) {
     const pacContainer = document.querySelector('.pac-container');
@@ -1346,8 +1354,46 @@ $(document).ready(function() {
         toggleReturnTrip();
     });
 
+    // Sync Mobile and Desktop Inputs
+    function syncInputs(id) {
+        const desktopId = '#' + id;
+        const mobileId = '#' + id + '_mobile';
+
+        function sync(source, target) {
+            const val = $(source).val();
+            const type = $(source).attr('type');
+
+            if (type === 'checkbox') {
+                const checked = $(source).is(':checked');
+                if ($(target).is(':checked') !== checked) {
+                    $(target).prop('checked', checked).trigger('change');
+                }
+            } else {
+                if ($(target).val() !== val) {
+                    $(target).val(val).trigger('input').trigger('change');
+                }
+            }
+        }
+
+        $(desktopId).on('input change keyup', function() { sync(desktopId, mobileId); });
+        $(mobileId).on('input change keyup', function() { sync(mobileId, desktopId); });
+    }
+
+    const idsToSync = [
+        'pickup-location',
+        'dropoff-location',
+        'pickup-datetime',
+        'round-trip',
+        'return-datetime-hourly',
+        'pickup-location-hourly',
+        'select-hours',
+        'pickup-datetime-hourly'
+    ];
+
+    idsToSync.forEach(syncInputs);
+
     if ($.fn.bootstrapMaterialDatePicker) {
-        $('#pickup-datetime, #pickup-datetime-hourly, #return-datetime-hourly').bootstrapMaterialDatePicker({
+        $('#pickup-datetime, #pickup-datetime-hourly, #return-datetime-hourly, #pickup-datetime_mobile, #pickup-datetime-hourly_mobile, #return-datetime-hourly_mobile').bootstrapMaterialDatePicker({
             format: 'ddd, MMM Do, YYYY h:mm A',
             minDate: new Date(),
             lang: 'en',
