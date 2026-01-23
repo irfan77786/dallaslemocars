@@ -438,24 +438,90 @@ function handlePointToPointUpdate() {
 }
 
 function initAutocomplete() {
-  setupCustomAutocomplete('pickup-location', 'pickup-suggestions', 'is-airport', function (place) {
+  // Initialize autocomplete for all location inputs
+
+  // Desktop / Default
+  setupCustomAutocomplete('pickup-location', 'pickup-suggestions', 'is-airport', function(place) {
     pickupPlacePoint = place;
+    // Sync with mobile
+    $('#pickup-location_mobile').val($('#pickup-location').val());
+    $('#is-airport_mobile').val($('#is-airport').val());
+    handlePointToPointUpdate();
+    if (typeof updateMapWidth === 'function') updateMapWidth();
+  });
+
+  setupCustomAutocomplete('dropoff-location', 'dropoff-suggestions', 'is-airport-dropoff', function(place) {
+    dropoffPlacePoint = place;
+    // Sync with mobile
+    $('#dropoff-location_mobile').val($('#dropoff-location').val());
     handlePointToPointUpdate();
   });
 
-  setupCustomAutocomplete('dropoff-location', 'dropoff-suggestions', 'is-airport-dropoff', function (place) {
+  setupCustomAutocomplete('pickup-location-hourly', 'pickup-location-hourly-suggestions', 'is-airport_hourly', function(place) {
+    initMap(place, null);
+  });
+
+  // Mobile
+  setupCustomAutocomplete('pickup-location_mobile', 'pickup-suggestions_mobile', 'is-airport_mobile', function(place) {
+    pickupPlacePoint = place;
+    // Sync with desktop
+    $('#pickup-location').val($('#pickup-location_mobile').val());
+    $('#is-airport').val($('#is-airport_mobile').val());
+    handlePointToPointUpdate();
+  });
+
+  setupCustomAutocomplete('dropoff-location_mobile', 'dropoff-suggestions_mobile', 'is-airport-dropoff_mobile', function(place) {
+    dropoffPlacePoint = place;
+    // Sync with desktop
+    $('#dropoff-location').val($('#dropoff-location_mobile').val());
+    handlePointToPointUpdate();
+  });
+
+  setupCustomAutocomplete('pickup-location-hourly_mobile', 'pickup-location-hourly-suggestions_mobile', 'is-airport_hourly_mobile', function(place) {
+    initMap(place, null);
+  });
+
+  // Form (Service Pages)
+  setupCustomAutocomplete('pickup-location_form', 'pickup-suggestions_form', 'is-airport_form', function(place) {
+    pickupPlacePoint = place;
+    handlePointToPointUpdate();
+    if (typeof updateMapWidth === 'function') updateMapWidth();
+  });
+
+  setupCustomAutocomplete('dropoff-location_form', 'dropoff-suggestions_form', 'is-airport-dropoff_form', function(place) {
     dropoffPlacePoint = place;
     handlePointToPointUpdate();
   });
 
-  setupCustomAutocomplete('pickup-location-hourly', 'pickup-location-hourly-suggestions', 'is-airport_hourly', function (place) {
-    initMap(place, null); // Your hourly logic
+  setupCustomAutocomplete('pickup-location-hourly_form', 'pickup-location-hourly-suggestions_form', 'is-airport_hourly_form', function(place) {
+    initMap(place, null);
   });
-  // Add more fields if needed: hourly pickup, hourly stops, etc.
+
+  // Hero (if exists)
+  setupCustomAutocomplete('pickup-location_hero', 'pickup-suggestions_hero', 'is-airport_hero', function(place) {
+      pickupPlacePoint = place;
+      handlePointToPointUpdate();
+  });
+
+  setupCustomAutocomplete('dropoff-location_hero', 'dropoff-suggestions_hero', 'is-airport-dropoff_hero', function(place) {
+      dropoffPlacePoint = place;
+      handlePointToPointUpdate();
+  });
+
+  // Add window resize listener for map width if needed
+  if (typeof updateMapWidth === 'function') {
+      window.addEventListener('resize', updateMapWidth);
+  }
 }
 
 
-// Initialize autocomplete for dynamically added stop locations
+// Compatibility script for old map logic
+function updateMapWidth() {
+  const map = document.getElementById("map");
+  if (!map) return;
+  // logic is handled by CSS mostly in new template
+}
+
 // function initializeStopAutocomplete(formId) {
 //     const stopContainer = document.querySelectorAll(`#${formId} .stop-location-input`);
 //     stopInputs = stopInputs.concat(Array.from(stopContainer)); // Store the inputs globally
