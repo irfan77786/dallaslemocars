@@ -299,7 +299,7 @@ a.btn-loadmore:hover {
     box-shadow: 0px 0px 4px #6e6e6e;
     padding: 30px 50px;
     width: 100%; /* Changed from fixed 430px to 100% to fit container */
-    max-width: 480px; /* Added max-width for sanity */
+    max-width: 450px; /* Added max-width for sanity */
     margin: auto;
     position: relative;
     float: right !important;
