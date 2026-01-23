@@ -1,30 +1,31 @@
 @php
     $isHourly = session('service_type') === 'hourlyHire';
+    $tabSuffix = $id_suffix ?? '';
 @endphp
 <div class="search-tab-wrap">
     <!-- Nav tabs -->
-    <ul class="nav nav-tabs" style="padding-left: 18px; padding-right: 18px; padding-bottom: 10px;">
+    <ul class="nav nav-tabs" style="padding-bottom: 25px;">
         <li class="nav-item" style="flex: 1">
-            <a class="nav-link {{ !$isHourly ? 'active' : 'inactive-tab' }} text-center pt-0 sformlink" style="font-size: 13px !important; font-weight: 500;" data-bs-toggle="tab"
-                href="#place">Point to Point</a>
+            <a class="nav-link {{ !$isHourly ? 'active' : 'inactive-tab' }} text-center pt-0 sformlink" style="font-size: 14px !important; font-weight: 600;" data-bs-toggle="tab"
+                href="#place{{ $tabSuffix }}">POINT TO POINT</a>
         </li>
         <li class="nav-item" style="flex: 1">
-            <a class="nav-link {{ $isHourly ? 'active' : 'inactive-tab' }} text-center pt-0 sformlink" style="font-size: 13px !important; font-weight: 500;"
-                data-bs-toggle="tab" href="#event">Hourly</a>
+            <a class="nav-link {{ $isHourly ? 'active' : 'inactive-tab' }} text-center pt-0 sformlink" style="font-size: 14px !important; font-weight: 600;"
+                data-bs-toggle="tab" href="#event{{ $tabSuffix }}">HOURLY</a>
         </li>
     </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
         <!-- Point to Point -->
-        <div class="tab-pane container p-0 {{ !$isHourly ? 'active show' : '' }}" id="place">
+        <div class="tab-pane container p-0 {{ !$isHourly ? 'active show' : '' }}" id="place{{ $tabSuffix }}">
             <div class="search-form-box">
                 <form class="search-form loader-form" action="{{ url('/booking/point-to-point') }}" method="POST">
                     @csrf
                     <input type="hidden" name="is_airport" id="is-airport" value="{{ session('is_airport') ?? 0 }}">
 
                     <!-- Pick-up Location -->
-                    <div class="floating-bordered-input mb-[10px] position-relative">
+                    <div class="floating-bordered-input position-relative">
                         <span class="floating-label">Pick-up Location</span>
                         <span class="input-icon-left"><svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="#757575" d="M32,0C18.746,0,8,10.746,8,24c0,5.219,1.711,10.008,4.555,13.93c0.051,0.094,0.059,0.199,0.117,0.289l16,24 C29.414,63.332,30.664,64,32,64s2.586-0.668,3.328-1.781l16-24c0.059-0.09,0.066-0.195,0.117-0.289C54.289,34.008,56,29.219,56,24 C56,10.746,45.254,0,32,0z M32,32c-4.418,0-8-3.582-8-8s3.582-8,8-8s8,3.582,8,8S36.418,32,32,32z"></path> </g></svg></span>
 
@@ -39,7 +40,7 @@
 
 
                     <!-- Drop-off Location -->
-                    <div class="floating-bordered-input mb-[10px] position-relative">
+                    <div class="floating-bordered-input position-relative">
                         <span class="floating-label">Destination</span>
                         <span class="input-icon-left"><svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="#757575" d="M32,0C18.746,0,8,10.746,8,24c0,5.219,1.711,10.008,4.555,13.93c0.051,0.094,0.059,0.199,0.117,0.289l16,24 C29.414,63.332,30.664,64,32,64s2.586-0.668,3.328-1.781l16-24c0.059-0.09,0.066-0.195,0.117-0.289C54.289,34.008,56,29.219,56,24 C56,10.746,45.254,0,32,0z M32,32c-4.418,0-8-3.582-8-8s3.582-8,8-8s8,3.582,8,8S36.418,32,32,32z"></path> </g></svg></span>
 
@@ -50,7 +51,7 @@
                         <div id="dropoff-suggestions" class="location-suggestions"></div>
                     </div>
 
-                    <div class="mb-1 floating-bordered-input position-relative">
+                    <div class="mb-2 floating-bordered-input position-relative">
                         <span class="floating-label">Pick-up Date / Time</span>
 
                         <span class="input-icon-left">
@@ -82,7 +83,7 @@
                         </div>
                     </div>
 
-                    <div class="mb-1 floating-bordered-input position-relative return-trip" style="display: none;">
+                    <div class="floating-bordered-input position-relative return-trip" style="display: none;">
                         <span class="floating-label">Return Trip Pick-up Date / Time</span>
 
                         <span class="input-icon-left">
@@ -133,12 +134,12 @@
         </div>
 
         <!-- Hourly Hire -->
-        <div class="tab-pane container p-0 {{ $isHourly ? 'active show' : '' }}" id="event">
+        <div class="tab-pane container p-0 {{ $isHourly ? 'active show' : '' }}" id="event{{ $tabSuffix }}">
             <div class="search-form-box">
                 <form class="search-form loader-form" action="{{ url('/booking/hourly-hire') }}" method="POST">
                     @csrf
                     <!-- Pick-up Location (Hourly) -->
-                    <div class="floating-bordered-input mb-[10px] position-relative">
+                    <div class="floating-bordered-input position-relative">
                         <span class="floating-label">Pick-up Location</span>
                         <span class="input-icon-left"><svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="#757575" d="M32,0C18.746,0,8,10.746,8,24c0,5.219,1.711,10.008,4.555,13.93c0.051,0.094,0.059,0.199,0.117,0.289l16,24 C29.414,63.332,30.664,64,32,64s2.586-0.668,3.328-1.781l16-24c0.059-0.09,0.066-0.195,0.117-0.289C54.289,34.008,56,29.219,56,24 C56,10.746,45.254,0,32,0z M32,32c-4.418,0-8-3.582-8-8s3.582-8,8-8s8,3.582,8,8S36.418,32,32,32z"></path> </g></svg></span>
 
@@ -152,7 +153,7 @@
 
 
                     <!-- Select Hours -->
-                    <div class="floating-bordered-input mb-[10px] position-relative" style="padding-right: 10px;">
+                    <div class="floating-bordered-input position-relative" style="padding-right: 10px;">
                         <span class="floating-label">Select Duration</span>
                         <span class="input-icon-left" style="margin-top: 4px;"><i class="bi bi-clock-fill"></i></span>
 
@@ -169,7 +170,7 @@
 
 
                     <!-- Pick-up Date & Time (Hourly) -->
-                    <div class="mb-1 floating-bordered-input position-relative">
+                    <div class="mb-2 floating-bordered-input position-relative">
                         <span class="floating-label">Pick-up Date / Time</span>
 
                         <span class="input-icon-left">

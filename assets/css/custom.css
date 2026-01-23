@@ -17,12 +17,17 @@ input[type="checkbox"] {
 .main-menu ul li ul.submenu {
     background: #e52c43 !important;
 }
-
+.nav-link, a.nav-link {
+    color: #232323 !important;
+}
 /* Booking Tabs */
-ul.nav.nav-tabs li a.active {
+ul.nav.nav-tabs li a.active,
+.nav-tabs .nav-link.active,
+.sformlink.active {
     border-bottom: 2px solid #e52c43 !important;
     color: #e52c43 !important;
     font-weight: 500 !important;
+    background-color: transparent !important;
 }
 
 ul.nav.nav-tabs li {
@@ -292,9 +297,9 @@ a.btn-loadmore:hover {
     background: #fff;
     border-radius: 8px;
     box-shadow: 0px 0px 4px #6e6e6e;
-    padding: 20px;
+    padding: 30px 50px;
     width: 100%; /* Changed from fixed 430px to 100% to fit container */
-    max-width: 450px; /* Added max-width for sanity */
+    max-width: 480px; /* Added max-width for sanity */
     margin: auto;
     position: relative;
     float: right !important;
@@ -302,6 +307,7 @@ a.btn-loadmore:hover {
 
 .search-tab-wrap > .nav-tabs{
     justify-content: start;
+    border-bottom: none !important;
 }
 
 /* Removed .hero-container, .search-form-row, .main-hero, .search-section, #map overrides that conflict */
@@ -329,6 +335,7 @@ a.btn-loadmore:hover {
         margin: 0 auto !important;
         width: 100% !important;
         max-width: 100% !important;
+        padding: 30px 20px;
         box-shadow: none !important;
     }
     .skip-btn {
@@ -352,6 +359,8 @@ a.btn-loadmore:hover {
         padding-top: 40px !important;
         padding-bottom: 40px !important;
         height: auto !important;
+        margin-left: 15px !important;
+        margin-right: 15px !important;
     }
     .side_section {
         margin-bottom: 4.5rem !important;
@@ -386,7 +395,6 @@ a.btn-loadmore:hover {
     }
     .form-check-label{
         font-size: 16px !important;
-        font-weight: 300 !important;
     }
     /* Removed duplicate search-tab-wrap */
     .onlyMobile {
@@ -631,4 +639,19 @@ a.btn-loadmore:hover {
 }
 .inactive-tab {
     color: #232323 !important;
+}
+
+/* Force Inactive Tabs to be Black/Gray */
+div.search-tab-wrap ul.nav-tabs li.nav-item a.nav-link {
+    color: #232323 !important;
+}
+
+/* FORCE ACTIVE TABS TO BE RED - Strongest Selector */
+div.search-tab-wrap ul.nav-tabs li.nav-item a.nav-link.active,
+div.search-tab-wrap ul.nav-tabs li.nav-item a.nav-link:hover,
+div.search-tab-wrap ul.nav-tabs li.nav-item a.nav-link:focus,
+.nav-link.inactive-tab.active {
+    color: #e52c43 !important;
+    border-bottom: 2px solid #e52c43 !important;
+    background-color: transparent !important;
 }

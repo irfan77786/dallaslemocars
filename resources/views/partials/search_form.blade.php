@@ -21,7 +21,7 @@
             <div class="col-12 col-md-6" style="pointer-events: auto; position: relative; z-index: 2;">
                 <!-- Booking Form -->
                 <div class="search-form-wrapper-desktop">
-                    @include('partials.search')
+                    @include('partials.search', ['id_suffix' => '_form'])
                 </div>
             </div>
         </div>

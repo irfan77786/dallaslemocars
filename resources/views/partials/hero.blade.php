@@ -5,7 +5,7 @@
                 <div class="col-lg-5 col-md-8 ms-auto d-flex search-form-internal" style="position: absolute;">
                     <h1 class="web-hero">Your Personal Chauffeur Service</h1>
                     <div class="search-section rounded mt-4" style="padding: 0.6rem;">
-                        @include('partials.search')
+                        @include('partials.search', ['id_suffix' => '_hero'])
                     </div>
                 </div>
             </div>
