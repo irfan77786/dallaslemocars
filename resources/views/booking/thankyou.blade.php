@@ -5,7 +5,12 @@
 <style>
 .thankyou-wrapper{padding:40px 0 40px}
 .thankyou-card{max-width:760px;margin:0 auto;background:#fff;border-radius:12px;padding:32px; padding-top: 0px !important;}
-.success-icon{width:56px;height:56px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#e7f3f7;color:#e52c43;font-size:28px;margin-bottom:16px}
+.success-icon{width:56px;height:56px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#e7f3f7;margin-bottom:16px}
+.success-icon i {
+    background: linear-gradient(90deg, #e52c43, #ff6c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 .thankyou-subtitle{font-size:18px;color:#6c757d}
 .thankyou-img{border-radius:10px}
 .text-primary {

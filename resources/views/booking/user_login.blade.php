@@ -77,7 +77,7 @@
 .continue-btn {
     width: 100%;
     padding: 11px;
-    background: #e52c43;
+    background: linear-gradient(90deg, #e52c43, #ff6c00);
     border: none;
     color: #fff;
     font-size: 14px;

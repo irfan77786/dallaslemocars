@@ -37,6 +37,19 @@
                 </div>
             </div>
         </div>
+
+        <style>
+            @media (min-width: 768px) {
+                #hero-banner-container {
+                    min-height: 570px;
+                }
+                .search-form-wrapper-desktop {
+                    position: absolute;
+                    width: 100%;
+                    z-index: 10;
+                }
+            }
+        </style>
     </section>
 
     <section class="fleet-section py-50 py-sm-60 py-md-70 py-lg-80">

@@ -106,10 +106,11 @@
     border: none !important;
 }
 .select_car_btn:active{
-    background-color: #e52c43 !important;
+    background: linear-gradient(90deg, #e52c43, #ff6c00) !important;
 }
 .active {
-    border-color: #e52c43 !important;
+    border: none !important;
+    background: linear-gradient(90deg, #e52c43, #ff6c00) !important;
 }
 
 .upcoming { border-color: #e5e7eb; background: #fff; }
@@ -127,8 +128,8 @@
 .step-label-pill.is-active{
     color: white;
     font-weight: 600;
-    background: #e52c43;
-    border-color: #e52c43;
+    background: linear-gradient(90deg, #e52c43, #ff6c00);
+    border: none;
 }
 
 
@@ -228,8 +229,8 @@
     .mob-step-dots{ display:flex; flex-wrap:nowrap !important; white-space:nowrap; gap:8px; overflow-x:auto; -webkit-overflow-scrolling:touch; width:100%; align-items:center; }
     .mob-step-dots::-webkit-scrollbar{ display:none; }
     .mob-step-dot{ flex:0 0 auto; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; border:2px solid #e5e7eb; background:#fff; color:#6b7280; }
-    .mob-step-dot.completed{ border-color:#e52c43; background:#e52c43; color:#fff; }
-    .mob-step-dot.active{ border-color:#e52c43; background:#e52c43; color:#fff !important; }
+    .mob-step-dot.completed{ border:none; background: linear-gradient(90deg, #e52c43, #ff6c00); color:#fff; }
+    .mob-step-dot.active{ border:none; background: linear-gradient(90deg, #e52c43, #ff6c00); color:#fff !important; }
     .mob-step-dot.upcoming{ border-color:#e5e7eb; background:#fff; color:#9ca3af; }
 
     .summary-row{ flex-wrap:wrap; align-items:flex-start; gap:0; margin-bottom:10px; }
@@ -332,8 +333,8 @@
 </div>
 
 <div class="d-md-none mb-md-3">
- <div class="px-3 py-2 bg-white d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#mobileRideSummary" aria-expanded="false" style="cursor: pointer;" onclick="toggleCollapse()">
-        <h6 class="step-label-pill is-active">Booking Summary</h6>
+ <div class="px-3 py-2 bg-white d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#mobileRideSummary" aria-expanded="false" style="cursor: pointer;" onclick="toggleCollapse()">
+    <h6 class="step-label-pill is-active">Booking Summary</h6>
         <div class="d-flex align-items-center summary_toggle_container">
             <span id="expandText" class="mr-1">Expand</span>
             <svg id="expandArrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 320 512">

@@ -4,7 +4,10 @@
 @section('styles')
     <style>
         .payment-card-option {
-            color: #e52c43 !important;
+            background: linear-gradient(90deg, #e52c43, #ff6c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
         }
     #card-element{
         background: transparent !important;

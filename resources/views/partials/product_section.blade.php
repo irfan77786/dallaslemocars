@@ -21,12 +21,15 @@ $features = [
     border: none !important;
 }
 .feature-section{
-    color: #e52c43 !important;
+    background: linear-gradient(90deg, #e52c43, #ff6c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-weight: bold;
+    display: inline-block;
 }
 .btn-primary {
-    background-color: #e52c43 !important;
-    border: 1px solid #e52c43 !important;
+    background: linear-gradient(90deg, #e52c43, #ff6c00) !important;
+    border: none !important;
     box-shadow: none !important;
 }
 .vehical-card {
@@ -58,8 +61,14 @@ $features = [
     right: 20px;
     top: 6px;
     font-size: 1.5rem;
-    color: #e52c43;
     display: none; /* hidden by default */
+}
+
+.tick-overlay i {
+    background: linear-gradient(90deg, #e52c43, #ff6c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 
 /* ==== Vehicle Image ==== */
@@ -105,7 +114,10 @@ $features = [
 .pass-luggage-info i {
     margin-right: 0.3rem;
     font-size: 1rem;
-    color: #333;
+    background: linear-gradient(90deg, #e52c43, #ff6c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 
 /* ==== Features Section ==== */
@@ -128,6 +140,10 @@ $features = [
 
 .feature-icon {
     font-size: 1rem;
+    background: linear-gradient(90deg, #e52c43, #ff6c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 
 .feature-text {
@@ -214,7 +230,7 @@ $features = [
 
 .select_car_btn:hover,
 .select_car_btn:focus {
-    background-color: #e52c43;
+    background: linear-gradient(90deg, #e52c43, #ff6c00);
     color: #fff !important;
     text-decoration: none;
 }
@@ -223,6 +239,7 @@ $features = [
 @media (max-width: 767.98px) {
     .vehical-card {
         padding: 0.75rem;
+        position: relative;
     }
     .vehical-card .d-flex {
         flex-wrap: nowrap !important;
@@ -237,12 +254,13 @@ $features = [
     }
     .vehicle-info {
         min-width: 0 !important;
-        margin: 0 8px !important;
+        margin: 0 100px 0 8px !important;
         flex: 1 1 auto;
     }
     .vehicle-info > .vehicle-name {
-        font-size: 1rem;
-        margin-bottom: 2px;
+        font-size: 0.95rem;
+        margin-bottom: 5px;
+        line-height: 1.2;
     }
     .vehicle-info > .vehicle-description {
         display: none;
@@ -260,7 +278,9 @@ $features = [
     }
     .car-price-container {
         position: absolute;
-        right: 0;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
         flex: 0 0 auto;
         min-width: 88px !important;
         max-width: 34%;
@@ -272,11 +292,11 @@ $features = [
         align-items: flex-end; /* keep wrapped lines right-aligned */
     }
     .car-price h4 {
-        font-size: 1.05rem;
+        font-size: 0.95rem;
         margin-bottom: 0.25rem !important;
     }
     .pricing_summary_price {
-        font-size: 22px;
+        font-size: 18px;
     }
     .car-price .pricing_summary_price {
         white-space: nowrap; /* keep numeric part on one line; USD may wrap */
@@ -405,13 +425,16 @@ $features = [
 }
 
 .side_section .card .card-title i {
-  color: #e52c43 !important;
+  background: linear-gradient(90deg, #e52c43, #ff6c00) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  display: inline-block;
 }
 
 .side_section .card hr {
   border: 0;
   height: 1px;
-  background: linear-gradient(90deg, rgba(229, 44, 67, 0.25), rgba(229, 44, 67, 0.05));
+  background: linear-gradient(90deg, rgba(229, 44, 67, 0.25), rgba(255, 108, 0, 0.05));
   margin: 30px 0 14px 0;
 }
 
@@ -421,7 +444,10 @@ $features = [
 }
 
 .feaures_ul li i {
-  color: #e52c43;
+  background: linear-gradient(90deg, #e52c43, #ff6c00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 .side_section .card .card-text {
@@ -518,23 +544,29 @@ $features = [
 .mbs-title-row { margin-top: 8px; }
 .mbs-content-title { font-weight: 700; margin: 8px 0 4px; flex: 1 1 auto; min-width: 0; }
 .mbs-features { margin-top: 12px; }
-.mbs-features-title { font-weight: 700; margin-bottom: 8px; color: #e52c43; }
+.mbs-features-title { font-weight: 700; margin-bottom: 8px; background: linear-gradient(90deg, #e52c43, #ff6c00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
 .mbs-features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
 @media (max-width: 767.98px) { .mbs-features-grid { grid-template-columns: 1fr; } }
 .mbs-feature { display: inline-flex; align-items: center; gap: 8px; }
-.mbs-feature i { font-size: 1rem; color: #2B3252; }
-.mbs-feature span { font-size: 0.95rem; color: #1E1E1E; }
-.mbs-footer { position: sticky; bottom: 0; background: #fff; padding: 12px 16px; border-top: 1px solid rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: space-between; }
-.mbs-footer .mbs-price h4 { margin: 0; }
-.mbs-line { font-size: .95rem; margin-bottom: 6px; color: #1E1E1E; }
+.mbs-feature i { font-size: 0.9rem; background: linear-gradient(90deg, #e52c43, #ff6c00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
+.mbs-feature span { font-size: 0.85rem; color: #1E1E1E; }
+.mbs-footer { position: sticky; bottom: 0; background: #fff; padding: 16px; border-top: 1px solid rgba(0,0,0,0.08); display: block; }
+.mbs-footer-info { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.mbs-gratuity { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: #1E1E1E; font-weight: 500; }
+.mbs-gratuity i { color: #28a745; font-size: 1rem; }
+.mbs-price-number { margin: 0; font-weight: 800; font-size: 1.25rem; color: #000; }
+.mbs-actions-row { display: flex; gap: 12px; }
+.mbs-back { flex: 1; background: #fff; border: 1px solid #ccc; color: #999; font-weight: 700; border-radius: 4px; padding: 10px 0; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.2s; font-size: 12px !important; }
+.mbs-back:hover { background: #f0f0f0; color: #333; }
+.mbs-select { flex: 2; background: linear-gradient(90deg, #e52c43, #ff6c00) !important; border: none !important; color: #fff !important; font-weight: 700; border-radius: 4px; padding: 10px 0; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 12px !important; }
+.mbs-line { font-size: 1.1rem; margin-bottom: 6px; color: #1E1E1E; display: flex; align-items: center; gap: 6px; font-weight: 600; }
+.mbs-meta i { font-size: 1.2rem; background: linear-gradient(90deg, #e52c43, #ff6c00) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; display: inline-block; font-style: normal; }
 .mbs-desc { font-size: .9rem; color: #555; margin-top: 4px; }
-.mbs-price { margin-top: 8px; }
-.mbs-actions { position: sticky; bottom: 0; background: #fff; padding: 8px 16px; border-top: 1px solid rgba(0,0,0,0.06); }
-.mbs-actions .btn { width: 100%; margin: 0 !important; }
+.mbs-price { margin-top: 0; }
 .mbs-features { margin-top: 12px; }
 .mbs-features-title { font-weight: 600; margin-bottom: 6px; }
 .mbs-feature { display: flex; align-items: center; gap: 8px; padding: 6px 0; }
-.mbs-feature i { color: #e52c43; }
+.mbs-feature i { background: linear-gradient(90deg, #e52c43, #ff6c00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
 
 @media (min-width: 768px) {
   #mbs-backdrop, #mbs-sheet { display: none !important; }
@@ -691,10 +723,16 @@ $features = [
             </div>
         </div>
         <div class="mbs-footer">
-            <div class="mbs-price">
+            <div class="mbs-footer-info">
+                <div class="mbs-gratuity">
+                    <i class="bi bi-check-circle-fill"></i> Gratuity included
+                </div>
                 <h4 class="mbs-price-number"></h4>
             </div>
-            <button type="button" class="btn btn-primary mbs-select">SELECT VEHICLE</button>
+            <div class="mbs-actions-row">
+                <button type="button" class="btn mbs-back">BACK</button>
+                <button type="button" class="btn mbs-select">SELECT VEHICLE <i class="bi bi-caret-right-fill"></i></button>
+            </div>
         </div>
     </div>
 </div>
@@ -717,14 +755,14 @@ $features = [
         var content = document.querySelector('#mbs-sheet .mbs-content');
         var titleEl = content.querySelector('.mbs-content-title');
         var step = parseInt("{{ $step ?? 2 }}");
-        
+
         // Handle Card Clicks (Desktop & Mobile trigger)
         var cards = document.querySelectorAll('.selectable-card');
         cards.forEach(function(card){
             card.addEventListener('click', function(e){
                 // If clicking on features toggle or content, ignore
                 if(e.target.closest('.feature-section') || e.target.closest('.collapse') || e.target.closest('.collapseCardBody')) return;
-                
+
                 // If mobile, open bottom sheet
                 if(window.innerWidth < 768) {
                     openForCard(card);
@@ -736,12 +774,12 @@ $features = [
                 var priceEl = card.querySelector('.pricing_summary_price');
                 var priceMatch = (priceEl && (priceEl.textContent || '')).match(/[0-9]+(?:\.[0-9]+)?/);
                 var price = priceMatch ? priceMatch[0] : null;
-                
+
                 if (step === 2 && id && price) {
                     window.location.href = '/user-login/' + id + '/' + price;
                     return;
                 }
-                
+
                 // Visual selection for desktop if not redirecting immediately
                 document.querySelectorAll('.selectable-card').forEach(function(c){ c.classList.remove('selected'); });
                 card.classList.add('selected');
@@ -792,6 +830,11 @@ $features = [
                 backdrop.style.opacity = '1';
                 sheet.style.transform = 'translateY(0)';
             });
+
+            var backBtn = content.querySelector('.mbs-back');
+            if(backBtn) {
+                backBtn.onclick = closeSheet;
+            }
 
             var selectBtn = content.querySelector('.mbs-select');
             if (selectBtn) {

@@ -1403,7 +1403,7 @@ window.addEventListener('pageshow', function(event) {
 $(document).ready(function() {
     // Return Trip Checkbox Logic - Moved outside to ensure it works regardless of datepicker
     function toggleReturnTrip() {
-        if ($('#round-trip').is(':checked')) {
+        if ($('input[name="round_trip"]').is(':checked')) {
             $('.return-trip').show();
             $('.point-button').addClass('mt-4');
         } else {
@@ -1416,7 +1416,7 @@ $(document).ready(function() {
     toggleReturnTrip();
 
     // Handle change event
-    $('#round-trip').on('change', function() {
+    $('input[name="round_trip"]').on('change', function() {
         toggleReturnTrip();
     });
 
