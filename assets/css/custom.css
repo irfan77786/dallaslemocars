@@ -629,6 +629,7 @@ a.btn-loadmore:hover {
     width: auto !important;
     flex: 0 0 auto;
     text-align: center;
+    margin-left: 23px !important;
 }
 .nav-tabs .nav-link {
     border: none !important;
