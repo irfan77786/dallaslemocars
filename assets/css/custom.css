@@ -185,8 +185,8 @@ a.btn-loadmore:hover {
 
 /* Pagination styles - kept generic but specific enough */
 .page-item.active .page-link {
-    background: #1B9CCC !important;
-    border-color: #1B9CCC !important;
+    background: #e52c43 !important;
+    border-color: #e52c43 !important;
 }
 
 /* Form specific focus states */
@@ -195,7 +195,7 @@ a.btn-loadmore:hover {
     color: none !important;
     outline: none !important;
     box-shadow: none !important;
-    border-color: #1B9CCC !important;
+    border-color: #e52c43 !important;
 }
 
 .internal-links {
@@ -330,7 +330,7 @@ a.btn-loadmore:hover {
 /* Mobile styles - Cleaned up */
 @media (max-width: 768px) {
     .search-tab-wrap {
-        padding-top: 10px !important;
+        padding-top: 26px !important;
         float: none !important;
         margin: 0 auto !important;
         width: 100% !important;
@@ -634,9 +634,6 @@ a.btn-loadmore:hover {
     border: none !important;
 }
 
-#round-trip {
-    border: 1px solid gray !important;
-}
 .inactive-tab {
     color: #232323 !important;
 }

@@ -83,7 +83,7 @@
                         </div>
                     </div>
 
-                    <div class="floating-bordered-input position-relative return-trip" style="display: none;">
+                    <div class="mb-1 floating-bordered-input position-relative return-trip" style="display: none;">
                         <span class="floating-label">Return Trip Pick-up Date / Time</span>
 
                         <span class="input-icon-left">

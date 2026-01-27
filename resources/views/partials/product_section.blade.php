@@ -14,7 +14,8 @@ $features = [
 
 <style>
 .bi-chevron-down::before{
-    font-size: 10px !important;
+    font-size: 12px !important;
+    font-weight: bold;
 }
 .collapseCardBody {
     padding: 0px !important;
@@ -25,7 +26,10 @@ $features = [
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none !important;
 }
 .btn-primary {
     background: linear-gradient(90deg, #e52c43, #ff6c00) !important;
@@ -41,6 +45,7 @@ $features = [
     position: relative;
     transition: border-color 0.3s ease, background-color 0.3s ease;
     background-color: #fff;
+    overflow: hidden;
 }
 
 .vehical-card:hover {
@@ -134,7 +139,6 @@ $features = [
     align-items: center;
     margin-bottom: 12px;
     gap: 6px;
-    display: inline-flex;
     margin-right: 1rem;
 }
 
@@ -167,9 +171,10 @@ $features = [
     content: attr(data-tooltip);
     position: absolute;
     bottom: 125%; /* above the icon */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #2B3252;
+    left: auto;
+    right: 0;
+    transform: none;
+    background-color: #64000c;
     color: #fff;
     padding: 6px 10px;
     border-radius: 4px;
@@ -226,6 +231,7 @@ $features = [
 .featureExpandArrow {
     display: inline-block;
     transition: transform 0.2s ease;
+    font-size: 12px;
 }
 
 .select_car_btn:hover,
@@ -254,7 +260,7 @@ $features = [
     }
     .vehicle-info {
         min-width: 0 !important;
-        margin: 0 100px 0 8px !important;
+        margin: 0 8px !important;
         flex: 1 1 auto;
     }
     .vehicle-info > .vehicle-name {
@@ -277,10 +283,10 @@ $features = [
         margin-right: 0.75rem;
     }
     .car-price-container {
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translateY(-50%);
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
         flex: 0 0 auto;
         min-width: 88px !important;
         max-width: 34%;
@@ -311,7 +317,7 @@ $features = [
     .feature_items_cont {
         margin-left: 0 !important;
         padding-right: 0;
-        margin-left: 10px !important;
+        width: 100%;
     }
     .tick-overlay { display: none !important; }
     .vehical-card.selected { border-color: #ccc !important; background-color: #fff !important; }
@@ -461,7 +467,7 @@ $features = [
 
 .side_section a.mail_side:hover,
 .side_section a.number_side:hover {
-  color: #0f5e76 !important;
+  color: #e52c43 !important;
   text-decoration: underline;
   text-decoration-thickness: 1.5px;
 }
@@ -617,7 +623,7 @@ $features = [
                                 @else
                                     <div class="text-danger font-weight-bold">Fare calculation failed</div>
                                 @endif
-                                <a class="feature-section" style="z-index: 7;" data-toggle="collapse" href="#collapse-{{ $value['id'] }}" role="button" aria-expanded="false" aria-controls="collapse-{{ $value['id'] }}" data-id="{{ $value['id'] }}" onclick="toggleFeatureCollapse(event)">
+                                <a class="feature-section" style="z-index: 7; cursor: pointer;" role="button" data-id="{{ $value['id'] }}" onclick="toggleFeatureCollapse(event)">
                                     <span class="mr-1 featureExpandText">Features</span>
                                     <i class="bi bi-chevron-down featureExpandArrow"></i>
                                 </a>
@@ -625,22 +631,17 @@ $features = [
                         </div>
                         <div class="collapse" id="collapse-{{ $value['id'] }}">
                             <div class="card card-body collapseCardBody">
-                                <div class="row">
-                                    <div class="col-sm-2"></div>
-                                    <div class="col-sm-10">
-                                        <div class="feature_items_cont">
-                                            <hr>
-                                            @foreach ($features as $feature)
-                                                <div class="feature-item">
-                                                    <i class="bi {{ $feature['icon'] }} feature-icon"></i>
-                                                    <span class="feature-text">{{ $feature['text'] }}</span>
-                                                    @if (isset($feature['tooltip']))
-                                                        <i class="bi bi-info-circle info-icon" data-tooltip="{{ $feature['tooltip'] }}"></i>
-                                                    @endif
-                                                </div>
-                                            @endforeach
+                                <div class="feature_items_cont">
+                                    <hr>
+                                    @foreach ($features as $feature)
+                                        <div class="feature-item">
+                                            <i class="bi {{ $feature['icon'] }} feature-icon"></i>
+                                            <span class="feature-text">{{ $feature['text'] }}</span>
+                                            @if (isset($feature['tooltip']))
+                                                <i class="bi bi-info-circle info-icon" data-tooltip="{{ $feature['tooltip'] }}"></i>
+                                            @endif
                                         </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -738,15 +739,52 @@ $features = [
 </div>
 <script>
     function toggleFeatureCollapse(event) {
-        const featureSection = event.currentTarget.closest('.feature-section');
+        if(event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
+        const trigger = event.currentTarget;
+        const featureSection = trigger.closest('.feature-section');
+        if(!featureSection) return;
+
+        const card = trigger.closest('.vehical-card');
+        if (!card) return;
+
+        const targetId = 'collapse-' + trigger.getAttribute('data-id');
+        const target = document.getElementById(targetId);
+        if (!target) return;
+
         const expandText = featureSection.querySelector('.featureExpandText');
         const expandArrow = featureSection.querySelector('.featureExpandArrow');
-        if (expandText.innerText === 'Features') {
-            expandText.innerText = 'Hide';
-            expandArrow.style.transform = 'rotate(180deg)';
+
+        // Use aria-expanded as the source of truth for the desired state
+        const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+        const nextState = !isExpanded;
+
+        // Update aria-expanded immediately
+        trigger.setAttribute('aria-expanded', nextState ? 'true' : 'false');
+
+        // Update UI immediately
+        if (nextState) {
+             expandText.innerText = 'Hide';
+             expandArrow.style.transform = 'rotate(180deg)';
         } else {
-            expandText.innerText = 'Features';
-            expandArrow.style.transform = 'rotate(0deg)';
+             expandText.innerText = 'Features';
+             expandArrow.style.transform = 'rotate(0deg)';
+        }
+
+        // Perform toggle
+        if (typeof $ !== 'undefined' && $(target).collapse) {
+             $(target).collapse('toggle');
+        } else {
+             if (isExpanded) { // If was expanded, now closing
+                 target.classList.remove('show');
+                 target.style.display = 'none';
+             } else { // If was collapsed, now opening
+                 target.classList.add('show');
+                 target.style.display = 'block';
+             }
         }
     }
     (function(){
