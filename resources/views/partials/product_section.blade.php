@@ -30,6 +30,7 @@ $features = [
     align-items: center;
     gap: 4px;
     text-decoration: none !important;
+    white-space: nowrap;
 }
 .btn-primary {
     background: linear-gradient(90deg, #e52c43, #ff6c00) !important;
@@ -176,6 +177,7 @@ $features = [
     transform: none;
     background-color: #64000c;
     color: #fff;
+    -webkit-text-fill-color: initial; /* Ensure text is visible */
     padding: 6px 10px;
     border-radius: 4px;
     white-space: normal;
@@ -184,7 +186,7 @@ $features = [
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.2s ease;
-    z-index: 10;
+    z-index: 9999;
     text-align: center;
     width: max-content;
 }
@@ -573,6 +575,12 @@ $features = [
 .mbs-features-title { font-weight: 600; margin-bottom: 6px; }
 .mbs-feature { display: flex; align-items: center; gap: 8px; padding: 6px 0; }
 .mbs-feature i { background: linear-gradient(90deg, #e52c43, #ff6c00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
+.mbs-feature .info-icon {
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+    color: #6c757d;
+}
 
 @media (min-width: 768px) {
   #mbs-backdrop, #mbs-sheet { display: none !important; }

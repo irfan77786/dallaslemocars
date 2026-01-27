@@ -332,7 +332,7 @@
     </div>
 </div>
 
-<div class="d-md-none mb-md-3">
+<div class="d-md-none mb-3">
  <div class="px-3 py-2 bg-white d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#mobileRideSummary" aria-expanded="false" style="cursor: pointer;" onclick="toggleCollapse()">
     <h6 class="step-label-pill is-active">Booking Summary</h6>
         <div class="d-flex align-items-center summary_toggle_container">
