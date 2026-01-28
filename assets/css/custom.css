@@ -460,6 +460,7 @@ a.btn-loadmore:hover {
     min-height: 42px;
     padding-left: 0px !important;
     text-align: left;
+    padding-bottom: 10px !important;
 }
 .floating-bordered-input .form-control {
     border: none !important;
