@@ -4,13 +4,13 @@
 @endphp
 <div class="search-tab-wrap">
     <!-- Nav tabs -->
-    <ul class="nav nav-tabs" style="padding-bottom: 10px;">
+    <ul class="nav nav-tabs" style="padding-bottom: 20px;">
         <li class="nav-item" style="flex: 1">
-            <a class="nav-link {{ !$isHourly ? 'active' : 'inactive-tab' }} text-center pt-0 sformlink" style="font-size: 14px !important; font-weight: 600;" data-bs-toggle="tab"
+            <a class="nav-link {{ !$isHourly ? 'active' : 'inactive-tab' }} text-center pt-0 sformlink" style="font-size: 12px !important; font-weight: 600;" data-bs-toggle="tab"
                 href="#place{{ $tabSuffix }}">POINT TO POINT</a>
         </li>
         <li class="nav-item" style="flex: 1">
-            <a class="nav-link {{ $isHourly ? 'active' : 'inactive-tab' }} text-center pt-0 sformlink" style="font-size: 14px !important; font-weight: 600;"
+            <a class="nav-link {{ $isHourly ? 'active' : 'inactive-tab' }} text-center pt-0 sformlink" style="font-size: 12px !important; font-weight: 600;"
                 data-bs-toggle="tab" href="#event{{ $tabSuffix }}">HOURLY</a>
         </li>
     </ul>
@@ -76,7 +76,7 @@
                     <div class="mb-1 d-flex align-items-center">
                         <div class="form-check me-2">
                             <input type="checkbox" name="round_trip" id="round-trip{{ $tabSuffix }}" class="form-check-input"
-                                style="height: 18px; width: 18px; cursor: pointer; margin-top: 10px;" @session('round_trip') checked @endsession>
+                                style="height: 18px; width: 18px; cursor: pointer; margin-top: 10px; border: 0.13rem solid #6e6e6e; border-radius: 2px !important;" @session('round_trip') checked @endsession>
                             <label for="round-trip{{ $tabSuffix }}" class="mb-2 ml-2 form-check-label ms-2" style="cursor: pointer; font-size: 14px; margin-top: 0.4rem; color: black !important; font-weight: 400">
                                 Add a return Trip
                             </label>
@@ -124,9 +124,9 @@
                     </style>
 
 <button type="submit" class="btn btn-primary w-100 search_btn point-button"
-    style="text-transform: uppercase; letter-spacing: 2px;">
+    style="text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; font-size: 0.8rem;">
     Get My Prices
-    <i class="fa-solid fa-arrow-right" style="font-size: 20px; margin: 2px;"></i>
+    <i class="fa-solid fa-arrow-right" style="font-size: 14px; margin: 2px;"></i>
 </button>
 
                 </form>
@@ -153,19 +153,27 @@
 
 
                     <!-- Select Hours -->
-                    <div class="floating-bordered-input position-relative" style="padding-right: 10px;">
+                    <div class="floating-bordered-input position-relative rlx-theme">
                         <span class="floating-label">Select Duration</span>
-                        <span class="input-icon-left" style="margin-top: 4px;"><i class="bi bi-clock-fill"></i></span>
+                        <span class="input-icon-left"><i class="bi bi-clock-fill"></i></span>
 
-                        <select name="select_hours" id="select-hours{{ $tabSuffix }}" class="form-control" required>
-                            <option value=""></option>
-                            @foreach (range(3, 24) as $hour)
-                                <option value="{{ $hour }}"
-                                    {{ session('select_hours') == $hour ? 'selected' : '' }}>
-                                    {{ $hour }} hour{{ $hour > 1 ? 's' : '' }}
-                                </option>
-                            @endforeach
-                        </select>
+                        <div class="rlx-select" id="rlx-hours{{ $tabSuffix }}" data-name="select_hours" data-initial="{{ session('select_hours') ?? '' }}">
+                            <button type="button" class="rlx-trigger" aria-haspopup="listbox" aria-expanded="false">
+                                <span class="rlx-value">{{ session('select_hours') ? session('select_hours').' hour'.(session('select_hours') > 1 ? 's' : '') : '' }}</span>
+                                <svg class="rlx-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.73 9.27a1 1 0 0 1 1.41 0L12 13.12l3.86-3.85a1 1 0 0 1 1.41 1.41l-4.57 4.57a1 1 0 0 1-1.41 0L6.73 10.68a1 1 0 0 1 0-1.41Z" fill="currentColor"/></svg>
+                            </button>
+                            <ul class="rlx-list" role="listbox" tabindex="-1">
+                                @foreach (range(3, 12) as $hour)
+                                    <li role="option"
+                                        class="rlx-option {{ session('select_hours') == $hour ? 'selected' : '' }}"
+                                        aria-selected="{{ session('select_hours') == $hour ? 'true' : 'false' }}"
+                                        data-value="{{ $hour }}">
+                                        {{ $hour }} hour{{ $hour > 1 ? 's' : '' }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                            <input type="hidden" name="select_hours" value="{{ session('select_hours') ?? '' }}">
+                        </div>
                     </div>
 
 
@@ -195,19 +203,208 @@
                     <!-- Spacer to match Point-to-Point form height (Hidden "Add Return Trip" equivalent) -->
                     <div class="mb-1 d-flex align-items-center" style="visibility: hidden;">
                         <div class="form-check me-2">
-                            <input type="checkbox" class="form-check-input" style="height: 18px; width: 18px; margin-top: 10px;" disabled>
+                            <input type="checkbox" class="form-check-input" style="height: 18px; width: 18px; cursor: pointer; margin-top: 10px; border: 0.13rem solid #6e6e6e; border-radius: 2px !important;" disabled>
                             <label class="mb-2 ml-2 form-check-label ms-2" style="font-size: 16px; margin-top: 0.4rem; font-weight: 600">
                                 Add a return Trip
                             </label>
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary w-100"
-                        style="text-transform: uppercase; letter-spacing: 2px;">Get
-                        My
-                        Prices <i class="fa-solid fa-arrow-right" style="font-size: 20px; margin: 2px;"></i></button>
+                    <button type="submit" class="btn btn-primary w-100 search_btn point-button"
+                        style="text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; font-size: 0.8rem;">
+                        Get My Prices
+                        <i class="fa-solid fa-arrow-right" style="font-size: 14px; margin: 2px;"></i>
+                    </button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+/* Ridelux-style custom select */
+.rlx-select {
+  position: relative;
+  width: 100%;
+}
+.rlx-select .rlx-trigger {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0 40px 0 44px;
+  margin-top: 10px;
+  color: #1f2937;
+  font-size: 16px;
+  line-height: 1.45;
+  min-height: 24px;
+}
+.floating-bordered-input .rlx-select .rlx-trigger { margin-top: 10px; }
+.rlx-select .rlx-value {
+  pointer-events: none;
+}
+.rlx-select .rlx-arrow {
+  color: #6b7280;
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.rlx-select.open .rlx-arrow {
+  transform: rotate(180deg);
+  transition: transform .18s ease;
+}
+.rlx-select .rlx-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: -40px;
+  right: -40px;
+  background: #fff;
+  border: 1px solid #e6eaef;
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.12);
+  max-height: 360px;
+  overflow-y: auto;
+  padding: 6px 0;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease;
+  z-index: 1050;
+  overscroll-behavior: contain;
+}
+.rlx-select.open .rlx-list {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.rlx-option {
+  padding: 12px 16px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #1f2937;
+  cursor: pointer;
+}
+.rlx-option:hover,
+.rlx-option[aria-selected="true"] {
+  background: #eef6fb;
+}
+.rlx-option.selected {
+  background: #e9f2fa;
+}
+/* icon alignment inside floating input */
+.floating-bordered-input .input-icon-left {
+  font-size: 18px;
+  color: #6b7280;
+}
+
+.rlx-theme {
+  border-color: #d1a285;
+  border-radius: 8px;
+}
+.rlx-theme:hover,
+.rlx-theme:focus-within {
+  border-color: #d1a285;
+  box-shadow: 0 6px 16px rgba(0,0,0,.06);
+}
+
+/* Scrollbar styling for dropdown list */
+.rlx-list::-webkit-scrollbar {
+  width: 8px;
+}
+.rlx-list::-webkit-scrollbar-track {
+  background: #f1f3f5;
+  border-radius: 8px;
+}
+.rlx-list::-webkit-scrollbar-thumb {
+  background: #c8d1db;
+  border-radius: 8px;
+}
+.rlx-list::-webkit-scrollbar-thumb:hover {
+  background: #b4c0cc;
+}
+
+@media (max-width: 480px) {
+  .rlx-select .rlx-trigger {
+    font-size: 15px;
+    min-height: 42px;
+    padding-left: 42px;
+  }
+  .rlx-option {
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+}
+</style>
+
+<script>
+// Accessible custom select for hours
+(function(){
+  function initRlxSelect(rootId) {
+    const root = document.getElementById(rootId);
+    if (!root) return;
+    const trigger = root.querySelector('.rlx-trigger');
+    const list = root.querySelector('.rlx-list');
+    const valueEl = root.querySelector('.rlx-value');
+    const hidden = root.querySelector('input[type="hidden"]');
+    const options = Array.from(root.querySelectorAll('.rlx-option'));
+    let highlightedIndex = options.findIndex(o => o.classList.contains('selected'));
+
+    function open() {
+      root.classList.add('open');
+      trigger.setAttribute('aria-expanded', 'true');
+      list.focus({ preventScroll: true });
+      if (highlightedIndex < 0) highlightedIndex = 0;
+      highlight(highlightedIndex);
+    }
+    function close() {
+      root.classList.remove('open');
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+    function selectByIndex(i) {
+      const opt = options[i];
+      if (!opt) return;
+      options.forEach(o => { o.classList.remove('selected'); o.setAttribute('aria-selected','false'); });
+      opt.classList.add('selected');
+      opt.setAttribute('aria-selected','true');
+      highlightedIndex = i;
+      const val = opt.getAttribute('data-value');
+      hidden.value = val;
+      valueEl.textContent = opt.textContent.trim();
+      close();
+      trigger.focus();
+    }
+    function highlight(i) {
+      highlightedIndex = Math.max(0, Math.min(options.length-1, i));
+      options.forEach((o, idx) => {
+        o.tabIndex = idx === highlightedIndex ? 0 : -1;
+      });
+      options[highlightedIndex]?.focus({ preventScroll: true });
+    }
+
+    trigger.addEventListener('click', function(e){
+      e.preventDefault();
+      if (root.classList.contains('open')) { close(); } else { open(); }
+    });
+    options.forEach((opt, idx) => {
+      opt.addEventListener('click', () => selectByIndex(idx));
+      opt.addEventListener('mousemove', () => { highlightedIndex = idx; });
+    });
+    document.addEventListener('click', function(e){
+      if (!root.contains(e.target)) close();
+    });
+    root.addEventListener('keydown', function(e){
+      if (!root.classList.contains('open')) return;
+      if (e.key === 'ArrowDown') { e.preventDefault(); highlight(highlightedIndex+1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); highlight(highlightedIndex-1); }
+      else if (e.key === 'Enter') { e.preventDefault(); selectByIndex(highlightedIndex); }
+      else if (e.key === 'Escape') { e.preventDefault(); close(); trigger.focus(); }
+    });
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    initRlxSelect('rlx-hours{{ $tabSuffix }}');
+  });
+})();
+</script>

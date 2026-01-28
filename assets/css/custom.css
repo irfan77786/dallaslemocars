@@ -2,6 +2,10 @@ input[type="checkbox"] {
   accent-color: #e52c43;
 }
 
+#round-trip_mobile:checked {
+  border-color: #e52c43 !important;
+}
+
 /* Branding Color Fixes - Overriding #1A6982 with #e52c43 */
 
 /* Header Navigation */
@@ -335,7 +339,7 @@ a.btn-loadmore:hover {
         margin: 0 auto !important;
         width: 100% !important;
         max-width: 100% !important;
-        padding: 30px 20px;
+        padding: 30px 12px;
         box-shadow: none !important;
     }
     .skip-btn {
@@ -356,11 +360,11 @@ a.btn-loadmore:hover {
     }
 
     #hero-banner-container {
-        padding-top: 40px !important;
-        padding-bottom: 40px !important;
+        padding-top: 25px !important;
+        padding-bottom: 0px !important;
         height: auto !important;
-        margin-left: 15px !important;
-        margin-right: 15px !important;
+        margin-left: 23px !important;
+        margin-right: 23px !important;
     }
     .side_section {
         margin-bottom: 4.5rem !important;
@@ -407,6 +411,9 @@ a.btn-loadmore:hover {
         padding-left: 8px;
         padding-right: 8px;
     }
+    #hero-banner-container {
+        padding-top: 75px !important;
+    }
     /* Removed layout breaking overrides */
 }
 
@@ -420,6 +427,9 @@ a.btn-loadmore:hover {
 }
 /* ... (FAQ styles can stay if used elsewhere, or removed if replaced by new theme) ... */
 
+.rlx-option.selected {
+    color: white !important;
+}
 /* Floating Bordered Input - Essential for form */
 .floating-bordered-input {
     position: relative;
@@ -431,18 +441,26 @@ a.btn-loadmore:hover {
     background: #fff;
     margin-bottom: 1.5rem;
 }
-
+.hours-space {
+    margin-bottom: 10px !important;
+}
 .floating-bordered-input .floating-label {
     position: absolute;
-    top: -9px;
-    left: 14px;
+    top: -14px;
+    left: 7px;
     background: #fff;
     padding: 0 6px;
-    font-size: 12px;
-    color: #000000;
+    font-size: 10px;
+    color: #3c3b3b;
     pointer-events: none;
+    padding-bottom: 10px !important;
 }
-
+.rlx-select .rlx-trigger {
+    font-size: 15px;
+    min-height: 42px;
+    padding-left: 0px !important;
+    text-align: left;
+}
 .floating-bordered-input .form-control {
     border: none !important;
     box-shadow: none !important;
