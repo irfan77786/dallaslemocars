@@ -50,7 +50,7 @@ function resetMap() {
   }
 
   if (mapElement) {
-    mapElement.innerHTML = '<h1 class="mobile-hero">Your Personal Chauffeur Service</h1><div class="map-overlay"></div>';
+    mapElement.innerHTML = '<div class="map-overlay"></div>';
     mapElement.style.removeProperty('background-image');
     mapElement.style.removeProperty('background-size');
     mapElement.style.removeProperty('background-position');
