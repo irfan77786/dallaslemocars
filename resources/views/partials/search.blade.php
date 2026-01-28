@@ -301,12 +301,10 @@
 }
 
 .rlx-theme {
-  border-color: #d1a285;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .rlx-theme:hover,
 .rlx-theme:focus-within {
-  border-color: #d1a285;
   box-shadow: 0 6px 16px rgba(0,0,0,.06);
 }
 
@@ -316,7 +314,7 @@
 }
 .rlx-list::-webkit-scrollbar-track {
   background: #f1f3f5;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .rlx-list::-webkit-scrollbar-thumb {
   background: #c8d1db;
