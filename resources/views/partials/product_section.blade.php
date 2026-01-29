@@ -1,14 +1,14 @@
 @php
 $features = [
-    ['text' => 'Real-time updates for every flight', 'icon' => 'bi-airplane-fill'],
+    ['text' => 'Real-time updates', 'icon' => 'bi-airplane-fill'],
     [
-        'text' => 'Free 30-minute airport waiting time',
+        'text' => 'Free 30-minute',
         'icon' => 'bi-clock-fill',
         'tooltip' => 'Extra waiting time will be charged after the free waiting period as follows: Sedan: $1.00 per minute, SUV and Business SUV: $1.50 per minute, Sprinter and Stretch Limo: $2.00 per minute.'
     ],
-    ['text' => 'Cancel without charge 24 hours prior', 'icon' => 'bi-x-circle-fill'],
-    ['text' => 'Complimentary bottled water onboard', 'icon' => 'bi-cup-fill'],
-    ['text' => 'Experienced, reliable chauffeur service', 'icon' => 'bi-car-front-fill']
+    ['text' => 'Cancellation policy', 'icon' => 'bi-x-circle-fill'],
+    ['text' => 'bottled water', 'icon' => 'bi-cup-fill'],
+    ['text' => 'Reliable chauffeur', 'icon' => 'bi-car-front-fill']
 ];
 @endphp
 
@@ -362,7 +362,6 @@ $features = [
     gap: 8px;
     line-height: 1.5;
     margin: 0;
-    color: var(--dark-txt) !important;
 }
 
 .side_section .card .card-body a.mail_side {
@@ -428,10 +427,6 @@ $features = [
   margin-top: 16px;
 }
 
-.side_section .card .card-title {
-  color: #12323c !important;
-}
-
 .side_section .card .card-title i {
   background: linear-gradient(90deg, #e52c43, #ff6c00) !important;
   -webkit-background-clip: text !important;
@@ -488,12 +483,11 @@ $features = [
 
 }
 
+/* ================= BACKDROP & SHEET ================= */
+
 #mbs-backdrop {
   position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: rgba(0,0,0,0.4);
   z-index: 1040;
   opacity: 0;
@@ -516,74 +510,245 @@ $features = [
   overflow-x: hidden;
 }
 
+/* ================= HEADER ================= */
+
 .mbs-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 12px 16px;
+  justify-content: flex-end;
+  padding: 8px 16px;
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
+
 .mbs-title {
   font-weight: 700;
   font-size: 16px;
 }
+
 .mbs-close {
   border: 0;
   background: transparent;
   font-size: 30px;
   line-height: 1;
 }
+
+/* ================= CONTENT ================= */
+
 .mbs-content {
-  padding: 12px 16px 0 16px;
+  padding: 12px 16px 0;
   overflow-y: auto;
-  overflow-x: hidden;
   max-height: calc(85vh - 54px);
 }
-.mbs-content .row { margin-left: 0; margin-right: 0; }
-.mbs-hero img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-.mbs-info { margin-top: 8px; }
-.mbs-top { align-items: flex-start; margin-bottom: 8px; }
-.mbs-meta { display: inline-flex; gap: 12px; flex-wrap: wrap; }
-.mbs-meta .mbs-line { display: inline-flex; align-items: center; gap: 6px; }
-.mbs-title-row { margin-top: 8px; }
-.mbs-content-title { font-weight: 700; margin: 8px 0 4px; flex: 1 1 auto; min-width: 0; }
-.mbs-features { margin-top: 12px; }
-.mbs-features-title { font-weight: 700; margin-bottom: 8px; background: linear-gradient(90deg, #e52c43, #ff6c00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
-.mbs-features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
-@media (max-width: 767.98px) { .mbs-features-grid { grid-template-columns: 1fr; } }
-.mbs-feature { display: inline-flex; align-items: center; gap: 8px; }
-.mbs-feature i { font-size: 0.9rem; background: linear-gradient(90deg, #e52c43, #ff6c00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
-.mbs-feature span { font-size: 0.85rem; color: #1E1E1E; }
-.mbs-footer { position: sticky; bottom: 0; background: #fff; padding: 16px; border-top: 1px solid rgba(0,0,0,0.08); display: block; }
-.mbs-footer-info { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-.mbs-gratuity { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: #1E1E1E; font-weight: 500; }
-.mbs-gratuity i { color: #28a745; font-size: 1rem; }
-.mbs-price-number { margin: 0; font-weight: 800; font-size: 1.25rem; color: #000; }
-.mbs-actions-row { display: flex; gap: 12px; }
-.mbs-back { flex: 1; background: #fff; border: 1px solid #ccc; color: #999; font-weight: 700; border-radius: 4px; padding: 10px 0; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.2s; font-size: 12px !important; }
-.mbs-back:hover { background: #f0f0f0; color: #333; }
-.mbs-select { flex: 2; background: linear-gradient(90deg, #e52c43, #ff6c00) !important; border: none !important; color: #fff !important; font-weight: 700; border-radius: 4px; padding: 10px 0; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 12px !important; }
-.mbs-line { font-size: 1.1rem; margin-bottom: 6px; color: #1E1E1E; display: flex; align-items: center; gap: 6px; font-weight: 600; }
-.mbs-meta i { font-size: 1.2rem; background: linear-gradient(90deg, #e52c43, #ff6c00) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; display: inline-block; font-style: normal; }
-.mbs-desc { font-size: .9rem; color: #555; margin-top: 4px; }
-.mbs-price { margin-top: 0; }
-.mbs-features { margin-top: 12px; }
-.mbs-features-title { font-weight: 600; margin-bottom: 6px; }
-.mbs-feature { display: flex; align-items: center; gap: 8px; padding: 6px 0; }
-.mbs-feature i { background: linear-gradient(90deg, #e52c43, #ff6c00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
-.mbs-feature .info-icon {
-    background: none;
-    -webkit-background-clip: initial;
-    -webkit-text-fill-color: initial;
-    color: #6c757d;
+
+.mbs-content .row {
+  margin-left: 0;
+  margin-right: 0;
 }
 
+.mbs-hero img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.mbs-info {
+  margin-top: 8px;
+}
+
+.mbs-top {
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+/* ================= META ================= */
+
+.mbs-meta {
+  display: inline-flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.mbs-meta .mbs-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mbs-meta i {
+  font-size: 1.2rem;
+  background: linear-gradient(90deg, #e52c43, #ff6c00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mbs-line {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1E1E1E;
+  margin-bottom: 6px;
+}
+
+/* ================= TITLES ================= */
+
+.mbs-title-row {
+  margin-top: 8px;
+}
+
+.mbs-content-title {
+  font-weight: 700;
+  margin: 8px 0 4px;
+}
+
+.mbs-desc {
+  font-size: .9rem;
+  color: #555;
+}
+
+/* ================= FEATURES (NEW & FIXED) ================= */
+
+.mbs-features {
+  margin-top: 14px;
+}
+
+.mbs-features-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+  background: linear-gradient(90deg, #e52c43, #ff6c00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* NEW */
+.mbs-features-box {
+  background: #fff6df;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+/* FIXED GRID */
+.mbs-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 12px;
+}
+
+/* FEATURE ITEM */
+.mbs-feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mbs-feature span {
+  font-size: 0.85rem;
+  color: #1E1E1E;
+  line-height: 1.2;
+}
+
+/* ICON (MATCH RIGHT CARD) */
+.mbs-feature i {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;          /* white circle */
+  border-radius: 50%;            /* makes it round */
+  color: #111;                   /* icon color */
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12); /* subtle depth */
+}
+
+/* INFO ICON */
+.mbs-feature .info-icon {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+/* ================= FOOTER ================= */
+
+.mbs-footer {
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding: 16px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.mbs-footer-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.mbs-gratuity {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.mbs-gratuity i {
+  color: #28a745;
+  font-size: 1rem;
+}
+
+.mbs-price-number {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #000;
+}
+
+/* ================= ACTIONS ================= */
+
+.mbs-actions-row {
+  display: flex;
+  gap: 12px;
+}
+
+.mbs-back {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #ccc;
+  color: #999;
+  font-weight: 700;
+  border-radius: 4px;
+  padding: 10px 0;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.mbs-back:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.mbs-select {
+  flex: 2;
+  background: linear-gradient(90deg, #e52c43, #ff6c00);
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 4px;
+  padding: 10px 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* ================= DESKTOP HIDE ================= */
+
 @media (min-width: 768px) {
-  #mbs-backdrop, #mbs-sheet { display: none !important; }
+  #mbs-backdrop,
+  #mbs-sheet {
+    display: none !important;
+  }
 }
 
 </style>
@@ -668,7 +833,7 @@ $features = [
             <!-- Perks + Payments + Support Combined Card -->
             <div class="card">
                 <div class="card-body">
-                    <h6 class="card-title hassle_free text-primary">Stress-Free Travel</h6>
+                    <h6 class="card-title hassle_free text-dark">Stress-Free Travel</h6>
                     <hr>
                     <ul class="list-unstyled small feaures_ul">
                         <li><i class="mr-2 bi bi-check-circle-fill"></i>All fares include tolls and gratuity</li>
@@ -682,13 +847,13 @@ $features = [
                     <h6 class="card-title">Secure payments</h6>
                     <img src="{{ asset('assets/img/credit-cards.png') }}" alt="Payment methods" class="img-fluid payment-methods" >
                     <hr>
-                    <h6 class="card-title text-primary"><i class="bi bi-chat-left-text-fill"></i>Email Support</h6>
+                    <h6 class="card-title text-dark"><i class="bi bi-chat-left-text-fill"></i>Email Support</h6>
                     <p class="card-text">Reach us anytime for quick assistance.</p>
-                    <a href="mailto:info@dallaslimoandblackcars.com" class="mail_side d-block text-decoration-none small text-primary">info@dallaslimoandblackcars.com</a>
+                    <a href="mailto:info@dallaslimoandblackcars.com" class="mail_side d-block text-decoration-none small text-dark">info@dallaslimoandblackcars.com</a>
                     <hr>
-                    <p class="mb-0 call_heading text-primary"><i class="bi bi-telephone-fill"></i>Call Support</p>
+                    <p class="mb-0 call_heading text-dark"><i class="bi bi-telephone-fill"></i>Call Support</p>
                     <p class="mb-0">
-                        <a href="tel:+12148978056" class="number_side d-block text-decoration-none text-primary">214-897-8056</a>
+                        <a href="tel:+12148978056" class="number_side d-block text-decoration-none text-dark">214-897-8056</a>
                     </p>
                 </div>
             </div>
@@ -719,16 +884,20 @@ $features = [
         <p class="mbs-desc" style="display:none"></p>
         <div class="mbs-features">
             <div class="mbs-features-title">Included</div>
-            <div class="mbs-features-grid">
-                @foreach($features as $f)
-                    <div class="mbs-feature">
-                        <i class="bi {{ $f['icon'] }}"></i>
-                        <span>{{ $f['text'] }}</span>
-                        @if(isset($f['tooltip']))
-                            <i class="bi bi-info-circle info-icon" data-tooltip="{{ $f['tooltip'] }}"></i>
-                        @endif
-                    </div>
-                @endforeach
+            <div class="mbs-features-box">
+                <div class="mbs-features-grid">
+                    @foreach($features as $f)
+                        <div class="mbs-feature">
+                            <i class="bi {{ $f['icon'] }}"></i>
+                            <span>{{ $f['text'] }}</span>
+
+                            @if(isset($f['tooltip']))
+                                <i class="bi bi-info-circle info-icon"
+                                data-tooltip="{{ $f['tooltip'] }}"></i>
+                            @endif
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
         <div class="mbs-footer">

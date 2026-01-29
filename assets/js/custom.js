@@ -130,6 +130,30 @@ $('#pickup-location, #dropoff-location, #pickup-location_mobile, #dropoff-locati
   }
 });
 
+// Hourly: show map when field has value (but don't hide heading text yet)
+$('#pickup-location-hourly, #pickup-location-hourly_mobile, #pickup-location-hourly_form').on('keyup', function () {
+  const hourlyVal = $(this).val().trim();
+  if (hourlyVal === '') {
+    resetMap();
+  } else {
+    // Show map without hiding text
+    const mapElement = document.getElementById('map');
+    if (mapElement) {
+      const overlay = mapElement.querySelector('.map-overlay');
+      if (overlay) overlay.remove();
+      mapElement.style.removeProperty('background-image');
+      mapElement.style.removeProperty('background-size');
+      mapElement.style.removeProperty('background-position');
+      mapElement.style.removeProperty('background-repeat');
+      mapElement.style.display = 'block';
+      $('#hide_on_map').hide();
+      // Do not hide home-text-content here; let initMap handle it when place is selected
+    }
+  }
+});
+
+
+
 // Hourly pickup: when field is cleared, remove the map
 $hourly.on('input keyup', function () {
   const hourlyEmpty = $hourly.val().trim() === '';

@@ -21,6 +21,17 @@
     .switch-slider:before{position:absolute;content:"";height:20px;width:20px;left:2px;top:2px;background:#fff;transition:.2s;border-radius:50%}
     .switch-wrapper input:checked + .switch-slider{background:linear-gradient(90deg, #e52c43, #ff6c00)}
     .switch-wrapper input:checked + .switch-slider:before{transform:translateX(20px)}
+
+    #meet-option:invalid,
+    #meet-option option[value="none"]:checked {
+        color: #999;
+    }
+
+    /* Ensure the actual options inside look normal */
+    #meet-option option {
+        color: #000;
+        background-color: #fff;
+    }
     </style>
 
     @include('partials.bookig-top_area')
@@ -107,12 +118,8 @@
                     <p class="text-muted small text-start mb-0 mt-1" style="line-height: 1.2rem;">Enter any special
                         requests or important information for your ride, e.g. child car seats, etc.</p>
                     <div class="mt-4 d-none d-md-flex align-items-center">
-                        <button type="submit" class="btn btn-outline-primary btn-uniform mr-3 skip-btn">SKIP</button>
+                        <button type="submit" class="btn btn-outline btn-uniform mr-3 skip-btn">SKIP</button>
                         <button type="submit" class="btn btn-primary btn-uniform flex-fill">CONTINUE TO PAYMENT</button>
-                    </div>
-                    <div class="mt-4 d-flex justify-content-start d-md-none">
-                        <button type="submit" class="btn btn-outline-primary btn-uniform mr-2 skip-btn">SKIP</button>
-                        <button type="submit" class="btn btn-primary btn-block" style="padding: 0.575rem .75rem !important;">CONTINUE TO PAYMENT</button>
                     </div>
             </div>
 
