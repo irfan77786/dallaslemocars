@@ -332,6 +332,9 @@ a.btn-loadmore:hover {
 
 /* Mobile styles - Cleaned up */
 @media (max-width: 768px) {
+    #final-pay-button {
+        display: none !important;
+    }
     .search-tab-wrap {
         padding-top: 26px !important;
         float: none !important;
