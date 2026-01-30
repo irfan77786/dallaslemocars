@@ -69,18 +69,20 @@
     display: block;
     font-weight: 600;
     letter-spacing: 2px;
+    background: linear-gradient(90deg, #e52c43, #ff6c00);
+    border-radius: 4px !important;
 }
 </style>
-<div class="col-md-4 mb-4" id="pricing-area-wrapper">
+<div class="mb-4 col-md-4" id="pricing-area-wrapper">
 
             @php
                 $breakdown = session('breakdown_data');
 
             @endphp
 
-                <div class="bg-light rounded-lg p-3 shadow-sm mt-3">
+                <div class="p-3 mt-3 rounded-lg shadow-sm bg-light">
                     <!--<h2 class="mb-3 step-title" style="font-size: 16px">Trip Breakdown</h2>-->
-                    <!--<h2 class="mb-2 step-title font-weight-bold " style="font-size: 16px">Outward Trip</h2>-->
+                    <!--<h2 class="mb-2 step-title font-weight-bold" style="font-size: 16px">Outward Trip</h2>-->
 
                     @php
                         $base = session('calculated_price');
@@ -94,14 +96,14 @@
                     @php
                         $isRoundTrip = session('round_trip') == 'on';
                     @endphp
-                    <div class="d-flex justify-content-between mb-1">
+                    <div class="mb-1 d-flex justify-content-between">
                         <span class="pricing_summary_label">{{ $isRoundTrip ? 'Outward Trip' : 'Base Fare' }}</span>
                         <span id="trip-price" class="pricing_summary_price">
                             ${{ $whole}}<span class="price-decimal">.{{ $decimal }}</span> USD
                         </span>
                     </div>
                     @if($breakdown && isset($breakdown['hours']) && session('select_hours'))
-                        <div class="d-flex justify-content-between mb-1">
+                        <div class="mb-1 d-flex justify-content-between">
                             <span class="pricing_summary_label">Total Hours</span>
                             <span class="pricing_summary_price">{{ $breakdown['hours']? $breakdown['hours' ]: session('select_hours') }}</span>
                         </div>
@@ -110,20 +112,20 @@
                             <hr />
                             <!--<h2 class="mb-3 step-title font-weight-bold" style="font-size: 16px">Return Trip</h2>-->
 
-                            <!--<div class="d-flex justify-content-between mb-1">-->
+                            <!--<div class="mb-1 d-flex justify-content-between">-->
                             <!--    <span class="text-muted">Base Fare (Return)</span>-->
                             <!--    <span id="return-base-fare">${{ session('return_base_fare') }}</span>-->
                             <!--</div>-->
-                            <!--<div class="d-flex justify-content-between mb-1">-->
+                            <!--<div class="mb-1 d-flex justify-content-between">-->
                             <!--    <span class="text-muted">Per Mile Rate</span>-->
                             <!--    <span id="return-per-km-rate">${{ session('return_per_km_rate') }}</span>-->
                             <!--</div>-->
-                            <!--<div class="d-flex justify-content-between mb-1">-->
+                            <!--<div class="mb-1 d-flex justify-content-between">-->
                             <!--    <span class="text-muted">Distance in Miles</span>-->
                             <!--    <span id="return-distance">{{ session('return_km') }} Miles</span>-->
                             <!--</div>-->
                         @if(session('return_price'))
-                            <div class="d-flex justify-content-between mb-1">
+                            <div class="mb-1 d-flex justify-content-between">
                                 <span class="pricing_summary_label">Return Trip</span>
                                 @php
                                     $price = number_format(session('return_price'), 2);
@@ -154,7 +156,7 @@
                             ${{ $whole }}<span class="price-decimal">.{{ $decimal }}</span> USD
                         </span>
                     </div>
-<div class="text-center mt-3">
+<div class="mt-3 text-center">
     @php $targetForm = $currentStep == 5 ? 'payment-form' : 'booking-detail-form'; @endphp
     <button type="submit"
             class="btn btn-primary w-100 btn-uniform cta-button"
@@ -170,14 +172,14 @@
     </div>
 
 @if($currentStep == 5)
-    <p class="text-muted small mt-3 text-center mb-0">
+    <p class="mt-3 mb-0 text-center text-muted small">
         By clicking "BOOK NOW", you agree to our
         <a href="#" class="hover-black" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Terms &amp; Conditions</a>
     </p>
 @endif
 
                     <div class="payment_method_info_box">
-                        <p class="mb-0 mt-2">Secure payments</p>
+                        <p class="mt-2 mb-0">Secure payments</p>
                         <img src="{{ asset('assets/img/credit-cards.png') }}" alt="Payment methods" class="img-fluid payment-methods" >
 
                     </div>
@@ -189,7 +191,7 @@
 
                         <!--<ul>-->
                         <!--    <li>-->
-                        <!--        <div class="d-flex items-center "><span-->
+                        <!--        <div class="items-center d-flex"><span-->
                         <!--                class="text-[#2B3252] mx-1 text-xl ml-[-2.5px]"><svg stroke="currentColor"-->
                         <!--                    fill="none" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"-->
                         <!--                    height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">-->
@@ -202,7 +204,7 @@
                         <!--        </div>-->
                         <!--    </li>-->
                         <!--    <li>-->
-                        <!--        <div class="d-flex items-center "><span-->
+                        <!--        <div class="items-center d-flex"><span-->
                         <!--                class="text-[#2B3252] mx-1 text-xl ml-[-2.5px]"><svg stroke="currentColor"-->
                         <!--                    fill="none" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"-->
                         <!--                    height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">-->
@@ -215,7 +217,7 @@
                         <!--        </div>-->
                         <!--    </li>-->
                         <!--    <li>-->
-                        <!--        <div class="d-flex items-center "><span-->
+                        <!--        <div class="items-center d-flex"><span-->
                         <!--                class="text-[#2B3252] mx-1 text-xl ml-[-2.5px]"><svg stroke="currentColor"-->
                         <!--                    fill="none" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"-->
                         <!--                    height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">-->

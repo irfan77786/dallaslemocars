@@ -9,37 +9,25 @@
             -webkit-text-fill-color: transparent;
             font-weight: bold;
         }
-    #card-element{
-        background: transparent !important;
-        padding: 0 !important;
-    }
+
     #card-errors{
         line-height: 18px !important;
         margin-left: 0;
     }
-  .form-control {
-    -webkit-appearance: none;
-    padding-left: 15px !important;
-    border: 1px solid rgba(0, 0, 0, 0.23) !important;
-    font-size: 16px;
-    height: 45px;
-    max-width: 100%;
-}
 
  .floating-bordered-input {
-   padding-left: 14px;
-   padding-right: 14px;
- }
-
- .floating-bordered-input .form-control {
-   border: none !important;
-   box-shadow: none !important;
-   margin-top: 10px !important;
+   position: relative;
+   border: 1px solid #C4C4C4;
+   border-radius: 4px;
+   padding: 12px 15px !important;
+   padding-top: 0px !important;
+   padding-bottom: 0px !important;
+   background: #fff;
  }
 
         #card-element.form-control {
-        height: 45px;
-        padding: 0 10px;
+        height: 40px;
+        padding-top: 10px;
         }
         #payment-form {
             width: 100%;
@@ -86,13 +74,13 @@
 <div class="row">
 <div class="col-md-8">
 
-<h5 class="fw-bold mb-2">Payment Information</h5>
+<h5 class="mb-2 fw-bold">Payment Information</h5>
 
 <form id="payment-form" method="POST" action="{{ url('/completeBook') }}">
 @csrf
 <input type="hidden" name="payment_method_id" id="payment_method_id">
 
-<label class="d-flex align-items-center mb-3 border p-3 rounded payment-card-option">
+<label class="p-3 mb-3 rounded border d-flex align-items-center payment-card-option">
     <input type="radio"
            name="payment_method"
            class="me-2 saved-card-radio"
@@ -110,7 +98,7 @@
     $holder = $card->billing_details->name ?? '';
 @endphp
 
-<label class="d-flex align-items-center mb-3 border p-3 rounded payment-card-option">
+<label class="p-3 mb-3 rounded border d-flex align-items-center payment-card-option">
     <input type="radio"
            name="payment_method"
            class="me-2 saved-card-radio"
@@ -145,26 +133,26 @@
 <div id="new-card-fields">
 
     <!-- Full Name -->
-    <div class="floating-bordered-input position-relative mb-3">
-        <input type="text" id="card-name" class="form-control" required>
+    <div class="mb-3 floating-bordered-input position-relative">
         <span class="floating-label">Full Name</span>
+        <input type="text" id="card-name" class="form-control" placeholder=" " required>
     </div>
 
     <!-- Card Number -->
-    <div class="floating-bordered-input position-relative mb-3">
+    <div class="mb-3 floating-bordered-input position-relative">
         <span class="floating-label">Card Number</span>
         <div id="card-element" class="form-control"></div>
     </div>
 
-    <div id="card-errors" class="text-danger small mb-2"></div>
+    <div id="card-errors" class="mb-2 text-danger small"></div>
 </div>
 
 
 
-<div id="card-errors" class="text-danger small mb-2"></div>
+<div id="card-errors" class="mb-2 text-danger small"></div>
 
 {{-- ✅ BUTTON --}}
-<button type="submit" id="final-pay-button" class="btn btn-primary mt-3 w-100">
+<button type="submit" id="final-pay-button" class="mt-3 btn btn-primary w-100">
 BOOK NOW
 </button>
 

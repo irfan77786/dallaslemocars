@@ -133,6 +133,10 @@ Route::get('/dashboard', function (Request $request) {
             $query->where('round_trip', 1);
         }
 
+        if ($request->status) {
+            $query->where('payment_status', $request->status);
+        }
+
         if ($startDate && $endDate) {
             $query->whereBetween('pickup_date', [$startDate, $endDate]);
         } elseif ($startDate) {

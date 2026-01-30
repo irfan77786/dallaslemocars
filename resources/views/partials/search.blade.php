@@ -335,6 +335,17 @@
     padding: 10px 14px;
   }
 }
+.rlx-select > button {
+    padding: 0px !important;
+}
+
+@media (min-width: 768px) {
+    .rlx-select .rlx-trigger {
+        min-height: 40px !important;
+        display: flex;
+        align-items: center;
+    }
+}
 </style>
 
 <script>

@@ -105,6 +105,33 @@
                 </table>
             </div>
 
+            {{-- Flight Information --}}
+            @if(!empty($bookingData['flight_details']))
+            <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
+                <h3 style="background: #12143e; margin: 0; padding: 8px 12px; font-size: 14px; color: #ffffff; border-radius: 4px 4px 0 0;">Flight Information</h3>
+                <table cellpadding="0" cellspacing="0" width="100%" style="font-size: 12px; padding: 10px;">
+                    @if(!empty($bookingData['flight_details']['pickup_flight_details']))
+                    <tr>
+                        <td style="font-weight: bold; color: #666; width: 40%; padding: 4px 0;">Pickup Flight Details:</td>
+                        <td style="color: #333; padding: 4px 0;">{{ $bookingData['flight_details']['pickup_flight_details'] }}</td>
+                    </tr>
+                    @endif
+                    @if(!empty($bookingData['flight_details']['flight_number']))
+                    <tr>
+                        <td style="font-weight: bold; color: #666; width: 40%; padding: 4px 0;">Flight Number:</td>
+                        <td style="color: #333; padding: 4px 0;">{{ $bookingData['flight_details']['flight_number'] }}</td>
+                    </tr>
+                    @endif
+                    @if(!empty($bookingData['flight_details']['meet_option']))
+                    <tr>
+                        <td style="font-weight: bold; color: #666; width: 40%; padding: 4px 0;">Meet Option:</td>
+                        <td style="color: #333; padding: 4px 0;">{{ ucfirst($bookingData['flight_details']['meet_option']) }}</td>
+                    </tr>
+                    @endif
+                </table>
+            </div>
+            @endif
+
             <p style="font-size: 12px; margin: 20px 0 10px;"><b>Best regards,<br>{{ config('app.name') }} Team</b></p>
         </div>
 

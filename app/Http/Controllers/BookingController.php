@@ -539,6 +539,7 @@ public function handleHourlyHire(Request $request)
             }
 
             $selectedId = session('vehicle_id');
+            $airports = \App\Models\Airport::orderBy('name')->get();
             if ($selectedId && isset($distanceData[$selectedId]) && empty($distanceData[$selectedId]['error'])) {
                 $basePrice = (float)($distanceData[$selectedId]['price'] ?? 0);
                 $insidePickupFee = (float)session('inside_pickup_fee', 0);
@@ -601,6 +602,7 @@ public function handleHourlyHire(Request $request)
                 'vehicles' => $vehicles,
                 'vehicles_all' => $vehicles_all,
                 'distance' => $distanceData,
+                'airports' => $airports,
                 'seo' => [
                     'title' => 'Booking Details | Dallas Limo And Black Cars',
                     'description' => 'Complete your booking details for Dallas luxury car service. Add passenger information and special requests.',
@@ -684,6 +686,8 @@ public function handleHourlyHire(Request $request)
         }
 
 
+        $airports = \App\Models\Airport::orderBy('name')->get();
+
         return view('booking.booking_detail', [
             'step'=>4,
             'id' => session('vehicle_id'),
@@ -691,6 +695,7 @@ public function handleHourlyHire(Request $request)
             'vehicles' => $vehicles,
             'vehicles_all'=>$vehicles_all,
             'distance'=>$distanceData,
+            'airports' => $airports,
             'seo' => [
                 'title' => 'Booking Details | Dallas Limo And Black Cars',
                 'description' => 'Complete your booking details for Dallas luxury car service. Add passenger information and special requests.',

@@ -32,6 +32,147 @@
         color: #000;
         background-color: #fff;
     }
+
+    /* Ridelux-style custom select */
+    .rlx-select {
+        position: relative;
+        width: 100%;
+    }
+    .rlx-select .rlx-trigger {
+        display: block;
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        padding: 0 40px 0 0; /* No left icon here */
+        margin-top: 0; /* Removed default margin */
+        color: #1f2937;
+        font-size: 16px;
+        line-height: 1.45;
+        min-height: 24px;
+        text-align: left;
+    }
+
+    /* Bordered variant for non-floating contexts */
+    .rlx-select.bordered {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    .rlx-select.bordered .rlx-trigger {
+        padding: 10px 40px 10px 12px; /* Standard padding */
+        min-height: auto; /* Let padding define height or standard input height */
+    }
+    @media (min-width: 768px) {
+        .rlx-select.bordered .rlx-trigger {
+            min-height: auto !important; /* Override the desktop min-height for floating inputs */
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
+        }
+    }
+
+    .rlx-select .rlx-value {
+        pointer-events: none;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .rlx-select .rlx-arrow {
+        color: #6b7280;
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+    .rlx-select.open .rlx-arrow {
+        transform: rotate(180deg);
+        transition: transform .18s ease;
+    }
+    .rlx-select .rlx-list {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: -16px;
+        right: -16px;
+        background: #fff;
+        border: 1px solid #e6eaef;
+        border-radius: 8px;
+        box-shadow: 0 12px 30px rgba(0,0,0,.12);
+        max-height: 360px;
+        overflow-y: auto;
+        padding: 6px 0;
+        opacity: 0;
+        transform: translateY(-6px);
+        pointer-events: none;
+        transition: opacity .18s ease, transform .18s ease;
+        z-index: 1050;
+        overscroll-behavior: contain;
+    }
+    .rlx-select.open .rlx-list {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+    .rlx-option {
+        padding: 12px 16px;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #1f2937;
+        cursor: pointer;
+    }
+    .rlx-option:hover,
+    .rlx-option[aria-selected="true"] {
+        background: #eef6fb;
+    }
+    .rlx-option.selected {
+        background: #e9f2fa;
+    }
+    .rlx-theme {
+        border-radius: 4px;
+    }
+    .rlx-theme:hover,
+    .rlx-theme:focus-within {
+        box-shadow: 0 6px 16px rgba(0,0,0,.06);
+    }
+    /* Scrollbar styling for dropdown list */
+    .rlx-list::-webkit-scrollbar {
+        width: 8px;
+    }
+    .rlx-list::-webkit-scrollbar-track {
+        background: #f1f3f5;
+        border-radius: 4px;
+    }
+    .rlx-list::-webkit-scrollbar-thumb {
+        background: #c8d1db;
+        border-radius: 8px;
+    }
+    .rlx-list::-webkit-scrollbar-thumb:hover {
+        background: #b4c0cc;
+    }
+
+    @media (max-width: 480px) {
+        .rlx-select .rlx-trigger {
+            margin-top: 10px !important;
+            font-size: 15px;
+            min-height: 42px;
+            padding-left: 0;
+        }
+        .rlx-option {
+            font-size: 15px;
+            padding: 10px 14px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .rlx-select .rlx-trigger {
+            min-height: 54px !important;
+            padding-top: 15px !important;
+            padding-bottom: 0px !important;
+            padding-left: 0 !important;
+            display: flex;
+            align-items: center;
+        }
+    }
     </style>
 
     @include('partials.bookig-top_area')
@@ -40,7 +181,7 @@
 
     <div class="container py-md-5">
         <div class="row">
-            <div class="col-md-8 px-4 mb-3 mobile-mg-dc">
+            <div class="px-4 mb-3 col-md-8 mobile-mg-dc">
                 <form method="POST" action="{{ url('/bookRide') }}" class="d-flex flex-column loader-form" id="booking-detail-form">
                     @csrf
 
@@ -67,27 +208,57 @@
                             <h2 class="mb-3">Flight Information</h2>
 
                             <!-- Pickup Flight Details -->
-                            <div class="floating-bordered-input position-relative mb-3">
-                            <span class="floating-label">Pickup Flight Details</span>
-                            <input type="text" id="pickup-flight-details" name="pickup_flight_details"
-                                class="form-control" placeholder=" "
-                                value="{{ session('pickup_flight_details') ?? '' }}">
+                            <div class="mb-3 floating-bordered-input position-relative rlx-theme">
+                                <span class="floating-label">Pickup Flight Details</span>
+                                <div class="rlx-select" id="rlx-pickup-flight" data-name="pickup_flight_details" data-initial="{{ session('pickup_flight_details') ?? '' }}">
+                                    <button type="button" class="rlx-trigger" aria-haspopup="listbox" aria-expanded="false">
+                                        <span class="rlx-value">{{ session('pickup_flight_details') ? session('pickup_flight_details') : 'Select Airline' }}</span>
+                                        <svg class="rlx-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.73 9.27a1 1 0 0 1 1.41 0L12 13.12l3.86-3.85a1 1 0 0 1 1.41 1.41l-4.57 4.57a1 1 0 0 1-1.41 0L6.73 10.68a1 1 0 0 1 0-1.41Z" fill="currentColor"/></svg>
+                                    </button>
+                                    <ul class="rlx-list" role="listbox" tabindex="-1">
+                                        <li role="option" class="rlx-option {{ session('pickup_flight_details') == '' ? 'selected' : '' }}" aria-selected="{{ session('pickup_flight_details') == '' ? 'true' : 'false' }}" data-value="">Select Airline</li>
+                                        @foreach($airports as $airport)
+                                            @php
+                                                $displayValue = ($airport->iata_code ? $airport->iata_code . ' - ' : '') . $airport->name . ($airport->city ? ' (' . $airport->city . ')' : '');
+                                            @endphp
+                                            <li role="option"
+                                                class="rlx-option {{ session('pickup_flight_details') == $displayValue ? 'selected' : '' }}"
+                                                aria-selected="{{ session('pickup_flight_details') == $displayValue ? 'true' : 'false' }}"
+                                                data-value="{{ $displayValue }}">
+                                                {{ $displayValue }}
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                    <input type="hidden" name="pickup_flight_details" id="pickup-flight-details" value="{{ session('pickup_flight_details') ?? '' }}">
+                                </div>
                             </div>
                             <!-- Flight Number -->
-                            <div class="floating-bordered-input position-relative mb-3">
+                            <div class="mb-3 floating-bordered-input position-relative">
                             <span class="floating-label">Flight Number</span>
                             <input type="text" id="flight-number" name="flight_number"
                                 class="form-control" placeholder=" "
                                 value="{{ session('flight_number') ?? '' }}">
                             </div>
                             <!-- Meet Option -->
-                            <div class="floating-bordered-input position-relative mb-3">
-                            <span class="floating-label">Meet Option</span>
-                            <select class="form-control" id="meet-option" name="meet_option">
-                                <option value="none" {{ session('meet_option') === null ? 'selected' : '' }} disabled>Select Option</option>
-                                <option value="curbside" {{ session('meet_option') === 'curbside' ? 'selected' : '' }}>Curbside Pickup</option>
-                                <option value="inside" {{ session('meet_option') === 'inside' ? 'selected' : '' }}>Inside Pickup</option>
-                            </select>
+                            <div class="mb-3 floating-bordered-input position-relative rlx-theme">
+                                <span class="floating-label">Meet Option</span>
+                                <div class="rlx-select" id="rlx-meet-option" data-name="meet_option" data-initial="{{ session('meet_option') ?? 'none' }}">
+                                    <button type="button" class="rlx-trigger" aria-haspopup="listbox" aria-expanded="false">
+                                        <span class="rlx-value">
+                                            @if(session('meet_option') === 'curbside') Curbside Pickup
+                                            @elseif(session('meet_option') === 'inside') Inside Pickup
+                                            @else Select Option
+                                            @endif
+                                        </span>
+                                        <svg class="rlx-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.73 9.27a1 1 0 0 1 1.41 0L12 13.12l3.86-3.85a1 1 0 0 1 1.41 1.41l-4.57 4.57a1 1 0 0 1-1.41 0L6.73 10.68a1 1 0 0 1 0-1.41Z" fill="currentColor"/></svg>
+                                    </button>
+                                    <ul class="rlx-list" role="listbox" tabindex="-1">
+                                        <li role="option" class="rlx-option {{ session('meet_option') === 'none' || session('meet_option') === null ? 'selected' : '' }}" aria-selected="{{ session('meet_option') === 'none' || session('meet_option') === null ? 'true' : 'false' }}" data-value="none">Select Option</li>
+                                        <li role="option" class="rlx-option {{ session('meet_option') === 'curbside' ? 'selected' : '' }}" aria-selected="{{ session('meet_option') === 'curbside' ? 'true' : 'false' }}" data-value="curbside">Curbside Pickup</li>
+                                        <li role="option" class="rlx-option {{ session('meet_option') === 'inside' ? 'selected' : '' }}" aria-selected="{{ session('meet_option') === 'inside' ? 'true' : 'false' }}" data-value="inside">Inside Pickup</li>
+                                    </ul>
+                                    <input type="hidden" name="meet_option" id="meet-option" value="{{ session('meet_option') ?? 'none' }}">
+                                </div>
                             </div>
                         </div>
 
@@ -96,7 +267,7 @@
                             value="{{ session('inside_pickup_fee') ?? 0 }}">
 
                         <!-- Flight Info Toggle -->
-                        <div class="custom-switch-container mt-3">
+                        <div class="mt-3 custom-switch-container">
                             <label class="switch-wrapper">
                                 <input type="checkbox" id="no-flight-info-checkbox" name="no_flight_info" value="1">
                                 <span class="switch-slider"></span>
@@ -110,15 +281,15 @@
                     <div>
                         <h2 class="mb-3">Additional Information (Optional)</h2>
 
-                        <div class="floating-bordered-input position-relative mb-3">
+                        <div class="mb-3 floating-bordered-input position-relative">
                             <textarea id="note" name="note" class="form-control" placeholder=" " rows="2">{{ session('note') ?? '' }}</textarea>
                         </div>
                     </div>
 
-                    <p class="text-muted small text-start mb-0 mt-1" style="line-height: 1.2rem;">Enter any special
+                    <p class="mt-1 mb-0 text-muted small text-start" style="line-height: 1.2rem;">Enter any special
                         requests or important information for your ride, e.g. child car seats, etc.</p>
                     <div class="mt-4 d-none d-md-flex align-items-center">
-                        <button type="submit" class="btn btn-outline btn-uniform mr-3 skip-btn">SKIP</button>
+                        <button type="submit" class="mr-3 btn btn-outline btn-uniform skip-btn">SKIP</button>
                         <button type="submit" class="btn btn-primary btn-uniform flex-fill">CONTINUE TO PAYMENT</button>
                     </div>
             </div>
@@ -131,10 +302,10 @@
     <!-- Return Reservation Modal -->
     <div class="modal fade" id="returnReservationModal" tabindex="-1" role="dialog"
         aria-labelledby="returnReservationModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered  modal-xl" role="document">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title font-weight-bold mb-2" id="returnReservationModalLabel">Return Reservation</h5>
+                    <h5 class="mb-2 modal-title font-weight-bold" id="returnReservationModalLabel">Return Reservation</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="font-size: 2rem;">&times;</span>
                     </button>
@@ -171,7 +342,7 @@
                                 <input type="hidden" name="return_vehicle_id" id="return-vehicle-id" value="">
 
                                 <!-- Pick-up Location -->
-                                <div class="input-group-container  mb-3">
+                                <div class="mb-3 input-group-container">
                                     <div class="icon-container">
                                         <i class="bi bi-geo-alt"></i>
                                     </div>
@@ -187,7 +358,7 @@
                                 </div>
 
                                 <!-- Drop-off Location -->
-                                <div class="input-group-container  mb-3">
+                                <div class="mb-3 input-group-container">
                                     <div class="icon-container">
                                         <i class="bi bi-geo-alt"></i>
                                     </div>
@@ -203,7 +374,7 @@
                                 </div>
 
                                 <!-- Pickup Date -->
-                                <div class="input-group-container  mb-3">
+                                <div class="mb-3 input-group-container">
                                     <div class="icon-container">
                                         <i class="bi bi-calendar"></i>
                                     </div>
@@ -222,7 +393,7 @@
                                 </div>
 
                                 <!-- Pickup Time -->
-                                <div class="input-group-container  mb-3">
+                                <div class="mb-3 input-group-container">
                                     <div class="icon-container">
                                         <i class="bi bi-clock"></i>
                                     </div>
@@ -246,7 +417,7 @@
                                         <div class="row">
                                             <!-- Flight Details -->
                                             <div class="col-md-6 form-group">
-                                                <div class="input-group-container ">
+                                                <div class="input-group-container">
                                                     <div class="icon-container">
                                                         <i class="bi bi-airplane"></i>
                                                     </div>
@@ -254,12 +425,28 @@
                                                         <label for="return-flight-details" class="form-label">Pickup
                                                             Flight Details (Recommended)</label>
                                                         <div class="input-group">
-                                                            <input type="text" id="return-flight-details"
-                                                                name="return_flight_details"
-                                                                class="form-control custom-input-style"
-                                                                placeholder="Enter pickup flight details"
-                                                                value="{{ session('return_flight_details') }}">
+                                                        <div class="rlx-select bordered" id="rlx-return-flight" data-name="return_flight_details" data-initial="{{ session('return_flight_details') ?? '' }}">
+                                                            <button type="button" class="rlx-trigger" aria-haspopup="listbox" aria-expanded="false">
+                                                                <span class="rlx-value">{{ session('return_flight_details') ? session('return_flight_details') : 'Select Airline' }}</span>
+                                                                <svg class="rlx-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.73 9.27a1 1 0 0 1 1.41 0L12 13.12l3.86-3.85a1 1 0 0 1 1.41 1.41l-4.57 4.57a1 1 0 0 1-1.41 0L6.73 10.68a1 1 0 0 1 0-1.41Z" fill="currentColor"/></svg>
+                                                            </button>
+                                                            <ul class="rlx-list" role="listbox" tabindex="-1">
+                                                                <li role="option" class="rlx-option {{ session('return_flight_details') == '' ? 'selected' : '' }}" aria-selected="{{ session('return_flight_details') == '' ? 'true' : 'false' }}" data-value="">Select Airline</li>
+                                                                @foreach($airports as $airport)
+                                                                    @php
+                                                                        $displayValue = ($airport->iata_code ? $airport->iata_code . ' - ' : '') . $airport->name . ($airport->city ? ' (' . $airport->city . ')' : '');
+                                                                    @endphp
+                                                                    <li role="option"
+                                                                        class="rlx-option {{ session('return_flight_details') == $displayValue ? 'selected' : '' }}"
+                                                                        aria-selected="{{ session('return_flight_details') == $displayValue ? 'true' : 'false' }}"
+                                                                        data-value="{{ $displayValue }}">
+                                                                        {{ $displayValue }}
+                                                                    </li>
+                                                                @endforeach
+                                                            </ul>
+                                                            <input type="hidden" name="return_flight_details" id="return-flight-details" value="{{ session('return_flight_details') ?? '' }}">
                                                         </div>
+                                                    </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -286,7 +473,7 @@
                                         </div>
 
                                         <!-- No Flight Info Checkbox -->
-                                        <div class="form-check mt-3 d-flex pl-5">
+                                        <div class="pl-5 mt-3 form-check d-flex">
                                             <input type="checkbox" class="form-check-input" id="return-no-flight-info"
                                                 {{ session('return_no_flight_info') == 1 ? 'checked' : '' }}
                                                 name="return_no_flight_info" value="1" style="position:static">
@@ -303,30 +490,30 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="wrapper bg-white vehicle_container hide col-md-12 mt-4">
+                            <div class="mt-4 bg-white wrapper vehicle_container hide col-md-12">
                                 @foreach ($vehicles_all as $key => $value)
                                     <div class="row no-gutters">
                                         <div class="col-12">
-                                            <div class="vehical-card p-3 mb-3 row text-left text-md-left align-items-center justify-content-center border-bottom"
+                                            <div class="p-3 mb-3 text-left vehical-card row text-md-left align-items-center justify-content-center border-bottom"
                                                 style="border-color: #8b8b8b;">
 
                                                 <!-- Vehicle Image and Capacity Info -->
-                                                <div class="col-12 col-md-4 mb-3 d-flex flex-column align-items-center">
+                                                <div class="mb-3 col-12 col-md-4 d-flex flex-column align-items-center">
                                                     <img src="{{ 'https://admin.dallaslimoandblackcars.com/storage/' . $value->vehicle_image }}"
                                                         alt="Vehicle Image" class="img-fluid rounded-3 vehicle_img"
                                                         style="max-height: 200px; object-fit: cover;">
 
                                                     <div
-                                                        class="row justify-content-md-center justify-content-start mt-3 w-100">
+                                                        class="mt-3 row justify-content-md-center justify-content-start w-100">
                                                         <div
-                                                            class="col-4 col-md-6 text-md-center d-flex align-items-md-center justify-content-md-center align-items-start justify-content-start text-left mb-2">
+                                                            class="mb-2 text-left col-4 col-md-6 text-md-center d-flex align-items-md-center justify-content-md-center align-items-start justify-content-start">
                                                             <img src="/image/user.svg" alt="Passengers" class="mr-2"
                                                                 style="height:20px;width:20px;">
                                                             <p class="mb-0 small">Max. {{ $value->number_of_passengers }}
                                                             </p>
                                                         </div>
                                                         <div
-                                                            class="col-4 col-md-6  d-flex text-md-center align-items-md-center justify-content-md-center text-left align-items-start justify-content-start mb-2">
+                                                            class="mb-2 text-left col-4 col-md-6 d-flex text-md-center align-items-md-center justify-content-md-center align-items-start justify-content-start">
                                                             <img src="/image/bag.svg" alt="Luggage" class="mr-2"
                                                                 style="height:20px;width:20px;">
                                                             <p class="mb-0 small">Max. {{ $value->luggage_capacity }}</p>
@@ -335,8 +522,8 @@
                                                 </div>
 
                                                 <!-- Vehicle Details -->
-                                                <div class="col-12 col-md-4 mb-3 px-2">
-                                                    <h5 class="font-weight-bold text-left text-md-left">
+                                                <div class="px-2 mb-3 col-12 col-md-4">
+                                                    <h5 class="text-left font-weight-bold text-md-left">
                                                         {{ $value->vehicle_name }}</h5>
                                                     <div
                                                         class="d-flex flex-column align-items-start align-items-md-start feature_items_cont">
@@ -363,7 +550,7 @@
 
                                                 <!-- Pricing & CTA -->
                                                 <div
-                                                    class="col-12 col-md-4 mb-2 d-flex flex-column align-items-start align-items-md-end text-left text-md-right">
+                                                    class="mb-2 text-left col-12 col-md-4 d-flex flex-column align-items-start align-items-md-end text-md-right">
                                                     @php $vehicleDistance = $distance[$value->id] ?? null; @endphp
 
                                                     @if ($vehicleDistance && empty($vehicleDistance['error']))
@@ -381,7 +568,7 @@
                                                         </div>
                                                         <a href="javascript:void(0)"
                                                             data-vehicle-id="{{ $value->id }}"
-                                                            class="select-vehicle btn btn-primary btn_dark mt-2 trigger-loader">
+                                                            class="mt-2 select-vehicle btn btn-primary btn_dark trigger-loader">
                                                             SELECT
                                                         </a>
                                                     @else
@@ -409,6 +596,117 @@
 
     @section('scripts')
     @include('booking.return_logic')
+    <script>
+    (function(){
+      function initRlxSelect(rootId) {
+        const root = document.getElementById(rootId);
+        if (!root) return;
+        const trigger = root.querySelector('.rlx-trigger');
+        const list = root.querySelector('.rlx-list');
+        const valueEl = root.querySelector('.rlx-value');
+        const hidden = root.querySelector('input[type="hidden"]');
+        const options = Array.from(root.querySelectorAll('.rlx-option'));
+        let highlightedIndex = options.findIndex(o => o.classList.contains('selected'));
+
+        function open() {
+          root.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+          list.focus({ preventScroll: true });
+          if (highlightedIndex < 0) highlightedIndex = 0;
+          highlight(highlightedIndex);
+        }
+        function close() {
+          root.classList.remove('open');
+          trigger.setAttribute('aria-expanded', 'false');
+        }
+        function selectByIndex(i) {
+          const opt = options[i];
+          if (!opt) return;
+          options.forEach(o => { o.classList.remove('selected'); o.setAttribute('aria-selected','false'); });
+          opt.classList.add('selected');
+          opt.setAttribute('aria-selected','true');
+          highlightedIndex = i;
+          const val = opt.getAttribute('data-value');
+          hidden.value = val;
+          valueEl.textContent = opt.textContent.trim();
+          const event = new Event('change', { bubbles: true });
+          hidden.dispatchEvent(event);
+          close();
+          trigger.focus();
+        }
+        function highlight(i) {
+          highlightedIndex = Math.max(0, Math.min(options.length-1, i));
+          options.forEach((o, idx) => {
+            o.tabIndex = idx === highlightedIndex ? 0 : -1;
+          });
+          options[highlightedIndex]?.focus({ preventScroll: true });
+        }
+
+        trigger.addEventListener('click', function(e){
+          e.preventDefault();
+          if (root.classList.contains('open')) { close(); } else { open(); }
+        });
+        options.forEach((opt, idx) => {
+          opt.addEventListener('click', (e) => { e.stopPropagation(); selectByIndex(idx); });
+          opt.addEventListener('mousemove', () => { highlightedIndex = idx; });
+        });
+        document.addEventListener('click', function(e){
+          if (!root.contains(e.target)) close();
+        });
+        root.addEventListener('keydown', function(e){
+          if (!root.classList.contains('open')) return;
+          if (e.key === 'ArrowDown') { e.preventDefault(); highlight(highlightedIndex+1); }
+          else if (e.key === 'ArrowUp') { e.preventDefault(); highlight(highlightedIndex-1); }
+          else if (e.key === 'Enter') { e.preventDefault(); selectByIndex(highlightedIndex); }
+          else if (e.key === 'Escape') { e.preventDefault(); close(); trigger.focus(); }
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', function(){
+        initRlxSelect('rlx-pickup-flight');
+        initRlxSelect('rlx-return-flight');
+        initRlxSelect('rlx-meet-option');
+
+        // Optional: Reset UI when flight info checkboxes change
+        const noFlightInfoCheckbox = document.getElementById('no-flight-info-checkbox');
+        if (noFlightInfoCheckbox) {
+            noFlightInfoCheckbox.addEventListener('change', function() {
+                if (!this.checked) { // "I have details" unchecked -> Clear
+                    resetRlxSelect('rlx-pickup-flight', 'Select Airline', '');
+                    resetRlxSelect('rlx-meet-option', 'Select Option', 'none');
+                }
+            });
+        }
+        const returnNoFlightInfo = document.getElementById('return-no-flight-info');
+        if (returnNoFlightInfo) {
+            returnNoFlightInfo.addEventListener('change', function() {
+                if (this.checked) { // "I do NOT have details" checked -> Clear
+                    resetRlxSelect('rlx-return-flight', 'Select Airline', '');
+                }
+            });
+        }
+
+        function resetRlxSelect(id, defaultText, defaultValue) {
+            const root = document.getElementById(id);
+            if (!root) return;
+            const valueEl = root.querySelector('.rlx-value');
+            const hidden = root.querySelector('input[type="hidden"]');
+            const options = root.querySelectorAll('.rlx-option');
+
+            valueEl.textContent = defaultText;
+            hidden.value = defaultValue;
+            options.forEach(o => {
+                o.classList.remove('selected');
+                o.setAttribute('aria-selected', 'false');
+                if (o.getAttribute('data-value') === defaultValue) {
+                    o.classList.add('selected');
+                    o.setAttribute('aria-selected', 'true');
+                }
+            });
+        }
+      });
+    })();
+    </script>
     <script>
         jQuery(document).ready(function() {
             // Handle flight info toggle
@@ -905,9 +1203,9 @@
                 });
 
                 return `
-      <div id="return-service-details" class="mt-4 p-4 border rounded" style="background-color: #f8f9fa;">
-        <div class="d-flex justify-content-between align-items-start mb-3">
-          <h6 class="mb-0  font-weight-bold">Return Service Details</h6>
+      <div id="return-service-details" class="p-4 mt-4 rounded border" style="background-color: #f8f9fa;">
+        <div class="mb-3 d-flex justify-content-between align-items-start">
+          <h6 class="mb-0 font-weight-bold">Return Service Details</h6>
           <button type="button" class="btn btn-sm btn-outline-primary" id="edit-return-service">
             <i class="bi bi-pencil"></i> Edit
           </button>
@@ -931,8 +1229,8 @@
           </div>
         </div>
         ${(data.return_flight_details || data.return_flight_number) ? `
-            <div class="mt-3 pt-3 border-top">
-              <h6 class="mb-2 ">Flight Information</h6>
+            <div class="pt-3 mt-3 border-top">
+              <h6 class="mb-2">Flight Information</h6>
               <div class="row">
                 ${data.return_flight_details ? `
             <div class="col-md-6">

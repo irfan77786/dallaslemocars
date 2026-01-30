@@ -87,8 +87,16 @@
     transition: background 0.3s;
 }
 
-.continue-btn:hover {
-    background: #145570;
+#continue_right {
+    width: 100%;
+    padding: 11px;
+    background: linear-gradient(90deg, #e52c43, #ff6c00);
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
 .benefits-section {

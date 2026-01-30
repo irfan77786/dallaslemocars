@@ -506,7 +506,7 @@
               ******  Information not provided  ******
             </div>
           </div>
-        </div>f
+        </div>
       </div>
       @endif
     </div>
