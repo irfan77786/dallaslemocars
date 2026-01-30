@@ -12,6 +12,8 @@ class AirportSeeder extends Seeder
      */
     public function run(): void
     {
+        \App\Models\Airport::truncate();
+
         $airports = [
             ['name' => 'American Airlines', 'iata_code' => 'AA'],
             ['name' => 'Delta Air Lines', 'iata_code' => 'DL'],

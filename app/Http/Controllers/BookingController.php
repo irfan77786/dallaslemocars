@@ -539,7 +539,7 @@ public function handleHourlyHire(Request $request)
             }
 
             $selectedId = session('vehicle_id');
-            $airports = \App\Models\Airport::orderBy('name')->get();
+            $airports = \App\Models\Airport::orderBy('id')->get();
             if ($selectedId && isset($distanceData[$selectedId]) && empty($distanceData[$selectedId]['error'])) {
                 $basePrice = (float)($distanceData[$selectedId]['price'] ?? 0);
                 $insidePickupFee = (float)session('inside_pickup_fee', 0);
@@ -686,7 +686,7 @@ public function handleHourlyHire(Request $request)
         }
 
 
-        $airports = \App\Models\Airport::orderBy('name')->get();
+        $airports = \App\Models\Airport::orderBy('id')->get();
 
         return view('booking.booking_detail', [
             'step'=>4,
