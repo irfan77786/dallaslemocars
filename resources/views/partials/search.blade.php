@@ -51,26 +51,43 @@
                         <div id="dropoff-suggestions{{ $tabSuffix }}" class="location-suggestions"></div>
                     </div>
 
-                    <div class="mb-1 floating-bordered-input position-relative">
-                        <span class="floating-label">Pick-up Date / Time</span>
-
-                        <span class="input-icon-left">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 384 432">
-                                <path fill="currentColor" d="M299 240v107H192V240h107zM277 5h43v43h21q18 0 30.5 12.5T384 91v298q0 18-12.5 30.5T341 432H43q-18 0-30.5-12.5T0 389V91q0-18 12.5-30.5T43 48h21V5h43v43h170V5zm64 384V155H43v234h298z"/>
-                            </svg>
-                        </span>
-
-                        <input type="text"
-                            id="pickup-datetime"
-                            name="pickup_datetime"
-                            class="form-control"
-                            value="{{ session('pickup_datetime') ? \Carbon\Carbon::parse(session('pickup_datetime'))->format('Y-m-d H:i') : '' }}"
-                            required
-                            placeholder=" ">
-
-                        @error('pickup_datetime')
-                            <div class="mt-1 text-danger small">{{ $message }}</div>
-                        @enderror
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <div class="mb-1 floating-bordered-input position-relative">
+                                <span class="floating-label">Pick-up Date</span>
+                                <span class="input-icon-left">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 384 432">
+                                        <path fill="currentColor" d="M299 240v107H192V240h107zM277 5h43v43h21q18 0 30.5 12.5T384 91v298q0 18-12.5 30.5T341 432H43q-18 0-30.5-12.5T0 389V91q0-18 12.5-30.5T43 48h21V5h43v43h170V5zm64 384V155H43v234h298z"/>
+                                    </svg>
+                                </span>
+                                <input type="date"
+                                    id="pickup-date{{ $tabSuffix }}"
+                                    name="pickup_date"
+                                    class="form-control"
+                                    value="{{ session('pickup_date') ?? '' }}"
+                                    required>
+                                @error('pickup_date')
+                                    <div class="mt-1 text-danger small">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-1 floating-bordered-input position-relative">
+                                <span class="floating-label">Pick-up Time</span>
+                                <span class="input-icon-left">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                </span>
+                                <input type="time"
+                                    id="pickup-time{{ $tabSuffix }}"
+                                    name="pickup_time"
+                                    class="form-control"
+                                    value="{{ session('pickup_time') ?? '' }}"
+                                    required>
+                                @error('pickup_time')
+                                    <div class="mt-1 text-danger small">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
 
                     <div class="mb-1 d-flex align-items-center">
@@ -177,27 +194,43 @@
                     </div>
 
 
-                    <!-- Pick-up Date & Time (Hourly) -->
-                    <div class="mb-1 floating-bordered-input position-relative">
-                        <span class="floating-label">Pick-up Date / Time</span>
-
-                        <span class="input-icon-left">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 384 432">
-                                <path fill="currentColor" d="M299 240v107H192V240h107zM277 5h43v43h21q18 0 30.5 12.5T384 91v298q0 18-12.5 30.5T341 432H43q-18 0-30.5-12.5T0 389V91q0-18 12.5-30.5T43 48h21V5h43v43h170V5zm64 384V155H43v234h298z"/>
-                            </svg>
-                        </span>
-
-                        <input type="text"
-                            name="pickup_datetime_hourly"
-                            id="pickup-datetime-hourly{{ $tabSuffix }}"
-                            class="form-control"
-                            value="{{ session('pickup_datetime_hourly') ? \Carbon\Carbon::parse(session('pickup_datetime_hourly'))->format('Y-m-d H:i') : '' }}"
-                            required
-                            placeholder=" ">
-
-                        @error('pickup_datetime_hourly')
-                            <div class="mt-1 text-danger small">{{ $message }}</div>
-                        @enderror
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <div class="mb-1 floating-bordered-input position-relative">
+                                <span class="floating-label">Pick-up Date</span>
+                                <span class="input-icon-left">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 384 432">
+                                        <path fill="currentColor" d="M299 240v107H192V240h107zM277 5h43v43h21q18 0 30.5 12.5T384 91v298q0 18-12.5 30.5T341 432H43q-18 0-30.5-12.5T0 389V91q0-18 12.5-30.5T43 48h21V5h43v43h170V5zm64 384V155H43v234h298z"/>
+                                    </svg>
+                                </span>
+                                <input type="date"
+                                     name="pickup_date"
+                                     id="pickup-date-hourly{{ $tabSuffix }}"
+                                     class="form-control"
+                                     value="{{ session('pickup_date') ?? '' }}"
+                                     required>
+                                 @error('pickup_date')
+                                     <div class="mt-1 text-danger small">{{ $message }}</div>
+                                 @enderror
+                             </div>
+                         </div>
+                         <div class="col-6">
+                             <div class="mb-1 floating-bordered-input position-relative">
+                                 <span class="floating-label">Pick-up Time</span>
+                                 <span class="input-icon-left">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                 </span>
+                                 <input type="time"
+                                     name="pickup_time"
+                                     id="pickup-time-hourly{{ $tabSuffix }}"
+                                     class="form-control"
+                                     value="{{ session('pickup_time') ?? '' }}"
+                                     required>
+                                 @error('pickup_time')
+                                     <div class="mt-1 text-danger small">{{ $message }}</div>
+                                 @enderror
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Spacer to match Point-to-Point form height (Hidden "Add Return Trip" equivalent) -->
@@ -238,7 +271,8 @@
   color: #1f2937;
   font-size: 16px;
   line-height: 1.45;
-  min-height: 24px;
+  min-height: 42px;
+  text-align: left;
 }
 .floating-bordered-input .rlx-select .rlx-trigger { margin-top: 10px; }
 .rlx-select .rlx-value {
@@ -310,41 +344,24 @@
 
 /* Scrollbar styling for dropdown list */
 .rlx-list::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 .rlx-list::-webkit-scrollbar-track {
-  background: #f1f3f5;
-  border-radius: 4px;
+  background: transparent;
 }
 .rlx-list::-webkit-scrollbar-thumb {
-  background: #c8d1db;
-  border-radius: 8px;
+  background-color: #d1d5db;
+  border-radius: 20px;
 }
 .rlx-list::-webkit-scrollbar-thumb:hover {
   background: #b4c0cc;
 }
 
-@media (max-width: 480px) {
-  .rlx-select .rlx-trigger {
-    font-size: 15px;
-    min-height: 42px;
-    padding-left: 42px;
-  }
-  .rlx-option {
-    font-size: 15px;
-    padding: 10px 14px;
-  }
-}
-.rlx-select > button {
-    padding: 0px !important;
-}
-
-@media (min-width: 768px) {
-    .rlx-select .rlx-trigger {
-        min-height: 40px !important;
-        display: flex;
-        align-items: center;
-    }
+/* Hide native date/time picker icon (2nd icon) */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none !important;
+    -webkit-appearance: none;
 }
 </style>
 
@@ -414,6 +431,63 @@
   }
   document.addEventListener('DOMContentLoaded', function(){
     initRlxSelect('rlx-hours{{ $tabSuffix }}');
+
+    // 2-hour advance booking restriction
+    function enforceBookingRestrictions(dateId, timeId) {
+        const dateInput = document.getElementById(dateId);
+        const timeInput = document.getElementById(timeId);
+        if (!dateInput || !timeInput) return;
+
+        function updateRestrictions() {
+            const now = new Date();
+            // Add 2 hours buffer
+            now.setHours(now.getHours() + 2);
+
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const minDateStr = `${year}-${month}-${day}`;
+
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const minTimeStr = `${hours}:${minutes}`;
+
+            // Set min date
+            dateInput.min = minDateStr;
+
+            // If current date value is invalid or empty, set to min date
+            if (!dateInput.value || dateInput.value < minDateStr) {
+                dateInput.value = minDateStr;
+            }
+
+            // Time restriction logic
+            if (dateInput.value === minDateStr) {
+                timeInput.min = minTimeStr;
+                // If current time value is invalid or empty, set to min time
+                if (!timeInput.value || timeInput.value < minTimeStr) {
+                     timeInput.value = minTimeStr;
+                }
+            } else {
+                timeInput.removeAttribute('min');
+                // If empty, set a default time
+                if (!timeInput.value) {
+                    timeInput.value = "12:00";
+                }
+            }
+        }
+
+        // Run on load
+        updateRestrictions();
+
+        // Run on date change
+        dateInput.addEventListener('change', updateRestrictions);
+
+        // Optional: Update periodically to handle time passing while page is open
+        setInterval(updateRestrictions, 60000);
+    }
+
+    enforceBookingRestrictions('pickup-date{{ $tabSuffix }}', 'pickup-time{{ $tabSuffix }}');
+    enforceBookingRestrictions('pickup-date-hourly{{ $tabSuffix }}', 'pickup-time-hourly{{ $tabSuffix }}');
   });
 })();
 </script>

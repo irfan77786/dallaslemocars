@@ -177,9 +177,17 @@ public function handlePointToPoint(Request $request)
         ]);
     }
 
-    $pickupDateTime = Carbon::parse($request->pickup_datetime);
-    $pickup_date = $pickupDateTime->format('Y-m-d');
-    $pickup_time = $pickupDateTime->format('H:i:s');
+    $pickup_date = null;
+    $pickup_time = null;
+
+    if ($request->filled('pickup_datetime')) {
+        $pickupDateTime = Carbon::parse($request->pickup_datetime);
+        $pickup_date = $pickupDateTime->format('Y-m-d');
+        $pickup_time = $pickupDateTime->format('H:i:s');
+    } elseif ($request->filled('pickup_date') && $request->filled('pickup_time')) {
+        $pickup_date = $request->pickup_date;
+        $pickup_time = Carbon::parse($request->pickup_time)->format('H:i:s');
+    }
 
     $return_date = null;
     $return_time = null;
@@ -187,16 +195,27 @@ public function handlePointToPoint(Request $request)
         $returnDateTime = Carbon::parse($request->return_datetime_hourly);
         $return_date = $returnDateTime->format('Y-m-d');
         $return_time = $returnDateTime->format('H:i:s');
+    } elseif ($request->filled('return_date') && $request->filled('return_time')) {
+        $return_date = $request->return_date;
+        $return_time = Carbon::parse($request->return_time)->format('H:i:s');
     }
 
-     $validator = Validator::make($request->all(), [
+     $rules = [
         'pickup_location' => 'required|string',
         'dropoff_location' => 'required|string',
-        'pickup_datetime' => 'required',
         'stops' => 'nullable|array',
         'stops.*' => 'string',
         'is_airport' => 'int'
-    ]);
+    ];
+
+    if (!$request->filled('pickup_datetime')) {
+        $rules['pickup_date'] = 'required';
+        $rules['pickup_time'] = 'required';
+    } else {
+        $rules['pickup_datetime'] = 'required';
+    }
+
+    $validator = Validator::make($request->all(), $rules);
 
     if ($validator->fails()) {
         // dd($validator->errors()); // Dump and die with the validation errors

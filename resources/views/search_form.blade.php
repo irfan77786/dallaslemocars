@@ -33,8 +33,12 @@ margin-bottom: 6px !important;
     }
   }
 }
-
-
+/* Hide native date/time picker icon (2nd icon) */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none !important;
+    -webkit-appearance: none;
+}
 </style>
 <div class="shadow-card">
   <!-- Nav tabs -->
@@ -78,61 +82,41 @@ margin-bottom: 6px !important;
           </div>
         </div>
 
-        <!-- Pick-Up Date -->
-        <div class="mb-1 input-group-container">
-          <div class="icon-container"><i class="bi bi-calendar-fill"></i></div>
-          <div class="input-text-container">
-            <label for="pickup-date" class="form-label">Pick-up Date</label>
-            <div class="input-group">
-              <div class="ph-wrap">
-                <!-- Read-only formatted display -->
-                <input
-                  type="text"
-                  class="form-control date-display"
-                  value="@if (session('pickup_date')) {{ \Carbon\Carbon::parse(session('pickup_date'))->format('D, M jS, Y') }} @endif"
-                  placeholder="MM-DD-YYYY"
-                  id="pickup-date-display"
-                  readonly>
-                <!-- Native date input: invisible but clickable -->
-                <input
-                  type="date"
-                  min="{{ \Carbon\Carbon::now()->format('Y-m-d') }}"
-                  class="form-control hidden-date"
-                  value="{{ session('pickup_date', '') }}"
-                  name="pickup_date"
-                  id="pickup-date"
-                  required>
-                <span class="fake-ph" aria-hidden="true">MM-DD-YYYY</span>
+        <!-- Pick-Up Date and Time -->
+        <div class="row g-2">
+          <div class="col-6">
+            <div class="mb-1 input-group-container">
+              <div class="icon-container"><i class="bi bi-calendar-fill"></i></div>
+              <div class="input-text-container">
+                <label for="pickup-date" class="form-label">Pick-up Date</label>
+                <div class="input-group">
+                  <input
+                    type="date"
+                    min="{{ \Carbon\Carbon::now()->format('Y-m-d') }}"
+                    class="form-control"
+                    value="{{ session('pickup_date', '') }}"
+                    name="pickup_date"
+                    id="pickup-date"
+                    required>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- Pick-Up Time -->
-        <div class="input-group-container" style="margin-bottom: 0 !important;">
-          <div class="icon-container"><i class="bi bi-clock-fill"></i></div>
-
-          <div class="input-text-container">
-            <label for="pickup-time" class="form-label" style="margin-bottom: 4px;">Pick-up Time</label>
-
-            <div class="input-group">
-              <div class="ph-wrap" style="position: relative;">
-                <input
-                  type="time"
-                  class="form-control"
-                  value="{{ session('pickup_time') ?? '' }}"
-                  name="pickup_time"
-                  id="pickup-time"
-                  required
-                  style="padding-right: 10px; position: relative; z-index: 2;"
-                >
-                <span
-                  class="fake-ph"
-                  aria-hidden="true"
-                  style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #aaa; pointer-events: none; z-index: 1;"
-                >
-                  HH:MM AM
-                </span>
+          <div class="col-6">
+            <div class="mb-1 input-group-container">
+              <div class="icon-container"><i class="bi bi-clock-fill"></i></div>
+              <div class="input-text-container">
+                <label for="pickup-time" class="form-label" style="margin-bottom: 4px;">Pick-up Time</label>
+                <div class="input-group">
+                    <input
+                      type="time"
+                      class="form-control"
+                      value="{{ session('pickup_time') ?? '' }}"
+                      name="pickup_time"
+                      id="pickup-time"
+                      required
+                    >
+                </div>
               </div>
             </div>
           </div>
@@ -186,26 +170,14 @@ margin-bottom: 6px !important;
           <div class="input-text-container">
             <label for="pickup-date-hourly" class="form-label">Pick-up Date</label>
             <div class="input-group">
-              <div class="ph-wrap">
-                <!-- Read-only formatted display -->
-                <input
-                  type="text"
-                  class="form-control date-display"
-                  value="@if (session('pickup_date')) {{ \Carbon\Carbon::parse(session('pickup_date'))->format('D, M jS, Y') }} @endif"
-                  placeholder="MM-DD-YYYY"
-                  id="pickup-date-hourly-display"
-                  readonly>
-                <!-- Native date input: invisible but clickable -->
-                <input
-                  type="date"
-                  min="{{ \Carbon\Carbon::now()->format('Y-m-d') }}"
-                  class="form-control hidden-date"
-                  value="{{ session('pickup_date') ?? '' }}"
-                  name="pickup_date"
-                  id="pickup-date-hourly"
-                  required>
-                <span class="fake-ph" aria-hidden="true">MM-DD-YYYY</span>
-              </div>
+              <input
+                type="date"
+                min="{{ \Carbon\Carbon::now()->format('Y-m-d') }}"
+                class="form-control"
+                value="{{ session('pickup_date', '') }}"
+                name="pickup_date"
+                id="pickup-date-hourly"
+                required>
             </div>
           </div>
         </div>
@@ -216,10 +188,7 @@ margin-bottom: 6px !important;
           <div class="input-text-container">
             <label for="pickup-time-hourly" class="form-label">Pick-up Time</label>
             <div class="input-group">
-              <div class="ph-wrap">
-                <input type="time" class="form-control" name="pickup_time" placeholder="HH:MM AM" value="{{ session('pickup_time') ?? '' }}" id="pickup-time-hourly" required>
-                <span class="fake-ph" aria-hidden="true">HH:MM AM</span>
-              </div>
+              <input type="time" class="form-control" name="pickup_time" value="{{ session('pickup_time') ?? '' }}" id="pickup-time-hourly" required>
             </div>
           </div>
         </div>
@@ -236,15 +205,60 @@ margin-bottom: 6px !important;
 </div>
 <script>
   window.addEventListener('DOMContentLoaded', function () {
-    const timeInput = document.getElementById('pickup-time-hourly');
+    function enforceBookingRestrictions(dateId, timeId) {
+        const dateInput = document.getElementById(dateId);
+        const timeInput = document.getElementById(timeId);
+        if (!dateInput || !timeInput) return;
 
-    // Get current time in HH:MM format
-    const now = new Date();
-    const hours = now.getHours().toString().padStart(2, '0');
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const currentTime = `${hours}:${minutes}`;
+        function updateRestrictions() {
+            const now = new Date();
+            // Add 2 hours buffer
+            now.setHours(now.getHours() + 2);
 
-    // Set min attribute to current time
-    timeInput.min = currentTime;
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const minDateStr = `${year}-${month}-${day}`;
+
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const minTimeStr = `${hours}:${minutes}`;
+
+            // Set min date
+            dateInput.min = minDateStr;
+
+            // If current date value is invalid or empty, set to min date
+            if (!dateInput.value || dateInput.value < minDateStr) {
+                dateInput.value = minDateStr;
+            }
+
+            // Time restriction logic
+            if (dateInput.value === minDateStr) {
+                timeInput.min = minTimeStr;
+                // If current time value is invalid or empty, set to min time
+                if (!timeInput.value || timeInput.value < minTimeStr) {
+                     timeInput.value = minTimeStr;
+                }
+            } else {
+                timeInput.removeAttribute('min');
+                // If empty, set a default time (e.g., 12:00)
+                if (!timeInput.value) {
+                    timeInput.value = "12:00";
+                }
+            }
+        }
+
+        // Run on load
+        updateRestrictions();
+
+        // Run on date change
+        dateInput.addEventListener('change', updateRestrictions);
+
+        // Optional: Update periodically to handle time passing while page is open
+        setInterval(updateRestrictions, 60000);
+    }
+
+    enforceBookingRestrictions('pickup-date', 'pickup-time');
+    enforceBookingRestrictions('pickup-date-hourly', 'pickup-time-hourly');
   });
 </script>

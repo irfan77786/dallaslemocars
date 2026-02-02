@@ -173,6 +173,12 @@
             align-items: center;
         }
     }
+    /* Hide native date/time picker icon (2nd icon) */
+    input[type="date"]::-webkit-calendar-picker-indicator,
+    input[type="time"]::-webkit-calendar-picker-indicator {
+        display: none !important;
+        -webkit-appearance: none;
+    }
     </style>
 
     @include('partials.bookig-top_area')
@@ -373,38 +379,36 @@
                                     </div>
                                 </div>
 
-                                <!-- Pickup Date -->
-                                <div class="mb-3 input-group-container">
-                                    <div class="icon-container">
-                                        <i class="bi bi-calendar"></i>
-                                    </div>
-                                    <div class="input-text-container">
-                                        <label for="return-pickup-date" class="form-label">Date</label>
-                                        <div class="input-group">
-                                            <div class="ph-wrap">
-                                                <input type="date" class="form-control" name="return_pickup_date"
-                                                    id="return-pickup-date"
-                                                    value="{{ session('return_pickup_date', '') }}"
-                                                    placeholder="MM-DD-YYYY" required>
-                                                <span class="fake-ph" aria-hidden="true">MM-DD-YYYY</span>
+                                <!-- Pickup Date and Time -->
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <div class="mb-3 input-group-container">
+                                            <div class="icon-container">
+                                                <i class="bi bi-calendar"></i>
+                                            </div>
+                                            <div class="input-text-container">
+                                                <label for="return-pickup-date" class="form-label">Date</label>
+                                                <div class="input-group">
+                                                    <input type="date" class="form-control" name="return_pickup_date"
+                                                        id="return-pickup-date"
+                                                        value="{{ session('return_pickup_date', '') }}"
+                                                        required>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <!-- Pickup Time -->
-                                <div class="mb-3 input-group-container">
-                                    <div class="icon-container">
-                                        <i class="bi bi-clock"></i>
-                                    </div>
-                                    <div class="input-text-container">
-                                        <label for="return-pickup-time" class="form-label">Time</label>
-                                        <div class="input-group">
-                                            <div class="ph-wrap">
-                                                <input type="time" class="form-control" name="return_pickup_time"
-                                                    id="return-pickup-time" value="{{ session('return_pickup_time') }}"
-                                                    placeholder="HH:MM AM" required>
-                                                <span class="fake-ph" aria-hidden="true">HH:MM AM</span>
+                                    <div class="col-6">
+                                        <div class="mb-3 input-group-container">
+                                            <div class="icon-container">
+                                                <i class="bi bi-clock"></i>
+                                            </div>
+                                            <div class="input-text-container">
+                                                <label for="return-pickup-time" class="form-label">Time</label>
+                                                <div class="input-group">
+                                                    <input type="time" class="form-control" name="return_pickup_time"
+                                                        id="return-pickup-time" value="{{ session('return_pickup_time') }}"
+                                                        required>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1313,6 +1317,62 @@
                 input.addEventListener('change', sync);
                 input.addEventListener('blur', sync);
             });
+
+            // 2-hour advance booking restriction for Return Trip
+            function enforceBookingRestrictions(dateId, timeId) {
+                const dateInput = document.getElementById(dateId);
+                const timeInput = document.getElementById(timeId);
+                if (!dateInput || !timeInput) return;
+
+                function updateRestrictions() {
+                    const now = new Date();
+                    // Add 2 hours buffer
+                    now.setHours(now.getHours() + 2);
+
+                    const year = now.getFullYear();
+                    const month = String(now.getMonth() + 1).padStart(2, '0');
+                    const day = String(now.getDate()).padStart(2, '0');
+                    const minDateStr = `${year}-${month}-${day}`;
+
+                    const hours = String(now.getHours()).padStart(2, '0');
+                    const minutes = String(now.getMinutes()).padStart(2, '0');
+                    const minTimeStr = `${hours}:${minutes}`;
+
+                    // Set min date
+                    dateInput.min = minDateStr;
+
+                    // If current date value is invalid or empty, set to min date
+                    if (!dateInput.value || dateInput.value < minDateStr) {
+                        dateInput.value = minDateStr;
+                    }
+
+                    // Time restriction logic
+                    if (dateInput.value === minDateStr) {
+                        timeInput.min = minTimeStr;
+                        // If current time value is invalid or empty, set to min time
+                        if (!timeInput.value || timeInput.value < minTimeStr) {
+                             timeInput.value = minTimeStr;
+                        }
+                    } else {
+                        timeInput.removeAttribute('min');
+                        // If empty, set a default time
+                        if (!timeInput.value) {
+                            timeInput.value = "12:00";
+                        }
+                    }
+                }
+
+                // Run on load
+                updateRestrictions();
+                
+                // Run on date change
+                dateInput.addEventListener('change', updateRestrictions);
+                
+                // Optional: Update periodically to handle time passing while page is open
+                setInterval(updateRestrictions, 60000);
+            }
+
+            enforceBookingRestrictions('return-pickup-date', 'return-pickup-time');
         });
     </script>
     @endsection
