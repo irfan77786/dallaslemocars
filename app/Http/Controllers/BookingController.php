@@ -1233,7 +1233,7 @@ private function getDistanceBetweenAddresses(string $origin, string $destination
     //         $selected_distance = session('selected_distance');
     //         $vehicle_id = session('vehicle_id');
 
-    //         \Stripe\Stripe::setApiKey("sk_test_BQokikJOvBiI2HlWgH4olfQ2");
+    //         \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
 
     //         $paymentIntent = \Stripe\PaymentIntent::create([
     //             'amount' => session('selected_price') * 100, // Stripe requires amount in cents

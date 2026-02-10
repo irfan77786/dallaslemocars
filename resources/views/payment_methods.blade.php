@@ -26,7 +26,7 @@
 @endsection
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-const stripe = Stripe("pk_test_xxxxx");
+const stripe = Stripe("{{ config('services.stripe.key') }}");
 const elements = stripe.elements();
 const card = elements.create("card");
 card.mount("#card-element");

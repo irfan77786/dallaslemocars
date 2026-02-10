@@ -115,7 +115,7 @@
 </div>
 
 <script>
-    const stripe = Stripe('pk_live_51QyQOZFlbIize3KE9VSxVGbrPthMjVMb4RADtVEAevlfTJCgyaBldJwzqqSNRbA4bZDJGzDV9ESSX7JuhnmIHjA700B4rIW2jw');
+    const stripe = Stripe("{{ config('services.stripe.key') }}");
     const elements = stripe.elements();
     const card = elements.create('card', {
         style: {
