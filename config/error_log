@@ -1,0 +1,20 @@
+[06-Feb-2026 03:56:07 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/dallwske/dallaslimoandblackcars.com/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/config/services.php on line 18
+[06-Feb-2026 03:56:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/dallwske/dallaslimoandblackcars.com/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/config/services.php on line 18
+[06-Feb-2026 03:56:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/dallwske/dallaslimoandblackcars.com/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/config/services.php on line 18
+[06-Feb-2026 20:28:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/dallwske/dallaslimoandblackcars.com/config/mail.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/config/mail.php on line 17
+[06-Feb-2026 20:28:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/dallwske/dallaslimoandblackcars.com/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/config/services.php on line 18
