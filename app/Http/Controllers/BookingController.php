@@ -730,14 +730,13 @@ public function handleHourlyHire(Request $request)
 public function bookRide(Request $request)
 {
 
-try {
     $user = null;
     $cards = [];
     // Validate request fields
     $validated = $request->validate([
         'pickup_flight_details' => 'nullable|string|max:255',
         'flight_number' => 'nullable|string|max:50',
-        'meet_option' => 'nullable|string|in:curbside,inside',
+        'meet_option' => 'nullable|string|in:curbside,inside,none',
         'inside_pickup_fee' => 'nullable|numeric',
         'no_flight_info' => 'nullable',
         'return-service' => 'nullable',
@@ -755,10 +754,9 @@ try {
         $cards = $cardsList->data ?? [];
     }
 
-
-} catch (ValidationException $e) {
-    dd($e->errors());
-}
+    if (isset($validated['meet_option']) && $validated['meet_option'] === 'none') {
+        $validated['meet_option'] = null;
+    }
 
     // Normalize checkbox values (Laravel treats unchecked boxes as missing)
     $validated['return_service'] = $request->has('return-service');

@@ -1364,10 +1364,10 @@
 
                 // Run on load
                 updateRestrictions();
-                
+
                 // Run on date change
                 dateInput.addEventListener('change', updateRestrictions);
-                
+
                 // Optional: Update periodically to handle time passing while page is open
                 setInterval(updateRestrictions, 60000);
             }
