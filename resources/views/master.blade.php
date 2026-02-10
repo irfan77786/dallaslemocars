@@ -394,7 +394,7 @@
     <script src="{{ asset('assets/js/custom.js') }}"></script>
 
     <!-- Google Maps - Load after custom.js so initAutocomplete can find the functions -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUqn8Dg3GICSzhyvw7DjXXHkyoGMCoTpM&libraries=places&callback=initAutocomplete"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google_maps.api_key') }}&libraries=places&callback=initAutocomplete"></script>
 
     <!-- Other Scripts - Can be deferred -->
     <script src="{{ asset('new_assets/js/bootstrap-min.js') }}" defer></script>

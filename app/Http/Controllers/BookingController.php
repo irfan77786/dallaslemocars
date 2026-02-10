@@ -409,7 +409,7 @@ public function handleHourlyHire(Request $request)
             $response = Http::get('https://maps.googleapis.com/maps/api/distancematrix/json', [
                 'origins' => $origin,
                 'destinations' => $destination,
-                'key' => 'AIzaSyCUqn8Dg3GICSzhyvw7DjXXHkyoGMCoTpM', // Replace hardcoded key with env
+                'key' => config('services.google_maps.api_key'),
             ]);
 
             $data = $response->json();
@@ -449,7 +449,7 @@ public function handleHourlyHire(Request $request)
             $response = Http::get('https://maps.googleapis.com/maps/api/distancematrix/json', [
                 'origins' => $origin,
                 'destinations' => $destination,
-                'key' => 'AIzaSyCUqn8Dg3GICSzhyvw7DjXXHkyoGMCoTpM',
+                'key' => config('services.google_maps.api_key'),
             ]);
             $data = $response->json();
             if ($data['status'] !== 'OK' || empty($data['rows'][0]['elements'][0]['distance'])) {
@@ -1185,12 +1185,12 @@ private function safeFormatTime($time): ?string
 }
 private function getDistanceBetweenAddresses(string $origin, string $destination): ?float
 {
-    $apiKey = config('services.google_maps.api_key'); // Make sure you set this in config/services.php and .env
+    $apiKey = config('services.google_maps.api_key');
 
     $response = Http::get('https://maps.googleapis.com/maps/api/distancematrix/json', [
         'origins' => $origin,
         'destinations' => $destination,
-        'key' => 'AIzaSyCUqn8Dg3GICSzhyvw7DjXXHkyoGMCoTpM',
+        'key' => $apiKey,
         'units' => 'metric',
     ]);
 

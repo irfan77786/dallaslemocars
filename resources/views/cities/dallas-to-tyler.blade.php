@@ -638,6 +638,6 @@ $isHourly = session('service_type') === 'hourlyHire';
 @section('body-scripts')
 <script src="{{ asset('js/industrie-custom.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUqn8Dg3GICSzhyvw7DjXXHkyoGMCoTpM&libraries=places&loading=async&callback=initAutocomplete" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google_maps.api_key') }}&libraries=places&loading=async&callback=initAutocomplete" async defer></script>
 @endsection
 @endsection
