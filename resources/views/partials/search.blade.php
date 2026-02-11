@@ -4,7 +4,7 @@
 @endphp
 <div class="search-tab-wrap">
     <!-- Nav tabs -->
-    <ul class="nav nav-tabs" style="padding-bottom: 20px;">
+    <!-- <ul class="nav nav-tabs" style="padding-bottom: 20px;">
         <li class="nav-item" style="flex: 1">
             <a class="nav-link {{ !$isHourly ? 'active' : 'inactive-tab' }} text-center pt-0 sformlink" style="font-size: 12px !important; font-weight: 600;" data-bs-toggle="tab"
                 href="#place{{ $tabSuffix }}">POINT TO POINT</a>
@@ -13,7 +13,7 @@
             <a class="nav-link {{ $isHourly ? 'active' : 'inactive-tab' }} text-center pt-0 sformlink" style="font-size: 12px !important; font-weight: 600;"
                 data-bs-toggle="tab" href="#event{{ $tabSuffix }}">HOURLY</a>
         </li>
-    </ul>
+    </ul> -->
 
     <!-- Tab panes -->
     <div class="tab-content">
