@@ -1,0 +1,28 @@
+[04-May-2025 16:38:59 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/premiercls.com/app/Http/Controllers/BookingController.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/premiercls.com/app/Http/Controllers/BookingController.php on line 12
+[04-May-2025 16:39:00 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Routing\Controller" not found in /home/dallwske/premiercls.com/app/Http/Controllers/Controller.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/premiercls.com/app/Http/Controllers/Controller.php on line 10
+[09-May-2025 01:26:51 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Routing\Controller" not found in /home/dallwske/premiercls.com/app/Http/Controllers/Controller.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/premiercls.com/app/Http/Controllers/Controller.php on line 10
+[09-May-2025 04:19:38 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/premiercls.com/app/Http/Controllers/BookingController.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/premiercls.com/app/Http/Controllers/BookingController.php on line 12
+[11-May-2025 05:52:47 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Routing\Controller" not found in /home/dallwske/premiercls.com/app/Http/Controllers/Controller.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/premiercls.com/app/Http/Controllers/Controller.php on line 10
+[11-May-2025 07:53:08 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/premiercls.com/app/Http/Controllers/BookingController.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/premiercls.com/app/Http/Controllers/BookingController.php on line 12
+[11-May-2025 08:30:26 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/premiercls.com/app/Http/Controllers/BookingController.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/premiercls.com/app/Http/Controllers/BookingController.php on line 12
