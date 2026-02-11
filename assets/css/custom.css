@@ -311,6 +311,56 @@ a.btn-loadmore:hover {
 .search-tab-wrap > .nav-tabs{
     justify-content: start;
     border-bottom: none !important;
+    position: relative;
+}
+.search-tab-wrap .nav-tabs::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 2px;
+    background: #e52c43;
+    transition: left 0.4s ease;
+    z-index: 1;
+}
+.search-tab-wrap .nav-tabs:has(li:last-child .nav-link.active)::after {
+    left: 50%;
+}
+
+.search-tab-wrap .nav-tabs .nav-link {
+    border-bottom: 2px solid transparent !important;
+    transition: color 0.3s ease;
+    border-radius: 4px;
+    padding: 8px 12px !important;
+}
+.search-tab-wrap .nav-tabs .nav-link.active {
+    animation: tabActivePop 0.45s ease forwards;
+}
+@keyframes tabActivePop {
+    0% {
+        background-color: rgba(229, 44, 67, 0.2);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+.search-tab-wrap .tab-content {
+    position: relative;
+    min-height: 1px;
+}
+.search-tab-wrap .tab-content .tab-pane.active.show {
+    animation: searchTabPaneIn 0.4s ease forwards;
+}
+@keyframes searchTabPaneIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Removed .hero-container, .search-form-row, .main-hero, .search-section, #map overrides that conflict */
@@ -670,12 +720,17 @@ div.search-tab-wrap ul.nav-tabs li.nav-item a.nav-link {
     color: #232323 !important;
 }
 
-/* FORCE ACTIVE TABS TO BE RED - Strongest Selector */
 div.search-tab-wrap ul.nav-tabs li.nav-item a.nav-link.active,
-div.search-tab-wrap ul.nav-tabs li.nav-item a.nav-link:hover,
-div.search-tab-wrap ul.nav-tabs li.nav-item a.nav-link:focus,
 .nav-link.inactive-tab.active {
     color: #e52c43 !important;
-    border-bottom: 2px solid #e52c43 !important;
+    border-bottom-color: transparent !important;
     background-color: transparent !important;
+}
+div.search-tab-wrap ul.nav-tabs li.nav-item a.nav-link:hover:not(.active) {
+    color: #555 !important;
+    border-bottom: 2px solid transparent !important;
+    background-color: transparent !important;
+}
+div.search-tab-wrap ul.nav-tabs li.nav-item a.nav-link:focus {
+    outline: none;
 }

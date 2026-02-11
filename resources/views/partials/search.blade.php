@@ -4,7 +4,7 @@ $tabSuffix = $id_suffix ?? '';
 @endphp
 <div class="search-tab-wrap">
     <!-- Nav tabs -->
-    <ul class="nav nav-tabs" style="padding-bottom: 20px;">
+    <ul class="nav nav-tabs" style="padding-bottom: 8px;">
         <li class="nav-item" style="flex: 1">
             <a class="nav-link {{ !$isHourly ? 'active' : 'inactive-tab' }} text-center pt-0 sformlink"
                 style="font-size: 12px !important; font-weight: 600;" data-bs-toggle="tab"
@@ -310,6 +310,7 @@ $tabSuffix = $id_suffix ?? '';
                             </div>
                         </div>
                     </div>
+                    <br>
                     <button type="submit" class="btn btn-primary w-100 search_btn point-button"
                         style="text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; font-size: 0.8rem;line-height: 2;">
                         Get My Prices
