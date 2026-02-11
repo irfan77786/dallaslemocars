@@ -469,7 +469,12 @@ a.btn-loadmore:hover {
     box-shadow: none !important;
     padding-left: 0px;
     padding-right: 0px;
+    padding-top: 12px;
+    padding-bottom: 20px;
     margin-top: 10px !important;
+    min-height: 46px;
+    box-sizing: border-box;
+    line-height: 1.45;
 }
 
 .floating-bordered-input .input-icon-left,
