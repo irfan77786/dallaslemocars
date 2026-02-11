@@ -253,16 +253,7 @@
                         </div>
                     </div>
 
-                    <!-- Spacer to match Point-to-Point form height (Hidden "Add Return Trip" equivalent) -->
-                    <div class="mb-1 d-flex align-items-center" style="visibility: hidden;">
-                        <div class="form-check me-2">
-                            <input type="checkbox" class="form-check-input" style="height: 18px; width: 18px; cursor: pointer; margin-top: 10px; border: 0.13rem solid #6e6e6e; border-radius: 2px !important;" disabled>
-                            <label class="mb-2 ml-2 form-check-label ms-2" style="font-size: 16px; margin-top: 0.4rem; font-weight: 600">
-                                Add a return Trip
-                            </label>
-                        </div>
-                    </div>
-
+                    <br>
                     <button type="submit" class="btn btn-primary w-100 search_btn point-button"
                         style="text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; font-size: 0.8rem;">
                         Get My Prices
