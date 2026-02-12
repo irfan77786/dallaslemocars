@@ -8,7 +8,6 @@ $features = [
     ],
     ['text' => 'Cancellation policy', 'icon' => 'bi-x-circle-fill'],
     ['text' => 'bottled water', 'icon' => 'bi-cup-fill'],
-    ['text' => 'Reliable chauffeur', 'icon' => 'bi-car-front-fill']
 ];
 @endphp
 
@@ -77,6 +76,16 @@ $features = [
     display: inline-block;
 }
 
+.vehicle-continue-wrap {
+    align-self: start;
+}
+
+.vehicle-continue-btn {
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
 /* ==== Vehicle Image ==== */
 .vehicle_img {
     max-height: 100px;
@@ -126,22 +135,39 @@ $features = [
     display: inline-block;
 }
 
-/* ==== Features Section ==== */
-.feature_items_cont {
+/* ==== Features Section: row1 = 2 items, row2 = 2 items + Continue on same line ==== */
+.feature_items_cont.feature-items-grid {
+    /* display: flex; */
+    flex-wrap: wrap;
     padding-right: 30px;
+    margin-top: 15px;
+    /* margin-left: 48px !important; */
+    font-size: 0.85rem;
+    color: #444;
+}
+.feature-items-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: start;
+    gap: 10px 30px;
     margin-top: 15px;
     margin-left: 48px !important;
     font-size: 0.85rem;
     color: #444;
 }
 
+.feature-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
 .feature-item {
     display: flex;
     align-items: center;
-    margin-bottom: 12px;
     gap: 6px;
-    margin-right: 1rem;
 }
+
 
 .feature-icon {
     font-size: 1rem;
@@ -320,6 +346,13 @@ $features = [
         margin-left: 0 !important;
         padding-right: 0;
         width: 100%;
+    }
+    .feature-items-grid > .feature-item {
+        flex: 0 0 50%;
+        box-sizing: border-box;
+    }
+    .feature-row-2 {
+        grid-template-columns: 1fr 1fr auto;
     }
     .tick-overlay { display: none !important; }
     .vehical-card.selected { border-color: #ccc !important; background-color: #fff !important; }
@@ -759,7 +792,7 @@ $features = [
 
 <div class="px-2">
     <div class="row">
-        <div class="col-8 col-md-9 col-lg-8 order-1 order-md-2 car-section">
+        <div class="col-12 col-md-9 col-lg-9 car-section order-1 order-md-2">
             @foreach ($data as $key => $value)
             <div class="row no-gutters">
                 <div class="col-12">
@@ -796,7 +829,7 @@ $features = [
                                 @else
                                     <div class="text-danger font-weight-bold">Fare calculation failed</div>
                                 @endif
-                                <a class="feature-section" style="z-index: 7; cursor: pointer;" role="button" data-id="{{ $value['id'] }}" onclick="toggleFeatureCollapse(event)">
+                                <a class="feature-section d-inline-block mt-1" style="z-index: 7; cursor: pointer;" role="button" data-id="{{ $value['id'] }}" onclick="toggleFeatureCollapse(event)" aria-expanded="false">
                                     <span class="mr-1 featureExpandText">Features</span>
                                     <i class="bi bi-chevron-down featureExpandArrow"></i>
                                 </a>
@@ -804,18 +837,49 @@ $features = [
                         </div>
                         <div class="collapse" id="collapse-{{ $value['id'] }}">
                             <div class="card card-body collapseCardBody">
-                                <div class="feature_items_cont">
-                                    <hr>
-                                    @foreach ($features as $feature)
-                                        <div class="feature-item">
-                                            <i class="bi {{ $feature['icon'] }} feature-icon"></i>
-                                            <span class="feature-text">{{ $feature['text'] }}</span>
-                                            @if (isset($feature['tooltip']))
-                                                <i class="bi bi-info-circle info-icon" data-tooltip="{{ $feature['tooltip'] }}"></i>
-                                            @endif
-                                        </div>
-                                    @endforeach
+                                @php
+                                    $continuePrice = ($vehicleDistance && empty($vehicleDistance['error'] ?? null)) ? number_format($vehicleDistance['price'], 2) : '0';
+                                @endphp
+                                    <hr class="feature-grid-hr">
+                                <div class="feature_items_cont feature-items-grid">
+
+
+                                    <div class="feature-column">
+                                        @foreach (array_slice($features, 0, 2) as $feature)
+                                            <div class="feature-item">
+                                                <i class="bi {{ $feature['icon'] }} feature-icon"></i>
+                                                <span class="feature-text">{{ $feature['text'] }}</span>
+                                                @if (isset($feature['tooltip']))
+                                                    <i class="bi bi-info-circle info-icon" 
+                                                    data-tooltip="{{ $feature['tooltip'] }}"></i>
+                                                @endif
+                                            </div>
+                                        @endforeach
+                                    </div>
+
+                                    <div class="feature-column">
+                                        @foreach (array_slice($features, 2, 2) as $feature)
+                                            <div class="feature-item">
+                                                <i class="bi {{ $feature['icon'] }} feature-icon"></i>
+                                                <span class="feature-text">{{ $feature['text'] }}</span>
+                                                @if (isset($feature['tooltip']))
+                                                    <i class="bi bi-info-circle info-icon" 
+                                                    data-tooltip="{{ $feature['tooltip'] }}"></i>
+                                                @endif
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                    <div class="vehicle-continue-wrap">
+                                        <a href="{{ url('/user-login/' . $value['id'] . '/' . $continuePrice) }}"
+                                        class="btn btn-primary vehicle-continue-btn"
+                                        onclick="event.stopPropagation()">
+                                            Continue
+                                        </a>
+                                    </div>
+
+                                    
                                 </div>
+                                
                             </div>
                         </div>
                         <!-- Tick icon -->
@@ -827,9 +891,8 @@ $features = [
             </div>
             @endforeach
         </div>
-        <div class="mb-4 col-4 col-md-3 col-lg-4 order-2 order-md-1 side_section">
+        <div class="mb-4 col-12 col-md-3 col-lg-3 side_section order-2 order-md-1">
             <!-- Help Card -->
-
             <!-- Perks + Payments + Support Combined Card -->
             <div class="card">
                 <div class="card-body">
@@ -971,12 +1034,14 @@ $features = [
         var titleEl = content.querySelector('.mbs-content-title');
         var step = parseInt("{{ $step ?? 2 }}");
 
-        // Handle Card Clicks (Desktop & Mobile trigger)
+        // Handle Card Clicks: anywhere on card toggles features (except Continue button)
         var cards = document.querySelectorAll('.selectable-card');
         cards.forEach(function(card){
             card.addEventListener('click', function(e){
-                // If clicking on features toggle or content, ignore
-                if(e.target.closest('.feature-section') || e.target.closest('.collapse') || e.target.closest('.collapseCardBody')) return;
+                // Continue button has its own link – do not toggle
+                if(e.target.closest('.vehicle-continue-wrap') || e.target.closest('.vehicle-continue-btn')) return;
+                // If clicking inside collapse content, don't toggle again
+                if(e.target.closest('.collapse') || e.target.closest('.collapseCardBody')) return;
 
                 // If mobile, open bottom sheet
                 if(window.innerWidth < 768) {
@@ -984,18 +1049,14 @@ $features = [
                     return;
                 }
 
-                // Desktop Selection Logic
-                var id = card.dataset.id;
-                var priceEl = card.querySelector('.pricing_summary_price');
-                var priceMatch = (priceEl && (priceEl.textContent || '')).match(/[0-9]+(?:\.[0-9]+)?/);
-                var price = priceMatch ? priceMatch[0] : null;
-
-                if (step === 2 && id && price) {
-                    window.location.href = '/user-login/' + id + '/' + price;
-                    return;
+                // Desktop: clicking card toggles features (use the Features link as trigger)
+                var trigger = card.querySelector('.feature-section');
+                if(trigger) {
+                    var fakeEvent = { preventDefault: function(){}, stopPropagation: function(){}, currentTarget: trigger };
+                    toggleFeatureCollapse(fakeEvent);
                 }
 
-                // Visual selection for desktop if not redirecting immediately
+                // Visual selection
                 document.querySelectorAll('.selectable-card').forEach(function(c){ c.classList.remove('selected'); });
                 card.classList.add('selected');
             });

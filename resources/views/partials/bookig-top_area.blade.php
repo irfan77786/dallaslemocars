@@ -272,7 +272,7 @@
 
 }
 </style>
-<div class="container-fluid step-wrapper md-py-3">
+<div class="container step-wrapper md-py-3">
     <div class="container px-0 mr-auto ml-auto row align-items-center justify-content-between px-md-0 px-sm-0 booking_step_container">
         <div class="col-12 col-md-12 d-none d-md-block">
             <div class="flex-nowrap pt-1 mt-4 stepper d-flex justify-content-start justify-content-md-end w-100">
