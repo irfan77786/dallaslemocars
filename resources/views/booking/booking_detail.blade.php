@@ -89,7 +89,8 @@
         transform: rotate(180deg);
         transition: transform .18s ease;
     }
-    .rlx-select .rlx-list {
+    .rlx-select .rlx-list,
+    .rlx-select .rlx-list-wrapper {
         position: absolute;
         top: calc(100% + 6px);
         left: -16px;
@@ -99,26 +100,72 @@
         border-radius: 8px;
         box-shadow: 0 12px 30px rgba(0,0,0,.12);
         max-height: 360px;
-        overflow-y: auto;
-        padding: 6px 0;
+        overflow: hidden;
         opacity: 0;
         transform: translateY(-6px);
         pointer-events: none;
         transition: opacity .18s ease, transform .18s ease;
         z-index: 1050;
+        display: flex;
+        flex-direction: column;
+    }
+    .rlx-select > .rlx-list {
+        overflow-y: auto;
+        padding: 6px 0;
         overscroll-behavior: contain;
     }
-    .rlx-select.open .rlx-list {
+    .rlx-select .rlx-list-wrapper .rlx-list {
+        position: relative;
+        max-height: 300px;
+        overflow-y: auto;
+        padding: 6px 0;
+        overscroll-behavior: contain;
+    }
+    .rlx-select .rlx-search {
+        flex-shrink: 0;
+        width: 100%;
+        padding: 10px 12px;
+        border: none;
+        border-bottom: 1px solid #e6eaef;
+        border-radius: 8px 8px 0 0;
+        font-size: 15px;
+        outline: none;
+        box-sizing: border-box;
+    }
+    .rlx-select .rlx-search::placeholder {
+        color: #9ca3af;
+    }
+    .rlx-select.open .rlx-list,
+    .rlx-select.open .rlx-list-wrapper {
         opacity: 1;
         transform: translateY(0);
         pointer-events: auto;
     }
     .rlx-option {
+        display: flex;
+        align-items: center;
         padding: 12px 16px;
         font-size: 16px;
         line-height: 1.5;
         color: #1f2937;
         cursor: pointer;
+    }
+    .rlx-option-icon {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        color: #6b7280;
+    }
+    .rlx-option-icon svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    .rlx-option:hover .rlx-option-icon,
+    .rlx-option[aria-selected="true"] .rlx-option-icon,
+    .rlx-option.selected .rlx-option-icon {
+        color: #0ea5e9;
     }
     .rlx-option:hover,
     .rlx-option[aria-selected="true"] {
@@ -161,12 +208,15 @@
             font-size: 15px;
             padding: 10px 14px;
         }
+        .additional-info-heading {
+            font-size: 20px;
+        }
     }
 
     @media (min-width: 768px) {
         .rlx-select .rlx-trigger {
             min-height: 54px !important;
-            padding-top: 15px !important;
+            padding-top: 0px !important;
             padding-bottom: 0px !important;
             padding-left: 0 !important;
             display: flex;
@@ -216,25 +266,32 @@
                             <!-- Pickup Flight Details -->
                             <div class="mb-3 floating-bordered-input position-relative rlx-theme">
                                 <span class="floating-label">Pickup Flight Details</span>
-                                <div class="rlx-select" id="rlx-pickup-flight" data-name="pickup_flight_details" data-initial="{{ session('pickup_flight_details') ?? '' }}">
+                                <div class="rlx-select rlx-select-searchable" id="rlx-pickup-flight" data-name="pickup_flight_details" data-initial="{{ session('pickup_flight_details') ?? '' }}">
                                     <button type="button" class="rlx-trigger" aria-haspopup="listbox" aria-expanded="false">
                                         <span class="rlx-value">{{ session('pickup_flight_details') ? session('pickup_flight_details') : 'Select Airline' }}</span>
                                         <svg class="rlx-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.73 9.27a1 1 0 0 1 1.41 0L12 13.12l3.86-3.85a1 1 0 0 1 1.41 1.41l-4.57 4.57a1 1 0 0 1-1.41 0L6.73 10.68a1 1 0 0 1 0-1.41Z" fill="currentColor"/></svg>
                                     </button>
-                                    <ul class="rlx-list" role="listbox" tabindex="-1">
-                                        <li role="option" class="rlx-option {{ session('pickup_flight_details') == '' ? 'selected' : '' }}" aria-selected="{{ session('pickup_flight_details') == '' ? 'true' : 'false' }}" data-value="">Select Airline</li>
-                                        @foreach($airports as $airport)
-                                            @php
-                                                $displayValue = ($airport->iata_code ? $airport->iata_code . ' - ' : '') . $airport->name . ($airport->city ? ' (' . $airport->city . ')' : '');
-                                            @endphp
-                                            <li role="option"
-                                                class="rlx-option {{ session('pickup_flight_details') == $displayValue ? 'selected' : '' }}"
-                                                aria-selected="{{ session('pickup_flight_details') == $displayValue ? 'true' : 'false' }}"
-                                                data-value="{{ $displayValue }}">
-                                                {{ $displayValue }}
+                                    <div class="rlx-list-wrapper">
+                                        <input type="text" class="rlx-search" placeholder="Type to search airlines..." autocomplete="off" aria-label="Search airlines" />
+                                        <ul class="rlx-list" role="listbox" tabindex="-1">
+                                            <li role="option" class="rlx-option {{ session('pickup_flight_details') == '' ? 'selected' : '' }}" aria-selected="{{ session('pickup_flight_details') == '' ? 'true' : 'false' }}" data-value="">
+                                                <span class="rlx-option-icon rlx-option-icon--flight" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg></span>
+                                                <span class="rlx-option-text">Select Airline</span>
                                             </li>
-                                        @endforeach
-                                    </ul>
+                                            @foreach($airports as $airport)
+                                                @php
+                                                    $displayValue = ($airport->iata_code ? $airport->iata_code . ' - ' : '') . $airport->name . ($airport->city ? ' (' . $airport->city . ')' : '');
+                                                @endphp
+                                                <li role="option"
+                                                    class="rlx-option {{ session('pickup_flight_details') == $displayValue ? 'selected' : '' }}"
+                                                    aria-selected="{{ session('pickup_flight_details') == $displayValue ? 'true' : 'false' }}"
+                                                    data-value="{{ $displayValue }}">
+                                                    <span class="rlx-option-icon rlx-option-icon--flight" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg></span>
+                                                    <span class="rlx-option-text">{{ $displayValue }}</span>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                     <input type="hidden" name="pickup_flight_details" id="pickup-flight-details" value="{{ session('pickup_flight_details') ?? '' }}">
                                 </div>
                             </div>
@@ -285,7 +342,7 @@
                     </div>
 
                     <div>
-                        <h2 class="mb-3">Additional Information (Optional)</h2>
+                        <h2 class="mb-3 additional-info-heading">Additional Information (Optional)</h2>
 
                         <div class="mb-3 floating-bordered-input position-relative">
                             <textarea id="note" name="note" class="form-control" placeholder=" " rows="2">{{ session('note') ?? '' }}</textarea>
@@ -435,7 +492,10 @@
                                                                 <svg class="rlx-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.73 9.27a1 1 0 0 1 1.41 0L12 13.12l3.86-3.85a1 1 0 0 1 1.41 1.41l-4.57 4.57a1 1 0 0 1-1.41 0L6.73 10.68a1 1 0 0 1 0-1.41Z" fill="currentColor"/></svg>
                                                             </button>
                                                             <ul class="rlx-list" role="listbox" tabindex="-1">
-                                                                <li role="option" class="rlx-option {{ session('return_flight_details') == '' ? 'selected' : '' }}" aria-selected="{{ session('return_flight_details') == '' ? 'true' : 'false' }}" data-value="">Select Airline</li>
+                                                                <li role="option" class="rlx-option {{ session('return_flight_details') == '' ? 'selected' : '' }}" aria-selected="{{ session('return_flight_details') == '' ? 'true' : 'false' }}" data-value="">
+                                                                    <span class="rlx-option-icon rlx-option-icon--flight" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg></span>
+                                                                    <span class="rlx-option-text">Select Airline</span>
+                                                                </li>
                                                                 @foreach($airports as $airport)
                                                                     @php
                                                                         $displayValue = ($airport->iata_code ? $airport->iata_code . ' - ' : '') . $airport->name . ($airport->city ? ' (' . $airport->city . ')' : '');
@@ -444,7 +504,8 @@
                                                                         class="rlx-option {{ session('return_flight_details') == $displayValue ? 'selected' : '' }}"
                                                                         aria-selected="{{ session('return_flight_details') == $displayValue ? 'true' : 'false' }}"
                                                                         data-value="{{ $displayValue }}">
-                                                                        {{ $displayValue }}
+                                                                        <span class="rlx-option-icon rlx-option-icon--flight" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg></span>
+                                                                        <span class="rlx-option-text">{{ $displayValue }}</span>
                                                                     </li>
                                                                 @endforeach
                                                             </ul>
@@ -609,27 +670,66 @@
         const list = root.querySelector('.rlx-list');
         const valueEl = root.querySelector('.rlx-value');
         const hidden = root.querySelector('input[type="hidden"]');
+        const searchInput = root.querySelector('.rlx-search');
         const options = Array.from(root.querySelectorAll('.rlx-option'));
         let highlightedIndex = options.findIndex(o => o.classList.contains('selected'));
+
+        function getVisibleOptions() {
+          if (!searchInput) return options;
+          return options.filter(o => o.style.display !== 'none');
+        }
+        function getVisibleIndex(opt) {
+          const visible = getVisibleOptions();
+          const idx = visible.indexOf(opt);
+          return idx >= 0 ? idx : 0;
+        }
+        function getOptionIndex(visibleIndex) {
+          const visible = getVisibleOptions();
+          const opt = visible[visibleIndex];
+          return opt ? options.indexOf(opt) : 0;
+        }
+
+        function filterOptions(q) {
+          const query = (q || '').toLowerCase().trim();
+          options.forEach(o => {
+            const text = (o.getAttribute('data-value') || o.textContent || '').toLowerCase();
+            o.style.display = query === '' || text.indexOf(query) >= 0 ? '' : 'none';
+          });
+          const visible = getVisibleOptions();
+          highlightedIndex = visible.length ? Math.min(highlightedIndex, visible.length - 1) : 0;
+          highlight(highlightedIndex);
+        }
 
         function open() {
           root.classList.add('open');
           trigger.setAttribute('aria-expanded', 'true');
-          list.focus({ preventScroll: true });
-          if (highlightedIndex < 0) highlightedIndex = 0;
+          if (searchInput) {
+            searchInput.value = '';
+            filterOptions('');
+            const selectedOpt = options.find(o => o.classList.contains('selected'));
+            highlightedIndex = selectedOpt ? getVisibleIndex(selectedOpt) : 0;
+            if (highlightedIndex < 0) highlightedIndex = 0;
+            searchInput.focus({ preventScroll: true });
+          } else {
+            list.focus({ preventScroll: true });
+            if (highlightedIndex < 0) highlightedIndex = 0;
+          }
           highlight(highlightedIndex);
         }
         function close() {
           root.classList.remove('open');
           trigger.setAttribute('aria-expanded', 'false');
+          if (searchInput) searchInput.value = '';
         }
-        function selectByIndex(i) {
-          const opt = options[i];
+        function selectByIndex(visibleIdx) {
+          const visible = getVisibleOptions();
+          const opt = visible[visibleIdx];
           if (!opt) return;
+          const idx = options.indexOf(opt);
           options.forEach(o => { o.classList.remove('selected'); o.setAttribute('aria-selected','false'); });
           opt.classList.add('selected');
           opt.setAttribute('aria-selected','true');
-          highlightedIndex = i;
+          highlightedIndex = visibleIdx;
           const val = opt.getAttribute('data-value');
           hidden.value = val;
           valueEl.textContent = opt.textContent.trim();
@@ -638,12 +738,19 @@
           close();
           trigger.focus();
         }
-        function highlight(i) {
-          highlightedIndex = Math.max(0, Math.min(options.length-1, i));
+        function highlight(visibleIdx) {
+          const visible = getVisibleOptions();
+          if (!visible.length) return;
+          highlightedIndex = Math.max(0, Math.min(visible.length - 1, visibleIdx));
           options.forEach((o, idx) => {
-            o.tabIndex = idx === highlightedIndex ? 0 : -1;
+            const vIdx = visible.indexOf(o);
+            o.tabIndex = vIdx === highlightedIndex ? 0 : -1;
           });
-          options[highlightedIndex]?.focus({ preventScroll: true });
+          const toFocus = visible[highlightedIndex];
+          // Don't steal focus from search input when user is typing
+          if (toFocus && (!searchInput || document.activeElement !== searchInput)) {
+            toFocus.focus({ preventScroll: true });
+          }
         }
 
         trigger.addEventListener('click', function(e){
@@ -651,14 +758,32 @@
           if (root.classList.contains('open')) { close(); } else { open(); }
         });
         options.forEach((opt, idx) => {
-          opt.addEventListener('click', (e) => { e.stopPropagation(); selectByIndex(idx); });
-          opt.addEventListener('mousemove', () => { highlightedIndex = idx; });
+          opt.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const visible = getVisibleOptions();
+            const vIdx = visible.indexOf(opt);
+            selectByIndex(vIdx >= 0 ? vIdx : 0);
+          });
+          opt.addEventListener('mousemove', () => {
+            const visible = getVisibleOptions();
+            highlightedIndex = visible.indexOf(opt);
+          });
         });
+        if (searchInput) {
+          searchInput.addEventListener('input', function() { filterOptions(this.value); });
+          searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowDown') { e.preventDefault(); highlight(highlightedIndex + 1); }
+            else if (e.key === 'ArrowUp') { e.preventDefault(); highlight(highlightedIndex - 1); }
+            else if (e.key === 'Enter') { e.preventDefault(); selectByIndex(highlightedIndex); }
+            else if (e.key === 'Escape') { e.preventDefault(); close(); trigger.focus(); }
+          });
+        }
         document.addEventListener('click', function(e){
           if (!root.contains(e.target)) close();
         });
         root.addEventListener('keydown', function(e){
           if (!root.classList.contains('open')) return;
+          if (searchInput && document.activeElement === searchInput) return;
           if (e.key === 'ArrowDown') { e.preventDefault(); highlight(highlightedIndex+1); }
           else if (e.key === 'ArrowUp') { e.preventDefault(); highlight(highlightedIndex-1); }
           else if (e.key === 'Enter') { e.preventDefault(); selectByIndex(highlightedIndex); }

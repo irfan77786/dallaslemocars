@@ -180,7 +180,7 @@
 
                     <div class="payment_method_info_box">
                         <p class="mt-2 mb-0">Secure payments</p>
-                        <img src="{{ asset('assets/img/credit-cards.png') }}" alt="Payment methods" class="img-fluid payment-methods" >
+                        <img src="{{ asset('assets/img/credit-cards.png') }}" alt="Payment methods" class="img-fluid payment-methods" style="margin-left: 50px;" >
 
                     </div>
                 </div>

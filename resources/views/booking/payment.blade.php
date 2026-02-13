@@ -24,10 +24,33 @@
    padding-bottom: 0px !important;
    background: #fff;
  }
+ .floating-bordered-input.card-element-wrapper {
+   padding: 0 !important;
+   display: flex;
+   align-items: center;
+   min-height: 50px;
+ }
 
         #card-element.form-control {
-        height: 40px;
-        padding-top: 10px;
+        height: 50px;
+        padding: 12px 15px;
+        background: transparent;
+        border: none;
+        width: 100%;
+        }
+        .card-element-wrapper #card-element {
+        padding: 12px 15px;
+        height: 50px;
+        min-height: 50px;
+        }
+        .card-element-wrapper #card-element iframe {
+        pointer-events: auto !important;
+        width: 100% !important;
+        height: 100% !important;
+        }
+        .card-element-wrapper .__PrivateStripeElement {
+        width: 100%;
+        height: 100%;
         }
         #payment-form {
             width: 100%;
@@ -80,7 +103,7 @@
 @csrf
 <input type="hidden" name="payment_method_id" id="payment_method_id">
 
-<label class="p-3 mb-3 rounded border d-flex align-items-center payment-card-option">
+<label class="p-3 mb-3 rounded  d-flex align-items-center payment-card-option">
     <input type="radio"
            name="payment_method"
            class="me-2 saved-card-radio"
@@ -139,7 +162,7 @@
     </div>
 
     <!-- Card Number -->
-    <div class="mb-3 floating-bordered-input position-relative">
+    <div class="mb-3 floating-bordered-input position-relative card-element-wrapper">
         <span class="floating-label">Card Number</span>
         <div id="card-element" class="form-control"></div>
     </div>

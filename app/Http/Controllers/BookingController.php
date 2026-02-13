@@ -236,6 +236,9 @@ public function handlePointToPoint(Request $request)
         $distanceData[$vehicle->id] = $this->calculateDistanceBasedPrice($vehicle, (float)$distance);
     }
 
+    $return_datetime = $request->return_datetime_hourly
+        ?: (($return_date && $return_time) ? $return_date . ' ' . $return_time : null);
+
     session([
         'pickup_location' => $data['pickup_location'],
         'dropoff_location' => $data['dropoff_location'],
@@ -245,7 +248,7 @@ public function handlePointToPoint(Request $request)
         'return_date' => $return_date,
         'return_time' => $return_time,
         'round_trip' => $request->round_trip,
-        'return_datetime' => $request->return_datetime_hourly,
+        'return_datetime' => $return_datetime,
         'select_hours' => null,
         'stops' => json_encode($data['stops'] ?? []),
         'service_type' => 'pointToPoint',
