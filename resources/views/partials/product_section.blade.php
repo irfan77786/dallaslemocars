@@ -792,7 +792,7 @@ $features = [
 
 <div class="px-2">
     <div class="row">
-        <div class="col-12 col-md-9 col-lg-9 car-section order-1 order-md-2">
+        <div class="col-12 col-md-9 col-lg-8 car-section order-1 order-md-2">
             @foreach ($data as $key => $value)
             <div class="row no-gutters">
                 <div class="col-12">
@@ -891,7 +891,7 @@ $features = [
             </div>
             @endforeach
         </div>
-        <div class="mb-4 col-12 col-md-3 col-lg-3 side_section order-2 order-md-1">
+        <div class="mb-4 col-12 col-md-3 col-lg-4 side_section order-2 order-md-1">
             <!-- Help Card -->
             <!-- Perks + Payments + Support Combined Card -->
             <div class="card">
