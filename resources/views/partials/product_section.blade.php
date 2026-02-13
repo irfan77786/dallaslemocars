@@ -829,7 +829,7 @@ $features = [
                                 @else
                                     <div class="text-danger font-weight-bold">Fare calculation failed</div>
                                 @endif
-                                <a class="feature-section d-inline-block mt-1" style="z-index: 7; cursor: pointer;" role="button" data-id="{{ $value['id'] }}" onclick="toggleFeatureCollapse(event)" aria-expanded="false">
+                                <a class="feature-section d-none d-md-inline-block mt-1" style="z-index: 7; cursor: pointer;" role="button" data-id="{{ $value['id'] }}" onclick="toggleFeatureCollapse(event)" aria-expanded="false">
                                     <span class="mr-1 featureExpandText">Features</span>
                                     <i class="bi bi-chevron-down featureExpandArrow"></i>
                                 </a>
