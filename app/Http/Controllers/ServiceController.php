@@ -71,7 +71,7 @@ class ServiceController extends Controller
             'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
         ];
 
-        return view('services.dallas-corporate-transportation', [
+        return view('services.corporate-transpotation-dallas', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
             'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
             'seo' => $seo

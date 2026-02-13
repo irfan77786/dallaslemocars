@@ -9,48 +9,19 @@
         </div>
     </section>
 
-    <div class="container">
-        <section class="overflow-hidden pt-40 home-banner-section position-relative pt-sm-60 py-md-70 d-flex align-items-center rounded-4">
-            <!-- Map Container (Initially hidden, shows up when location is selected) -->
-            <div id="map" class="position-absolute w-100 h-100" style="top:0; left:0; z-index: 10; display:none;">
-            </div>
-
-            <div class="container position-relative">
-                <div class="row">
-                    <div id="home-text-content" class="col-12 col-md-6 d-flex flex-column justify-content-center" style="position: relative; z-index: 5;">
-                        <h1 class="text-white h1 fw-bold mb-15">Professional Airport Transfers Built for On-Time Arrivals</h1>
-                        <p class="mb-0 text-white font-lg fw-medium justify-class">We provide smooth, punctual airport transportation with real-time flight tracking, professional drivers, and service available day and night. Trusted by frequent flyers and business travelers for dependable airport transportation.</p>
-
-                        <p class="text-white font-md d-flex align-items-center">
-                            Call Now: <a href="tel:(214) 897-8056" class="mx-2 fw-bold font-lg theme-color text-underline">(214) 897-8056</a>
-                        </p>
-                    </div>
-                    <div class="col-12 col-md-6 d-none d-md-block" style="position: relative; z-index: 20;">
-                        <div class="distance-form-holder">
-                            @include('partials.search', ['id_suffix' => ''])
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <span class="position-absolute bg-image" id="hide_on_map">
-                <img src="{{ asset('assets/new_theme/img/banner-4.jpeg') }}" alt="" class="img-fluid w-100 h-100" fetchpriority="high">
-            </span>
-        </section>
-    </div>
-
         <section class="pb-40 luxury-cars-section bg-gray pb-sm-60 py-md-40">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-11 col-xl-10 text-md-center mb-15 mb-sm-25 mb-md-30 mb-lg-40">
-                        <h2 class="mb-10 text-center h2 fw-bold">Airport Transportation Built <span class="theme-color br-css-tt">Around Executive Expectations</span></h2>
-                        <p class="mb-0 font-md justify-mobile">Our airport fleet is built for travelers and executive assistants who need reliable, professional transportation without follow-ups or uncertainty. Executive sedans offer a quiet, composed ride for solo and business travel, while luxury and premium SUVs provide added space for passengers and luggage with a polished, executive-ready presence. Sprinter vans and larger buses support coordinated group airport transfers, corporate arrivals, and event travel. Every vehicle is chauffeur-driven, clean, and selected for schedule awareness—ensuring calm departures, smooth arrivals, and airport transportation handled correctly.</p>
+                        <h2 class="mb-10 text-center h2 fw-bold">Executive Fleet for <span class="theme-color br-css-tt">Comfort and Privacy</span></h2>
+                        <p class="mb-0 font-md">Our executive fleet is designed to support corporate transportation in Dallas where professionalism, comfort, and discretion matter. We provide premium black car and chauffeur services for airport transfers, corporate meetings, executive travel, and <a href="/services/luxury-mercedes-sprinter-service-dallas-texas/"><b>group transportation across the Dallas–Fort Worth</b></a> area. Each vehicle is selected to meet different business travel needs—whether it’s an individual executive heading to a meeting or a corporate team traveling together on a fixed schedule.</p>
                     </div>
                 </div>
                 <div class="row luxury-cars-item-holder justify-content-center d-none d-md-flex">
                     <div class="col-12 col-lg-3 px-30 px-sm-15">
                         <article class="mx-auto text-center luxury-cars-item">
                             <div class="img-holder mb-15">
-                                <img loading="lazy" decoding="async" src="{{ asset('assets/new_theme/img/sedan.webp') }}" alt="Black car service Dallas luxury sedan"
+                                <img loading="lazy" decoding="async" src="../../assets/Sedan.webp" alt="Black car service Dallas luxury sedan"
                                     class="img-fluid" width="750" height="410">
                             </div>
                             <h3 class="mb-3 fw-semibold h6">Premier Sadan</h3>
@@ -81,7 +52,7 @@
                     <div class="col-12 col-lg-3 px-30 px-sm-15">
                         <article class="mx-auto text-center luxury-cars-item">
                             <div class="img-holder mb-15">
-                                <img loading="lazy" decoding="async" src="{{ asset('assets/new_theme/img/suv.webp') }}" alt="Luxury SUV black car service Dallas"
+                                <img loading="lazy" decoding="async" src="../../assets/suv.webp" alt="Luxury SUV black car service Dallas"
                                     class="img-fluid" width="750" height="410">
                             </div>
                             <h3 class="mb-3 fw-semibold h6">Premier SUV</h3>
@@ -112,7 +83,7 @@
                     <div class="col-12 col-lg-3 px-30 px-sm-15">
                         <article class="mx-auto text-center luxury-cars-item">
                             <div class="img-holder mb-15">
-                                <img loading="lazy" decoding="async" src="{{ asset('assets/new_theme/img/luxury-suv.webp') }}" alt="Premium SUV black car service Dallas"
+                                <img loading="lazy" decoding="async" src="../../assets/luxury-suv.webp" alt="Premium SUV black car service Dallas"
                                     class="img-fluid" width="750" height="410">
                             </div>
                             <h3 class="mb-3 fw-semibold h6">Luxury SUV</h3>
@@ -143,7 +114,7 @@
                     <div class="col-12 col-lg-3 px-30 px-sm-15">
                         <article class="mx-auto text-center luxury-cars-item">
                             <div class="img-holder mb-15">
-                                <img loading="lazy" decoding="async" src="{{ asset('assets/new_theme/img/sprinter.webp') }}" alt="Black SUV chauffeur service in Dallas"
+                                <img loading="lazy" decoding="async" src="../../assets/sprinter.webp" alt="Black SUV chauffeur service in Dallas"
                                     class="img-fluid" width="750" height="410">
                             </div>
                             <h3 class="mb-3 fw-semibold h6">Busniess Sprinter</h3>
@@ -174,7 +145,7 @@
                     <div class="col-12 col-lg-3 px-30 px-sm-15">
                         <article class="mx-auto text-center luxury-cars-item">
                             <div class="img-holder mb-15">
-                                <img loading="lazy" decoding="async" src="{{ asset('assets/new_theme/img/mini-bus.webp') }}" alt="Spacious black SUV for Dallas black car service"
+                                <img loading="lazy" decoding="async" src="../../assets/mini-bus.webp" alt="Spacious black SUV for Dallas black car service"
                                     class="img-fluid" width="750" height="410">
                             </div>
                             <h3 class="mb-3 fw-semibold h6">Mini Bus</h3>
@@ -205,13 +176,13 @@
                 </div>
                 <div class="row d-md-none">
                     <div class="col-12">
-
-
+                        
+                        
                         <div class="luxury-cars-slider-holder">
                             <div>
                                 <article class="mx-auto text-center luxury-cars-slider-item">
                                     <div class="img-holder mb-15">
-                                        <img loading="lazy" decoding="async" src="{{ asset('assets/new_theme/img/sedan.webp') }}" alt="Black car service Dallas luxury sedan"
+                                        <img loading="lazy" decoding="async" src="../../assets/Sedan.webp" alt="Black car service Dallas luxury sedan"
                                             class="img-fluid" width="750" height="410">
                                     </div>
                                     <h3 class="mb-2 fw-semibold h5">Premier Sadan</h3>
@@ -242,7 +213,7 @@
                             <div>
                                 <article class="mx-auto text-center luxury-cars-slider-item">
                                     <div class="img-holder mb-15">
-                                        <img loading="lazy" decoding="async" src="{{ asset('assets/new_theme/img/suv.webp') }}" alt="Luxury SUV black car service Dallas"
+                                        <img loading="lazy" decoding="async" src="../../assets/suv.webp" alt="Luxury SUV black car service Dallas"
                                             class="img-fluid" width="750" height="410">
                                     </div>
                                     <h3 class="mb-2 fw-semibold h5">Premier SUV</h3>
@@ -273,7 +244,7 @@
                             <div>
                                 <article class="mx-auto text-center luxury-cars-slider-item">
                                     <div class="img-holder mb-15">
-                                        <img loading="lazy" decoding="async" src="{{ asset('assets/new_theme/img/luxury-suv.webp') }}"
+                                        <img loading="lazy" decoding="async" src="../../assets/luxury-suv.webp"
                                             alt="Premium SUV black car service Dallas" class="img-fluid" width="750" height="410">
                                     </div>
                                     <h3 class="mb-2 fw-semibold h5">Luxury SUV</h3>
@@ -301,11 +272,11 @@
                                     </ul>
                                 </article>
                             </div>
-
+                            
                             <div>
                                 <article class="mx-auto text-center luxury-cars-slider-item">
                                     <div class="img-holder mb-15">
-                                        <img loading="lazy" decoding="async" src="{{ asset('assets/new_theme/img/sprinter.webp') }}"
+                                        <img loading="lazy" decoding="async" src="../../assets/sprinter.webp"
                                             alt="Black SUV chauffeur service in Dallas" class="img-fluid" width="750" height="410">
                                     </div>
                                     <h3 class="mb-2 fw-semibold h5">Busniess Sprinter</h3>
@@ -333,14 +304,14 @@
                                     </ul>
                                 </article>
                             </div>
-
-
-
-
+                            
+                            
+                            
+                            
                                   <div>
                                 <article class="mx-auto text-center luxury-cars-slider-item">
                                     <div class="img-holder mb-15">
-                                        <img loading="lazy" decoding="async" src="{{ asset('assets/new_theme/img/mini-bus.webp') }}"
+                                        <img loading="lazy" decoding="async" src="../../assets/mini-bus.webp"
                                             alt="Black SUV chauffeur service in Dallas" class="img-fluid" width="750" height="410">
                                     </div>
                                      <h3 class="mb-3 fw-semibold h6">Mini Bus</h3>
@@ -368,21 +339,22 @@
                                     </ul>
                                 </article>
                             </div>
-
-
-
-
-
-
+                            
+                            
+                        
+                            
+                            
+                            
                         </div>
-
-
-
+                        
+                        
+                        
                     </div>
                 </div>
             </div>
         </section>
-        <section class="pt-40 pb-20 detail-content-section">
+     
+ <section class="pt-40 pb-20 detail-content-section">
             <div class="container">
                 <div class="row justify-content-center">
                     <!-- mb-md-20 mb-lg-30 -->
@@ -432,7 +404,7 @@
                     </div>
                     <div class="col-12 col-md-4 h-100">
                         <div class="img-holder ms-md-auto">
-                            <img loading="lazy" decoding="async" src="{{ asset('assets/new_theme/img/why-choose-dallas-black-limo-service.webp') }}" width="406" height="233" class="img-fluid" alt="Uniformed chauffeur for executive travel Dallas">
+                            <img loading="lazy" decoding="async" src="../../assets/why-choose-dallas-black-limo-service.webp" width="406" height="233" class="img-fluid" alt="Uniformed chauffeur for executive travel Dallas">
                         </div>
                     </div>
                 </div>
@@ -442,7 +414,7 @@
                     <div class="row">
                         <div class="text-center col-12">
                             <div class="fifa-image-holder">
-                                <img loading="lazy" decoding="async" src="{{ asset('assets/new_theme/img/fifa-image.png') }}" class="img-fluid" alt="FIFA Image" width="380" height="100%">
+                                <img loading="lazy" decoding="async" src="../../assets/fifa-image.jpg" class="img-fluid" alt="FIFA Image" width="380" height="100%">
                             </div>
                             <a href="" class="btn btn-primary w-100 fw-medium text-capitalize">Visit our FIFA World
                                 Cup 2026
@@ -451,83 +423,92 @@
                     </div>
                 </div>
             </div>
-
-        </section>
+            
+        </section> 
         <section class="bg-gray pt-50 pb-25 pb-md-20">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30">
                         <article class="text-center">
                             <span class="mb-10 icon-holder d-block">
-<img  loading="lazy"
-                                decoding="async" src="{{ asset('assets/new_theme/img/icon-03.svg') }}" alt="Booking" class="img-fluid">
+                                <img  loading="lazy"
+decoding="async" src="../../assets/icon-03.svg" alt="Booking" class="img-fluid">
                             </span>
-                            <h3 class="h6 fw-semibold">Book Airport Ride</h3>
-                            <p class="font-md">Schedule online or call in seconds.</p>
+                            <h3 class="h6 fw-semibold">Book Online or Call</h3>
+                            <p class="font-md">Use our form or call to schedule corporate transportation.</p>
                         </article>
                     </div>
                     <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30">
                         <article class="text-center">
                             <span class="mb-10 icon-holder d-block">
-<img  loading="lazy"
-                                decoding="async" src="{{ asset('assets/new_theme/img/icon-02.svg') }}" alt="Confirmation" class="img-fluid">
+                                <img  loading="lazy"
+decoding="async" src="../../assets/icon-02.svg" alt="Confirmation" class="img-fluid">
                             </span>
-                            <h3 class="h6 fw-semibold">Flight-Aware Service</h3>
-                            <p class="font-md">Pickup times adjust with flight updates.</p>
+                            <h3 class="h6 fw-semibold">Get Instant Confirmation</h3>
+                            <p class="font-md">Receive trip and chauffeur details by text or email.</p>
                         </article>
                     </div>
                     <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30">
                         <article class="text-center">
                             <span class="mb-10 icon-holder d-block">
-<img  loading="lazy"
-                                decoding="async" src="{{ asset('assets/new_theme/img/icon-01.svg') }}" alt="Driver" class="img-fluid">
+                                <img  loading="lazy"
+decoding="async" src="../../assets/icon-01.svg" alt="Driver" class="img-fluid">
                             </span>
-                            <h3 class="h6 fw-semibold">Arrive Stress-Free</h3>
-                            <p class="font-md">Relax while we handle airport travel.</p>
+                            <h3 class="h6 fw-semibold">Meet Your Chauffeur</h3>
+                            <p class="font-md">On-time, professional, and prepared for business travel.</p>
                         </article>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="py-20 detail-content-section">
+    
+    <section class="py-20 detail-content-section">
             <div class="container">
                 <div class="py-20 row">
                     <div class="col-12 col-md-8 pr-xl-50">
-                        <h3 class="h4 fw-semibold">Land at Dallas Fort Worth International Airport</h3>
-                        <p class="font-md">Landing at Dallas Fort Worth International Airport should feel organized, not rushed. Our airport transfer service is built for executives, assistants, and travelers who need reliable airport transportation without uncertainty or last-minute coordination. Every professional chauffeur tracks your flight in real time and arrives early, adjusting automatically for delays, early arrivals, or gate changes. Terminal pickups are handled smoothly, with clear curbside coordination and assistance with luggage. A clean, quiet vehicle is ready when you exit, giving you space to reset after your flight. Routes and traffic patterns are planned in advance to protect your schedule and avoid unnecessary delays. Whether you’re traveling to a business meeting, hotel, residence, or corporate office, each airport transfer is private, punctual, and professionally managed. From touchdown to final drop-off, timing is controlled, details are handled, and your ride remains calm, dependable, and predictable.</p>
+                        <h3 class="h4 fw-semibold">Reliable Corporate Transportation Services in Dallas</h3>
+                        <p class="font-md">
+                         <a href="/services/private-car-service-dallas/"><b>Reliable corporate transportation in Dallas</b></a> requires more than just a vehicle—it requires precision, accountability, and consistency. Our corporate transportation services are designed to support executive travel, business meetings, and professional appointments across Dallas–Fort Worth with structured planning and dependable execution. From early-morning airport pickups to multi-stop business schedules, every trip is managed with attention to timing and route efficiency.
 
+We work closely with corporate clients, executive assistants, and business coordinators to ensure smooth transportation without last-minute adjustments or delays. Our service is ideal for daily business travel, client meetings, corporate events, and airport transfers to DFW Airport and Dallas Love Field. With professionally chauffeured vehicles, transparent pricing, and 24/7 availability, businesses rely on our <a href="/services/chauffeur-service-dallas/"><b>Dallas corporate transportation service</b></a> to maintain schedules, reduce travel stress, and present a polished, professional image at every pickup and drop-off.
+</p>
+                   
                     </div>
                     <div class="col-12 col-md-4 h-100">
                         <div class="img-holder ms-md-auto">
-                            <img loading="lazy" decoding="async" src="{{ asset('assets/new_theme/img/dfw-and-love-field-airport-transportation.webp') }}" width="407" height="210" class="img-fluid" alt="Luxury black car at Dallas Love Field Airport">
+                            <img loading="lazy" decoding="async" src="../../assets/dfw-and-love-field-airport-transportation.webp" width="407" height="210" class="img-fluid" alt="Luxury black car at Dallas Love Field Airport">
                         </div>
                     </div>
                 </div>
                 <div class="flex-row-reverse py-20 row">
                     <div class="mb-20 col-12 col-md-8 pr-xl-50">
-                        <h3 class="h4 fw-semibold">From the Airport to Anywhere in Dallas</h3>
+                        <h3 class="h4 fw-semibold">Executive Chauffeur Service for Business and Airport Travel</h3>
                         <p class="font-md">
-                            After landing at <a href="/services/airport-transfer-dallas/"><b>DFW or Dallas Love Field</b></a>, your airport transfer is managed using real arrival times, terminal location, and live traffic conditions not estimates. <br />
-Our airport car service provides direct transportation to Dallas’s main business districts, hotels, and venues. Many executives travel to Downtown Dallas, with offices near The Ritz-Carlton, Dallas and Omni Dallas Hotel. Event travel is routed to American Airlines Center or AT&T Stadium with traffic-aware planning.<br />
-Corporate pickups often continue to Las Colinas, Plano, and North Dallas. Every ride is flight-monitored, terminal-matched, and dispatch-managed for smooth curbside pickup and on-time arrival.
+Our <a href="/services/chauffeur-service-dallas/"><b>executive chauffeur service </b></a>is tailored for business professionals who value punctuality, discretion, and comfort. Serving Dallas and surrounding business districts, we provide chauffeur-driven transportation for corporate meetings, airport transfers, conferences, and executive events. Each trip is handled by trained chauffeurs who understand professional conduct, confidentiality, and time-sensitive travel requirements.
+
+We monitor traffic patterns and flight schedules to ensure timely arrivals and smooth departures, whether traveling to corporate offices, hotels, event venues, or major airports. Our executive service is commonly used by company leadership, visiting executives, and assistant-booked travelers who require dependable transportation without disruption. By combining luxury vehicles, experienced chauffeurs, and organized scheduling, our <a href="https://www.dallasblacklimoservice.com/"><b>executive chauffeur service in Dallas</b></a> supports productive business travel while maintaining privacy, comfort, and consistent service standards from start to finish. 
+                   
+                   
                         </p>
                     </div>
                     <div class="col-12 col-md-4 h-100">
                         <div class="img-holder">
-                            <img loading="lazy" decoding="async" src="{{ asset('assets/new_theme/img/executive-black-car-service-for-business-meetings.webp') }}" width="407" height="210" class="img-fluid" alt="Professional chauffeur for black car service Dallas">
+                            <img loading="lazy" decoding="async" src="../../assets/executive-black-car-service-for-business-meetings.webp" width="407" height="210" class="img-fluid" alt="Professional chauffeur for black car service Dallas">
                         </div>
                     </div>
                 </div>
                 <div class="py-20 row d-none d-md-flex">
                     <div class="mb-20 col-12 col-md-8 pr-xl-50">
-                        <h3 class="h4 fw-semibold">Book with Dallas Black Limo Service for a premium service </h3>
+                        <h3 class="h4 fw-semibold">Corporate Black Car and Group Transportation Solutions</h3>
                         <p class="font-md">
-                            Our <a href=""><b>airport transfer service</b></a> is built for executives, assistants, and travelers who need airport transportation handled correctly the first time. Dallas Black Limo Service provides professional airport car service with trained chauffeurs who arrive early, track flights in real time, and adjust automatically for delays or gate changes. Terminal pickups are smooth and organized, with polite greeting, luggage assistance, and a clean, quiet vehicle ready curbside. Every airport black car service ride is private, punctual, and planned around traffic and airport rules to protect your schedule. From <a href="/dfw-car-service/"><b>Dallas Fort Worth International Airport</b></a> to downtown Dallas, hotels, or offices, your arrival is managed calmly, professionally, and without reminders.
-                        </p>
+                           Our <a href="/services/luxury-mercedes-sprinter-service-dallas-texas/"><b>corporate black car and group transportation solutions</b></a> provide flexible options for both individual executives and corporate teams. Whether transporting one executive or coordinating group travel for meetings, conferences, or corporate events, we offer professionally managed vehicles suited to every business need. Executive sedans are ideal for individual travel, while SUVs and Sprinter vans accommodate larger groups traveling together on shared schedules.
+
+By using a single, coordinated transportation provider, businesses avoid the challenges of managing multiple vehicles or rideshare services. Our corporate group transportation services in Dallas are frequently used for airport transfers, company events, roadshows, and city-to-city business travel. Every vehicle is commercially insured, well maintained, and professionally chauffeured to ensure a quiet, comfortable experience. With clear communication, structured scheduling, and dependable execution, our corporate black car service delivers organized transportation solutions that support efficient and professional business operations.
+</p>
                     </div>
                     <div class="col-12 col-md-4 h-100">
                         <div class="img-holder">
-                            <img loading="lazy" decoding="async" src="{{ asset('assets/new_theme/img/luxury-black-car-airport-transfer-will-rogers-world-airport.webp') }}" width="407" height="210" class="img-fluid" alt="Professional chauffeur for black car service Dallas">
+                            <img loading="lazy" decoding="async" src="../../assets/luxury-black-car-airport-transfer-will-rogers-world-airport.webp" width="407" height="210" class="img-fluid" alt="Professional chauffeur for black car service Dallas">
                         </div>
                     </div>
                 </div>
@@ -545,11 +526,12 @@ Corporate pickups often continue to Las Colinas, Plano, and North Dallas. Every 
                 </div>
             </div>
         </section>
+        
         <section class="bg-gray pt-50 pb-25 pt-sm-60 pb-sm-35 pt-md-70 pb-md-45 pt-lg-80 pb-lg-50">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="text-center col-12 col-lg-11 col-xl-10 mb-25 mb-md-30 mb-lg-40">
-                        <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-25">Where We <span class="theme-color"> Serve</span></h2>
+                        <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-25">Where We Serve</h2>
                         <p class="font-md">Providing professional transportation services across the Dallas–Fort Worth Metroplex. Throughout the region our service covers:</p>
                     </div>
                 </div>
@@ -557,41 +539,37 @@ Corporate pickups often continue to Las Colinas, Plano, and North Dallas. Every 
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
                         <article class="text-center we-serve-item mb-30 mb-md-35">
                             <a href="" class="mx-auto img-holder mb-15 d-block">
-<img  loading="lazy"
-                                decoding="async" src="{{ asset('assets/new_theme/img/image-05.jpg') }}" alt="Premium black car service for airport, hotel, and event travel" class="img-fluid">
+                                <img loading="lazy" decoding="async" src="../../assets/image-05.jpg" alt="" class="img-fluid">
                             </a>
-                            <h3 class="mb-10 h6 fw-semibold"><a href="">Cities & Regional Communities</a></h3>
+                            <h3 class="mb-10 h6 fw-semibold"><a href="">Cities &amp; Regional Communities</a></h3>
                             <p class="font-base">Service is available in Dallas, Fort Worth, Plano, Frisco, McKinney, Allen, Irving, Arlington, Grapevine, Southlake, Addison, and surrounding areas across DFW.</p>
                         </article>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
                         <article class="text-center we-serve-item mb-30 mb-md-35">
                             <a href="" class="mx-auto img-holder mb-15 d-block">
-<img  loading="lazy"
-                                decoding="async" src="{{ asset('assets/new_theme/img/image-06.jpg') }}" alt="Chauffeur service providing safe and comfortable city transportation" class="img-fluid">
+                                <img loading="lazy" decoding="async" src="../../assets/image-06.jpg" alt="" class="img-fluid">
                             </a>
-                            <h3 class="mb-10 h6 fw-semibold"><a href="">Airports & Aviation Access</a></h3>
+                            <h3 class="mb-10 h6 fw-semibold"><a href="">Airports &amp; Aviation Access</a></h3>
                             <p class="font-base">We serve DFW International Airport, Dallas Love Field, Addison Airport, McKinney National Airport, Fort Worth Alliance Airport, and private aviation terminals.</p>
                         </article>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
                         <article class="text-center we-serve-item mb-30 mb-md-35">
                             <a href="" class="mx-auto img-holder mb-15 d-block">
-<img  loading="lazy"
-                                decoding="async" src="{{ asset('assets/new_theme/img/image-07.jpg') }}" alt="Executive black car service for meetings, conferences, and events" class="img-fluid">
+                                <img loading="lazy" decoding="async" src="../../assets/image-07.jpg" alt="" class="img-fluid">
                             </a>
-                            <h3 class="mb-10 h6 fw-semibold"><a href="">Corporate & Lifestyle Zones</a></h3>
+                            <h3 class="mb-10 h6 fw-semibold"><a href="">Corporate &amp; Lifestyle Zones</a></h3>
                             <p class="font-base">Coverage includes Downtown Dallas, Uptown, Las Colinas, Legacy West, The Star (Frisco), Preston Hollow, Highland Park, and major business districts.</p>
                         </article>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
                         <article class="text-center we-serve-item mb-30 mb-md-35">
                             <a href="" class="mx-auto img-holder mb-15 d-block">
-<img  loading="lazy"
-                                decoding="async" src="{{ asset('assets/new_theme/img/image-08.jpg') }}" alt="Airport pickup service with professional chauffeur and luxury vehicle" class="img-fluid">
+                                <img loading="lazy" decoding="async" src="../../assets/image-08.jpg" alt="" class="img-fluid">
                             </a>
-                            <h3 class="mb-10 h6 fw-semibold"><a href="">Sports & Entertainment Venues</a></h3>
-                            <p class="font-base">Transportation is available for AT&T Stadium, Globe Life Field, American Airlines Center, Toyota Stadium, PGA Frisco, and Toyota Music Factory.</p>
+                            <h3 class="mb-10 h6 fw-semibold"><a href="">Sports &amp; Entertainment Venues</a></h3>
+                            <p class="font-base">Transportation is available for AT&amp;T Stadium, Globe Life Field, American Airlines Center, Toyota Stadium, PGA Frisco, and Toyota Music Factory.</p>
                         </article>
                     </div>
                 </div>
@@ -603,56 +581,57 @@ Corporate pickups often continue to Las Colinas, Plano, and North Dallas. Every 
                     <div class="text-center col-12 col-lg-11 col-xl-10 mb-15 mb-md-20 mb-lg-30">
                         <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30">Chosen By People At <span class="theme-color">Top
                                 Companies</span></h2>
-                        <p class="font-md">Professionals choose our airport transfer service for consistent timing, comfort, and reliability.</p>
+                        <p class="font-md">Our outstanding success is your ultimate trust in us. Professionals at
+                            world`s leading brands prefer Prestige Ride as their premium ride-hailing partner.</p>
                     </div>
                     <div class="col-12">
                         <div class="companies-logo-holder list-unstyled">
                             <div class="py-10 px-15">
                                 <span class="img-holder">
-<img  loading="lazy"
-                                decoding="async" src="{{ asset('assets/new_theme/img/logo-01.png') }}" alt="Logo" class="img-fluid">
+                                    <img loading="lazy" width="90" height="60" decoding="async"
+                                        src="../../assets/logo-01.webp" alt="Logo" class="img-fluid">
                                 </span>
                             </div>
                             <div class="py-10 px-15">
                                 <span class="img-holder">
-<img  loading="lazy"
-                                decoding="async" src="{{ asset('assets/new_theme/img/logo-02.png') }}" alt="Logo" class="img-fluid">
+                                    <img loading="lazy" width="90" height="60" decoding="async"
+                                        src="../../assets/logo-02.webp" alt="Logo" class="img-fluid">
                                 </span>
                             </div>
                             <div class="py-10 px-15">
                                 <span class="img-holder">
-<img  loading="lazy"
-                                decoding="async" src="{{ asset('assets/new_theme/img/logo-03.png') }}" alt="Logo" class="img-fluid">
+                                    <img loading="lazy" width="90" height="60" decoding="async"
+                                        src="../../assets/logo-03.webp" alt="Logo" class="img-fluid">
                                 </span>
                             </div>
                             <div class="py-10 px-15">
                                 <span class="img-holder">
-<img  loading="lazy"
-                                decoding="async" src="{{ asset('assets/new_theme/img/logo-04.png') }}" alt="Logo" class="img-fluid">
+                                    <img loading="lazy" width="90" height="60" decoding="async"
+                                        src="../../assets/logo-04.webp" alt="Logo" class="img-fluid">
                                 </span>
                             </div>
                             <div class="py-10 px-15">
                                 <span class="img-holder">
-<img  loading="lazy"
-                                decoding="async" src="{{ asset('assets/new_theme/img/logo-05.png') }}" alt="Logo" class="img-fluid">
+                                    <img loading="lazy" width="90" height="60" decoding="async"
+                                        src="../../assets/logo-05.webp" alt="Logo" class="img-fluid">
                                 </span>
                             </div>
                             <div class="py-10 px-15">
                                 <span class="img-holder">
-<img  loading="lazy"
-                                decoding="async" src="{{ asset('assets/new_theme/img/logo-06.png') }}" alt="Logo" class="img-fluid">
+                                    <img loading="lazy" width="90" height="60" decoding="async"
+                                        src="../../assets/logo-06.webp" alt="Logo" class="img-fluid">
                                 </span>
                             </div>
                             <div class="py-10 px-15">
                                 <span class="img-holder">
-<img  loading="lazy"
-                                decoding="async" src="{{ asset('assets/new_theme/img/logo-07.png') }}" alt="Logo" class="img-fluid">
+                                    <img loading="lazy" width="90" height="60" decoding="async"
+                                        src="../../assets/logo-07.webp" alt="Logo" class="img-fluid">
                                 </span>
                             </div>
                             <div class="py-10 px-15">
                                 <span class="img-holder">
-<img  loading="lazy"
-                                decoding="async" src="{{ asset('assets/new_theme/img/logo-08.png') }}" alt="Logo" class="img-fluid">
+                                    <img loading="lazy" width="90" height="60" decoding="async"
+                                        src="../../assets/logo-08.webp" alt="Logo" class="img-fluid">
                                 </span>
                             </div>
                         </div>
@@ -660,220 +639,65 @@ Corporate pickups often continue to Las Colinas, Plano, and North Dallas. Every 
                 </div>
             </div>
         </section>
-        <section class="pt-40 pb-15 bg-blue ridelux-difference">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <!-- mb-15 mb-sm-25 mb-md-30 mb-lg-40 -->
-                    <div class="mb-20 text-center col-12 col-lg-11 col-xl-10">
-                        <!-- mb-15 mb-sm-20 mb-lg-30 -->
-                        <h2 class="mb-10 text-white h2 fw-bold">The Smarter Choice for Corporate Transportation</h2>
-                        <p class="font-md">Professional black car service in Dallas for executives and executive assistants who require punctual pickups, transparent pricing, and zero uncertainty. Every ride is professionally chauffeured, actively monitored by dispatch, and backed by contingency planning for business-critical travel to DFW, Love Field, and across Dallas.</p>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30">
-                        <article class="text-center">
-                            <span class="mb-10 icon-holder d-block">
-                                <img loading="lazy" decoding="async" src="{{ asset('assets/new_theme/img/money.svg') }}" alt="Booking" class="img-fluid" width="40" height="40">
-                            </span>
-                            <h3 class="text-white h6 fw-semibold">Instant Airport Booking</h3>
-                            <p class="font-md"> Online or phone booking with immediate confirmation and dispatch oversight.</p>
-                        </article>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30">
-                        <article class="text-center">
-                            <span class="mb-10 icon-holder d-block">
-                                <img loading="lazy" decoding="async" src="{{ asset('assets/new_theme/img/car-steering.svg') }}" alt="Confirmation" class="img-fluid" width="40" height="40">
-                            </span>
-                            <h3 class="text-white h6 fw-semibold">Flight-Monitored Pickups (DFW & Love Field)</h3>
-                            <p class="font-md">  Chauffeur arrival adjusts in real time to flight status and terminal flow.</p>
-                        </article>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 mb-25 mb-md-30">
-                        <article class="text-center">
-                            <span class="mb-10 icon-holder d-block">
-                                <img loading="lazy" decoding="async" src="{{ asset('assets/new_theme/img/dimond.svg') }}" alt="Driver" class="img-fluid" width="40" height="40">
-                            </span>
-                            <h3 class="text-white h6 fw-semibold">On-Time, Managed Airport Travel</h3>
-                            <p class="font-md">Career chauffeurs and monitored curbside pickups—no ride management required.</p>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="pt-40 pb-20 intercity-ride-section bg-gray">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <!-- mb-15 mb-sm-25 mb-md-30 mb-lg-40 -->
-                    <div class="mb-20 col-12 col-lg-11 col-xl-10 text-md-center">
-                        <!-- mb-15 mb-sm-20 mb-lg-30 -->
-                        <h2 class="mb-10 text-center h2 fw-bold">Top Cities &amp; <span class="theme-color">Top
-                                Routes</span></h2>
-                        <p class="font-md">Travel across Dallas and nearby cities effortlessly. From busy routes to
-                            airport pickups and event destinations, our professional chauffeurs ensure every ride is
-                            seamless, comfortable, and tailored to your schedule.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                            <a href="/dallas-to-austin-car-service/">
-                            <div class="img-holder">
-                                <img loading="lazy" width="416" height="199" decoding="async" src="{{ asset('assets/new_theme/img/austin.webp') }}" alt="Top City" class="img-fluid">
-                            </div>
-                            <div class="city-details p-15 position-absolute">
-                                <h3 class="mb-0 text-white h6">Dallas
-                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan" focusable="false" aria-hidden="true" width="24" viewBox="0 0 24 24" data-testid="ChevronRightIcon">
-                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                    </svg>
-                                    Austin
-                                </h3>
-                                <p class="mb-0 text-white font-sm">195 miles &nbsp;&nbsp;|&nbsp;&nbsp; 2h 54m</p>
-                            </div>
-                            </a>
-                        </article>
-                    </div>
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                            <a href="/dallas-to-houston-car-service/">
-                            <div class="img-holder">
-                                <img loading="lazy" width="416" height="199" decoding="async" src="{{ asset('assets/new_theme/img/houston.webp') }}" alt="Top City" class="img-fluid">
-                            </div>
-                            <div class="city-details p-15 position-absolute">
-                                <h3 class="mb-0 text-white h6">Dallas
-                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan" focusable="false" aria-hidden="true" width="24" viewBox="0 0 24 24" data-testid="ChevronRightIcon">
-                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                    </svg>
-                                    Houston
-                                </h3>
-                                <p class="mb-0 text-white font-sm">239 miles &nbsp;&nbsp;|&nbsp;&nbsp; 3h 29m</p>
-                            </div>
-                            </a>
-                        </article>
-                    </div>
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                            <a href="/dallas-to-college-station-car-service/">
-                            <div class="img-holder">
-                                <img loading="lazy" width="416" height="199" decoding="async" src="{{ asset('assets/new_theme/img/college-station.webp') }}" alt="Top City" class="img-fluid">
-                            </div>
-                            <div class="city-details p-15 position-absolute">
-                                <h3 class="mb-0 text-white h6">Dallas
-                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan" focusable="false" aria-hidden="true" width="24" viewBox="0 0 24 24" data-testid="ChevronRightIcon">
-                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                    </svg>
-                                    College Station
-                                </h3>
-                                <p class="mb-0 text-white font-sm">181 miles &nbsp;&nbsp;|&nbsp;&nbsp; 2h 44m</p>
-                            </div>
-                            </a>
-                        </article>
-                    </div>
-
-
-
-
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                            <a href="/dallas-to-oklahoma-city-ok/">
-                            <div class="img-holder">
-                                <img loading="lazy" width="416" height="199" decoding="async" src="{{ asset('assets/new_theme/img/oklahoma-city.webp') }}" alt="Top City" class="img-fluid">
-                            </div>
-                            <div class="city-details p-15 position-absolute">
-                                <h3 class="mb-0 text-white h6">Dallas
-                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan" focusable="false" aria-hidden="true" width="24" viewBox="0 0 24 24" data-testid="ChevronRightIcon">
-                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                    </svg>
-                                    OKC
-                                </h3>
-                                <p class="mb-0 text-white font-sm">206 miles &nbsp;&nbsp;|&nbsp;&nbsp; 3h 07m</p>
-                            </div>
-                            </a>
-                        </article>
-                    </div>
-
-
-
-
-
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                            <a href="/dallas-to-tyler-car-service/">
-                            <div class="img-holder">
-                                <img loading="lazy" width="416" height="199" decoding="async" src="{{ asset('assets/new_theme/img/tyler.webp') }}" alt="Top City" class="img-fluid">
-                            </div>
-                            <div class="city-details p-15 position-absolute">
-                                <h3 class="mb-0 text-white h6">Dallas
-                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan" focusable="false" aria-hidden="true" width="24" viewBox="0 0 24 24" data-testid="ChevronRightIcon">
-                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                    </svg>
-                                    Tyler
-                                </h3>
-                                <p class="mb-0 text-white font-sm">116 miles &nbsp;&nbsp;|&nbsp;&nbsp; 2h 10min</p>
-                            </div>
-                            </a>
-                        </article>
-                    </div>
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                            <a href="/dfw-to-waco-car-service/">
-                            <div class="img-holder">
-                                <img loading="lazy" width="416" height="199" decoding="async" src="{{ asset('assets/new_theme/img/waco.webp') }}" alt="Top City" class="img-fluid">
-                            </div>
-                            <div class="city-details p-15 position-absolute">
-                                <h3 class="mb-0 text-white h6">DFW
-                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan" focusable="false" aria-hidden="true" width="24" viewBox="0 0 24 24" data-testid="ChevronRightIcon">
-                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                    </svg>
-                                    Waco
-                                </h3>
-                                <p class="mb-0 text-white font-sm">93.8 miles &nbsp;&nbsp;|&nbsp;&nbsp; 1h 23m</p>
-                            </div>
-                            </a>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="testimonial-section bg-blue py-50 py-sm-60 py-md-70 py-lg-80">
+       <section class="py-40 testimonial-section bg-blue">
             <div class="container">
                 <div class="row">
-                    <div class="mb-10 text-center col-12 mb-md-20">
-                        <h2 class="text-white h2 fw-bold">Testimonials</h2>
+                    <!-- mb-10 mb-md-20 -->
+                    <div class="mb-10 text-center col-12">
+                        <h2 class="text-white h2 fw-bold">Trusted by Corporate Teams and Executive Assistants</h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <div class="testimonial-slider">
-                            <div>
-                                <div class="testimonial-slider-item">
-                                    <blockquote class="mb-30">
-                                        <!-- <span class="quote">“</span> -->
-                                        <p class="text-center font-lg fw-medium">
-                                            My airport pickup was smooth and right on time. The chauffeur was polite and helped with luggage. After a long flight, the ride felt calm and comfortable.
-                                        </p>
-                                    </blockquote>
-                                    <cite class="text-center text-white name fw-semibold font-lg d-block"> — Michael R., Corporate Finance Manager</cite>
-                                    <span class="text-center location fw-semibold font-lg d-block">Dallas, TX</span>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="testimonial-slider-item">
-                                    <blockquote class="mb-30">
-                                        <!-- <span class="quote">“</span> -->
-                                        <p class="text-center font-lg fw-medium">
-                                            I use their airport drop-off service often for work travel. The car arrives early, the ride is quiet, and I never worry about being late for my flight.
-                                        </p>
-                                    </blockquote>
-                                    <cite class="text-center text-white name fw-semibold font-lg d-block"> — Sarah L., Senior Project Consultant</cite>
-                                    <span class="text-center location fw-semibold font-lg d-block">Fort Worth, TX</span>
-                                </div>
-                            </div>
-
-                                   <div>
+                        <div class="testimonial-slider slick-initialized slick-slider">
+                            <div class="slick-list draggable" tabindex="0"><div class="slick-track" style="opacity: 1; width: 10280px; transform: translate3d(-3855px, 0px, 0px);"><div class="slick-slide slick-cloned" data-slick-index="-1" id="" style="width: 1285px;">
                                 <div class="testimonial-slider-item">
                                     <blockquote class="mb-20 mb-md-30">
-                                        <!-- <span class="quote">“</span> -->
+                                        <!-- <span class="quote">â€œ</span> -->
+                                        <p class="text-center font-lg fw-medium">
+                                          It was my first time in Dallas, and I booked their service for a game at AT&amp;T Stadium. The ride was comfortable, and getting around was completely stress-free.
+                                        </p>
+                                    </blockquote>
+                                    <cite class="text-center text-white name fw-semibold font-lg d-block">- David Ramirez, Amelia C.</cite>
+                                    <span class="text-center location fw-semibold font-lg d-block">Philadelphia, PA</span>
+                                </div>
+                            </div><div class="slick-slide" data-slick-index="0" style="width: 1285px;">
+                                <div class="testimonial-slider-item">
+                                    <blockquote class="mb-20 mb-md-30">
+                                        <!-- <span class="quote">â€œ</span> -->
+                                        <p class="text-center font-lg fw-medium">
+                                           As an executive assistant, I need airport transportation frequently. Flights are tracked and drivers arrive on time always, making them my first choice.
+                                        </p>
+                                    </blockquote>
+                                    <cite class="text-center text-white name fw-semibold font-lg d-block"> - Emily Carter, Executive Assistant</cite>
+                                    <span class="text-center location fw-semibold font-lg d-block">Dallas, TX</span>
+                                </div>
+                            </div><div class="slick-slide" data-slick-index="1" style="width: 1285px;">
+                                <div class="testimonial-slider-item">
+                                    <blockquote class="mb-20 mb-md-30">
+                                        <!-- <span class="quote">â€œ</span> -->
+                                        <p class="text-center font-lg fw-medium">
+                                            We use them every week for Dallas area corporate travel, including airport runs. Same standards every ride no surprises, no follow-ups.
+                                        </p>
+                                    </blockquote>
+                                    <cite class="text-center text-white name fw-semibold font-lg d-block"> - James Sasser, Managing Partner</cite>
+                                    <span class="text-center location fw-semibold font-lg d-block">Fort Worth, TX</span>
+                                </div>
+                            </div><div class="slick-slide slick-active" data-slick-index="2" style="width: 1285px;">
+                                <div class="testimonial-slider-item">
+                                    <blockquote class="mb-20 mb-md-30">
+                                        <!-- <span class="quote">â€œ</span> -->
+                                        <p class="text-center font-lg fw-medium">
+                                            Early departures or delayed arrivals they adjusts without calls or confusion, which is why we trust them for executive transportation in Dallas.
+                                        </p>
+                                    </blockquote>
+                                    <cite class="text-center text-white name fw-semibold font-lg d-block">- David Ramirez, VP of Operations</cite>
+                                    <span class="text-center location fw-semibold font-lg d-block">Plano, TX</span>
+                                </div>
+                            </div><div class="slick-slide" data-slick-index="3" style="width: 1285px;">
+                                <div class="testimonial-slider-item">
+                                    <blockquote class="mb-20 mb-md-30">
+                                        <!-- <span class="quote">â€œ</span> -->
                                         <p class="text-center font-lg fw-medium">
                                            We booked a car from DAL to Plano for a client visit. The pickup was on time, the driver was professional, and everything went exactly as scheduled.
                                         </p>
@@ -881,13 +705,10 @@ Corporate pickups often continue to Las Colinas, Plano, and North Dallas. Every 
                                     <cite class="text-center text-white name fw-semibold font-lg d-block">- Michael Turner, Corporate Client</cite>
                                     <span class="text-center location fw-semibold font-lg d-block">Dallas, TX</span>
                                 </div>
-                            </div>
-
-
-                              <div>
+                            </div><div class="slick-slide" data-slick-index="4" style="width: 1285px;">
                                 <div class="testimonial-slider-item">
                                     <blockquote class="mb-20 mb-md-30">
-                                        <!-- <span class="quote">“</span> -->
+                                        <!-- <span class="quote">â€œ</span> -->
                                         <p class="text-center font-lg fw-medium">
                                         We booked a car for a family ride with our 16 month old. The driver was professional, and the ride felt safe and comfortable throughout.
                                         </p>
@@ -895,35 +716,45 @@ Corporate pickups often continue to Las Colinas, Plano, and North Dallas. Every 
                                     <cite class="text-center text-white name fw-semibold font-lg d-block">- Rachel Moore</cite>
                                     <span class="text-center location fw-semibold font-lg d-block">New York City, NY</span>
                                 </div>
-                            </div>
-
-
-                              <div>
+                            </div><div class="slick-slide" data-slick-index="5" style="width: 1285px;">
                                 <div class="testimonial-slider-item">
                                     <blockquote class="mb-20 mb-md-30">
-                                        <!-- <span class="quote">“</span> -->
+                                        <!-- <span class="quote">â€œ</span> -->
                                         <p class="text-center font-lg fw-medium">
-                                          It was my first time in Dallas, and I booked their service for a game at AT&T Stadium. The ride was comfortable, and getting around was completely stress-free.
+                                          It was my first time in Dallas, and I booked their service for a game at AT&amp;T Stadium. The ride was comfortable, and getting around was completely stress-free.
                                         </p>
                                     </blockquote>
                                     <cite class="text-center text-white name fw-semibold font-lg d-block">- David Ramirez, Amelia C.</cite>
                                     <span class="text-center location fw-semibold font-lg d-block">Philadelphia, PA</span>
                                 </div>
-                            </div>
-
-                            <div>
+                            </div><div class="slick-slide slick-cloned" data-slick-index="6" id="" style="width: 1285px;">
                                 <div class="testimonial-slider-item">
-                                    <blockquote class="mb-30">
-                                        <!-- <span class="quote">“</span> -->
+                                    <blockquote class="mb-20 mb-md-30">
+                                        <!-- <span class="quote">â€œ</span> -->
                                         <p class="text-center font-lg fw-medium">
-                                            We booked an airport pickup for an early morning arrival. Everything was well organized and stress-free. Great service for business travelers.
+                                           As an executive assistant, I need airport transportation frequently. Flights are tracked and drivers arrive on time always, making them my first choice.
                                         </p>
                                     </blockquote>
-                                    <cite class="text-center text-white name fw-semibold font-lg d-block"> — David K., Operations Director</cite>
-                                    <span class="text-center location fw-semibold font-lg d-block">Plano, TX</span>
+                                    <cite class="text-center text-white name fw-semibold font-lg d-block"> - Emily Carter, Executive Assistant</cite>
+                                    <span class="text-center location fw-semibold font-lg d-block">Dallas, TX</span>
                                 </div>
-                            </div>
-                        </div>
+                            </div></div></div>
+                            
+                            
+                          
+                            
+                            
+                            
+                            
+                              
+                            
+                            
+                              
+                            
+                            
+                              
+                            
+                        <ul class="slick-dots" style=""><li class=""><button type="button" data-role="none">1</button></li><li class=""><button type="button" data-role="none">2</button></li><li class="slick-active"><button type="button" data-role="none">3</button></li><li><button type="button" data-role="none">4</button></li><li><button type="button" data-role="none">5</button></li><li><button type="button" data-role="none">6</button></li></ul></div>
                     </div>
                 </div>
             </div>
@@ -934,7 +765,7 @@ Corporate pickups often continue to Las Colinas, Plano, and North Dallas. Every 
                     <div class="text-center col-12">
                         <div class="fifa-image-holder">
                             <img  loading="lazy"
-decoding="async" src="{{ asset('assets/new_theme/img/fifa-image.png') }}" class="img-fluid" alt="FIFA Image">
+decoding="async" src="../../assets/fifa-image.png" class="img-fluid" alt="FIFA Image">
                         </div>
                         <a href="" class="btn btn-primary w-100 fw-medium text-capitalize">Visit our FIFA World Cup 2026
                             page</a>
@@ -942,142 +773,124 @@ decoding="async" src="{{ asset('assets/new_theme/img/fifa-image.png') }}" class=
                 </div>
             </div>
         </section>
-          <section class="py-40 faqs-section">
+        <section class="faqs-section py-50 py-sm-60 py-md-70 py-lg-80">
             <div class="container">
                 <div class="row">
-                     <div class="mb-20 text-center col-12">
-                        <h2 class="h2 fw-bold">Frequently Asked <span class="theme-color br-css-tt">Questions</span></h2>
+                    <div class="text-center col-12 mb-25 mb-md-30 mb-lg-40">
+                        <h2 class="h2 fw-bold">Frequently Asked Questions</h2>
                     </div>
-                </div>
-                <div class="row" id="faqAccordion">
-                    <div class="col-12 col-md-6 accordion-holder accordion">
+                    <div class="col-12 col-md-6 accordion-holder" id="accordion01">
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
+                            <h2 class="accordion-header" id="accordion01-headingOne">
                                 <button
                                     class="px-0 mb-0 h6 accordion-button py-15 py-sm-20 py-lg-25 fw-semibold collapsed"
-                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                                    aria-expanded="false" aria-controls="collapseOne">
-                                    Do you provide FBO pickups (Signature, Atlantic, Million Air, etc.)?
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#accordion01-collapseOne"
+                                    aria-expanded="false" aria-controls="accordion01-collapseOne">
+                                    What is included in your corporate transportation service?
                                 </button>
                             </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                                data-bs-parent="#faqAccordion">
+                            <div id="accordion01-collapseOne" class="accordion-collapse collapse"
+                                aria-labelledby="accordion01-headingOne">
                                 <div class="pt-0 pr-0 pl-0 accordion-body">
-                                    <p class="font-base">Yes. We provide professional FBO pickup and drop-off service at all major private aviation terminals across Dallasâ€“Fort Worth, including Signature Flight Support, Atlantic Aviation, and Million Air. Chauffeur arrivals are coordinated discreetly around flight timing and FBO protocols to ensure smooth, on-time transfers.</p>
+                                    <p class="font-base">Our corporate transportation service includes professional drivers, well-maintained vehicles, and reliable scheduling to support daily business and executive travel.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
+                            <h2 class="accordion-header" id="accordion01-headingTwo">
                                 <button
                                     class="px-0 mb-0 h6 accordion-button py-15 py-sm-20 py-lg-25 fw-semibold collapsed"
-                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                    aria-expanded="false" aria-controls="collapseTwo">
-                                    Do you offer corporate accounts and monthly invoicing?
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#accordion01-collapseTwo"
+                                    aria-expanded="false" aria-controls="accordion01-collapseTwo">
+                                    Is this service suitable for executives and business teams?
                                 </button>
                             </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                data-bs-parent="#faqAccordion">
+                            <div id="accordion01-collapseTwo" class="accordion-collapse collapse"
+                                aria-labelledby="accordion01-headingTwo">
                                 <div class="pt-0 pr-0 pl-0 accordion-body">
-                                    <p class="font-base">Yes. We offer corporate accounts with consolidated monthly invoicing for companies, executive assistants, and travel managers. Billing is itemized and structured for clear reporting, internal tracking, and ongoing executive travel throughout the Dallasâ€“Fort Worth area.</p>
+                                    <p class="font-base">Yes, the service is designed for executives, management teams, and employees who need dependable transportation for meetings, events, and daily business travel.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree">
+                            <h2 class="accordion-header" id="accordion01-headingThree">
                                 <button
                                     class="px-0 mb-0 h6 accordion-button py-15 py-sm-20 py-lg-25 fw-semibold collapsed"
-                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                    aria-expanded="false" aria-controls="collapseThree">
-                                    Do you offer hourly as-directed service for executives and roadshows?
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#accordion01-collapseThree"
+                                    aria-expanded="false" aria-controls="accordion01-collapseThree">
+                                    Can corporate transportation be used for airport travel?
                                 </button>
                             </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                                data-bs-parent="#faqAccordion">
+                            <div id="accordion01-collapseThree" class="accordion-collapse collapse"
+                                aria-labelledby="accordion01-headingThree">
                                 <div class="pt-0 pr-0 pl-0 accordion-body">
-                                    <p class="font-base">Yes. We provide hourly as-directed black car service for executives and roadshows, supporting flexible, multi-stop itineraries. Chauffeurs remain on standby while dispatch actively monitors timing and routing to support assistant-managed schedules, meetings, and investor roadshow logistics.</p>
+                                    <p class="font-base">Yes, corporate transportation can be arranged for airport pickup and drop-off as part of business travel planning.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingFour">
+                            <h2 class="accordion-header" id="accordion01-headingFour">
                                 <button
                                     class="px-0 mb-0 h6 accordion-button py-15 py-sm-20 py-lg-25 fw-semibold collapsed"
-                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"
-                                    aria-expanded="false" aria-controls="collapseFour">
-                                    How early will the driver arrive before my pickup time?
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#accordion01-collapseFour"
+                                    aria-expanded="false" aria-controls="accordion01-collapseFour">
+                                    Do you offer hourly corporate transportation?
                                 </button>
                             </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                                data-bs-parent="#faqAccordion">
+                            <div id="accordion01-collapseFour" class="accordion-collapse collapse"
+                                aria-labelledby="accordion01-headingFour">
                                 <div class="pt-0 pr-0 pl-0 accordion-body">
-                                    <p class="font-base">For most Dallasâ€“Fort Worth pickups, chauffeurs arrive 10â€“15 minutes early. This arrival buffer supports smooth loading, schedule protection, and reliable on-time departures for airport transfers, corporate meetings, and executive appointments.</p>
+                                    <p class="font-base">Yes, corporate transportation is available on an hourly basis or for point-to-point trips, depending on your company’s needs.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                     <div class="col-12 col-md-6 accordion-holder accordion">
+                    <div class="col-12 col-md-6 accordion-holder" id="accordion02">
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingFive">
+                            <h2 class="accordion-header" id="accordion02-headingOne">
                                 <button
                                     class="px-0 mb-0 h6 accordion-button py-15 py-sm-20 py-lg-25 fw-semibold collapsed"
-                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive"
-                                    aria-expanded="false" aria-controls="collapseFive">
-                                    Can I request a specific driver?
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#accordion02-collapseOne"
+                                    aria-expanded="false" aria-controls="accordion02-collapseOne">
+                                    What types of vehicles are available for corporate travel?
                                 </button>
                             </h2>
-                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
-                                data-bs-parent="#faqAccordion">
+                            <div id="accordion02-collapseOne" class="accordion-collapse collapse"
+                                aria-labelledby="accordion02-headingOne">
                                 <div class="pt-0 pr-0 pl-0 accordion-body">
-                                    <p class="font-base">Yes. You may request a preferred chauffeur when available, particularly for recurring corporate travel or airport transportation in Dallasâ€“Fort Worth. Advance requests help maintain consistency, familiarity, and efficient pickups for executives and executive assistants.</p>
+                                    <p class="font-base">We offer business sedans, SUVs, executive sprinters, and larger vehicles when required for group or team transportation.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingSix">
+                            <h2 class="accordion-header" id="accordion02-headingTwo">
                                 <button
                                     class="px-0 mb-0 h6 accordion-button py-15 py-sm-20 py-lg-25 fw-semibold collapsed"
-                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix"
-                                    aria-expanded="false" aria-controls="collapseSix">
-                                    Do you offer VIP airport service for executives?
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#accordion02-collapseTwo"
+                                    aria-expanded="false" aria-controls="accordion02-collapseTwo">
+                                    Is the service available outside normal business hours?
                                 </button>
                             </h2>
-                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
-                                data-bs-parent="#faqAccordion">
+                            <div id="accordion02-collapseTwo" class="accordion-collapse collapse"
+                                aria-labelledby="accordion02-headingTwo">
                                 <div class="pt-0 pr-0 pl-0 accordion-body">
-                                    <p class="font-base">Yes. We provide VIP airport service at Dallas Fort Worth International Airport and Dallas Love Field. Service includes discreet coordination, real-time flight monitoring, and schedule-focused handling designed for senior executives and visiting leaders.</p>
+                                    <p class="font-base">Yes, corporate transportation is available 24/7 to support early meetings, late events, and extended work schedules.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingSeven">
+                            <h2 class="accordion-header" id="accordion02-headingThree">
                                 <button
                                     class="px-0 mb-0 h6 accordion-button py-15 py-sm-20 py-lg-25 fw-semibold collapsed"
-                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven"
-                                    aria-expanded="false" aria-controls="collapseSeven">
-                                    How much wait time is included for DFW airport pickups?
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#accordion02-collapseThree"
+                                    aria-expanded="false" aria-controls="accordion02-collapseThree">
+                                    How far in advance should corporate transportation be booked?
                                 </button>
                             </h2>
-                            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
-                                data-bs-parent="#faqAccordion">
+                            <div id="accordion02-collapseThree" class="accordion-collapse collapse"
+                                aria-labelledby="accordion02-headingThree">
                                 <div class="pt-0 pr-0 pl-0 accordion-body">
-                                    <p class="font-base">Included wait time depends on your reservation type and arrival details. Grace periods are designed to accommodate deplaning and baggage claim at DFW, with trips monitored in real time to support smooth coordination in the event of early arrivals or delays.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingEight">
-                                <button
-                                    class="px-0 mb-0 h6 accordion-button py-15 py-sm-20 py-lg-25 fw-semibold collapsed"
-                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight"
-                                    aria-expanded="false" aria-controls="collapseEight">
-                                    Do you provide round-trip service to AT&T Stadium?
-                                </button>
-                            </h2>
-                            <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight"
-                                data-bs-parent="#faqAccordion">
-                                <div class="pt-0 pr-0 pl-0 accordion-body">
-                                    <p class="font-base">Yes. We provide round-trip chauffeur service to major Dallasâ€“Fort Worth venues, including AT&T Stadium. Drop-off and return pickup planning is coordinated in advance to simplify arrival, post-event departures, and overall event transportation logistics.</p>
+                                    <p class="font-base">Advance booking is recommended to ensure availability, especially for recurring travel or larger corporate requirements.</p>
                                 </div>
                             </div>
                         </div>
@@ -1085,7 +898,7 @@ decoding="async" src="{{ asset('assets/new_theme/img/fifa-image.png') }}" class=
                 </div>
             </div>
         </section>
-
+        
            <div class="bg-gray py-30 d-md-none">
             <div class="container">
                 <div class="row">
@@ -1098,14 +911,14 @@ decoding="async" src="{{ asset('assets/new_theme/img/fifa-image.png') }}" class=
                 </div>
             </div>
         </div>
-
+        
         <section class="bg-gray py-30">
             <div class="container">
                 <div class="flex-row-reverse row">
                     <div class="col-12 col-md-5 mb-15 mb-md-0">
                         <ul
                             class="gap-4 mb-0 list-unstyled footer-social-list d-flex justify-content-center justify-content-md-end">
-
+                            
                                 <li>
                                 <a href="">
                                     <svg class="footer_socialMediaIcon__XNZUm" focusable="false"
@@ -1117,8 +930,8 @@ decoding="async" src="{{ asset('assets/new_theme/img/fifa-image.png') }}" class=
                                     </svg>
                                 </a>
                             </li>
-
-
+                            
+                       
                             <li>
                                 <a href="">
                                     <svg class="footer_socialMediaIcon__XNZUm" focusable="false"
@@ -1131,8 +944,8 @@ decoding="async" src="{{ asset('assets/new_theme/img/fifa-image.png') }}" class=
                                     </svg>
                                 </a>
                             </li>
-
-
+                            
+                            
                          <li>
                                 <a href="">
                                     <svg class="footer_socialMediaIcon__XNZUm" focusable="false"
@@ -1155,7 +968,7 @@ decoding="async" src="{{ asset('assets/new_theme/img/fifa-image.png') }}" class=
                                     </svg>
                                 </a>
                             </li>
-
+                            
                            <li>
     <a href="">
         <svg class="footer_socialMediaIcon__XNZUm" focusable="false"
@@ -1185,4 +998,5 @@ decoding="async" src="{{ asset('assets/new_theme/img/fifa-image.png') }}" class=
                 </div>
             </div>
         </section>
+         
 @endsection
