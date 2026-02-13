@@ -17,8 +17,14 @@ $features = [
     font-weight: bold;
 }
 .collapseCardBody {
-    padding: 0px !important;
+    padding: 0 1rem 1rem !important;
     border: none !important;
+    border-top: 1px solid #000 !important;
+    border-bottom: 1px solid #000 !important;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    width: calc(100% + 2rem);
+    box-sizing: border-box;
 }
 .feature-section{
     background: linear-gradient(90deg, #e52c43, #ff6c00);
@@ -90,6 +96,32 @@ $features = [
 .vehicle_img {
     max-height: 100px;
     object-fit: contain;
+}
+
+.best-value-badge {
+    position: absolute;
+    top: 0px;
+    left: 8px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0px 6px;
+    background: #fff;
+    border-radius: 999px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    font-size: 10px;
+    font-weight: 600;
+    color: #333;
+}
+
+.best-value-badge i {
+    color: #e52c43;
+    font-size: 1rem;
+}
+
+.best-value-badge span {
+    color: #1a1a1a;
 }
 
 /* ==== Vehicle Info Section ==== */
@@ -549,7 +581,7 @@ $features = [
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 8px 16px;
+  padding: 0px 16px;
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
@@ -640,21 +672,27 @@ $features = [
 
 .mbs-features {
   margin-top: 14px;
+  margin-left: -16px;
+  margin-right: -16px;
+  width: calc(100% + 32px);
 }
 
 .mbs-features-title {
   font-weight: 700;
   margin-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
   background: linear-gradient(90deg, #e52c43, #ff6c00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* NEW */
 .mbs-features-box {
   background: #fff6df;
-  border-radius: 10px;
-  padding: 12px;
+  border-radius: 0;
+  padding: 12px 16px;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
 }
 
 /* FIXED GRID */
@@ -930,11 +968,10 @@ $features = [
         <button type="button" class="mbs-close">×</button>
     </div>
     <div class="mbs-content">
-        <div class="mbs-top row">
-            <div class="col-sm-6">
-                <div class="mbs-hero">
-                    <img src="" alt="" />
-                </div>
+        <div class="mbs-top">
+            <div class="mbs-hero position-relative">
+                <span class="best-value-badge"> <i style="font-size: 13px;" class="bi bi-tag-fill"></i> <span>Best Value</span> </span>
+                <img src="" alt="" />
             </div>
         </div>
         <div class="flex-wrap mbs-title-row d-flex align-items-center justify-content-between">
