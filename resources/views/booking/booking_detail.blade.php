@@ -166,7 +166,7 @@
     @media (min-width: 768px) {
         .rlx-select .rlx-trigger {
             min-height: 54px !important;
-            padding-top: 15px !important;
+            padding-top: 0px !important;
             padding-bottom: 0px !important;
             padding-left: 0 !important;
             display: flex;
