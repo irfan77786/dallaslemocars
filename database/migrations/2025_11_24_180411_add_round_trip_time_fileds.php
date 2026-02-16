@@ -11,9 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (! Schema::hasTable('bookings')) {
+            return;
+        }
+
         Schema::table('bookings', function (Blueprint $table) {
-            $table->date('return_date')->nullable();
-            $table->time('return_time')->nullable();
+            if (! Schema::hasColumn('bookings', 'return_date')) {
+                $table->date('return_date')->nullable();
+            }
+
+            if (! Schema::hasColumn('bookings', 'return_time')) {
+                $table->time('return_time')->nullable();
+            }
         });
     }
 
@@ -22,8 +31,24 @@ return new class extends Migration
      */
     public function down(): void
     {
+        if (! Schema::hasTable('bookings')) {
+            return;
+        }
+
         Schema::table('bookings', function (Blueprint $table) {
-            $table->dropColumn(['return_date', 'return_time']);
+            $columnsToDrop = [];
+
+            if (Schema::hasColumn('bookings', 'return_date')) {
+                $columnsToDrop[] = 'return_date';
+            }
+
+            if (Schema::hasColumn('bookings', 'return_time')) {
+                $columnsToDrop[] = 'return_time';
+            }
+
+            if (! empty($columnsToDrop)) {
+                $table->dropColumn($columnsToDrop);
+            }
         });
     }
 };
