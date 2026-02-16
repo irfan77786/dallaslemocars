@@ -331,11 +331,12 @@ $tabSuffix = $id_suffix ?? '';
 
     .rlx-select .rlx-trigger {
         display: block;
+        position: relative;
         width: 100%;
         background: transparent;
         border: none;
         border-radius: 0;
-        padding: 0 40px 0 44px;
+        padding: 0 44px 0 44px;
         margin-top: 10px;
         color: #1f2937;
         font-size: 16px;
@@ -348,6 +349,15 @@ $tabSuffix = $id_suffix ?? '';
         margin-top: 10px;
     }
 
+    /* Keep duration trigger content vertically centered */
+    .floating-bordered-input.rlx-theme .rlx-select .rlx-trigger {
+        display: flex;
+        align-items: center;
+        min-height: 46px;
+        padding: 0 36px 0 0 !important;
+        padding-bottom: 0 !important;
+    }
+
     .rlx-select .rlx-value {
         pointer-events: none;
     }
@@ -355,14 +365,19 @@ $tabSuffix = $id_suffix ?? '';
     .rlx-select .rlx-arrow {
         color: #6b7280;
         position: absolute;
-        right: 4px;
+        right: 8px !important;
         top: 50%;
         transform: translateY(-50%);
         pointer-events: none;
     }
 
+    /* Move duration dropdown arrow to input's far right edge */
+    .floating-bordered-input.rlx-theme .rlx-select .rlx-arrow {
+        right: -28px !important;
+    }
+
     .rlx-select.open .rlx-arrow {
-        transform: rotate(180deg);
+        transform: translateY(-50%) rotate(180deg);
         transition: transform .18s ease;
     }
 
