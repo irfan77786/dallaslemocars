@@ -273,7 +273,7 @@
 }
 </style>
 <div class="container step-wrapper md-py-3">
-    <div class="container px-0 mr-auto ml-auto row align-items-center justify-content-between px-md-0 px-sm-0 booking_step_container">
+    <div class="container px-0 mr-auto ml-auto row align-items-center justify-content-between px-md-0 px-sm-0 booking_step_container" style="background-color: rgb(250, 250, 250);">
         <div class="col-12 col-md-12 d-none d-md-block">
             <div class="flex-nowrap pt-1 mt-4 stepper d-flex justify-content-start justify-content-md-end w-100">
               @foreach ($steps as $index => $stepData)
@@ -305,7 +305,7 @@
 </div>
 
 <!-- Mobile Steps: moved above summary -->
-<div class="px-3 py-2 d-md-none">
+<div class="px-3 py-2 d-md-none" style="background-color: rgb(250, 250, 250);">
     <p class="mb-1 step-header">STEP {{ $currentStep }} OF {{ count($steps) }}</p>
     <div class="row">
         <div class="col-6">
@@ -334,7 +334,7 @@
 
 <div class="d-md-none mb-3">
  <div class="px-3 py-2 bg-white d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#mobileRideSummary" aria-expanded="false" style="cursor: pointer;" onclick="toggleCollapse()">
-    <h6 class="step-label-pill is-active">Booking Summary</h6>
+    <h6 class="">Booking Summary</h6>
         <div class="d-flex align-items-center summary_toggle_container">
             <span id="expandText" class="mr-1">Expand</span>
             <svg id="expandArrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 320 512">
