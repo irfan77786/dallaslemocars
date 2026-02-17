@@ -56,6 +56,9 @@
 </head>
 
 <body>
+    @php
+        $hideHeaderItems = request()->is('booking/point-to-point') || request()->is('booking/point-to-point/*');
+    @endphp
     <header class="py-15 py-lg-20">
         <div class="ah-container position-relative">
             <div class="row align-items-center">
@@ -67,6 +70,14 @@
                         </a>
                     </div>
                 </div>
+                @if($hideHeaderItems)
+                <div class="col-6 col-lg-9 d-flex align-items-center justify-content-end">
+                    <a href="tel:+12148978056" class="text-dark fw-semibold text-decoration-none d-inline-flex align-items-center gap-2">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+1 214-897-8056</span>
+                    </a>
+                </div>
+                @else
                 <div class="col-6 col-lg-9 d-flex align-items-center justify-content-end">
                     <nav class="p-0 custom-navbar navbar navbar-expand-lg position-static">
                         <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
@@ -183,6 +194,7 @@
                     </nav>
                     <a href="/get-a-quote" class="btn btn-primary d-none d-xl-block">Get a quote</a>
                 </div>
+                @endif
             </div>
         </div>
     </header>
