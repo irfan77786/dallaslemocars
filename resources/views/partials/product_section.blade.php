@@ -266,6 +266,21 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
     color: #000;
 }
 
+.price-gratuity {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 2px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #1E1E1E;
+}
+
+.price-gratuity i {
+    color: #28a745;
+    font-size: 1rem;
+}
+
 .car-price small {
     vertical-align: top;
     color: #555;
@@ -379,6 +394,14 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
         font-size: 0.72rem;
         line-height: 1.2;
         margin-top: 2px;
+    }
+    .price-gratuity {
+        font-size: 0.72rem;
+        gap: 4px;
+        white-space: nowrap;
+    }
+    .price-gratuity i {
+        font-size: 0.82rem;
     }
     .feature_items_cont {
         margin-left: 0 !important;
@@ -872,6 +895,10 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
                                         <h4 class="mt-4 mb-1">
                                             <span class="pricing_summary_price">${{ $whole }}<span class="price-decimal">.{{ $decimal }}</span></span>
                                         </h4>
+                                    </div>
+                                    <div class="price-gratuity">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>Gratuity included</span>
                                     </div>
                                 @else
                                     <div class="text-danger font-weight-bold">Fare calculation failed</div>
