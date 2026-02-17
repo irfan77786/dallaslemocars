@@ -9,6 +9,11 @@ $features = [
     ['text' => 'Cancellation policy', 'icon' => 'bi-x-circle-fill'],
     ['text' => 'bottled water', 'icon' => 'bi-cup-fill'],
 ];
+
+$desktopHiddenFeatureTexts = ['bottled water'];
+$desktopFeatures = array_values(array_filter($features, function ($feature) use ($desktopHiddenFeatureTexts) {
+    return !in_array($feature['text'], $desktopHiddenFeatureTexts, true);
+}));
 @endphp
 
 <style>
@@ -178,10 +183,10 @@ $features = [
     color: #444;
 }
 .feature-items-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr auto;
-    align-items: start;
-    gap: 10px 30px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 12px 50px;
     margin-top: 15px;
     margin-left: 48px !important;
     font-size: 0.85rem;
@@ -190,7 +195,7 @@ $features = [
 
 .feature-column {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 12px;
 }
 
@@ -198,6 +203,7 @@ $features = [
     display: flex;
     align-items: center;
     gap: 6px;
+    white-space: nowrap;
 }
 
 
@@ -378,6 +384,9 @@ $features = [
         margin-left: 0 !important;
         padding-right: 0;
         width: 100%;
+    }
+    .feature-items-grid {
+        flex-wrap: wrap;
     }
     .feature-items-grid > .feature-item {
         flex: 0 0 50%;
@@ -861,16 +870,12 @@ $features = [
                                     @endphp
                                     <div class="car-price">
                                         <h4 class="mt-4 mb-1">
-                                            <span class="pricing_summary_price">${{ $whole }}<span class="price-decimal">.{{ $decimal }}</span></span> USD
+                                            <span class="pricing_summary_price">${{ $whole }}<span class="price-decimal">.{{ $decimal }}</span></span>
                                         </h4>
                                     </div>
                                 @else
                                     <div class="text-danger font-weight-bold">Fare calculation failed</div>
                                 @endif
-                                <a class="feature-section d-none d-md-inline-block mt-1" style="z-index: 7; cursor: pointer;" role="button" data-id="{{ $value['id'] }}" onclick="toggleFeatureCollapse(event)" aria-expanded="false">
-                                    <span class="mr-1 featureExpandText">Features</span>
-                                    <i class="bi bi-chevron-down featureExpandArrow"></i>
-                                </a>
                             </div>
                         </div>
                         <div class="collapse" id="collapse-{{ $value['id'] }}">
@@ -882,31 +887,16 @@ $features = [
                                 <div class="feature_items_cont feature-items-grid">
 
 
-                                    <div class="feature-column">
-                                        @foreach (array_slice($features, 0, 2) as $feature)
-                                            <div class="feature-item">
-                                                <i class="bi {{ $feature['icon'] }} feature-icon"></i>
-                                                <span class="feature-text">{{ $feature['text'] }}</span>
-                                                @if (isset($feature['tooltip']))
-                                                    <i class="bi bi-info-circle info-icon" 
-                                                    data-tooltip="{{ $feature['tooltip'] }}"></i>
-                                                @endif
-                                            </div>
-                                        @endforeach
-                                    </div>
-
-                                    <div class="feature-column">
-                                        @foreach (array_slice($features, 2, 2) as $feature)
-                                            <div class="feature-item">
-                                                <i class="bi {{ $feature['icon'] }} feature-icon"></i>
-                                                <span class="feature-text">{{ $feature['text'] }}</span>
-                                                @if (isset($feature['tooltip']))
-                                                    <i class="bi bi-info-circle info-icon" 
-                                                    data-tooltip="{{ $feature['tooltip'] }}"></i>
-                                                @endif
-                                            </div>
-                                        @endforeach
-                                    </div>
+                                    @foreach ($desktopFeatures as $feature)
+                                        <div class="feature-item">
+                                            <i class="bi {{ $feature['icon'] }} feature-icon"></i>
+                                            <span class="feature-text">{{ $feature['text'] }}</span>
+                                            @if (isset($feature['tooltip']))
+                                                <i class="bi bi-info-circle info-icon" 
+                                                data-tooltip="{{ $feature['tooltip'] }}"></i>
+                                            @endif
+                                        </div>
+                                    @endforeach
                                     <div class="vehicle-continue-wrap">
                                         <a href="{{ url('/user-login/' . $value['id'] . '/' . $continuePrice) }}"
                                         class="btn btn-primary vehicle-continue-btn"
@@ -1022,33 +1012,27 @@ $features = [
         }
 
         const trigger = event.currentTarget;
-        const featureSection = trigger.closest('.feature-section');
-        if(!featureSection) return;
-
-        const card = trigger.closest('.vehical-card');
+        const card = trigger.closest('.vehical-card') || (trigger.classList && trigger.classList.contains('vehical-card') ? trigger : null);
         if (!card) return;
 
-        const targetId = 'collapse-' + trigger.getAttribute('data-id');
+        const targetId = 'collapse-' + card.getAttribute('data-id');
         const target = document.getElementById(targetId);
         if (!target) return;
 
-        const expandText = featureSection.querySelector('.featureExpandText');
-        const expandArrow = featureSection.querySelector('.featureExpandArrow');
+        const expandArrow = card.querySelector('.featureExpandArrow');
 
         // Use aria-expanded as the source of truth for the desired state
-        const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+        const isExpanded = card.getAttribute('aria-expanded') === 'true';
         const nextState = !isExpanded;
 
         // Update aria-expanded immediately
-        trigger.setAttribute('aria-expanded', nextState ? 'true' : 'false');
+        card.setAttribute('aria-expanded', nextState ? 'true' : 'false');
 
         // Update UI immediately
         if (nextState) {
-             expandText.innerText = 'Hide';
-             expandArrow.style.transform = 'rotate(180deg)';
+             if (expandArrow) expandArrow.style.transform = 'rotate(180deg)';
         } else {
-             expandText.innerText = 'Features';
-             expandArrow.style.transform = 'rotate(0deg)';
+             if (expandArrow) expandArrow.style.transform = 'rotate(0deg)';
         }
 
         // Perform toggle
@@ -1086,12 +1070,9 @@ $features = [
                     return;
                 }
 
-                // Desktop: clicking card toggles features (use the Features link as trigger)
-                var trigger = card.querySelector('.feature-section');
-                if(trigger) {
-                    var fakeEvent = { preventDefault: function(){}, stopPropagation: function(){}, currentTarget: trigger };
-                    toggleFeatureCollapse(fakeEvent);
-                }
+                // Desktop: clicking card toggles features
+                var fakeEvent = { preventDefault: function(){}, stopPropagation: function(){}, currentTarget: card };
+                toggleFeatureCollapse(fakeEvent);
 
                 // Visual selection
                 document.querySelectorAll('.selectable-card').forEach(function(c){ c.classList.remove('selected'); });
