@@ -95,7 +95,7 @@
 
 <div class="container py-md-5 only-for-payments">
 <div class="row">
-<div class="col-md-8">
+<div class="col-md-8 payment-for-css">
 
 <h5 class="mb-2 fw-bold">Payment Information</h5>
 

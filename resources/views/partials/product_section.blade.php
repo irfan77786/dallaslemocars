@@ -22,10 +22,9 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
     font-weight: bold;
 }
 .collapseCardBody {
-    padding: 0 1rem 1rem !important;
+    padding: 0 1rem 15px !important;
     border: none !important;
-    border-top: 1px solid #000 !important;
-    border-bottom: 1px solid #000 !important;
+ 
     margin-left: -1rem;
     margin-right: -1rem;
     width: calc(100% + 2rem);
@@ -51,7 +50,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
     border: 1.5px solid #ccc;
     border-radius: 8px;
     cursor: pointer;
-    padding: 1rem;
+    padding: 1rem 55px 1rem 30px;
     margin-bottom: 1rem;
     position: relative;
     transition: border-color 0.3s ease, background-color 0.3s ease;
@@ -65,7 +64,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
 
 .vehical-card.selected {
     border-color: #e52c43 !important;
-    background-color: transparent !important;
+    background-color: #fff !important;
 }
 
 .vehical-card.selected .tick-overlay {
@@ -75,7 +74,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
 .tick-overlay {
     position: absolute;
     right: 20px;
-    top: 6px;
+    top: 18px;
     font-size: 1.5rem;
     display: none; /* hidden by default */
 }
@@ -186,9 +185,9 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    gap: 12px 50px;
+    gap: 12px 40px;
     margin-top: 15px;
-    margin-left: 48px !important;
+    margin-left: 27px !important;
     font-size: 0.85rem;
     color: #444;
 }

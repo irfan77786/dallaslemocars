@@ -394,6 +394,57 @@ a.btn-loadmore:hover {
         padding: 30px 12px;
         box-shadow: none !important;
     }
+    
+        #home-text-content h1 {
+        text-align: center !important;
+        white-space: nowrap !important;
+        font-size: 27px;
+        font-weight: 500 !important;
+    }
+    div#map {
+    border: 1px solid #c9b3b3 !important;
+}
+   
+   .p-3.mt-3.rounded-lg.shadow-sm.bg-light {
+ 
+    box-shadow: none !important;
+}
+
+div#pricing-area-wrapper {
+    background: #fff !important;
+}
+
+    .floating-bordered-input {
+  ;
+    padding: 12px 20px 12px 40px !important;
+ 
+}
+    .rlx-option {
+        margin-left: 15px !important;
+    }
+ 
+
+    .summary-value-inline {
+        
+        color: #373737 !important;
+    }
+        .mob-step-dot.upcoming {
+        border-color: #acacac !important;
+        background: #fff !important;
+        color: #000000 !important;
+    }
+    
+    .mbs-back {
+ 
+    padding: 10px 0 7px 0;
+   
+}
+
+
+    .vehical-card {
+        padding: 0.75rem 19px 0.75rem 15px !important;
+        position: relative;
+    } 
     .skip-btn {
         width: 100% !important;
     }
@@ -734,3 +785,63 @@ div.search-tab-wrap ul.nav-tabs li.nav-item a.nav-link:hover:not(.active) {
 div.search-tab-wrap ul.nav-tabs li.nav-item a.nav-link:focus {
     outline: none;
 }
+.info-card {
+    padding: 26px 26px 36px 33px !important;
+}
+
+.benefits-section {
+    padding: 27px 36px 27px 33px !important;
+}
+.passenger-info-container {
+    padding: 10px 0px 80px 0px !important;
+}
+    .col-divider {
+        border-left: 1px solid #cbcbcb !important;
+    }
+    
+    .px-4.mb-3.col-md-8.mobile-mg-dc {
+    background: #fff;
+    padding: 21px 29px 35px 27px !important;
+}
+.p-3.mt-3.rounded-lg.shadow-sm.bg-light {
+    margin-top: 0px !important;
+    background: #fff !important;
+    padding-bottom: 25px !important;
+    padding-top: 25px !important;
+}
+.rlx-option:hover .rlx-option-icon, .rlx-option[aria-selected="true"] .rlx-option-icon, .rlx-option.selected .rlx-option-icon {
+    color: #ffffff !important;
+}
+
+ 
+.col-md-8.payment-for-css {
+    background: #fff;
+    padding: 25px 28px 45px 25px;
+}
+
+.side_section .card {
+     padding-left: 28px !important; 
+}
+    .side_section .card .card-body a.mail_side {
+    font-size: 18px;
+    }
+    
+    
+    .side_section .card hr {
+     background: linear-gradient(90deg, rgb(0 0 0), rgba(255, 108, 0, 0.05)) !important;
+
+}
+.side_section .card .card-body .card-title.hassle_free {
+    margin-bottom: 7px !important;
+}
+
+.side_section .card .card-body .card-title {
+    font-size: 20px !important;
+}
+ 
+
+
+    .rlx-option {
+        margin-left: 15px !important;
+    }
+

@@ -86,9 +86,9 @@
     right: 0;
     top: 44px; /* sits between label and dots */
     height: 2px;
-    background: #e6e8ef;
+    background:linear-gradient(90deg, #e52c43, #ff6c00);
 }
-
+ 
 .step-dot{
     width: 14px;
     height: 14px;
@@ -113,7 +113,11 @@
     background: linear-gradient(90deg, #e52c43, #ff6c00) !important;
 }
 
-.upcoming { border-color: #e5e7eb; background: #fff; }
+
+.upcoming {
+    border-color: #0f121940;
+    background: #c7cbd6;
+}
 
 .step-label-pill{
     display: inline-block;
@@ -121,7 +125,7 @@
     border-radius: 999px;
     font-size: 0.875rem;
     line-height: 1;
-    color: #6b7280;
+    color: #000;
     background: transparent;
     border: 1px solid transparent;
 }
@@ -153,7 +157,7 @@
     margin: 0;
     font-size: 0.75rem;
     line-height: 1.66;
-    color:rgb(124, 124, 124) !important;
+    color:rgb(54 54 54) !important;
 
 }
 .summary_text{
@@ -271,6 +275,19 @@
     }
 
 }
+
+
+main {
+    background: #ebebeb;
+}
+  .bg-white {
+    background-color: #ebebeb !important;
+}
+  
+.col-12.col-md-12.d-none.d-md-block {
+    background: #ebebeb;
+}
+ 
 </style>
 <div class="container step-wrapper md-py-3">
     <div class="container px-0 mr-auto ml-auto row align-items-center justify-content-between px-md-0 px-sm-0 booking_step_container" style="background-color: rgb(250, 250, 250);">
