@@ -57,7 +57,12 @@
 
 <body>
     @php
-        $hideHeaderItems = request()->is('booking/point-to-point') || request()->is('booking/point-to-point/*');
+        $hideHeaderItems = request()->is('booking/point-to-point')
+            || request()->is('booking/point-to-point/*')
+            || request()->is('user-login/*/*')
+            || request()->is('submit-passengerInfo')
+            || request()->is('submit-passengerInfo/*')
+            || request()->is('bookRide');
     @endphp
     <header class="py-15 py-lg-20">
         <div class="ah-container position-relative">
