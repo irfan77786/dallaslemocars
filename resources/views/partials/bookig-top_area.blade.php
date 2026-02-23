@@ -207,6 +207,33 @@
         overflow-x:auto;
         -webkit-overflow-scrolling: touch;
     }
+    
+    
+ 
+    
+        .step-title {
+    font-size: 20px!important;
+ 
+}
+
+    .d-md-none.mb-3 {
+        margin-bottom: 9px !important;
+        margin-top: 10px !important;
+ 
+}
+
+ 
+    .container.step-wrapper.md-py-3 {
+    display: none;
+}
+    
+footer.footer.bg-blue {
+    display: none !important;
+}
+
+     
+
+
 
     .mob_stepper_container{
         display:flex;

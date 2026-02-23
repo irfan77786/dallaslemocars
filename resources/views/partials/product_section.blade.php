@@ -7,7 +7,7 @@ $features = [
         'tooltip' => 'Extra waiting time will be charged after the free waiting period as follows: Sedan: $1.00 per minute, SUV and Business SUV: $1.50 per minute, Sprinter and Stretch Limo: $2.00 per minute.'
     ],
     ['text' => 'Cancellation policy', 'icon' => 'bi-x-circle-fill'],
-    ['text' => 'bottled water', 'icon' => 'bi-cup-fill'],
+    ['text' => 'bottled water', 'icon' => 'fa-solid fa-bottle-water'],
 ];
 
 $desktopHiddenFeatureTexts = ['bottled water'];
@@ -1004,7 +1004,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
                 <div class="mbs-features-grid">
                     @foreach($features as $f)
                         <div class="mbs-feature">
-                            <i class="bi {{ $f['icon'] }}"></i>
+                            <i class=" {{ $f['icon'] }}"></i>
                             <span>{{ $f['text'] }}</span>
 
                             @if(isset($f['tooltip']))

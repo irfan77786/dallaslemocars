@@ -68,8 +68,28 @@
             padding-top: 10px !important;
             padding-bottom: 10px !important;
         }
+        
+
+    .d-md-none.mb-3 {
+        margin-bottom: 9px !important;
+        margin-top: 10px !important;
+ 
+}
+
+  .container.step-wrapper.md-py-3 {
+    display: none;
+}
+    
+    
+footer.footer.bg-blue {
+    display: none !important;
+}
+
     }
 
+ 
+    
+    
     .rlx-select .rlx-value {
         pointer-events: none;
         display: block;
@@ -213,6 +233,15 @@
         }
     }
 
+    /* Hide native date/time picker icon (2nd icon) */
+    input[type="date"]::-webkit-calendar-picker-indicator,
+    input[type="time"]::-webkit-calendar-picker-indicator {
+        display: none !important;
+        -webkit-appearance: none;
+    }
+    
+    
+    
     @media (min-width: 768px) {
         .rlx-select .rlx-trigger {
             min-height: 54px !important;
@@ -222,13 +251,25 @@
             display: flex;
             align-items: center;
         }
+    
+
+
     }
-    /* Hide native date/time picker icon (2nd icon) */
-    input[type="date"]::-webkit-calendar-picker-indicator,
-    input[type="time"]::-webkit-calendar-picker-indicator {
-        display: none !important;
-        -webkit-appearance: none;
+    
+    
+       @media (min-width: 768px) {
+        .rlx-select.bordered .rlx-trigger {
+            min-height: auto !important; /* Override the desktop min-height for floating inputs */
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
+        }
+        
+
+  
+
     }
+    
+    
     </style>
 
     @include('partials.bookig-top_area')
@@ -1502,3 +1543,5 @@
     </script>
     @endsection
 @endsection
+
+ 

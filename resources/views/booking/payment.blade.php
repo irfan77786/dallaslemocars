@@ -88,6 +88,35 @@
         margin-top: 20px;
         margin-bottom: 10px;
     }
+    
+    @media (max-width: 768px) {
+      footer.footer.bg-blue {
+    display: none !important;
+}
+
+        .container.step-wrapper.md-py-3 {
+    display: none !important;
+}
+
+.d-md-none.mb-3 {
+    margin-bottom: 9px !important;
+    margin-top: 10px !important;
+}
+
+
+.p-3.mt-3.rounded-lg.shadow-sm.bg-light {
+    margin-top: 0px !important;
+     padding-top: 0px !important;
+}
+
+
+
+    }
+    
+    footer.footer.bg-blue {
+    display: block;
+}
+
     </style>
 @endsection
 
@@ -333,4 +362,4 @@ form.addEventListener('submit', async function (event) {
         </div>
     </div>
 </div>
-@endsection
+ @endsection
