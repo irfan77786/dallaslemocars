@@ -109,8 +109,26 @@
      padding-top: 0px !important;
 }
 
+.mobile-card-methods {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
 
+.mobile-card-methods .payment-methods {
+    margin-left: 0 !important;
+    max-width: 220px;
+}
 
+#pricing-area-wrapper .payment_method_info_box {
+    display: none !important;
+}
+
+    }
+    @media (min-width: 769px) {
+        .mobile-card-methods {
+            display: none;
+        }
     }
     
     footer.footer.bg-blue {
@@ -194,6 +212,10 @@
     <div class="mb-3 floating-bordered-input position-relative card-element-wrapper">
         <span class="floating-label">Card Number</span>
         <div id="card-element" class="form-control"></div>
+    </div>
+
+    <div class="mobile-card-methods">
+        <img src="{{ asset('assets/img/credit-cards.png') }}" alt="Payment methods" class="img-fluid payment-methods">
     </div>
 
     <div id="card-errors" class="mb-2 text-danger small"></div>
