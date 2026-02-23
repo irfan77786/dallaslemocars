@@ -63,12 +63,13 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
 }
 
 .vehical-card.selected {
-    border-color: #e52c43 !important;
-    background-color: #fff !important;
+    border-color: #ff6c00 !important;
+    background-color: #fff7f2 !important;
 }
 
-.vehical-card.selected .tick-overlay {
-    display: block;
+.vehical-card.selected .collapseCardBody,
+.vehical-card.selected .feature_items_cont {
+    background-color: #fff7f2 !important;
 }
 
 .tick-overlay {
@@ -76,13 +77,25 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
     right: 20px;
     top: 18px;
     font-size: 1.5rem;
-    display: none; /* hidden by default */
+    display: block;
 }
 
 .tick-overlay i {
     background: linear-gradient(90deg, #e52c43, #ff6c00);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.tick-overlay .tick-filled {
+    display: none;
+}
+
+.vehical-card.selected .tick-overlay .tick-circle {
+    display: none;
+}
+
+.vehical-card.selected .tick-overlay .tick-filled {
     display: inline-block;
 }
 
@@ -938,7 +951,8 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
                         </div>
                         <!-- Tick icon -->
                         <div class="tick-overlay">
-                            <i class="bi bi-check-circle-fill"></i>
+                            <i class="bi bi-circle tick-circle"></i>
+                            <i class="bi bi-check-circle-fill tick-filled"></i>
                         </div>
                     </div>
                 </div>
@@ -1046,10 +1060,32 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
         if (!target) return;
 
         const expandArrow = card.querySelector('.featureExpandArrow');
+        const allCards = document.querySelectorAll('.selectable-card');
 
         // Use aria-expanded as the source of truth for the desired state
         const isExpanded = card.getAttribute('aria-expanded') === 'true';
         const nextState = !isExpanded;
+
+        if (nextState) {
+            allCards.forEach(function(otherCard) {
+                if (otherCard === card) return;
+
+                otherCard.setAttribute('aria-expanded', 'false');
+                const otherArrow = otherCard.querySelector('.featureExpandArrow');
+                if (otherArrow) otherArrow.style.transform = 'rotate(0deg)';
+
+                const otherTargetId = 'collapse-' + otherCard.getAttribute('data-id');
+                const otherTarget = document.getElementById(otherTargetId);
+                if (!otherTarget) return;
+
+                if (typeof $ !== 'undefined' && $(otherTarget).collapse) {
+                    $(otherTarget).collapse('hide');
+                } else {
+                    otherTarget.classList.remove('show');
+                    otherTarget.style.display = 'none';
+                }
+            });
+        }
 
         // Update aria-expanded immediately
         card.setAttribute('aria-expanded', nextState ? 'true' : 'false');
@@ -1084,6 +1120,10 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
         // Handle Card Clicks: anywhere on card toggles features (except Continue button)
         var cards = document.querySelectorAll('.selectable-card');
         cards.forEach(function(card){
+            if (!card.hasAttribute('aria-expanded')) {
+                card.setAttribute('aria-expanded', 'false');
+            }
+
             card.addEventListener('click', function(e){
                 // Continue button has its own link – do not toggle
                 if(e.target.closest('.vehicle-continue-wrap') || e.target.closest('.vehicle-continue-btn')) return;
