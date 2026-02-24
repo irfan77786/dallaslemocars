@@ -109,6 +109,13 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
     font-size: 0.9rem;
 }
 
+.vehicle-continue-btn.disabled,
+.vehicle-continue-btn[aria-disabled="true"] {
+    opacity: 0.6;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
 /* ==== Vehicle Image ==== */
 .vehicle_img {
     max-height: 100px;
@@ -878,7 +885,17 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
             @foreach ($data as $key => $value)
             <div class="row no-gutters">
                 <div class="col-12">
-                    <div class="vehical-card selectable-card" data-id="{{ $value['id'] }}">
+                    @php
+                        $isHourlyHire = (session('service_type') === 'hourlyHire') || (($service_type ?? null) === 'hourlyHire');
+                        $selectedHours = (int) session('select_hours', 0);
+                        $passengerCount = (int) ($value['number_of_passengers'] ?? 0);
+                        $requiredMinHours = 0;
+                        if ($isHourlyHire && $passengerCount > 18) {
+                            $requiredMinHours = $passengerCount >= 56 ? 5 : 4;
+                        }
+                        $requiresMoreHours = $requiredMinHours > 0 && $selectedHours < $requiredMinHours;
+                    @endphp
+                    <div class="vehical-card selectable-card" data-id="{{ $value['id'] }}" data-requires-more-hours="{{ $requiresMoreHours ? '1' : '0' }}" data-required-hours="{{ $requiredMinHours }}">
                         <div class="mb-2 d-flex align-items-center justify-content-between w-100">
                             <!-- Vehicle Image -->
                             <div class="vehicle-img-container d-flex align-items-center">
@@ -899,19 +916,27 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
                             <div class="mr-2 text-right car-price-container">
                                 @php $vehicleDistance = $distance[$value['id']] ?? null; @endphp
                                 @if($vehicleDistance && empty($vehicleDistance['error']))
-                                    @php
-                                        $price = number_format($vehicleDistance['price'], 2);
-                                        [$whole, $decimal] = explode('.', $price);
-                                    @endphp
                                     <div class="car-price">
-                                        <h4 class="mt-4 mb-1">
-                                            <span class="pricing_summary_price">${{ $whole }}<span class="price-decimal">.{{ $decimal }}</span></span>
-                                        </h4>
+                                        @if($requiresMoreHours)
+                                            <h4 class="mt-4 mb-1">
+                                                <span class="pricing_summary_price">Min. {{ $requiredMinHours }} hrs</span>
+                                            </h4>
+                                        @else
+                                            @php
+                                                $price = number_format($vehicleDistance['price'], 2);
+                                                [$whole, $decimal] = explode('.', $price);
+                                            @endphp
+                                            <h4 class="mt-4 mb-1">
+                                                <span class="pricing_summary_price">${{ $whole }}<span class="price-decimal">.{{ $decimal }}</span></span>
+                                            </h4>
+                                        @endif
                                     </div>
-                                    <div class="price-gratuity">
-                                        <i class="bi bi-check-circle-fill"></i>
-                                        <span>Gratuity included</span>
-                                    </div>
+                                    @unless($requiresMoreHours)
+                                        <div class="price-gratuity">
+                                            <i class="bi bi-check-circle-fill"></i>
+                                            <span>Gratuity included</span>
+                                        </div>
+                                    @endunless
                                 @else
                                     <div class="text-danger font-weight-bold">Fare calculation failed</div>
                                 @endif
@@ -937,9 +962,10 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
                                         </div>
                                     @endforeach
                                     <div class="vehicle-continue-wrap">
-                                        <a href="{{ url('/user-login/' . $value['id'] . '/' . $continuePrice) }}"
-                                        class="btn btn-primary vehicle-continue-btn"
-                                        onclick="event.stopPropagation()">
+                                        <a href="{{ $requiresMoreHours ? 'javascript:void(0)' : url('/user-login/' . $value['id'] . '/' . $continuePrice) }}"
+                                        class="btn btn-primary vehicle-continue-btn {{ $requiresMoreHours ? 'disabled' : '' }}"
+                                        aria-disabled="{{ $requiresMoreHours ? 'true' : 'false' }}"
+                                        onclick="{{ $requiresMoreHours ? 'event.preventDefault(); event.stopPropagation(); return false;' : 'event.stopPropagation()' }}">
                                             Continue
                                         </a>
                                     </div>
@@ -1184,6 +1210,9 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
             var priceNumEl = content.querySelector('.mbs-price-number');
             if (priceNumEl) { priceNumEl.textContent = priceText; }
 
+            var requiresMoreHours = card.dataset.requiresMoreHours === '1';
+            var requiredHours = card.dataset.requiredHours || '5';
+
             backdrop.style.display = 'block';
             sheet.style.display = 'block';
             requestAnimationFrame(function(){
@@ -1198,7 +1227,22 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
 
             var selectBtn = content.querySelector('.mbs-select');
             if (selectBtn) {
+                if (requiresMoreHours) {
+                    selectBtn.disabled = true;
+                    selectBtn.style.opacity = '0.6';
+                    selectBtn.style.cursor = 'not-allowed';
+                    selectBtn.innerHTML = 'Min. ' + requiredHours + ' hrs';
+                } else {
+                    selectBtn.disabled = false;
+                    selectBtn.style.opacity = '';
+                    selectBtn.style.cursor = '';
+                    selectBtn.innerHTML = 'SELECT VEHICLE <i class="bi bi-caret-right-fill"></i>';
+                }
+
                 selectBtn.onclick = function(){
+                    if (requiresMoreHours) {
+                        return;
+                    }
                     var id = card.dataset.id;
                     var priceEl = card.querySelector('.pricing_summary_price');
                     var priceMatch = (priceEl && (priceEl.textContent || '')).match(/[0-9]+(?:\.[0-9]+)?/);
