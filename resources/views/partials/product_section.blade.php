@@ -890,7 +890,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
                         $selectedHours = (int) session('select_hours', 0);
                         $passengerCount = (int) ($value['number_of_passengers'] ?? 0);
                         $requiredMinHours = 0;
-                        if ($isHourlyHire && $passengerCount > 18) {
+                        if ($isHourlyHire && $passengerCount > 17) {
                             $requiredMinHours = $passengerCount >= 56 ? 5 : 4;
                         }
                         $requiresMoreHours = $requiredMinHours > 0 && $selectedHours < $requiredMinHours;
