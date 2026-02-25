@@ -1,11 +1,11 @@
 @extends('master')
 
 @section('content')
-    <section class="home-banner-section position-relative py-60 py-sm-70 py-md-80 py-lg-100"
-        style="background-image: url('{{ asset('assets/new_theme/img/banner-1.webp') }}'); background-size: cover; background-position: center;">
-        <div class="container position-relative">
-            <div class="row">
-                <div class="col-12 col-md-10 col-lg-8 col-xl-6 text-center text-md-start">
+    <section class="home-banner-section">
+        <div class="hero-banner-container py-60 ah-container position-relative py-sm-70 py-md-80 py-lg-100"
+             style="z-index: 2; background-image: url('{{ asset('assets/new_theme/img/banner-1.webp') }}'); background-size: cover; background-position: center;">
+            <div class="row" style="pointer-events: none;">
+                <div class="banner-text-content col-12 col-md-10 col-lg-8 col-xl-6 d-flex flex-column justify-content-center text-center text-md-start" style="pointer-events: auto; position: relative; z-index: 0;">
                     <h1 class="h1 fw-bold text-white mb-15">Contact Us – Dallas Black Cars Service</h1>
                     <p class="font-lg fw-medium text-white mb-0">Request Instant Pricing for Black Car, SUV, or Group Travel in DFW.</p>
                     <strong class="font-base text-white fw-semibold d-block my-15">24/7 Service Available, Click to Call Now!</strong>

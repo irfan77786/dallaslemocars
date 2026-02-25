@@ -1,10 +1,10 @@
 @extends('master')
 @section('content')
 <section class="home-banner-section">
-    <div class="py-60 ah-container position-relative py-sm-70 py-md-80 py-lg-100"
-        style="background-image: url(new_assets/assets/banner-4.jpg);">
-        <div class="row">
-            <div class="text-center col-12 col-md-10 col-lg-8 col-xl-6 text-md-start">
+    <div class="hero-banner-container py-60 ah-container position-relative py-sm-70 py-md-80 py-lg-100"
+         style="z-index: 2; background-image: url('{{ asset('assets/new_theme/img/banner-1.webp') }}'); background-size: cover; background-position: center;">
+        <div class="row" style="pointer-events: none;">
+            <div class="banner-text-content col-12 col-md-10 col-lg-8 col-xl-6 d-flex flex-column justify-content-center text-center text-md-start" style="pointer-events: auto; position: relative; z-index: 0;">
                 <h1 class="text-white h1 fw-bold mb-15">Privacy Policy – Black Car Service Dallas</h1>
                 <p class="mb-0 text-white font-lg fw-medium">Request Instant Pricing for Black Car, SUV, or Group Travel in DFW.</p>
                 <span class="my-2 text-white font-base d-block">24/7 Service Available – <strong

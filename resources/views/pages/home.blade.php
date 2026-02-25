@@ -10,8 +10,8 @@
     </section>
 
     <section class="home-banner-section">
-        <div id="hero-banner-container" class="py-60 ah-container position-relative py-sm-70 py-md-80 py-lg-100"
-             style="z-index: 2; background-image: url('{{ asset('assets/new_theme/img/banner-1.webp') }}');">
+        <div id="hero-banner-container" class="hero-banner-container py-60 ah-container position-relative py-sm-70 py-md-80 py-lg-100"
+             style="z-index: 2; background-image: url('{{ asset('assets/new_theme/img/banner-1.webp') }}'); background-size: cover; background-position: center;">
             <!-- Map Container (Initially hidden, shows up when location is selected) -->
             <div id="map" class="position-absolute w-100 h-100" style="top:0; left:0; z-index: 1; display:none;">
             </div>
@@ -37,49 +37,6 @@
                 </div>
             </div>
         </div>
-
-        <style>
-            @media (max-width: 767px) {
-                #hero-banner-container {
-                    min-height: 300px !important;
-                    height: 300px !important;
-                    background-size: cover !important;
-                    background-position: center center !important;
-                    background-repeat: no-repeat !important;
-                    display: flex !important;
-                    align-items: center !important;
-                    justify-content: center !important;
-                }
-                #hero-banner-container .row {
-                    width: 100%;
-                    margin: 0;
-                    justify-content: center !important;
-                    align-items: center !important;
-                }
-                #home-text-content {
-                    justify-content: center !important;
-                    align-items: center !important;
-                    text-align: center !important;
-                }
-                #home-text-content h1 {
-                    text-align: center !important;
-                    white-space: nowrap !important;
-                }
-            }
-            @media (min-width: 768px) {
-                #hero-banner-container {
-                    min-height: 570px;
-                }
-                #home-text-content {
-                    margin-top: 130px;
-                }
-                .search-form-wrapper-desktop {
-                    position: absolute;
-                    width: 100%;
-                    z-index: 10;
-                }
-            }
-        </style>
     </section>
 
     <section class="luxury-cars-section bg-gray pb-40 pb-sm-60 py-md-40">
