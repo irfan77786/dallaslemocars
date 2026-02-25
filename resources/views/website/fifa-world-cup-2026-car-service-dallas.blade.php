@@ -2,7 +2,7 @@
 @section('content')
     <section class="home-banner-section">
         <div id="hero-banner-container" class="py-60 ah-container position-relative py-sm-70 py-md-80 py-lg-100"
-             style="z-index: 2; background-image: url('{{ asset('new_assets/assets/banner-4.jpg') }}');">
+             style="z-index: 2; background-image: url('https://dallaslimoandblackcars.com/img/dallas-limo-and-black-cars-banner.webp');">
             <!-- Map Container (Initially hidden, shows up when location is selected) -->
             <div id="map" class="position-absolute w-100 h-100" style="top:0; left:0; z-index: 1; display:none;">
             </div>

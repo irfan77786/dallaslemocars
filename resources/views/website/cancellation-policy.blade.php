@@ -2,7 +2,7 @@
 @section('content')
 <section class="home-banner-section">
     <div class="py-60 ah-container position-relative py-sm-70 py-md-80 py-lg-100"
-        style="background-image: url(new_assets/assets/banner-4.jpg);">
+        style="background-image: url('https://dallaslimoandblackcars.com/img/dallas-limo-and-black-cars-banner.webp');">
         <div class="row">
             <div class="text-center col-12 col-md-10 col-lg-8 col-xl-6 text-md-start">
                 <h1 class="text-white h1 fw-bold mb-15">Cancellation Policy – Black Car Service Dallas</h1>
