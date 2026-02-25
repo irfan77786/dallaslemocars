@@ -9,34 +9,78 @@
         </div>
     </section>
 
-    <div class="container">
-        <section class="home-banner-section position-relative pt-40 pt-sm-60 py-md-70 d-flex align-items-center rounded-4 overflow-hidden">
+    <section class="home-banner-section">
+        <div id="hero-banner-container" class="py-60 ah-container position-relative py-sm-70 py-md-80 py-lg-100"
+             style="z-index: 2; background-image: url('{{ asset('assets/new_theme/img/banner-1.webp') }}');">
             <!-- Map Container (Initially hidden, shows up when location is selected) -->
-            <div id="map" class="position-absolute w-100 h-100" style="top:0; left:0; z-index: 10; display:none;">
+            <div id="map" class="position-absolute w-100 h-100" style="top:0; left:0; z-index: 1; display:none;">
             </div>
 
-            <div class="container position-relative">
-                <div class="row">
-                    <div id="home-text-content" class="col-12 col-md-6 d-flex flex-column justify-content-center" style="position: relative; z-index: 5;">
-                        <h1 class="h1 fw-bold text-white mb-15">Dallas Black Car Service - On Time, Every Ride</h1>
-                        <p class="font-lg fw-medium text-white mb-0 justify-class">Book reliable black car transportation for airport transfers, corporate travel, and special events across Dallas–Fort Worth. Our licensed chauffeurs are available 24/7, ensuring punctual pickups and a smooth, stress-free ride to DFW Airport, Love Field, and beyond.</p>
-
-                        <p class="font-md text-white d-flex align-items-center">
-                            Call Now: <a href="tel:(214) 897-8056" class="fw-bold font-lg theme-color mx-2 text-underline">(214) 897-8056</a>
+            <div class="row" style="pointer-events: none;">
+                <div id="home-text-content" class="col-12 col-md-6 d-flex flex-column justify-content-center" style="pointer-events: auto; position: relative; z-index: 0;">
+                    <h1 class="text-white h2 fw-bold mb-15">Dallas Black Car Service - On Time, Every Ride</h1>
+                    <div class="d-none d-md-block">
+                        <p class="text-white font-lg fw-medium mb-30">Book reliable black car transportation for airport transfers, corporate travel, and special events across Dallas-Fort Worth. Our licensed chauffeurs are available 24/7, ensuring punctual pickups and a smooth, stress-free ride to DFW Airport, Love Field, and beyond.</p>
+                        <span class="text-white font-base">24/7 Service Available - <strong class="font-lg fw-semibold">Click to Call
+                                Now</strong></span>
+                        <p class="text-white font-base d-flex align-items-center mb-30 mb-md-0">
+                            Call: <a href="tel:+12148978056" class="mx-2 fw-bold font-lg theme-color">+1
+                                214-897-8056</a>
                         </p>
                     </div>
-                    <div class="col-12 col-md-6 d-none d-md-block" style="position: relative; z-index: 20;">
-                        <div class="distance-form-holder">
-                            @include('partials.search', ['id_suffix' => ''])
-                        </div>
+                </div>
+                <div class="d-none col-12 col-md-6 d-md-block" style="pointer-events: auto; position: relative; z-index: 2;">
+                    <!-- Booking Form -->
+                    <div class="search-form-wrapper-desktop">
+                        @include('partials.search', ['id_suffix' => ''])
                     </div>
                 </div>
             </div>
-            <span class="position-absolute bg-image" id="hide_on_map">
-                <img src="{{ asset('assets/new_theme/img/banner-1.webp') }}" alt="" class="img-fluid w-100 h-100" fetchpriority="high">
-            </span>
-        </section>
-    </div>
+        </div>
+
+        <style>
+            @media (max-width: 767px) {
+                #hero-banner-container {
+                    min-height: 300px !important;
+                    height: 300px !important;
+                    background-size: cover !important;
+                    background-position: center center !important;
+                    background-repeat: no-repeat !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                }
+                #hero-banner-container .row {
+                    width: 100%;
+                    margin: 0;
+                    justify-content: center !important;
+                    align-items: center !important;
+                }
+                #home-text-content {
+                    justify-content: center !important;
+                    align-items: center !important;
+                    text-align: center !important;
+                }
+                #home-text-content h1 {
+                    text-align: center !important;
+                    white-space: nowrap !important;
+                }
+            }
+            @media (min-width: 768px) {
+                #hero-banner-container {
+                    min-height: 570px;
+                }
+                #home-text-content {
+                    margin-top: 130px;
+                }
+                .search-form-wrapper-desktop {
+                    position: absolute;
+                    width: 100%;
+                    z-index: 10;
+                }
+            }
+        </style>
+    </section>
 
     <section class="luxury-cars-section bg-gray pb-40 pb-sm-60 py-md-40">
         <div class="container">

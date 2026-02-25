@@ -8,28 +8,35 @@
 
     {{-- SEO Meta Tags --}}
     <title>{{ $seo['title'] ?? 'DALLAS LIMOS AND BLACK CAR SERVICE' }}</title>
-    <meta name="description" content="{{ $seo['description'] ?? 'Premium black car and limousine service in Dallas, Texas. Luxury transportation for airport transfers, corporate events, and special occasions.' }}">
-    <meta name="keywords" content="{{ $seo['keywords'] ?? 'Dallas black car service, Dallas limo service, luxury car service Dallas, airport transportation Dallas' }}">
+    <meta name="description"
+        content="{{ $seo['description'] ?? 'Premium black car and limousine service in Dallas, Texas. Luxury transportation for airport transfers, corporate events, and special occasions.' }}">
+    <meta name="keywords"
+        content="{{ $seo['keywords'] ?? 'Dallas black car service, Dallas limo service, luxury car service Dallas, airport transportation Dallas' }}">
 
     {{-- Open Graph Meta Tags --}}
     <meta property="og:title" content="{{ $seo['og_title'] ?? $seo['title'] ?? 'DALLAS LIMOS AND BLACK CAR SERVICE' }}">
-    <meta property="og:description" content="{{ $seo['og_description'] ?? $seo['description'] ?? 'Premium black car and limousine service in Dallas, Texas.' }}">
+    <meta property="og:description"
+        content="{{ $seo['og_description'] ?? $seo['description'] ?? 'Premium black car and limousine service in Dallas, Texas.' }}">
     <meta property="og:image" content="{{ $seo['og_image'] ?? asset('assets/new_theme/img/logo.png') }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
 
     {{-- Twitter Card Meta Tags --}}
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ $seo['og_title'] ?? $seo['title'] ?? 'DALLAS LIMOS AND BLACK CAR SERVICE' }}">
-    <meta name="twitter:description" content="{{ $seo['og_description'] ?? $seo['description'] ?? 'Premium black car and limousine service in Dallas, Texas.' }}">
+    <meta name="twitter:title"
+        content="{{ $seo['og_title'] ?? $seo['title'] ?? 'DALLAS LIMOS AND BLACK CAR SERVICE' }}">
+    <meta name="twitter:description"
+        content="{{ $seo['og_description'] ?? $seo['description'] ?? 'Premium black car and limousine service in Dallas, Texas.' }}">
     <meta name="twitter:image" content="{{ $seo['og_image'] ?? asset('assets/new_theme/img/logo.png') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" />
-    <link rel="stylesheet" href="{{ asset('assets/new_theme/css/slick.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/new_theme/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/swiper-min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <!-- Old Custom CSS (for form styles) -->
@@ -45,7 +52,7 @@
 
     <!-- Preload critical JavaScript files -->
     <link rel="preload" href="{{ asset('assets/js/custom.js') }}" as="script">
-    <link rel="preload" href="{{ asset('assets/new_theme/js/jquery.js') }}" as="script">
+    <link rel="preload" href="{{ asset('assets/js/jquery.js') }}" as="script">
 
     <!-- Preload logo image for faster rendering -->
     <link rel="preload" href="{{ asset('assets/new_theme/img/logo.png') }}" as="image">
@@ -85,11 +92,13 @@
                                     <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="/">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link {{ request()->is('about-us') ? 'active' : '' }}" href="/about-us">About us</a>
+                                    <a class="nav-link {{ request()->is('about-us') ? 'active' : '' }}"
+                                        href="/about-us">About us</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle {{ request()->is('services*') ? 'active' : '' }}" href="#" id="navbarDropdown" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle {{ request()->is('services*') ? 'active' : '' }}"
+                                        href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
                                         Our Service
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -107,7 +116,8 @@
                                         <li><a class="dropdown-item" href="/services/luxury-van-rental-dallas">Luxury
                                                 van
                                                 rental</a></li>
-                                        <li><a class="dropdown-item" href="/services/private-car-service-in-dallas">Private
+                                        <li><a class="dropdown-item"
+                                                href="/services/private-car-service-in-dallas">Private
                                                 car
                                                 service</a></li>
                                         <li><a class="dropdown-item" href="/services/private-aviation-dallas">Private
@@ -115,15 +125,18 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link {{ request()->is('booking') ? 'active' : '' }}" href="/booking">Book
+                                    <a class="nav-link {{ request()->is('booking') ? 'active' : '' }}"
+                                        href="/booking">Book
                                         Now</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link {{ request()->is('our-fleet') ? 'active' : '' }}" href="/our-fleet">Our
+                                    <a class="nav-link {{ request()->is('our-fleet') ? 'active' : '' }}"
+                                        href="/our-fleet">Our
                                         Fleet</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link {{ request()->is('fifa-world-cup-2026-car-service-dallas') ? 'active' : '' }}" href="/fifa-world-cup-2026-car-service-dallas">FIFA
+                                    <a class="nav-link {{ request()->is('fifa-world-cup-2026-car-service-dallas') ? 'active' : '' }}"
+                                        href="/fifa-world-cup-2026-car-service-dallas">FIFA
                                         World Cup 26</a>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -181,7 +194,8 @@
                                     Service</a></li>
                             <li><a href="/services/private-car-service-dallas">Private
                                     car service</a></li>
-                            <li><a href="/services/luxury-mercedes-sprinter-service-dallas-texas">Luxury Sprinter Service</a></li>
+                            <li><a href="/services/luxury-mercedes-sprinter-service-dallas-texas">Luxury Sprinter
+                                    Service</a></li>
                             <li><a href="/city-to-city-rides">City-to-city-rides</a>
                             </li>
                             <li><a href="/limousine-service-dallas">Limousine
@@ -271,23 +285,207 @@
     <!-- Load custom.js immediately after jQuery (contains map functions) -->
     <script src="{{ asset('assets/js/custom.js') }}"></script>
 
+    {{-- <script>
+        (function() {
+            function isAirportText(text) {
+                if (!text) return false;
+                const value = String(text).toLowerCase();
+                return value.includes('airport') || value.includes('airfield') || value.includes('terminal');
+            }
+
+            function createSuggestionButton(prediction, onSelect) {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'suggestion-item';
+                button.textContent = prediction.description;
+                button.addEventListener('click', function() {
+                    onSelect(prediction);
+                });
+                return button;
+            }
+
+            function setupAutocompleteForInput(config, autocompleteService, placesService) {
+                const selector = 'input[id^="' + config.inputPrefix + '"]';
+                const inputs = document.querySelectorAll(selector);
+
+                inputs.forEach(function(input) {
+                    if (input.dataset.autocompleteBound === '1') return;
+                    input.dataset.autocompleteBound = '1';
+
+                    const suffix = input.id.slice(config.inputPrefix.length);
+                    const suggestionsBox = document.getElementById(config.suggestionsPrefix + suffix);
+                    const airportField = document.getElementById(config.airportPrefix + suffix);
+                    let debounceTimer = null;
+
+                    if (!suggestionsBox) return;
+
+                    function clearSuggestions() {
+                        suggestionsBox.innerHTML = '';
+                        suggestionsBox.style.display = 'none';
+                    }
+
+                    function showSuggestions() {
+                        suggestionsBox.style.display = 'block';
+                    }
+
+                    function selectPrediction(prediction) {
+                        input.value = prediction.description;
+                        if (airportField) {
+                            airportField.value = isAirportText(prediction.description) ? '1' : '0';
+                        }
+
+                        placesService.getDetails(
+                            {
+                                placeId: prediction.place_id,
+                                fields: ['formatted_address', 'name', 'geometry', 'address_components']
+                            },
+                            function(place) {
+                                if (config.onPlaceResolved) {
+                                    config.onPlaceResolved(place || null);
+                                }
+                            }
+                        );
+
+                        clearSuggestions();
+                    }
+
+                    input.addEventListener('input', function() {
+                        const query = input.value.trim();
+                        clearTimeout(debounceTimer);
+
+                        if (airportField && query.length === 0) {
+                            airportField.value = '0';
+                        }
+
+                        if (query.length < 2) {
+                            clearSuggestions();
+                            return;
+                        }
+
+                        debounceTimer = setTimeout(function() {
+                            autocompleteService.getPlacePredictions(
+                                {
+                                    input: query,
+                                    componentRestrictions: { country: 'us' },
+                                    types: ['geocode']
+                                },
+                                function(predictions, status) {
+                                    clearSuggestions();
+
+                                    if (status !== google.maps.places.PlacesServiceStatus.OK || !predictions || !predictions.length) {
+                                        return;
+                                    }
+
+                                    predictions.slice(0, 6).forEach(function(prediction) {
+                                        suggestionsBox.appendChild(
+                                            createSuggestionButton(prediction, selectPrediction)
+                                        );
+                                    });
+
+                                    showSuggestions();
+                                }
+                            );
+                        }, 250);
+                    });
+
+                    input.addEventListener('focus', function() {
+                        if (input.value.trim().length >= 2) {
+                            input.dispatchEvent(new Event('input'));
+                        }
+                    });
+
+                    document.addEventListener('click', function(event) {
+                        if (!suggestionsBox.contains(event.target) && event.target !== input) {
+                            clearSuggestions();
+                        }
+                    });
+                });
+            }
+
+            function bindAutocompleteInputs() {
+                if (!window.google || !google.maps || !google.maps.places) return;
+
+                const autocompleteService = new google.maps.places.AutocompleteService();
+                const placesService = new google.maps.places.PlacesService(document.createElement('div'));
+
+                const fieldConfigs = [
+                    {
+                        inputPrefix: 'pickup-location-hourly',
+                        suggestionsPrefix: 'pickup-location-hourly-suggestions',
+                        airportPrefix: 'is-airport-hourly',
+                        onPlaceResolved: function(place) {
+                            window.pickupPlaceHourly = place;
+                        }
+                    },
+                    {
+                        inputPrefix: 'pickup-location',
+                        suggestionsPrefix: 'pickup-suggestions',
+                        airportPrefix: 'is-airport',
+                        onPlaceResolved: function(place) {
+                            window.pickupPlacePoint = place;
+                        }
+                    },
+                    {
+                        inputPrefix: 'dropoff-location',
+                        suggestionsPrefix: 'dropoff-suggestions',
+                        airportPrefix: 'is-airport-dropoff',
+                        onPlaceResolved: function(place) {
+                            window.dropoffPlacePoint = place;
+                        }
+                    }
+                ];
+
+                fieldConfigs.forEach(function(config) {
+                    setupAutocompleteForInput(config, autocompleteService, placesService);
+                });
+            }
+
+            window.initAutocomplete = function() {
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', bindAutocompleteInputs, { once: true });
+                    return;
+                }
+
+                bindAutocompleteInputs();
+            };
+
+            document.addEventListener('DOMContentLoaded', function() {
+                if (window.google && google.maps && google.maps.places) {
+                    bindAutocompleteInputs();
+                }
+            });
+        })();
+    </script> --}}
+
     <!-- Google Maps - Load after custom.js so initAutocomplete can find the functions -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUqn8Dg3GICSzhyvw7DjXXHkyoGMCoTpM&libraries=places&callback=initAutocomplete"></script>
+    <script src="{{ asset('assets/js/jquery.js') }}"></script>
+    <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
+
+    <!-- Load custom.js immediately after jQuery (contains map functions) -->
+    <script src="{{ asset('assets/js/custom.js') }}?v={{ filemtime(public_path('assets/js/custom.js')) }}"></script>
+
+    <!-- Google Maps - Load after custom.js so initAutocomplete can find the functions -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google_maps.api_key') }}&libraries=places&callback=initAutocomplete">
+    </script>
 
     <!-- Other Scripts - Can be deferred -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="{{ asset('assets/js/bootstrap-min.js') }}" defer></script>
+    <script src="{{ asset('assets/js/swiper-min.js') }}" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js" defer></script>
-    <script src="{{ asset('assets/new_theme/js/slick-min.js') }}" defer></script>
-    <script src="{{ asset('assets/new_theme/js/custom.js') }}" defer></script>
+    <script src="{{ asset('assets/js/slick-min.js') }}" defer></script>
+    <script src="{{ asset('assets/js/custom_new.js') }}" defer></script>
 
     <!-- Date/Time Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment-with-locales.min.js" defer></script>
     <script src="{{ asset('assets/js/bootstrap-material-datetimepicker.js') }}" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.js" defer></script>
-
-      <script>
-            window.dataLayer = window.dataLayer || [];
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
             function gtag() {
             dataLayer.push(arguments);
@@ -302,7 +500,7 @@
             }
             originalWarn.apply(console, [msg, ...args]);
             };
-        </script>
+    </script>
     @yield('scripts')
 </body>
 

@@ -4,7 +4,7 @@
 @endphp
 <div class="search-tab-wrap">
     <!-- Nav tabs -->
-    <ul class="nav nav-tabs" style="padding-bottom: 20px;">
+    <ul class="nav nav-tabs" style="padding-bottom: 8px;">
         <li class="nav-item" style="flex: 1">
             <a class="nav-link {{ !$isHourly ? 'active' : 'inactive-tab' }} text-center pt-0 sformlink" style="font-size: 12px !important; font-weight: 600;" data-bs-toggle="tab"
                 href="#place{{ $tabSuffix }}">POINT TO POINT</a>
@@ -100,25 +100,42 @@
                         </div>
                     </div>
 
-                    <div class="mb-1 floating-bordered-input position-relative return-trip" style="display: none;">
-                        <span class="floating-label">Return Trip Pick-up Date / Time</span>
-
-                        <span class="input-icon-left">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 384 432">
-                                <path fill="currentColor" d="M299 240v107H192V240h107zM277 5h43v43h21q18 0 30.5 12.5T384 91v298q0 18-12.5 30.5T341 432H43q-18 0-30.5-12.5T0 389V91q0-18 12.5-30.5T43 48h21V5h43v43h170V5zm64 384V155H43v234h298z"/>
-                            </svg>
-                        </span>
-
-                        <input type="text"
-                            name="return_datetime_hourly"
-                            id="return-datetime-hourly"
-                            class="form-control"
-                            value="{{ session('return_datetime_hourly') ? \Carbon\Carbon::parse(session('return_datetime_hourly'))->format('Y-m-d H:i') : '' }}"
-                            placeholder=" ">
-
-                        @error('return_datetime_hourly')
-                            <div class="mt-1 text-danger small">{{ $message }}</div>
-                        @enderror
+                    <div class="return-trip" style="display: none;">
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <div class="mb-1 floating-bordered-input position-relative">
+                                    <span class="floating-label">Return Trip Pick-up Date</span>
+                                    <span class="input-icon-left">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 384 432">
+                                            <path fill="currentColor" d="M299 240v107H192V240h107zM277 5h43v43h21q18 0 30.5 12.5T384 91v298q0 18-12.5 30.5T341 432H43q-18 0-30.5-12.5T0 389V91q0-18 12.5-30.5T43 48h21V5h43v43h170V5zm64 384V155H43v234h298z"/>
+                                        </svg>
+                                    </span>
+                                    <input type="date" id="return-date{{ $tabSuffix }}" name="return_date"
+                                        class="form-control" value="{{ session('return_date') ?? '' }}" placeholder=" ">
+                                    @error('return_date')
+                                    <div class="mt-1 text-danger small">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="mb-1 floating-bordered-input position-relative">
+                                    <span class="floating-label">Return Trip Pick-up Time</span>
+                                    <span class="input-icon-left">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <polyline points="12 6 12 12 16 14" />
+                                        </svg>
+                                    </span>
+                                    <input type="time" id="return-time{{ $tabSuffix }}" name="return_time"
+                                        class="form-control"
+                                        value="{{ session('return_time') ? \Carbon\Carbon::parse(session('return_time'))->format('H:i') : '' }}"
+                                        placeholder=" ">
+                                    @error('return_time')
+                                    <div class="mt-1 text-danger small">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <style>
@@ -141,7 +158,7 @@
                     </style>
 
 <button type="submit" class="btn btn-primary w-100 search_btn point-button"
-    style="text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; font-size: 0.8rem;">
+    style="text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; font-size: 0.8rem;line-height: 2;">
     Get My Prices
     <i class="fa-solid fa-arrow-right" style="font-size: 14px; margin: 2px;"></i>
 </button>
@@ -243,8 +260,9 @@
                         </div>
                     </div>
 
+                    <br>
                     <button type="submit" class="btn btn-primary w-100 search_btn point-button"
-                        style="text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; font-size: 0.8rem;">
+                        style="text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; font-size: 0.8rem;line-height: 2;">
                         Get My Prices
                         <i class="fa-solid fa-arrow-right" style="font-size: 14px; margin: 2px;"></i>
                     </button>
@@ -262,11 +280,12 @@
 }
 .rlx-select .rlx-trigger {
   display: block;
+  position: relative;
   width: 100%;
   background: transparent;
   border: none;
   border-radius: 0;
-  padding: 0 40px 0 44px;
+  padding: 0 44px 0 44px;
   margin-top: 10px;
   color: #1f2937;
   font-size: 16px;
@@ -275,19 +294,29 @@
   text-align: left;
 }
 .floating-bordered-input .rlx-select .rlx-trigger { margin-top: 10px; }
+.floating-bordered-input.rlx-theme .rlx-select .rlx-trigger {
+  display: flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 0 36px 0 0 !important;
+  padding-bottom: 0 !important;
+}
 .rlx-select .rlx-value {
   pointer-events: none;
 }
 .rlx-select .rlx-arrow {
   color: #6b7280;
   position: absolute;
-  right: 4px;
+  right: 8px !important;
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
 }
+.floating-bordered-input.rlx-theme .rlx-select .rlx-arrow {
+  right: -28px !important;
+}
 .rlx-select.open .rlx-arrow {
-  transform: rotate(180deg);
+  transform: translateY(-50%) rotate(180deg);
   transition: transform .18s ease;
 }
 .rlx-select .rlx-list {
