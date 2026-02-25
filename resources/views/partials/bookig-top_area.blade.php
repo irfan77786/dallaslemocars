@@ -376,7 +376,8 @@ main {
     </div>
 </div>
 
-<div class="d-md-none mb-3 d-none">
+@unless(request()->is('user-login/*/*'))
+<div class="d-md-none mb-3">
  <div class="px-3 py-2 bg-white d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#mobileRideSummary" aria-expanded="false" style="cursor: pointer;" onclick="toggleCollapse()">
     <h6 class="">Booking Summary</h6>
         <div class="d-flex align-items-center summary_toggle_container">
@@ -473,6 +474,7 @@ main {
         </div>
     </div>
 </div>
+@endunless
 
 <!-- DESKTOP VIEW (hidden on small devices) -->
 <div class="container px-3 py-3 bg-white d-none d-md-block">
