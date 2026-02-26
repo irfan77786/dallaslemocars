@@ -68,7 +68,9 @@
             padding-top: 10px !important;
             padding-bottom: 10px !important;
         }
-        
+  .px-3.py-2.bg-white.d-flex.justify-content-between.align-items-center {
+    background-color: #fff !important;
+}
 
     .d-md-none.mb-3 {
         margin-bottom: 9px !important;

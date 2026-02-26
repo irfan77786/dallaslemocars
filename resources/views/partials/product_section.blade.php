@@ -51,7 +51,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
     border-radius: 8px;
     cursor: pointer;
     padding: 1rem 55px 0rem 30px;
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
     position: relative;
     transition: border-color 0.3s ease, background-color 0.3s ease;
     background-color: #fff;
@@ -347,6 +347,20 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
         padding: 0.75rem;
         position: relative;
     }
+    .bg-white {
+    background-color: #fff !important;
+}
+    
+    .pass-luggage-info i {
+     font-size: 13px !important;
+ 
+}
+.px-3.mob_top_summary {
+    background: #fff;
+    margin-top: 0px;
+    padding-top: 5px;
+    padding-bottom: 18px;
+}
     .vehical-card .d-flex {
         flex-wrap: nowrap !important;
         align-items: center;
@@ -356,7 +370,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
         flex: 0 0 auto;
     }
     .vehicle_img {
-        max-height: 56px;
+        max-height: 52px;
     }
     .vehicle-info {
         min-width: 0 !important;
@@ -415,7 +429,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
         margin-top: 2px;
     }
     .price-gratuity {
-        font-size: 0.72rem;
+        font-size:14px;
         gap: 4px;
         white-space: nowrap;
     }

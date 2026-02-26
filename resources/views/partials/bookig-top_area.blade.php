@@ -31,7 +31,7 @@
 .return-item:nth-child(1),
 .return-item:nth-child(2) {
   flex: 1 1 350px; /* preferred width */
-  max-width: 350px; /* hard cap */
+  max-width: 300px; /* hard cap */
 }
 
 /* Make them stack on very small screens */
@@ -188,7 +188,12 @@
 .return-item-label { color:#2B3252; font-weight:600; font-size:14px; margin-bottom:4px; }
 .return-item-label:empty { display:none; margin-bottom:0; }
 .return-item-value { color:#1f2937; font-weight:500; font-size:18px; line-height:1.3; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-@media (max-width:768px){ .return-inline{flex-wrap:wrap;} .return-item{ flex:0 0 100%; max-width:100%; border-right:none; padding-right:0; } }
+@media (max-width:768px){ .return-inline{flex-wrap:wrap;} .return-item{ flex:0 0 100%; max-width:100%; border-right:none; padding-right:0; }
+
+
+
+
+}
 /* Ensure EDIT button text is white */
 #edit-return-service.btn, .btn-primary { color:#fff !important; }
 
@@ -207,8 +212,10 @@
         overflow-x:auto;
         -webkit-overflow-scrolling: touch;
     }
-    
-    
+      .bg-white {
+    background-color: #fff;
+}
+   
  
     
         .step-title {
@@ -217,8 +224,8 @@
 }
 
     .d-md-none.mb-3 {
-        margin-bottom: 9px !important;
-        margin-top: 10px !important;
+        margin-bottom: -1px !important;
+        margin-top: 0px !important;
  
 }
 
@@ -312,7 +319,7 @@ main {
 }
   
 .col-12.col-md-12.d-none.d-md-block {
-    background: #ebebeb;
+    background: #ebebeb !important;
 }
  
 </style>
