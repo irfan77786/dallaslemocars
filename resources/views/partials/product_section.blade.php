@@ -903,9 +903,14 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
                         $isHourlyHire = (session('service_type') === 'hourlyHire') || (($service_type ?? null) === 'hourlyHire');
                         $selectedHours = (int) session('select_hours', 0);
                         $passengerCount = (int) ($value['number_of_passengers'] ?? 0);
+                        $vehicleName = trim($value['vehicle_name'] ?? '');
                         $requiredMinHours = 0;
-                        if ($isHourlyHire && $passengerCount > 17) {
-                            $requiredMinHours = $passengerCount >= 56 ? 5 : 4;
+                        if ($isHourlyHire) {
+                            if ($vehicleName === 'Party Bus 20' && $passengerCount === 20) {
+                                $requiredMinHours = 5;
+                            } else {
+                                $requiredMinHours = $passengerCount <= 6 ? 3 : ($passengerCount <= 27 ? 4 : 5);
+                            }
                         }
                         $requiresMoreHours = $requiredMinHours > 0 && $selectedHours < $requiredMinHours;
                     @endphp
@@ -933,7 +938,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
                                     <div class="car-price">
                                         @if($requiresMoreHours)
                                             <h4 class="mt-4 mb-1">
-                                                <span class="pricing_summary_price">{{ $requiredMinHours }} Hr Min. Required</span>
+                                                <span class="pricing_summary_price">{{ $requiredMinHours }} Hr Min.</span>
                                             </h4>
                                         @else
                                             @php
