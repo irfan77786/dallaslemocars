@@ -214,22 +214,25 @@ $step = 3;
         width: 100%;
         min-width: 0;
     }
+
     .phone-input-wrapper {
         min-width: 0;
-        overflow: hidden;
     }
 
     .phone-input-wrapper .iti__selected-flag {
         background: none !important;
         padding: 1px 6px 0 8px !important;
     }
+
     .phone-input-wrapper .iti {
         flex-wrap: nowrap;
         display: flex !important;
     }
+
     .phone-input-wrapper .iti__flag-container {
         flex-shrink: 0;
     }
+
     .phone-input-wrapper .iti input.form-control,
     .phone-input-wrapper .iti .iti__input,
     .phone-input-wrapper .floating-bordered-input .iti input {
@@ -244,19 +247,27 @@ $step = 3;
         border: none !important;
         min-width: 0;
     }
+
     .phone-field-wrapper {
         margin-bottom: 1rem;
     }
+
     .phone-field-wrapper .phone-error {
         display: block;
         min-height: 20px;
     }
+
     .phone-field-wrapper .phone-error:not(:empty) {
         display: block;
         margin-top: 0.25rem;
     }
+
     .phone-field-wrapper .phone-error:empty {
         display: none;
+    }
+
+    .iti__country-list {
+        z-index: 9999 !important;
     }
 </style>
 
@@ -310,7 +321,8 @@ $step = 3;
                                 class="form-control phone-with-country" placeholder=" " autocomplete="tel" required>
                             <input type="hidden" name="number" id="number_full">
                         </div>
-                        <div class="phone-error text-danger small mt-1" id="error_number">@error('number'){{ $message }}@enderror</div>
+                        <div class="phone-error text-danger small mt-1" id="error_number">@error('number'){{ $message
+                            }}@enderror</div>
                     </div>
 
                     <!-- Hidden fields for booking for someone else -->
@@ -383,7 +395,8 @@ $step = 3;
                                     class="form-control phone-with-country" placeholder=" " autocomplete="tel" required>
                                 <input type="hidden" name="phone" id="phone_full">
                             </div>
-                            <div class="phone-error text-danger small mt-1" id="error_phone">@error('phone'){{ $message }}@enderror</div>
+                            <div class="phone-error text-danger small mt-1" id="error_phone">@error('phone'){{ $message
+                                }}@enderror</div>
                         </div>
                     </div>
 
