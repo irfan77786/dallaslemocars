@@ -226,7 +226,7 @@ $step = 3;
     .phone-input-wrapper .iti .iti__input,
     .phone-input-wrapper .floating-bordered-input .iti input {
         flex: 1;
-        padding: 12px 8px !important;
+        padding: 28px 8px !important;
         padding-left: 76px !important;
         margin: 0 !important;
         line-height: 1.4;
@@ -242,6 +242,13 @@ $step = 3;
     .phone-field-wrapper .phone-error {
         display: block;
         min-height: 20px;
+    }
+    .phone-field-wrapper .phone-error:not(:empty) {
+        display: block;
+        margin-top: 0.25rem;
+    }
+    .phone-field-wrapper .phone-error:empty {
+        display: none;
     }
 </style>
 
