@@ -25,8 +25,10 @@ $step = 3;
     .passenger-info-container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 50px 0px 100px 0px;
-        /* Reduced top padding */
+        padding: 50px 15px 100px 15px;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
     }
 
     .info-card {
@@ -49,6 +51,7 @@ $step = 3;
 
     .form-row-custom>div {
         flex: 1;
+        min-width: 0;
     }
 
     .input-group-container {
@@ -209,6 +212,11 @@ $step = 3;
 
     .phone-input-wrapper .iti {
         width: 100%;
+        min-width: 0;
+    }
+    .phone-input-wrapper {
+        min-width: 0;
+        overflow: hidden;
     }
 
     .phone-input-wrapper .iti__selected-flag {
