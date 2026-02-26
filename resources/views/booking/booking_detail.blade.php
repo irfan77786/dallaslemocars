@@ -76,9 +76,6 @@
  
 }
 
-  .container.step-wrapper.md-py-3 {
-    display: none;
-}
     
     
 footer.footer.bg-blue {
