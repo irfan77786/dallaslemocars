@@ -395,6 +395,23 @@ a.btn-loadmore:hover {
         box-shadow: none !important;
     }
     
+    .mob-step-dots {
+        gap: 14px !important;
+        margin-left: 20px !important;
+    }
+    .px-3.py-2.bg-white.d-flex.justify-content-between.align-items-center h6 {
+    margin: 0px;
+    font-family: Mukta, sans-serif;
+    font-size: 16px;
+}
+span#expandText {
+    font-family: Mukta, sans-serif;
+    line-height: 1.5;
+    font-size: 1rem;
+    color: rgb(0 0 0);
+    margin-right: 4px;
+}
+
         #home-text-content h1 {
         text-align: center !important;
         white-space: nowrap !important;
@@ -419,9 +436,9 @@ div#pricing-area-wrapper {
     padding: 12px 20px 12px 40px !important;
  
 }
-    .rlx-option {
+ /*   .rlx-option {
         margin-left: 15px !important;
-    }
+    }*/
  
 
     .summary-value-inline {
@@ -839,9 +856,11 @@ div.search-tab-wrap ul.nav-tabs li.nav-item a.nav-link:focus {
     font-size: 20px !important;
 }
  
+button#final-pay-button {
+    border-radius: 4px !important;
+}
 
-
-    .rlx-option {
+/*    .rlx-option {
         margin-left: 15px !important;
-    }
+    }*/
 

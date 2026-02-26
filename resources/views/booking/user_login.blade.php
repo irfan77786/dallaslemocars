@@ -193,6 +193,9 @@
         padding-top: 0px !important;
     }
 }
+.d-flex.align-items-start.justify-content-between {
+    display: none !important;
+}
 </style>
 
 <div class="passenger-info-container">

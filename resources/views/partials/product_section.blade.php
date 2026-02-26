@@ -50,7 +50,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
     border: 1.5px solid #ccc;
     border-radius: 8px;
     cursor: pointer;
-    padding: 1rem 55px 1rem 30px;
+    padding: 1rem 55px 0rem 30px;
     margin-bottom: 1rem;
     position: relative;
     transition: border-color 0.3s ease, background-color 0.3s ease;
@@ -195,8 +195,8 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
 .feature_items_cont.feature-items-grid {
     /* display: flex; */
     flex-wrap: wrap;
-    padding-right: 30px;
-    margin-top: 15px;
+    padding-right: 0px;
+    margin-top: 0px;
     /* margin-left: 48px !important; */
     font-size: 0.85rem;
     color: #444;
@@ -205,7 +205,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    gap: 12px 40px;
+    gap: 12px 55px;
     margin-top: 15px;
     margin-left: 27px !important;
     font-size: 0.85rem;
@@ -739,7 +739,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
 }
 
 .mbs-features-box {
-  background: #fff6df;
+  background: #e6e6e6;
   border-radius: 0;
   padding: 12px 16px;
   border-top: 1px solid #000;
@@ -794,7 +794,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
   position: sticky;
   bottom: 0;
   background: #fff;
-  padding: 16px;
+  padding: 16px 0px;
   border-top: 1px solid rgba(0,0,0,0.08);
 }
 
@@ -919,7 +919,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
                                     <div class="car-price">
                                         @if($requiresMoreHours)
                                             <h4 class="mt-4 mb-1">
-                                                <span class="pricing_summary_price">Min. {{ $requiredMinHours }} hrs</span>
+                                                <span class="pricing_summary_price">{{ $requiredMinHours }} Hr Min. Required</span>
                                             </h4>
                                         @else
                                             @php
@@ -934,7 +934,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
                                     @unless($requiresMoreHours)
                                         <div class="price-gratuity">
                                             <i class="bi bi-check-circle-fill"></i>
-                                            <span>Gratuity included</span>
+                                            <span>All-Inclusive Price.</span>
                                         </div>
                                     @endunless
                                 @else
@@ -1059,7 +1059,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
         <div class="mbs-footer">
             <div class="mbs-footer-info">
                 <div class="mbs-gratuity">
-                    <i class="bi bi-check-circle-fill"></i> Gratuity included
+                    <i class="bi bi-check-circle-fill"></i> Price includes taxes, tolls & tip.
                 </div>
                 <h4 class="mbs-price-number"></h4>
             </div>

@@ -409,7 +409,7 @@ main {
                 $returnDT = session('return_datetime');
             @endphp
 
-            <div class="mb-2 summary-section-title">Outward Trip</div>
+    <!--        <div class="mb-2 summary-section-title">Outward Trip</div>-->
             <div class="summary-row">
                 <p class="summary-label-inline">Pickup Location</p>
                 <span class="summary-leader"></span>
