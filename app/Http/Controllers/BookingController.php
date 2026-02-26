@@ -659,12 +659,17 @@ public function handleHourlyHire(Request $request)
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        $sanitizedNumber = preg_replace('/[^\d+]/', '', trim($request->number ?? ''));
+        $sanitizedBookerNumber = $request->bookingForSomeoneElse
+            ? preg_replace('/[^\d+]/', '', trim($request->booker_number ?? ''))
+            : null;
+
         if ($request->bookingForSomeoneElse) {
             session([
                 'bookingForSomeoneElse' => true,
                 'booker_first_name' => $request->booker_first_name,
                 'booker_last_name' => $request->booker_last_name,
-                'booker_number' => $request->booker_number,
+                'booker_number' => $sanitizedBookerNumber ?: $request->booker_number,
                 'booker_email' => $request->booker_email,
             ]);
         }else{
@@ -679,7 +684,7 @@ public function handleHourlyHire(Request $request)
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
-            'number' => $request->number,
+            'number' => $sanitizedNumber ?: $request->number,
             "bookingForSomeoneElse" => $request->bookingForSomeoneElse??false
         ]);
 

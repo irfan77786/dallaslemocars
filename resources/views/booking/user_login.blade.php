@@ -206,6 +206,43 @@ $step = 3;
     .d-flex.align-items-start.justify-content-between {
         display: none !important;
     }
+
+    .phone-input-wrapper .iti {
+        width: 100%;
+    }
+
+    .phone-input-wrapper .iti__selected-flag {
+        background: none !important;
+        padding: 1px 6px 0 8px !important;
+    }
+    .phone-input-wrapper .iti {
+        flex-wrap: nowrap;
+        display: flex !important;
+    }
+    .phone-input-wrapper .iti__flag-container {
+        flex-shrink: 0;
+    }
+    .phone-input-wrapper .iti input.form-control,
+    .phone-input-wrapper .iti .iti__input,
+    .phone-input-wrapper .floating-bordered-input .iti input {
+        flex: 1;
+        padding: 12px 8px !important;
+        padding-left: 76px !important;
+        margin: 0 !important;
+        line-height: 1.4;
+        font-size: 14px;
+        height: 44px !important;
+        box-sizing: border-box;
+        border: none !important;
+        min-width: 0;
+    }
+    .phone-field-wrapper {
+        margin-bottom: 1rem;
+    }
+    .phone-field-wrapper .phone-error {
+        display: block;
+        min-height: 20px;
+    }
 </style>
 
 <div class="passenger-info-container">
@@ -251,12 +288,14 @@ $step = 3;
                     </div>
 
                     <!-- Phone -->
-                    <div class="floating-bordered-input position-relative">
-                        <span class="floating-label">Phone *</span>
-                        <input type="tel" id="number" name="number" value="{{ old('number', session('number')) }}"
-                            class="form-control" placeholder=" " autocomplete="tel" required>
-                        <div class="mt-1 text-danger small" id="error_number"></div>
-                        @error('number')<div class="mt-1 text-danger small">{{ $message }}</div>@enderror
+                    <div class="phone-field-wrapper">
+                        <div class="floating-bordered-input position-relative phone-input-wrapper">
+                            <span class="floating-label">Phone *</span>
+                            <input type="tel" id="number" value="{{ old('number', session('number')) }}"
+                                class="form-control phone-with-country" placeholder=" " autocomplete="tel" required>
+                            <input type="hidden" name="number" id="number_full">
+                        </div>
+                        <div class="phone-error text-danger small mt-1" id="error_number">@error('number'){{ $message }}@enderror</div>
                     </div>
 
                     <!-- Hidden fields for booking for someone else -->
@@ -322,11 +361,14 @@ $step = 3;
                                 </div>
                             </div>
                         </div>
-                        <div class="floating-bordered-input position-relative">
-                            <span class="floating-label">Phone *</span>
-                            <input type="text" id="phone" name="phone" value="{{ old('phone', session('phone')) }}"
-                                class="form-control" placeholder=" " autocomplete="tel" required>
-                            <div class="mt-1 text-danger small" id="error_phone"></div>
+                        <div class="phone-field-wrapper">
+                            <div class="floating-bordered-input position-relative phone-input-wrapper">
+                                <span class="floating-label">Phone *</span>
+                                <input type="tel" id="phone" value="{{ old('phone', session('phone')) }}"
+                                    class="form-control phone-with-country" placeholder=" " autocomplete="tel" required>
+                                <input type="hidden" name="phone" id="phone_full">
+                            </div>
+                            <div class="phone-error text-danger small mt-1" id="error_phone">@error('phone'){{ $message }}@enderror</div>
                         </div>
                     </div>
 
@@ -377,6 +419,80 @@ $step = 3;
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        let itiNumber, itiPhone;
+        if (typeof window.intlTelInput !== 'undefined') {
+            const numInput = document.querySelector('#number');
+            const countryMaxDigits = { us: 10, ca: 10, gb: 11, pk: 11, mx: 10, in: 10, de: 11, fr: 9, au: 9 };
+            const nanpCountries = ['us','ca','ag','ai','as','bb','bm','bs','dm','do','gd','gu','jm','kn','ky','lc','mp','ms','pr','sx','tc','tt','vc','vg','vi'];
+            function formatUS(digits) {
+                if (digits.length <= 3) return digits ? '(' + digits : '';
+                if (digits.length <= 6) return '(' + digits.slice(0,3) + ') ' + digits.slice(3);
+                return '(' + digits.slice(0,3) + ') ' + digits.slice(3,6) + '-' + digits.slice(6);
+            }
+            function restrictAndFormat(iti, input) {
+                const country = (iti.getSelectedCountryData().iso2 || '').toLowerCase();
+                const nanp = nanpCountries.includes(country);
+                let raw = input.value.replace(/\D/g, '');
+                const max = countryMaxDigits[country] || (nanp ? 10 : 15);
+                raw = raw.slice(0, max);
+                const formatted = nanp ? formatUS(raw) : raw;
+                if (input.value !== formatted) {
+                    input.value = formatted;
+                }
+            }
+            if (numInput) {
+                itiNumber = window.intlTelInput(numInput, {
+                    initialCountry: 'us',
+                    separateDialCode: true,
+                    preferredCountries: ['us', 'gb', 'ca', 'pk'],
+                    utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js',
+                    formatOnDisplay: true
+                });
+                numInput.addEventListener('input', function() { restrictAndFormat(itiNumber, numInput); });
+                numInput.addEventListener('keyup', function() { restrictAndFormat(itiNumber, numInput); });
+                numInput.addEventListener('countrychange', function() { restrictAndFormat(itiNumber, numInput); });
+            }
+            const phoneInput = document.querySelector('#phone');
+            if (phoneInput) {
+                itiPhone = window.intlTelInput(phoneInput, {
+                    initialCountry: 'us',
+                    separateDialCode: true,
+                    preferredCountries: ['us', 'gb', 'ca', 'pk'],
+                    utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js',
+                    formatOnDisplay: true
+                });
+                phoneInput.addEventListener('input', function() { restrictAndFormat(itiPhone, phoneInput); });
+                phoneInput.addEventListener('keyup', function() { restrictAndFormat(itiPhone, phoneInput); });
+                phoneInput.addEventListener('countrychange', function() { restrictAndFormat(itiPhone, phoneInput); });
+            }
+        }
+
+        function validateAndPopulatePhone(formId) {
+            const isGuest = formId === 'passengerForm';
+            const iti = isGuest ? itiNumber : itiPhone;
+            const fullInput = document.getElementById(isGuest ? 'number_full' : 'phone_full');
+            const errorEl = document.getElementById(isGuest ? 'error_number' : 'error_phone');
+            if (!iti || !fullInput) return true;
+            const full = iti.getNumber() || '';
+            fullInput.value = full;
+            const digitCount = (full.match(/\d/g) || []).length;
+            if (!full || digitCount < 10) {
+                errorEl.innerText = digitCount > 0 ? 'Enter a valid phone number for the selected country.' : 'This field is required.';
+                return false;
+            }
+            const valid = iti.isValidNumber();
+            if (valid === false) {
+                if (digitCount >= 10 && digitCount <= 15 && full.startsWith('+')) {
+                    errorEl.innerText = '';
+                    return true;
+                }
+                errorEl.innerText = 'Enter a valid phone number for the selected country.';
+                return false;
+            }
+            errorEl.innerText = '';
+            return true;
+        }
+
         function capitalizeFirstLetter(el) {
             const start = el.selectionStart, end = el.selectionEnd;
             const val = el.value;
@@ -398,21 +514,22 @@ $step = 3;
 
         form.addEventListener('submit', function(e) {
             let isValid = true;
+            document.querySelectorAll('#passengerForm .text-danger').forEach(el => el.innerHTML = '');
 
-            document.querySelectorAll('.text-danger').forEach(el => el.innerHTML = '');
-
-            const requiredFields = ['first_name', 'last_name', 'email', 'number'];
+            const requiredFields = ['first_name', 'last_name', 'email'];
             requiredFields.forEach(name => {
-                const input = document.getElementsByName(name)[0];
+                const input = document.querySelector('#passengerForm').querySelector(`[name="${name}"]`);
                 const errorEl = document.getElementById(`error_${name}`);
-                if (!input.value.trim()) {
+                if (input && !input.value.trim()) {
                     errorEl.innerText = 'This field is required.';
                     isValid = false;
-                } else if (name === 'email' && !/^\S+@\S+\.\S+$/.test(input.value)) {
+                } else if (name === 'email' && input && !/^\S+@\S+\.\S+$/.test(input.value)) {
                     errorEl.innerText = 'Enter a valid email address.';
                     isValid = false;
                 }
             });
+
+            if (!validateAndPopulatePhone('passengerForm')) isValid = false;
 
             if (!isValid) {
                 e.preventDefault();
@@ -423,16 +540,33 @@ $step = 3;
             }
         });
 
+        document.getElementById('loginForm')?.addEventListener('submit', function(e) {
+            if ({{ auth()->check() ? 'true' : 'false' }}) return;
+            const btnText = $('.login-btn').text().toLowerCase();
+            if (btnText === 'continue') return;
+            e.preventDefault();
+            document.querySelectorAll('#loginForm .text-danger').forEach(el => el.innerText = '');
+            let isValid = true;
+            const email = $('#email_login').val().trim();
+            if (!email) { $('#loginForm .floating-bordered-input').first().find('.text-danger').first().text('Email is required.'); isValid = false; }
+            ['first_name','last_name'].forEach(name => {
+                const inp = document.querySelector(`#loginForm [name="${name}"]`);
+                const err = document.getElementById(`error_${name}`);
+                if (inp && err && !inp.value.trim()) { err.innerText = 'This field is required.'; isValid = false; }
+            });
+            if (!validateAndPopulatePhone('loginForm')) isValid = false;
+            if ($('.login-now').is(':visible') && !$('#password').val()) {
+                $('#error_password').text('Password is required.');
+                isValid = false;
+            }
+            if (isValid) this.submit();
+        });
+
         $('#continue_right').click(function(e) {
             if($('.login-btn').text().toLowerCase() === 'continue' && !{{ auth()->check() ? 'true' : 'false' }}){
                 e.preventDefault();
                 let email = $('#email_login').val().trim();
-
-                if (email === '') {
-                    alert('Please enter your email address.');
-                    return;
-                }
-
+                if (email === '') { alert('Please enter your email address.'); return; }
                 $.ajax({
                     url: '{{ route('check.email.exists') }}',
                     type: 'POST',
@@ -443,20 +577,14 @@ $step = 3;
                     data: JSON.stringify({ email: email }),
                     success: function(response) {
                         if (response.exists) {
-                            // If user exists → switch to login mode
                             $('.register-now').hide();
                             $('.login-now').show();
                             $('.login-btn').text('Login');
-
-                            // Change form action to login route
                             $('#loginForm').attr('action', '{{ route('login') }}');
                         } else {
-                            // If user not found → switch to register mode
                             $('.login-now').show();
                             $('.register-now').show();
                             $('.login-btn').text('Register');
-
-                            // Change form action to register route
                             $('#loginForm').attr('action', '{{ route('register') }}');
                         }
                     },
@@ -465,8 +593,6 @@ $step = 3;
                         alert('Something went wrong. Please try again.');
                     }
                 });
-            }else{
-               $('#loginForm').submit();
             }
         });
     });

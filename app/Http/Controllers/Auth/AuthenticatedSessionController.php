@@ -30,11 +30,12 @@ class AuthenticatedSessionController extends Controller
             session()->put('booker_first_name', $request->first_name);
             session()->put('booker_last_name', $request->last_name);
             session()->put('booker_email', $request->email);
+            $sanitizedNumber = preg_replace('/[^\d+]/', '', trim($request->number ?? ''));
             session()->put('guest', [
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
                 'email' => $request->email,
-                'number' => $request->number,
+                'number' => $sanitizedNumber ?: $request->number,
             ]);
         }
         else{

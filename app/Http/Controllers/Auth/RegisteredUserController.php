@@ -37,11 +37,13 @@ class RegisteredUserController extends Controller
             'password' => ['required', Rules\Password::defaults()],
         ]);
 
+        $sanitizedPhone = preg_replace('/[^\d+]/', '', trim($request->phone ?? ''));
+
         $user = User::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
-            'phone' => $request->phone,
+            'phone' => $sanitizedPhone ?: $request->phone,
             'password' => Hash::make($request->password),
         ]);
 
