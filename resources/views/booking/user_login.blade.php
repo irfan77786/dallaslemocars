@@ -16,7 +16,7 @@ $step = 3;
         position: relative;
         border: 1px solid #C4C4C4;
         border-radius: 4px;
-        padding: 12px 15px !important;
+        padding: 8px 12px !important;
         padding-top: 0px !important;
         padding-bottom: 0px !important;
         background: #fff;
