@@ -2,7 +2,7 @@
 @section('content')
 
 @php
-    $step = 3;
+$step = 3;
 @endphp
 
 @include('partials.bookig-top_area')
@@ -11,191 +11,201 @@
     .login-btn:focus {
         border: none !important;
     }
-.floating-bordered-input{
-    position: relative;
-    border: 1px solid #C4C4C4;
-    border-radius: 4px;
-    padding: 12px 15px !important;
-    padding-top: 0px !important;
-    padding-bottom: 0px !important;
-    background: #fff;
-}
-.passenger-info-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 50px 0px 100px 0px; /* Reduced top padding */
-}
 
-.info-card {
-    background: #fff;
-    border-radius: 8px;
-}
-
-.section-title {
-    font-size: 18px;
-    font-weight: 500;
-    color: #1E1E1E;
-    margin-bottom: 18px;
-}
-
-.form-row-custom {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 0;
-}
-
-.form-row-custom > div {
-    flex: 1;
-}
-
-.input-group-container {
-    margin-bottom: 12px;
-}
-
-.input-group-container label {
-    display: block;
-    font-size: 13px;
-    color: #666;
-    margin-bottom: 5px;
-    font-weight: 400;
-}
-
-.input-group-container input {
-    width: 100%;
-    padding: 9px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    transition: border-color 0.3s;
-}
-
-.input-group-container input:focus {
-    outline: none;
-    border-color: #e52c43;
-}
-
-.continue-btn {
-    width: 100%;
-    padding: 11px;
-    background: linear-gradient(90deg, #e52c43, #ff6c00);
-    border: none;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-#continue_right {
-    width: 100%;
-    padding: 11px;
-    background: linear-gradient(90deg, #e52c43, #ff6c00);
-    border: none;
-    color: #fff;
-    font-size: 14px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.benefits-section {
-    background: #fff;
-    border-radius: 8px;
-}
-
-.benefits-title {
-    font-size: 16px;
-    font-weight: 500;
-    color: #1E1E1E;
-    margin-bottom: 12px;
-}
-
-.benefit-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 10px;
-    color: #666;
-    font-size: 13px;
-}
-
-.benefit-item i {
-    color: #e52c43;
-    margin-right: 8px;
-    margin-top: 2px;
-    font-size: 14px;
-    flex-shrink: 0;
-}
-
-.login-section {
-    margin-top: 20px;
-    padding-top: 18px;
-    border-top: 1px solid #e0e0e0;
-}
-
-.login-title {
-    font-size: 16px;
-    font-weight: 500;
-    color: #1E1E1E;
-    margin-bottom: 12px;
-}
-
-.login-btn {
-    width: 100%;
-    padding: 11px;
-    background: #e52c43;
-    border: none;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.login-btn:hover {
-    background: #145570;
-}
-.cta-button {
-    width: 100%;
-    margin: 12px auto 0;
-    display: block;
-    font-weight: 600;
-    letter-spacing: 2px;
-}
-@media (min-width: 992px) {
-    .loginguestrow {
-        margin-top: 30px;
-    }
-    .col-divider {
-        border-left: 1px solid #e0e0e0;
-    }
-    .col-divider .benefits-section {
-        padding-left: 35px;
-    }
-    .info-card {
-        padding-right: 35px;
-    }
-}
-
-@media (max-width: 768px) {
-    .form-row-custom {
-        flex-direction: column;
-        gap: 0;
-    }
-
-    .info-card, .benefits-section {
-        padding: 20px;
+    .floating-bordered-input {
+        position: relative;
+        border: 1px solid #C4C4C4;
+        border-radius: 4px;
+        padding: 12px 15px !important;
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+        background: #fff;
     }
 
     .passenger-info-container {
-        padding-bottom: 20px;
-        padding-top: 0px !important;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 50px 0px 100px 0px;
+        /* Reduced top padding */
     }
-}
-.d-flex.align-items-start.justify-content-between {
-    display: none !important;
-}
+
+    .info-card {
+        background: #fff;
+        border-radius: 8px;
+    }
+
+    .section-title {
+        font-size: 18px;
+        font-weight: 500;
+        color: #1E1E1E;
+        margin-bottom: 18px;
+    }
+
+    .form-row-custom {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 0;
+    }
+
+    .form-row-custom>div {
+        flex: 1;
+    }
+
+    .input-group-container {
+        margin-bottom: 12px;
+    }
+
+    .input-group-container label {
+        display: block;
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 5px;
+        font-weight: 400;
+    }
+
+    .input-group-container input {
+        width: 100%;
+        padding: 9px 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+        transition: border-color 0.3s;
+    }
+
+    .input-group-container input:focus {
+        outline: none;
+        border-color: #e52c43;
+    }
+
+    .continue-btn {
+        width: 100%;
+        padding: 11px;
+        background: linear-gradient(90deg, #e52c43, #ff6c00);
+        border: none;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    #continue_right {
+        width: 100%;
+        padding: 11px;
+        background: linear-gradient(90deg, #e52c43, #ff6c00);
+        border: none;
+        color: #fff;
+        font-size: 14px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .benefits-section {
+        background: #fff;
+        border-radius: 8px;
+    }
+
+    .benefits-title {
+        font-size: 16px;
+        font-weight: 500;
+        color: #1E1E1E;
+        margin-bottom: 12px;
+    }
+
+    .benefit-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 10px;
+        color: #666;
+        font-size: 13px;
+    }
+
+    .benefit-item i {
+        color: #e52c43;
+        margin-right: 8px;
+        margin-top: 2px;
+        font-size: 14px;
+        flex-shrink: 0;
+    }
+
+    .login-section {
+        margin-top: 20px;
+        padding-top: 18px;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    .login-title {
+        font-size: 16px;
+        font-weight: 500;
+        color: #1E1E1E;
+        margin-bottom: 12px;
+    }
+
+    .login-btn {
+        width: 100%;
+        padding: 11px;
+        background: #e52c43;
+        border: none;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .login-btn:hover {
+        background: #145570;
+    }
+
+    .cta-button {
+        width: 100%;
+        margin: 12px auto 0;
+        display: block;
+        font-weight: 600;
+        letter-spacing: 2px;
+    }
+
+    @media (min-width: 992px) {
+        .loginguestrow {
+            margin-top: 30px;
+        }
+
+        .col-divider {
+            border-left: 1px solid #e0e0e0;
+        }
+
+        .col-divider .benefits-section {
+            padding-left: 35px;
+        }
+
+        .info-card {
+            padding-right: 35px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .form-row-custom {
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .info-card,
+        .benefits-section {
+            padding: 20px;
+        }
+
+        .passenger-info-container {
+            padding-bottom: 20px;
+            padding-top: 0px !important;
+        }
+    }
+
+    .d-flex.align-items-start.justify-content-between {
+        display: none !important;
+    }
 </style>
 
 <div class="passenger-info-container">
@@ -211,7 +221,8 @@
                     <!-- Email -->
                     <div class="floating-bordered-input position-relative">
                         <span class="floating-label">Email address *</span>
-                        <input type="email" id="guest_email" name="email" value="{{ old('email', session('email')) }}" class="form-control" placeholder=" " autocomplete="email" required>
+                        <input type="email" id="guest_email" name="email" value="{{ old('email', session('email')) }}"
+                            class="form-control" placeholder=" " autocomplete="email" required>
                         <div class="mt-1 text-danger small" id="error_email"></div>
                     </div>
 
@@ -220,7 +231,9 @@
                         <div>
                             <div class="floating-bordered-input position-relative">
                                 <span class="floating-label">First name *</span>
-                                <input type="text" id="first_name" name="first_name" value="{{ old('first_name', session('first_name')) }}" class="form-control" placeholder=" " autocomplete="given-name" required>
+                                <input type="text" id="first_name" name="first_name"
+                                    value="{{ old('first_name', session('first_name')) }}" class="form-control"
+                                    placeholder=" " autocomplete="given-name" required>
                                 <div class="mt-1 text-danger small" id="error_first_name"></div>
                                 @error('first_name')<div class="mt-1 text-danger small">{{ $message }}</div>@enderror
                             </div>
@@ -228,7 +241,9 @@
                         <div>
                             <div class="floating-bordered-input position-relative">
                                 <span class="floating-label">Last name *</span>
-                                <input type="text" id="last_name" name="last_name" value="{{ old('last_name', session('last_name')) }}" class="form-control" placeholder=" " autocomplete="family-name" required>
+                                <input type="text" id="last_name" name="last_name"
+                                    value="{{ old('last_name', session('last_name')) }}" class="form-control"
+                                    placeholder=" " autocomplete="family-name" required>
                                 <div class="mt-1 text-danger small" id="error_last_name"></div>
                                 @error('last_name')<div class="mt-1 text-danger small">{{ $message }}</div>@enderror
                             </div>
@@ -238,7 +253,8 @@
                     <!-- Phone -->
                     <div class="floating-bordered-input position-relative">
                         <span class="floating-label">Phone *</span>
-                        <input type="tel" id="number" name="number" value="{{ old('number', session('number')) }}" class="form-control" placeholder=" " autocomplete="tel" required>
+                        <input type="tel" id="number" name="number" value="{{ old('number', session('number')) }}"
+                            class="form-control" placeholder=" " autocomplete="tel" required>
                         <div class="mt-1 text-danger small" id="error_number"></div>
                         @error('number')<div class="mt-1 text-danger small">{{ $message }}</div>@enderror
                     </div>
@@ -251,7 +267,9 @@
                     <input type="hidden" id="booker_number" name="booker_number" value="">
                     <input type="text" name="type" value="guest" hidden>
 
-                    <button type="submit" class="continue-btn btn btn-primary btn-uniform w-100 cta-button" style="padding: .575rem .75rem !important; text-transform: uppercase;">CONTINUE AS GUEST</button>
+                    <button type="submit" class="continue-btn btn btn-primary btn-uniform w-100 cta-button"
+                        style="padding: .575rem .75rem !important; text-transform: uppercase;">CONTINUE AS
+                        GUEST</button>
                 </form>
             </div>
         </div>
@@ -262,59 +280,71 @@
                 <h2 class="section-title">Login or Create account</h2>
 
                 <!-- Login Form -->
-                <form id="loginForm" method="{{ auth()->check() ? 'GET' :  'POST' }}" action="{{ auth()->check() ? route('submit.passenger.info') : route('login') }}">
+                <form id="loginForm" method="{{ auth()->check() ? 'GET' :  'POST' }}"
+                    action="{{ auth()->check() ? route('submit.passenger.info') : route('login') }}">
                     @csrf
 
                     <input type="text" name="login_type" value="booking" hidden>
                     @if (auth()->check())
-                        {{-- CASE 1: User is Logged In (Authenticated) --}}
-                        <h2>Welcome back, {{ auth()->user()->first_name }}!</h2>
+                    {{-- CASE 1: User is Logged In (Authenticated) --}}
+                    <h2>Welcome back, {{ auth()->user()->first_name }}!</h2>
                     @else
-                        {{-- CASE 2: User is NOT Logged In (Unauthenticated) - Show full login/registration inputs --}}
+                    {{-- CASE 2: User is NOT Logged In (Unauthenticated) - Show full login/registration inputs --}}
 
+                    <div class="floating-bordered-input position-relative">
+                        <span class="floating-label">Email address</span>
+                        <input type="email" id="email_login" name="email" value="{{ old('email') }}"
+                            class="form-control" placeholder=" " required autofocus>
+                        @error('email')<div class="mt-1 text-danger small">{{ $message }}</div>@enderror
+                    </div>
+
+                    <div class="register-now">
+                        <div class="form-row-custom">
+                            <div>
+                                <div class="floating-bordered-input position-relative">
+                                    <span class="floating-label">First name *</span>
+                                    <input type="text" id="first_name" name="first_name"
+                                        value="{{ old('first_name', session('first_name')) }}" class="form-control"
+                                        placeholder=" " autocomplete="given-name" required>
+                                    <div class="mt-1 text-danger small" id="error_first_name"></div>
+                                    @error('first_name')<div class="mt-1 text-danger small">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div>
+                                <div class="floating-bordered-input position-relative">
+                                    <span class="floating-label">Last name *</span>
+                                    <input type="text" id="last_name" name="last_name"
+                                        value="{{ old('last_name', session('last_name')) }}" class="form-control"
+                                        placeholder=" " autocomplete="family-name" required>
+                                    <div class="mt-1 text-danger small" id="error_last_name"></div>
+                                    @error('last_name')<div class="mt-1 text-danger small">{{ $message }}</div>@enderror
+                                </div>
+                            </div>
+                        </div>
                         <div class="floating-bordered-input position-relative">
-                            <span class="floating-label">Email address</span>
-                            <input type="email" id="email_login" name="email" value="{{ old('email') }}" class="form-control" placeholder=" " required autofocus>
-                            @error('email')<div class="mt-1 text-danger small">{{ $message }}</div>@enderror
+                            <span class="floating-label">Phone *</span>
+                            <input type="text" id="phone" name="phone" value="{{ old('phone', session('phone')) }}"
+                                class="form-control" placeholder=" " autocomplete="tel" required>
+                            <div class="mt-1 text-danger small" id="error_phone"></div>
                         </div>
+                    </div>
 
-                        <div class="register-now">
-                            <div class="form-row-custom">
-                                <div>
-                                    <div class="floating-bordered-input position-relative">
-                                        <span class="floating-label">First name *</span>
-                                        <input type="text" id="first_name" name="first_name" value="{{ old('first_name', session('first_name')) }}" class="form-control" placeholder=" " autocomplete="given-name" required>
-                                        <div class="mt-1 text-danger small" id="error_first_name"></div>
-                                        @error('first_name')<div class="mt-1 text-danger small">{{ $message }}</div>@enderror
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="floating-bordered-input position-relative">
-                                        <span class="floating-label">Last name *</span>
-                                        <input type="text" id="last_name" name="last_name" value="{{ old('last_name', session('last_name')) }}" class="form-control" placeholder=" " autocomplete="family-name" required>
-                                        <div class="mt-1 text-danger small" id="error_last_name"></div>
-                                        @error('last_name')<div class="mt-1 text-danger small">{{ $message }}</div>@enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="floating-bordered-input position-relative">
-                                <span class="floating-label">Phone *</span>
-                                <input type="text" id="phone" name="phone" value="{{ old('phone', session('phone')) }}" class="form-control" placeholder=" " autocomplete="tel" required>
-                                <div class="mt-1 text-danger small" id="error_phone"></div>
-                            </div>
-                        </div>
-
-                        <div class="floating-bordered-input position-relative login-now">
-                            <span class="floating-label">Password *</span>
-                            <input type="password" id="password" name="password" value="{{ old('password', session('password')) }}" class="form-control" placeholder=" " autocomplete="current-password" required>
-                            <div class="mt-1 text-danger small" id="error_password"></div>
-                        </div>
+                    <div class="floating-bordered-input position-relative login-now">
+                        <span class="floating-label">Password *</span>
+                        <input type="password" id="password" name="password"
+                            value="{{ old('password', session('password')) }}" class="form-control" placeholder=" "
+                            autocomplete="current-password" required>
+                        <div class="mt-1 text-danger small" id="error_password"></div>
+                    </div>
 
                     @endif
 
                     <input type="text" name="type" value="real" hidden>
 
-                    <button id="continue_right" type="submit" class="login-btn btn btn-primary btn-uniform w-100 cta-button" style="padding: .575rem .75rem !important; text-transform: uppercase;">Continue</button>
+                    <button id="continue_right" type="submit"
+                        class="login-btn btn btn-primary btn-uniform w-100 cta-button"
+                        style="padding: .575rem .75rem !important; text-transform: uppercase;">Continue</button>
                 </form>
 
                 <!-- Benefits Section -->
@@ -347,6 +377,23 @@
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        function capitalizeFirstLetter(el) {
+            const start = el.selectionStart, end = el.selectionEnd;
+            const val = el.value;
+            if (val.length > 0) {
+                el.value = val.replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+                el.setSelectionRange(Math.min(start, el.value.length), Math.min(end, el.value.length));
+            }
+        }
+        document.querySelectorAll('#passengerForm input[name="first_name"], #passengerForm input[name="last_name"]').forEach(function(input) {
+            input.addEventListener('input', function() { capitalizeFirstLetter(this); });
+            input.addEventListener('blur', function() { capitalizeFirstLetter(this); });
+        });
+        document.querySelectorAll('#loginForm input[name="first_name"], #loginForm input[name="last_name"]').forEach(function(input) {
+            input.addEventListener('input', function() { capitalizeFirstLetter(this); });
+            input.addEventListener('blur', function() { capitalizeFirstLetter(this); });
+        });
+
         const form = document.getElementById('passengerForm');
 
         form.addEventListener('submit', function(e) {
