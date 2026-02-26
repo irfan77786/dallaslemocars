@@ -886,11 +886,15 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
     display: none !important;
   }
 }
+@media (max-width: 767.98px) {
+  .booking-product-section-wrap { overflow-x: hidden; }
+}
 
 </style>
 
 
 
+<div class="booking-product-section-wrap">
 <div class="container pr-0 pl-0">
 
 <div class="px-2">
@@ -1035,6 +1039,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
             </div>
         </div>
     </div>
+</div>
 </div>
 </div>
 <div id="mbs-backdrop" style="display:none"></div>

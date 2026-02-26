@@ -321,7 +321,9 @@ main {
 .col-12.col-md-12.d-none.d-md-block {
     background: #ebebeb !important;
 }
- 
+@media (max-width: 767.98px) {
+    .step-wrapper { overflow-x: hidden; }
+}
 </style>
 <div class="container step-wrapper md-py-3">
     <div class="container px-0 mr-auto ml-auto row align-items-center justify-content-between px-md-0 px-sm-0 booking_step_container" style="background-color: rgb(250, 250, 250);">
