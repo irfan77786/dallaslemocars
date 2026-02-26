@@ -237,7 +237,7 @@ $step = 3;
     .phone-input-wrapper .iti .iti__input,
     .phone-input-wrapper .floating-bordered-input .iti input {
         flex: 1;
-        padding: 28px 8px !important;
+        padding: 30px 8px !important;
         padding-left: 76px !important;
         margin: 0 !important;
         line-height: 1.4;
