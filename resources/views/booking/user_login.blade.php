@@ -12,12 +12,28 @@ $step = 3;
         border: none !important;
     }
 
+    .passenger-info-container .floating-bordered-input input.form-control,
+    .passenger-info-container .floating-bordered-input input[type="text"],
+    .passenger-info-container .floating-bordered-input input[type="email"],
+    .passenger-info-container .floating-bordered-input input[type="password"],
+    .passenger-info-container .floating-bordered-input input[type="tel"] {
+        min-height: 34px !important;
+        height: 34px !important;
+        padding: 7px 10px 16px !important;
+        font-size: 14px;
+        line-height: 1.4;
+        box-sizing: border-box;
+    }
+
+    .passenger-info-container .floating-bordered-input .floating-label {
+        padding-bottom: 0 !important;
+    }
+
     .floating-bordered-input {
         position: relative;
         border: 1px solid #C4C4C4;
         border-radius: 4px;
-        padding: 8px 12px !important;
-        padding-top: 0px !important;
+        padding: 4px 12px 5px !important;
         padding-bottom: 0px !important;
         background: #fff;
     }
@@ -68,7 +84,8 @@ $step = 3;
 
     .input-group-container input {
         width: 100%;
-        padding: 9px 12px;
+        padding: 5px 10px;
+        min-height: 34px;
         border: 1px solid #ddd;
         border-radius: 4px;
         font-size: 14px;
@@ -237,12 +254,13 @@ $step = 3;
     .phone-input-wrapper .iti .iti__input,
     .phone-input-wrapper .floating-bordered-input .iti input {
         flex: 1;
-        padding: 30px 8px !important;
+        padding: 7px 8px !important;
         padding-left: 76px !important;
         margin: 0 !important;
         line-height: 1.4;
         font-size: 14px;
-        height: 44px !important;
+        min-height: 34px !important;
+        height: 34px !important;
         box-sizing: border-box;
         border: none !important;
         min-width: 0;
