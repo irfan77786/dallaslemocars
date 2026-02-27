@@ -255,7 +255,7 @@ $step = 3;
     .phone-input-wrapper .floating-bordered-input .iti input {
         flex: 1;
         padding: 7px 8px !important;
-        padding-left: 76px !important;
+        padding-left: 50px !important;
         margin: 0 !important;
         line-height: 1.4;
         font-size: 14px;
@@ -468,45 +468,93 @@ $step = 3;
         let itiNumber, itiPhone;
         if (typeof window.intlTelInput !== 'undefined') {
             const numInput = document.querySelector('#number');
-            const countryMaxDigits = { us: 10, ca: 10, gb: 11, pk: 11, mx: 10, in: 10, de: 11, fr: 9, au: 9 };
-            const nanpCountries = ['us','ca','ag','ai','as','bb','bm','bs','dm','do','gd','gu','jm','kn','ky','lc','mp','ms','pr','sx','tc','tt','vc','vg','vi'];
-            function formatUS(digits) {
-                if (digits.length <= 3) return digits ? '(' + digits : '';
-                if (digits.length <= 6) return '(' + digits.slice(0,3) + ') ' + digits.slice(3);
-                return '(' + digits.slice(0,3) + ') ' + digits.slice(3,6) + '-' + digits.slice(6);
+            const phoneInput = document.querySelector('#phone');
+            const dialCodeMap = [
+                { dc: '971', iso2: 'ae', max: 9, nanp: false }, { dc: '966', iso2: 'sa', max: 9, nanp: false },
+                { dc: '963', iso2: 'sy', max: 9, nanp: false }, { dc: '962', iso2: 'jo', max: 9, nanp: false },
+                { dc: '961', iso2: 'lb', max: 8, nanp: false }, { dc: '91', iso2: 'in', max: 10, nanp: false },
+                { dc: '92', iso2: 'pk', max: 11, nanp: false }, { dc: '86', iso2: 'cn', max: 11, nanp: false },
+                { dc: '81', iso2: 'jp', max: 10, nanp: false }, { dc: '61', iso2: 'au', max: 9, nanp: false },
+                { dc: '52', iso2: 'mx', max: 10, nanp: false }, { dc: '49', iso2: 'de', max: 11, nanp: false },
+                { dc: '39', iso2: 'it', max: 10, nanp: false }, { dc: '34', iso2: 'es', max: 9, nanp: false },
+                { dc: '33', iso2: 'fr', max: 9, nanp: false }, { dc: '44', iso2: 'gb', max: 11, nanp: false },
+                { dc: '7', iso2: 'ru', max: 10, nanp: false }, { dc: '1', iso2: 'us', max: 10, nanp: true }
+            ];
+            function findCountryAndNational(raw) {
+                for (let i = 0; i < dialCodeMap.length; i++) {
+                    const { dc, iso2, max, nanp } = dialCodeMap[i];
+                    if (raw === dc || (raw.startsWith(dc) && raw.length > dc.length)) {
+                        return { dialCode: dc, iso2, national: raw.slice(dc.length).slice(0, max), nanp };
+                    }
+                }
+                return null;
+            }
+            function formatNational(national, nanp) {
+                const d = national.replace(/\D/g, '');
+                if (nanp) {
+                    if (d.length <= 3) return d ? '(' + d : '';
+                    if (d.length <= 6) return '(' + d.slice(0, 3) + ') ' + d.slice(3);
+                    return '(' + d.slice(0, 3) + ') ' + d.slice(3, 6) + '-' + d.slice(6, 10);
+                }
+                return d.replace(/(\d{3})(?=\d)/g, '$1 ').trim() || d;
             }
             function restrictAndFormat(iti, input) {
-                const country = (iti.getSelectedCountryData().iso2 || '').toLowerCase();
-                const nanp = nanpCountries.includes(country);
-                let raw = input.value.replace(/\D/g, '');
-                const max = countryMaxDigits[country] || (nanp ? 10 : 15);
-                raw = raw.slice(0, max);
-                const formatted = nanp ? formatUS(raw) : raw;
-                if (input.value !== formatted) {
-                    input.value = formatted;
+                const raw = input.value.replace(/\D/g, '');
+                const digitsBeforeCursor = (input.value.slice(0, input.selectionStart).replace(/\D/g, '')).length;
+                if (!raw) return;
+                const parsed = findCountryAndNational(raw);
+                if (!parsed) return;
+                const { dialCode, iso2, national, nanp } = parsed;
+                if (iti.getSelectedCountryData().dialCode !== dialCode) iti.setCountry(iso2);
+                const formatted = formatNational(national, nanp);
+                const display = '+' + dialCode + (formatted ? ' ' + formatted : '');
+                if (input.value !== display) {
+                    let newPos = display.length;
+                    let digitCount = 0;
+                    for (let i = 0; i < display.length; i++) {
+                        if (/\d/.test(display[i])) digitCount++;
+                        if (digitCount >= digitsBeforeCursor) { newPos = i + 1; break; }
+                    }
+                    input.value = display;
+                    input.setSelectionRange(newPos, newPos);
                 }
+            }
+            function enforcePlusPrefix(input) {
+                if (!input) return;
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === 'Backspace' && input.selectionStart <= 1 && input.selectionEnd <= 1) e.preventDefault();
+                    if (e.key === 'Delete' && input.selectionStart === 0 && input.selectionEnd === 0) e.preventDefault();
+                });
+                input.addEventListener('input', function() {
+                    if (!input.value.startsWith('+')) input.value = '+' + (input.value.replace(/^\+?/, '') || '');
+                });
             }
             if (numInput) {
                 itiNumber = window.intlTelInput(numInput, {
                     initialCountry: 'us',
-                    separateDialCode: true,
+                    separateDialCode: false,
                     preferredCountries: ['us', 'gb', 'ca', 'pk'],
+                    dropdownContainer: document.body,
                     utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js',
                     formatOnDisplay: true
                 });
+                if (!numInput.value.trim()) itiNumber.setNumber('+1');
+                enforcePlusPrefix(numInput);
                 numInput.addEventListener('input', function() { restrictAndFormat(itiNumber, numInput); });
                 numInput.addEventListener('keyup', function() { restrictAndFormat(itiNumber, numInput); });
                 numInput.addEventListener('countrychange', function() { restrictAndFormat(itiNumber, numInput); });
             }
-            const phoneInput = document.querySelector('#phone');
             if (phoneInput) {
                 itiPhone = window.intlTelInput(phoneInput, {
                     initialCountry: 'us',
-                    separateDialCode: true,
+                    separateDialCode: false,
                     preferredCountries: ['us', 'gb', 'ca', 'pk'],
+                    dropdownContainer: document.body,
                     utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js',
                     formatOnDisplay: true
                 });
+                if (!phoneInput.value.trim()) itiPhone.setNumber('+1');
+                enforcePlusPrefix(phoneInput);
                 phoneInput.addEventListener('input', function() { restrictAndFormat(itiPhone, phoneInput); });
                 phoneInput.addEventListener('keyup', function() { restrictAndFormat(itiPhone, phoneInput); });
                 phoneInput.addEventListener('countrychange', function() { restrictAndFormat(itiPhone, phoneInput); });
