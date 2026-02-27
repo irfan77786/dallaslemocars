@@ -145,23 +145,24 @@
 <div class="col-md-8 payment-for-css">
 
 <h5 class="mb-2 fw-bold">Payment Information</h5>
+<p class="mb-3 small" style="color: #000;">All transactions are secure and encrypted. Safe and secure payments powered by <b>Stripe</b></p>
 
 <form id="payment-form" method="POST" action="{{ url('/completeBook') }}">
 @csrf
 <input type="hidden" name="payment_method_id" id="payment_method_id">
 
+@if(auth()->check())
 <label class="p-3 mb-3 rounded  d-flex align-items-center payment-card-option">
     <input type="radio"
            name="payment_method"
            class="me-2 saved-card-radio"
            value=""
-           checked> <!-- default selected -->
+           checked>
 
     <i class="far fa-credit-card fs-2 me-3"></i>
     <span>Pay with a new card</span>
 </label>
 
-{{-- ✅ SAVED CARDS --}}
 @forelse($cards as $card)
 @php
     $brand = strtolower($card->card->brand);
@@ -197,7 +198,7 @@
 @empty
 <p class="text-danger">No saved cards found — Please enter card below</p>
 @endforelse
-
+@endif
 
 {{-- ✅ FULL NAME + CARD NUMBER (SAME GROUP) --}}
 <div id="new-card-fields">
