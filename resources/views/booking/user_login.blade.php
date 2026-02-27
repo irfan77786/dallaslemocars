@@ -259,7 +259,7 @@ $step = 3;
         margin: 0 !important;
         line-height: 1.4;
         font-size: 14px;
-        min-height: 34px !important;
+        min-height: 50px !important;
         height: 34px !important;
         box-sizing: border-box;
         border: none !important;
