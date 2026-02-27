@@ -50,7 +50,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
     border: 1.5px solid #ccc;
     border-radius: 8px;
     cursor: pointer;
-    padding: 1rem 55px 0rem 30px;
+    padding: 1rem 55px 0rem 15px;
     margin-bottom: 10px;
     position: relative;
     transition: border-color 0.3s ease, background-color 0.3s ease;
@@ -118,8 +118,9 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
 
 /* ==== Vehicle Image ==== */
 .vehicle_img {
-    max-height: 100px;
+    max-height: 100%;
     object-fit: contain;
+    width: 190px;
 }
 
 .best-value-badge {
@@ -370,7 +371,8 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
         flex: 0 0 auto;
     }
     .vehicle_img {
-        max-height: 52px;
+        max-height: 90px;
+        width: 170px;
     }
     .vehicle-info {
         min-width: 0 !important;
@@ -378,7 +380,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
         flex: 1 1 auto;
     }
     .vehicle-info > .vehicle-name {
-        font-size: 0.95rem;
+        font-size: 13px;
         margin-bottom: 5px;
         line-height: 1.2;
     }
@@ -957,7 +959,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
                                     @unless($requiresMoreHours)
                                         <div class="price-gratuity">
                                             <i class="bi bi-check-circle-fill"></i>
-                                            <span>All-Inclusive Price.</span>
+                                            <span>Inclusive Price.</span>
                                         </div>
                                     @endunless
                                 @else
