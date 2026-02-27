@@ -571,22 +571,38 @@ $step = 3;
         document.getElementById('loginForm')?.addEventListener('submit', function(e) {
             if ({{ auth()->check() ? 'true' : 'false' }}) return;
             const btnText = $('.login-btn').text().toLowerCase();
-            if (btnText === 'continue') return;
+            if (btnText === 'continue') return; // first step, just check email
+
             e.preventDefault();
             document.querySelectorAll('#loginForm .text-danger').forEach(el => el.innerText = '');
+
             let isValid = true;
             const email = $('#email_login').val().trim();
-            if (!email) { $('#loginForm .floating-bordered-input').first().find('.text-danger').first().text('Email is required.'); isValid = false; }
-            ['first_name','last_name'].forEach(name => {
-                const inp = document.querySelector(`#loginForm [name="${name}"]`);
-                const err = document.getElementById(`error_${name}`);
-                if (inp && err && !inp.value.trim()) { err.innerText = 'This field is required.'; isValid = false; }
-            });
-            if (!validateAndPopulatePhone('loginForm')) isValid = false;
+            if (!email) {
+                $('#loginForm .floating-bordered-input').first().find('.text-danger').first().text('Email is required.');
+                isValid = false;
+            }
+
+            const isRegisterMode = btnText === 'register';
+            const isLoginMode = btnText === 'login';
+
+            if (isRegisterMode) {
+                ['first_name','last_name'].forEach(name => {
+                    const inp = document.querySelector(`#loginForm [name="${name}"]`);
+                    const err = document.getElementById(`error_${name}`);
+                    if (inp && err && !inp.value.trim()) {
+                        err.innerText = 'This field is required.';
+                        isValid = false;
+                    }
+                });
+                if (!validateAndPopulatePhone('loginForm')) isValid = false;
+            }
+
             if ($('.login-now').is(':visible') && !$('#password').val()) {
                 $('#error_password').text('Password is required.');
                 isValid = false;
             }
+
             if (isValid) this.submit();
         });
 
@@ -609,11 +625,16 @@ $step = 3;
                             $('.login-now').show();
                             $('.login-btn').text('Login');
                             $('#loginForm').attr('action', '{{ route('login') }}');
+                            $('#loginForm [name="first_name"], #loginForm [name="last_name"], #loginForm #phone')
+                                .prop('required', false)
+                                .val('');
                         } else {
                             $('.login-now').show();
                             $('.register-now').show();
                             $('.login-btn').text('Register');
                             $('#loginForm').attr('action', '{{ route('register') }}');
+                            $('#loginForm [name="first_name"], #loginForm [name="last_name"], #loginForm #phone')
+                                .prop('required', true);
                         }
                     },
                     error: function(xhr, status, error) {
