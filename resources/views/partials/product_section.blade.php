@@ -17,12 +17,16 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
 @endphp
 
 <style>
+
+
+
+
 .bi-chevron-down::before{
     font-size: 12px !important;
     font-weight: bold;
 }
 .collapseCardBody {
-    padding: 0 1rem 15px !important;
+    padding: 0 1rem 0px !important;
     border: none !important;
  
     margin-left: -1rem;
@@ -50,7 +54,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
     border: 1.5px solid #ccc;
     border-radius: 8px;
     cursor: pointer;
-    padding: 1rem 55px 0rem 15px;
+    padding: 24px 54px 18px 15px;
     margin-bottom: 10px;
     position: relative;
     transition: border-color 0.3s ease, background-color 0.3s ease;
@@ -154,6 +158,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
     flex-grow: 1;
     margin-left: 1rem;
     min-width: 220px;
+    margin-left: 33px !important;
 }
 
 .vehicle-info > .vehicle-name {
@@ -203,12 +208,12 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
     color: #444;
 }
 .feature-items-grid {
-    display: flex;
+     display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    gap: 12px 55px;
+    gap: 12px 35px;
     margin-top: 15px;
-    margin-left: 27px !important;
+    margin-left: 0px !important;
     font-size: 0.85rem;
     color: #444;
 }
@@ -892,7 +897,13 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
   .booking-product-section-wrap { overflow-x: hidden; }
 }
 
-</style>
+
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1172px;
+    }
+    
+    
+    </style>
 
 
 
