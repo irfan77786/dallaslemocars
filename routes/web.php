@@ -410,6 +410,7 @@ Route::middleware('checkBookingCompletion')->group(function () {
     Route::get('/booking/hourly-hire/', [BookingController::class, 'handleHourlyHire'])->name('booking.hourlyHire.show');  //step2 case 2
     Route::get('/passengerInfo', [BookingController::class, 'submitPassengerInfo'] )->name('passenger.info'); //step 3
     Route::get('/submit-passengerInfo', [BookingController::class, 'submitPassengerInfo'])->name('submit.passenger.info'); //step 4
+    Route::post('/save-booking-form-session', [BookingController::class, 'saveBookingFormSession'])->name('save.booking.form.session');
 });
 
 // Other Pages:

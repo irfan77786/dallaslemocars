@@ -518,6 +518,43 @@ public function handleHourlyHire(Request $request)
         return response()->json($vehicles);
     }
 
+    public function saveBookingFormSession(Request $request)
+    {
+        $formType = $request->input('form_type', '');
+
+        if ($formType === 'guest_info') {
+            $sanitizedNumber = preg_replace('/[^\d+]/', '', trim($request->input('number', '') ?? ''));
+            session([
+                'first_name' => $request->input('first_name', ''),
+                'last_name' => $request->input('last_name', ''),
+                'email' => $request->input('email', ''),
+                'number' => $sanitizedNumber ?: $request->input('number', ''),
+            ]);
+            session()->put('guest', [
+                'first_name' => $request->input('first_name', ''),
+                'last_name' => $request->input('last_name', ''),
+                'email' => $request->input('email', ''),
+                'number' => $sanitizedNumber ?: $request->input('number', ''),
+            ]);
+        } elseif ($formType === 'booking_detail') {
+            session([
+                'pickup_flight_details' => $request->input('pickup_flight_details', ''),
+                'flight_number' => $request->input('flight_number', ''),
+                'meet_option' => $request->input('meet_option', 'none') ?: null,
+                'no_flight_info' => $request->has('no_flight_info') ? 1 : 0,
+                'note' => $request->input('note', ''),
+                'return_flight_details' => $request->input('return_flight_details', ''),
+                'return_flight_number' => $request->input('return_flight_number', ''),
+                'return_no_flight_info' => $request->has('return_no_flight_info') ? 1 : 0,
+            ]);
+            if ($request->input('meet_option') === 'none') {
+                session(['meet_option' => null]);
+            }
+        }
+
+        return response()->json(['success' => true]);
+    }
+
     public function submitPassengerInfo(Request $request)
     {
         if(auth()->check()){
@@ -607,14 +644,15 @@ public function handleHourlyHire(Request $request)
                 session(['final_price' => $final]);
             }
 
+            $guest = session('guest', []);
             return view('booking.booking_detail', [
                 'step' => 4,
                 'id' => session('vehicle_id'),
                 'data' => (object)[
-                    'first_name' => session('first_name'),
-                    'last_name' => session('last_name'),
-                    'email' => session('email'),
-                    'number' => session('number'),
+                    'first_name' => session('first_name') ?? $guest['first_name'] ?? null,
+                    'last_name' => session('last_name') ?? $guest['last_name'] ?? null,
+                    'email' => session('email') ?? $guest['email'] ?? null,
+                    'number' => session('number') ?? $guest['number'] ?? null,
                     'bookingForSomeoneElse' => session('bookingForSomeoneElse'),
                     'booker_first_name' => session('booker_first_name'),
                     'booker_last_name' => session('booker_last_name'),

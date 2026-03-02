@@ -302,7 +302,7 @@ $step = 3;
                     <!-- Email -->
                     <div class="floating-bordered-input position-relative">
                         <span class="floating-label">Email address *</span>
-                        <input type="email" id="guest_email" name="email" value="{{ old('email', session('email')) }}"
+                        <input type="email" id="guest_email" name="email" value="{{ old('email', session('email') ?? data_get(session('guest'), 'email', '')) }}"
                             class="form-control" placeholder=" " autocomplete="email" required>
                         <div class="mt-1 text-danger small" id="error_email"></div>
                     </div>
@@ -313,7 +313,7 @@ $step = 3;
                             <div class="floating-bordered-input position-relative">
                                 <span class="floating-label">First name *</span>
                                 <input type="text" id="first_name" name="first_name"
-                                    value="{{ old('first_name', session('first_name')) }}" class="form-control"
+                                    value="{{ old('first_name', session('first_name') ?? data_get(session('guest'), 'first_name', '')) }}" class="form-control"
                                     placeholder=" " autocomplete="given-name" required>
                                 <div class="mt-1 text-danger small" id="error_first_name"></div>
                                 @error('first_name')<div class="mt-1 text-danger small">{{ $message }}</div>@enderror
@@ -323,7 +323,7 @@ $step = 3;
                             <div class="floating-bordered-input position-relative">
                                 <span class="floating-label">Last name *</span>
                                 <input type="text" id="last_name" name="last_name"
-                                    value="{{ old('last_name', session('last_name')) }}" class="form-control"
+                                    value="{{ old('last_name', session('last_name') ?? data_get(session('guest'), 'last_name', '')) }}" class="form-control"
                                     placeholder=" " autocomplete="family-name" required>
                                 <div class="mt-1 text-danger small" id="error_last_name"></div>
                                 @error('last_name')<div class="mt-1 text-danger small">{{ $message }}</div>@enderror
@@ -335,7 +335,7 @@ $step = 3;
                     <div class="phone-field-wrapper">
                         <div class="floating-bordered-input position-relative phone-input-wrapper">
                             <span class="floating-label">Phone *</span>
-                            <input type="tel" id="number" value="{{ old('number', session('number')) }}"
+                            <input type="tel" id="number" value="{{ old('number', session('number') ?? data_get(session('guest'), 'number', '')) }}"
                                 class="form-control phone-with-country" placeholder=" " autocomplete="tel" required>
                             <input type="hidden" name="number" id="number_full">
                         </div>
@@ -670,6 +670,62 @@ $step = 3;
             }
 
             if (isValid) this.submit();
+        });
+
+        // Save guest/login form data to session when user navigates away (preserves input on step change)
+        function saveGuestFormToSession(callback) {
+            const guestForm = document.getElementById('passengerForm');
+            const loginForm = document.getElementById('loginForm');
+            let email = '', firstName = '', lastName = '', numberVal = '';
+            if (guestForm) {
+                email = document.getElementById('guest_email')?.value || '';
+                firstName = guestForm.querySelector('[name="first_name"]')?.value || '';
+                lastName = guestForm.querySelector('[name="last_name"]')?.value || '';
+                if (typeof itiNumber !== 'undefined' && itiNumber) {
+                    numberVal = itiNumber.getNumber() || document.getElementById('number_full')?.value || '';
+                } else {
+                    numberVal = document.getElementById('number')?.value || document.getElementById('number_full')?.value || '';
+                }
+            }
+            if (loginForm && (!firstName || !lastName)) {
+                const lf = loginForm.querySelector('[name="first_name"]')?.value;
+                const ll = loginForm.querySelector('[name="last_name"]')?.value;
+                if (lf) firstName = lf;
+                if (ll) lastName = ll;
+                if (loginForm.querySelector('[name="email"]')) email = email || loginForm.querySelector('[name="email"]').value;
+                if (typeof itiPhone !== 'undefined' && itiPhone) {
+                    numberVal = numberVal || itiPhone.getNumber() || document.getElementById('phone_full')?.value || '';
+                } else {
+                    numberVal = numberVal || document.getElementById('phone')?.value || document.getElementById('phone_full')?.value || '';
+                }
+            }
+            const data = new FormData();
+            data.append('form_type', 'guest_info');
+            data.append('_token', document.querySelector('meta[name="csrf-token"]')?.content || (guestForm?.querySelector('input[name="_token"]')?.value) || '');
+            data.append('email', email);
+            data.append('first_name', firstName);
+            data.append('last_name', lastName);
+            data.append('number', numberVal);
+            fetch('{{ route("save.booking.form.session") }}', { method: 'POST', body: data, headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+                .then(r => r.json())
+                .then(() => { if (callback) callback(); })
+                .catch(() => { if (callback) callback(); });
+        }
+        let saveDebounce;
+        document.querySelectorAll('#passengerForm input[name="email"], #passengerForm input[name="first_name"], #passengerForm input[name="last_name"], #passengerForm #number, #loginForm input[name="email"], #loginForm input[name="first_name"], #loginForm input[name="last_name"], #loginForm #phone').forEach(el => {
+            if (el) el.addEventListener('blur', function() {
+                clearTimeout(saveDebounce);
+                saveDebounce = setTimeout(() => saveGuestFormToSession(), 400);
+            });
+        });
+        document.querySelectorAll('a.trigger-loader[href], a.step[href]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && !href.startsWith('#')) {
+                    e.preventDefault();
+                    saveGuestFormToSession(() => { window.location.href = href; });
+                }
+            });
         });
 
         $('#continue_right').click(function(e) {

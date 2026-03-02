@@ -372,7 +372,7 @@ footer.footer.bg-blue {
                         <!-- Flight Info Toggle -->
                         <div class="mt-3 custom-switch-container">
                             <label class="switch-wrapper">
-                                <input type="checkbox" id="no-flight-info-checkbox" name="no_flight_info" value="1">
+                                <input type="checkbox" id="no-flight-info-checkbox" name="no_flight_info" value="1" {{ (session('no_flight_info', 0) == 1) ? 'checked' : '' }}>
                                 <span class="switch-slider"></span>
                             </label>
                             <label class="form-check-label" for="no-flight-info-checkbox">
@@ -894,9 +894,10 @@ footer.footer.bg-blue {
                 }
             }
 
-            // Initialize on page load
+            // Initialize on page load (restore from session if user navigated back)
             $(document).ready(function() {
-                $('#no-flight-info-checkbox').prop('checked', false);
+                const hasFlightFromSession = {{ (session('no_flight_info', 0) == 1) ? 'true' : 'false' }};
+                $('#no-flight-info-checkbox').prop('checked', hasFlightFromSession);
                 toggleFlightInfoFields();
                 $('#no-flight-info-checkbox').on('change', function() { toggleFlightInfoFields(); });
             });
@@ -1538,6 +1539,56 @@ footer.footer.bg-blue {
             }
 
             enforceBookingRestrictions('return-pickup-date', 'return-pickup-time');
+        });
+
+        // Save booking detail form (flight info, note) to session when user navigates away
+        function saveBookingDetailToSession(callback) {
+            const form = document.getElementById('booking-detail-form');
+            if (!form) { if (callback) callback(); return; }
+            const data = new FormData();
+            data.append('form_type', 'booking_detail');
+            data.append('_token', document.querySelector('meta[name="csrf-token"]')?.content || form.querySelector('input[name="_token"]')?.value || '');
+            data.append('pickup_flight_details', document.getElementById('pickup-flight-details')?.value || '');
+            data.append('flight_number', document.getElementById('flight-number')?.value || '');
+            data.append('meet_option', document.getElementById('meet-option')?.value || 'none');
+            data.append('note', document.getElementById('note')?.value || '');
+            if (document.getElementById('no-flight-info-checkbox')?.checked) data.append('no_flight_info', '1');
+            const retFlight = document.getElementById('return-flight-details');
+            const retNum = document.getElementById('return-flight-number');
+            const retNoInfo = document.getElementById('return-no-flight-info');
+            data.append('return_flight_details', retFlight?.value || document.getElementById('hidden-return-flight-details')?.value || '');
+            data.append('return_flight_number', retNum?.value || document.getElementById('hidden-return-flight-number')?.value || '');
+            if (retNoInfo?.checked) data.append('return_no_flight_info', '1');
+            fetch('{{ route("save.booking.form.session") }}', { method: 'POST', body: data, headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+                .then(r => r.json())
+                .then(() => { if (callback) callback(); })
+                .catch(() => { if (callback) callback(); });
+        }
+        let saveDetailDebounce;
+        document.querySelectorAll('#booking-detail-form #flight-number, #booking-detail-form #note').forEach(el => {
+            if (el) el.addEventListener('blur', function() {
+                clearTimeout(saveDetailDebounce);
+                saveDetailDebounce = setTimeout(() => saveBookingDetailToSession(), 400);
+            });
+        });
+        document.getElementById('booking-detail-form')?.addEventListener('click', function(e) {
+            if (e.target.closest('.rlx-option')) {
+                clearTimeout(saveDetailDebounce);
+                saveDetailDebounce = setTimeout(() => saveBookingDetailToSession(), 400);
+            }
+        });
+        document.getElementById('no-flight-info-checkbox')?.addEventListener('change', function() {
+            clearTimeout(saveDetailDebounce);
+            saveDetailDebounce = setTimeout(() => saveBookingDetailToSession(), 400);
+        });
+        document.querySelectorAll('a.trigger-loader[href], a.step[href]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && !href.startsWith('#')) {
+                    e.preventDefault();
+                    saveBookingDetailToSession(() => { window.location.href = href; });
+                }
+            });
         });
     </script>
     @endsection
