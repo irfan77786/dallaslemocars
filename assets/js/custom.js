@@ -441,8 +441,8 @@ function setupCustomAutocomplete(
     let debounceTimer;
 
     // Function to handle place selection
-    function selectPlace(place) {
-        input.value = place.formatted_address || place.name;
+    function selectPlace(place, displayText) {
+        input.value = displayText || place.formatted_address || place.name;
         suggestionsContainer.style.display = "none";
 
         // Check if it's an airport
@@ -530,7 +530,11 @@ function setupCustomAutocomplete(
                                         google.maps.places.PlacesServiceStatus
                                             .OK
                                     ) {
-                                        selectPlace(place);
+                                        selectPlace(
+                                            place,
+                                            prediction.structured_formatting
+                                                .main_text,
+                                        );
                                     }
                                 },
                             );
