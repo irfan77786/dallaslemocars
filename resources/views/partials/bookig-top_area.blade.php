@@ -183,12 +183,14 @@
 }
 /* Return inline summary (return service) */
 .return-inline { display:flex; align-items:flex-start; width:100%; flex:1 1 auto; flex-wrap:nowrap; }
-.return-item { flex:1 1 0; max-width:none; min-width:0; padding-right:16px; border-right:1px solid #e6e8ef; }
-.return-item:last-of-type { border-right:none; padding-right:0; }
+.return-item { flex:1 1 0; max-width:none; min-width:0; padding:0 16px; }
+.return-item:first-child { padding-left:0; }
+.return-item:last-child { padding-right:0; }
+.return-divider { width:1px; min-width:1px; height:28px; background:#d1d5db; flex-shrink:0; align-self:center; }
 .return-item-label { color:#2B3252; font-weight:600; font-size:14px; margin-bottom:4px; }
 .return-item-label:empty { display:none; margin-bottom:0; }
 .return-item-value { color:#1f2937; font-weight:500; font-size:18px; line-height:1.3; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-@media (max-width:768px){ .return-inline{flex-wrap:wrap;} .return-item{ flex:0 0 100%; max-width:100%; border-right:none; padding-right:0; }
+@media (max-width:768px){ .return-inline{flex-wrap:wrap;} .return-item{ flex:0 0 100%; max-width:100%; padding:0; } .return-divider{ display:none; }
 
 
 
@@ -493,39 +495,42 @@ main {
         <p class="summary_label">Pickup Location</p>
         <p class="mb-0 summary_text">
           @if(session('pickup_location'))
-            → {{ session('pickup_location') }}
+            {{ session('pickup_location') }}
           @endif
         </p>
         @if(session('round_trip') == 'on' && session('dropoff_location'))
-          <p class="mb-0 summary_text">← {{ session('dropoff_location') }}</p>
+          <p class="mb-0 summary_text">{{ session('dropoff_location') }}</p>
         @endif
       </div>
+      <div class="return-divider"></div>
       <div class="return-item">
         <p class="summary_label">{{ session('dropoff_location') ? 'Destination' : 'Selected Hours' }}</p>
         <p class="mb-0 summary_text">
           @if(session('dropoff_location'))
-              → {{ session('dropoff_location') }}
+              {{ session('dropoff_location') }}
           @else
               Hours {{ session('select_hours') }}
           @endif
         </p>
         @if(session('round_trip') == 'on' && session('pickup_location') && session('dropoff_location'))
-          <p class="mb-0 summary_text">← {{ session('pickup_location') }}</p>
+          <p class="mb-0 summary_text">{{ session('pickup_location') }}</p>
         @endif
       </div>
+      <div class="return-divider"></div>
       <div class="return-item">
         <p class="summary_label">Pick-Up Date & Time</p>
         <p class="mb-0 summary_text">
           @if(session('pickup_date') && session('pickup_time'))
-            → {{ \Carbon\Carbon::parse(session('pickup_date'))->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse(session('pickup_time'))->format('h:i A') }}
+            {{ \Carbon\Carbon::parse(session('pickup_date'))->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse(session('pickup_time'))->format('h:i A') }}
           @endif
         </p>
         @if(session('round_trip') == 'on' && session('return_datetime'))
           <p class="mb-0 summary_text">
-            ← {{ \Carbon\Carbon::parse(session('return_datetime'))->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse(session('return_datetime'))->format('h:i A') }}
+            {{ \Carbon\Carbon::parse(session('return_datetime'))->format('D, M jS, Y') }} {{ \Carbon\Carbon::parse(session('return_datetime'))->format('h:i A') }}
           </p>
         @endif
       </div>
+      <div class="return-divider"></div>
       <div class="return-item">
         <p class="summary_label">Car Type</p>
         <p class="mb-0 summary_text">
