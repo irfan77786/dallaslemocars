@@ -193,6 +193,14 @@
 .return-item:first-child { padding-left:0; }
 .return-item:last-child { padding-right:0; }
 .return-divider { width:1px; min-width:1px; height:28px; background:#d1d5db; flex-shrink:0; align-self:center; }
+/* Desktop summary: items size to content, no empty space */
+.booking-summary-desktop .return-inline { flex-wrap: wrap; gap: 2px 0; }
+.booking-summary-desktop .return-item { flex: 0 1 auto; min-width: 0; max-width: 320px; padding: 0 50px; }
+.booking-summary-desktop .return-item:first-child { padding-left: 0; }
+.booking-summary-desktop .return-item:last-child { padding-right: 0; }
+.booking-summary-desktop .return-item .summary_label { margin-bottom: 6px !important; }
+.booking-summary-desktop .return-item .summary_text { word-wrap: break-word; overflow-wrap: break-word; white-space: normal; margin-top: 4px !important; margin-bottom: 10px !important; }
+.booking-summary-desktop .return-item .summary_text:last-child { margin-bottom: 0 !important; }
 .return-item-label { color:#2B3252; font-weight:600; font-size:14px; margin-bottom:4px; }
 .return-item-label:empty { display:none; margin-bottom:0; }
 .return-item-value { color:#1f2937; font-weight:500; font-size:18px; line-height:1.3; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
@@ -494,7 +502,7 @@ main {
 @endunless
 
 <!-- DESKTOP VIEW (hidden on small devices) -->
-<div class="container px-3 py-3 bg-white d-none d-md-block">
+<div class="container px-3 py-3 bg-white d-none d-md-block booking-summary-desktop">
   <div class="d-flex align-items-start justify-content-between">
     <div class="return-inline">
       <div class="return-item">
