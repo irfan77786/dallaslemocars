@@ -530,10 +530,11 @@ function setupCustomAutocomplete(
                                         google.maps.places.PlacesServiceStatus
                                             .OK
                                     ) {
+                                        const main = prediction.structured_formatting.main_text;
+                                        const sub = prediction.structured_formatting.secondary_text || "";
                                         selectPlace(
                                             place,
-                                            prediction.structured_formatting
-                                                .main_text,
+                                            sub ? `${main}, ${sub}` : main,
                                         );
                                     }
                                 },
