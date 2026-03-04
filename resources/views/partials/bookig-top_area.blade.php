@@ -193,7 +193,6 @@
 .return-item:first-child { padding-left:0; }
 .return-item:last-child { padding-right:0; }
 .return-divider { width:1px; min-width:1px; height:28px; background:#d1d5db; flex-shrink:0; align-self:center; }
-/* Desktop summary: items size to content, no empty space */
 .booking-summary-desktop .return-inline { flex-wrap: wrap; gap: 2px 0; }
 .booking-summary-desktop .return-item { flex: 0 1 auto; min-width: 0; max-width: 320px; padding: 0 50px; }
 .booking-summary-desktop .return-item:first-child { padding-left: 0; }
