@@ -1,6 +1,8 @@
 @php
     $formatAirport = function($name) {
         if (!$name) return $name;
+        $nameLower = strtolower($name);
+        if (!str_contains($nameLower, 'airport')) return $name;
         if (str_contains($name, 'DFW')) return 'Dallas Fort Worth International Airport';
         if (str_contains($name, 'Love Field Airport (DAL)')) return 'Dallas Love Field Airport';
         return $name;
