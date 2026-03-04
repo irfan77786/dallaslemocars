@@ -1233,6 +1233,9 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
             var passengersCountEl = sheet.querySelector('.mbs-passengers-count');
             if (passengersCountEl) { passengersCountEl.textContent = passengersCount; }
 
+            var badgeEl = content.querySelector('.best-value-badge');
+            if (badgeEl) { badgeEl.style.display = (parseInt(passengersCount, 10) <= 6) ? '' : 'none'; }
+
             var luggageCountMatch = (luggage || '').match(/[0-9]+/);
             var luggageCount = luggageCountMatch ? luggageCountMatch[0] : '';
             var luggageCountEl = sheet.querySelector('.mbs-luggage-count');
