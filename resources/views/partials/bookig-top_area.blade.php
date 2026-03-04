@@ -1,4 +1,10 @@
 @php
+    $formatAirport = function($name) {
+        if (!$name) return $name;
+        if (str_contains($name, 'DFW')) return 'Dallas Fort Worth International Airport';
+        if (str_contains($name, 'Love Field Airport (DAL)')) return 'Dallas Love Field Airport';
+        return $name;
+    };
     $currentStep = $step ?? 1;
     $steps = [
         1 => ['label' => 'Ride Info', 'route' => route('booking.form',['edit' => 1])],
@@ -424,12 +430,12 @@ main {
             <div class="summary-row">
                 <p class="summary-label-inline">Pickup Location</p>
                 <span class="summary-leader"></span>
-                <p class="summary-value-inline">{{ session('pickup_location') }}</p>
+                <p class="summary-value-inline">{{ $formatAirport(session('pickup_location')) }}</p>
             </div>
             <div class="summary-row">
                 <p class="summary-label-inline">{{ session('dropoff_location') ? 'Destination' : 'Selected Hours' }}</p>
                 <span class="summary-leader"></span>
-                <p class="summary-value-inline">@if(session('dropoff_location')){{ session('dropoff_location') }}@else Hours {{ session('select_hours') }} @endif</p>
+                <p class="summary-value-inline">@if(session('dropoff_location')){{ $formatAirport(session('dropoff_location')) }}@else Hours {{ session('select_hours') }} @endif</p>
             </div>
             <div class="summary-row">
                 <p class="summary-label-inline">Date & Time</p>
@@ -450,12 +456,12 @@ main {
             <div class="summary-row">
                 <p class="summary-label-inline">Pickup Location</p>
                 <span class="summary-leader"></span>
-                <p class="summary-value-inline">{{ $returnPickup }}</p>
+                <p class="summary-value-inline">{{ $formatAirport($returnPickup) }}</p>
             </div>
             <div class="summary-row">
                 <p class="summary-label-inline">Destination</p>
                 <span class="summary-leader"></span>
-                <p class="summary-value-inline">{{ $returnDropoff }}</p>
+                <p class="summary-value-inline">{{ $formatAirport($returnDropoff) }}</p>
             </div>
             <div class="summary-row">
                 <p class="summary-label-inline">Date & Time</p>
@@ -495,11 +501,11 @@ main {
         <p class="summary_label">Pickup Location</p>
         <p class="mb-0 summary_text">
           @if(session('pickup_location'))
-            {{ session('pickup_location') }}
+            {{ $formatAirport(session('pickup_location')) }}
           @endif
         </p>
         @if(session('round_trip') == 'on' && session('dropoff_location'))
-          <p class="mb-0 summary_text">{{ session('dropoff_location') }}</p>
+          <p class="mb-0 summary_text">{{ $formatAirport(session('dropoff_location')) }}</p>
         @endif
       </div>
       <div class="return-divider"></div>
@@ -507,13 +513,13 @@ main {
         <p class="summary_label">{{ session('dropoff_location') ? 'Destination' : 'Selected Hours' }}</p>
         <p class="mb-0 summary_text">
           @if(session('dropoff_location'))
-              {{ session('dropoff_location') }}
+              {{ $formatAirport(session('dropoff_location')) }}
           @else
               Hours {{ session('select_hours') }}
           @endif
         </p>
         @if(session('round_trip') == 'on' && session('pickup_location') && session('dropoff_location'))
-          <p class="mb-0 summary_text">{{ session('pickup_location') }}</p>
+          <p class="mb-0 summary_text">{{ $formatAirport(session('pickup_location')) }}</p>
         @endif
       </div>
       <div class="return-divider"></div>
