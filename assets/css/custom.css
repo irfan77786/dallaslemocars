@@ -238,7 +238,7 @@ a.btn-loadmore:hover {
 }
 
 .booking_step_container {
-    margin-bottom: 3dvh;
+    margin-bottom: 1dvh;
 }
 
 /* Floating Input Styles - Preserved for form */
@@ -616,7 +616,7 @@ div#pricing-area-wrapper {
     position: relative;
     border: 1px solid #C4C4C4;
     border-radius: 4px;
-    padding: 12px 40px;
+    padding: 12px 0px 12px 40px;
     padding-top: 0px !important;
     padding-bottom: 0px !important;
     background: #fff;
@@ -1012,8 +1012,8 @@ button#final-pay-button {
     max-width: 112px !important;
 }
 }    .flex-nowrap.pt-1.mt-4.stepper.d-flex.justify-content-start.justify-content-md-end.w-100 {
-    padding-top: 2px !important;
-    margin-top: 15px !important;
+    padding-top: 0px !important;
+    margin-top: 5px !important;
 }
 
 button.mt-2.select_car_btn.btn.btn_dark.btn-primary.trigger-loader {
@@ -1032,9 +1032,53 @@ button.mt-2.select_car_btn.btn.btn_dark.btn-primary.trigger-loader:hover {
     border-radius: 5px;
 }
 .py-lg-20 {
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 4px;
+        padding-bottom: 4px;
     }
+
+
+@media(max-width: 1367px)
+{
+    
+    
+        #hero-banner-container {
+        padding-top: 30px !important;
+        padding-bottom: 10px !important;
+        min-height: 505px !important;
+    }
+    p.mt-3.mb-0.text-center.text-muted.small {
+    font-size: 10px;
+    letter-spacing: normal !important;
+}
+
+}
+
+
+
+.payment_method_info_box p {
+    margin: 16px 0px 0px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #9e9e9e;
+    margin-top: 9px !important;
+}
+.payment-methods {
+    display: flex !important;
+    margin-top: 1px !important;
+    max-width: 75% !important;
+
+}
+
+
+p.mt-3.mb-0.text-center.text-muted.small {
+    font-size: 12px;
+    letter-spacing: normal !important;
+}
+.container.px-3.py-3.bg-white.d-none.d-md-block {
+    padding-top: 7px !important;
+    padding-bottom: 3px !important;
+}
 
 
 

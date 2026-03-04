@@ -211,7 +211,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
      display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    gap: 12px 35px;
+    gap: 12px 37px;
     margin-top: 15px;
     margin-left: 0px !important;
     font-size: 0.85rem;
