@@ -1,16 +1,31 @@
 @extends('master')
 @section('content')
+<section class="d-md-none">
+    <div class="ah-container">
+        <div class="search-form-mobile">
+            @include('partials.search', ['id_suffix' => '_mobile'])
+        </div>
+    </div>
+</section>
+
 <section class="home-banner-section">
-    <div class="hero-banner-container py-60 ah-container position-relative py-sm-70 py-md-80 py-lg-100"
+    <div id="hero-banner-container" class="hero-banner-container py-60 ah-container position-relative py-sm-70 py-md-80 py-lg-100"
          style="z-index: 2; background-image: url('{{ asset('assets/new_theme/img/banner-1.webp') }}'); background-size: cover; background-position: center;">
+        <div id="map" class="position-absolute w-100 h-100" style="top:0; left:0; z-index: 1; display:none;"></div>
+
         <div class="row" style="pointer-events: none;">
-            <div class="banner-text-content col-12 col-md-10 col-lg-8 col-xl-6 d-flex flex-column justify-content-center text-center text-md-start" style="pointer-events: auto; position: relative; z-index: 0;">
+            <div id="home-text-content" class="banner-text-content col-12 col-md-6 d-flex flex-column justify-content-center" style="pointer-events: auto; position: relative; z-index: 0;">
                 <h1 class="text-white h1 fw-bold mb-15">Privacy Policy – Black Car Service Dallas</h1>
                 <p class="mb-0 text-white font-lg fw-medium">Request Instant Pricing for Black Car, SUV, or Group Travel in DFW.</p>
-                <span class="my-2 text-white font-base d-block">24/7 Service Available – <strong
-                        class="font-lg fw-semibold">Click to Call
-                        Now</strong></span>
-                <div class="pt-3"><a href="/booking" class="btn btn-primary sm fw-medium">Book Your Ride Now</a></div>
+                <span class="my-2 text-white font-base d-block">24/7 Service Available – <strong class="font-lg fw-semibold">Click to Call Now</strong></span>
+                <p class="text-white font-base d-flex align-items-center mb-30 mb-md-0">
+                    Call: <a href="tel:+12148978056" class="mx-2 fw-bold font-lg theme-color">+1 214-897-8056</a>
+                </p>
+            </div>
+            <div class="d-none col-12 col-md-6 d-md-block" style="pointer-events: auto; position: relative; z-index: 2;">
+                <div class="search-form-wrapper-desktop">
+                    @include('partials.search', ['id_suffix' => ''])
+                </div>
             </div>
         </div>
     </div>
