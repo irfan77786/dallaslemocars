@@ -282,10 +282,10 @@
     .mob-step-dot.active{ border:none; background: linear-gradient(90deg, #e52c43, #ff6c00); color:#fff !important; }
     .mob-step-dot.upcoming{ border-color:#e5e7eb; background:#fff; color:#9ca3af; }
 
-    .summary-row{ flex-wrap:wrap; align-items:flex-start; gap:0; margin-bottom:10px; }
-    .summary-label-inline{ flex:0 0 100%; margin-bottom:2px; }
-    .summary-leader{ display:none; }
-    .summary-value-inline{ flex:0 0 100%; white-space:normal; overflow:visible; text-overflow:clip; color:#6b7280 !important; }
+    .mob_top_summary .summary-row{ flex-wrap:wrap; align-items:flex-start; gap:0; margin-bottom:10px; }
+    .mob_top_summary .summary-label-inline{ flex:0 0 100%; margin-bottom:2px; font-size:0.8rem !important; font-weight:600; color:#000 !important; }
+    .mob_top_summary .summary-leader{ display:none !important; }
+    .mob_top_summary .summary-value-inline{ flex:0 0 100%; white-space:normal; overflow:visible; text-overflow:clip; font-size:0.8rem !important; color:#6b7280 !important; }
     .summary-section-title{ font-weight:700; color:#1f2937; }
     .summary-section-divider{ height:0; border-bottom:1px solid #e5e7eb; margin:8px 0; }
 }
