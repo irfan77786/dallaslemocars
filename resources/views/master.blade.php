@@ -48,7 +48,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Preload critical JavaScript files -->
     <link rel="preload" href="{{ asset('assets/js/custom.js') }}" as="script">
@@ -60,6 +62,7 @@
     <!-- Page banner responsive styles (matches home screen design) -->
     <style>
         @media (max-width: 767px) {
+
             #hero-banner-container,
             .hero-banner-container {
                 min-height: 300px !important;
@@ -71,6 +74,7 @@
                 align-items: center !important;
                 justify-content: center !important;
             }
+
             #hero-banner-container .row,
             .hero-banner-container .row {
                 width: 100%;
@@ -78,26 +82,32 @@
                 justify-content: center !important;
                 align-items: center !important;
             }
+
             #home-text-content,
             .banner-text-content {
                 justify-content: center !important;
                 align-items: center !important;
                 text-align: center !important;
             }
+
             #home-text-content h1,
             .banner-text-content h1 {
                 text-align: center !important;
                 white-space: nowrap !important;
             }
         }
+
         @media (min-width: 768px) {
+
             #hero-banner-container,
             .hero-banner-container {
                 min-height: 570px;
             }
+
             #home-text-content {
                 margin-top: 130px;
             }
+
             .search-form-wrapper-desktop {
                 position: absolute;
                 width: 100%;
@@ -110,6 +120,14 @@
 </head>
 
 <body>
+    @php
+    $hideHeaderItems = request()->is('booking/point-to-point')
+    || request()->is('booking/point-to-point/*')
+    || request()->is('user-login/*/*')
+    || request()->is('submit-passengerInfo')
+    || request()->is('submit-passengerInfo/*')
+    || request()->is('bookRide');
+    @endphp
     <header class="py-15 py-lg-20">
         <div class="container position-relative">
             <div class="row align-items-center">
@@ -123,6 +141,15 @@
                         </a>
                     </div>
                 </div>
+                @if($hideHeaderItems)
+                <div class="col-6 col-lg-9 d-flex align-items-center justify-content-end">
+                    <a href="tel:+12148978056"
+                        class="text-dark fw-semibold text-decoration-none d-inline-flex align-items-center gap-2">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+1 214-897-8056</span>
+                    </a>
+                </div>
+                @else
                 <div class="col-6 col-md-9">
                     <nav class="custom-navbar navbar navbar-expand-lg p-0 position-static">
                         <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
@@ -212,6 +239,7 @@
                         </div>
                     </nav>
                 </div>
+                @endif
             </div>
         </div>
     </header>

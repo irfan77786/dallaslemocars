@@ -26,7 +26,7 @@ class AuthenticatedSessionController extends Controller
     {
         $login_type = $request->input('login_type');
 
-        if($request->type == 'guest') {
+        if ($request->type == 'guest') {
             session()->put('booker_first_name', $request->first_name);
             session()->put('booker_last_name', $request->last_name);
             session()->put('booker_email', $request->email);
@@ -36,8 +36,7 @@ class AuthenticatedSessionController extends Controller
                 'email' => $request->email,
                 'number' => $request->number,
             ]);
-        }
-        else{
+        } else {
             $request->authenticate();
             $request->session()->regenerate();
         }
