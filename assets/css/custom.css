@@ -383,12 +383,24 @@ a.btn-loadmore:hover {
 /* Mobile styles - Cleaned up */
 @media (max-width: 768px) {
  
- 
+ .mobile-card-methods {
+     width: 400px !important;
+}
+
+.col-md-8.payment-for-css {
+   
+    padding-top: 70px !important;
+}
+
+
      .car-price h4 {
        
-        font-weight: 800;
+        font-weight: 700;
     }
- 
+ .hourly-min {
+    color: red;
+    font-size: 18px  !important;
+}
 
 p.mt-1.mb-0.text-muted.small.text-start {
     font-size: 13px;
@@ -587,7 +599,7 @@ div#pricing-area-wrapper {
         padding-right: 8px;
     }
     #hero-banner-container {
-        padding-top: 75px !important;
+        padding-top: 61px !important;
     }
     /* Removed layout breaking overrides */
 
@@ -616,7 +628,7 @@ div#pricing-area-wrapper {
     position: relative;
     border: 1px solid #C4C4C4;
     border-radius: 4px;
-    padding: 12px 0px 12px 40px;
+    padding: 12px 6px 12px 40px;
     padding-top: 0px !important;
     padding-bottom: 0px !important;
     background: #fff;
@@ -880,12 +892,14 @@ div.search-tab-wrap ul.nav-tabs li.nav-item a.nav-link:focus {
     .px-4.mb-3.col-md-8.mobile-mg-dc {
     background: #fff;
     padding: 21px 29px 35px 27px !important;
+    border-radius: 8px;
 }
 .p-3.mt-3.rounded-lg.shadow-sm.bg-light {
     margin-top: 0px !important;
     background: #fff !important;
     padding-bottom: 25px !important;
     padding-top: 25px !important;
+        border-radius: 8px;
 }
 .rlx-option:hover .rlx-option-icon, .rlx-option[aria-selected="true"] .rlx-option-icon, .rlx-option.selected .rlx-option-icon {
     color: #ffffff !important;
@@ -895,6 +909,7 @@ div.search-tab-wrap ul.nav-tabs li.nav-item a.nav-link:focus {
 .col-md-8.payment-for-css {
     background: #fff;
     padding: 25px 28px 45px 25px;
+    border-radius: 8px;
 }
 
 .side_section .card {
@@ -1079,7 +1094,42 @@ p.mt-3.mb-0.text-center.text-muted.small {
     padding-top: 7px !important;
     padding-bottom: 3px !important;
 }
+.btn-primary {
+    background-color: #1E1E1E;
+    border-radius: 4px;
+}
 
+button.mr-3.btn.btn-outline.btn-uniform.skip-btn {
+    background: #ebebeb;
+    border-radius: 4px;
+    margin-right: 30px;
+}
+
+input.InputElement.is-complete.Input {
+    font-size: 16px !important;
+}
+
+.form-control, .form-select {
+    font-size: 16px  !important;
+    
+}
+    .mobile-card-methods {
+        display: block !important;
+        width: 280px;
+    }
+    
+    p.mt-1.mb-0.text-muted.small.text-start {
+      font-size: 13px;
+    margin-top: -10px !important;
+    margin-left: 15px;
+}
+span.pricing_summary_price {
+    font-weight: 700;
+}
+
+.container.py-md-5 {
+    padding-top: 15px !important;
+}
 
 
 

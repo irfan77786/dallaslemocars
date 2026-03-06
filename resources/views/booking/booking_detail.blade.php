@@ -80,9 +80,7 @@
 
     
     
-footer.footer.bg-blue {
-    display: none !important;
-}
+ 
 
     }
 
@@ -385,7 +383,7 @@ footer.footer.bg-blue {
                         <h2 class="mb-3 additional-info-heading">Additional Information (Optional)</h2>
 
                         <div class="mb-3 floating-bordered-input position-relative">
-                            <textarea id="note" name="note" class="form-control" placeholder=" " rows="2">{{ session('note') ?? '' }}</textarea>
+                            <input id="note" name="note" class="form-control" placeholder=" " rows="2">{{ session('note') ?? '' }}</input>
                         </div>
                     </div>
 

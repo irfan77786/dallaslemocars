@@ -134,6 +134,14 @@
     footer.footer.bg-blue {
     display: block;
 }
+.InputContainer .InputElement {
+    position: absolute;
+    top: 0;
+    font-size: 16px !important;
+}
+
+ 
+
 
     </style>
 @endsection

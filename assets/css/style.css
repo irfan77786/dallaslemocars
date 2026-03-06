@@ -1708,3 +1708,8 @@ a.btn-wishlist:hover, .item-meta-data li a:hover, .social-link-share li a:hover 
     width: 100%;
     height: 350px;
 }
+.InputContainer .InputElement {
+    position: absolute;
+    top: 0;
+    font-size: 16px !important;
+}

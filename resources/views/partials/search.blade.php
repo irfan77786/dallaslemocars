@@ -373,7 +373,7 @@ $tabSuffix = $id_suffix ?? '';
 
     /* Move duration dropdown arrow to input's far right edge */
     .floating-bordered-input.rlx-theme .rlx-select .rlx-arrow {
-        right: -28px !important;
+        right: 16px !important;
     }
 
     .rlx-select.open .rlx-arrow {

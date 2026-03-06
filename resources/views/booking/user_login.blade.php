@@ -352,7 +352,7 @@ $step = 3;
                     <input type="text" name="type" value="guest" hidden>
 
                     <button type="submit" class="continue-btn btn btn-primary btn-uniform w-100 cta-button"
-                        style="padding: .575rem .75rem !important; text-transform: uppercase;">CONTINUE AS
+                        style="text-transform: uppercase;">CONTINUE AS
                         GUEST</button>
                 </form>
             </div>
