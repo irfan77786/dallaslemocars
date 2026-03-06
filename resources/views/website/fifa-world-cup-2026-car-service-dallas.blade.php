@@ -489,15 +489,25 @@
                     <p class="font-md">Chosen by professionals at leading corporations, financial institutions, and luxury hotels, our black car service is trusted for reliability, discretion, and consistent executive standards. Clients rely on us for <a href="/services/airport-transfer-dallas/"><b>airport transfers</b></a>, corporate travel, and high-profile events where punctuality, comfort, and professional presentation matter most.</p>
                 </div>
                 <div class="col-12">
-                    <div class="companies-logo-holder list-unstyled">
-                        @for ($i = 1; $i <= 8; $i++)
-                        <div class="py-10 px-15">
-                            <span class="img-holder">
-                                <img loading="lazy" width="90" height="60" decoding="async"
-                                    src="{{ asset('assets/new_theme/img/logo-0' . $i . '.webp') }}" alt="VIP black car service for FIFA World Cup 2026 guests in Dallas" class="img-fluid">
-                            </span>
+                    <div class="companies-logo-marquee">
+                        <div class="companies-logo-track">
+                            @foreach ([1, 2, 3, 4, 5, 6, 7, 8] as $i)
+                            <div class="py-10 px-15">
+                                <span class="img-holder">
+                                    <img loading="lazy" width="90" height="60" decoding="async"
+                                        src="{{ asset('assets/new_theme/img/logo-0' . $i . '.webp') }}" alt="Logo" class="img-fluid">
+                                </span>
+                            </div>
+                            @endforeach
+                            @foreach ([1, 2, 3, 4, 5, 6, 7, 8] as $i)
+                            <div class="py-10 px-15">
+                                <span class="img-holder">
+                                    <img loading="lazy" width="90" height="60" decoding="async"
+                                        src="{{ asset('assets/new_theme/img/logo-0' . $i . '.webp') }}" alt="" class="img-fluid">
+                                </span>
+                            </div>
+                            @endforeach
                         </div>
-                        @endfor
                     </div>
                 </div>
             </div>

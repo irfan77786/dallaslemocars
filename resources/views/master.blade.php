@@ -114,6 +114,37 @@
                 z-index: 10;
             }
         }
+
+        /* Companies logo marquee - horizontal auto-scroll */
+        .companies-logo-marquee {
+            overflow: hidden;
+            mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+        }
+        .companies-logo-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            animation: companies-logo-scroll 25s linear infinite;
+        }
+        @keyframes companies-logo-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .companies-logo-marquee .img-holder {
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+            flex-shrink: 0;
+        }
+        .companies-logo-marquee .img-holder img {
+            height: 60px;
+            max-width: 90px;
+            object-fit: contain;
+            object-position: center;
+        }
     </style>
 
     @yield('styles')

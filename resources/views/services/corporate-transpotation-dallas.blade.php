@@ -585,54 +585,24 @@ By using a single, coordinated transportation provider, businesses avoid the cha
                             world`s leading brands prefer Prestige Ride as their premium ride-hailing partner.</p>
                     </div>
                     <div class="col-12">
-                        <div class="companies-logo-holder list-unstyled">
-                            <div class="py-10 px-15">
-                                <span class="img-holder">
-                                    <img loading="lazy" width="90" height="60" decoding="async"
-                                        src="../../assets/logo-01.webp" alt="Logo" class="img-fluid">
-                                </span>
-                            </div>
-                            <div class="py-10 px-15">
-                                <span class="img-holder">
-                                    <img loading="lazy" width="90" height="60" decoding="async"
-                                        src="../../assets/logo-02.webp" alt="Logo" class="img-fluid">
-                                </span>
-                            </div>
-                            <div class="py-10 px-15">
-                                <span class="img-holder">
-                                    <img loading="lazy" width="90" height="60" decoding="async"
-                                        src="../../assets/logo-03.webp" alt="Logo" class="img-fluid">
-                                </span>
-                            </div>
-                            <div class="py-10 px-15">
-                                <span class="img-holder">
-                                    <img loading="lazy" width="90" height="60" decoding="async"
-                                        src="../../assets/logo-04.webp" alt="Logo" class="img-fluid">
-                                </span>
-                            </div>
-                            <div class="py-10 px-15">
-                                <span class="img-holder">
-                                    <img loading="lazy" width="90" height="60" decoding="async"
-                                        src="../../assets/logo-05.webp" alt="Logo" class="img-fluid">
-                                </span>
-                            </div>
-                            <div class="py-10 px-15">
-                                <span class="img-holder">
-                                    <img loading="lazy" width="90" height="60" decoding="async"
-                                        src="../../assets/logo-06.webp" alt="Logo" class="img-fluid">
-                                </span>
-                            </div>
-                            <div class="py-10 px-15">
-                                <span class="img-holder">
-                                    <img loading="lazy" width="90" height="60" decoding="async"
-                                        src="../../assets/logo-07.webp" alt="Logo" class="img-fluid">
-                                </span>
-                            </div>
-                            <div class="py-10 px-15">
-                                <span class="img-holder">
-                                    <img loading="lazy" width="90" height="60" decoding="async"
-                                        src="../../assets/logo-08.webp" alt="Logo" class="img-fluid">
-                                </span>
+                        <div class="companies-logo-marquee">
+                            <div class="companies-logo-track">
+                                @foreach ([1, 2, 3, 4, 5, 6, 7, 8] as $i)
+                                <div class="py-10 px-15">
+                                    <span class="img-holder">
+                                        <img loading="lazy" width="90" height="60" decoding="async"
+                                            src="{{ asset('assets/new_theme/img/logo-0' . $i . '.webp') }}" alt="Logo" class="img-fluid">
+                                    </span>
+                                </div>
+                                @endforeach
+                                @foreach ([1, 2, 3, 4, 5, 6, 7, 8] as $i)
+                                <div class="py-10 px-15">
+                                    <span class="img-holder">
+                                        <img loading="lazy" width="90" height="60" decoding="async"
+                                            src="{{ asset('assets/new_theme/img/logo-0' . $i . '.webp') }}" alt="" class="img-fluid">
+                                    </span>
+                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

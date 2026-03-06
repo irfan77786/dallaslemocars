@@ -303,54 +303,24 @@
                         <p class="font-md">Our Chauffeur Service is trusted by professionals who depend on reliable and well-managed transportation.</p>
                     </div>
                     <div class="col-12">
-                        <div class="companies-logo-holder list-unstyled">
-                            <div class="py-10 px-15">
-                                <span class="img-holder">
-                                    <img loading="lazy" width="90" height="60" decoding="async"
-                                        src="{{ asset('assets/new_theme/img/logo-01.png') }}" alt="Logo" class="img-fluid">
-                                </span>
-                            </div>
-                            <div class="py-10 px-15">
-                                <span class="img-holder">
-                                    <img loading="lazy" width="90" height="60" decoding="async"
-                                        src="{{ asset('assets/new_theme/img/logo-02.png') }}" alt="Logo" class="img-fluid">
-                                </span>
-                            </div>
-                            <div class="py-10 px-15">
-                                <span class="img-holder">
-                                    <img loading="lazy" width="90" height="60" decoding="async"
-                                        src="{{ asset('assets/new_theme/img/logo-03.png') }}" alt="Logo" class="img-fluid">
-                                </span>
-                            </div>
-                            <div class="py-10 px-15">
-                                <span class="img-holder">
-                                    <img loading="lazy" width="90" height="60" decoding="async"
-                                        src="{{ asset('assets/new_theme/img/logo-04.png') }}" alt="Logo" class="img-fluid">
-                                </span>
-                            </div>
-                            <div class="py-10 px-15">
-                                <span class="img-holder">
-                                    <img loading="lazy" width="90" height="60" decoding="async"
-                                        src="{{ asset('assets/new_theme/img/logo-05.png') }}" alt="Logo" class="img-fluid">
-                                </span>
-                            </div>
-                            <div class="py-10 px-15">
-                                <span class="img-holder">
-                                    <img loading="lazy" width="90" height="60" decoding="async"
-                                        src="{{ asset('assets/new_theme/img/logo-06.png') }}" alt="Logo" class="img-fluid">
-                                </span>
-                            </div>
-                            <div class="py-10 px-15">
-                                <span class="img-holder">
-                                    <img loading="lazy" width="90" height="60" decoding="async"
-                                        src="{{ asset('assets/new_theme/img/logo-07.png') }}" alt="Logo" class="img-fluid">
-                                </span>
-                            </div>
-                            <div class="py-10 px-15">
-                                <span class="img-holder">
-                                    <img loading="lazy" width="90" height="60" decoding="async"
-                                        src="{{ asset('assets/new_theme/img/logo-08.png') }}" alt="Logo" class="img-fluid">
-                                </span>
+                        <div class="companies-logo-marquee">
+                            <div class="companies-logo-track">
+                                @foreach ([1, 2, 3, 4, 5, 6, 7, 8] as $i)
+                                <div class="py-10 px-15">
+                                    <span class="img-holder">
+                                        <img loading="lazy" width="90" height="60" decoding="async"
+                                            src="{{ asset('assets/new_theme/img/logo-0' . $i . '.webp') }}" alt="Logo" class="img-fluid">
+                                    </span>
+                                </div>
+                                @endforeach
+                                @foreach ([1, 2, 3, 4, 5, 6, 7, 8] as $i)
+                                <div class="py-10 px-15">
+                                    <span class="img-holder">
+                                        <img loading="lazy" width="90" height="60" decoding="async"
+                                            src="{{ asset('assets/new_theme/img/logo-0' . $i . '.webp') }}" alt="" class="img-fluid">
+                                    </span>
+                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
