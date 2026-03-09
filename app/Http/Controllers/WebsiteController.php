@@ -133,7 +133,7 @@ class WebsiteController extends Controller
         $contactData = $request->formInput;
         try {
             $details = ['name' => $contactData['first_name'] . ' ' . $contactData['last_name'], 'email' => $contactData['email'], 'phone' => $contactData['phone'], 'message' => $contactData['message'],];
-            Mail::to('nexusdeveloper09@gmail.com')->send(new ContactMail($details));
+            Mail::to('saqlainahmad969@gmail.com')->send(new ContactMail($details));
             return redirect()->back()->with('success', 'Your message has been sent successfully!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Mail not sent: ' . $e->getMessage());

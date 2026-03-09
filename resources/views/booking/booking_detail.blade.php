@@ -38,6 +38,13 @@
         position: relative;
         width: 100%;
     }
+    
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1171px;
+    }
+ 
+
+
     .rlx-select .rlx-trigger {
         display: block;
         width: 100%;

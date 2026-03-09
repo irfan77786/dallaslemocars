@@ -39,13 +39,28 @@ $step = 3;
     }
 
     .passenger-info-container {
-        max-width: 1200px;
+        max-width: 1160px;
         margin: 0 auto;
         padding: 50px 15px 100px 15px;
         width: 100%;
         box-sizing: border-box;
         overflow-x: hidden;
     }
+
+
+.container.step-wrapper.md-py-3 {
+    max-width: 1160px;
+    margin: 0px auto;
+    width: 100%;
+    padding: 0 0 0 0 !important;
+}
+
+
+
+.stepper::before {
+   
+    width: 102%;
+}
 
     .info-card {
         background: #fff;
