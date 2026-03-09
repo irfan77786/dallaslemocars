@@ -26,3 +26,4 @@ Thumbs.db
 /new_template
 artisan
 *.zip
+public/new_assets/css/style.css

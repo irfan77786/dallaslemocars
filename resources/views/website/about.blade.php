@@ -9,7 +9,7 @@
             </div>
 
             <div class="row" style="pointer-events: none;">
-                <div id="home-text-content" class="col-12 col-md-6 d-flex flex-column justify-content-center" style="pointer-events: auto; position: relative; z-index: 0;">
+                <div id="home-text-content" class="col-12 col-md-6 order-2 order-md-1 d-flex flex-column justify-content-center mt-4 mb-2 mt-md-0 mb-md-0" style="pointer-events: auto; position: relative; z-index: 0;">
                     <h1 class="text-white h1 fw-bold mb-15">Black Car Service Dallas</h1>
                     <p class="text-white font-lg fw-medium mb-30">Lorem Ipsum is simply dummy text of the printing
                         and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since
@@ -21,7 +21,7 @@
                             214-897-8056</a>
                     </p>
                 </div>
-                <div class="col-12 col-md-6" style="pointer-events: auto; position: relative; z-index: 2;">
+                <div class="col-12 col-md-6 order-1 order-md-2" style="pointer-events: auto; position: relative; z-index: 2;">
                     <!-- Booking Form -->
                     <div class="search-form-wrapper-desktop">
                         @include('partials.search')
