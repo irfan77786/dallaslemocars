@@ -17,7 +17,7 @@ use Yajra\DataTables\Facades\DataTables;
 use App\Models\Booking;
 use App\Models\User;
 use Illuminate\Support\Str;
-use Illuminate\Database\QueryException;
+use Illuminate\Database\QueryException; 
 use Barryvdh\DomPDF\Facade\Pdf;
 
 Route::get('/users', function (Request $request) {
