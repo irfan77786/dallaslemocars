@@ -21,7 +21,7 @@
                     <div class="col-12 col-lg-3 px-30 px-sm-15">
                         <article class="mx-auto text-center luxury-cars-item">
                             <div class="img-holder mb-15">
-                                <img loading="lazy" decoding="async" src="../../assets/Sedan.webp" alt="Black car service Dallas luxury sedan"
+                                <img loading="lazy" decoding="async" src="{{asset('assets/new_theme/img/Sedan.webp')}}" alt="Black car service Dallas luxury sedan"
                                     class="img-fluid" width="750" height="410">
                             </div>
                             <h3 class="mb-3 fw-semibold h6">Premier Sadan</h3>

@@ -1,13 +1,19 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    RewriteCond %{HTTP_HOST} ^www\.web01.lynxtask.com\.com [NC]
-    RewriteRule ^(.*)$ https://web01.lynxtas.com/$1 [L,R=301]
-    
-    # Allow access to the 'static' folder
+    RewriteCond %{HTTP_HOST} ^www\.web01\.lynxtask\.com$ [NC]
+    RewriteRule ^(.*)$ https://web01.lynxtask.com/$1 [L,R=301]
+
+    # Redirect asset folders to /public
+    RewriteRule ^assets/(.*)$ public/assets/$1 [L]
+    RewriteRule ^css/(.*)$ public/css/$1 [L]
+    RewriteRule ^js/(.*)$ public/js/$1 [L]
+    RewriteRule ^images/(.*)$ public/images/$1 [L]
+
+    # Allow access to the static folder
     RewriteRule ^static/(.*)$ static/$1 [L]
 
-    # Route all other requests to index.php
+    # Laravel routing
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ index.php [L]
@@ -29,15 +35,3 @@ Options -Indexes
 
 # Default charset
 AddDefaultCharset UTF-8
-
-#----------------------------------------------------------------cp:ppd
-# Section managed by cPanel: Password Protected Directories     -cp:ppd
-# - Do not edit this section of the htaccess file!              -cp:ppd
-#----------------------------------------------------------------cp:ppd
-AuthType Basic
-AuthName "Protected 'dallaslimoandblackcars.com'"
-AuthUserFile "/home/dallwske/.htpasswds/dallaslimoandblackcars.com/passwd"
-Require valid-user
-#----------------------------------------------------------------cp:ppd
-# End section managed by cPanel: Password Protected Directories -cp:ppd
-#----------------------------------------------------------------cp:ppd
