@@ -5695,6 +5695,7 @@ li {
   outline: none;
   background: transparent;
   color: #0b1422;
+  font-weight: 500;
 }
 .accordion-holder .accordion-item .accordion-button.collapsed .chevron-icon {
   transform: rotate(0deg);
@@ -6172,8 +6173,7 @@ li {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(0deg, #121e2a 20%, transparent);
-  opacity: 0.97;
+   opacity: 0.97;
   z-index: 0;
 }
 .we-serve-item .img-holder img {

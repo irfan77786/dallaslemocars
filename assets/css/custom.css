@@ -647,15 +647,9 @@ div.search-tab-wrap ul.nav-tabs li.nav-item a.nav-link:focus {
   padding: 25px 28px 45px 25px;
 }
 
-.p-3.mt-3.rounded-lg.shadow-sm.bg-light {
-  background-color: #fafafa !important;
-  padding-top: 20px !important;
-  height: 290px;
-}
-
 .payment-methods {
   display: flex !important;
-  margin-top: 8px !important;
+  margin-top: 2px !important;
   max-width: 100% !important;
   margin-left: 15px !important;
 }
@@ -666,7 +660,7 @@ div.search-tab-wrap ul.nav-tabs li.nav-item a.nav-link:focus {
 }
 
 .payment_method_info_box p {
-  margin: 9px 0 0 !important;
+  margin: 15px 0 0 !important;
   font-weight: 400;
   font-size: 15px;
   line-height: 1.5;
@@ -703,11 +697,7 @@ span.pricing_summary_price {
   padding-top: 15px !important;
 }
 
-.container.py-md-5,
-div#pricing-area-wrapper,
-.px-3.py-2.bg-white.d-flex.justify-content-between.align-items-center {
-  background: #fff !important;
-}
+
 
 .onlyMobile {
   display: none;
@@ -753,7 +743,7 @@ h2.text-white.h2.fw-bold {
 
 h2.seciononeheading,
 h5.h2.fw-bold.seciononeheading {
-  font-size: 30px;
+  font-size: 36px;
   line-height: normal;
   margin-bottom: 13px;
 }
@@ -917,7 +907,7 @@ a.btn.btn-primary.fifa-btn {
   }
 
   p.mt-3.mb-0.text-center.text-muted.small {
-    font-size: 10px;
+    font-size:11px;
   }
 }
 
@@ -968,11 +958,22 @@ a.btn.btn-primary.fifa-btn {
   .col-md-6.col-sm-6 {
     width: 50%;
   }
+.container.py-md-5,
+div#pricing-area-wrapper,
+.px-3.py-2.bg-white.d-flex.justify-content-between.align-items-center {
+  background: #fff !important;
+}
 
   .col-666 {
     flex: 0 0 auto;
     width: 100%;
   }
+
+.p-3.mt-3.rounded-lg.shadow-sm.bg-light {
+  background-color: #fafafa !important;
+  padding-top: 20px !important;
+  height: 290px;
+}
 
   h2.h2.fw-bold.mb-15.mb-sm-20.mb-lg-30.seciononeheading {
     text-align: center !important;
@@ -1056,9 +1057,9 @@ a.btn.btn-primary.fifa-btn {
   }
 
   .payment-methods {
-    margin-top: 1px !important;
-    max-width: 88% !important;
-    margin-left: 0 !important;
+           margin-top: 0px !important;
+        max-width: 88% !important;
+        margin-left: 15px !important;
   }
 
   .mobile-card-methods {
@@ -1250,3 +1251,22 @@ a.btn.btn-primary.fifa-btn {
     padding-top: 64px !important;
   }
 }
+
+.p-3.mt-3.rounded-lg.shadow-sm.bg-light
+
+{
+ background-color: #fafafa;
+    padding-top: 34px !important;
+    height: 290px;
+    margin-top: 0px !important;
+    border-radius: 6px;
+}  
+
+
+.why-imgs img {
+    border-radius: 7px;
+}
+
+
+
+

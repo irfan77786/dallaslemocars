@@ -172,6 +172,12 @@ a.hover-black {
 }
 
 
+.last-page-img {
+    display: flex !important;
+    margin-top: 0px !important;
+    max-width: 73% !important;
+    margin-left: 0px !important;
+}
 
 
     </style>
@@ -259,7 +265,7 @@ a.hover-black {
         By clicking "BOOK NOW", you agree to our
         <a href="#" class="hover-black" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Terms &amp; Conditions</a>
     </p>
-        <img src="{{ asset('assets/img/credit-cards.png') }}" alt="Payment methods" class="img-fluid payment-methods">
+        <img src="{{ asset('assets/img/credit-cards.png') }}" alt="Payment methods" class="img-fluid payment-methods last-page-img">
     </div>
 
     <div id="card-errors" class="mb-2 text-danger small"></div>
