@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
+use App\Models\Contact;
 
 class WebsiteController extends Controller
 {
@@ -130,13 +131,33 @@ class WebsiteController extends Controller
 
     public function contactUsPost(Request $request)
     {
-        $contactData = $request->formInput;
+        $validated = $request->validate([
+            'full_name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|string|max:20',
+            'message' => 'required|string|min:10',
+            'sms_consent' => 'nullable|boolean',
+        ]);
+
         try {
-            $details = ['name' => $contactData['first_name'] . ' ' . $contactData['last_name'], 'email' => $contactData['email'], 'phone' => $contactData['phone'], 'message' => $contactData['message'],];
+            Contact::create([
+                'full_name' => $validated['full_name'],
+                'email' => $validated['email'],
+                'phone' => $validated['phone'],
+                'message' => $validated['message'],
+                'sms_consent' => $validated['sms_consent'] ?? false,
+            ]);
+
+            $details = [
+                'name' => $validated['full_name'],
+                'email' => $validated['email'],
+                'phone' => $validated['phone'],
+                'message' => $validated['message'],
+            ];
             Mail::to('saqlainahmad969@gmail.com')->send(new ContactMail($details));
             return redirect()->back()->with('success', 'Your message has been sent successfully!');
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Mail not sent: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Error: ' . $e->getMessage());
         }
     }
 

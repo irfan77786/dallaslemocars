@@ -13,52 +13,70 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-12 col-lg-11 col-xl-10">
-                <form action="#" method="post" class="px-20 bg-white contact-us-form px-sm-30 py-30">
+                @if ($message = session('success'))
+                    <div class="alert alert-success alert-dismissible fade show mb-20" role="alert">
+                        {{ $message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                @if ($message = session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show mb-20" role="alert">
+                        {{ $message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                <form action="{{ route('contact_us_post') }}" method="post" class="px-20 bg-white contact-us-form px-sm-30 py-30">
+                    @csrf
                     <div class="row">
                         <div class="col-12 col-md-6 col-lg-4 mb-15">
                             <label for="full_name" class="mb-1 form-label fw-medium">Full Name</label>
-                            <input type="text" class="form-control" id="full_name" placeholder="Full Name">
+                            <input type="text" class="form-control @error('full_name') is-invalid @enderror" id="full_name" name="full_name" placeholder="Full Name" required>
+                            @error('full_name')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col-12 col-md-6 col-lg-4 mb-15">
                             <label for="email" class="mb-1 form-label fw-medium">Email</label>
-                            <input type="email" class="form-control" id="email"
-                                placeholder="Your email address">
+                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email"
+                                placeholder="Your email address" required>
+                            @error('email')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col-12 col-md-6 col-lg-4 mb-15">
                             <label for="phone" class="mb-1 form-label fw-medium">Phone</label>
-                            <input type="phone" class="form-control" id="phone" placeholder="Your phone number">
+                            <input type="tel" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" placeholder="Your phone number" required>
+                            @error('phone')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col-12">
                             <label for="message" class="mb-1 form-label fw-medium">Message</label>
-                            <textarea class="form-control" id="message"></textarea>
+                            <textarea class="form-control @error('message') is-invalid @enderror" id="message" name="message" rows="5" required></textarea>
+                            @error('message')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col-12 mb-15">
                             <p class="mb-2 font-sm">
                                 Do you agree to receive texts from Dallas Black Cars Limo
-                                Service (+1 123-456-7890)? Messages may include reservation
+                                Service (+1 214-897-8056)? Messages may include reservation
                                 reminders/updates. Msg &amp; data rates may apply. Reply STOP
                                 to unsubscribe or HELP for support.</p>
                             <div class="pl-0 mt-2 form-check d-flex">
-                                <input class="flex-shrink-0 ml-0 form-check-input" type="checkbox" id="Yes"
-                                    name="formInput[Yes]" style="margin-left: 0;">
-                                <label class="form-check-label small d-inline-block ms-2" for="Yes"
+                                <input class="flex-shrink-0 ml-0 form-check-input" type="checkbox" id="sms_consent"
+                                    name="sms_consent" value="1" style="margin-left: 0;">
+                                <label class="form-check-label small d-inline-block ms-2" for="sms_consent"
                                     style="margin-top: -2px;">
                                     Yes, I agree to receive text messages from Dallas Black
-                                    Cars Service sent from (+1 123-456-7890).
-                                </label>
-                            </div>
-                            <div class="pl-0 mt-2 form-check d-flex">
-                                <input class="flex-shrink-0 ml-0 form-check-input" type="checkbox" id="No"
-                                    name="formInput[No]" style="margin-left: 0;">
-                                <label class="form-check-label small d-inline-block ms-2" for="No"
-                                    style="margin-top: -2px;">
-                                    No, I do not want to receive text messages from Dallas
-                                    Black Cars Service.
+                                    Cars Service sent from (+1 214-897-8056).
                                 </label>
                             </div>
                         </div>
                         <div class="col-12 text-end">
-                            <button class="btn btn-primary fw-bold">Send Message</button>
+                            <button type="submit" class="btn btn-primary fw-bold" id="submitBtn">Send Message</button>
                         </div>
                     </div>
                 </form>
@@ -146,4 +164,34 @@
 </section>
 @include('partials.testimonials')
 @include('partials.faq')
+
+@section('scripts')
+<script>
+// Show success/error alerts if messages exist
+@if (session('success'))
+    Swal.fire({
+        title: 'Success!',
+        text: '{{ session('success') }}',
+        icon: 'success',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.querySelector('.contact-us-form').reset();
+        }
+    });
+@endif
+
+@if (session('error'))
+    Swal.fire({
+        title: 'Error!',
+        text: '{{ session('error') }}',
+        icon: 'error',
+        confirmButtonColor: '#d33',
+        confirmButtonText: 'OK'
+    });
+@endif
+</script>
+@endsection
+
 @endsection
