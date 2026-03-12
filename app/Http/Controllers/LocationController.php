@@ -269,4 +269,76 @@ class LocationController extends Controller
             'seo' => $seo
         ]);
     }
+
+    public function DallasToCollegeStationCarService(Request $request){
+        if($request->edit){
+            session(['edit'=>1]);
+        }else{
+            session()->flush();
+            $request->session()->regenerateToken();
+        }
+
+        $seo = [
+            'title' => 'Dallas to College Station Car Service | Luxury Travel Texas',
+            'description' => 'Experience top-tier Dallas to College Station car service with luxury sedans, SUVs, and minibuses. Ideal for campus visits, game days, and business travel. Book your ride today!',
+            'keywords' => 'Dallas to College Station car service, luxury chauffeur College Station, black car Dallas to College Station',
+            'og_title' => 'Dallas to College Station Car Service | Luxury Travel Texas',
+            'og_description' => 'Experience top-tier Dallas to College Station car service with luxury sedans, SUVs, and minibuses. Ideal for campus visits, game days, and business travel. Book your ride today!',
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
+        ];
+
+        return view('locations.dallas-to-college-station-car-service', [
+            'backgroundImage' => '/new_assets/assets/black-car-service-dallas-logo.png',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
+            'seo' => $seo
+        ]);
+    }
+
+    public function DallasToHoustonCarService(Request $request){
+        if($request->edit){
+            session(['edit'=>1]);
+        }else{
+            session()->flush();
+            $request->session()->regenerateToken();
+        }
+
+        $seo = [
+            'title' => 'Dallas to Houston Car Service | Luxury Travel Texas',
+            'description' => 'Experience top-tier Dallas to Houston car service with luxury sedans, SUVs, and minibuses. Ideal for business trips, events, and leisure travel. Book your ride today!',
+            'keywords' => 'Dallas to Houston car service, luxury chauffeur Houston, black car Dallas to Houston',
+            'og_title' => 'Dallas to Houston Car Service | Luxury Travel Texas',
+            'og_description' => 'Experience top-tier Dallas to Houston car service with luxury sedans, SUVs, and minibuses. Ideal for business trips, events, and leisure travel. Book your ride today!',
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
+        ];
+
+        return view('locations.dallas-to-houston-car-service', [
+            'backgroundImage' => '/new_assets/assets/black-car-service-dallas-logo.png',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
+            'seo' => $seo
+        ]);
+    }
+
+    public function DallasToShermanCarService(Request $request){
+        if($request->edit){
+            session(['edit'=>1]);
+        }else{
+            session()->flush();
+            $request->session()->regenerateToken();
+        }
+
+        $seo = [
+            'title' => 'Dallas to Sherman Car Service | Luxury Travel Texas',
+            'description' => 'Experience top-tier Dallas to Sherman car service with luxury sedans, SUVs, and minibuses. Ideal for business trips, weddings, and events. Book your ride today!',
+            'keywords' => 'Dallas to Sherman car service, luxury chauffeur Sherman, black car Dallas to Sherman',
+            'og_title' => 'Dallas to Sherman Car Service | Luxury Travel Texas',
+            'og_description' => 'Experience top-tier Dallas to Sherman car service with luxury sedans, SUVs, and minibuses. Ideal for business trips, weddings, and events. Book your ride today!',
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
+        ];
+
+        return view('locations.dallas-to-sherman-car-service', [
+            'backgroundImage' => '/new_assets/assets/black-car-service-dallas-logo.png',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
+            'seo' => $seo
+        ]);
+    }
 }
