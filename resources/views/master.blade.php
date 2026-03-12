@@ -187,7 +187,7 @@
                                         Cup 26</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link @if(request()->path() == 'booking') active @endif" href="/booking">Book Now
+                                    <a class="nav-link @if(request()->path() == 'book-now') active @endif" href="/book-now/">Book Now
                                     </a>
                                 </li>
                                 <li class="nav-item d-lg-none">

@@ -129,7 +129,7 @@ class BookingController extends Controller
             'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
         ];
 
-        return view('book-now', [
+        return view('pages.book-now', [
             'seo' => $seo
         ]);
     }
