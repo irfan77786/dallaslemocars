@@ -958,6 +958,14 @@ a.btn.btn-primary.fifa-btn {
   .col-md-6.col-sm-6 {
     width: 50%;
   }
+  
+  img.step-tow-img.img-fluid.payment-methods {
+    max-width: 58% !important;
+    margin-left: 0px !important;
+    margin-top: 5px !important;
+}
+
+
 .container.py-md-5,
 div#pricing-area-wrapper,
 .px-3.py-2.bg-white.d-flex.justify-content-between.align-items-center {
@@ -1231,6 +1239,10 @@ div#pricing-area-wrapper,
   .onlyDesktop {
     display: none;
   }
+  
+
+
+
 }
 
 @media (min-width: 769px) {
@@ -1266,6 +1278,12 @@ div#pricing-area-wrapper,
 .why-imgs img {
     border-radius: 7px;
 }
+
+  img.step-tow-img.img-fluid.payment-methods{
+    max-width: 66% !important;
+    margin-left: 0px !important;
+}
+
 
 
 
