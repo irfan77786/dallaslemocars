@@ -4,11 +4,11 @@ namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Mail\Mailables\Content;
+use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ContactMail extends Mailable
+class CorporateSupportMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -17,10 +17,6 @@ class ContactMail extends Mailable
 
     /**
      * Create a new message instance.
-     *
-     * @param array|object $details
-     * @param bool $isAdmin
-     * @return void
      */
     public function __construct($details, $isAdmin = false)
     {
@@ -30,14 +26,12 @@ class ContactMail extends Mailable
 
     /**
      * Get the message envelope.
-     *
-     * @return \Illuminate\Mail\Mailables\Envelope
      */
-    public function envelope()
+    public function envelope(): Envelope
     {
         $subject = $this->isAdmin 
-            ? 'New Contact Message from ' . ($this->details['full_name'] ?? 'User')
-            : 'Thank You for Contacting Us - Dallas Black Cars';
+            ? 'New Corporate Support Request from ' . ($this->details['full_name'] ?? 'User')
+            : 'Thank You for Your Corporate Support Request - Dallas Black Cars';
         
         return new Envelope(
             subject: $subject
@@ -46,13 +40,11 @@ class ContactMail extends Mailable
 
     /**
      * Get the message content definition.
-     *
-     * @return \Illuminate\Mail\Mailables\Content
      */
-    public function content()
+    public function content(): Content
     {
         return new Content(
-            view: 'emails.contact',
+            view: 'emails.corporate-support',
             with: [
                 'details' => $this->details,
                 'isAdmin' => $this->isAdmin,
@@ -62,10 +54,8 @@ class ContactMail extends Mailable
 
     /**
      * Get the attachments for the message.
-     *
-     * @return array
      */
-    public function attachments()
+    public function attachments(): array
     {
         return [];
     }

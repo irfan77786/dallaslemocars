@@ -471,7 +471,22 @@ With our executive corporate black car service in Dallas, you can focus on your 
                     </ul>
                 </div>
                 <div class="col-12 col-md-5">
-                    <form class="mx-auto news-letter-form me-md-0 px-15 py-25" action="" method="post">
+                    @if ($message = session('success'))
+                        <div class="alert alert-success alert-dismissible fade show mb-20" role="alert">
+                            {{ $message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+
+                    @if ($message = session('error'))
+                        <div class="alert alert-danger alert-dismissible fade show mb-20" role="alert">
+                            {{ $message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+
+                    <form class="mx-auto news-letter-form me-md-0 px-15 py-25" action="{{ route('corporate_support_post') }}" method="post">
+                        @csrf
                         <div class="text-center">
                             <h3 class="mb-0 font-base fw-bold">Need Corporate Support?</h3>
                             <p class="font-sm">Fill out the form and our team will take care of the rest</p>
@@ -479,19 +494,31 @@ With our executive corporate black car service in Dallas, you can focus on your 
                         <div class="row">
                             <div class="col-12 col-sm-6 mb-15">
                                 <label for="full_name" class="mb-1 form-label fw-medium">Full Name</label>
-                                <input type="text" class="form-control" id="full_name" placeholder="">
+                                <input type="text" class="form-control @error('full_name') is-invalid @enderror" id="full_name" name="full_name" placeholder="" required>
+                                @error('full_name')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col-12 col-sm-6 mb-15">
-                                <label for="Email" class="mb-1 form-label fw-medium">Email</label>
-                                <input type="email" class="form-control" id="Email" placeholder="name@example.com">
+                                <label for="email" class="mb-1 form-label fw-medium">Email</label>
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="name@example.com" required>
+                                @error('email')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col-12 mb-15">
-                                <label for="contact_no" class="mb-1 form-label fw-medium">Contact No</label>
-                                <input id="contact_no" type="tel" class="form-control">
+                                <label for="phone" class="mb-1 form-label fw-medium">Contact No</label>
+                                <input id="phone" type="tel" class="form-control @error('phone') is-invalid @enderror" name="phone" required>
+                                @error('phone')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col-12 mb-15">
                                 <label for="message" class="mb-1 form-label fw-medium">Message</label>
-                                <textarea name="" id="message" class="form-control"></textarea>
+                                <textarea name="message" id="message" class="form-control @error('message') is-invalid @enderror" required></textarea>
+                                @error('message')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col-12 text-center">
                                 <button type="submit" class="btn btn-primary btn-sm">Submit</button>
@@ -766,4 +793,34 @@ With our executive corporate black car service in Dallas, you can focus on your 
             </div>
         </div>
     </section>
+
+@section('scripts')
+<script>
+// Show success/error alerts if messages exist
+@if (session('success'))
+    Swal.fire({
+        title: 'Success!',
+        text: '{{ session('success') }}',
+        icon: 'success',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.querySelector('.news-letter-form').reset();
+        }
+    });
+@endif
+
+@if (session('error'))
+    Swal.fire({
+        title: 'Error!',
+        text: '{{ session('error') }}',
+        icon: 'error',
+        confirmButtonColor: '#d33',
+        confirmButtonText: 'OK'
+    });
+@endif
+</script>
+@endsection
+
 @endsection

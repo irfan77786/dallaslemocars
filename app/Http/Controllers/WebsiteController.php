@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
+use App\Mail\CorporateSupportMail;
 use App\Models\Contact;
+use App\Models\CorporateSupport;
 
 class WebsiteController extends Controller
 {
@@ -136,25 +138,24 @@ class WebsiteController extends Controller
             'email' => 'required|email|max:255',
             'phone' => 'required|string|max:20',
             'message' => 'required|string|min:10',
-            'sms_consent' => 'nullable|boolean',
+            'sms_consent' => 'required|accepted',
         ]);
 
         try {
-            Contact::create([
+            $contactData = [
                 'full_name' => $validated['full_name'],
                 'email' => $validated['email'],
                 'phone' => $validated['phone'],
                 'message' => $validated['message'],
                 'sms_consent' => $validated['sms_consent'] ?? false,
-            ]);
-
-            $details = [
-                'name' => $validated['full_name'],
-                'email' => $validated['email'],
-                'phone' => $validated['phone'],
-                'message' => $validated['message'],
             ];
-            Mail::to('saqlainahmad969@gmail.com')->send(new ContactMail($details));
+
+            Contact::create($contactData);
+
+            Mail::to($validated['email'])->send(new ContactMail($contactData, false));
+            
+            Mail::to('saqlainahmad969@gmail.com')->send(new ContactMail($contactData, true));
+
             return redirect()->back()->with('success', 'Your message has been sent successfully!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Error: ' . $e->getMessage());
@@ -231,5 +232,34 @@ class WebsiteController extends Controller
             'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
             'seo' => $seo
         ]);
+    }
+
+    public function corporateSupportPost(Request $request)
+    {
+        $validated = $request->validate([
+            'full_name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|string|max:20',
+            'message' => 'required|string|min:10',
+        ]);
+
+        try {
+            $corporateData = [
+                'full_name' => $validated['full_name'],
+                'email' => $validated['email'],
+                'phone' => $validated['phone'],
+                'message' => $validated['message'],
+            ];
+
+            CorporateSupport::create($corporateData);
+
+            Mail::to($validated['email'])->send(new CorporateSupportMail($corporateData, false));
+            
+            Mail::to(config('mail.from.address'))->send(new CorporateSupportMail($corporateData, true));
+
+            return redirect()->back()->with('success', 'Your corporate support request has been sent successfully!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error: ' . $e->getMessage());
+        }
     }
 }

@@ -66,14 +66,18 @@
                                 reminders/updates. Msg &amp; data rates may apply. Reply STOP
                                 to unsubscribe or HELP for support.</p>
                             <div class="pl-0 mt-2 form-check d-flex">
-                                <input class="flex-shrink-0 ml-0 form-check-input" type="checkbox" id="sms_consent"
-                                    name="sms_consent" value="1" style="margin-left: 0;">
+                                <input class="flex-shrink-0 ml-0 form-check-input @error('sms_consent') is-invalid @enderror" 
+                                    type="checkbox" id="sms_consent"
+                                    name="sms_consent" value="1" style="margin-left: 0;" required>
                                 <label class="form-check-label small d-inline-block ms-2" for="sms_consent"
                                     style="margin-top: -2px;">
                                     Yes, I agree to receive text messages from Dallas Black
                                     Cars Service sent from (+1 214-897-8056).
                                 </label>
                             </div>
+                            @error('sms_consent')
+                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col-12 text-end">
                             <button type="submit" class="btn btn-primary fw-bold" id="submitBtn">Send Message</button>
