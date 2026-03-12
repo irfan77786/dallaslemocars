@@ -187,6 +187,10 @@
                                         Cup 26</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link @if(request()->path() == 'contact-us') active @endif" href="/contact-us">Contact us
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link @if(request()->path() == 'book-now') active @endif" href="/book-now/">Book Now
                                     </a>
                                 </li>
@@ -197,7 +201,7 @@
                             </ul>
                         </div>
                     </nav>
-                    <a href="/get-a-quote" class="btn btn-primary d-none d-xl-block">Get a quote</a>
+                    <a href="/get-a-quote" class="btn btn-primary d-none d-xl-block" style="min-width: 100px;">Get a quote</a>
                 </div>
                 @endif
             </div>
