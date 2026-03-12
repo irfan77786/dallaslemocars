@@ -895,6 +895,11 @@ font-weight: 700;
   #mbs-sheet {
     display: none !important;
   }
+  
+  
+
+
+
 }
 @media (max-width: 767.98px) {
   .booking-product-section-wrap { overflow-x: hidden; }
@@ -1061,7 +1066,7 @@ border-radius: 4px !important;
 
                     <hr>
                     <h6 class="card-title">Secure payments</h6>
-                    <img src="{{ asset('assets/img/credit-cards.png') }}" alt="Payment methods" class="img-fluid payment-methods" >
+                    <img src="{{ asset('assets/img/credit-cards.png') }}" alt="Payment methods" class="step-tow-img img-fluid payment-methods" >
                     <hr>
                     <h6 class="card-title text-dark"><i class="bi bi-chat-left-text-fill"></i>Email Support</h6>
                     <p class="card-text">Reach us anytime for quick assistance.</p>
