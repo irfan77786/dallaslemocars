@@ -37,7 +37,7 @@
                                     <a href="#">Help</a>
                                     <ul class="submenu">
                                         <li><a href="#">Get a quote</a></li>
-                                        <li><a href="contact.html">Contact us</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
                                         <li><a href="#">FAQs</a></li>
                                         <li><a href="#">Terms & Conditions</a></li>
                                         <li><a href="#">Privacy Policy</a></li>
@@ -112,7 +112,7 @@
                         <a href="#" class="submenu-toggle">Help</a>
                         <ul class="submenu list-unstyled">
                             <li><a href="#">Get a quote</a></li>
-                            <li><a href="contact.html">Contact us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
                             <li><a href="#">FAQs</a></li>
                             <li><a href="#">Terms & Conditions</a></li>
                             <li><a href="#">Privacy Policy</a></li>

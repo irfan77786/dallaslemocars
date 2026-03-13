@@ -187,7 +187,7 @@
                                         Cup 26</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link @if(request()->path() == 'contact-us') active @endif" href="/contact-us">Contact us
+                                    <a class="nav-link @if(request()->path() == 'contact-us') active @endif" href="/contact-us">Contact
                                     </a>
                                 </li>
                                 <li class="nav-item">
