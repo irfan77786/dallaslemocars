@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
 use App\Mail\CorporateSupportMail;
+use App\Mail\QuoteMail;
 use App\Models\Contact;
 use App\Models\CorporateSupport;
+use App\Models\Quote;
 
 class WebsiteController extends Controller
 {
@@ -154,7 +156,7 @@ class WebsiteController extends Controller
 
             Mail::to($validated['email'])->send(new ContactMail($contactData, false));
             
-            Mail::to('saqlainahmad969@gmail.com')->send(new ContactMail($contactData, true));
+            Mail::to('info@legacyonelimo.com')->send(new ContactMail($contactData, true));
 
             return redirect()->back()->with('success', 'Your message has been sent successfully!');
         } catch (\Exception $e) {
@@ -255,9 +257,50 @@ class WebsiteController extends Controller
 
             Mail::to($validated['email'])->send(new CorporateSupportMail($corporateData, false));
             
-            Mail::to(config('mail.from.address'))->send(new CorporateSupportMail($corporateData, true));
+            Mail::to('info@legacyonelimo.com')->send(new CorporateSupportMail($corporateData, true));
 
             return redirect()->back()->with('success', 'Your corporate support request has been sent successfully!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error: ' . $e->getMessage());
+        }
+    }
+
+    public function getAQuotePost(Request $request)
+    {
+        $validated = $request->validate([
+            'vehicle_type' => 'required|string|max:255',
+            'trip_type' => 'required|string|max:255',
+            'number_of_passengers' => 'required|string|max:50',
+            'trip_date' => 'required|date',
+            'trip_time' => 'required|date_format:H:i',
+            'pickup_address' => 'required|string|max:255',
+            'dropoff_address' => 'required|string|max:255',
+            'full_name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'message' => 'nullable|string|min:5',
+        ]);
+
+        try {
+            $quoteData = [
+                'vehicle_type' => $validated['vehicle_type'],
+                'trip_type' => $validated['trip_type'],
+                'number_of_passengers' => $validated['number_of_passengers'],
+                'trip_date' => $validated['trip_date'],
+                'trip_time' => $validated['trip_time'],
+                'pickup_address' => $validated['pickup_address'],
+                'dropoff_address' => $validated['dropoff_address'],
+                'full_name' => $validated['full_name'],
+                'email' => $validated['email'],
+                'message' => $validated['message'] ?? null,
+            ];
+
+            Quote::create($quoteData);
+
+            Mail::to($validated['email'])->send(new QuoteMail($quoteData, false));
+            
+            Mail::to('info@legacyonelimo.com')->send(new QuoteMail($quoteData, true));
+
+            return redirect()->back()->with('success', 'Your quote request has been sent successfully! We will send you a quote shortly.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Error: ' . $e->getMessage());
         }

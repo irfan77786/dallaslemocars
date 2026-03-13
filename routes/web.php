@@ -472,6 +472,7 @@ Route::post('/contact-us', [WebsiteController::class, 'contactUsPost'])->name('c
 Route::post('/corporate-support', [WebsiteController::class, 'corporateSupportPost'])->name('corporate_support_post');
 Route::get('/our-fleet/', [WebsiteController::class, 'ourFleet'])->name('our_fleet');
 Route::get('/get-a-quote/', [WebsiteController::class, 'getAQuote'])->name('get_a_quote');
+Route::post('/get-a-quote', [WebsiteController::class, 'getAQuotePost'])->name('get_a_quote_post');
 Route::get('/fifa-world-cup-2026-car-service-dallas/', [WebsiteController::class, 'fifaWorldCup2026CarServiceDallas'])->name('fifa_world_cup_2026_car_service_dallas');
 Route::post('/booking/point-to-point', [BookingController::class, 'handlePointToPoint'])->name('booking.pointToPoint');
 Route::post('/booking/hourly-hire', [BookingController::class, 'handleHourlyHire'])->name('booking.hourlyHire');

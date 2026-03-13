@@ -48,67 +48,108 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-11 col-xl-10">
-                        <form action="#" method="post" class="get-a-quote-form bg-white px-20 px-sm-30 py-30">
+                        @if ($message = session('success'))
+                            <div class="alert alert-success alert-dismissible fade show mb-20" role="alert">
+                                {{ $message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
+
+                        @if ($message = session('error'))
+                            <div class="alert alert-danger alert-dismissible fade show mb-20" role="alert">
+                                {{ $message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
+
+                        <form action="{{ route('get_a_quote_post') }}" method="post" class="get-a-quote-form bg-white px-20 px-sm-30 py-30">
+                            @csrf
                             <div class="row">
                                 <div class="col-12 col-md-6 col-lg-4 mb-15">
-                                    <label for="" class="form-label mb-1 fw-medium">Select Vehicles Option:</label>
-                                    <select class="form-select" aria-label="Default select example">
+                                    <label for="vehicle_type" class="form-label mb-1 fw-medium">Select Vehicles Option:</label>
+                                    <select class="form-select @error('vehicle_type') is-invalid @enderror" name="vehicle_type" id="vehicle_type" required>
+                                        <option value="">-- Select Vehicle --</option>
                                         <option value="Luxury Sedan">Luxury Sedan</option>
                                         <option value="Premium SUV">Premium SUV</option>
                                         <option value="Luxury SUV">Luxury SUV</option>
                                         <option value="Sprinter Van">Sprinter Van</option>
                                         <option value="Mini-Bus">Mini-Bus</option>
                                     </select>
+                                    @error('vehicle_type')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-4 mb-15">
-                                    <label for="" class="form-label mb-1 fw-medium">Select Trip Type:</label>
-                                    <select class="form-select" aria-label="Default select example">
+                                    <label for="trip_type" class="form-label mb-1 fw-medium">Select Trip Type:</label>
+                                    <select class="form-select @error('trip_type') is-invalid @enderror" name="trip_type" id="trip_type" required>
+                                        <option value="">-- Select Trip Type --</option>
                                         <option value="Point to Point">Point to Point</option>
                                         <option value="Airport Services">Airport Services</option>
                                         <option value="Hourly/As Directed">Hourly/As Directed</option>
                                     </select>
+                                    @error('trip_type')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-4 mb-15">
-                                    <label for="No_of_Passengers" class="form-label mb-1 fw-medium">No. of
-                                        Passengers</label>
-                                    <input type="text" class="form-control" id="No_of_Passengers"
-                                        placeholder="Number of Pax">
+                                    <label for="number_of_passengers" class="form-label mb-1 fw-medium">No. of Passengers</label>
+                                    <input type="text" class="form-control @error('number_of_passengers') is-invalid @enderror" id="number_of_passengers" name="number_of_passengers" placeholder="Number of Pax" required>
+                                    @error('number_of_passengers')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-4 mb-15">
-                                    <label for="Trip_Date_field" class="form-label mb-1 fw-medium">Trip Date</label>
-                                    <input type="date" class="form-control" id="Trip_Date_field">
+                                    <label for="trip_date" class="form-label mb-1 fw-medium">Trip Date</label>
+                                    <input type="date" class="form-control @error('trip_date') is-invalid @enderror" id="trip_date" name="trip_date" required>
+                                    @error('trip_date')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-4 mb-15">
-                                    <label for="Trip_Time_field" class="form-label mb-1 fw-medium">Trip Time</label>
-                                    <input type="time" class="form-control" id="Trip_Time_field">
+                                    <label for="trip_time" class="form-label mb-1 fw-medium">Trip Time</label>
+                                    <input type="time" class="form-control @error('trip_time') is-invalid @enderror" id="trip_time" name="trip_time" required>
+                                    @error('trip_time')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-4 mb-15">
-                                    <label for="pickup_field" class="form-label mb-1 fw-medium">Pickup Address</label>
-                                    <input type="text" class="form-control" id="pickup_field"
-                                        placeholder="Street, City, State">
+                                    <label for="pickup_address" class="form-label mb-1 fw-medium">Pickup Address</label>
+                                    <input type="text" class="form-control @error('pickup_address') is-invalid @enderror" id="pickup_address" name="pickup_address" placeholder="Street, City, State" required>
+                                    @error('pickup_address')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-4 mb-15">
-                                    <label for="drop_address_field" class="form-label mb-1 fw-medium">Drop Off
-                                        Address</label>
-                                    <input type="text" class="form-control" id="drop_address_field"
-                                        placeholder="Street, City, State">
+                                    <label for="dropoff_address" class="form-label mb-1 fw-medium">Drop Off Address</label>
+                                    <input type="text" class="form-control @error('dropoff_address') is-invalid @enderror" id="dropoff_address" name="dropoff_address" placeholder="Street, City, State" required>
+                                    @error('dropoff_address')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-4 mb-15 d-none d-md-flex d-lg-none"></div>
                                 <div class="col-12 col-md-6 col-lg-4 mb-15">
                                     <label for="full_name" class="form-label mb-1 fw-medium">Full Name</label>
-                                    <input type="text" class="form-control" id="full_name" placeholder="Full Name">
+                                    <input type="text" class="form-control @error('full_name') is-invalid @enderror" id="full_name" name="full_name" placeholder="Full Name" required>
+                                    @error('full_name')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-4 mb-15">
                                     <label for="email" class="form-label mb-1 fw-medium">Email</label>
-                                    <input type="email" class="form-control" id="email"
-                                        placeholder="your email address">
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="your email address" required>
+                                    @error('email')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-12 mb-15">
-                                    <label for="message" class="form-label mb-1 fw-medium">Message</label>
-                                    <textarea class="form-control" id="message"></textarea>
+                                    <label for="message" class="form-label mb-1 fw-medium">Message (Optional)</label>
+                                    <textarea class="form-control @error('message') is-invalid @enderror" id="message" name="message" placeholder="Add any special requests or additional information..."></textarea>
+                                    @error('message')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-12 text-end">
-                                    <button class="btn btn-primary fw-bold">Send Now</button>
+                                    <button type="submit" class="btn btn-primary fw-bold">Send Now</button>
                                 </div>
                             </div>
                         </form>
@@ -278,4 +319,34 @@
         @include('partials.companies_strip')
         @include('partials.testimonials')
         @include('partials.faq')
+
+@section('scripts')
+<script>
+// Show success/error alerts if messages exist
+@if (session('success'))
+    Swal.fire({
+        title: 'Success!',
+        text: '{{ session('success') }}',
+        icon: 'success',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.querySelector('.get-a-quote-form').reset();
+        }
+    });
+@endif
+
+@if (session('error'))
+    Swal.fire({
+        title: 'Error!',
+        text: '{{ session('error') }}',
+        icon: 'error',
+        confirmButtonColor: '#d33',
+        confirmButtonText: 'OK'
+    });
+@endif
+</script>
+@endsection
+
 @endsection
