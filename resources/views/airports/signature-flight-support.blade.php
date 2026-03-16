@@ -45,7 +45,7 @@
                     <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Our Luxury Fleet –  <span class="theme-color fw-bold">Travel to McKinney Airport with Comfort and Class</span></h2>
                 </div>
                 <div class="col-12">
-                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every airport journey. Whether you need McKinney National Airport transportation, executive airport travel, private airport pickup, or group airport transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class car service to McKinney airport.</p>
+                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every airport journey. Whether you need McKinney National Airport transportation, <a href="/services/airport-transfers-dallas/"><strong>executive airport travel</strong></a>, private airport pickup, or group airport transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class car service to McKinney airport.</p>
                 </div>
             </div>
             <div class="row">
@@ -330,170 +330,164 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
     
     
     
-         <section
-        class="intercity-ride-section bg-gray pt-40 pb-30 pt-sm-40 pb-sm-35 pt-md-40 pb-md-40 pt-lg-40 pb-lg-40">
-        <div class="ah-container">
-            <div class="row justify-content-center">
-                <div class="text-center col-12 col-lg-11 col-xl-10 mb-25 mb-md-30 mb-lg-40">
-                    <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Top Cities & <span class="theme-color">Top
-                            Routes</span></h2>
-                    <p class="font-base">Our McKinney airport car service connects you to the most popular cities and travel routes across North Texas and beyond. Whether you're heading to Dallas, Plano, Frisco, Arlington, Waco, or nearby destinations, our professional chauffeurs ensure smooth, punctual, and comfortable transportation. Enjoy reliable city-to-city black car service from McKinney with luxury vehicles, private travel, and a stress-free ride experience every time.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                        <div class="img-holder">
-                            <img src="/img/black-car-service-austin.webp" alt="Top City" class="img-fluid">
-                        </div>
-                        <div class="city-details p-15 position-absolute">
-                           <div class="row">
-                           <div class="col-md-6 col-sm-6">
-                            <h3 class="mb-1 text-white h6">McKinney
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
-                                Dallas
-                            </h3>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                            <p class="mb-0 text-white font-base">32 miles &nbsp;&nbsp;|&nbsp;&nbsp; 40m</p>
-                             </div>
-                            </div>
-                            
-                        </div>
-                    </article>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                        <div class="img-holder">
-                            <img src="/img/black-car-service-college-station.webp" alt="Top City" class="img-fluid">
-                        </div>
-                        <div class="city-details p-15 position-absolute">
-                      <div class="row">
-                           <div class="col-md-6 col-sm-6">
-                            <h3 class="mb-1 text-white h6">McKinney
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
-                                Plano
-                            </h3>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                            <p class="mb-0 text-white font-base">15 miles &nbsp;&nbsp;|&nbsp;&nbsp; 25m</p>
-                             </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                        <div class="img-holder">
-                            <img src="/img/black-car-service-houston.webp" alt="Top City" class="img-fluid">
-                        </div>
-                        <div class="city-details p-15 position-absolute">
-                          
-                              <div class="row">
-                           <div class="col-md-6 col-sm-6">
-                            <h3 class="mb-1 text-white h6">McKinney
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
-                                Frisco
-                            </h3>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                            <p class="mb-0 text-white font-base">14 miles &nbsp;&nbsp;|&nbsp;&nbsp; 24m</p>
-                             </div>
-                            </div>
-                            
-                            
-                        </div>
-                    </article>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                        <div class="img-holder">
-                            <img src="/img/black-car-service-sherman.webp" alt="Top City" class="img-fluid">
-                        </div>
-                        <div class="city-details p-15 position-absolute">
-                              <div class="row">
-                           <div class="col-md-6 col-sm-6">
-                            <h3 class="mb-1 text-white h6">McKinney
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
-                                 Allen
-                            </h3>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                            <p class="mb-0 text-white font-base">9 miles &nbsp;&nbsp;|&nbsp;&nbsp; 18m</p>
-                             </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                        <div class="img-holder">
-                            <img src="/img/black-car-service-tyler.webp" alt="Top City" class="img-fluid">
-                        </div>
-                        <div class="city-details p-15 position-absolute">
-                             <div class="row">
-                           <div class="col-md-6 col-sm-6">
-                            <h3 class="mb-1 text-white h6">McKinney
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
-                                Prosper
-                            </h3>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                            <p class="mb-0 text-white font-base">14 miles &nbsp;&nbsp;|&nbsp;&nbsp; 23m</p>
-                             </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                        <div class="img-holder">
-                            <img src="/img/black-car-service-waco.webp" alt="Top City" class="img-fluid">
-                        </div>
-                        <div class="city-details p-15 position-absolute">
-                              <div class="row">
-                           <div class="col-md-6 col-sm-6">
-                            <h3 class="mb-1 text-white h6">McKinney
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
-                                Melissa
-                            </h3>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                            <p class="mb-0 text-white font-base">11 miles &nbsp;&nbsp;|&nbsp;&nbsp; 19m</p>
-                             </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+       
+<section class="intercity-ride-section bg-gray pt-40 pb-30 pt-sm-40 pb-sm-35 pt-md-40 pb-md-40 pt-lg-40 pb-lg-40">
+    <div class="ah-container">
+        <div class="row justify-content-center">
+            <div class="text-center col-12 col-lg-11 col-xl-10 mb-25 mb-md-30 mb-lg-40">
+                <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Top Cities & <span class="theme-color">Service Routes</span></h2>
+                <p class="font-base">Our Dallas luxury transportation company proudly serves some of the most requested travel routes in Texas. Whether clients need private car service, chauffeur transportation, or black car service from Dallas to Austin, Arlington, Waco, Tyler, Houston, or nearby destinations, we provide dependable long-distance travel with comfort, privacy, and professional service.</p>
             </div>
         </div>
-    </section>
-    
- 
+        <div class="row">
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                    <div class="img-holder">
+                        <img src="/img/black-car-service-austin.webp" alt="Top City" class="img-fluid">
+                    </div>
+                    <div class="city-details p-15 position-absolute">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h3 class="mb-1 text-white h6">Dallas
+                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                        data-testid="ChevronRightIcon">
+                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                    </svg>
+                                    Austin
+                                </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <p class="mb-0 text-white font-base">195 miles &nbsp;&nbsp;|&nbsp;&nbsp; 2h 54m</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                    <div class="img-holder">
+                        <img src="/img/black-car-service-college-station.webp" alt="Top City" class="img-fluid">
+                    </div>
+                    <div class="city-details p-15 position-absolute">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h3 class="mb-1 text-white h6">Dallas
+                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                        data-testid="ChevronRightIcon">
+                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                    </svg>
+                                    College Station
+                                </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <p class="mb-0 text-white font-base">181 miles &nbsp;&nbsp;|&nbsp;&nbsp; 2h 46m</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                    <div class="img-holder">
+                        <img src="/img/black-car-service-houston.webp" alt="Top City" class="img-fluid">
+                    </div>
+                    <div class="city-details p-15 position-absolute">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h3 class="mb-1 text-white h6">Dallas
+                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                        data-testid="ChevronRightIcon">
+                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                    </svg>
+                                    Houston
+                                </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <p class="mb-0 text-white font-base">239 miles &nbsp;&nbsp;|&nbsp;&nbsp; 3h 24m</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                    <div class="img-holder">
+                        <img src="/img/black-car-service-sherman.webp" alt="Top City" class="img-fluid">
+                    </div>
+                    <div class="city-details p-15 position-absolute">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h3 class="mb-1 text-white h6">Dallas
+                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                        data-testid="ChevronRightIcon">
+                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                    </svg>
+                                     Sherman
+                                </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <p class="mb-0 text-white font-base">65.2 miles &nbsp;&nbsp;|&nbsp;&nbsp; 1h 56m</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                    <div class="img-holder">
+                        <img src="/img/black-car-service-tyler.webp" alt="Top City" class="img-fluid">
+                    </div>
+                    <div class="city-details p-15 position-absolute">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h3 class="mb-1 text-white h6">Dallas
+                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                        data-testid="ChevronRightIcon">
+                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                    </svg>
+                                    Tyler
+                                </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <p class="mb-0 text-white font-base">98 miles &nbsp;&nbsp;|&nbsp;&nbsp; 1h 34m</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                    <div class="img-holder">
+                        <img src="/img/black-car-service-waco.webp" alt="Top City" class="img-fluid">
+                    </div>
+                    <div class="city-details p-15 position-absolute">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h3 class="mb-1 text-white h6">Dallas
+                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                        data-testid="ChevronRightIcon">
+                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                    </svg>
+                                    Waco
+                                </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <p class="mb-0 text-white font-base">93.8 miles &nbsp;&nbsp;|&nbsp;&nbsp; 1h 23m</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+   
     
      <section class="testimonial-section bg-blue py-40 py-sm-40 py-md-40 py-lg-50">
     <div class="ah-container">

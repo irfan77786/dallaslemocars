@@ -45,7 +45,7 @@
                     <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Our Luxury Fleet –  <span class="theme-color fw-bold">Travel to Addison Airport with Comfort and Class</span></h2>
                 </div>
                 <div class="col-12">
-                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every airport journey. Whether you need Addison airport transportation, Dallas executive airport transfers, business airport travel, or group airport transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class Addison airport car service.</p>
+                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every airport journey. Whether you need Addison airport transportation, <a href="/services/airport-transfers-dallas/"><strong>Dallas executive airport transfers</strong></a>, business airport travel, or group airport transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class Addison airport car service.</p>
                 </div>
             </div>
             <div class="row">
@@ -80,7 +80,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="img-holder">
-                        <img src="{{ asset('new_assets/assets/fleet-img.webp') }}" alt="Fleet Image" class="img-fluid">
+                        <img src="{{ asset('new_assets/assets/fleet-img.webp') }}" alt="luxury Addison airport car service fleet with executive sedans black SUVs and airport transportation vehicles" class="img-fluid">
                     </div>
                 </div>
                 <div class="text-center col-12 pt-15">
@@ -165,7 +165,7 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, Irving, Las Colinas,
                      </div>
                     <div class="col-12 col-md-6 h-100">
                         <div class="why-imgs">
-                            <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="">
+                            <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="Addison airport car service with luxury black car transportation and professional chauffeur pickup">
                         </div>
                     </div>
                 </div>
@@ -184,7 +184,7 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, Irving, Las Colinas,
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                         <article class="we-serve-item custom-card mb-30 mb-md-35">
                             <div class="img-holder">
-                                <img src="/img/affordable-dallas-limousine-service-with-chauffeur.webp" alt="" class="img-fluid">
+                                <img src="/img/affordable-dallas-limousine-service-with-chauffeur.webp" alt="Addison airport transportation serving Dallas Addison Plano Frisco and nearby communities" class="img-fluid">
                             </div>
                             <div class="text-detail">
                                 <h3 class="mb-10 h4 fw-semibold">Cities & Regional Communities</h3>
@@ -195,7 +195,7 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, Irving, Las Colinas,
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                         <article class="we-serve-item custom-card mb-30 mb-md-35">
                             <div class="img-holder">
-                                <img src="/img/dfw-airport-limo-and-black-car-service-dallas.webp" alt="" class="img-fluid">
+                                <img src="/img/dfw-airport-limo-and-black-car-service-dallas.webp" alt="Addison airport car service with transfers to Addison Airport DFW Love Field and regional airports" class="img-fluid">
                             </div>
                             <div class="text-detail">
                                 <h3 class="mb-10 h4 fw-semibold">Airports & Aviation Access</h3>
@@ -206,7 +206,7 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, Irving, Las Colinas,
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                         <article class="we-serve-item custom-card mb-30 mb-md-35">
                             <div class="img-holder">
-                                <img src="/img/luxury-dallas-limo-and-black-car-service.webp" alt="" class="img-fluid">
+                                <img src="/img/luxury-dallas-limo-and-black-car-service.webp" alt="executive Addison airport black car service for business districts in Dallas Plano and Irving" class="img-fluid">
                             </div>
                             <div class="text-detail">
                                 <h3 class="mb-10 h4 fw-semibold">Corporate & Lifestyle Zones</h3>
@@ -217,7 +217,7 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, Irving, Las Colinas,
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                         <article class="we-serve-item custom-card mb-30 mb-md-35">
                             <div class="img-holder">
-                                <img src="{{ asset('new_assets/assets/image-08.jpg') }}" alt="" class="img-fluid">
+                                <img src="{{ asset('new_assets/assets/image-08.jpg') }}" alt="Addison airport transportation for entertainment venues concerts and event destinations" class="img-fluid">
                             </div>
                             <div class="text-detail">
                                 <h3 class="mb-10 h4 fw-semibold">Sports & Entertainment Venues</h3>
@@ -234,7 +234,7 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, Irving, Las Colinas,
             <div class="py-20 row align-items-center">
                 <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-black-car-service-dfw-love-field-airport-mobile.webp" class="img-fluid" alt="mobile Addison airport car service image for airport transfers and chauffeur transportation">
                     </div>
                 </div>
                 
@@ -247,7 +247,7 @@ Our service is ideal for travelers coming from Downtown Dallas, Plano, Frisco, I
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="Addison airport black car service for business travelers private flyers and airport transfers">
                     </div>
                 </div>
             </div>
@@ -255,7 +255,7 @@ Our service is ideal for travelers coming from Downtown Dallas, Plano, Frisco, I
             <div class="flex-row-reverse py-20 row align-items-center">
                 <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt="mobile executive Addison airport transportation with professional chauffeurs">
                     </div>
                 </div>
                 <div class="mb-20 col-12 col-md-6 pr-xl-50">
@@ -268,14 +268,14 @@ Our professional chauffeurs monitor traffic and flight schedules to ensure timel
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="reliable Addison airport transportation with luxury black car service and trained chauffeurs">
                     </div>
                 </div>
             </div>
                <div class="py-20 row align-items-center">
                   <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-city-to-city-black-car-service-mobile.webp" class="img-fluid" alt="mobile luxury Addison airport car service across Dallas Fort Worth and nearby routes">
                     </div>
                 </div>
                 
@@ -288,7 +288,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-city-to-city-black-car-service.webp" class="img-fluid" alt="luxury Addison airport car service across the Dallas Fort Worth area with comfortable airport rides">
                     </div>
                 </div>
             </div>
@@ -304,23 +304,23 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12">
                     <div class="swiper logo-swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid" alt="Addison airport car service partner logo 1"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid" alt="Addison airport transportation partner logo 2"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid" alt="Dallas black car service partner logo 3"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid" alt="executive airport transfer partner logo 4"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid" alt="luxury chauffeur transportation partner logo 5"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid" alt="Addison executive travel partner logo 6"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid" alt="airport black car service partner logo 7"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid" alt="Dallas Fort Worth transportation partner logo 8"></div>
 
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid" alt="premium Addison airport car service partner logo 9"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid" alt="Dallas luxury airport transportation partner logo 10"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid" alt="professional chauffeur service partner logo 11"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid" alt="business travel transportation partner logo 12"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid" alt="Addison limousine service partner logo 13"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid" alt="airport pickup and drop off partner logo 14"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid" alt="Dallas executive chauffeur partner logo 15"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid" alt="Addison luxury black car partner logo 16"></div>
                         </div>
                     </div>
                 </div>
@@ -330,169 +330,164 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
     
     
     
-         <section
-        class="intercity-ride-section bg-gray pt-40 pb-30 pt-sm-40 pb-sm-35 pt-md-40 pb-md-40 pt-lg-40 pb-lg-40">
-        <div class="ah-container">
-            <div class="row justify-content-center">
-                <div class="text-center col-12 col-lg-11 col-xl-10 mb-25 mb-md-30 mb-lg-40">
-                    <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Top Cities & <span class="theme-color">Top
-                            Routes</span></h2>
-                    <p class="font-base">Our Addison airport car service connects you to the most popular cities and travel routes across North Texas. Whether you're heading to Dallas, Plano, Frisco, Irving, McKinney, or nearby destinations, our professional chauffeurs ensure smooth, punctual, and comfortable transportation. Enjoy reliable airport car service from Addison with luxury vehicles, private travel, and a stress-free ride experience every time.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                        <div class="img-holder">
-                            <img src="/img/black-car-service-austin.webp" alt="Top City" class="img-fluid">
-                        </div>
-                        <div class="city-details p-15 position-absolute">
-                           <div class="row">
-                           <div class="col-md-6 col-sm-6">
-                            <h3 class="mb-1 text-white h6">Dallas
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
-                                Addison Airport
-                            </h3>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                            <p class="mb-0 text-white font-base">15 miles &nbsp;&nbsp;|&nbsp;&nbsp; 26m</p>
-                             </div>
-                            </div>
-                            
-                        </div>
-                    </article>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                        <div class="img-holder">
-                            <img src="/img/black-car-service-college-station.webp" alt="Top City" class="img-fluid">
-                        </div>
-                        <div class="city-details p-15 position-absolute">
-                      <div class="row">
-                           <div class="col-md-6 col-sm-6">
-                            <h3 class="mb-1 text-white h6">Plano
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
-                                Addison Airport
-                            </h3>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                            <p class="mb-0 text-white font-base">11 miles &nbsp;&nbsp;|&nbsp;&nbsp; 20m</p>
-                             </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                        <div class="img-holder">
-                            <img src="/img/black-car-service-houston.webp" alt="Top City" class="img-fluid">
-                        </div>
-                        <div class="city-details p-15 position-absolute">
-                          
-                              <div class="row">
-                           <div class="col-md-6 col-sm-6">
-                            <h3 class="mb-1 text-white h6">Frisco
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
-                                Addison Airport
-                            </h3>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                            <p class="mb-0 text-white font-base">18 miles &nbsp;&nbsp;|&nbsp;&nbsp; 28m</p>
-                             </div>
-                            </div>
-                            
-                            
-                        </div>
-                    </article>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                        <div class="img-holder">
-                            <img src="/img/black-car-service-sherman.webp" alt="Top City" class="img-fluid">
-                        </div>
-                        <div class="city-details p-15 position-absolute">
-                              <div class="row">
-                           <div class="col-md-6 col-sm-6">
-                            <h3 class="mb-1 text-white h6">Irving
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
-                                 Addison Airport
-                            </h3>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                            <p class="mb-0 text-white font-base">14 miles &nbsp;&nbsp;|&nbsp;&nbsp; 24m</p>
-                             </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                        <div class="img-holder">
-                            <img src="/img/black-car-service-tyler.webp" alt="Top City" class="img-fluid">
-                        </div>
-                        <div class="city-details p-15 position-absolute">
-                             <div class="row">
-                           <div class="col-md-6 col-sm-6">
-                            <h3 class="mb-1 text-white h6">McKinney
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
-                                Addison Airport
-                            </h3>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                            <p class="mb-0 text-white font-base">25 miles &nbsp;&nbsp;|&nbsp;&nbsp; 34m</p>
-                             </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                        <div class="img-holder">
-                            <img src="/img/black-car-service-waco.webp" alt="Top City" class="img-fluid">
-                        </div>
-                        <div class="city-details p-15 position-absolute">
-                              <div class="row">
-                           <div class="col-md-6 col-sm-6">
-                            <h3 class="mb-1 text-white h6">Arlington
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
-                                Addison Airport
-                            </h3>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                            <p class="mb-0 text-white font-base">29 miles &nbsp;&nbsp;|&nbsp;&nbsp; 38m</p>
-                             </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+          
+<section class="intercity-ride-section bg-gray pt-40 pb-30 pt-sm-40 pb-sm-35 pt-md-40 pb-md-40 pt-lg-40 pb-lg-40">
+    <div class="ah-container">
+        <div class="row justify-content-center">
+            <div class="text-center col-12 col-lg-11 col-xl-10 mb-25 mb-md-30 mb-lg-40">
+                <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Top Cities & <span class="theme-color">Service Routes</span></h2>
+                <p class="font-base">Our Dallas luxury transportation company proudly serves some of the most requested travel routes in Texas. Whether clients need private car service, chauffeur transportation, or black car service from Dallas to Austin, Arlington, Waco, Tyler, Houston, or nearby destinations, we provide dependable long-distance travel with comfort, privacy, and professional service.</p>
             </div>
         </div>
-    </section>
-    
+        <div class="row">
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                    <div class="img-holder">
+                        <img src="/img/black-car-service-austin.webp" alt="Dallas to Austin black car service with long distance chauffeur transportation" class="img-fluid">
+                    </div>
+                    <div class="city-details p-15 position-absolute">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h3 class="mb-1 text-white h6">Dallas
+                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                        data-testid="ChevronRightIcon">
+                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                    </svg>
+                                    Austin
+                                </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <p class="mb-0 text-white font-base">195 miles &nbsp;&nbsp;|&nbsp;&nbsp; 2h 54m</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                    <div class="img-holder">
+                        <img src="/img/black-car-service-college-station.webp" alt="Dallas to College Station private car service for comfortable intercity travel" class="img-fluid">
+                    </div>
+                    <div class="city-details p-15 position-absolute">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h3 class="mb-1 text-white h6">Dallas
+                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                        data-testid="ChevronRightIcon">
+                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                    </svg>
+                                    College Station
+                                </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <p class="mb-0 text-white font-base">181 miles &nbsp;&nbsp;|&nbsp;&nbsp; 2h 46m</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                    <div class="img-holder">
+                        <img src="/img/black-car-service-houston.webp" alt="Dallas to Houston luxury car service with professional chauffeur" class="img-fluid">
+                    </div>
+                    <div class="city-details p-15 position-absolute">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h3 class="mb-1 text-white h6">Dallas
+                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                        data-testid="ChevronRightIcon">
+                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                    </svg>
+                                    Houston
+                                </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <p class="mb-0 text-white font-base">239 miles &nbsp;&nbsp;|&nbsp;&nbsp; 3h 24m</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                    <div class="img-holder">
+                        <img src="/img/black-car-service-sherman.webp" alt="Dallas to Sherman executive black car service for long distance travel" class="img-fluid">
+                    </div>
+                    <div class="city-details p-15 position-absolute">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h3 class="mb-1 text-white h6">Dallas
+                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                        data-testid="ChevronRightIcon">
+                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                    </svg>
+                                     Sherman
+                                </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <p class="mb-0 text-white font-base">65.2 miles &nbsp;&nbsp;|&nbsp;&nbsp; 1h 56m</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                    <div class="img-holder">
+                        <img src="/img/black-car-service-tyler.webp" alt="Dallas to Tyler luxury chauffeur transportation with private car service" class="img-fluid">
+                    </div>
+                    <div class="city-details p-15 position-absolute">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h3 class="mb-1 text-white h6">Dallas
+                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                        data-testid="ChevronRightIcon">
+                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                    </svg>
+                                    Tyler
+                                </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <p class="mb-0 text-white font-base">98 miles &nbsp;&nbsp;|&nbsp;&nbsp; 1h 34m</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                    <div class="img-holder">
+                        <img src="/img/black-car-service-waco.webp" alt="Dallas to Waco black car transportation with dependable chauffeur service" class="img-fluid">
+                    </div>
+                    <div class="city-details p-15 position-absolute">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h3 class="mb-1 text-white h6">Dallas
+                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                        data-testid="ChevronRightIcon">
+                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                    </svg>
+                                    Waco
+                                </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <p class="mb-0 text-white font-base">93.8 miles &nbsp;&nbsp;|&nbsp;&nbsp; 1h 23m</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+   
  
     
      <section class="testimonial-section bg-blue py-40 py-sm-40 py-md-40 py-lg-50">

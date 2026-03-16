@@ -29,14 +29,14 @@
             <div class="col-12">
                 <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every ride. Whether you need private car service in Dallas, executive chauffeur transportation, airport
                     transfers, or private travel, our professionally maintained vehicles ensure a smooth and stress-free experience. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated
-                    to providing first-class Dallas private car service.</p>
+                    to providing first-class <a href="/book-now/"><strong>Dallas private car service</strong></a>.</p>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
                 <ul class="list-unstyled">
                     <li>
-                        <p class="font-base justify-mobile"><strong class="font-lg gray-700 fw-bold">Luxury Sedans:</strong> Our executive sedans provide a quiet and comfortable ride, ideal for business travelers or individuals needing private transportation in Dallas. Vehicles such as
+                        <p class="font-base justify-mobile"><strong class="font-lg gray-700 fw-bold">Luxury Sedans:</strong> Our executive sedans provide a quiet and comfortable ride, ideal for business travelers or individuals needing <a href="/services/chauffeur-service-dallas/"><strong>private transportation in Dallas</strong></a>. Vehicles such as
                             the Mercedes-Benz S-Class, Cadillac CT6, and Volvo S90 deliver premium comfort and privacy.</p>
                     </li>
                     <li>
@@ -59,7 +59,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <div class="img-holder"> <img src="{{ asset('new_assets/assets/fleet-img.webp') }}" alt="Fleet Image" class="img-fluid"> </div>
+                <div class="img-holder"> <img src="{{ asset('new_assets/assets/fleet-img.webp') }}" alt="luxury Dallas private car service fleet with executive sedans black SUVs and chauffeur transportation" class="img-fluid"> </div>
             </div>
             <div class="text-center col-12 pt-15"> <a href="/booking/" class="btn btn-primary fifa-btn">Book Your Private Car Ride </a> </div>
         </div>
@@ -114,7 +114,7 @@
                 </ul>
             </div>
             <div class="col-12 col-md-6 h-100">
-                <div class="why-imgs"> <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt=""> </div>
+                <div class="why-imgs"> <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="Dallas private car service for DFW airport transfers and luxury chauffeur transportation"> </div>
             </div>
         </div>
     </div>
@@ -130,7 +130,7 @@
         <div class="row">
             <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                 <article class="we-serve-item custom-card mb-30 mb-md-35">
-                    <div class="img-holder"> <img src="/img/affordable-dallas-limousine-service-with-chauffeur.webp" alt="" class="img-fluid"> </div>
+                    <div class="img-holder"> <img src="/img/affordable-dallas-limousine-service-with-chauffeur.webp" alt="private car service across Dallas Fort Worth Plano Frisco Irving and Arlington communities" class="img-fluid"> </div>
                     <div class="text-detail">
                         <h3 class="mb-10 h4 fw-semibold">Cities & Regional Communities</h3>
                         <p class="mb-0 font-base">We proudly serve Dallas, Fort Worth, Plano, Frisco, Irving, Arlington, and nearby communities, providing reliable private car transportation across the Dallas–Fort Worth area.</p>
@@ -139,7 +139,7 @@
             </div>
             <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                 <article class="we-serve-item custom-card mb-30 mb-md-35">
-                    <div class="img-holder"> <img src="/img/dfw-airport-limo-and-black-car-service-dallas.webp" alt="" class="img-fluid"> </div>
+                    <div class="img-holder"> <img src="/img/dfw-airport-limo-and-black-car-service-dallas.webp" alt="Dallas private car transportation to DFW International Airport Love Field and regional airports" class="img-fluid"> </div>
                     <div class="text-detail">
                         <h3 class="mb-10 h4 fw-semibold">Airports & Aviation Access</h3>
                         <p class="mb-0 font-base">We provide private car transportation to DFW International Airport, Dallas Love Field, Addison Airport, McKinney National Airport, and Fort Worth Alliance Airport.</p>
@@ -148,7 +148,7 @@
             </div>
             <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                 <article class="we-serve-item custom-card mb-30 mb-md-35">
-                    <div class="img-holder"> <img src="/img/luxury-dallas-limo-and-black-car-service.webp" alt="" class="img-fluid"> </div>
+                    <div class="img-holder"> <img src="/img/luxury-dallas-limo-and-black-car-service.webp" alt="executive private car service in Downtown Dallas Legacy West Frisco and Las Colinas" class="img-fluid"> </div>
                     <div class="text-detail">
                         <h3 class="mb-10 h4 fw-semibold">Corporate & Lifestyle Zones</h3>
                         <p class="mb-0 font-base">Our service connects travelers to Downtown Dallas, Legacy West Plano, The Star Frisco, Las Colinas Irving, Dallas Arts District, and Preston Hollow.</p>
@@ -157,7 +157,7 @@
             </div>
             <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                 <article class="we-serve-item custom-card mb-30 mb-md-35">
-                    <div class="img-holder"> <img src="{{ asset('new_assets/assets/image-08.jpg') }}" alt="" class="img-fluid"> </div>
+                    <div class="img-holder"> <img src="{{ asset('new_assets/assets/image-08.jpg') }}" alt="Dallas private car service for sports venues concerts and entertainment events" class="img-fluid"> </div>
                     <div class="text-detail">
                         <h3 class="mb-10 h4 fw-semibold">Sports & Entertainment Venues</h3>
                         <p class="mb-0 font-base">We provide transportation to AT&T Stadium, Globe Life Field, American Airlines Center, Toyota Stadium, PGA Frisco, and major entertainment venues throughout Dallas.</p>
@@ -171,45 +171,48 @@
     <div class="ah-container">
         <div class="py-20 row align-items-center">
             <div class="col-12 col-md-6 h-100 only-m">
-                <div class="service-image"> <img src="/img/dallas-black-car-service-dfw-love-field-airport-mobile.webp" class="img-fluid" alt=""> </div>
+                <div class="service-image"> <img src="/img/dallas-black-car-service-dfw-love-field-airport-mobile.webp" class="img-fluid" alt="mobile Dallas private car service for airport transfers and executive transportation"> </div>
             </div>
             <div class="col-12 col-md-6 pr-xl-50">
                 <h3 class="h5 fw-semibold">Professional Private Car Service in Dallas for Every Ride</h3>
-                <p class="font-base text-justify">Our private car service in Dallas provides reliable and professional transportation for airport transfers, corporate travel, business meetings, special occasions, and private rides. Whether you are traveling for business, leisure, or an
+                <p class="font-base text-justify">Our private car service in Dallas provides reliable and <a href="/services/airport-transfers-dallas/"><strong>professional transportation for airport transfers</strong></a>, corporate travel, business meetings, special occasions, and private rides. Whether you are traveling for business, leisure, or an
                     important occasion, our experienced chauffeurs ensure a smooth and punctual experience. At Dallas Limo and Black Cars, we specialize in luxury transportation designed for comfort, reliability, and efficiency across the Dallas–Fort
                     Worth area. Our service is ideal for travelers coming from Dallas, Plano, Frisco, Irving, Arlington, McKinney, and surrounding DFW cities who need dependable private car transportation. With door-to-door service, flexible scheduling,
                     and professional chauffeurs, we make sure you arrive at your destination on time without stress. Our luxury fleet of sedans, SUVs, and executive vehicles provides the perfect combination of comfort and reliability for both personal
                     and business travel.</p> <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Book Reliable Private Car Service</a> </div>
             <div class="col-12 col-md-6 h-100 only-d">
-                <div class="service-image"> <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt=""> </div>
+                <div class="service-image"> <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="professional private car service in Dallas for airport pickups business travel and private rides"> </div>
             </div>
         </div>
         <div class="flex-row-reverse py-20 row align-items-center">
             <div class="col-12 col-md-6 h-100 only-m">
-                <div class="service-image"> <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt=""> </div>
+                <div class="service-image"> <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt="mobile executive private car transportation in Dallas with professional chauffeurs"> </div>
             </div>
             <div class="mb-20 col-12 col-md-6 pr-xl-50">
                 <h3 class="h5 fw-semibold">Executive Transportation with Professional Chauffeurs</h3>
-                <p class="font-base text-justify">When it comes to dependable transportation in Dallas, professionalism and punctuality are essential. Our private car service in Dallas is designed to deliver a premium travel experience with highly trained chauffeurs and luxury vehicles.
-                    We understand the importance of reliable transportation for business meetings, airport pickups, private events, and everyday executive travel throughout the Dallas–Fort Worth area. Our professional chauffeurs monitor traffic and major
-                    routes to ensure timely pickups and smooth drop-offs across Dallas, Plano, Frisco, Irving, and Arlington. Whether you need transportation from a hotel, office, home, or special event, our service offers convenient door-to-door private
-                    car transportation across the region. Business travelers, executives, families, and visitors trust our private car service for its comfort, privacy, and dependable performance. </p> <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Get Private Car Service Quote</a>                </div>
+                <p class="font-base text-justify">
+                Our private car service in Dallas provides dependable, luxury transportation for business travelers, executives, and visitors across the Dallas–Fort Worth area. With professional chauffeurs and premium vehicles, we ensure a comfortable, safe, and punctual travel experience for corporate meetings, private events, and executive transportation.
+
+Our experienced chauffeurs monitor real-time traffic to guarantee timely pickups and smooth drop-offs throughout Dallas, Plano, Frisco, Irving, and Arlington. Whether you are traveling for business or leisure, our door-to-door chauffeur service delivers convenience, privacy, and reliability.
+
+We also specialize in Dallas airport transportation, offering prompt transfers to and from DFW International Airport and Dallas Love Field Airport. Our <a href="/services/corporate-transportation-dallas/"><strong>black car service</strong></a> ensures stress-free arrivals and departures, making travel easier for professionals, families, and visitors throughout the Dallas–Fort Worth metro area.
+                </p> <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Get Private Car Service Quote</a>                </div>
             <div class="col-12 col-md-6 h-100 only-d">
-                <div class="service-image"> <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt=""> </div>
+                <div class="service-image"> <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="executive Dallas private car service with luxury chauffeur transportation for business travelers"> </div>
             </div>
         </div>
         <div class="py-20 row align-items-center">
             <div class="col-12 col-md-6 h-100 only-m">
-                <div class="service-image"> <img src="/img/dallas-city-to-city-black-car-service-mobile.webp" class="img-fluid" alt=""> </div>
+                <div class="service-image"> <img src="/img/dallas-city-to-city-black-car-service-mobile.webp" class="img-fluid" alt="mobile luxury private car service across Dallas Fort Worth for city rides and long distance travel"> </div>
             </div>
             <div class="col-12 col-md-6 pr-xl-50">
                 <h3 class="h5 fw-semibold">Luxury Private Car Service Across Dallas–Fort Worth</h3>
-                <p class="font-base text-justify">Traveling through the city should be comfortable and stress-free. Our luxury private car service in Dallas offers premium chauffeur transportation designed for travelers who value reliability, privacy, and professional service. At Dallas
+                <p class="font-base text-justify">Traveling through the city should be comfortable and stress-free. Our <a href="/city-to-city-rides/"><strong>luxury private car service in Dallas</strong></a> offers premium chauffeur transportation designed for travelers who value reliability, privacy, and professional service. At Dallas
                     Limo and Black Cars, we provide first-class transportation for airport transfers, business travel, special occasions, and private rides throughout the DFW metro area. Our luxury fleet includes executive sedans, spacious SUVs, and premium
                     vehicles perfect for professional transportation. Whether you are traveling alone, with colleagues, or with family, our vehicles provide a comfortable and stylish ride across Dallas and surrounding cities. With experienced chauffeurs,
                     well-maintained vehicles, and flexible scheduling, our private car service in Dallas ensures every trip is smooth, safe, and perfectly timed for your travel plans.</p> <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Reserve Your Private Car Ride</a>                </div>
             <div class="col-12 col-md-6 h-100 only-d">
-                <div class="service-image"> <img src="/img/dallas-city-to-city-black-car-service.webp" class="img-fluid" alt=""> </div>
+                <div class="service-image"> <img src="/img/dallas-city-to-city-black-car-service.webp" class="img-fluid" alt="luxury private car service across Dallas Fort Worth with comfortable chauffeur driven vehicles"> </div>
             </div>
         </div>
     </div>
@@ -220,22 +223,22 @@
             <div class="col-12">
                 <div class="swiper logo-swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid" alt="partner logo 1"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid" alt="partner logo 2"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid" alt="partner logo 3"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid" alt="partner logo 4"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid" alt="partner logo 5"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid" alt="partner logo 6"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid" alt="partner logo 7"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid" alt="partner logo 8"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid" alt="partner logo 9"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid" alt="partner logo 10"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid" alt="partner logo 11"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid" alt="partner logo 12"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid" alt="partner logo 13"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid" alt="partner logo 14"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid" alt="partner logo 15"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid" alt="partner logo 16"></div>
                     </div>
                 </div>
             </div>
@@ -254,7 +257,7 @@
         <div class="row">
             <div class="col-12 col-sm-6 col-lg-4">
                 <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                    <div class="img-holder"> <img src="/img/black-car-service-austin.webp" alt="Top City" class="img-fluid"> </div>
+                    <div class="img-holder"> <img src="/img/black-car-service-austin.webp" alt="Dallas to Austin private car service with luxury chauffeur transportation" class="img-fluid"> </div>
                     <div class="city-details p-15 position-absolute">
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
@@ -269,7 +272,7 @@
             </div>
             <div class="col-12 col-sm-6 col-lg-4">
                 <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                    <div class="img-holder"> <img src="/img/black-car-service-college-station.webp" alt="Top City" class="img-fluid"> </div>
+                    <div class="img-holder"> <img src="/img/black-car-service-college-station.webp" alt="Dallas to College Station private car transportation for executive and leisure travel" class="img-fluid"> </div>
                     <div class="city-details p-15 position-absolute">
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
@@ -284,7 +287,7 @@
             </div>
             <div class="col-12 col-sm-6 col-lg-4">
                 <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                    <div class="img-holder"> <img src="/img/black-car-service-houston.webp" alt="Top City" class="img-fluid"> </div>
+                    <div class="img-holder"> <img src="/img/black-car-service-houston.webp" alt="Dallas to Houston luxury private car service with professional chauffeur" class="img-fluid"> </div>
                     <div class="city-details p-15 position-absolute">
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
@@ -299,7 +302,7 @@
             </div>
             <div class="col-12 col-sm-6 col-lg-4">
                 <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                    <div class="img-holder"> <img src="/img/black-car-service-sherman.webp" alt="Top City" class="img-fluid"> </div>
+                    <div class="img-holder"> <img src="/img/black-car-service-sherman.webp" alt="Dallas to Sherman private car ride with dependable chauffeur service" class="img-fluid"> </div>
                     <div class="city-details p-15 position-absolute">
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
@@ -314,7 +317,7 @@
             </div>
             <div class="col-12 col-sm-6 col-lg-4">
                 <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                    <div class="img-holder"> <img src="/img/black-car-service-tyler.webp" alt="Top City" class="img-fluid"> </div>
+                    <div class="img-holder"> <img src="/img/black-car-service-tyler.webp" alt="Dallas to Tyler private chauffeur transportation with luxury black car service" class="img-fluid"> </div>
                     <div class="city-details p-15 position-absolute">
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
@@ -329,7 +332,7 @@
             </div>
             <div class="col-12 col-sm-6 col-lg-4">
                 <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                    <div class="img-holder"> <img src="/img/black-car-service-waco.webp" alt="Top City" class="img-fluid"> </div>
+                    <div class="img-holder"> <img src="/img/black-car-service-waco.webp" alt="Dallas to Waco private car service for comfortable long distance travel" class="img-fluid"> </div>
                     <div class="city-details p-15 position-absolute">
                         <div class="row">
                             <div class="col-md-6 col-sm-6">

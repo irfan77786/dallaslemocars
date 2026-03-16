@@ -45,7 +45,7 @@
                     <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Our Luxury Fleet –  <span class="theme-color fw-bold">Travel with Comfort, Space, and Style</span></h2>
                 </div>
                 <div class="col-12">
-                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every ride. Whether you need Dallas Sprinter Van rental service, executive group transportation, airport transfers, or event travel, our professionally maintained vehicles ensure a smooth and stress-free experience. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class Dallas group transportation.</p>
+                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every ride. Whether you need Dallas Sprinter Van rental service, <a href="/services/executive-shuttle-services-dallas/"><strong>executive group transportation</strong></a>, airport transfers, or event travel, our professionally maintained vehicles ensure a smooth and stress-free experience. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class Dallas group transportation.</p>
                 </div>
             </div>
             <div class="row">
@@ -80,7 +80,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="img-holder">
-                        <img src="{{ asset('new_assets/assets/fleet-img.webp') }}" alt="Fleet Image" class="img-fluid">
+                        <img src="{{ asset('new_assets/assets/fleet-img.webp') }}" alt="luxury Dallas Sprinter Van rental fleet with executive sedans black SUVs and minibuses" class="img-fluid">
                     </div>
                 </div>
                 <div class="text-center col-12 pt-15">
@@ -163,7 +163,7 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, Irving, Las Colinas,
                      </div>
                     <div class="col-12 col-md-6 h-100">
                         <div class="why-imgs">
-                            <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="">
+                            <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="Dallas Sprinter Van rental service for DFW Airport and Love Field airport group transportation">
                         </div>
                     </div>
                 </div>
@@ -182,7 +182,7 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, Irving, Las Colinas,
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                         <article class="we-serve-item custom-card mb-30 mb-md-35">
                             <div class="img-holder">
-                                <img src="/img/affordable-dallas-limousine-service-with-chauffeur.webp" alt="" class="img-fluid">
+                                <img src="/img/affordable-dallas-limousine-service-with-chauffeur.webp" alt="Dallas Sprinter Van transportation serving cities and regional communities across the DFW metroplex" class="img-fluid">
                             </div>
                             <div class="text-detail">
                                 <h3 class="mb-10 h4 fw-semibold">Cities & Regional Communities</h3>
@@ -193,7 +193,7 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, Irving, Las Colinas,
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                         <article class="we-serve-item custom-card mb-30 mb-md-35">
                             <div class="img-holder">
-                                <img src="/img/dfw-airport-limo-and-black-car-service-dallas.webp" alt="" class="img-fluid">
+                                <img src="/img/dfw-airport-limo-and-black-car-service-dallas.webp" alt="Dallas Sprinter Van airport transportation to DFW International Airport and Dallas Love Field" class="img-fluid">
                             </div>
                             <div class="text-detail">
                                 <h3 class="mb-10 h4 fw-semibold">Airports & Aviation Access</h3>
@@ -204,7 +204,7 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, Irving, Las Colinas,
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                         <article class="we-serve-item custom-card mb-30 mb-md-35">
                             <div class="img-holder">
-                                <img src="/img/luxury-dallas-limo-and-black-car-service.webp" alt="" class="img-fluid">
+                                <img src="/img/luxury-dallas-limo-and-black-car-service.webp" alt="executive Sprinter Van service in Downtown Dallas Plano Frisco and Las Colinas business districts" class="img-fluid">
                             </div>
                             <div class="text-detail">
                                 <h3 class="mb-10 h4 fw-semibold">Corporate & Lifestyle Zones</h3>
@@ -215,7 +215,7 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, Irving, Las Colinas,
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                         <article class="we-serve-item custom-card mb-30 mb-md-35">
                             <div class="img-holder">
-                                <img src="{{ asset('new_assets/assets/image-08.jpg') }}" alt="" class="img-fluid">
+                                <img src="{{ asset('new_assets/assets/image-08.jpg') }}" alt="Dallas Sprinter Van rental service for sports events concerts and entertainment venues" class="img-fluid">
                             </div>
                             <div class="text-detail">
                                 <h3 class="mb-10 h4 fw-semibold">Sports & Entertainment Venues</h3>
@@ -232,20 +232,20 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, Irving, Las Colinas,
             <div class="py-20 row align-items-center">
                 <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-black-car-service-dfw-love-field-airport-mobile.webp" class="img-fluid" alt="mobile image of Dallas Sprinter Van airport transfer service to DFW and Love Field">
                     </div>
                 </div>
                 
                 <div class="col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Professional Dallas Sprinter Van Service for Every Ride</h3>
-                    <p class="font-base text-justify">Our Dallas Sprinter Van rental service provides reliable and professional transportation for airport transfers, corporate travel, special events, and private rides. Whether you are traveling for business, leisure, or an important occasion, our experienced chauffeurs ensure a smooth and punctual experience. At Dallas Limo and Black Cars, we specialize in luxury transportation designed for comfort, reliability, and efficiency across the Dallas–Fort Worth metroplex.
+                    <p class="font-base text-justify">Our Dallas Sprinter Van rental service provides reliable and <a href="/services/airport-transfers-dallas/"><strong>professional transportation for airport transfers</strong></a>, corporate travel, special events, and private rides. Whether you are traveling for business, leisure, or an important occasion, our experienced chauffeurs ensure a smooth and punctual experience. At Dallas Limo and Black Cars, we specialize in luxury transportation designed for comfort, reliability, and efficiency across the Dallas–Fort Worth metroplex.
 
 Our service is ideal for travelers coming from Downtown Dallas, Plano, Frisco, Irving, Arlington, McKinney, and surrounding DFW cities who need dependable group transportation. With door-to-door service, flexible scheduling, and professional chauffeurs, we make sure you arrive at your destination on time without stress. Our luxury fleet of sedans, SUVs, and executive vehicles provides the perfect combination of comfort and reliability for both personal and business travel.</p>
                 <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Book Reliable Sprinter Van Service</a>
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="professional Dallas Sprinter Van service for airport transfers corporate travel and private rides">
                     </div>
                 </div>
             </div>
@@ -253,12 +253,12 @@ Our service is ideal for travelers coming from Downtown Dallas, Plano, Frisco, I
             <div class="flex-row-reverse py-20 row align-items-center">
                 <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt="mobile image of executive group transportation with Dallas Sprinter Van and professional chauffeurs">
                     </div>
                 </div>
                 <div class="mb-20 col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Executive Group Transportation with Professional Chauffeurs</h3>
-                    <p class="font-base text-justify">When it comes to dependable transportation in Dallas, professionalism and punctuality are essential. Our Dallas Sprinter Van rental service is designed to deliver a premium travel experience with highly trained chauffeurs and luxury vehicles. We understand the importance of reliable transportation for business meetings, airport pickups, private events, and everyday executive travel throughout the Dallas–Fort Worth area.
+                    <p class="font-base text-justify">When it comes to dependable transportation in Dallas, professionalism and punctuality are essential. Our <a href="/book-now/"><strong>Dallas Sprinter Van rental service</strong></a> is designed to deliver a premium travel experience with highly trained chauffeurs and luxury vehicles. We understand the importance of reliable transportation for business meetings, airport pickups, private events, and everyday executive travel throughout the Dallas–Fort Worth area.
 
 Our professional chauffeurs monitor traffic and local routes to ensure timely pickups and smooth drop-offs across Dallas, Plano, Frisco, Irving, and Arlington. Whether you need transportation from a hotel, office, home, or special event, our service offers convenient door-to-door group transportation across the Dallas–Fort Worth region. Business travelers, executives, families, and visitors trust our Sprinter Van service for its comfort, privacy, and dependable performance.
 </p>
@@ -266,14 +266,14 @@ Our professional chauffeurs monitor traffic and local routes to ensure timely pi
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="executive Dallas Sprinter Van transportation with professional chauffeurs for corporate group travel">
                     </div>
                 </div>
             </div>
                <div class="py-20 row align-items-center">
                   <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-city-to-city-black-car-service-mobile.webp" class="img-fluid" alt="mobile image of luxury Dallas Sprinter Van service for city to city group transportation">
                     </div>
                 </div>
                 
@@ -286,7 +286,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-city-to-city-black-car-service.webp" class="img-fluid" alt="luxury Dallas Sprinter Van service across the Dallas Fort Worth area for private and group transportation">
                     </div>
                 </div>
             </div>
@@ -302,23 +302,23 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12">
                     <div class="swiper logo-swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid" alt="partner company logo 1"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid" alt="partner company logo 2"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid" alt="partner company logo 3"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid" alt="partner company logo 4"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid" alt="partner company logo 5"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid" alt="partner company logo 6"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid" alt="partner company logo 7"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid" alt="partner company logo 8"></div>
 
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid" alt="partner company logo 9"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid" alt="partner company logo 10"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid" alt="partner company logo 11"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid" alt="partner company logo 12"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid" alt="partner company logo 13"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid" alt="partner company logo 14"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid" alt="partner company logo 15"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid" alt="partner company logo 16"></div>
                         </div>
                     </div>
                 </div>
@@ -342,7 +342,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-austin.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-austin.webp" alt="Dallas to Austin Sprinter Van rental service for luxury city to city group transportation" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                            <div class="row">
@@ -367,7 +367,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-college-station.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-college-station.webp" alt="Dallas to College Station Sprinter Van transportation for private and group travel" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                       <div class="row">
@@ -391,7 +391,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-houston.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-houston.webp" alt="Dallas to Houston luxury Sprinter Van rental service with professional chauffeur" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                           
@@ -418,7 +418,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-sherman.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-sherman.webp" alt="Dallas to Sherman Sprinter Van service for comfortable long distance group transportation" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                               <div class="row">
@@ -442,7 +442,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-tyler.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-tyler.webp" alt="Dallas to Tyler private Sprinter Van rental service for luxury intercity travel" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                              <div class="row">
@@ -466,7 +466,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-waco.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-waco.webp" alt="Dallas to Waco Sprinter Van transportation with luxury vehicles and professional drivers" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                               <div class="row">
