@@ -45,7 +45,7 @@
                     <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Our Luxury Fleet –  <span class="theme-color fw-bold">Travel in Allen with Comfort and Class</span></h2>
                 </div>
                 <div class="col-12">
-                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every ride in Allen. Whether you need Allen airport transportation, Dallas Love Field transfers, executive chauffeur travel, or group transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class black car service in Allen.</p>
+                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every ride in Allen. Whether you need Allen airport transportation, Dallas Love Field transfers, executive chauffeur travel, or group transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class <a href="/book-now/"><strong>black car service in Allen</strong></a>.</p>
                 </div>
             </div>
             <div class="row">
@@ -80,7 +80,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="img-holder">
-                        <img src="{{ asset('new_assets/assets/fleet-img.webp') }}" alt="Fleet Image" class="img-fluid">
+                        <img src="{{ asset('new_assets/assets/fleet-img.webp') }}" alt="Luxury black car fleet in Allen including executive sedans SUVs sprinter vans and minibuses for airport and corporate transportation" class="img-fluid">
                     </div>
                 </div>
                 <div class="text-center col-12 pt-15">
@@ -149,7 +149,7 @@
                 <div class="py-20 row align-items-center">
                     <div class="col-12 col-md-6 pr-xl-50">
                         <h3 class="h5 fw-semibold">Allen Black Car Service & Private Transportation</h3>
-                        <p class="font-base text-justify">Looking for a reliable black car service in Allen? At Dallas Limo and Black Cars, we provide professional chauffeur transportation for airport transfers, corporate meetings, private rides, and special events, ensuring every traveler enjoys a smooth, punctual, and stress-free ride. Our premium Allen black car service is trusted by business travelers, families, and visitors who need dependable transportation throughout Allen and the greater Dallas–Fort Worth region.
+                        <p class="font-base text-justify">Looking for a reliable black car service in Allen? At Dallas Limo and Black Cars, we provide professional chauffeur transportation for airport transfers, corporate meetings, private rides, and special events, ensuring every traveler enjoys a smooth, punctual, and stress-free ride. Our <a href="/book-now/"><strong>premier Allan black car service</strong></a> is trusted by business travelers, families, and visitors who need dependable transportation throughout Allen and the greater Dallas–Fort Worth region.
 
 We proudly serve Allen, Plano, Frisco, McKinney, Richardson, Fairview, and nearby North Texas cities, providing efficient routes and on-time pickups so you never have to worry about delays for flights, meetings, or important occasions.</p>
                     
@@ -165,7 +165,7 @@ We proudly serve Allen, Plano, Frisco, McKinney, Richardson, Fairview, and nearb
                      </div>
                     <div class="col-12 col-md-6 h-100">
                         <div class="why-imgs">
-                            <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="">
+                            <img src="/img/airport-dropoff-luxury-car.webp" class="img-fluid" alt="Allen black car service to DFW Airport and Dallas Love Field with professional chauffeur and luxury airport transportation">
                         </div>
                     </div>
                 </div>
@@ -184,7 +184,7 @@ We proudly serve Allen, Plano, Frisco, McKinney, Richardson, Fairview, and nearb
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                         <article class="we-serve-item custom-card mb-30 mb-md-35">
                             <div class="img-holder">
-                                <img src="/img/affordable-dallas-limousine-service-with-chauffeur.webp" alt="" class="img-fluid">
+                                <img src="/img/affordable-dallas-limousine-service-with-chauffeur.webp" alt="Affordable luxury chauffeur service in Allen and nearby North Texas cities for private black car transportation" class="img-fluid">
                             </div>
                             <div class="text-detail">
                                 <h3 class="mb-10 h4 fw-semibold">Cities & Regional Communities</h3>
@@ -195,7 +195,7 @@ We proudly serve Allen, Plano, Frisco, McKinney, Richardson, Fairview, and nearb
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                         <article class="we-serve-item custom-card mb-30 mb-md-35">
                             <div class="img-holder">
-                                <img src="/img/dfw-airport-limo-and-black-car-service-dallas.webp" alt="" class="img-fluid">
+                                <img src="/img/dfw-airport-limo-and-black-car-service-dallas.webp" alt="DFW Airport and Dallas Love Field black car service from Allen with luxury limousine and chauffeur transportation" class="img-fluid">
                             </div>
                             <div class="text-detail">
                                 <h3 class="mb-10 h4 fw-semibold">Airports & Aviation Access</h3>
@@ -206,7 +206,7 @@ We proudly serve Allen, Plano, Frisco, McKinney, Richardson, Fairview, and nearb
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                         <article class="we-serve-item custom-card mb-30 mb-md-35">
                             <div class="img-holder">
-                                <img src="/img/luxury-dallas-limo-and-black-car-service.webp" alt="" class="img-fluid">
+                                <img src="/img/luxury-dallas-limo-and-black-car-service.webp" alt="Luxury Dallas and Allen black car service for corporate travel upscale neighborhoods and executive chauffeur transportation" class="img-fluid">
                             </div>
                             <div class="text-detail">
                                 <h3 class="mb-10 h4 fw-semibold">Corporate & Lifestyle Zones</h3>
@@ -217,7 +217,7 @@ We proudly serve Allen, Plano, Frisco, McKinney, Richardson, Fairview, and nearb
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                         <article class="we-serve-item custom-card mb-30 mb-md-35">
                             <div class="img-holder">
-                                <img src="{{ asset('new_assets/assets/image-08.jpg') }}" alt="" class="img-fluid">
+                                <img src="{{ asset('new_assets/assets/image-08.jpg') }}" alt="Black car service to sports and entertainment venues in Allen Frisco and North Texas with professional chauffeur" class="img-fluid">
                             </div>
                             <div class="text-detail">
                                 <h3 class="mb-10 h4 fw-semibold">Sports & Entertainment Venues</h3>
@@ -234,20 +234,20 @@ We proudly serve Allen, Plano, Frisco, McKinney, Richardson, Fairview, and nearb
             <div class="py-20 row align-items-center">
                 <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/luxury-suv-interior-comfort-mobile.webp" class="img-fluid" alt="Mobile view Allen black car service to DFW Airport and Dallas Love Field with luxury chauffeur transportation">
                     </div>
                 </div>
                 
                 <div class="col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Allen Black Car Service to DFW & Love Field</h3>
-                    <p class="font-base text-justify">Our Allen black car service provides reliable and professional transportation to DFW International Airport and Dallas Love Field Airport. Whether you are traveling for business, vacation, or a corporate event, our experienced chauffeurs ensure a smooth and punctual travel experience. At Dallas Limo and Black Cars, we specialize in luxury private transportation designed for comfort, reliability, and efficiency across Allen and the Dallas–Fort Worth metroplex.
+                    <p class="font-base text-justify">Our Allen black car service provides reliable and <a href="/airports/dfw-car-service/"><strong>professional transportation to DFW International Airport</strong></a> and Dallas Love Field Airport. Whether you are traveling for business, vacation, or a corporate event, our experienced chauffeurs ensure a smooth and punctual travel experience. At Dallas Limo and Black Cars, we specialize in luxury private transportation designed for comfort, reliability, and efficiency across Allen and the Dallas–Fort Worth metroplex.
 
 Our service is ideal for travelers coming from Allen, Plano, Frisco, McKinney, Richardson, and surrounding North Texas cities who need dependable airport transfers. With timely pickups, door-to-door service, and professional chauffeurs, we make sure you arrive at the airport on time without stress. Our luxury fleet of sedans, SUVs, and executive vehicles provides the perfect combination of comfort and reliability for both personal and business travel.</p>
                 <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Book Reliable Black Car Service Today</a>
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="">
+                        <img src="/img/luxury-suv-interior-comfort.webp" class="img-fluid" alt="Allen black car service to DFW and Love Field airports with luxury private transportation and professional chauffeurs">
                     </div>
                 </div>
             </div>
@@ -255,7 +255,7 @@ Our service is ideal for travelers coming from Allen, Plano, Frisco, McKinney, R
             <div class="flex-row-reverse py-20 row align-items-center">
                 <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt="Mobile view corporate black car chauffeur service in Allen for business meetings airport transfers and executive travel">
                     </div>
                 </div>
                 <div class="mb-20 col-12 col-md-6 pr-xl-50">
@@ -268,27 +268,27 @@ Our professional chauffeurs monitor traffic and routes to ensure timely pickups 
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="Professional corporate black car chauffeur service in Allen for executive travel business events and airport transportation">
                     </div>
                 </div>
             </div>
                <div class="py-20 row align-items-center">
                   <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/premium-sedan-interior-mobile.webp" class="img-fluid" alt="Mobile view city to city black car service from Allen to North Texas destinations with luxury private transportation">
                     </div>
                 </div>
                 
                 <div class="col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Luxury Black Car Service Across Allen and North Texas</h3>
-                    <p class="font-base text-justify">Traveling through Allen should be comfortable and stress-free. Our luxury black car service in Allen offers premium private transportation designed for travelers who value reliability, privacy, and professional service. At Dallas Limo and Black Cars, we provide first-class transportation for airport transfers, business travel, special events, and private rides throughout the North Texas area.
+                    <p class="font-base text-justify">Traveling through Allen should be comfortable and stress-free. Our <a href="/book-now/"><strong>luxury black car service in Allen</strong></a> offers premium private transportation designed for travelers who value reliability, privacy, and professional service. At Dallas Limo and Black Cars, we provide first-class transportation for airport transfers, business travel, special events, and private rides throughout the North Texas area.
 
 Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles perfect for private transportation. Whether you are traveling alone, with colleagues, or with family, our vehicles provide a comfortable and stylish ride to destinations in Allen and beyond. With experienced chauffeurs, well-maintained vehicles, and flexible scheduling, our Allen black car service ensures every trip is smooth, safe, and perfectly timed for your travel plans.</p>
                   <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Reserve Your Allen Black Car Service</a>
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service.webp" class="img-fluid" alt="">
+                        <img src="/img/premium-sedan-interior.webp" class="img-fluid" alt="Luxury city to city black car service from Allen across North Texas with private chauffeur and executive vehicles">
                     </div>
                 </div>
             </div>
@@ -304,23 +304,23 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12">
                     <div class="swiper logo-swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" alt="Trusted partner logo for Dallas Limo and Black Cars luxury transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" alt="Corporate partner logo associated with Allen black car and chauffeur transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" alt="Business client logo for premium black car service and executive transportation in Allen" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" alt="Professional affiliation logo for luxury airport and corporate transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" alt="Brand partner logo displayed on Allen black car service website" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" alt="Client company logo for executive chauffeur and airport transportation provider" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" alt="Partner business logo connected with Dallas luxury limo and black car service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" alt="Trusted service partner logo for Allen private transportation and chauffeur rides" class="img-fluid"></div>
 
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" alt="Trusted partner logo for Dallas Limo and Black Cars luxury transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" alt="Corporate partner logo associated with Allen black car and chauffeur transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" alt="Business client logo for premium black car service and executive transportation in Allen" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" alt="Professional affiliation logo for luxury airport and corporate transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" alt="Brand partner logo displayed on Allen black car service website" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" alt="Client company logo for executive chauffeur and airport transportation provider" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" alt="Partner business logo connected with Dallas luxury limo and black car service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" alt="Trusted service partner logo for Allen private transportation and chauffeur rides" class="img-fluid"></div>
                         </div>
                     </div>
                 </div>
@@ -344,7 +344,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-austin.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-austin.webp" alt="Allen to Dallas black car service route with luxury chauffeur transportation for private and business travel" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                            <div class="row">
@@ -369,7 +369,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-college-station.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-college-station.webp" alt="Allen to Plano black car service route with luxury private transportation and professional chauffeur" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                       <div class="row">
@@ -393,7 +393,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-houston.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-houston.webp" alt="Allen to DFW Airport black car service route with airport chauffeur transportation and luxury vehicles" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                           
@@ -420,7 +420,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-sherman.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-sherman.webp" alt="Allen to McKinney black car service route with reliable chauffeur driven private transportation" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                               <div class="row">
@@ -444,7 +444,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-tyler.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-tyler.webp" alt="Allen to Frisco black car service route with luxury city to city chauffeur transportation" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                              <div class="row">
@@ -468,7 +468,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-waco.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-waco.webp" alt="Allen to Dallas Love Field black car service route with airport transfer and professional chauffeur" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                               <div class="row">

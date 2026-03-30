@@ -45,7 +45,7 @@
                     <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Our Luxury Fleet –  <span class="theme-color fw-bold">Travel to Sherman with Comfort and Class</span></h2>
                 </div>
                 <div class="col-12">
-                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every intercity journey. Whether you need Dallas to Sherman transportation, executive travel, private city-to-city rides, or group transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class Dallas to Sherman car service.</p>
+                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every intercity journey. Whether you need Dallas to Sherman transportation, executive travel, private city-to-city rides, or group transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class <a href="/book-now/"><strong>Dallas to Sherman car service</strong></a>.</p>
                 </div>
             </div>
             <div class="row">
@@ -80,7 +80,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="img-holder">
-                        <img src="{{ asset('new_assets/assets/fleet-img.webp') }}" alt="Fleet Image" class="img-fluid">
+                        <img src="{{ asset('new_assets/assets/fleet-img.webp') }}" alt="Luxury black car fleet for Dallas to Sherman transportation with executive sedans SUVs sprinter vans and minibuses" class="img-fluid">
                     </div>
                 </div>
                 <div class="text-center col-12 pt-15">
@@ -149,7 +149,7 @@
                 <div class="py-20 row align-items-center">
                     <div class="col-12 col-md-6 pr-xl-50">
                         <h3 class="h5 fw-semibold">Dallas to Sherman Car Service & Black Car Transportation</h3>
-                        <p class="font-base text-justify">Looking for a reliable Dallas to Sherman car service? At Dallas Limo and Black Cars, we provide professional black car transportation from Dallas to Sherman, ensuring every traveler enjoys a smooth, punctual, and stress-free ride. Our premium Dallas to Sherman car service is trusted by business travelers, families, and visitors who need dependable transportation throughout North Texas.
+                        <p class="font-base text-justify">Looking for a reliable Dallas to Sherman car service? At Dallas Limo and Black Cars, we provide professional black car transportation from Dallas to Sherman, ensuring every traveler enjoys a smooth, punctual, and stress-free ride. Our <a href="/services/private-car-service-in-dallas/"><strong>premier Dallas to Sherman car service</strong></a> is trusted by business travelers, families, and visitors who need dependable transportation throughout North Texas.
 
 We proudly serve Downtown Dallas, Plano, Frisco, Arlington, McKinney, Sherman, Denison, and nearby communities, providing efficient routes and on-time pickups so you never have to worry about delays, traffic stress, or unreliable ride options during your trip.</p>
                     
@@ -165,7 +165,7 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, McKinney, Sherman, D
                      </div>
                     <div class="col-12 col-md-6 h-100">
                         <div class="why-imgs">
-                            <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="">
+                            <img src="/img/airport-pickup-chauffeur.webp" class="img-fluid" alt="Dallas to Sherman black car service with luxury chauffeur transportation for city to city private travel">
                         </div>
                     </div>
                 </div>
@@ -184,7 +184,7 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, McKinney, Sherman, D
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                         <article class="we-serve-item custom-card mb-30 mb-md-35">
                             <div class="img-holder">
-                                <img src="/img/affordable-dallas-limousine-service-with-chauffeur.webp" alt="" class="img-fluid">
+                                <img src="/img/affordable-dallas-limousine-service-with-chauffeur.webp" alt="Affordable luxury chauffeur service from Dallas to Sherman and nearby North Texas cities for private black car transportation" class="img-fluid">
                             </div>
                             <div class="text-detail">
                                 <h3 class="mb-10 h4 fw-semibold">Cities & Regional Communities</h3>
@@ -195,7 +195,7 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, McKinney, Sherman, D
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                         <article class="we-serve-item custom-card mb-30 mb-md-35">
                             <div class="img-holder">
-                                <img src="/img/dfw-airport-limo-and-black-car-service-dallas.webp" alt="" class="img-fluid">
+                                <img src="/img/dfw-airport-limo-and-black-car-service-dallas.webp" alt="DFW Airport Dallas Love Field Addison Airport and North Texas Regional Airport black car service with luxury chauffeur transportation" class="img-fluid">
                             </div>
                             <div class="text-detail">
                                 <h3 class="mb-10 h4 fw-semibold">Airports & Aviation Access</h3>
@@ -206,7 +206,7 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, McKinney, Sherman, D
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                         <article class="we-serve-item custom-card mb-30 mb-md-35">
                             <div class="img-holder">
-                                <img src="/img/luxury-dallas-limo-and-black-car-service.webp" alt="" class="img-fluid">
+                                <img src="/img/luxury-dallas-limo-and-black-car-service.webp" alt="Luxury Dallas to Sherman black car service for corporate travel medical visits and executive chauffeur transportation" class="img-fluid">
                             </div>
                             <div class="text-detail">
                                 <h3 class="mb-10 h4 fw-semibold">Corporate & Lifestyle Zones</h3>
@@ -217,7 +217,7 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, McKinney, Sherman, D
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                         <article class="we-serve-item custom-card mb-30 mb-md-35">
                             <div class="img-holder">
-                                <img src="{{ asset('new_assets/assets/image-08.jpg') }}" alt="" class="img-fluid">
+                                <img src="{{ asset('new_assets/assets/image-08.jpg') }}" alt="Black car service to Sherman hotels college campuses event venues and entertainment areas with professional chauffeur" class="img-fluid">
                             </div>
                             <div class="text-detail">
                                 <h3 class="mb-10 h4 fw-semibold">Sports & Entertainment Venues</h3>
@@ -234,7 +234,7 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, McKinney, Sherman, D
             <div class="py-20 row align-items-center">
                 <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-black-car-service-dfw-love-field-airport-mobile.webp" class="img-fluid" alt="Mobile view Dallas to Sherman black car service for private travel with luxury chauffeur transportation">
                     </div>
                 </div>
                 
@@ -242,12 +242,12 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, McKinney, Sherman, D
                     <h3 class="h5 fw-semibold">Dallas to Sherman Black Car Service for Private Travel</h3>
                     <p class="font-base text-justify">Our Dallas to Sherman car service provides reliable and professional transportation for travelers who want comfort, privacy, and dependable service on every ride. Whether you are traveling for business, a family trip, a medical visit, a special event, or a private appointment, our experienced chauffeurs ensure a smooth and punctual travel experience. At Dallas Limo and Black Cars, we specialize in luxury city-to-city transportation designed for comfort, reliability, and efficiency across North Texas.
 
-Our service is ideal for travelers coming from Downtown Dallas, Plano, Frisco, Irving, Arlington, McKinney, and surrounding areas who need dependable transportation to Sherman. With door-to-door service, professional chauffeurs, and carefully planned routes, we make sure you arrive on time without stress. Our luxury fleet of sedans, SUVs, and executive vehicles provides the perfect combination of comfort and reliability for both personal and business travel.</p>
+Our service is ideal for travelers coming from Downtown Dallas, Plano, Frisco, Irving, Arlington, McKinney, and surrounding areas who need dependable transportation to Sherman. With door-to-door service, <a href="/services/chauffeur-service-dallas/"><strong>professional chauffeurs</strong></a>, and carefully planned routes, we make sure you arrive on time without stress. Our luxury fleet of sedans, SUVs, and executive vehicles provides the perfect combination of comfort and reliability for both personal and business travel.</p>
                 <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Book Reliable Car Service Today</a>
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="Dallas to Sherman black car service for private travel with luxury city to city transportation and professional chauffeurs">
                     </div>
                 </div>
             </div>
@@ -255,7 +255,7 @@ Our service is ideal for travelers coming from Downtown Dallas, Plano, Frisco, I
             <div class="flex-row-reverse py-20 row align-items-center">
                 <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt="Mobile view intercity black car chauffeur service from Dallas to Sherman for business and private travel">
                     </div>
                 </div>
                 <div class="mb-20 col-12 col-md-6 pr-xl-50">
@@ -268,14 +268,14 @@ Our professional chauffeurs monitor traffic and route conditions to ensure timel
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="Professional intercity black car chauffeur service from Dallas to Sherman for executive and private transportation">
                     </div>
                 </div>
             </div>
                <div class="py-20 row align-items-center">
                   <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/chevrolet-suburban-limo-mobile.webp" class="img-fluid" alt="Mobile view luxury Dallas to Sherman city to city black car service across North Texas">
                     </div>
                 </div>
                 
@@ -283,12 +283,12 @@ Our professional chauffeurs monitor traffic and route conditions to ensure timel
                     <h3 class="h5 fw-semibold">Luxury Dallas to Sherman Transportation Across North Texas</h3>
                     <p class="font-base text-justify">Traveling to Sherman should be comfortable and stress-free. Our luxury Dallas to Sherman car service offers premium black car transportation designed for travelers who value reliability, privacy, and professional service. At Dallas Limo and Black Cars, we provide first-class city-to-city rides for both business and leisure travelers throughout the region.
 
-Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles perfect for intercity transportation. Whether you are traveling alone, with colleagues, or with family, our vehicles provide a comfortable and stylish ride from Dallas to Sherman. With experienced chauffeurs, well-maintained vehicles, and flexible scheduling, our Dallas to Sherman car service ensures every trip is smooth, safe, and perfectly timed for your travel plans.</p>
+Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles perfect for intercity transportation. Whether you are traveling alone, with colleagues, or with family, our vehicles provide a comfortable and stylish ride from Dallas to Sherman. With experienced chauffeurs, well-maintained vehicles, and flexible scheduling, our <a href="/services/airport-transfers-dallas/"><strong>Dallas to Sherman car service</strong></a> ensures every trip is smooth, safe, and perfectly timed for your travel plans.</p>
                   <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Reserve Your Dallas to Sherman Car Service</a>
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service.webp" class="img-fluid" alt="">
+                        <img src="/img/chevrolet-suburban-limo.webp" class="img-fluid" alt="Luxury Dallas to Sherman city to city black car service with private chauffeur and executive vehicles">
                     </div>
                 </div>
             </div>
@@ -304,23 +304,23 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12">
                     <div class="swiper logo-swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" alt="Trusted partner logo for Dallas Limo and Black Cars luxury transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" alt="Corporate partner logo associated with Dallas city to city black car and chauffeur transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" alt="Business client logo for premium black car service and executive transportation across North Texas" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" alt="Professional affiliation logo for luxury airport and intercity transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" alt="Brand partner logo displayed on Dallas to Sherman car service website" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" alt="Client company logo for executive chauffeur and intercity transportation provider" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" alt="Partner business logo connected with Dallas luxury limo and black car service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" alt="Trusted service partner logo for Dallas private transportation and chauffeur rides" class="img-fluid"></div>
 
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" alt="Trusted partner logo for Dallas Limo and Black Cars luxury transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" alt="Corporate partner logo associated with Dallas city to city black car and chauffeur transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" alt="Business client logo for premium black car service and executive transportation across North Texas" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" alt="Professional affiliation logo for luxury airport and intercity transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" alt="Brand partner logo displayed on Dallas to Sherman car service website" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" alt="Client company logo for executive chauffeur and intercity transportation provider" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" alt="Partner business logo connected with Dallas luxury limo and black car service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" alt="Trusted service partner logo for Dallas private transportation and chauffeur rides" class="img-fluid"></div>
                         </div>
                     </div>
                 </div>
@@ -344,7 +344,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-austin.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-austin.webp" alt="Dallas to Austin black car service route with luxury chauffeur transportation for private and business travel" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                            <div class="row">
@@ -369,7 +369,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-college-station.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-college-station.webp" alt="Dallas to College Station black car service route with luxury private transportation and professional chauffeur" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                       <div class="row">
@@ -393,7 +393,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-houston.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-houston.webp" alt="Dallas to Houston black car service route with airport chauffeur transportation and luxury vehicles" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                           
@@ -420,7 +420,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-sherman.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-sherman.webp" alt="Dallas to Sherman black car service route with reliable chauffeur driven private transportation" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                               <div class="row">
@@ -444,7 +444,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-tyler.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-tyler.webp" alt="Dallas to Tyler black car service route with luxury city to city chauffeur transportation" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                              <div class="row">
@@ -468,7 +468,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-waco.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-waco.webp" alt="Dallas to Waco black car service route with airport transfer and professional chauffeur" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                               <div class="row">

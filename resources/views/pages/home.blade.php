@@ -304,7 +304,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="img/black-car-service-austin.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-austin.webp" alt="Top City" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                            <div class="row">
@@ -329,7 +329,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="img/black-car-service-college-station.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-college-station.webp" alt="Top City" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                       <div class="row">
@@ -353,7 +353,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="img/black-car-service-houston.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-houston.webp" alt="Top City" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                           
@@ -380,7 +380,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="img/black-car-service-sherman.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-sherman.webp" alt="Top City" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                               <div class="row">
@@ -404,7 +404,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="img/black-car-service-tyler.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-tyler.webp" alt="Top City" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                              <div class="row">
@@ -428,7 +428,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="img/black-car-service-waco.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-waco.webp" alt="Top City" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                               <div class="row">

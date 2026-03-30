@@ -108,7 +108,7 @@
                             <p class="justify-mobile font-base"><strong class="font-lg gray-700 fw-bold ">Mini Bus Luxury Bus (23-27 Passengers):</strong> Designed for medium-sized groups with comfortable seating and convenient amenities.</p>
                         </li>
                         <li>
-                            <p class="justify-mobile font-base"><strong class="font-lg gray-700 fw-bold">Mini Bus (31-38 Passengers):</strong> Perfect for large groups with spacious interiors and reliable professional chauffeur service.</p>
+                            <p class="justify-mobile font-base"><strong class="font-lg gray-700 fw-bold">Mini Bus (31-38 Passengers):</strong> Perfect for large groups with spacious interiors and reliable <a href="/services/chauffeur-service-dallas/"><strong>professional chauffeur service</strong></a>.</p>
                         </li>
                     </ul>
                 </div>
@@ -131,20 +131,18 @@
             <div class="py-20 row align-items-center">
                 <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/executive-sedan-service-dallas-mobile.webp" class="img-fluid" alt="">
                     </div>
                 </div>
                 
                 <div class="col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Why Book With Dallas Limo and Black Cars?</h3>
-                    <p class="font-base text-justify">When you choose our service, you get more than just a ride. You get peace of mind knowing you're in the hands of professional chauffeurs with luxury vehicles and exceptional customer service. We serve the entire Dallas–Fort Worth area and are available 24/7 for your transportation needs.
-
-Our booking process is simple, transparent, and secure. We offer competitive pricing with no hidden fees, real-time tracking, and flexible scheduling options. Whether you need airport transfers, corporate transportation, or city-to-city travel, we have the perfect solution for your journey.</p>
+                    <p class="font-base text-justify">When you choose our service, you get more than just a ride — you get complete peace of mind knowing you’re traveling with experienced chauffeurs and premium luxury vehicles. We proudly serve the entire Dallas–Fort Worth area, providing reliable transportation services available 24/7 to meet your schedule and travel needs. Our booking process is simple, secure, and fully transparent, ensuring there are no hidden fees or unexpected charges. We offer competitive pricing, real-time ride tracking, and flexible scheduling options for maximum convenience. Whether you need airport transfers, corporate transportation, special event services, or city-to-city travel, we deliver a smooth and stress-free experience. Our commitment to safety, punctuality, and exceptional customer service makes us a trusted choice for <a href="https://dallaslimoandblackcars.com/"><strong>black car service in Dallas</strong></a>.</p>
                     <a href="#" onclick="document.querySelector('.search-form-wrapper-desktop').scrollIntoView({behavior: 'smooth'});" class="btn btn-primary sm fw-medium fifa-btn-full">Complete Your Booking</a>
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="">
+                        <img src="/img/executive-sedan-service-dallas.webp" class="img-fluid" alt="">
                     </div>
                 </div>
             </div>
@@ -157,9 +155,7 @@ Our booking process is simple, transparent, and secure. We offer competitive pri
                 </div>
                 <div class="mb-20 col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Professional Service at Every Step</h3>
-                    <p class="font-base text-justify">Our professional chauffeurs are trained, experienced, and committed to delivering exceptional service. From the moment you book until the end of your journey, we ensure every detail is perfect. Your safety, comfort, and satisfaction are our top priorities.
-
-We maintain our fleet to the highest standards, with regular inspections and professional cleaning. Every vehicle includes modern amenities like Wi-Fi, USB chargers, complimentary water, and premium sound systems. Experience luxury transportation that exceeds your expectations.</p>
+                    <p class="font-base text-justify">Our professional chauffeurs are highly trained, experienced, and dedicated to delivering exceptional service at every stage of your journey. From the moment you book your ride until you reach your final destination, we focus on every detail to ensure a seamless and comfortable experience. Your safety, comfort, and satisfaction are always our top priorities. We maintain our luxury fleet to the highest standards with regular inspections, deep cleaning, and ongoing maintenance to guarantee reliability and performance. Each vehicle is equipped with modern amenities, including Wi-Fi, USB charging ports, complimentary bottled water, and premium sound systems for your convenience. Whether you are traveling for business, airport transfers, or special events, our service reflects true professionalism. Experience luxury, reliability, and personalized care with our trusted Dallas black car service.</p>
                     <a href="#" onclick="document.querySelector('.search-form-wrapper-desktop').scrollIntoView({behavior: 'smooth'});" class="btn btn-primary sm fw-medium fifa-btn-full">Book Your Ride Today</a>
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
@@ -205,7 +201,158 @@ We maintain our fleet to the highest standards, with regular inspections and pro
         </div>
     </section>
 
-    @include('partials.top-cities')
+<section class="intercity-ride-section bg-gray pt-40 pb-30 pt-sm-40 pb-sm-35 pt-md-40 pb-md-40 pt-lg-40 pb-lg-40">
+        <div class="ah-container">
+            <div class="row justify-content-center">
+                <div class="text-center col-12 col-lg-11 col-xl-10 mb-25 mb-md-30 mb-lg-40">
+                    <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Top Cities &amp; <span class="theme-color">Top
+                            Routes</span></h2>
+                    <p class="font-base">Our Dallas Black Car Service connects you to the most popular cities and travel routes across Texas. Whether you're heading to Austin, Arlington, Waco, Tyler, or nearby destinations, our professional chauffeurs ensure smooth, punctual, and comfortable transportation. Enjoy reliable city-to-city black car service from Dallas with luxury vehicles, private travel, and a stress-free ride experience every time.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                        <div class="img-holder">
+                            <img src="/img/black-car-service-austin.webp" alt="Top City" class="img-fluid">
+                        </div>
+                        <div class="city-details p-15 position-absolute">
+                           <div class="row">
+                           <div class="col-md-6 col-sm-6">
+                            <h3 class="mb-1 text-white h6">Dallas
+                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan" focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24" data-testid="ChevronRightIcon">
+                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                </svg>
+                                Austin
+                            </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                            <p class="mb-0 text-white font-base">195 miles &nbsp;&nbsp;|&nbsp;&nbsp; 2h 54m</p>
+                             </div>
+                            </div>
+                            
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                        <div class="img-holder">
+                            <img src="/img/black-car-service-college-station.webp" alt="Top City" class="img-fluid">
+                        </div>
+                        <div class="city-details p-15 position-absolute">
+                      <div class="row">
+                           <div class="col-md-6 col-sm-6">
+                            <h3 class="mb-1 text-white h6">Dallas
+                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan" focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24" data-testid="ChevronRightIcon">
+                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                </svg>
+                                College Station
+                            </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                            <p class="mb-0 text-white font-base">181 miles &nbsp;&nbsp;|&nbsp;&nbsp; 2h 46m</p>
+                             </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                        <div class="img-holder">
+                            <img src="/img/black-car-service-houston.webp" alt="Top City" class="img-fluid">
+                        </div>
+                        <div class="city-details p-15 position-absolute">
+                          
+                              <div class="row">
+                           <div class="col-md-6 col-sm-6">
+                            <h3 class="mb-1 text-white h6">Dallas
+                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan" focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24" data-testid="ChevronRightIcon">
+                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                </svg>
+                                Houston
+                            </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                            <p class="mb-0 text-white font-base">239 miles &nbsp;&nbsp;|&nbsp;&nbsp; 3h 24m</p>
+                             </div>
+                            </div>
+                            
+                            
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                        <div class="img-holder">
+                            <img src="/img/black-car-service-sherman.webp" alt="Top City" class="img-fluid">
+                        </div>
+                        <div class="city-details p-15 position-absolute">
+                              <div class="row">
+                           <div class="col-md-6 col-sm-6">
+                            <h3 class="mb-1 text-white h6">Dallas
+                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan" focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24" data-testid="ChevronRightIcon">
+                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                </svg>
+                                 Sherman
+                            </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                            <p class="mb-0 text-white font-base">65.2 miles &nbsp;&nbsp;|&nbsp;&nbsp; 1h 56m</p>
+                             </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                        <div class="img-holder">
+                            <img src="/img/black-car-service-tyler.webp" alt="Top City" class="img-fluid">
+                        </div>
+                        <div class="city-details p-15 position-absolute">
+                             <div class="row">
+                           <div class="col-md-6 col-sm-6">
+                            <h3 class="mb-1 text-white h6">Dallas
+                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan" focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24" data-testid="ChevronRightIcon">
+                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                </svg>
+                                Tyler
+                            </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                            <p class="mb-0 text-white font-base">98 miles &nbsp;&nbsp;|&nbsp;&nbsp; 1h 34m</p>
+                             </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                        <div class="img-holder">
+                            <img src="/img/black-car-service-waco.webp" alt="Top City" class="img-fluid">
+                        </div>
+                        <div class="city-details p-15 position-absolute">
+                              <div class="row">
+                           <div class="col-md-6 col-sm-6">
+                            <h3 class="mb-1 text-white h6">Dallas
+                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan" focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24" data-testid="ChevronRightIcon">
+                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                </svg>
+                                Waco
+                            </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                            <p class="mb-0 text-white font-base">93.8 miles &nbsp;&nbsp;|&nbsp;&nbsp; 1h 23m</p>
+                             </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
     @include('partials.companies_strip')
     @include('partials.testimonials')
     @include('partials.fifa')

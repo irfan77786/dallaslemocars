@@ -45,7 +45,7 @@
                     <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Our Luxury Fleet –  <span class="theme-color fw-bold">Travel in Plano with Comfort and Class</span></h2>
                 </div>
                 <div class="col-12">
-                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every ride in Plano. Whether you need DFW airport transportation, Dallas Love Field transfers, executive travel, or group transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class black car service in Plano.</p>
+                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every ride in Plano. Whether you need DFW airport transportation, Dallas Love Field transfers, executive travel, or group transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class <a href="/services/chauffeur-service-dallas/"><strong>black car service in Plano</strong></a>.</p>
                 </div>
             </div>
             <div class="row">
@@ -80,7 +80,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="img-holder">
-                        <img src="{{ asset('new_assets/assets/fleet-img.webp') }}" alt="Fleet Image" class="img-fluid">
+                        <img src="{{ asset('new_assets/assets/fleet-img.webp') }}" alt="Luxury black car fleet in Plano with executive sedans SUVs sprinter vans and minibuses for airport and corporate transportation" class="img-fluid">
                     </div>
                 </div>
                 <div class="text-center col-12 pt-15">
@@ -149,7 +149,7 @@
                 <div class="py-20 row align-items-center">
                     <div class="col-12 col-md-6 pr-xl-50">
                         <h3 class="h5 fw-semibold">Plano Black Car Service & Private Transportation</h3>
-                        <p class="font-base text-justify">Looking for a reliable black car service in Plano? At Dallas Limo and Black Cars, we provide professional chauffeur transportation for airport transfers, corporate meetings, private rides, and special events, ensuring every traveler enjoys a smooth, punctual, and stress-free ride. Our premium Plano black car service is trusted by business travelers, families, and visitors who need dependable transportation throughout Plano and the greater Dallas–Fort Worth region.
+                        <p class="font-base text-justify">Looking for a reliable black car service in Plano? At Dallas Limo and Black Cars, we provide professional chauffeur transportation for airport transfers, corporate meetings, private rides, and special events, ensuring every traveler enjoys a smooth, punctual, and stress-free ride. Our <a href="https://dallaslimoandblackcars.com/"><strong>premier Plano black car service</strong></a> is trusted by business travelers, families, and visitors who need dependable transportation throughout Plano and the greater Dallas–Fort Worth region.
 
 We proudly serve Plano, Frisco, Richardson, Allen, McKinney, Dallas, and nearby North Texas cities, providing efficient routes and on-time pickups so you never have to worry about delays for flights, meetings, or important occasions.</p>
                     
@@ -165,7 +165,7 @@ We proudly serve Plano, Frisco, Richardson, Allen, McKinney, Dallas, and nearby 
                      </div>
                     <div class="col-12 col-md-6 h-100">
                         <div class="why-imgs">
-                            <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="">
+                            <img src="/img/airport-pickup-chauffeur.webp" class="img-fluid" alt="Plano black car service to DFW Airport and Dallas Love Field with professional chauffeur and luxury airport transportation">
                         </div>
                     </div>
                 </div>
@@ -184,7 +184,7 @@ We proudly serve Plano, Frisco, Richardson, Allen, McKinney, Dallas, and nearby 
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                         <article class="we-serve-item custom-card mb-30 mb-md-35">
                             <div class="img-holder">
-                                <img src="/img/affordable-dallas-limousine-service-with-chauffeur.webp" alt="" class="img-fluid">
+                                <img src="/img/affordable-dallas-limousine-service-with-chauffeur.webp" alt="Affordable luxury chauffeur service in Plano and nearby North Texas cities for private black car transportation" class="img-fluid">
                             </div>
                             <div class="text-detail">
                                 <h3 class="mb-10 h4 fw-semibold">Cities & Regional Communities</h3>
@@ -195,7 +195,7 @@ We proudly serve Plano, Frisco, Richardson, Allen, McKinney, Dallas, and nearby 
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                         <article class="we-serve-item custom-card mb-30 mb-md-35">
                             <div class="img-holder">
-                                <img src="/img/dfw-airport-limo-and-black-car-service-dallas.webp" alt="" class="img-fluid">
+                                <img src="/img/dfw-airport-limo-and-black-car-service-dallas.webp" alt="DFW Airport and Dallas Love Field black car service from Plano with luxury limousine and chauffeur transportation" class="img-fluid">
                             </div>
                             <div class="text-detail">
                                 <h3 class="mb-10 h4 fw-semibold">Airports & Aviation Access</h3>
@@ -206,7 +206,7 @@ We proudly serve Plano, Frisco, Richardson, Allen, McKinney, Dallas, and nearby 
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                         <article class="we-serve-item custom-card mb-30 mb-md-35">
                             <div class="img-holder">
-                                <img src="/img/luxury-dallas-limo-and-black-car-service.webp" alt="" class="img-fluid">
+                                <img src="/img/luxury-dallas-limo-and-black-car-service.webp" alt="Luxury Plano black car service for corporate travel upscale neighborhoods and executive chauffeur transportation" class="img-fluid">
                             </div>
                             <div class="text-detail">
                                 <h3 class="mb-10 h4 fw-semibold">Corporate & Lifestyle Zones</h3>
@@ -217,7 +217,7 @@ We proudly serve Plano, Frisco, Richardson, Allen, McKinney, Dallas, and nearby 
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                         <article class="we-serve-item custom-card mb-30 mb-md-35">
                             <div class="img-holder">
-                                <img src="{{ asset('new_assets/assets/image-08.jpg') }}" alt="" class="img-fluid">
+                                <img src="{{ asset('new_assets/assets/image-08.jpg') }}" alt="Black car service to sports and entertainment venues in Plano Frisco and North Texas with professional chauffeur" class="img-fluid">
                             </div>
                             <div class="text-detail">
                                 <h3 class="mb-10 h4 fw-semibold">Sports & Entertainment Venues</h3>
@@ -234,20 +234,20 @@ We proudly serve Plano, Frisco, Richardson, Allen, McKinney, Dallas, and nearby 
             <div class="py-20 row align-items-center">
                 <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-black-car-service-dfw-love-field-airport-mobile.webp" class="img-fluid" alt="Mobile view Plano black car service to DFW Airport and Dallas Love Field with luxury chauffeur transportation">
                     </div>
                 </div>
                 
                 <div class="col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Plano Black Car Service to DFW & Love Field</h3>
-                    <p class="font-base text-justify">Our Plano black car service provides reliable and professional transportation to DFW International Airport and Dallas Love Field Airport. Whether you are traveling for business, vacation, or a corporate event, our experienced chauffeurs ensure a smooth and punctual travel experience. At Dallas Limo and Black Cars, we specialize in luxury private transportation designed for comfort, reliability, and efficiency across Plano and the Dallas–Fort Worth metroplex.
+                    <p class="font-base text-justify">Our Plano black car service provides reliable and <a href="/airports/dfw-car-service/"><strong>professional transportation to DFW International Airport</strong></a> and Dallas Love Field Airport. Whether you are traveling for business, vacation, or a corporate event, our experienced chauffeurs ensure a smooth and punctual travel experience. At Dallas Limo and Black Cars, we specialize in luxury private transportation designed for comfort, reliability, and efficiency across Plano and the Dallas–Fort Worth metroplex.
 
 Our service is ideal for travelers coming from Plano, Frisco, Richardson, Allen, McKinney, and surrounding North Texas cities who need dependable airport transfers. With timely pickups, door-to-door service, and professional chauffeurs, we make sure you arrive at the airport on time without stress. Our luxury fleet of sedans, SUVs, and executive vehicles provides the perfect combination of comfort and reliability for both personal and business travel.</p>
                 <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Book Reliable Black Car Service Today</a>
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="Plano black car service to DFW and Love Field airports with luxury private transportation and professional chauffeurs">
                     </div>
                 </div>
             </div>
@@ -255,12 +255,12 @@ Our service is ideal for travelers coming from Plano, Frisco, Richardson, Allen,
             <div class="flex-row-reverse py-20 row align-items-center">
                 <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt="Mobile view corporate black car chauffeur service in Plano for business meetings airport transfers and executive travel">
                     </div>
                 </div>
                 <div class="mb-20 col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Reliable Transportation with Professional Chauffeurs</h3>
-                    <p class="font-base text-justify">When it comes to dependable transportation in Plano, professionalism and punctuality are essential. Our Plano black car service is designed to deliver a premium travel experience with highly trained chauffeurs and luxury vehicles. We understand the importance of reliable transportation when catching a flight, attending a meeting, arriving at an event, or planning private travel across the area.
+                    <p class="font-base text-justify">When it comes to dependable transportation in Plano, professionalism and punctuality are essential. Our <a href="/services/private-car-service-in-dallas/"><strong>Plano black car service</strong></a> is designed to deliver a premium travel experience with highly trained chauffeurs and luxury vehicles. We understand the importance of reliable transportation when catching a flight, attending a meeting, arriving at an event, or planning private travel across the area.
 
 Our professional chauffeurs monitor traffic and routes to ensure timely pickups and smooth drop-offs throughout Plano and surrounding cities. Whether you need transportation from a hotel, office, home, or corporate event, our service offers convenient door-to-door travel across the North Texas region. Business travelers, executives, families, and visitors trust our Plano black car service for its comfort, privacy, and dependable performance.
 </p>
@@ -268,27 +268,27 @@ Our professional chauffeurs monitor traffic and routes to ensure timely pickups 
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="Professional corporate black car chauffeur service in Plano for executive travel business events and airport transportation">
                     </div>
                 </div>
             </div>
                <div class="py-20 row align-items-center">
                   <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-city-to-city-black-car-service-mobile.webp" class="img-fluid" alt="Mobile view city to city black car service from Plano to North Texas destinations with luxury private transportation">
                     </div>
                 </div>
                 
                 <div class="col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Luxury Black Car Service Across Plano and North Texas</h3>
-                    <p class="font-base text-justify">Traveling through Plano should be comfortable and stress-free. Our luxury black car service in Plano offers premium private transportation designed for travelers who value reliability, privacy, and professional service. At Dallas Limo and Black Cars, we provide first-class transportation for airport transfers, business travel, special events, and private rides throughout the North Texas area.
+                    <p class="font-base text-justify">Traveling through Plano should be comfortable and stress-free. Our <a href="/book-now/"><strong> luxury black car service in Plano</strong></a> offers premium private transportation designed for travelers who value reliability, privacy, and professional service. At Dallas Limo and Black Cars, we provide first-class transportation for airport transfers, business travel, special events, and private rides throughout the North Texas area.
 
 Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles perfect for private transportation. Whether you are traveling alone, with colleagues, or with family, our vehicles provide a comfortable and stylish ride to destinations in Plano and beyond. With experienced chauffeurs, well-maintained vehicles, and flexible scheduling, our Plano black car service ensures every trip is smooth, safe, and perfectly timed for your travel plans.</p>
                   <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Reserve Your Plano Black Car Service</a>
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-city-to-city-black-car-service.webp" class="img-fluid" alt="Luxury city to city black car service from Plano across North Texas with private chauffeur and executive vehicles">
                     </div>
                 </div>
             </div>
@@ -304,197 +304,188 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12">
                     <div class="swiper logo-swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" alt="Trusted partner logo for Dallas Limo and Black Cars luxury transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" alt="Corporate partner logo associated with Plano black car and chauffeur transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" alt="Business client logo for premium black car service and executive transportation in Plano" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" alt="Professional affiliation logo for luxury airport and corporate transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" alt="Brand partner logo displayed on Plano black car service website" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" alt="Client company logo for executive chauffeur and airport transportation provider" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" alt="Partner business logo connected with Dallas luxury limo and black car service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" alt="Trusted service partner logo for Plano private transportation and chauffeur rides" class="img-fluid"></div>
 
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" alt="Trusted partner logo for Dallas Limo and Black Cars luxury transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" alt="Corporate partner logo associated with Plano black car and chauffeur transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" alt="Business client logo for premium black car service and executive transportation in Plano" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" alt="Professional affiliation logo for luxury airport and corporate transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" alt="Brand partner logo displayed on Plano black car service website" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" alt="Client company logo for executive chauffeur and airport transportation provider" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" alt="Partner business logo connected with Dallas luxury limo and black car service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" alt="Trusted service partner logo for Plano private transportation and chauffeur rides" class="img-fluid"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    
-    
-         <section
-        class="intercity-ride-section bg-gray pt-40 pb-30 pt-sm-40 pb-sm-35 pt-md-40 pb-md-40 pt-lg-40 pb-lg-40">
-        <div class="ah-container">
-            <div class="row justify-content-center">
-                <div class="text-center col-12 col-lg-11 col-xl-10 mb-25 mb-md-30 mb-lg-40">
-                    <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Top Cities & <span class="theme-color">Top
-                            Routes</span></h2>
-                    <p class="font-base">Our Plano Black Car Service connects you to the most popular cities and travel routes across North Texas. Whether you're heading to Dallas, Frisco, Allen, DFW Airport, or nearby destinations, our professional chauffeurs ensure smooth, punctual, and comfortable transportation. Enjoy reliable city-to-city black car service from Plano with luxury vehicles, private travel, and a stress-free ride experience every time.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                        <div class="img-holder">
-                            <img src="/img/black-car-service-austin.webp" alt="Top City" class="img-fluid">
-                        </div>
-                        <div class="city-details p-15 position-absolute">
-                           <div class="row">
-                           <div class="col-md-6 col-sm-6">
-                            <h3 class="mb-1 text-white h6">Plano
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
-                                Dallas
-                            </h3>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                            <p class="mb-0 text-white font-base">20 miles &nbsp;&nbsp;|&nbsp;&nbsp; 30m</p>
-                             </div>
-                            </div>
-                            
-                        </div>
-                    </article>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                        <div class="img-holder">
-                            <img src="/img/black-car-service-college-station.webp" alt="Top City" class="img-fluid">
-                        </div>
-                        <div class="city-details p-15 position-absolute">
-                      <div class="row">
-                           <div class="col-md-6 col-sm-6">
-                            <h3 class="mb-1 text-white h6">Plano
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
-                                Frisco
-                            </h3>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                            <p class="mb-0 text-white font-base">10 miles &nbsp;&nbsp;|&nbsp;&nbsp; 18m</p>
-                             </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                        <div class="img-holder">
-                            <img src="/img/black-car-service-houston.webp" alt="Top City" class="img-fluid">
-                        </div>
-                        <div class="city-details p-15 position-absolute">
-                          
-                              <div class="row">
-                           <div class="col-md-6 col-sm-6">
-                            <h3 class="mb-1 text-white h6">Plano
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
-                                DFW Airport
-                            </h3>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                            <p class="mb-0 text-white font-base">25 miles &nbsp;&nbsp;|&nbsp;&nbsp; 32m</p>
-                             </div>
-                            </div>
-                            
-                            
-                        </div>
-                    </article>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                        <div class="img-holder">
-                            <img src="/img/black-car-service-sherman.webp" alt="Top City" class="img-fluid">
-                        </div>
-                        <div class="city-details p-15 position-absolute">
-                              <div class="row">
-                           <div class="col-md-6 col-sm-6">
-                            <h3 class="mb-1 text-white h6">Plano
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
-                                 Richardson
-                            </h3>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                            <p class="mb-0 text-white font-base">9 miles &nbsp;&nbsp;|&nbsp;&nbsp; 16m</p>
-                             </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                        <div class="img-holder">
-                            <img src="/img/black-car-service-tyler.webp" alt="Top City" class="img-fluid">
-                        </div>
-                        <div class="city-details p-15 position-absolute">
-                             <div class="row">
-                           <div class="col-md-6 col-sm-6">
-                            <h3 class="mb-1 text-white h6">Plano
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
-                                Allen
-                            </h3>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                            <p class="mb-0 text-white font-base">7 miles &nbsp;&nbsp;|&nbsp;&nbsp; 15m</p>
-                             </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
-                        <div class="img-holder">
-                            <img src="/img/black-car-service-waco.webp" alt="Top City" class="img-fluid">
-                        </div>
-                        <div class="city-details p-15 position-absolute">
-                              <div class="row">
-                           <div class="col-md-6 col-sm-6">
-                            <h3 class="mb-1 text-white h6">Plano
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
-                                Love Field
-                            </h3>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                            <p class="mb-0 text-white font-base">21 miles &nbsp;&nbsp;|&nbsp;&nbsp; 30m</p>
-                             </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+        
+<section class="intercity-ride-section bg-gray pt-40 pb-30 pt-sm-40 pb-sm-35 pt-md-40 pb-md-40 pt-lg-40 pb-lg-40">
+    <div class="ah-container">
+        <div class="row justify-content-center">
+            <div class="text-center col-12 col-lg-11 col-xl-10 mb-25 mb-md-30 mb-lg-40">
+                <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Top Cities & <span class="theme-color">Service Routes</span></h2>
+                <p class="font-base">Our Dallas luxury transportation company proudly serves some of the most requested travel routes in Texas. Whether clients need private car service, chauffeur transportation, or black car service from Dallas to Austin, Arlington, Waco, Tyler, Houston, or nearby destinations, we provide dependable long-distance travel with comfort, privacy, and professional service.</p>
             </div>
         </div>
-    </section>
-    
+        <div class="row">
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                    <div class="img-holder">
+                        <img src="/img/black-car-service-austin.webp" alt="Top City" class="img-fluid">
+                    </div>
+                    <div class="city-details p-15 position-absolute">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h3 class="mb-1 text-white h6">Dallas
+                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                        data-testid="ChevronRightIcon">
+                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                    </svg>
+                                    Austin
+                                </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <p class="mb-0 text-white font-base">195 miles &nbsp;&nbsp;|&nbsp;&nbsp; 2h 54m</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                    <div class="img-holder">
+                        <img src="/img/black-car-service-college-station.webp" alt="Top City" class="img-fluid">
+                    </div>
+                    <div class="city-details p-15 position-absolute">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h3 class="mb-1 text-white h6">Dallas
+                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                        data-testid="ChevronRightIcon">
+                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                    </svg>
+                                    College Station
+                                </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <p class="mb-0 text-white font-base">181 miles &nbsp;&nbsp;|&nbsp;&nbsp; 2h 46m</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                    <div class="img-holder">
+                        <img src="/img/black-car-service-houston.webp" alt="Top City" class="img-fluid">
+                    </div>
+                    <div class="city-details p-15 position-absolute">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h3 class="mb-1 text-white h6">Dallas
+                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                        data-testid="ChevronRightIcon">
+                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                    </svg>
+                                    Houston
+                                </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <p class="mb-0 text-white font-base">239 miles &nbsp;&nbsp;|&nbsp;&nbsp; 3h 24m</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                    <div class="img-holder">
+                        <img src="/img/black-car-service-sherman.webp" alt="Top City" class="img-fluid">
+                    </div>
+                    <div class="city-details p-15 position-absolute">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h3 class="mb-1 text-white h6">Dallas
+                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                        data-testid="ChevronRightIcon">
+                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                    </svg>
+                                     Sherman
+                                </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <p class="mb-0 text-white font-base">65.2 miles &nbsp;&nbsp;|&nbsp;&nbsp; 1h 56m</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                    <div class="img-holder">
+                        <img src="/img/black-car-service-tyler.webp" alt="Top City" class="img-fluid">
+                    </div>
+                    <div class="city-details p-15 position-absolute">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h3 class="mb-1 text-white h6">Dallas
+                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                        data-testid="ChevronRightIcon">
+                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                    </svg>
+                                    Tyler
+                                </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <p class="mb-0 text-white font-base">98 miles &nbsp;&nbsp;|&nbsp;&nbsp; 1h 34m</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
+                    <div class="img-holder">
+                        <img src="/img/black-car-service-waco.webp" alt="Top City" class="img-fluid">
+                    </div>
+                    <div class="city-details p-15 position-absolute">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h3 class="mb-1 text-white h6">Dallas
+                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                        data-testid="ChevronRightIcon">
+                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                    </svg>
+                                    Waco
+                                </h3>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <p class="mb-0 text-white font-base">93.8 miles &nbsp;&nbsp;|&nbsp;&nbsp; 1h 23m</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+   
  
-    
      <section class="testimonial-section bg-blue py-40 py-sm-40 py-md-40 py-lg-50">
     <div class="ah-container">
         <div class="row">

@@ -55,7 +55,7 @@
                             <p class="font-base justify-mobile"><strong class="font-lg gray-700 fw-bold">Luxury Sedans:</strong> Our executive sedans provide a quiet and comfortable ride, ideal for business travelers, airport passengers, and private clients across Dallas, Plano, Frisco, Irving, and nearby cities. Vehicles such as the Mercedes-Benz S-Class, Cadillac CT6, and Volvo S90 deliver premium comfort and privacy.</p>
                         </li>
                         <li>
-                            <p class="justify-mobile font-base"><strong class="font-lg gray-700 fw-bold ">Black SUVs:</strong>  For travelers needing extra space or luggage capacity, our luxury SUVs including the Cadillac Escalade, GMC Yukon XL, and Chevrolet Suburban provide spacious interiors and smooth rides for reliable airport transportation, corporate service, and private city travel.
+                            <p class="justify-mobile font-base"><strong class="font-lg gray-700 fw-bold ">Black SUVs:</strong>  For travelers needing extra space or luggage capacity, our luxury SUVs including the Cadillac Escalade, GMC Yukon XL, and Chevrolet Suburban provide spacious interiors and smooth rides for <a href="/services/airport-transfers-dallas/"><strong>reliable airport transportation</strong></a>, corporate service, and private city travel.
                             </p>
                         </li>
                         <li>
@@ -130,20 +130,20 @@
             <div class="py-20 row align-items-center">
                 <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/executive-sedan-service-dallas-mobile.webp" class="img-fluid" alt="">
                     </div>
                 </div>
                 
                 <div class="col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Executive Sedans for Private and Corporate Travel</h3>
-                    <p class="font-base text-justify">Our luxury sedan fleet provides reliable and professional transportation for travelers who value comfort, privacy, and punctuality. Whether you are heading to DFW Airport, Dallas Love Field, a business meeting, or a private appointment, our executive sedans deliver a refined travel experience. At Dallas Limo and Black Cars, we use premium vehicles designed for smooth rides, quiet interiors, and high-end comfort throughout Dallas and surrounding areas.
+                    <p class="font-base text-justify">Our luxury sedan fleet provides reliable and professional transportation for travelers who value comfort, privacy, and punctuality. Whether you are heading to DFW Airport, Dallas Love Field, a business meeting, or a private appointment, our executive sedans deliver a refined travel experience. At <a href="https://dallaslimoandblackcars.com/"><strong>Dallas Limo and Black Cars</strong></a>, we use premium vehicles designed for smooth rides, quiet interiors, and high-end comfort throughout Dallas and surrounding areas.
 
 Our sedan service is ideal for travelers coming from Downtown Dallas, Plano, Frisco, Irving, Arlington, McKinney, and nearby cities who need dependable transportation for personal and business travel. With professional chauffeurs, door-to-door service, and luxury interiors, our fleet provides the perfect combination of convenience, comfort, and executive style for every reservation.</p>
                 <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Book Luxury Sedan Service Today</a>
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="">
+                        <img src="/img/executive-sedan-service-dallas.webp" class="img-fluid" alt="">
                     </div>
                 </div>
             </div>
@@ -172,7 +172,7 @@ Our professional chauffeurs use our SUV fleet for smooth pickups and drop-offs a
             <div class="py-20 row align-items-center">
                   <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/premium-sedan-interior-mobile.webp" class="img-fluid" alt="">
                     </div>
                 </div>
                 
@@ -185,7 +185,7 @@ Our larger fleet vehicles include spacious seating, modern interiors, and profes
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service.webp" class="img-fluid" alt="">
+                        <img src="/img/premium-sedan-interior.webp" class="img-fluid" alt="">
                     </div>
                 </div>
             </div>

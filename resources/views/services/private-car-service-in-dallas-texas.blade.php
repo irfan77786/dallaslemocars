@@ -114,7 +114,7 @@
                 </ul>
             </div>
             <div class="col-12 col-md-6 h-100">
-                <div class="why-imgs"> <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="Dallas private car service for DFW airport transfers and luxury chauffeur transportation"> </div>
+                <div class="why-imgs"> <img src="/img/executive-sedan-service-dallas.webp" class="img-fluid" alt="Dallas private car service for DFW airport transfers and luxury chauffeur transportation"> </div>
             </div>
         </div>
     </div>
@@ -203,7 +203,7 @@ We also specialize in Dallas airport transportation, offering prompt transfers t
         </div>
         <div class="py-20 row align-items-center">
             <div class="col-12 col-md-6 h-100 only-m">
-                <div class="service-image"> <img src="/img/dallas-city-to-city-black-car-service-mobile.webp" class="img-fluid" alt="mobile luxury private car service across Dallas Fort Worth for city rides and long distance travel"> </div>
+                <div class="service-image"> <img src="/img/premium-sedan-interior-mobile.webp" class="img-fluid" alt="mobile luxury private car service across Dallas Fort Worth for city rides and long distance travel"> </div>
             </div>
             <div class="col-12 col-md-6 pr-xl-50">
                 <h3 class="h5 fw-semibold">Luxury Private Car Service Across Dallas–Fort Worth</h3>
@@ -212,7 +212,7 @@ We also specialize in Dallas airport transportation, offering prompt transfers t
                     vehicles perfect for professional transportation. Whether you are traveling alone, with colleagues, or with family, our vehicles provide a comfortable and stylish ride across Dallas and surrounding cities. With experienced chauffeurs,
                     well-maintained vehicles, and flexible scheduling, our private car service in Dallas ensures every trip is smooth, safe, and perfectly timed for your travel plans.</p> <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Reserve Your Private Car Ride</a>                </div>
             <div class="col-12 col-md-6 h-100 only-d">
-                <div class="service-image"> <img src="/img/dallas-city-to-city-black-car-service.webp" class="img-fluid" alt="luxury private car service across Dallas Fort Worth with comfortable chauffeur driven vehicles"> </div>
+                <div class="service-image"> <img src="/img/premium-sedan-interior.webp" class="img-fluid" alt="luxury private car service across Dallas Fort Worth with comfortable chauffeur driven vehicles"> </div>
             </div>
         </div>
     </div>

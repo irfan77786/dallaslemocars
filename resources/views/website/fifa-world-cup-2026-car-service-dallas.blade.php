@@ -45,7 +45,7 @@
                     <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Our Luxury Fleet –  <span class="theme-color fw-bold">Travel for FIFA World Cup 2026 with Comfort and Class</span></h2>
                 </div>
                 <div class="col-12">
-                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every tournament journey. Whether you need FIFA World Cup 2026 transportation, airport pickups, stadium transfers, executive event travel, or group transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class FIFA World Cup 2026 transportation in Dallas.</p>
+                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every tournament journey. Whether you need <a href="/book-now/"><strong>FIFA World Cup 2026 transportation</strong></a>, airport pickups, stadium transfers, executive event travel, or group transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class FIFA World Cup 2026 transportation in Dallas.</p>
                 </div>
             </div>
             <div class="row">
@@ -90,62 +90,18 @@
         </div>
     </section>
    
-   
-<section class="fifa-main-banner only-m" style="
-    background: url(/img/black-car-service-for-fifa-world-cup-2026-mobile.webp) center top;
-">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-               <div class="fifa-btns">
-                 
-                 
-                </div>
-            </div>
-        </div>
-
-       
-    </div>
-</section>
-<section class="fifa-main-banner only-d" style="
-    background: url(/img/black-car-service-for-fifa-world-cup-2026.webp) center top;
-">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-               <div class="fifa-btns">
-                 
-                 
-                </div>
-            </div>
-        </div>
-
-       
-    </div>
-</section>
-   
-   <div class="container text-center here-fifa">
- <div class="row">
-         <div class="col-md-12">
-              <div class="fifa-btnss">  
-                    
-                   
-            <a href="/fifa-world-cup-2026-car-service-dallas/" class="btn btn-primary fifa-btn">Visit FIFA World Cup 2026 Page</a>
-            </div>
-            </div>
-            </div>
-            
-    </div>
-    
+ 
+ 
         <section class="detail-content-section bg-gray py-40 py-sm-40 py-md-40 py-lg-50">
             <div class="ah-container">
                 <div class="row justify-content-center">
                     <div class="mb-20 text-center col-12 col-lg-11 col-xl-10 mb-md-30 mb-lg-40">
                         <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Why Choose Our <span class="theme-color"> Black
                                 Car Service?</span></h2>
-                        <p class="font-base">Our Dallas Black Car Service provides reliable and luxury FIFA World Cup 2026 transportation for airports, stadiums, hotels, fan zones, and event venues, offering professional chauffeur service and comfortable transportation across the Dallas–Fort Worth metroplex, including Downtown Dallas, Arlington, Frisco, Plano, and Irving.</p>
+                        <p class="font-base">Our <a href="/services/chauffeur-service-dallas/"><strong>Dallas Black Car Service</strong></a> provides reliable and luxury FIFA World Cup 2026 transportation for airports, stadiums, hotels, fan zones, and event venues, offering professional chauffeur service and comfortable transportation across the Dallas–Fort Worth metroplex, including Downtown Dallas, Arlington, Frisco, Plano, and Irving.</p>
                     </div>
                 </div>
+                
                 <div class="py-20 row align-items-center">
                     <div class="col-12 col-md-6 pr-xl-50">
                         <h3 class="h5 fw-semibold">Dallas FIFA World Cup 2026 Transportation & Black Car Service</h3>
@@ -165,7 +121,7 @@ We proudly serve Downtown Dallas, Arlington, Frisco, Plano, Irving, Las Colinas,
                      </div>
                     <div class="col-12 col-md-6 h-100">
                         <div class="why-imgs">
-                            <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="">
+                            <img src="/img/fifa-world-cup-2026-car-service-dallas.webp" class="img-fluid" alt="">
                         </div>
                     </div>
                 </div>
@@ -234,20 +190,18 @@ We proudly serve Downtown Dallas, Arlington, Frisco, Plano, Irving, Las Colinas,
             <div class="py-20 row align-items-center">
                 <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/chauffeur-meet-and-greet-mobile.webp" class="img-fluid" alt="">
                     </div>
                 </div>
                 
                 <div class="col-12 col-md-6 pr-xl-50">
-                    <h3 class="h5 fw-semibold">FIFA World Cup 2026 Transportation for Airports, Hotels & Stadiums</h3>
-                    <p class="font-base text-justify">Our FIFA World Cup 2026 transportation service provides reliable and professional travel for airports, hotels, stadiums, and event destinations across the Dallas–Fort Worth area. Whether you are traveling for tournament matches, fan experiences, business hospitality, or group events, our experienced chauffeurs ensure a smooth and punctual ride experience. At Dallas Limo and Black Cars, we specialize in luxury transportation designed for comfort, reliability, and efficiency during one of the busiest international events in the region.
-
-Our service is ideal for travelers coming from Downtown Dallas, Arlington, Frisco, Plano, Irving, McKinney, and surrounding DFW cities who need dependable event transportation. With real-time trip coordination, door-to-door service, and professional chauffeurs, we make sure you arrive at airports, venues, hotels, and match-day destinations on time without stress. Our luxury fleet of sedans, SUVs, and executive vehicles provides the perfect combination of comfort and reliability for both personal and business travel.</p>
-                <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Book Reliable Event Transportation Today</a>
+                    <h3 class="h5 fw-semibold">Mercedes-Benz Sprinter Service for FIFA World Cup 2026</h3>
+                    <p class="font-base text-justify">Experience luxury group travel with our <a href="/book-now/"><strong>Mercedes-Benz Sprinter service for FIFA World Cup 2026 in Dallas</strong></a>, perfect for fans, teams, and corporate travelers. Our premium Sprinter vans offer spacious seating, advanced climate control, and ample luggage capacity, ensuring maximum comfort throughout your journey. We provide reliable transportation to DFW Airport, Dallas Love Field, AT&T Stadium, and major World Cup venues, with punctual pickups and professional chauffeurs. Whether you're attending matches, fan events, or city tours, our Dallas Sprinter van service delivers safety, convenience, and style. Ideal for group airport transfers and event transportation, we ensure a seamless travel experience. Book your Mercedes Sprinter rental in Dallas for World Cup 2026 early to secure availability and enjoy stress-free, first-class transportation during this global event.</p>
+                <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Reserve Your Sprinter Now</a>
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="">
+                        <img src="/img/chauffeur-meet-and-greet.webp" class="img-fluid" alt="">
                     </div>
                 </div>
             </div>
@@ -255,40 +209,36 @@ Our service is ideal for travelers coming from Downtown Dallas, Arlington, Frisc
             <div class="flex-row-reverse py-20 row align-items-center">
                 <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/Minibus-mobile.webp" class="img-fluid" alt="">
                     </div>
                 </div>
                 <div class="mb-20 col-12 col-md-6 pr-xl-50">
-                    <h3 class="h5 fw-semibold">Reliable Match Day Transportation with Professional Chauffeurs</h3>
-                    <p class="font-base text-justify">When it comes to dependable FIFA World Cup 2026 transportation in Dallas, professionalism and punctuality are essential. Our Dallas black car event service is designed to deliver a premium travel experience with highly trained chauffeurs and luxury vehicles. We understand the importance of reliable transportation when managing airport arrivals, stadium schedules, hotel transfers, and high-demand event traffic during major tournament dates.
-
-Our professional chauffeurs monitor traffic patterns and trip schedules to ensure timely pickups and smooth drop-offs at AT&T Stadium, fan zones, airports, hotels, and nearby venues. Whether you need transportation from a hotel, office, home, or private event, our service offers convenient door-to-door tournament transportation across the Dallas–Fort Worth region. Business travelers, executives, families, fan groups, and visitors trust our event transportation service for its comfort, privacy, and dependable performance.
+                    <h3 class="h5 fw-semibold">Mini Bus Transportation for FIFA World Cup 2026 in Dallas</h3>
+                    <p class="font-base text-justify">Experience reliable and <a href="/book-now/"><strong>comfortable mini bus transportation for FIFA World Cup 2026 in Dallas</strong></a>, perfect for groups, fans, and corporate travelers visiting the city during this global event. Our modern minibuses feature spacious seating, air conditioning, and generous luggage capacity, ensuring a smooth and enjoyable ride every time. We provide professional service to DFW Airport, Dallas Love Field, AT&T Stadium, and major downtown Dallas locations, with on-time pickups and experienced chauffeurs. Whether you're attending matches, fan festivals, or city tours, our Dallas mini bus rental service delivers safety, convenience, and efficiency. Ideal for group travel, airport transfers, and event transportation, we make every journey stress-free and comfortable. Book your group transportation in Dallas for World Cup 2026 early to secure availability and enjoy a premium experience.
 </p>
-                    <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Get Event Travel Quote Now</a>
+                    <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Book Your Mini Bus Today</a>
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="">
+                        <img src="/img/Minibus.webp" class="img-fluid" alt="">
                     </div>
                 </div>
             </div>
                <div class="py-20 row align-items-center">
                   <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/motor-coach-mobile.webp" class="img-fluid" alt="">
                     </div>
                 </div>
                 
                 <div class="col-12 col-md-6 pr-xl-50">
-                    <h3 class="h5 fw-semibold">Luxury FIFA World Cup 2026 Transportation Across the Dallas–Fort Worth Area</h3>
-                    <p class="font-base text-justify">Traveling during the tournament should be comfortable and stress-free. Our luxury FIFA World Cup 2026 transportation service in Dallas offers premium black car transportation designed for travelers who value reliability, privacy, and professional service. At Dallas Limo and Black Cars, we provide first-class transportation for airport arrivals, departures, match-day travel, hotel pickups, and group transfers throughout the DFW metro area.
-
-Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles perfect for event transportation. Whether you are traveling alone, with colleagues, or with family and friends, our vehicles provide a comfortable and stylish ride to airports, stadiums, hotels, and entertainment destinations across Dallas and nearby cities. With experienced chauffeurs, well-maintained vehicles, and flexible scheduling, our FIFA World Cup 2026 transportation service ensures every trip is smooth, safe, and perfectly timed for your event plans.</p>
-                  <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Reserve Your FIFA Transportation Service</a>
+                    <h3 class="h5 fw-semibold">Charter Bus Service for FIFA World Cup Groups in Dallas</h3>
+                    <p class="font-base text-justify">Travel together in comfort with our <a href="/book-now/"><strong>charter bus service for FIFA World Cup groups in Dallas</strong></a>, designed for large groups, fans, and corporate travelers. Our spacious charter buses offer reclining seats, climate control, and ample luggage storage, making them ideal for long and short-distance travel. We provide reliable transportation to DFW Airport, Dallas Love Field, AT&T Stadium, and major World Cup venues, ensuring timely pickups and smooth group coordination. Our professional drivers prioritize safety, punctuality, and convenience throughout your journey. Whether you're attending matches, fan events, or city tours, our Dallas charter bus rental service guarantees a stress-free experience. Perfect for group airport transfers and event transportation, book your charter bus in Dallas for World Cup 2026 early to secure availability and enjoy premium group travel.</p>
+                  <a href="/get-a-quote/" class="btn btn-primary sm fw-medium fifa-btn-full">Get a Free Quote & Book Now</a>
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service.webp" class="img-fluid" alt="">
+                        <img src="/img/motor-coach.webp" class="img-fluid" alt="">
                     </div>
                 </div>
             </div>
@@ -344,7 +294,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="img/black-car-service-austin.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-austin.webp" alt="Top City" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                            <div class="row">
@@ -369,7 +319,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="img/black-car-service-college-station.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-college-station.webp" alt="Top City" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                       <div class="row">
@@ -393,7 +343,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="img/black-car-service-houston.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-houston.webp" alt="Top City" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                           
@@ -420,7 +370,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="img/black-car-service-sherman.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-sherman.webp" alt="Top City" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                               <div class="row">
@@ -444,7 +394,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="img/black-car-service-tyler.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-tyler.webp" alt="Top City" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                              <div class="row">
@@ -468,7 +418,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="img/black-car-service-waco.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-waco.webp" alt="Top City" class="img-fluid">
                         </div>
                         <div class="city-details p-15 position-absolute">
                               <div class="row">

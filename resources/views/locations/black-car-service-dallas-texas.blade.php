@@ -45,7 +45,7 @@
                     <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Our Luxury Fleet –  <span class="theme-color fw-bold">Travel from Dallas to Austin with Comfort and Class</span></h2>
                 </div>
                 <div class="col-12">
-                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every long-distance journey. Whether you need Dallas to Austin transportation, executive travel, private intercity rides, or group transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class Dallas to Austin car service.</p>
+                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every long-distance journey. Whether you need Dallas to Austin transportation, executive travel, private intercity rides, or group transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class <a href="/book-now/"><strong>Dallas to Austin car service</strong></a>.</p>
                 </div>
             </div>
             <div class="row">
@@ -149,7 +149,7 @@
                 <div class="py-20 row align-items-center">
                     <div class="col-12 col-md-6 pr-xl-50">
                         <h3 class="h5 fw-semibold">Dallas to Austin Car Service & Black Car Transportation</h3>
-                        <p class="font-base text-justify">Looking for a reliable Dallas to Austin car service? At Dallas Limo and Black Cars, we provide professional black car transportation between Dallas and Austin, ensuring every traveler enjoys a smooth, punctual, and stress-free ride. Our premium Dallas to Austin car service is trusted by business travelers, families, and visitors who need dependable transportation across Texas.
+                        <p class="font-base text-justify">Looking for a reliable Dallas to Austin car service? At Dallas Limo and Black Cars, we provide professional black car transportation between Dallas and Austin, ensuring every traveler enjoys a smooth, punctual, and stress-free ride. Our a href="/services/private-car-service-in-dallas/"><strong>premier Dallas to Austin car service</strong></a> is trusted by business travelers, families, and visitors who need dependable transportation across Texas.
 
 We proudly serve Downtown Dallas, Plano, Frisco, Arlington, Austin Downtown, Round Rock, Cedar Park, and nearby Texas cities, providing efficient routes and on-time pickups so you never have to worry about delays, traffic stress, or last-minute ride issues.</p>
                     
@@ -165,7 +165,7 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, Austin Downtown, Rou
                      </div>
                     <div class="col-12 col-md-6 h-100">
                         <div class="why-imgs">
-                            <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="">
+                            <img src="/img/executive-sedan-service-dallas.webp" class="img-fluid" alt="">
                         </div>
                     </div>
                 </div>
@@ -262,7 +262,7 @@ Our service is ideal for travelers coming from Downtown Dallas, Plano, Frisco, I
                     <h3 class="h5 fw-semibold">Reliable Long-Distance Transportation with Professional Chauffeurs</h3>
                     <p class="font-base text-justify">When it comes to dependable long-distance transportation in Texas, professionalism and punctuality are essential. Our Dallas to Austin black car service is designed to deliver a premium travel experience with highly trained chauffeurs and luxury vehicles. We understand the importance of reliable transportation when traveling for meetings, events, airport connections, or private trips between major Texas cities.
 
-Our professional chauffeurs monitor traffic and route conditions to ensure timely pickups and smooth drop-offs between Dallas and Austin. Whether you need transportation from a hotel, office, home, airport, or corporate event, our service offers convenient door-to-door travel across the region. Business travelers, executives, families, and visitors trust our intercity black car service for its comfort, privacy, and dependable performance.
+Our professional chauffeurs monitor traffic and route conditions to ensure timely pickups and smooth drop-offs between Dallas and Austin. Whether you need transportation from a hotel, office, home, airport, or corporate event, our service offers convenient door-to-door travel across the region. Business travelers, executives, families, and visitors trust our intercity <a href="https://dallaslimoandblackcars.com/"><strong>black car service</strong></a> for its comfort, privacy, and dependable performance.
 </p>
                     <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Get Corporate Travel Quote Now</a>
                 </div>
@@ -275,7 +275,7 @@ Our professional chauffeurs monitor traffic and route conditions to ensure timel
                <div class="py-20 row align-items-center">
                   <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/chevrolet-suburban-limo-mobile.webp" class="img-fluid" alt="">
                     </div>
                 </div>
                 
@@ -288,7 +288,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service.webp" class="img-fluid" alt="">
+                        <img src="/img/chevrolet-suburban-limo.webp" class="img-fluid" alt="">
                     </div>
                 </div>
             </div>
