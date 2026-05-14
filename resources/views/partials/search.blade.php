@@ -457,6 +457,30 @@ $tabSuffix = $id_suffix ?? '';
         background: #b4c0cc;
     }
 
+    /* iOS Safari: native date/time edit is centered; align value to the left (match Android/desktop) */
+    .search-tab-wrap input[type="date"],
+    .search-tab-wrap input[type="time"] {
+        text-align: left;
+        direction: ltr;
+    }
+    .search-tab-wrap input[type="date"]::-webkit-datetime-edit,
+    .search-tab-wrap input[type="time"]::-webkit-datetime-edit {
+        text-align: left;
+        display: inline-block;
+        min-width: 0;
+        width: 100%;
+        padding: 0;
+    }
+    .search-tab-wrap input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+    .search-tab-wrap input[type="time"]::-webkit-datetime-edit-fields-wrapper {
+        text-align: left;
+    }
+    .search-tab-wrap input[type="date"]::-webkit-date-and-time-value,
+    .search-tab-wrap input[type="time"]::-webkit-date-and-time-value {
+        text-align: left;
+        margin: 0;
+    }
+
     /* Hide native date/time picker icon (2nd icon) */
     input[type="date"]::-webkit-calendar-picker-indicator,
     input[type="time"]::-webkit-calendar-picker-indicator {
