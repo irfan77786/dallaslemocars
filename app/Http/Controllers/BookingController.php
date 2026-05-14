@@ -959,6 +959,7 @@ public function completeBook(Request $request)
                 'currency' => 'usd',
                 'customer' => $stripeCustomerId,
                 'payment_method' => $request->payment_method_id,
+                'capture_method' => 'manual',
                 'off_session' => true,
                 'confirm' => true,
             ]);
@@ -980,11 +981,19 @@ public function completeBook(Request $request)
 
         $transactionId = $paymentIntent->id;
 
-        if ($paymentIntent->status === 'requires_action' && $paymentIntent->next_action->type === 'use_stripe_sdk') {
+        if ($paymentIntent->status === 'requires_action' && $paymentIntent->next_action && $paymentIntent->next_action->type === 'use_stripe_sdk') {
             return redirect()->back()->with('error', 'Payment requires additional authentication.');
         }
 
-        // -------------------------
+        $authorizedStatuses = ['requires_capture', 'succeeded'];
+        if (! in_array($paymentIntent->status, $authorizedStatuses, true)) {
+            return redirect()->back()->with(
+                'error',
+                'Payment was not authorized. Status: ' . ($paymentIntent->status ?? 'unknown')
+            );
+        }
+
+        $bookingPaymentStatus = $paymentIntent->status === 'succeeded' ? 'Paid' : 'Authorized';
         // Booking ID Generation
         // -------------------------
         $latestBooking = Booking::orderBy('id', 'desc')->first();
@@ -1056,7 +1065,7 @@ public function completeBook(Request $request)
             'return_date' => $returnDateYmd,
             'return_time' => $returnTimeHis,
             'total_price' => $selected_price,
-            'payment_status' => "Paid",
+            'payment_status' => $bookingPaymentStatus,
             'return_service_id' => $returnServiceId,
             'round_trip' => session('round_trip') ? 1 : 0,
             'note' => session('note') ?? null,
@@ -1065,7 +1074,7 @@ public function completeBook(Request $request)
         // Payment record
         $booking->payments()->create([
             'payment_method' => "card",
-            'payment_status' => "Paid",
+            'payment_status' => $bookingPaymentStatus,
             'transaction_id' => $transactionId,
             'amount' => $selected_price,
         ]);
@@ -1131,7 +1140,7 @@ public function completeBook(Request $request)
             'vehicle_type' => $vehicle_name ?? 'Standard',
             'passengers' => 1,
             'total_amount' => $selected_price,
-            'payment_status' => 'Paid',
+            'payment_status' => $bookingPaymentStatus,
             'special_instructions' => session('note') ?? null,
             'flight_details' => $flight_details,
         ];
