@@ -273,11 +273,7 @@ Our professional chauffeurs monitor traffic and route conditions to ensure timel
                 </div>
             </div>
                <div class="py-20 row align-items-center">
-                  <div class="col-12 col-md-6 h-100 only-m">
-                    <div class="service-image">
-                        <img src="/img/chevrolet-suburban-limo-mobile.webp" class="img-fluid" alt="">
-                    </div>
-                </div>
+                   
                 
                 <div class="col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Luxury Dallas to Austin Transportation Across Texas</h3>

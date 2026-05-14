@@ -10,7 +10,7 @@
     <title>{{ $seo['title'] ?? 'DALLAS LIMOS AND BLACK CAR SERVICE' }}</title>
     <meta name="description" content="{{ $seo['description'] ?? 'Premium black car and limousine service in Dallas, Texas. Luxury transportation for airport transfers, corporate events, and special occasions.' }}">
     <meta name="keywords" content="{{ $seo['keywords'] ?? 'Dallas black car service, Dallas limo service, luxury car service Dallas, airport transportation Dallas' }}">
-  <link rel="canonical" href="https://dallaslimoandblackcars.com/" />
+  <link rel="canonical" href="{{ url()->current() }}/" />
   
   
     {{-- Open Graph Meta Tags --}}

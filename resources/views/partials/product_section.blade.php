@@ -379,7 +379,7 @@ $desktopFeatures = array_values(array_filter($features, function ($feature) use 
     }
     .vehicle_img {
         max-height: 90px;
-        width: 170px;
+        width: 160px;
     }
     .vehicle-info {
         min-width: 0 !important;

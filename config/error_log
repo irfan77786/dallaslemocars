@@ -18,3 +18,63 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in /home/dallwske/dallaslimoandblackcars.com/config/services.php on line 18
+[08-Apr-2026 21:58:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/dallwske/dallaslimoandblackcars.com/config/database.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/config/database.php on line 19
+[19-Apr-2026 13:02:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/dallwske/dallaslimoandblackcars.com/config/database.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/config/database.php on line 19
+[19-Apr-2026 13:02:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/dallwske/dallaslimoandblackcars.com/config/mail.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/config/mail.php on line 17
+[24-Apr-2026 03:00:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/dallwske/dallaslimoandblackcars.com/config/database.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/config/database.php on line 19
+[24-Apr-2026 03:00:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/dallwske/dallaslimoandblackcars.com/config/mail.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/config/mail.php on line 17
+[24-Apr-2026 03:00:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/dallwske/dallaslimoandblackcars.com/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/config/services.php on line 18
+[24-Apr-2026 03:00:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/dallwske/dallaslimoandblackcars.com/config/database.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/config/database.php on line 19
+[24-Apr-2026 03:00:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/dallwske/dallaslimoandblackcars.com/config/mail.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/config/mail.php on line 17
+[24-Apr-2026 03:00:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/dallwske/dallaslimoandblackcars.com/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/config/services.php on line 18
+[24-Apr-2026 04:27:21 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/dallwske/dallaslimoandblackcars.com/config/database.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/config/database.php on line 19
+[24-Apr-2026 04:27:21 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/dallwske/dallaslimoandblackcars.com/config/mail.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/config/mail.php on line 17
+[24-Apr-2026 04:27:21 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/dallwske/dallaslimoandblackcars.com/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/config/services.php on line 18
+[24-Apr-2026 04:27:21 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/dallwske/dallaslimoandblackcars.com/config/database.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/config/database.php on line 19
+[24-Apr-2026 04:27:21 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/dallwske/dallaslimoandblackcars.com/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/config/services.php on line 18
+[24-Apr-2026 04:27:21 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/dallwske/dallaslimoandblackcars.com/config/mail.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/config/mail.php on line 17

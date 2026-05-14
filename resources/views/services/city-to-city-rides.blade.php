@@ -271,12 +271,7 @@ Our professional chauffeurs monitor traffic and major routes to ensure timely pi
                 </div>
             </div>
                <div class="py-20 row align-items-center">
-                  <div class="col-12 col-md-6 h-100 only-m">
-                    <div class="service-image">
-                        <img src="/img/chevrolet-suburban-limo-mobile.webp" class="img-fluid" alt="">
-                    </div>
-                </div>
-                
+                 
                 <div class="col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Luxury City-to-City Car Service Across Texas</h3>
                     <p class="font-base text-justify">Traveling between cities should be comfortable and stress-free. Our luxury city-to-city car service in Dallas offers premium black car transportation designed for travelers who value reliability, privacy, and professional service. At Dallas Limo and Black Cars, we provide first-class transportation for airport transfers, business travel, special occasions, and private transportation throughout Texas.
