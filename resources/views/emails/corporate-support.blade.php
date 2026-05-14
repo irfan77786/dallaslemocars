@@ -9,7 +9,7 @@
 <body style="font-family: 'Abel', 'Helvetica', 'Arial', sans-serif; line-height: 1.6; color: #333333; margin: 0; padding: 0; background-color: #f4f4f4;">
     <div class="container" style="max-width: 600px; margin: 0 auto; padding: 12px; background-color: #ffffff;">
         <div class="header" style="padding: 20px 10px; text-align: center; border-bottom: 1px solid #eee;">
-            <img src="https://dallaslimoandblackcars.com/new_assets/assets/black-car-service-dallas-logo.png" alt="Dallas Black Cars" style="max-width: 250px; margin-bottom: 10px; height: auto;">
+            <img src="{{ config('branding.mail_logo_url') }}" alt="Dallas Black Cars" width="250" style="max-width: 250px; width: 250px; height: auto; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto; border: 0; outline: none; text-decoration: none;">
             @if($isAdmin)
                 <h2 style="margin: 0; font-size: 22px; color: #12143e;">New Corporate Support Request</h2>
                 <p style="margin: 5px 0 0; font-size: 15px; color: #555;">Details of the request:</p>
@@ -71,8 +71,8 @@
         </div>
 
         <div class="footer" style="text-align: center; padding: 20px 10px; font-size: 12px; color: #777; border-top: 1px solid #e1e1e1;">
-            <p style="margin: 0 0 5px;"><strong>Dallas Black Cars</strong></p>
-            <p style="margin: 0 0 8px;">Premium Black Car & Limo Service in Dallas</p>
+            <p style="margin: 0 0 5px;"><strong>Dallas Limo And Black Cars</strong></p>
+            <p style="margin: 0 0 8px;">Premier Black Car & Limo Service in Dallas</p>
             <p style="margin: 0 0 5px;"><a href="tel:+12148978056" style="color: #12143e; text-decoration: none;">+1 214-897-8056</a> | <a href="mailto:info@dallaslimoandblackcars.com" style="color: #12143e; text-decoration: none;">info@dallaslimoandblackcars.com</a></p>
             <p style="margin: 0; font-size: 11px;">This is an automated message. Please do not reply to this email.</p>
         </div>

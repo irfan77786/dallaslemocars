@@ -195,15 +195,7 @@
     <header style="width: 100%; display: table; margin-bottom: 7px;">
       <div style="display: table-row;">
         <div style="display: table-cell; vertical-align: middle; width: 62%;">
-          @php
-            $logoData = base64_encode(file_get_contents(public_path('assets/img/site/black-car-service-dallas-logo.png')));
-            $mime = 'image/png';
-          @endphp
-          @if($logoData)
-            <img src="data:{{ $mime }};base64,{{ $logoData }}" alt="Logo" style="height: 60px;" />
-          @else
-            <div style="font-weight: bold; font-size: 18px;">Dallas Limo And Black Cars Service</div>
-          @endif
+          @include('partials.pdf_logo_image')
         </div>
         <div style="text-align: right;">
           <div style="font-size: 12px; text-align: left;">

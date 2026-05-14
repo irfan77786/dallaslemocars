@@ -113,12 +113,7 @@
     <header style="width: 100%; display: table; margin-bottom: 20px;">
       <div style="display: table-row;">
         <div style="display: table-cell; vertical-align: middle; width: 62%;">
-          @php
-            $logoUrl = 'https://dallaslimoandblackcars.com/img/black-car-service-dallas-logo.webp';
-            $context = stream_context_create(['ssl' => ['verify_peer' => false, 'verify_peer_name' => false]]);
-            $logoData = base64_encode(file_get_contents($logoUrl, false, $context));
-          @endphp
-          <img src="data:image/png;base64,{{ $logoData }}" alt="Logo" style="height: 60px;" />
+          @include('partials.pdf_logo_image')
         </div>
         <div style="text-align: right;">
           <div style="font-size: 12px; text-align: left;">
