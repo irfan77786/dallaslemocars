@@ -218,33 +218,8 @@ Our fleet includes luxury sedans, black SUVs, executive sprinter vans, and spaci
         @include('partials.testimonials')
         @include('partials.faq')
 
-@section('scripts')
-<script>
-// Show success/error alerts if messages exist
-@if (session('success'))
-    Swal.fire({
-        title: 'Success!',
-        text: '{{ session('success') }}',
-        icon: 'success',
-        confirmButtonColor: '#3085d6',
-        confirmButtonText: 'OK'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            document.querySelector('.get-a-quote-form').reset();
-        }
-    });
-@endif
-
-@if (session('error'))
-    Swal.fire({
-        title: 'Error!',
-        text: '{{ session('error') }}',
-        icon: 'error',
-        confirmButtonColor: '#d33',
-        confirmButtonText: 'OK'
-    });
-@endif
-</script>
 @endsection
 
+@section('scripts')
+    @include('partials.form_swal_alerts', ['resetFormSelector' => '.get-a-quote-form'])
 @endsection

@@ -109,6 +109,24 @@ class WebsiteController extends Controller
         ]);
     }
 
+    public function getAQuoteThankYou()
+    {
+        $seo = [
+            'title' => 'Thank You – Quote Request Received | Dallas Black Car Service',
+            'description' => 'Thank you for requesting a quote. Our team will review your trip details and contact you shortly with pricing for Dallas black car and limousine service.',
+            'keywords' => 'Dallas black car quote thank you, luxury car service Dallas quote',
+            'og_title' => 'Thank You – Quote Request Received | Dallas Black Car Service',
+            'og_description' => 'Thank you for requesting a quote. Our team will contact you shortly.',
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png'),
+        ];
+
+        return view('website.get-a-quote-thank-you', [
+            'backgroundImage' => '/img/black-car-service-frisco.webp',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
+            'seo' => $seo,
+        ]);
+    }
+
     public function contactUs(Request $request){
         if($request->edit){
             session(['edit'=>1]);
@@ -300,7 +318,7 @@ class WebsiteController extends Controller
             
             Mail::to('info@legacyonelimo.com')->send(new QuoteMail($quoteData, true));
 
-            return redirect()->back()->with('success', 'Your quote request has been sent successfully! We will send you a quote shortly.');
+            return redirect()->route('get_a_quote_thank_you');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Error: ' . $e->getMessage());
         }

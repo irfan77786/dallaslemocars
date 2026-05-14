@@ -794,33 +794,8 @@ With our executive corporate black car service in Dallas, you can focus on your 
         </div>
     </section>
 
-@section('scripts')
-<script>
-// Show success/error alerts if messages exist
-@if (session('success'))
-    Swal.fire({
-        title: 'Success!',
-        text: '{{ session('success') }}',
-        icon: 'success',
-        confirmButtonColor: '#3085d6',
-        confirmButtonText: 'OK'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            document.querySelector('.news-letter-form').reset();
-        }
-    });
-@endif
-
-@if (session('error'))
-    Swal.fire({
-        title: 'Error!',
-        text: '{{ session('error') }}',
-        icon: 'error',
-        confirmButtonColor: '#d33',
-        confirmButtonText: 'OK'
-    });
-@endif
-</script>
 @endsection
 
+@section('scripts')
+    @include('partials.form_swal_alerts', ['resetFormSelector' => '.news-letter-form'])
 @endsection
