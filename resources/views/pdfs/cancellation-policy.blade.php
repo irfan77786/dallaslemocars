@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cancellation Policy</title>
   <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
   <style>
     /* Load the font-face definition */
-    @page { margin: 0; }
+    @page {
+      margin: 0;
+    }
+
     body {
       font-family: 'Abel', 'Helvetica', 'Arial', sans-serif;
       color: #333;
@@ -16,10 +20,12 @@
       margin: 0;
       font-size: 13px;
     }
+
     .container {
       max-width: 800px;
       margin: 0 auto;
     }
+
     .header {
       display: flex;
       justify-content: space-between;
@@ -28,16 +34,20 @@
       padding-bottom: 20px;
       border-bottom: 1px solid #eee;
     }
+
     .logo img {
       max-height: 60px;
     }
+
     .header-info {
       text-align: right;
     }
+
     .contact {
       font-size: 12px;
       color: #666;
     }
+
     .section {
       margin-bottom: 25px;
       background: #fff;
@@ -45,6 +55,7 @@
       border-radius: 5px;
       overflow: hidden;
     }
+
     .section h2 {
       background: #9e7c1e !important;
       margin: 0;
@@ -54,52 +65,63 @@
       letter-spacing: 0.7px;
       border-bottom: 1px solid #e0e0e0;
     }
+
     .section-content {
       padding: 15px;
     }
+
     .info-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 15px;
       padding: 20px;
     }
+
     .info-item {
       display: flex;
       flex-direction: column;
     }
+
     .label {
       font-size: 13px;
       font-weight: 700;
       color: #666;
       margin-bottom: 3px;
     }
+
     .value {
       font-size: 13px;
       font-weight: 500;
       color: #333;
     }
+
     .status-confirmed {
       color: #28a745;
       font-weight: 600;
     }
+
     .status-pending {
       color: #ffc107;
       font-weight: 600;
     }
+
     .status-cancelled {
       color: #dc3545;
       font-weight: 600;
     }
+
     .total-amount {
       font-size: 16px;
       font-weight: 600;
       color: #333;
     }
+
     .payment-method {
       display: flex;
       align-items: center;
       gap: 8px;
     }
+
     .payment-method img {
       width: 30px;
       height: 20px;
@@ -118,9 +140,10 @@
         <div style="text-align: right;">
           <div style="font-size: 12px; text-align: left;">
             <div style="font-weight: bold; font-size: 12px;">Dallas Limo And Black Cars Service</div>
-            <div>100 Crescent Court, 7th Floor</div>
-            <div>Dallas, TX 75201</div>
-            <div><strong>Phone:</strong>&nbsp;+1 (214) 305-8671</div>
+            <div>3008 Ross Ave</div>
+            <div>Suite 100</div>
+            <div>Dallas, TX 75204</div>
+            <div><strong>Phone:</strong>&nbsp;+1 214-897-8056</div>
             <div><strong>Email:</strong>&nbsp;info@dallaslimoandblackcars.com</div>
             <div><strong>Website:</strong>&nbsp;www.dallaslimoandblackcars.com</div>
           </div>
@@ -131,24 +154,29 @@
       <h2>Cancellation, Deposit & Service Policy</h2>
       <div class="section-content">
         <p><strong>Cancellation, Deposit & Service Policy</strong><br>
-          Dallas Limo And Black Cars Service strives to provide excellent service while maintaining a clear, fair, and simple cancellation, deposit, and service policy. By booking with us, you agree to the following terms.</p>
+          Dallas Limo And Black Cars Service strives to provide excellent service while maintaining a clear, fair, and
+          simple cancellation, deposit, and service policy. By booking with us, you agree to the following terms.</p>
 
         <p><strong>Contact:</strong><br>
           Email: info@dallaslimoandblackcars.com<br>
-          Phone: +1 (214) 305-8671</p>
+          Phone: +1 214-897-8056</p>
 
         <p><strong>1. General Cancellation Policy:</strong><br>
-          Cancellations must occur during the stated timeframes for each vehicle type. Cancellations outside these periods will result in full charges for the reserved services.</p>
+          Cancellations must occur during the stated timeframes for each vehicle type. Cancellations outside these
+          periods will result in full charges for the reserved services.</p>
 
         <p><strong>2. Vehicle-Specific Cancellation Policy:</strong><br>
-          - <strong>Sedans and Luxury Sedans:</strong> Cancel at least 24 hours prior. Late cancellations: 100% charge.<br>
+          - <strong>Sedans and Luxury Sedans:</strong> Cancel at least 24 hours prior. Late cancellations: 100%
+          charge.<br>
           - <strong>SUVs:</strong> Cancel at least 24 hours prior. Late cancellations: 100% charge.<br>
-          - <strong>Mercedes Sprinters and Luxury Vans:</strong> Cancel at least 72 hours prior. Late cancellations: Full charge applies.<br>
+          - <strong>Mercedes Sprinters and Luxury Vans:</strong> Cancel at least 72 hours prior. Late cancellations:
+          Full charge applies.<br>
           - <strong>Mini Buses:</strong> Cancel at least 7 days prior. Late cancellations: Full charge applies.<br>
-          - <strong>Motor Coaches:</strong> Cancel at least 7 days prior. Late cancellations: Full charge including any deposits.</p>
+          - <strong>Motor Coaches:</strong> Cancel at least 7 days prior. Late cancellations: Full charge including any
+          deposits.</p>
 
         <p><strong>3. Deposit Policy:</strong><br>
-          - 50% non-refundable deposit due within 24 hours of signing the agreement.<br>
+          - 50% non-refundable deposit due shortly of signing the agreement.<br>
           - Final payment due at least 7 days before the reservation date.<br>
           - Written notice required for cancellations as per policy.<br>
           - If proper notice is not given, all payments are non-refundable.<br>
@@ -167,16 +195,20 @@
           Minimum charge for damage or cleaning is $250. Additional fees may apply.</p>
 
         <p><strong>6. Force Majeure:</strong><br>
-          We are not liable for interruptions or cancellations due to events beyond our control (e.g., weather, disasters, terrorism, mechanical issues). We will attempt to reschedule or refund (minus non-refundable costs).</p>
+          We are not liable for interruptions or cancellations due to events beyond our control (e.g., weather,
+          disasters, terrorism, mechanical issues). We will attempt to reschedule or refund (minus non-refundable
+          costs).</p>
 
         <p><strong>7. Indemnification:</strong><br>
-          By booking, you agree to indemnify and hold Dallas Limo And Black Cars Service harmless for any claims arising from:<br>
+          By booking, you agree to indemnify and hold Dallas Limo And Black Cars Service harmless for any claims arising
+          from:<br>
           - Your use of services<br>
           - Policy violations<br>
           - Damage caused by you or your party</p>
 
         <p><strong>8. Wait Time Policy:</strong><br>
-          - <strong>Airport Transfers:</strong> 30-minute grace period (domestic), 60 minutes (international). After that: $15 per 15 minutes.<br>
+          - <strong>Airport Transfers:</strong> 30-minute grace period (domestic), 60 minutes (international). After
+          that: $15 per 15 minutes.<br>
           - <strong>Point-to-Point & Hourly:</strong> 15-minute grace period. After that: $15 per 15 minutes.</p>
 
         <p><strong>9. No-Show Policy:</strong><br>
@@ -193,15 +225,18 @@
 
         <p><strong>Thank you for choosing Dallas Limo And Black Cars Service.</strong><br>
           We are committed to fair and professional service.<br>
-          Contact us: info@dallaslimoandblackcars.com | +1 (214) 305-8671</p>
+          Contact us: info@dallaslimoandblackcars.com | +1 214-897-8056</p>
 
       </div>
     </div>
 
-    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; font-size: 12px; color: #666;">
-    <p>Thank you for choosing Dallas Black Car Service. If you have any questions about your booking, please contact our customer support.</p>
-    <p>214-897-8056 | info@dallaslimoandblackcars.com</p>
-  </footer>
+    <footer
+      style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; font-size: 12px; color: #666;">
+      <p>Thank you for choosing Dallas Black Car Service. If you have any questions about your booking, please contact
+        our customer support.</p>
+      <p>214-897-8056 | info@dallaslimoandblackcars.com</p>
+    </footer>
   </div>
 </body>
+
 </html>

@@ -42,6 +42,7 @@
     .header-info {
       text-align: right;
     }
+
     .contact {
       font-size: 12px;
       color: #666;
@@ -161,7 +162,8 @@
       border-spacing: 0;
     }
 
-    .col-sm-3, .col-sm-9 {
+    .col-sm-3,
+    .col-sm-9 {
       display: table-cell;
       vertical-align: top;
       padding: 4px 10px;
@@ -172,14 +174,15 @@
       width: 25%;
     }
 
-    .no-top-padding{
+    .no-top-padding {
       padding-top: 0px !important;
     }
 
     .col-sm-9 {
       width: 75%;
     }
-    .section-light{
+
+    .section-light {
       margin-bottom: 8px !important;
     }
 
@@ -200,321 +203,331 @@
         <div style="text-align: right;">
           <div style="font-size: 12px; text-align: left;">
             <div style="font-weight: bold; font-size: 12px;">Dallas Limo And Black Cars Service</div>
-            <div>100 Crescent Court, 7th Floor</div>
-            <div>Dallas, TX 75201</div>
-            <div><strong>Phone:</strong>&nbsp;+1 (214) 305-8671</div>
+            <div>3008 Ross Ave</div>
+            <div>Suite 100</div>
+            <div>Dallas, TX 75204</div>
+            <div><strong>Phone:</strong>&nbsp;+1 214-897-8056</div>
             <div><strong>Email:</strong>&nbsp;info@dallaslimoandblackcars.com</div>
-           </div>
+          </div>
         </div>
       </div>
     </header>
 
     <div class="sections">
-    <h2 class="custom-large-heading section-light">Booking Confirmation #{{ $bookingData['booking_id'] ?? 'N/A' }}</h2>
-    <div class="section-content">
-      <div class="section">
-        <div style="text-align: right; font-size: 12px;">
-          <strong>Last Modified On:</strong> {{ now()->format('m/d/Y h:i A') }}
-        </div>
-        <div class="section-content">
-          {{-- Pickup Date --}}
-          @if(!empty($bookingData['pickup_date']))
-          <div class="row">
-            <div class="col-sm-3 no-top-padding"><strong class="mian-cc">Pick-up Date:</strong></div>
-            <div class="col-sm-9 no-top-padding">
-              {{ \Carbon\Carbon::parse($bookingData['pickup_date'])->format('m/d/Y - l') }}
+      <h2 class="custom-large-heading section-light">Booking Confirmation #{{ $bookingData['booking_id'] ?? 'N/A' }}
+      </h2>
+      <div class="section-content">
+        <div class="section">
+          <div style="text-align: right; font-size: 12px;">
+            <strong>Last Modified On:</strong> {{ now()->format('m/d/Y h:i A') }}
+          </div>
+          <div class="section-content">
+            {{-- Pickup Date --}}
+            @if(!empty($bookingData['pickup_date']))
+            <div class="row">
+              <div class="col-sm-3 no-top-padding"><strong class="mian-cc">Pick-up Date:</strong></div>
+              <div class="col-sm-9 no-top-padding">
+                {{ \Carbon\Carbon::parse($bookingData['pickup_date'])->format('m/d/Y - l') }}
+              </div>
             </div>
-          </div>
-          @endif
+            @endif
 
-          {{-- Pickup Time --}}
-          @if(!empty($bookingData['pickup_time']))
-          <div class="row">
-            <div class="col-sm-3"><strong class="mian-cc">Pick-up Time:</strong></div>
-            <div class="col-sm-9">{{ \Carbon\Carbon::parse($bookingData['pickup_time'])->format('h:i A') }}</div>
-          </div>
-          @endif
+            {{-- Pickup Time --}}
+            @if(!empty($bookingData['pickup_time']))
+            <div class="row">
+              <div class="col-sm-3"><strong class="mian-cc">Pick-up Time:</strong></div>
+              <div class="col-sm-9">{{ \Carbon\Carbon::parse($bookingData['pickup_time'])->format('h:i A') }}</div>
+            </div>
+            @endif
 
-          {{-- Return Date --}}
-          @if(!empty($bookingData['return_date']))
-          <div class="row">
-            <div class="col-sm-3"><strong class="mian-cc">Return Date:</strong></div>
-            <div class="col-sm-9">{{ \Carbon\Carbon::parse($bookingData['return_date'])->format('m/d/Y - l') }}</div>
-          </div>
-          @endif
+            {{-- Return Date --}}
+            @if(!empty($bookingData['return_date']))
+            <div class="row">
+              <div class="col-sm-3"><strong class="mian-cc">Return Date:</strong></div>
+              <div class="col-sm-9">{{ \Carbon\Carbon::parse($bookingData['return_date'])->format('m/d/Y - l') }}</div>
+            </div>
+            @endif
 
-          {{-- Return Time --}}
-          @if(!empty($bookingData['return_time']))
-          <div class="row">
-            <div class="col-sm-3"><strong class="mian-cc">Return Time:</strong></div>
-            <div class="col-sm-9">{{ \Carbon\Carbon::parse($bookingData['return_time'])->format('h:i A') }}</div>
-          </div>
-          @endif
+            {{-- Return Time --}}
+            @if(!empty($bookingData['return_time']))
+            <div class="row">
+              <div class="col-sm-3"><strong class="mian-cc">Return Time:</strong></div>
+              <div class="col-sm-9">{{ \Carbon\Carbon::parse($bookingData['return_time'])->format('h:i A') }}</div>
+            </div>
+            @endif
 
-          {{-- Hours --}}
-          @if($bookingData['hours'])
+            {{-- Hours --}}
+            @if($bookingData['hours'])
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Hours:</strong></div>
               <div class="col-sm-9">{{ $bookingData['hours'] ?? 'N/A' }}</div>
             </div>
-          @endif
+            @endif
 
-          {{-- Service Type --}}
-          <div class="row">
-            <div class="col-sm-3"><strong class="mian-cc">Service Type:</strong></div>
-            <div class="col-sm-9">
-              @if(!empty($bookingData['hours']))
+            {{-- Service Type --}}
+            <div class="row">
+              <div class="col-sm-3"><strong class="mian-cc">Service Type:</strong></div>
+              <div class="col-sm-9">
+                @if(!empty($bookingData['hours']))
                 Hourly/As Directed
-              @else
+                @else
                 To Airport
-              @endif
+                @endif
+              </div>
             </div>
-          </div>
 
-          {{-- Passenger --}}
-          @if(!empty($bookingData['passenger_name']))
-          <div class="row">
-            <div class="col-sm-3"><strong class="mian-cc">Passenger:</strong></div>
-            <div class="col-sm-9">{{ $bookingData['passenger_name'] }}</div>
-          </div>
-          @endif
+            {{-- Passenger --}}
+            @if(!empty($bookingData['passenger_name']))
+            <div class="row">
+              <div class="col-sm-3"><strong class="mian-cc">Passenger:</strong></div>
+              <div class="col-sm-9">{{ $bookingData['passenger_name'] }}</div>
+            </div>
+            @endif
 
-          {{-- Client Ref# --}}
-          @if(!empty($bookingData['booking_id']))
-          <div class="row">
-            <div class="col-sm-3"><strong class="mian-cc">Client Ref#:</strong></div>
-            <div class="col-sm-9">N/A</div>
-          </div>
-          @endif
+            {{-- Client Ref# --}}
+            @if(!empty($bookingData['booking_id']))
+            <div class="row">
+              <div class="col-sm-3"><strong class="mian-cc">Client Ref#:</strong></div>
+              <div class="col-sm-9">N/A</div>
+            </div>
+            @endif
 
-          {{-- Phone Number --}}
-          @if(!empty($bookingData['phone']))
-          <div class="row">
-            <div class="col-sm-3"><strong class="mian-cc">Phone Number:</strong></div>
-            <div class="col-sm-9">{{ $bookingData['phone'] }}</div>
-          </div>
-          @endif
+            {{-- Phone Number --}}
+            @if(!empty($bookingData['phone']))
+            <div class="row">
+              <div class="col-sm-3"><strong class="mian-cc">Phone Number:</strong></div>
+              <div class="col-sm-9">{{ $bookingData['phone'] }}</div>
+            </div>
+            @endif
 
-          {{-- No. of Pass --}}
-          @if(!empty($bookingData['passengers']))
-          <div class="row">
-            <div class="col-sm-3"><strong class="mian-cc">No. of Pass:</strong></div>
-            <div class="col-sm-9">{{ $bookingData['passengers'] }}</div>
-          </div>
-          @endif
+            {{-- No. of Pass --}}
+            @if(!empty($bookingData['passengers']))
+            <div class="row">
+              <div class="col-sm-3"><strong class="mian-cc">No. of Pass:</strong></div>
+              <div class="col-sm-9">{{ $bookingData['passengers'] }}</div>
+            </div>
+            @endif
 
-          {{-- Vehicle Type --}}
-          @if(!empty($bookingData['vehicle_type']))
-          <div class="row">
-            <div class="col-sm-3"><strong class="mian-cc">Vehicle Type:</strong></div>
-            <div class="col-sm-9">{{ $bookingData['vehicle_type'] }}</div>
-          </div>
-          @endif
+            {{-- Vehicle Type --}}
+            @if(!empty($bookingData['vehicle_type']))
+            <div class="row">
+              <div class="col-sm-3"><strong class="mian-cc">Vehicle Type:</strong></div>
+              <div class="col-sm-9">{{ $bookingData['vehicle_type'] }}</div>
+            </div>
+            @endif
 
-          {{-- Primary/Billing Contact --}}
-          @if(!empty($bookingData['booker_first_name']) || !empty($bookingData['booker_last_name']))
-          <div class="row">
-            <div class="col-sm-3"><strong class="mian-cc">Primary/Billing Contact:</strong></div>
-            <div class="col-sm-9">{{ trim($bookingData['booker_first_name'] . ' ' . $bookingData['booker_last_name']) }}</div>
-          </div>
-          @endif
+            {{-- Primary/Billing Contact --}}
+            @if(!empty($bookingData['booker_first_name']) || !empty($bookingData['booker_last_name']))
+            <div class="row">
+              <div class="col-sm-3"><strong class="mian-cc">Primary/Billing Contact:</strong></div>
+              <div class="col-sm-9">{{ trim($bookingData['booker_first_name'] . ' ' . $bookingData['booker_last_name'])
+                }}</div>
+            </div>
+            @endif
 
-          <div class="row">
-            <div class="col-sm-3"><strong class="mian-cc">Passenger Email:</strong></div>
-            <div class="col-sm-9">{{ $bookingData['email'] }}</div>
-          </div>
+            <div class="row">
+              <div class="col-sm-3"><strong class="mian-cc">Passenger Email:</strong></div>
+              <div class="col-sm-9">{{ $bookingData['email'] }}</div>
+            </div>
 
-          {{-- Payment Method --}}
-          <div class="row">
-            <div class="col-sm-3"><strong class="mian-cc">Payment Method:</strong></div>
-            <div class="col-sm-9">Credit Card</div>
-          </div>
-        </div>
-      </div>
-
-      {{-- Booker Info (if booking for others) --}}
-      @if(!empty($bookingData['isBookingForOthers']) && ($bookingData['booker_first_name'] || $bookingData['booker_last_name'] || $bookingData['booker_email'] || $bookingData['booker_number']))
-      <div class="sections section-light">
-        <h2>Booker Information</h2>
-        <div class="section-content">
-          @if($bookingData['booker_first_name'] || $bookingData['booker_last_name'])
-          <div class="row">
-            <div class="col-sm-3 no-top-padding"><strong class="mian-cc">Booker Name:</strong></div>
-            <div class="col-sm-9 no-top-padding">{{ trim($bookingData['booker_first_name'] . ' ' . $bookingData['booker_last_name']) }}</div>
-          </div>
-          @endif
-
-          @if($bookingData['booker_email'])
-          <div class="row">
-            <div class="col-sm-3"><strong class="mian-cc">Booker Email:</strong></div>
-            <div class="col-sm-9">{{ $bookingData['booker_email'] }}</div>
-          </div>
-          @endif
-
-          @if($bookingData['booker_number'])
-          <div class="row">
-            <div class="col-sm-3"><strong class="mian-cc">Booker Phone:</strong></div>
-            <div class="col-sm-9">{{ $bookingData['booker_number'] }}</div>
-          </div>
-          @endif
-        </div>
-      </div>
-      @else
-      <div class="sections section-light">
-        <h2>Booker Information:</h2>
-        <div class="section-content">
-          <div class="row">
-            <div class="col-sm-12 no-top-padding">
-              ******  Information not provided  ******
+            {{-- Payment Method --}}
+            <div class="row">
+              <div class="col-sm-3"><strong class="mian-cc">Payment Method:</strong></div>
+              <div class="col-sm-9">Credit Card</div>
             </div>
           </div>
         </div>
-      </div>
-      @endif
 
-      {{-- Trip Routing Information --}}
-      @if(!empty($bookingData['pickup_location']) || !empty($bookingData['dropoff_location']) || !empty($bookingData['hours']))
-      <div class="sections section-light">
-        <h2>Trip Routing Information:</h2>
-        <div class="section-content">
-          @if(!empty($bookingData['pickup_location']))
-          <div class="row">
-            <div class="col-sm-3 no-top-padding"><strong class="mian-cc">Pick-up Location:</strong></div>
-            <div class="col-sm-9 no-top-padding">{{ $bookingData['pickup_location'] }}</div>
-          </div>
-          @endif
+        {{-- Booker Info (if booking for others) --}}
+        @if(!empty($bookingData['isBookingForOthers']) && ($bookingData['booker_first_name'] ||
+        $bookingData['booker_last_name'] || $bookingData['booker_email'] || $bookingData['booker_number']))
+        <div class="sections section-light">
+          <h2>Booker Information</h2>
+          <div class="section-content">
+            @if($bookingData['booker_first_name'] || $bookingData['booker_last_name'])
+            <div class="row">
+              <div class="col-sm-3 no-top-padding"><strong class="mian-cc">Booker Name:</strong></div>
+              <div class="col-sm-9 no-top-padding">{{ trim($bookingData['booker_first_name'] . ' ' .
+                $bookingData['booker_last_name']) }}</div>
+            </div>
+            @endif
 
-          @if(!empty($bookingData['hours']))
-          <div class="row">
-            <div class="col-sm-3"><strong class="mian-cc">Stop Location:</strong></div>
-            <div class="col-sm-9">STOP AS DIRECTED</div>
-          </div>
-          @endif
+            @if($bookingData['booker_email'])
+            <div class="row">
+              <div class="col-sm-3"><strong class="mian-cc">Booker Email:</strong></div>
+              <div class="col-sm-9">{{ $bookingData['booker_email'] }}</div>
+            </div>
+            @endif
 
-          @if(!empty($bookingData['dropoff_location']))
-          <div class="row">
-            <div class="col-sm-3"><strong class="mian-cc">Drop-off Location:</strong></div>
-            <div class="col-sm-9">{{ $bookingData['dropoff_location'] }}</div>
+            @if($bookingData['booker_number'])
+            <div class="row">
+              <div class="col-sm-3"><strong class="mian-cc">Booker Phone:</strong></div>
+              <div class="col-sm-9">{{ $bookingData['booker_number'] }}</div>
+            </div>
+            @endif
           </div>
-          @endif
         </div>
-      </div>
-      @else
-      <div class="sections section-light">
-        <h2>Trip Routing Information:</h2>
-        <div class="section-content">
-          <div class="row">
-            <div class="col-sm-12 no-top-padding">
-              ******  Information not provided  ******
+        @else
+        <div class="sections section-light">
+          <h2>Booker Information:</h2>
+          <div class="section-content">
+            <div class="row">
+              <div class="col-sm-12 no-top-padding">
+                ****** Information not provided ******
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      @endif
+        @endif
 
-      @if($bookingData['flight_details'] && $bookingData['flight_details']['flight_number'] && $bookingData['flight_details']['pickup_flight_details'])
-      <div class="sections section-light">
-        <h2>Flight/Airport Information</h2>
-        <div class="section-content">
-          @if($bookingData['flight_details']['flight_number'])
-          <div class="row">
-            <div class="col-sm-3 no-top-padding"><strong class="mian-cc">Flight Number:</strong></div>
-            <div class="col-sm-9 no-top-padding">{{ $bookingData['flight_details']['flight_number'] }}</div>
-          </div>
-          @endif
-          @if($bookingData['flight_details']['pickup_flight_details'])
-          <div class="row">
-            <div class="col-sm-3"><strong class="mian-cc">Pickup Flight Details:</strong></div>
-            <div class="col-sm-9">{{ $bookingData['flight_details']['pickup_flight_details'] }}</div>
-          </div>
-          @endif
-          <div class="row">
-            <div class="col-sm-3"><strong class="mian-cc">Meet Option:</strong></div>
-            <div class="col-sm-9">{{ $bookingData['flight_details']['meet_option'] ?? 'Not Specified!' }}</div>
+        {{-- Trip Routing Information --}}
+        @if(!empty($bookingData['pickup_location']) || !empty($bookingData['dropoff_location']) ||
+        !empty($bookingData['hours']))
+        <div class="sections section-light">
+          <h2>Trip Routing Information:</h2>
+          <div class="section-content">
+            @if(!empty($bookingData['pickup_location']))
+            <div class="row">
+              <div class="col-sm-3 no-top-padding"><strong class="mian-cc">Pick-up Location:</strong></div>
+              <div class="col-sm-9 no-top-padding">{{ $bookingData['pickup_location'] }}</div>
+            </div>
+            @endif
+
+            @if(!empty($bookingData['hours']))
+            <div class="row">
+              <div class="col-sm-3"><strong class="mian-cc">Stop Location:</strong></div>
+              <div class="col-sm-9">STOP AS DIRECTED</div>
+            </div>
+            @endif
+
+            @if(!empty($bookingData['dropoff_location']))
+            <div class="row">
+              <div class="col-sm-3"><strong class="mian-cc">Drop-off Location:</strong></div>
+              <div class="col-sm-9">{{ $bookingData['dropoff_location'] }}</div>
+            </div>
+            @endif
           </div>
         </div>
-      </div>
-      @else
-      <div class="sections section-light">
-        <h2>Flight/Airport Information:</h2>
-        <div class="section-content">
-          <div class="row">
-            <div class="col-sm-12 no-top-padding">
-              ******  Information not provided  ******
+        @else
+        <div class="sections section-light">
+          <h2>Trip Routing Information:</h2>
+          <div class="section-content">
+            <div class="row">
+              <div class="col-sm-12 no-top-padding">
+                ****** Information not provided ******
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      @endif
+        @endif
 
-      {{-- Notes / Comments --}}
-      <div class="sections section-light">
-        <h2>Notes/Comments:</h2>
-        <div class="section-content">
-          <div class="row">
-            <div class="col-sm-12 no-top-padding">
-              ******  {{ $bookingData['special_instructions'] ? $bookingData['special_instructions'] : 'Information not provided' }}  ******
+        @if($bookingData['flight_details'] && $bookingData['flight_details']['flight_number'] &&
+        $bookingData['flight_details']['pickup_flight_details'])
+        <div class="sections section-light">
+          <h2>Flight/Airport Information</h2>
+          <div class="section-content">
+            @if($bookingData['flight_details']['flight_number'])
+            <div class="row">
+              <div class="col-sm-3 no-top-padding"><strong class="mian-cc">Flight Number:</strong></div>
+              <div class="col-sm-9 no-top-padding">{{ $bookingData['flight_details']['flight_number'] }}</div>
+            </div>
+            @endif
+            @if($bookingData['flight_details']['pickup_flight_details'])
+            <div class="row">
+              <div class="col-sm-3"><strong class="mian-cc">Pickup Flight Details:</strong></div>
+              <div class="col-sm-9">{{ $bookingData['flight_details']['pickup_flight_details'] }}</div>
+            </div>
+            @endif
+            <div class="row">
+              <div class="col-sm-3"><strong class="mian-cc">Meet Option:</strong></div>
+              <div class="col-sm-9">{{ $bookingData['flight_details']['meet_option'] ?? 'Not Specified!' }}</div>
             </div>
           </div>
         </div>
-      </div>
-
-      {{-- Charges & Fees --}}
-      @if(isset($bookingData['total_amount']))
-      <div class="sections section-light">
-        <h2>Charges & Fees:</h2>
-        <div class="section-content">
-          {{-- Fare --}}
-          <div class="row">
-            <div class="col-sm-3 no-top-padding"><strong class="mian-cc">Fare (All inclusive):</strong></div>
-            <div class="col-sm-9 no-top-padding"><strong>${{ number_format($bookingData['total_amount'], 2) }}</strong></div>
-          </div>
-
-          {{-- Other Charges --}}
-          <div class="row">
-            <div class="col-sm-3"><strong class="mian-cc">Other charges:</strong></div>
-            <div class="col-sm-9"><strong>$0.00</strong></div>
-          </div>
-
-          {{-- Payment Deposits --}}
-          <div class="row" style="color: #28a745;">
-            <div class="col-sm-3"><strong class="mian-cc">Payment/Deposits:</strong></div>
-            <div class="col-sm-9"><strong>$0.00</strong></div>
-          </div>
-
-          {{-- Total Amount --}}
-          <div class="row" style="color: red;">
-            <div class="col-sm-3"><strong class="mian-cc">Total Due:</strong></div>
-            <div class="col-sm-9"><strong>${{ number_format($bookingData['total_amount'], 2) }}</strong></div>
-          </div>
-        </div>
-      </div>
-      @else
-      <div class="sections section-light">
-        <h2>Charges & Fees:</h2>
-        <div class="section-content">
-          <div class="row">
-            <div class="col-sm-12 no-top-padding">
-              ******  Information not provided  ******
+        @else
+        <div class="sections section-light">
+          <h2>Flight/Airport Information:</h2>
+          <div class="section-content">
+            <div class="row">
+              <div class="col-sm-12 no-top-padding">
+                ****** Information not provided ******
+              </div>
             </div>
           </div>
         </div>
+        @endif
+
+        {{-- Notes / Comments --}}
+        <div class="sections section-light">
+          <h2>Notes/Comments:</h2>
+          <div class="section-content">
+            <div class="row">
+              <div class="col-sm-12 no-top-padding">
+                ****** {{ $bookingData['special_instructions'] ? $bookingData['special_instructions'] : 'Information not
+                provided' }} ******
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {{-- Charges & Fees --}}
+        @if(isset($bookingData['total_amount']))
+        <div class="sections section-light">
+          <h2>Charges & Fees:</h2>
+          <div class="section-content">
+            {{-- Fare --}}
+            <div class="row">
+              <div class="col-sm-3 no-top-padding"><strong class="mian-cc">Fare (All inclusive):</strong></div>
+              <div class="col-sm-9 no-top-padding"><strong>${{ number_format($bookingData['total_amount'], 2)
+                  }}</strong></div>
+            </div>
+
+            {{-- Other Charges --}}
+            <div class="row">
+              <div class="col-sm-3"><strong class="mian-cc">Other charges:</strong></div>
+              <div class="col-sm-9"><strong>$0.00</strong></div>
+            </div>
+
+            {{-- Payment Deposits --}}
+            <div class="row" style="color: #28a745;">
+              <div class="col-sm-3"><strong class="mian-cc">Payment/Deposits:</strong></div>
+              <div class="col-sm-9"><strong>$0.00</strong></div>
+            </div>
+
+            {{-- Total Amount --}}
+            <div class="row" style="color: red;">
+              <div class="col-sm-3"><strong class="mian-cc">Total Due:</strong></div>
+              <div class="col-sm-9"><strong>${{ number_format($bookingData['total_amount'], 2) }}</strong></div>
+            </div>
+          </div>
+        </div>
+        @else
+        <div class="sections section-light">
+          <h2>Charges & Fees:</h2>
+          <div class="section-content">
+            <div class="row">
+              <div class="col-sm-12 no-top-padding">
+                ****** Information not provided ******
+              </div>
+            </div>
+          </div>
+        </div>
+        @endif
       </div>
-      @endif
     </div>
-  </div>
-  <div class="sections" style="page-break-before: always;">
+    <div class="sections" style="page-break-before: always;">
       <h2 class="custom-large-heading">Cancellation Policy: Cancellation, Deposit & Service Policy</h2>
       <div class="section-content">
         <p>
-          Dallas Limo And Black Cars Service strives to provide excellent service while maintaining a clear, fair, and simple cancellation, deposit, and service policy. By booking with us, you agree to the following terms.</p>
+          Dallas Limo And Black Cars Service strives to provide excellent service while maintaining a clear, fair, and
+          simple cancellation, deposit, and service policy. By booking with us, you agree to the following terms.</p>
         <div class="row">
           <div class="col-sm-3">
-          <strong class="mian-cc">Contact:</strong>
+            <strong class="mian-cc">Contact:</strong>
           </div>
           <div class="col-sm-9">
-          Email: info@dallaslimoandblackcars.com<br>
-          Phone: +1 (214) 305-8671
+            Email: info@dallaslimoandblackcars.com<br>
+            Phone: +1 214-897-8056
           </div>
         </div>
 
@@ -523,7 +536,8 @@
     <div class="sections section-light">
       <h2>1. General Cancellation Policy:</h2>
       <div class="section-content">
-        <p> Cancellations must occur during the stated timeframes for each vehicle type. Cancellations outside these periods will result in full charges for the reserved services.</p>
+        <p> Cancellations must occur during the stated timeframes for each vehicle type. Cancellations outside these
+          periods will result in full charges for the reserved services.</p>
 
 
 
@@ -533,44 +547,44 @@
       <h2>2. Vehicle-Specific Cancellation Policy:</h2>
       <div class="section-content">
         <div class="row">
-        <div class="col-sm-3 no-top-padding">
-          <strong>Luxury Sedans:</strong>
-        </div>
-        <div class="col-sm-9 no-top-padding">
-          Cancel at least 24 hours prior. Late cancellations: 100% charge.
-        </div>
-        </div>
-        <div class="row">
-        <div class="col-sm-3">
-          <strong>SUVs:</strong>
-        </div>
-        <div class="col-sm-9">
-          Cancel at least 24 hours prior. Late cancellations: 100% charge.
-        </div>
+          <div class="col-sm-3 no-top-padding">
+            <strong>Luxury Sedans:</strong>
+          </div>
+          <div class="col-sm-9 no-top-padding">
+            Cancel at least 24 hours prior. Late cancellations: 100% charge.
+          </div>
         </div>
         <div class="row">
-        <div class="col-sm-3">
-          <strong>Luxury Vans:</strong>
-        </div>
-        <div class="col-sm-9">
-          Cancel at least 72 hours prior. Late cancellations: Full charge applies.
-        </div>
-        </div>
-        <div class="row">
-        <div class="col-sm-3">
-          <strong>Mini Buses:</strong>
-        </div>
-        <div class="col-sm-9">
-          Cancel at least 7 days prior. Late cancellations: Full charge applies.
-        </div>
+          <div class="col-sm-3">
+            <strong>SUVs:</strong>
+          </div>
+          <div class="col-sm-9">
+            Cancel at least 24 hours prior. Late cancellations: 100% charge.
+          </div>
         </div>
         <div class="row">
-        <div class="col-sm-3">
-          <strong>Motor Coaches:</strong>
+          <div class="col-sm-3">
+            <strong>Luxury Vans:</strong>
+          </div>
+          <div class="col-sm-9">
+            Cancel at least 72 hours prior. Late cancellations: Full charge applies.
+          </div>
         </div>
-        <div class="col-sm-9">
-          Cancel at least 7 days prior. Late cancellations: Full charge including any deposits.
+        <div class="row">
+          <div class="col-sm-3">
+            <strong>Mini Buses:</strong>
+          </div>
+          <div class="col-sm-9">
+            Cancel at least 7 days prior. Late cancellations: Full charge applies.
+          </div>
         </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <strong>Motor Coaches:</strong>
+          </div>
+          <div class="col-sm-9">
+            Cancel at least 7 days prior. Late cancellations: Full charge including any deposits.
+          </div>
         </div>
       </div>
     </div>
@@ -580,7 +594,7 @@
       <div class="section-content">
         <p>
 
-          - 50% non-refundable deposit due within 24 hours of signing the agreement.<br>
+          - 50% non-refundable deposit due shortly of signing the agreement.<br>
           - Final payment due at least 7 days before the reservation date.<br>
           - Written notice required for cancellations as per policy.<br>
           - If proper notice is not given, all payments are non-refundable.<br>
@@ -613,14 +627,17 @@
       <h2>6. Force Majeure:</h2>
       <div class="section-content">
         <p>
-          We are not liable for interruptions or cancellations due to events beyond our control (e.g., weather, disasters, terrorism, mechanical issues). We will attempt to reschedule or refund (minus non-refundable costs).</p>
+          We are not liable for interruptions or cancellations due to events beyond our control (e.g., weather,
+          disasters, terrorism, mechanical issues). We will attempt to reschedule or refund (minus non-refundable
+          costs).</p>
       </div>
     </div>
     <div class="sections section-light">
       <h2>7. Indemnification:</h2>
       <div class="section-content">
         <p>
-          By booking, you agree to indemnify and hold Dallas Limo And Black Cars Service harmless for any claims arising from:<br>
+          By booking, you agree to indemnify and hold Dallas Limo And Black Cars Service harmless for any claims arising
+          from:<br>
           - Your use of services<br>
           - Policy violations<br>
           - Damage caused by you or your party</p>
@@ -632,20 +649,20 @@
       <h2>8. Wait Time Policy:</h2>
       <div class="section-content">
         <div class="row">
-        <div class="col-sm-3 no-top-padding">
-           <strong>Airport Transfers:</strong>
-        </div>
-        <div class="col-sm-9 no-top-padding">
-          30-minute grace period (domestic), 60 minutes (international). After that: $15 per 15 minutes.
-        </div>
+          <div class="col-sm-3 no-top-padding">
+            <strong>Airport Transfers:</strong>
+          </div>
+          <div class="col-sm-9 no-top-padding">
+            30-minute grace period (domestic), 60 minutes (international). After that: $15 per 15 minutes.
+          </div>
         </div>
         <div class="row">
-        <div class="col-sm-3">
-          <strong>Point-to-Point & Hourly:</strong>
-        </div>
-        <div class="col-sm-9">
-          15-minute grace period. After that: $15 per 15 minutes.
-        </div>
+          <div class="col-sm-3">
+            <strong>Point-to-Point & Hourly:</strong>
+          </div>
+          <div class="col-sm-9">
+            15-minute grace period. After that: $15 per 15 minutes.
+          </div>
         </div>
       </div>
     </div>
@@ -674,18 +691,21 @@
           - No refunds for Motor Coaches, Mini Buses, or Special Events after cancellation window closes.</p>
       </div>
     </div>
+    @include('pdfs.partials.fifa-2026-event-policy')
     <div class="sections section-light">
       <h2>Thank you for choosing Dallas Limo And Black Cars Service.</h2>
       <div class="section-content">
         <p>
           We are committed to fair and professional service.<br>
-          Contact us: info@dallaslimoandblackcars.com | +1 (214) 305-8671</p>
+          Contact us: info@dallaslimoandblackcars.com | +1 214-897-8056</p>
       </div>
     </div>
 
 
-    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; font-size: 12px; color: #666;">
-      <p>Thank you for choosing Dallas Black Car Service. If you have any questions about your booking, please contact our customer support.</p>
+    <footer
+      style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; font-size: 12px; color: #666;">
+      <p>Thank you for choosing Dallas Black Car Service. If you have any questions about your booking, please contact
+        our customer support.</p>
       <p>214-897-8056 | info@dallaslimoandblackcars.com</p>
     </footer>
   </div>

@@ -82,7 +82,7 @@
                 <p style="margin: 0 0 8px;"><strong>What happens next?</strong></p>
                 <ul style="margin: 0; padding-left: 20px;">
                     <li style="margin: 4px 0;">Our team will review your message</li>
-                    <li style="margin: 4px 0;">We'll respond to your email within 24 hours</li>
+                    <li style="margin: 4px 0;">We'll respond to your email shortly</li>
                     <li style="margin: 4px 0;">You can also reach us at <strong>+1 214-897-8056</strong></li>
                 </ul>
             </div>
