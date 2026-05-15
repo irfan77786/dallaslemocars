@@ -28,3 +28,4 @@ artisan
 *.zip
 public/new_assets/css/style.css
 /mailer
+/public/pdfs

@@ -45,7 +45,14 @@ class AuthenticatedSessionController extends Controller
             $request->session()->regenerate();
         }
 
-        return redirect()->intended($login_type == 'booking' ? route('submit.passenger.info', absolute: false) : route('dashboard', absolute: false));
+        $isBookingFlow = $login_type === 'booking';
+        $bookingStepUrl = route('submit.passenger.info', absolute: false);
+
+        if ($isBookingFlow) {
+            return redirect()->to($bookingStepUrl);
+        }
+
+        return redirect()->intended(route('dashboard', absolute: false));
     }
 
     /**

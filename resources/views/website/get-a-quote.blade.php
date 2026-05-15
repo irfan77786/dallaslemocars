@@ -114,17 +114,39 @@
                                     @enderror
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-4 mb-15">
-                                    <label for="pickup_address" class="form-label mb-1 fw-medium">Pickup Address</label>
-                                    <input type="text" class="form-control @error('pickup_address') is-invalid @enderror" id="pickup_address" name="pickup_address" placeholder="Street, City, State" required>
+                                    <label for="pickup-location_quote" class="form-label mb-1 fw-medium">Pickup Address</label>
+                                    <input type="hidden" id="is-airport_quote" value="0" tabindex="-1" aria-hidden="true">
+                                    <div class="position-relative">
+                                        <input type="text"
+                                            class="form-control @error('pickup_address') is-invalid @enderror"
+                                            id="pickup-location_quote"
+                                            name="pickup_address"
+                                            value="{{ old('pickup_address') }}"
+                                            placeholder=" "
+                                            autocomplete="off"
+                                            required>
+                                        <div id="pickup-suggestions_quote" class="location-suggestions"></div>
+                                    </div>
                                     @error('pickup_address')
-                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-4 mb-15">
-                                    <label for="dropoff_address" class="form-label mb-1 fw-medium">Drop Off Address</label>
-                                    <input type="text" class="form-control @error('dropoff_address') is-invalid @enderror" id="dropoff_address" name="dropoff_address" placeholder="Street, City, State" required>
+                                    <label for="dropoff-location_quote" class="form-label mb-1 fw-medium">Drop Off Address</label>
+                                    <input type="hidden" id="is-airport-dropoff_quote" value="0" tabindex="-1" aria-hidden="true">
+                                    <div class="position-relative">
+                                        <input type="text"
+                                            class="form-control @error('dropoff_address') is-invalid @enderror"
+                                            id="dropoff-location_quote"
+                                            name="dropoff_address"
+                                            value="{{ old('dropoff_address') }}"
+                                            placeholder=" "
+                                            autocomplete="off"
+                                            required>
+                                        <div id="dropoff-suggestions_quote" class="location-suggestions"></div>
+                                    </div>
                                     @error('dropoff_address')
-                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-4 mb-15 d-none d-md-flex d-lg-none"></div>

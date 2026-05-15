@@ -727,6 +727,18 @@ function initAutocomplete() {
         },
     );
 
+    // Get a Quote page (same Places API behavior as banner/search)
+    setupCustomAutocomplete(
+        "pickup-location_quote",
+        "pickup-suggestions_quote",
+        "is-airport_quote",
+    );
+    setupCustomAutocomplete(
+        "dropoff-location_quote",
+        "dropoff-suggestions_quote",
+        "is-airport-dropoff_quote",
+    );
+
     // Add window resize listener for map width if needed
     if (typeof updateMapWidth === "function") {
         window.addEventListener("resize", updateMapWidth);

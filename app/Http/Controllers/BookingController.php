@@ -81,6 +81,10 @@ class BookingController extends Controller
             'final_price' => $final,
         ]);
 
+        if (auth()->check()) {
+            return redirect()->route('submit.passenger.info');
+        }
+
         return view('booking.user_login', [
             'step' => 3,
             'seo' => [
@@ -1127,7 +1131,7 @@ public function completeBook(Request $request)
             'booker_number' => $booker_number,
             'booker_email' => $booker_email,
             'passenger_name' => ($first_name . ' ' . $last_name),
-            'email' => $email,
+            'email' => $passenger->email,
             'phone' => $number,
             'pickup_location' => $pickup_location,
             'dropoff_location' => $dropoff_location,
