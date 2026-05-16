@@ -457,14 +457,14 @@ $tabSuffix = $id_suffix ?? '';
         background: #b4c0cc;
     }
 
-    /* Date/time: override asymmetric .form-control padding so value can sit vertically centered */
+    /* Date/time: clear floating label, balanced vertical padding (iOS + all devices) */
     .search-tab-wrap .floating-bordered-input input[type="date"].form-control,
     .search-tab-wrap .floating-bordered-input input[type="time"].form-control {
-        margin-top: 0 !important;
-        padding: 0 !important;
-        min-height: 46px;
-        height: 46px;
-        line-height: 46px;
+        margin-top: 10px !important;
+        padding: 6px 0 12px !important;
+        height: auto;
+        min-height: 40px;
+        line-height: 1.35;
         text-align: left;
         direction: ltr;
         position: relative;
@@ -473,15 +473,21 @@ $tabSuffix = $id_suffix ?? '';
         appearance: none;
     }
 
+    .search-tab-wrap .floating-bordered-input:has(input[type="date"]) .input-icon-left,
+    .search-tab-wrap .floating-bordered-input:has(input[type="time"]) .input-icon-left {
+        top: calc(10px + 14px);
+        transform: translateY(-50%);
+    }
+
     .search-tab-wrap input[type="date"]::-webkit-datetime-edit,
     .search-tab-wrap input[type="time"]::-webkit-datetime-edit {
         text-align: left;
-        display: block;
+        display: inline-block;
         min-width: 0;
         width: 100%;
         padding: 0;
         margin: 0;
-        line-height: 1.2;
+        line-height: 1.35;
     }
 
     .search-tab-wrap input[type="date"]::-webkit-datetime-edit-fields-wrapper,
@@ -498,31 +504,24 @@ $tabSuffix = $id_suffix ?? '';
         padding: 0;
     }
 
-    /* iPhone / iPad Safari: WebKit datetime text sits low without explicit vertical centering */
     @supports (-webkit-touch-callout: none) {
         .search-tab-wrap .floating-bordered-input input[type="date"].form-control,
         .search-tab-wrap .floating-bordered-input input[type="time"].form-control {
-            display: flex;
-            align-items: center;
-            line-height: normal;
+            display: block;
+            padding-top: 8px !important;
+            padding-bottom: 12px !important;
         }
 
         .search-tab-wrap input[type="date"]::-webkit-datetime-edit,
         .search-tab-wrap input[type="time"]::-webkit-datetime-edit {
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            line-height: 1.25;
+            position: static;
+            transform: none;
         }
 
         .search-tab-wrap input[type="date"]::-webkit-datetime-edit-fields-wrapper,
         .search-tab-wrap input[type="time"]::-webkit-datetime-edit-fields-wrapper {
             display: inline-flex;
             align-items: center;
-            vertical-align: middle;
         }
 
         .search-tab-wrap input[type="date"]::-webkit-datetime-edit-day-field,
@@ -533,7 +532,7 @@ $tabSuffix = $id_suffix ?? '';
         .search-tab-wrap input[type="time"]::-webkit-datetime-edit-ampm-field {
             padding: 0;
             margin: 0;
-            line-height: 1.25;
+            line-height: 1.35;
         }
     }
 

@@ -375,43 +375,51 @@ div.search-tab-wrap ul.nav-tabs li.nav-item a.nav-link:focus {
   line-height: 1.45;
 }
 
-/* Date/time: symmetric box so values center vertically (especially iOS Safari) */
+/* Date/time: match text-field offset so value clears floating label, then center in content area */
 .floating-bordered-input input[type="date"].form-control,
 .floating-bordered-input input[type="time"].form-control {
-  margin-top: 0 !important;
-  padding: 0 !important;
-  height: 46px;
-  min-height: 46px;
-  line-height: 46px;
+  margin-top: 10px !important;
+  padding: 6px 0 12px !important;
+  height: auto;
+  min-height: 40px;
+  line-height: 1.35;
   position: relative;
   -webkit-appearance: none;
   appearance: none;
 }
 
+/* Calendar/clock icon: align with value row (below label), not geometric center of box */
+.floating-bordered-input:has(input[type="date"]) .input-icon-left,
+.floating-bordered-input:has(input[type="time"]) .input-icon-left {
+  top: calc(10px + 14px);
+  transform: translateY(-50%);
+}
+
 @supports (-webkit-touch-callout: none) {
   .floating-bordered-input input[type="date"].form-control,
   .floating-bordered-input input[type="time"].form-control {
-    display: flex;
-    align-items: center;
-    line-height: normal;
+    display: block;
+    padding-top: 8px !important;
+    padding-bottom: 12px !important;
+    line-height: 1.35;
   }
 
   .floating-bordered-input input[type="date"]::-webkit-datetime-edit,
   .floating-bordered-input input[type="time"]::-webkit-datetime-edit {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    position: static;
+    transform: none;
+    display: inline-block;
+    width: 100%;
     padding: 0;
     margin: 0;
-    line-height: 1.25;
+    line-height: 1.35;
   }
 
   .floating-bordered-input input[type="date"]::-webkit-datetime-edit-fields-wrapper,
   .floating-bordered-input input[type="time"]::-webkit-datetime-edit-fields-wrapper {
     display: inline-flex;
     align-items: center;
+    line-height: 1.35;
   }
 }
 
