@@ -457,33 +457,89 @@ $tabSuffix = $id_suffix ?? '';
         background: #b4c0cc;
     }
 
-    /* iOS Safari: native date/time edit is centered; align value to the left (match Android/desktop) */
-    .search-tab-wrap input[type="date"],
-    .search-tab-wrap input[type="time"] {
+    /* Date/time: override asymmetric .form-control padding so value can sit vertically centered */
+    .search-tab-wrap .floating-bordered-input input[type="date"].form-control,
+    .search-tab-wrap .floating-bordered-input input[type="time"].form-control {
+        margin-top: 0 !important;
+        padding: 0 !important;
+        min-height: 46px;
+        height: 46px;
+        line-height: 46px;
         text-align: left;
         direction: ltr;
+        position: relative;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+        appearance: none;
     }
+
     .search-tab-wrap input[type="date"]::-webkit-datetime-edit,
     .search-tab-wrap input[type="time"]::-webkit-datetime-edit {
         text-align: left;
-        display: inline-block;
+        display: block;
         min-width: 0;
         width: 100%;
         padding: 0;
+        margin: 0;
+        line-height: 1.2;
     }
+
     .search-tab-wrap input[type="date"]::-webkit-datetime-edit-fields-wrapper,
     .search-tab-wrap input[type="time"]::-webkit-datetime-edit-fields-wrapper {
         text-align: left;
+        padding: 0;
+        margin: 0;
     }
+
     .search-tab-wrap input[type="date"]::-webkit-date-and-time-value,
     .search-tab-wrap input[type="time"]::-webkit-date-and-time-value {
         text-align: left;
         margin: 0;
+        padding: 0;
+    }
+
+    /* iPhone / iPad Safari: WebKit datetime text sits low without explicit vertical centering */
+    @supports (-webkit-touch-callout: none) {
+        .search-tab-wrap .floating-bordered-input input[type="date"].form-control,
+        .search-tab-wrap .floating-bordered-input input[type="time"].form-control {
+            display: flex;
+            align-items: center;
+            line-height: normal;
+        }
+
+        .search-tab-wrap input[type="date"]::-webkit-datetime-edit,
+        .search-tab-wrap input[type="time"]::-webkit-datetime-edit {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            line-height: 1.25;
+        }
+
+        .search-tab-wrap input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+        .search-tab-wrap input[type="time"]::-webkit-datetime-edit-fields-wrapper {
+            display: inline-flex;
+            align-items: center;
+            vertical-align: middle;
+        }
+
+        .search-tab-wrap input[type="date"]::-webkit-datetime-edit-day-field,
+        .search-tab-wrap input[type="date"]::-webkit-datetime-edit-month-field,
+        .search-tab-wrap input[type="date"]::-webkit-datetime-edit-year-field,
+        .search-tab-wrap input[type="time"]::-webkit-datetime-edit-hour-field,
+        .search-tab-wrap input[type="time"]::-webkit-datetime-edit-minute-field,
+        .search-tab-wrap input[type="time"]::-webkit-datetime-edit-ampm-field {
+            padding: 0;
+            margin: 0;
+            line-height: 1.25;
+        }
     }
 
     /* Hide native date/time picker icon (2nd icon) */
-    input[type="date"]::-webkit-calendar-picker-indicator,
-    input[type="time"]::-webkit-calendar-picker-indicator {
+    .search-tab-wrap input[type="date"]::-webkit-calendar-picker-indicator,
+    .search-tab-wrap input[type="time"]::-webkit-calendar-picker-indicator {
         display: none !important;
         -webkit-appearance: none;
     }

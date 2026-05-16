@@ -375,6 +375,46 @@ div.search-tab-wrap ul.nav-tabs li.nav-item a.nav-link:focus {
   line-height: 1.45;
 }
 
+/* Date/time: symmetric box so values center vertically (especially iOS Safari) */
+.floating-bordered-input input[type="date"].form-control,
+.floating-bordered-input input[type="time"].form-control {
+  margin-top: 0 !important;
+  padding: 0 !important;
+  height: 46px;
+  min-height: 46px;
+  line-height: 46px;
+  position: relative;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .floating-bordered-input input[type="date"].form-control,
+  .floating-bordered-input input[type="time"].form-control {
+    display: flex;
+    align-items: center;
+    line-height: normal;
+  }
+
+  .floating-bordered-input input[type="date"]::-webkit-datetime-edit,
+  .floating-bordered-input input[type="time"]::-webkit-datetime-edit {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0;
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  .floating-bordered-input input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+  .floating-bordered-input input[type="time"]::-webkit-datetime-edit-fields-wrapper {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
 .floating-bordered-input .input-icon-left,
 .floating-bordered-input .input-icon-right {
   position: absolute;
