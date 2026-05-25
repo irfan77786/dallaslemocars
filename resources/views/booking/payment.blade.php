@@ -93,6 +93,9 @@
       footer.footer.bg-blue {
     display: none !important;
 }
+    .mobile-card-methods .payment-methods {
+        width: 55% !important;
+    }
 
         .container.step-wrapper.md-py-3 {
     display: none !important;

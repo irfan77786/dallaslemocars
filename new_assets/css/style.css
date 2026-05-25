@@ -5340,6 +5340,8 @@ li {
     font-size: 1rem;
     min-width: 165px;
   }
+ 
+
 }
 @media (max-width: 767px) {
   .btn {
@@ -6273,3 +6275,15 @@ li {
     background-color: #e52c43 !important;
     border-color: #e52c43 !important;
 }
+
+@media (min-width: 767px) {
+ 
+  .logo {
+    max-width: 210px;
+}
+
+
+}
+
+
+
