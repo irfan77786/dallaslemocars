@@ -77,7 +77,7 @@
     <header class="py-15 py-lg-20">
         <div class="ah-container position-relative">
             <div class="row align-items-center">
-                <div class="col-6 col-lg-3">
+                <div class="col-8 col-lg-3">
                     <div class="logo">
                         <a href="/">
                             <img src="{{ asset('new_assets/assets/black-car-service-dallas-logo.png') }}" alt="Black Car Service Dallas"
@@ -86,14 +86,14 @@
                     </div>
                 </div>
                 @if($hideHeaderItems)
-                <div class="col-6 col-lg-9 d-flex align-items-center justify-content-end">
+                <div class="col-4 col-lg-9 d-flex align-items-center justify-content-end">
                     <a href="tel:+12148978056" class="text-dark fw-semibold text-decoration-none d-inline-flex align-items-center gap-2">
                         <i class="fa-solid fa-phone"></i>
                         <span>+1 214-897-8056</span>
                     </a>
                 </div>
                 @else
-                <div class="col-6 col-lg-9 d-flex align-items-center justify-content-end">
+                <div class="col-4 col-lg-9 d-flex align-items-center justify-content-end">
                     <nav class="p-0 custom-navbar navbar navbar-expand-lg position-static">
                         <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

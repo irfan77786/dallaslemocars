@@ -5347,6 +5347,18 @@ li {
   .btn {
     width: 100%;
   }
+  
+  .logo {
+  max-width: 245px;
+}
+a.text-dark.fw-semibold.text-decoration-none.d-inline-flex.align-items-center.gap-2 {
+    display: none !important;
+}
+
+a.text-dark.fw-semibold.text-decoration-none.d-inline-flex.align-items-center.gap-2 {
+    font-size: 14px;
+}
+
 }
 
 @media (min-width: 768px) {
