@@ -115,7 +115,7 @@
                 </ul>
             </div>
             <div class="col-12 col-md-6 h-100">
-                <div class="why-imgs"> <img src="/img/executive-sedan-service-dallas.webp" class="img-fluid" alt=""> </div>
+                <div class="why-imgs"> <img src="/img/executive-sedan-service-dallas.webp" class="img-fluid" alt="Executive Sedan Service Dallas"> </div>
             </div>
         </div>
     </div>
@@ -131,7 +131,7 @@
         <div class="row">
             <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                 <article class="we-serve-item custom-card mb-30 mb-md-35">
-                    <div class="img-holder"> <img src="/img/affordable-dallas-limousine-service-with-chauffeur.webp" alt="" class="img-fluid"> </div>
+                    <div class="img-holder"> <img src="/img/affordable-dallas-limousine-service-with-chauffeur.webp" alt="Affordable Dallas Limousine Service With Chauffeur" class="img-fluid"> </div>
                     <div class="text-detail">
                         <h3 class="mb-10 h4 fw-semibold">Cities & Regional Communities</h3>
                         <p class="mb-0 font-base">We proudly serve Dallas, Fort Worth, Plano, Frisco, Irving, Arlington, and nearby communities, providing reliable limousine transportation across the Dallas–Fort Worth area.</p>
@@ -140,7 +140,7 @@
             </div>
             <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                 <article class="we-serve-item custom-card mb-30 mb-md-35">
-                    <div class="img-holder"> <img src="/img/dfw-airport-limo-and-black-car-service-dallas.webp" alt="" class="img-fluid"> </div>
+                    <div class="img-holder"> <img src="/img/dfw-airport-limo-and-black-car-service-dallas.webp" alt="DFW Airport Limo And Black Car Service Dallas" class="img-fluid"> </div>
                     <div class="text-detail">
                         <h3 class="mb-10 h4 fw-semibold">Airports & Aviation Access</h3>
                         <p class="mb-0 font-base">We provide limousine transportation to DFW International Airport, Dallas Love Field, Addison Airport, McKinney National Airport, and Fort Worth Alliance Airport.</p>
@@ -149,7 +149,7 @@
             </div>
             <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                 <article class="we-serve-item custom-card mb-30 mb-md-35">
-                    <div class="img-holder"> <img src="/img/luxury-dallas-limo-and-black-car-service.webp" alt="" class="img-fluid"> </div>
+                    <div class="img-holder"> <img src="/img/luxury-dallas-limo-and-black-car-service.webp" alt="Luxury Dallas Limo And Black Car Service" class="img-fluid"> </div>
                     <div class="text-detail">
                         <h3 class="mb-10 h4 fw-semibold">Corporate & Lifestyle Zones</h3>
                         <p class="mb-0 font-base">Our service connects travelers to Downtown Dallas, Legacy West Plano, The Star Frisco, Las Colinas Irving, Dallas Arts District, and Preston Hollow.</p>
@@ -158,7 +158,7 @@
             </div>
             <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                 <article class="we-serve-item custom-card mb-30 mb-md-35">
-                    <div class="img-holder"> <img src="{{ asset('new_assets/assets/image-08.jpg') }}" alt="" class="img-fluid"> </div>
+                    <div class="img-holder"> <img src="{{ asset('new_assets/assets/image-08.jpg') }}" alt="Image" class="img-fluid"> </div>
                     <div class="text-detail">
                         <h3 class="mb-10 h4 fw-semibold">Sports & Entertainment Venues</h3>
                         <p class="mb-0 font-base">We provide transportation to AT&T Stadium, Globe Life Field, American Airlines Center, Toyota Stadium, PGA Frisco, and major entertainment venues throughout Dallas.</p>
@@ -172,7 +172,7 @@
     <div class="ah-container">
         <div class="py-20 row align-items-center">
             <div class="col-12 col-md-6 h-100 only-m">
-                <div class="service-image"> <img src="/img/cadillac-ct6-luxury-ride-mobile.webp" class="img-fluid" alt=""> </div>
+                <div class="service-image"> <img src="/img/cadillac-ct6-luxury-ride-mobile.webp" class="img-fluid" alt="Cadillac Ct6 Luxury Ride Mobile"> </div>
             </div>
             <div class="col-12 col-md-6 pr-xl-50">
                 <h3 class="h5 fw-semibold">Professional Dallas Limousine Service for Every Ride</h3>
@@ -184,12 +184,12 @@
                     href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Book Reliable Limousine Service</a>
             </div>
             <div class="col-12 col-md-6 h-100 only-d">
-                <div class="service-image"> <img src="/img/cadillac-ct6-luxury-ride.webp" class="img-fluid" alt=""> </div>
+                <div class="service-image"> <img src="/img/cadillac-ct6-luxury-ride.webp" class="img-fluid" alt="Cadillac Ct6 Luxury Ride"> </div>
             </div>
         </div>
         <div class="flex-row-reverse py-20 row align-items-center">
             <div class="col-12 col-md-6 h-100 only-m">
-                <div class="service-image"> <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt=""> </div>
+                <div class="service-image"> <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt="Dallas Corporate Black Car Chauffeur Service Mobile"> </div>
             </div>
             <div class="mb-20 col-12 col-md-6 pr-xl-50">
                 <h3 class="h5 fw-semibold">Executive Transportation with Professional Chauffeurs</h3>
@@ -198,12 +198,12 @@
                     and major routes to ensure timely pickups and smooth drop-offs across Dallas, Plano, Frisco, Irving, and Arlington. Whether you need transportation from a hotel, office, home, or special event, our service offers convenient door-to-door
                     limousine transportation across the region. Business travelers, executives, families, and visitors trust our limousine service for its comfort, privacy, and dependable performance. </p> <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Get Dallas Limousine Quote</a>                </div>
             <div class="col-12 col-md-6 h-100 only-d">
-                <div class="service-image"> <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt=""> </div>
+                <div class="service-image"> <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="Dallas Corporate Black Car Chauffeur Service"> </div>
             </div>
         </div>
         <div class="py-20 row align-items-center">
             <div class="col-12 col-md-6 h-100 only-m">
-                <div class="service-image"> <img src="/img/luxury-airport-transfer-dallas-mobile.webp" class="img-fluid" alt=""> </div>
+                <div class="service-image"> <img src="/img/luxury-airport-transfer-dallas-mobile.webp" class="img-fluid" alt="Luxury Airport Transfer Dallas Mobile"> </div>
             </div>
             <div class="col-12 col-md-6 pr-xl-50">
                 <h3 class="h5 fw-semibold">Luxury Limousine Service Across Dallas–Fort Worth</h3>
@@ -212,7 +212,7 @@
                     vehicles perfect for professional transportation. Whether you are traveling alone, with colleagues, or with family, our vehicles provide a comfortable and stylish ride across Dallas and surrounding cities. With experienced chauffeurs,
                     well-maintained vehicles, and flexible scheduling, our Dallas limousine service ensures every trip is smooth, safe, and perfectly timed for your travel plans.</p> <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Reserve Your Limousine Ride</a>                </div>
             <div class="col-12 col-md-6 h-100 only-d">
-                <div class="service-image"> <img src="/img/luxury-airport-transfer-dallas.webp" class="img-fluid" alt=""> </div>
+                <div class="service-image"> <img src="/img/luxury-airport-transfer-dallas.webp" class="img-fluid" alt="Luxury Airport Transfer Dallas"> </div>
             </div>
         </div>
     </div>
@@ -223,22 +223,22 @@
             <div class="col-12">
                 <div class="swiper logo-swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid"></div>
-                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid" alt="Logo"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid" alt="Logo"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid" alt="Logo"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid" alt="Logo"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid" alt="Logo"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid" alt="Logo"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid" alt="Logo"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid" alt="Logo"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid" alt="Logo"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid" alt="Logo"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid" alt="Logo"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid" alt="Logo"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid" alt="Logo"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid" alt="Logo"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid" alt="Logo"></div>
+                        <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid" alt="Logo"></div>
                     </div>
                 </div>
             </div>

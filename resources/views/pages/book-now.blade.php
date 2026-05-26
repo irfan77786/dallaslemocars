@@ -131,7 +131,7 @@
             <div class="py-20 row align-items-center">
                 <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/executive-sedan-service-dallas-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/executive-sedan-service-dallas-mobile.webp" class="img-fluid" alt="Executive Sedan Service Dallas Mobile">
                     </div>
                 </div>
                 
@@ -142,7 +142,7 @@
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/executive-sedan-service-dallas.webp" class="img-fluid" alt="">
+                        <img src="/img/executive-sedan-service-dallas.webp" class="img-fluid" alt="Executive Sedan Service Dallas">
                     </div>
                 </div>
             </div>
@@ -150,7 +150,7 @@
             <div class="flex-row-reverse py-20 row align-items-center">
                 <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt="Dallas Corporate Black Car Chauffeur Service Mobile">
                     </div>
                 </div>
                 <div class="mb-20 col-12 col-md-6 pr-xl-50">
@@ -160,7 +160,7 @@
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="">
+                        <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="Dallas Corporate Black Car Chauffeur Service">
                     </div>
                 </div>
             </div>

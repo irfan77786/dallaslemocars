@@ -70,7 +70,7 @@
                             <div class="demo-navbar-user nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                                     <span class="d-inline-flex flex-lg-row-reverse align-items-center align-middle">
-                                        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt class="d-block ui-w-30 rounded-circle">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="User avatar" class="d-block ui-w-30 rounded-circle">
                                         <span class="px-1 mr-lg-2 ml-2 ml-lg-0">{{ (Auth::user()->first_name ?? '') . ' ' . (Auth::user()->last_name ?? Auth::user()->name ?? 'User') }}</span>
                                     </span>
                                 </a>
