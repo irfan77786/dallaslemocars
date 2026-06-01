@@ -95,5 +95,5 @@ window.intlTelInput(input, {
     initialCountry: "us",
     separateDialCode: true,
     preferredCountries: ["us", "gb", "ca", "pk"],
-    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.min.js"
 });

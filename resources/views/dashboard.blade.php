@@ -279,8 +279,8 @@
         </div>
     </div>
     <script src="{{ asset('assets/js/jquery-1.12.4.min.js') }}"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.min.js"></script>
     <script>
         (function() {
             var links = document.querySelectorAll('#dashboardTabs a');

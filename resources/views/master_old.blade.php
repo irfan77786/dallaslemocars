@@ -32,39 +32,39 @@
     <!--  fontawesome css plugins -->
     <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.min.css') }}">
     <!--  slick css plugins -->
-    <link rel="stylesheet" href="{{ asset('assets/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/slick.min.css') }}">
     <!--  rangeSlider css plugins -->
     <link rel="stylesheet" href="{{ asset('assets/css/ion.rangeSlider.min.css') }}">
     <!--  slick theme css plugins -->
-    <link rel="stylesheet" href="{{ asset('assets/css/slick-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/slick-theme.min.css') }}">
     <!--  magnific-popup css plugins -->
-    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">
     <!--  owl carosuel css plugins -->
     <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
     <!--  owl theme css plugins -->
-    <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.min.css') }}">
     <!--  meanmenu css plugins -->
     <link rel="stylesheet" href="{{ asset('assets/css/meanmenu.min.css') }}">
     <!--  Bootstrap css plugins -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <!-- template main style css file -->
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.min.css') }}">
     <!-- template responsive css stylesheet -->
-    <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/responsive.min.css') }}">
     <!-- custom css -->
-    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.min.css') }}">
     <!-- SweetAlert2 CSS (optional) -->
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css" integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.css">
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-material-datetimepicker.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-material-datetimepicker.min.css') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.min.css"/>
     @yield('styles')
 </head>
 
@@ -81,7 +81,7 @@
     <!--  ALl JS Plugins
     ====================================== -->
     <script src="{{ asset('assets/js/jquery-1.12.4.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.easing.1.3.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.easing.1.3.min.js') }}"></script>
     <script src="{{ asset('assets/js/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/scrollUp.min.js') }}"></script>
@@ -92,7 +92,7 @@
     <script src="{{ asset('assets/js/ion.rangeSlider.min.js') }}"></script>
     <script src="{{ asset('assets/js/rater.min.js') }}"></script>
     <script src="{{ asset('assets/js/meanmenu.min.js') }}"></script>
-    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('assets/js/main.min.js') }}"></script>
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
@@ -139,11 +139,11 @@
         });
     }
     </script>
-    <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="{{ asset('assets/js/custom.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment-with-locales.min.js"></script>
-    <script src="{{ asset('assets/js/bootstrap-material-datetimepicker.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.js"></script>
+    <script src="{{ asset('assets/js/bootstrap-material-datetimepicker.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.selectable-card').forEach(card => {

@@ -9,19 +9,19 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset('admin/fonts/fontawesome.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/fonts/ionicons.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/fonts/linearicons.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/fonts/open-iconic.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/fonts/pe-icon-7-stroke.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/fonts/feather.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/fonts/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/fonts/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/fonts/linearicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/fonts/open-iconic.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/fonts/pe-icon-7-stroke.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/fonts/feather.min.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('admin/css/bootstrap-material.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/css/shreerang-material.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/css/uikit.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/css/bootstrap-material.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/css/shreerang-material.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/css/uikit.min.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('admin/libs/perfect-scrollbar/perfect-scrollbar.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/libs/flot/flot.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/libs/perfect-scrollbar/perfect-scrollbar.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/libs/flot/flot.min.css') }}">
 </head>
 <body>
     <div class="page-loader">
@@ -111,22 +111,22 @@
         </div>
     </div>
 
-    <script src="{{ asset('admin/js/pace.js') }}"></script>
+    <script src="{{ asset('admin/js/pace.min.js') }}"></script>
     <script src="{{ asset('admin/js/jquery-3.3.1.min.js') }}"></script>
-    <script src="{{ asset('admin/libs/popper/popper.js') }}"></script>
-    <script src="{{ asset('admin/js/bootstrap.js') }}"></script>
-    <script src="{{ asset('admin/js/sidenav.js') }}"></script>
-    <script src="{{ asset('admin/js/layout-helpers.js') }}"></script>
-    <script src="{{ asset('admin/js/material-ripple.js') }}"></script>
-    <script src="{{ asset('admin/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
-    <script src="{{ asset('admin/libs/eve/eve.js') }}"></script>
-    <script src="{{ asset('admin/libs/flot/flot.js') }}"></script>
-    <script src="{{ asset('admin/libs/flot/curvedLines.js') }}"></script>
-    <script src="{{ asset('admin/libs/chart-am4/core.js') }}"></script>
-    <script src="{{ asset('admin/libs/chart-am4/charts.js') }}"></script>
-    <script src="{{ asset('admin/libs/chart-am4/animated.js') }}"></script>
-    <script src="{{ asset('admin/js/demo.js') }}"></script>
-    <script src="{{ asset('admin/js/analytics.js') }}"></script>
-    <script src="{{ asset('admin/js/pages/dashboards_index.js') }}"></script>
+    <script src="{{ asset('admin/libs/popper/popper.min.js') }}"></script>
+    <script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('admin/js/sidenav.min.js') }}"></script>
+    <script src="{{ asset('admin/js/layout-helpers.min.js') }}"></script>
+    <script src="{{ asset('admin/js/material-ripple.min.js') }}"></script>
+    <script src="{{ asset('admin/libs/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('admin/libs/eve/eve.min.js') }}"></script>
+    <script src="{{ asset('admin/libs/flot/flot.min.js') }}"></script>
+    <script src="{{ asset('admin/libs/flot/curvedLines.min.js') }}"></script>
+    <script src="{{ asset('admin/libs/chart-am4/core.min.js') }}"></script>
+    <script src="{{ asset('admin/libs/chart-am4/charts.min.js') }}"></script>
+    <script src="{{ asset('admin/libs/chart-am4/animated.min.js') }}"></script>
+    <script src="{{ asset('admin/js/demo.min.js') }}"></script>
+    <script src="{{ asset('admin/js/analytics.min.js') }}"></script>
+    <script src="{{ asset('admin/js/pages/dashboards_index.min.js') }}"></script>
 </body>
 </html>
