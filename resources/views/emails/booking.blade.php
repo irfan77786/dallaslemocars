@@ -18,7 +18,7 @@
     <div class="container" style="max-width: 600px; margin: 0 auto; padding: 6px; background-color: #ffffff;">
         <div class="header" style="padding: 20px 10px; text-align: center; border-bottom: 1px solid #eee;">
             <img src="{{ config('branding.mail_logo_url') }}" alt="Dallas Black Cars" width="250" style="max-width: 250px; width: 250px; height: auto; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto; border: 0; outline: none; text-decoration: none;">
-            <h2 style="margin: 0; font-size: 22px; color: #12143e;">Booking {{ $isAdmin ? 'Notification' : 'Confirmation' }}</h2>
+            <h2 style="margin: 0; font-size: 22px; color: #e52c43; font-weight: 600;">Booking {{ $isAdmin ? 'Notification' : 'Confirmation' }}</h2>
             <p style="margin: 5px 0 0; font-size: 15px; color: #555;">{{ $isAdmin ? 'New booking received' : 'Your reservation has been confirmed!' }}</p>
         </div>
 
@@ -27,7 +27,7 @@
             @if ($isAdmin)
                 <p style="font-size: 12px; margin: 0 0 10px;"><b>Dear Admin,</b></p>
                 <p style="font-size: 12px; margin: 0 0 10px;">A new booking has been received. Please find the details below:</p>
-                <div class="admin-note" style="background-color: #baddfc; border-left: 4px solid #12143e; padding: 12px; margin: 15px 0; font-size: 15px; color: #333;">
+                <div class="admin-note" style="background-color: #fff0f2; border-left: 4px solid #e52c43; padding: 12px; margin: 15px 0; font-size: 15px; color: #333;">
                     <strong>Action Required:</strong> Please review and confirm this booking at your earliest convenience.
                 </div>
             @elseif ($sendToBooker)
@@ -68,7 +68,7 @@
 
             {{-- Booking Confirmation #… (aligned with PDF fields) --}}
             <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
-                <h3 style="background: #12143e; margin: 0; padding: 8px 12px; font-size: 14px; color: #ffffff; border-radius: 4px 4px 0 0;">
+                <h3 style="background-color: #e52c43; background-image: linear-gradient(90deg, #e52c43, #ff6c00, #e52c43); margin: 0; padding: 8px 12px; font-size: 14px; color: #ffffff; font-weight: 600; border-radius: 4px 4px 0 0;">
                     Booking Confirmation #{{ $bookingData['booking_id'] ?? 'N/A' }}</h3>
                 <table cellpadding="0" cellspacing="0" width="100%" style="font-size: 12px; padding: 10px;">
                     <tr>
@@ -173,7 +173,7 @@
             @if (!empty($bookingData['isBookingForOthers'])
                 && (!empty($bookingData['booker_first_name']) || !empty($bookingData['booker_last_name']) || !empty($bookingData['booker_email']) || !empty($bookingData['booker_number'])))
                 <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
-                    <h3 style="background: #baddfc; margin: 0; padding: 8px 12px; font-size: 14px; color: #12143e; border-radius: 4px 4px 0 0;">Booker Information</h3>
+                    <h3 style="background-color: #fff0f2; margin: 0; padding: 8px 12px; font-size: 14px; color: #e52c43; font-weight: 600; border-radius: 4px 4px 0 0;">Booker Information</h3>
                     <table cellpadding="0" cellspacing="0" width="100%" style="font-size: 12px; padding: 10px;">
                         @if (!empty($bookingData['booker_first_name']) || !empty($bookingData['booker_last_name']))
                             <tr>
@@ -197,7 +197,7 @@
                 </div>
             @else
                 <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
-                    <h3 style="background: #baddfc; margin: 0; padding: 8px 12px; font-size: 14px; color: #12143e; border-radius: 4px 4px 0 0;">Booker Information:</h3>
+                    <h3 style="background-color: #fff0f2; margin: 0; padding: 8px 12px; font-size: 14px; color: #e52c43; font-weight: 600; border-radius: 4px 4px 0 0;">Booker Information:</h3>
                     <p style="font-size: 12px; margin: 0; padding: 12px; color: #555;">****** Information not provided ******</p>
                 </div>
             @endif
@@ -205,7 +205,7 @@
             {{-- Trip Routing Information (same as PDF) --}}
             @if (!empty($bookingData['pickup_location']) || !empty($bookingData['dropoff_location']) || !empty($bookingData['hours']))
                 <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
-                    <h3 style="background: #baddfc; margin: 0; padding: 8px 12px; font-size: 14px; color: #12143e; border-radius: 4px 4px 0 0;">Trip Routing Information:</h3>
+                    <h3 style="background-color: #fff0f2; margin: 0; padding: 8px 12px; font-size: 14px; color: #e52c43; font-weight: 600; border-radius: 4px 4px 0 0;">Trip Routing Information:</h3>
                     <table cellpadding="0" cellspacing="0" width="100%" style="font-size: 12px; padding: 10px;">
                         @if (!empty($bookingData['pickup_location']))
                             <tr>
@@ -229,7 +229,7 @@
                 </div>
             @else
                 <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
-                    <h3 style="background: #baddfc; margin: 0; padding: 8px 12px; font-size: 14px; color: #12143e; border-radius: 4px 4px 0 0;">Trip Routing Information:</h3>
+                    <h3 style="background-color: #fff0f2; margin: 0; padding: 8px 12px; font-size: 14px; color: #e52c43; font-weight: 600; border-radius: 4px 4px 0 0;">Trip Routing Information:</h3>
                     <p style="font-size: 12px; margin: 0; padding: 12px; color: #555;">****** Information not provided ******</p>
                 </div>
             @endif
@@ -237,7 +237,7 @@
             {{-- Flight/Airport Information (same gate as PDF) --}}
             @if ($hasFlightBlock)
                 <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
-                    <h3 style="background: #12143e; margin: 0; padding: 8px 12px; font-size: 14px; color: #ffffff; border-radius: 4px 4px 0 0;">Flight/Airport Information</h3>
+                    <h3 style="background-color: #e52c43; background-image: linear-gradient(90deg, #e52c43, #ff6c00, #e52c43); margin: 0; padding: 8px 12px; font-size: 14px; color: #ffffff; font-weight: 600; border-radius: 4px 4px 0 0;">Flight/Airport Information</h3>
                     <table cellpadding="0" cellspacing="0" width="100%" style="font-size: 12px; padding: 10px;">
                         @if (!empty($fd['flight_number']))
                             <tr>
@@ -259,14 +259,14 @@
                 </div>
             @else
                 <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
-                    <h3 style="background: #12143e; margin: 0; padding: 8px 12px; font-size: 14px; color: #ffffff; border-radius: 4px 4px 0 0;">Flight/Airport Information:</h3>
+                    <h3 style="background-color: #e52c43; background-image: linear-gradient(90deg, #e52c43, #ff6c00, #e52c43); margin: 0; padding: 8px 12px; font-size: 14px; color: #ffffff; font-weight: 600; border-radius: 4px 4px 0 0;">Flight/Airport Information:</h3>
                     <p style="font-size: 12px; margin: 0; padding: 12px; color: #555;">****** Information not provided ******</p>
                 </div>
             @endif
 
             {{-- Notes/Comments (PDF framing) --}}
             <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
-                <h3 style="background: #baddfc; margin: 0; padding: 8px 12px; font-size: 14px; color: #12143e; border-radius: 4px 4px 0 0;">Notes/Comments:</h3>
+                <h3 style="background-color: #fff0f2; margin: 0; padding: 8px 12px; font-size: 14px; color: #e52c43; font-weight: 600; border-radius: 4px 4px 0 0;">Notes/Comments:</h3>
                 <p style="font-size: 12px; margin: 0; padding: 12px; color: #333;">
                     ****** {{ !empty($bookingData['special_instructions']) ? $bookingData['special_instructions'] : 'Information not provided' }} ******
                 </p>
@@ -275,7 +275,7 @@
             {{-- Charges & Fees (same lines as PDF) --}}
             @if (isset($bookingData['total_amount']))
                 <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
-                    <h3 style="background: #baddfc; margin: 0; padding: 8px 12px; font-size: 14px; color: #12143e; border-radius: 4px 4px 0 0;">Charges &amp; Fees:</h3>
+                    <h3 style="background-color: #fff0f2; margin: 0; padding: 8px 12px; font-size: 14px; color: #e52c43; font-weight: 600; border-radius: 4px 4px 0 0;">Charges &amp; Fees:</h3>
                     <table cellpadding="0" cellspacing="0" width="100%" style="font-size: 12px; padding: 10px;">
                         <tr>
                             <td style="font-weight: bold; color: #666; width: 40%; padding: 4px 0; vertical-align: top;">Fare (All inclusive):</td>
@@ -297,7 +297,7 @@
                 </div>
             @else
                 <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
-                    <h3 style="background: #baddfc; margin: 0; padding: 8px 12px; font-size: 14px; color: #12143e; border-radius: 4px 4px 0 0;">Charges &amp; Fees:</h3>
+                    <h3 style="background-color: #fff0f2; margin: 0; padding: 8px 12px; font-size: 14px; color: #e52c43; font-weight: 600; border-radius: 4px 4px 0 0;">Charges &amp; Fees:</h3>
                     <p style="font-size: 12px; margin: 0; padding: 12px; color: #555;">****** Information not provided ******</p>
                 </div>
             @endif

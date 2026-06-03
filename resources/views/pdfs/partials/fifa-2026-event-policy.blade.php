@@ -1,12 +1,15 @@
-<div class="sections">
-  <h2 class="custom-large-heading">FIFA World Cup 2026 Event Policy (Dallas–Fort Worth Market)</h2>
+<div class="sections booking-block">
+  @include('partials.booking_pdf_section_header', [
+      'title' => 'FIFA World Cup 2026 Event Policy (Dallas–Fort Worth Market)',
+      'variant' => 'primary',
+  ])
   <div class="section-content">
     <p>For all services scheduled between June 13, 2026 through July 15, 2026, the following strict policies apply due to high-demand operations related to the FIFA World Cup 2026:</p>
   </div>
 </div>
 
-<div class="sections section-light">
-  <h2>Special Event Rates (Non-Negotiable)</h2>
+<div class="sections booking-block">
+  @include('partials.booking_pdf_section_header', ['title' => 'Special Event Rates (Non-Negotiable)', 'variant' => 'light'])
   <div class="section-content">
     <p>
       - All reservations within these dates are subject to FIFA 2026 special event pricing<br>
@@ -16,8 +19,8 @@
   </div>
 </div>
 
-<div class="sections section-light">
-  <h2>Mandatory Deposit &amp; Payment Terms</h2>
+<div class="sections booking-block">
+  @include('partials.booking_pdf_section_header', ['title' => 'Mandatory Deposit & Payment Terms', 'variant' => 'light'])
   <div class="section-content">
     <p>
       - A 50% non-refundable deposit is required to confirm all FIFA reservations<br>
@@ -27,8 +30,8 @@
   </div>
 </div>
 
-<div class="sections section-light">
-  <h2>Strict 30-Day Cancellation Policy (No Exceptions)</h2>
+<div class="sections booking-block">
+  @include('partials.booking_pdf_section_header', ['title' => 'Strict 30-Day Cancellation Policy (No Exceptions)', 'variant' => 'light'])
   <div class="section-content">
     <p>
       - All FIFA 2026 bookings are classified as high-demand, non-replaceable inventory<br>
@@ -42,8 +45,8 @@
   </div>
 </div>
 
-<div class="sections section-light">
-  <h2>No Refund / No Credit Policy</h2>
+<div class="sections booking-block">
+  @include('partials.booking_pdf_section_header', ['title' => 'No Refund / No Credit Policy', 'variant' => 'light'])
   <div class="section-content">
     <p>
       - No refunds, credits, or rescheduling will be issued within the 30-day window<br>
@@ -53,8 +56,8 @@
   </div>
 </div>
 
-<div class="sections section-light">
-  <h2>Operational &amp; Event Conditions</h2>
+<div class="sections booking-block">
+  @include('partials.booking_pdf_section_header', ['title' => 'Operational & Event Conditions', 'variant' => 'light'])
   <div class="section-content">
     <p>
       Service is subject to uncontrollable conditions including:<br>
@@ -67,8 +70,8 @@
   </div>
 </div>
 
-<div class="sections section-light">
-  <h2>Minimum Service &amp; Billing Conditions</h2>
+<div class="sections booking-block">
+  @include('partials.booking_pdf_section_header', ['title' => 'Minimum Service & Billing Conditions', 'variant' => 'light'])
   <div class="section-content">
     <p>
       - Minimum hourly requirements will be enforced based on vehicle type<br>
@@ -81,8 +84,8 @@
   </div>
 </div>
 
-<div class="sections section-light">
-  <h2>Client Authorization &amp; Chargeback Protection</h2>
+<div class="sections booking-block">
+  @include('partials.booking_pdf_section_header', ['title' => 'Client Authorization & Chargeback Protection', 'variant' => 'light'])
   <div class="section-content">
     <p>
       By confirming a reservation, the client expressly agrees and authorizes:<br>
@@ -98,8 +101,8 @@
   </div>
 </div>
 
-<div class="sections section-light">
-  <h2>Acknowledgment of Terms</h2>
+<div class="sections booking-block">
+  @include('partials.booking_pdf_section_header', ['title' => 'Acknowledgment of Terms', 'variant' => 'light'])
   <div class="section-content">
     <p>
       By booking services during FIFA 2026 dates, the client acknowledges:<br>

@@ -48,41 +48,20 @@
       color: #666;
     }
 
-    .sections h2:not(.custom-large-heading) {
-      margin: 5px 0 3px 0 !important;
-      padding: 4px 15px;
-      background: #12143e !important;
-      color: #ffffff !important;
-      border-radius: 0;
-      font-size: 16px;
+    .sections.booking-block {
+      background-color: #f8f9fa;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      margin: 12px 0;
     }
 
-    .section h2 {
-      background: #12143e !important;
-      margin: 0;
-      padding: 6px 15px;
-      font-size: 16px;
-      color: #ffffff;
-      letter-spacing: 0.7px;
-      border-bottom: 1px solid #e0e0e0;
+    .sections.booking-block .section-content {
+      padding: 10px;
     }
 
-    .section-light h2 {
-      background: #baddfc;
-      margin: 0 0 20px 0;
-      padding: 6px 15px;
-      font-size: 16px;
-      color: #333;
-      border-bottom: 1px solid #e0e0e0;
-    }
-
-    .custom-large-heading {
-      padding: 6px 15px !important;
-      margin: 10px 0 3px 0 !important;
-      background: #12143e !important;
-      font-size: 16px !important;
-      color: #ffffff !important;
-      border-bottom: 1px solid #e0e0e0 !important;
+    .mian-cc {
+      color: #666666;
+      font-weight: 700;
     }
 
     .section-content {
@@ -195,27 +174,13 @@
 
 <body>
   <div class="container">
-    <header style="width: 100%; display: table; margin-bottom: 7px;">
-      <div style="display: table-row;">
-        <div style="display: table-cell; vertical-align: middle; width: 62%;">
-          @include('partials.pdf_logo_image')
-        </div>
-        <div style="text-align: right;">
-          <div style="font-size: 12px; text-align: left;">
-            <div style="font-weight: bold; font-size: 12px;">Dallas Limo And Black Cars Service</div>
-            <div>3008 Ross Ave</div>
-            <div>Suite 100</div>
-            <div>Dallas, TX 75204</div>
-            <div><strong>Phone:</strong>&nbsp;+1 214-897-8056</div>
-            <div><strong>Email:</strong>&nbsp;info@dallaslimoandblackcars.com</div>
-          </div>
-        </div>
-      </div>
-    </header>
+    @include('partials.booking_pdf_document_header')
 
-    <div class="sections">
-      <h2 class="custom-large-heading section-light">Booking Confirmation #{{ $bookingData['booking_id'] ?? 'N/A' }}
-      </h2>
+    <div class="sections booking-block">
+      @include('partials.booking_pdf_section_header', [
+          'title' => 'Booking Confirmation #' . ($bookingData['booking_id'] ?? 'N/A'),
+          'variant' => 'primary',
+      ])
       <div class="section-content">
         <div class="section">
           <div style="text-align: right; font-size: 12px;">
@@ -257,7 +222,7 @@
             @endif
 
             {{-- Hours --}}
-            @if($bookingData['hours'])
+            @if(!empty($bookingData['hours']))
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Hours:</strong></div>
               <div class="col-sm-9">{{ $bookingData['hours'] ?? 'N/A' }}</div>
@@ -341,8 +306,8 @@
         {{-- Booker Info (if booking for others) --}}
         @if(!empty($bookingData['isBookingForOthers']) && ($bookingData['booker_first_name'] ||
         $bookingData['booker_last_name'] || $bookingData['booker_email'] || $bookingData['booker_number']))
-        <div class="sections section-light">
-          <h2>Booker Information</h2>
+        <div class="sections booking-block">
+          @include('partials.booking_pdf_section_header', ['title' => 'Booker Information', 'variant' => 'light'])
           <div class="section-content">
             @if($bookingData['booker_first_name'] || $bookingData['booker_last_name'])
             <div class="row">
@@ -368,8 +333,8 @@
           </div>
         </div>
         @else
-        <div class="sections section-light">
-          <h2>Booker Information:</h2>
+        <div class="sections booking-block">
+          @include('partials.booking_pdf_section_header', ['title' => 'Booker Information:', 'variant' => 'light'])
           <div class="section-content">
             <div class="row">
               <div class="col-sm-12 no-top-padding">
@@ -383,8 +348,8 @@
         {{-- Trip Routing Information --}}
         @if(!empty($bookingData['pickup_location']) || !empty($bookingData['dropoff_location']) ||
         !empty($bookingData['hours']))
-        <div class="sections section-light">
-          <h2>Trip Routing Information:</h2>
+        <div class="sections booking-block">
+          @include('partials.booking_pdf_section_header', ['title' => 'Trip Routing Information:', 'variant' => 'light'])
           <div class="section-content">
             @if(!empty($bookingData['pickup_location']))
             <div class="row">
@@ -409,8 +374,8 @@
           </div>
         </div>
         @else
-        <div class="sections section-light">
-          <h2>Trip Routing Information:</h2>
+        <div class="sections booking-block">
+          @include('partials.booking_pdf_section_header', ['title' => 'Trip Routing Information:', 'variant' => 'light'])
           <div class="section-content">
             <div class="row">
               <div class="col-sm-12 no-top-padding">
@@ -423,8 +388,8 @@
 
         @if($bookingData['flight_details'] && $bookingData['flight_details']['flight_number'] &&
         $bookingData['flight_details']['pickup_flight_details'])
-        <div class="sections section-light">
-          <h2>Flight/Airport Information</h2>
+        <div class="sections booking-block">
+          @include('partials.booking_pdf_section_header', ['title' => 'Flight/Airport Information', 'variant' => 'primary'])
           <div class="section-content">
             @if($bookingData['flight_details']['flight_number'])
             <div class="row">
@@ -445,8 +410,8 @@
           </div>
         </div>
         @else
-        <div class="sections section-light">
-          <h2>Flight/Airport Information:</h2>
+        <div class="sections booking-block">
+          @include('partials.booking_pdf_section_header', ['title' => 'Flight/Airport Information:', 'variant' => 'primary'])
           <div class="section-content">
             <div class="row">
               <div class="col-sm-12 no-top-padding">
@@ -458,8 +423,8 @@
         @endif
 
         {{-- Notes / Comments --}}
-        <div class="sections section-light">
-          <h2>Notes/Comments:</h2>
+        <div class="sections booking-block">
+          @include('partials.booking_pdf_section_header', ['title' => 'Notes/Comments:', 'variant' => 'light'])
           <div class="section-content">
             <div class="row">
               <div class="col-sm-12 no-top-padding">
@@ -472,8 +437,8 @@
 
         {{-- Charges & Fees --}}
         @if(isset($bookingData['total_amount']))
-        <div class="sections section-light">
-          <h2>Charges & Fees:</h2>
+        <div class="sections booking-block">
+          @include('partials.booking_pdf_section_header', ['title' => 'Charges & Fees:', 'variant' => 'light'])
           <div class="section-content">
             {{-- Fare --}}
             <div class="row">
@@ -495,15 +460,15 @@
             </div>
 
             {{-- Total Amount --}}
-            <div class="row" style="color: red;">
+            <div class="row" style="color: #dc3545;">
               <div class="col-sm-3"><strong class="mian-cc">Total Due:</strong></div>
               <div class="col-sm-9"><strong>${{ number_format($bookingData['total_amount'], 2) }}</strong></div>
             </div>
           </div>
         </div>
         @else
-        <div class="sections section-light">
-          <h2>Charges & Fees:</h2>
+        <div class="sections booking-block">
+          @include('partials.booking_pdf_section_header', ['title' => 'Charges & Fees:', 'variant' => 'light'])
           <div class="section-content">
             <div class="row">
               <div class="col-sm-12 no-top-padding">
@@ -515,8 +480,11 @@
         @endif
       </div>
     </div>
-    <div class="sections" style="page-break-before: always;">
-      <h2 class="custom-large-heading">Cancellation Policy: Cancellation, Deposit & Service Policy</h2>
+    <div class="sections booking-block" style="page-break-before: always;">
+      @include('partials.booking_pdf_section_header', [
+          'title' => 'Cancellation Policy: Cancellation, Deposit & Service Policy',
+          'variant' => 'primary',
+      ])
       <div class="section-content">
         <p>
           Dallas Limo And Black Cars Service strives to provide excellent service while maintaining a clear, fair, and
@@ -533,8 +501,8 @@
 
       </div>
     </div>
-    <div class="sections section-light">
-      <h2>1. General Cancellation Policy:</h2>
+    <div class="sections booking-block">
+      @include('partials.booking_pdf_section_header', ['title' => '1. General Cancellation Policy:', 'variant' => 'light'])
       <div class="section-content">
         <p> Cancellations must occur during the stated timeframes for each vehicle type. Cancellations outside these
           periods will result in full charges for the reserved services.</p>
@@ -543,8 +511,8 @@
 
       </div>
     </div>
-    <div class="sections section-light">
-      <h2>2. Vehicle-Specific Cancellation Policy:</h2>
+    <div class="sections booking-block">
+      @include('partials.booking_pdf_section_header', ['title' => '2. Vehicle-Specific Cancellation Policy:', 'variant' => 'light'])
       <div class="section-content">
         <div class="row">
           <div class="col-sm-3 no-top-padding">
@@ -589,8 +557,8 @@
       </div>
     </div>
 
-    <div class="sections section-light">
-      <h2>3. Deposit Policy:</h2>
+    <div class="sections booking-block">
+      @include('partials.booking_pdf_section_header', ['title' => '3. Deposit Policy:', 'variant' => 'light'])
       <div class="section-content">
         <p>
 
@@ -601,8 +569,8 @@
           - Credit card authorization form required for all bookings.</p>
       </div>
     </div>
-    <div class="sections section-light">
-      <h2>4. Alcohol and Illegal Substances:</h2>
+    <div class="sections booking-block">
+      @include('partials.booking_pdf_section_header', ['title' => '4. Alcohol and Illegal Substances:', 'variant' => 'light'])
 
       <div class="section-content">
         <p>
@@ -611,8 +579,8 @@
           - Smoking is not allowed in any vehicle.</p>
       </div>
     </div>
-    <div class="sections section-light">
-      <h2>5. Damage To Vehicle:</h2>
+    <div class="sections booking-block">
+      @include('partials.booking_pdf_section_header', ['title' => '5. Damage To Vehicle:', 'variant' => 'light'])
       <div class="section-content">
         <p>
           The client is responsible for any damage caused by passengers, including:<br>
@@ -623,8 +591,8 @@
       </div>
     </div>
 
-    <div class="sections section-light">
-      <h2>6. Force Majeure:</h2>
+    <div class="sections booking-block">
+      @include('partials.booking_pdf_section_header', ['title' => '6. Force Majeure:', 'variant' => 'light'])
       <div class="section-content">
         <p>
           We are not liable for interruptions or cancellations due to events beyond our control (e.g., weather,
@@ -632,8 +600,8 @@
           costs).</p>
       </div>
     </div>
-    <div class="sections section-light">
-      <h2>7. Indemnification:</h2>
+    <div class="sections booking-block">
+      @include('partials.booking_pdf_section_header', ['title' => '7. Indemnification:', 'variant' => 'light'])
       <div class="section-content">
         <p>
           By booking, you agree to indemnify and hold Dallas Limo And Black Cars Service harmless for any claims arising
@@ -644,9 +612,8 @@
 
       </div>
     </div>
-    <div class="sections section-light">
-
-      <h2>8. Wait Time Policy:</h2>
+    <div class="sections booking-block">
+      @include('partials.booking_pdf_section_header', ['title' => '8. Wait Time Policy:', 'variant' => 'light'])
       <div class="section-content">
         <div class="row">
           <div class="col-sm-3 no-top-padding">
@@ -666,15 +633,15 @@
         </div>
       </div>
     </div>
-    <div class="sections section-light">
-      <h2>9. No-Show Policy:</h2>
+    <div class="sections booking-block">
+      @include('partials.booking_pdf_section_header', ['title' => '9. No-Show Policy:', 'variant' => 'light'])
       <div class="section-content">
         <p>
           No-shows are charged the full booking amount. Clients must confirm pickup details and stay in contact.</p>
       </div>
     </div>
-    <div class="sections section-light">
-      <h2>10. Special Event Policies:</h2>
+    <div class="sections booking-block">
+      @include('partials.booking_pdf_section_header', ['title' => '10. Special Event Policies:', 'variant' => 'light'])
       <div class="section-content">
         <p>
           - Events (weddings, concerts, etc.) require 14-day cancellation notice.<br>
@@ -683,8 +650,8 @@
       </div>
     </div>
 
-    <div class="sections section-light">
-      <h2>11. Refund Policy:</h2>
+    <div class="sections booking-block">
+      @include('partials.booking_pdf_section_header', ['title' => '11. Refund Policy:', 'variant' => 'light'])
       <div class="section-content">
         <p>
           - Approved refunds are processed within 5–7 business days.<br>
@@ -692,8 +659,8 @@
       </div>
     </div>
     @include('pdfs.partials.fifa-2026-event-policy')
-    <div class="sections section-light">
-      <h2>Thank you for choosing Dallas Limo And Black Cars Service.</h2>
+    <div class="sections booking-block">
+      @include('partials.booking_pdf_section_header', ['title' => 'Thank you for choosing Dallas Limo And Black Cars Service.', 'variant' => 'light'])
       <div class="section-content">
         <p>
           We are committed to fair and professional service.<br>
