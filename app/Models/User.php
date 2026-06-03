@@ -25,6 +25,7 @@ class User extends Authenticatable
         'user_id',
         'contact_type',
         'password',
+        'stripe_customer_id',
     ];
 
     /**

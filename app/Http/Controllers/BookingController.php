@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\CreateBookingDocs;
+use App\Support\StripeCustomerResolver;
 use Carbon\Carbon;
 use App\Models\Booking;
 use App\Models\Vehicle;
@@ -795,10 +796,11 @@ public function bookRide(Request $request)
 
     Stripe::setApiKey(config('services.stripe.secret'));
 
-    if(auth()->check()){
+    if (auth()->check()) {
         $user = auth()->user();
+        $stripeCustomerId = StripeCustomerResolver::resolveForUser($user);
         $cardsList = PaymentMethod::all([
-            'customer' => $user->stripe_customer_id,
+            'customer' => $stripeCustomerId,
             'type' => 'card',
         ]);
         $cards = $cardsList->data ?? [];
@@ -923,29 +925,13 @@ public function completeBook(Request $request)
         $stripeCustomerId = null;
 
         if ($user) {
-            // Logged-in user
-            if (!$user->stripe_customer_id) {
-                $customer = \Stripe\Customer::create([
-                    'email' => $user->email,
-                    'name' => $user->first_name . ' ' . $user->last_name,
-                ]);
-                $user->update(['stripe_customer_id' => $customer->id]);
-                $stripeCustomerId = $customer->id;
-            } else {
-                $stripeCustomerId = $user->stripe_customer_id;
-            }
+            $stripeCustomerId = StripeCustomerResolver::resolveForUser($user);
         } else {
-            // Guest user
-            if (!session('stripe_customer_id')) {
-                $customer = \Stripe\Customer::create([
-                    'email' => $guest['email'],
-                    'name' => $guest['first_name'] . ' ' . $guest['last_name'],
-                ]);
-                session(['stripe_customer_id' => $customer->id]);
-                $stripeCustomerId = $customer->id;
-            } else {
-                $stripeCustomerId = session('stripe_customer_id');
-            }
+            $stripeCustomerId = StripeCustomerResolver::resolveForGuestSession(
+                $guest['email'] ?? null,
+                $guest['first_name'] ?? null,
+                $guest['last_name'] ?? null
+            );
         }
 
         try {

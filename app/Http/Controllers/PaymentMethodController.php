@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\StripeCustomerResolver;
 use Stripe\Stripe;
 use Stripe\PaymentMethod;
 use Stripe\SetupIntent;
@@ -19,23 +20,11 @@ class PaymentMethodController extends Controller
     public function index()
     {
         $user = auth()->user();
-
-        // ✅ SAFETY CHECK
-        if (!$user->stripe_customer_id) {
-            // Auto-create Stripe customer if missing
-            $customer = \Stripe\Customer::create([
-                'email' => $user->email,
-                'name'  => $user->name,
-            ]);
-
-            $user->stripe_customer_id = $customer->id;
-            $user->save();
-        } else {
-            $customer = \Stripe\Customer::retrieve($user->stripe_customer_id);
-        }
+        $stripeCustomerId = StripeCustomerResolver::resolveForUser($user);
+        $customer = Customer::retrieve($stripeCustomerId);
 
         $cards = \Stripe\PaymentMethod::all([
-            'customer' => $user->stripe_customer_id,
+            'customer' => $stripeCustomerId,
             'type' => 'card',
         ]);
 
@@ -54,8 +43,10 @@ class PaymentMethodController extends Controller
     // ✅ CREATE SETUP INTENT
     public function createSetupIntent()
     {
+        $stripeCustomerId = StripeCustomerResolver::resolveForUser(auth()->user());
+
         $intent = SetupIntent::create([
-            'customer' => auth()->user()->stripe_customer_id,
+            'customer' => $stripeCustomerId,
             'payment_method_types' => ['card'],
         ]);
 
@@ -67,7 +58,9 @@ class PaymentMethodController extends Controller
     // ✅ SET PREFERRED
     public function savePreferred(Request $request)
     {
-        Customer::update(auth()->user()->stripe_customer_id, [
+        $stripeCustomerId = StripeCustomerResolver::resolveForUser(auth()->user());
+
+        Customer::update($stripeCustomerId, [
             'invoice_settings' => [
                 'default_payment_method' => $request->payment_method_id,
             ],
