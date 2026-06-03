@@ -94,7 +94,7 @@
                         </div>
                         <div class="col-12 mb-15">
                             <p class="mb-2 font-sm contact-cc">
-                                Do you agree to receive texts from Dallas Black Cars Limo
+                                Do you agree to receive texts from Dallas Limo and Black Cars
                                 Service (+1 214-897-8056)? Messages may include reservation
                                 reminders/updates. Msg &amp; data rates may apply. Reply STOP
                                 to unsubscribe or HELP for support.</p>
@@ -104,8 +104,7 @@
                                     name="sms_consent" value="1" style="margin-left: 0;" required>
                                 <label class="form-check-label small d-inline-block ms-2" for="sms_consent"
                                     style="margin-top: -2px;">
-                                    Yes, I agree to receive text messages from Dallas Black
-                                    Cars Service sent from (+1 214-897-8056).
+                                    Yes, I agree to receive text messages from Dallas Limo and Black Cars sent from (+1 214-897-8056).
                                 </label>
                             </div>
                             @error('sms_consent')
@@ -174,7 +173,7 @@
                     </span>
                     <h3 class="h4 fw-semibold">Business Address</h3>
                     <address>
-                        <p>Dallas Black Cars Service 200 Crescent Court Dallas, Texas 75201
+                        <p>3008 Ross Ave Suite 100 Dallas, TX 75204
                         </p>
                     </address>
                 </article>
@@ -188,9 +187,9 @@
                     <address>
                         <p class="font-base">
                             You can also book online instantly: <br>
-                            <a class="font-base" href="#">Book Online Now</a>,
-                            <a class="font-base" href="#">Get a Custom Quote</a>,
-                            <a class="font-base" href="#">Explore Our Fleet</a>
+                            <a class="font-base" href="/book-now/">Book Online Now</a>,
+                            <a class="font-base" href="/get-a-quote/">Get a Custom Quote</a>,
+                            <a class="font-base" href="/our-fleet/">Explore Our Fleet</a>
                             </ul>
                         </p>
                     </address>
