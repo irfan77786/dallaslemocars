@@ -136,10 +136,10 @@ class WebsiteController extends Controller
         }
 
         $seo = [
-            'title' => 'Contact Dallas Black Car Service – Luxury Airport & Corporate Transportation',
+            'title' => 'Contact Dallas Black Car Service',
             'description' => 'Reach Dallas Black Car Service for reliable black car rides, airport transfers, corporate travel, and group transportation. Call, email, or book online today!',
             'keywords' => 'Dallas black car service contact, luxury car service Dallas, airport car service Dallas',
-            'og_title' => 'Contact Dallas Black Car Service – Luxury Airport & Corporate Transportation',
+            'og_title' => 'Contact Dallas Black Car Service',
             'og_description' => 'Reach Dallas Black Car Service for reliable black car rides, airport transfers, corporate travel, and group transportation. Call, email, or book online today!',
             'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
         ];

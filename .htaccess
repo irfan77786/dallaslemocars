@@ -131,3 +131,9 @@
     RewriteCond %1.min.js -f
     RewriteRule ^(.+)\.js$ $1.min.js [L]
 </IfModule>
+
+RewriteEngine On
+
+# Remove trailing slash
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ /$1 [R=301,L]
