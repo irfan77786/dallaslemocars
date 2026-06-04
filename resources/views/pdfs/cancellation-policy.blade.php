@@ -57,13 +57,13 @@
     }
 
     .section h2 {
-      background: #9e7c1e !important;
+      background: #e52c43 !important;
       margin: 0;
-      padding: 7px 15px;
-      font-size: 16px;
+      padding: 6px 12px;
+      font-size: 14px;
       color: #ffffff;
-      letter-spacing: 0.7px;
-      border-bottom: 1px solid #e0e0e0;
+      letter-spacing: 0.3px;
+      border-bottom: 1px solid #e0e4e8;
     }
 
     .section-content {
@@ -132,29 +132,12 @@
 
 <body>
   <div class="container">
-    <header style="width: 100%; display: table; margin-bottom: 20px;">
-      <div style="display: table-row;">
-        <div style="display: table-cell; vertical-align: middle; width: 62%;">
-          @include('partials.pdf_logo_image')
-        </div>
-        <div style="text-align: right;">
-          <div style="font-size: 12px; text-align: left;">
-            <div style="font-weight: bold; font-size: 12px;">Dallas Limo And Black Cars Service</div>
-            <div>3008 Ross Ave</div>
-            <div>Suite 100</div>
-            <div>Dallas, TX 75204</div>
-            <div><strong>Phone:</strong>&nbsp;+1 214-897-8056</div>
-            <div><strong>Email:</strong>&nbsp;info@dallaslimoandblackcars.com</div>
-            <div><strong>Website:</strong>&nbsp;www.dallaslimoandblackcars.com</div>
-          </div>
-        </div>
-      </div>
-    </header>
+    @include('partials.booking_pdf_document_header')
     <div class="section">
       <h2>Cancellation, Deposit & Service Policy</h2>
       <div class="section-content">
         <p><strong>Cancellation, Deposit & Service Policy</strong><br>
-          Dallas Limo And Black Cars Service strives to provide excellent service while maintaining a clear, fair, and
+          Dallas Limo Black Crs strives to provide excellent service while maintaining a clear, fair, and
           simple cancellation, deposit, and service policy. By booking with us, you agree to the following terms.</p>
 
         <p><strong>Contact:</strong><br>
@@ -200,7 +183,7 @@
           costs).</p>
 
         <p><strong>7. Indemnification:</strong><br>
-          By booking, you agree to indemnify and hold Dallas Limo And Black Cars Service harmless for any claims arising
+          By booking, you agree to indemnify and hold Dallas Limo Black Crs harmless for any claims arising
           from:<br>
           - Your use of services<br>
           - Policy violations<br>
@@ -223,7 +206,7 @@
           - Approved refunds are processed within 5–7 business days.<br>
           - No refunds for Motor Coaches, Mini Buses, or Special Events after cancellation window closes.</p>
 
-        <p><strong>Thank you for choosing Dallas Limo And Black Cars Service.</strong><br>
+        <p><strong>Thank you for choosing Dallas Limo Black Crs.</strong><br>
           We are committed to fair and professional service.<br>
           Contact us: info@dallaslimoandblackcars.com | +1 214-897-8056</p>
 

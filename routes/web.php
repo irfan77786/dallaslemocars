@@ -18,6 +18,7 @@ use App\Models\Booking;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\QueryException;
+use App\Support\BookingPdfBuilder;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 Route::get('/users', function (Request $request) {
@@ -338,11 +339,10 @@ Route::get('/invoices/{booking_id}/download', function ($booking_id) {
             'booker_number' => $booking->booker->phone_number ?? null,
             'isBookingForOthers' => false,
         ];
-        $pdf = Pdf::loadView('pdfs.booking', ['bookingData' => $bookingData]);
         if (!file_exists(public_path('pdfs'))) {
             @mkdir(public_path('pdfs'), 0777, true);
         }
-        $pdf->save($filePath);
+        BookingPdfBuilder::save($filePath, $bookingData);
     }
     return response()->file($filePath, ['Content-Type' => 'application/pdf']);
 })->middleware(['auth', 'verified'])->name('invoices.download');

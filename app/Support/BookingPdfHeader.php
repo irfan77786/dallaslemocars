@@ -11,14 +11,14 @@ class BookingPdfHeader
 
     public const GRADIENT_END = '#e52c43';
 
-    public const LIGHT_BG = '#fff0f2';
+    public const LIGHT_BG = '#f4f6f8';
 
-    public const LIGHT_TEXT = '#e52c43';
+    public const LIGHT_TEXT = '#0b1422';
 
     /**
      * PNG data URI: horizontal red → orange → red bar with white title (DomPDF-safe).
      */
-    public static function primaryBarDataUri(string $title, int $width = 1200, int $height = 72): ?string
+    public static function primaryBarDataUri(string $title, int $width = 1200, int $height = 52): ?string
     {
         if (! function_exists('imagecreatetruecolor')) {
             return null;
@@ -48,7 +48,7 @@ class BookingPdfHeader
         $white = imagecolorallocate($img, 255, 255, 255);
         $fontPath = base_path('vendor/dompdf/dompdf/lib/fonts/DejaVuSans-Bold.ttf');
         if (is_readable($fontPath)) {
-            imagettftext($img, 22, 0, 24, 46, $white, $fontPath, $title);
+            imagettftext($img, 18, 0, 20, (int) ($height * 0.72), $white, $fontPath, $title);
         } else {
             imagestring($img, 5, 12, (int) (($height - 15) / 2), $title, $white);
         }

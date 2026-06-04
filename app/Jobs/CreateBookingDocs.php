@@ -7,7 +7,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
-use Barryvdh\DomPDF\Facade\Pdf;
+use App\Support\BookingPdfBuilder;
 
 class CreateBookingDocs
 {
@@ -43,8 +43,7 @@ class CreateBookingDocs
 
             $filePath = $pdfsDirectory . '/' . $this->customBookingId . '.pdf';
 
-            $pdf = PDF::loadView('pdfs.booking', ['bookingData' => $this->bookingData]);
-            $pdf->save($filePath);
+            BookingPdfBuilder::save($filePath, $this->bookingData);
 
             $adminEmail = trim((string) (config('mail.admin_email') ?: env('ADMIN_EMAIL_ADDRESS')));
             \Log::info('Admin email from config: ' . ($adminEmail ?: 'NOT FOUND'));

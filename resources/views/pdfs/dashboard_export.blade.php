@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <title>Bookings</title>
     <style>
-        body { font-family: DejaVu Sans, sans-serif; font-size: 12px; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { border: 1px solid #ddd; padding: 6px; }
-        th { background: #1B9CCC; color: #fff; text-align: left; }
-        h2 { margin-bottom: 8px; }
+        body { font-family: DejaVu Sans, sans-serif; font-size: 10px; color: #333; margin: 0; padding: 8px 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 6px; }
+        th, td { border: 1px solid #e0e4e8; padding: 4px 5px; }
+        th { background: #e52c43; color: #fff; text-align: left; font-size: 9px; }
+        h2 { margin: 0 0 6px; font-size: 14px; color: #0b1422; }
     </style>
 </head>
 <body>
+    @include('partials.booking_pdf_document_header')
     <h2>Bookings</h2>
     <table>
         <thead>
@@ -59,4 +60,3 @@
     </table>
 </body>
 </html>
-
