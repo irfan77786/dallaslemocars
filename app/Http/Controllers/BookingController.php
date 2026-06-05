@@ -1096,16 +1096,20 @@ public function completeBook(Request $request)
         }
 
         // Flight details
+        $flight_details = [
+            'flight_number' => session('flight_number'),
+            'pickup_flight_details' => session('pickup_flight_details'),
+            'meet_option' => session('meet_option'),
+        ];
         if (session()->has('pickup_flight_details') || session()->has('flight_number') || session('is_airport')) {
-            $flight_details = [
+            FlightDetail::create([
                 'passenger_id' => $passenger->id,
-                'pickup_flight_details' => session('pickup_flight_details'),
-                'flight_number' => session('flight_number'),
-                'meet_option' => session('meet_option'),
+                'pickup_flight_details' => $flight_details['pickup_flight_details'],
+                'flight_number' => $flight_details['flight_number'],
+                'meet_option' => $flight_details['meet_option'],
                 'no_flight_info' => session('no_flight_info', false),
                 'inside_pickup_fee' => 0.00,
-            ];
-            FlightDetail::create($flight_details);
+            ]);
         }
 
         // Dispatch booking documents

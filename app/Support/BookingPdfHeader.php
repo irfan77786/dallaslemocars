@@ -18,10 +18,14 @@ class BookingPdfHeader
     /**
      * PNG data URI: horizontal red → orange → red bar with white title (DomPDF-safe).
      */
-    public static function primaryBarDataUri(string $title, int $width = 1200, int $height = 52): ?string
+    public static function primaryBarDataUri(string $title, int $width = 1200, int $height = 52, ?string $rightText = null): ?string
     {
         if (! function_exists('imagecreatetruecolor')) {
             return null;
+        }
+
+        if ($rightText !== null && $rightText !== '') {
+            $height = max($height, 56);
         }
 
         $img = imagecreatetruecolor($width, $height);
@@ -46,11 +50,27 @@ class BookingPdfHeader
         }
 
         $white = imagecolorallocate($img, 255, 255, 255);
-        $fontPath = base_path('vendor/dompdf/dompdf/lib/fonts/DejaVuSans-Bold.ttf');
-        if (is_readable($fontPath)) {
-            imagettftext($img, 18, 0, 20, (int) ($height * 0.72), $white, $fontPath, $title);
+        $boldFontPath = base_path('vendor/dompdf/dompdf/lib/fonts/DejaVuSans-Bold.ttf');
+
+        if (is_readable($boldFontPath)) {
+            $titleSize = 18;
+            $titleY = self::ttfBaselineY($titleSize, 0, $boldFontPath, $title, $height);
+            imagettftext($img, $titleSize, 0, 20, $titleY, $white, $boldFontPath, $title);
+
+            if ($rightText !== null && $rightText !== '') {
+                $rightSize = 12;
+                $rightY = self::ttfBaselineY($rightSize, 0, $boldFontPath, $rightText, $height);
+                $bbox = imagettfbbox($rightSize, 0, $boldFontPath, $rightText);
+                $rightWidth = $bbox !== false ? abs($bbox[2] - $bbox[0]) : 0;
+                $rightX = max(20, $width - $rightWidth - 20);
+                imagettftext($img, $rightSize, 0, $rightX, $rightY, $white, $boldFontPath, $rightText);
+            }
         } else {
-            imagestring($img, 5, 12, (int) (($height - 15) / 2), $title, $white);
+            $fallbackY = (int) (($height - 15) / 2);
+            imagestring($img, 5, 12, $fallbackY, $title, $white);
+            if ($rightText !== null && $rightText !== '') {
+                imagestring($img, 4, max(12, $width - (strlen($rightText) * 7) - 12), $fallbackY, $rightText, $white);
+            }
         }
 
         ob_start();
@@ -61,6 +81,16 @@ class BookingPdfHeader
         return is_string($png) && $png !== ''
             ? 'data:image/png;base64,' . base64_encode($png)
             : null;
+    }
+
+    private static function ttfBaselineY(int $fontSize, int $angle, string $fontPath, string $text, int $imageHeight): int
+    {
+        $bbox = imagettfbbox($fontSize, $angle, $fontPath, $text);
+        if ($bbox === false) {
+            return (int) round($imageHeight * 0.65);
+        }
+
+        return (int) round(($imageHeight - ($bbox[1] - $bbox[7])) / 2 - $bbox[7]);
     }
 
     /** @return array{0: int, 1: int, 2: int} */

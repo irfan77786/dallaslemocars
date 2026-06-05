@@ -6,6 +6,7 @@
 @php
     $compact = $compact ?? false;
     $pageBreak = $pageBreak ?? false;
+    $metaRight = $metaRight ?? null;
     $headerMargin = $compact ? '6px 0 8px' : '0 0 10px';
     $pageBreakClass = $pageBreak ? ' pdf-page-break-before' : '';
     $primaryHeaderClass = trim(($compact ? 'pdf-subsection-header' : 'pdf-section-header') . $pageBreakClass);
@@ -13,7 +14,7 @@
     $pageBreakStyle = $pageBreak ? ' page-break-before: always; break-before: page;' : '';
 @endphp
 @if ($variant === 'primary')
-    @php $barHeight = $compact ? 36 : 52; $barUri = BookingPdfHeader::primaryBarDataUri($title, 1200, $barHeight); @endphp
+    @php $barHeight = $compact ? 36 : ($metaRight ? 56 : 52); $barUri = BookingPdfHeader::primaryBarDataUri($title, 1200, $barHeight, $metaRight); @endphp
     @if ($barUri)
         <table cellpadding="0" cellspacing="0" width="100%" class="{{ $primaryHeaderClass }}" style="border-collapse: collapse; margin: {{ $headerMargin }};{{ $pageBreakStyle }}">
             <tr>
@@ -25,7 +26,10 @@
     @else
         <table cellpadding="0" cellspacing="0" width="100%" class="{{ $primaryHeaderClass }}" style="border-collapse: collapse; margin: {{ $headerMargin }};{{ $pageBreakStyle }}">
             <tr>
-                <td bgcolor="{{ BookingPdfHeader::GRADIENT_START }}" style="background-color: {{ BookingPdfHeader::GRADIENT_START }}; padding: 8px 12px; font-size: 14px; color: #ffffff; font-weight: 600;">{{ $title }}</td>
+                <td bgcolor="{{ BookingPdfHeader::GRADIENT_START }}" valign="middle" style="background-color: {{ BookingPdfHeader::GRADIENT_START }}; padding: 10px 12px; font-size: 14px; color: #ffffff; font-weight: 600; line-height: 1.2;">{{ $title }}</td>
+                @if ($metaRight)
+                <td bgcolor="{{ BookingPdfHeader::GRADIENT_START }}" align="right" valign="middle" style="background-color: {{ BookingPdfHeader::GRADIENT_START }}; padding: 10px 12px; font-size: 12px; color: #ffffff; font-weight: 700; white-space: nowrap; line-height: 1.2;">{{ $metaRight }}</td>
+                @endif
             </tr>
         </table>
     @endif

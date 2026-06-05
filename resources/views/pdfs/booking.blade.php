@@ -205,233 +205,174 @@
       @include('partials.booking_pdf_section_header', [
           'title' => 'Booking Confirmation #' . ($bookingData['booking_id'] ?? 'N/A'),
           'variant' => 'primary',
+          'metaRight' => 'Last Modified On: ' . now()->format('m/d/Y h:i A'),
       ])
       <div class="section-content">
-          <div style="text-align: right; font-size: 11px; margin-bottom: 4px;">
-            <strong>Last Modified On:</strong> {{ now()->format('m/d/Y h:i A') }}
-          </div>
-            {{-- Pickup Date --}}
-            @if(!empty($bookingData['pickup_date']))
+          @php
+              $np = 'Not provided';
+              $fd = is_array($bookingData['flight_details'] ?? null) ? $bookingData['flight_details'] : [];
+              $show = static function ($value) use ($np) {
+                  if ($value === null || $value === '') {
+                      return $np;
+                  }
+                  return is_string($value) && trim($value) === '' ? $np : $value;
+              };
+              $formatDate = static function ($value) use ($np) {
+                  if (empty($value)) {
+                      return $np;
+                  }
+                  try {
+                      return \Carbon\Carbon::parse($value)->format('m/d/Y - l');
+                  } catch (\Exception $e) {
+                      return $np;
+                  }
+              };
+              $formatTime = static function ($value) use ($np) {
+                  if (empty($value)) {
+                      return $np;
+                  }
+                  try {
+                      return \Carbon\Carbon::parse($value)->format('h:i A');
+                  } catch (\Exception $e) {
+                      return $np;
+                  }
+              };
+              $bookerName = trim(($bookingData['booker_first_name'] ?? '') . ' ' . ($bookingData['booker_last_name'] ?? ''));
+          @endphp
+
             <div class="row">
               <div class="col-sm-3 no-top-padding"><strong class="mian-cc">Pick-up Date:</strong></div>
-              <div class="col-sm-9 no-top-padding">
-                {{ \Carbon\Carbon::parse($bookingData['pickup_date'])->format('m/d/Y - l') }}
-              </div>
+              <div class="col-sm-9 no-top-padding">{{ $formatDate($bookingData['pickup_date'] ?? null) }}</div>
             </div>
-            @endif
-
-            {{-- Pickup Time --}}
-            @if(!empty($bookingData['pickup_time']))
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Pick-up Time:</strong></div>
-              <div class="col-sm-9">{{ \Carbon\Carbon::parse($bookingData['pickup_time'])->format('h:i A') }}</div>
+              <div class="col-sm-9">{{ $formatTime($bookingData['pickup_time'] ?? null) }}</div>
             </div>
-            @endif
-
-            {{-- Return Date --}}
-            @if(!empty($bookingData['return_date']))
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Return Date:</strong></div>
-              <div class="col-sm-9">{{ \Carbon\Carbon::parse($bookingData['return_date'])->format('m/d/Y - l') }}</div>
+              <div class="col-sm-9">{{ $formatDate($bookingData['return_date'] ?? null) }}</div>
             </div>
-            @endif
-
-            {{-- Return Time --}}
-            @if(!empty($bookingData['return_time']))
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Return Time:</strong></div>
-              <div class="col-sm-9">{{ \Carbon\Carbon::parse($bookingData['return_time'])->format('h:i A') }}</div>
+              <div class="col-sm-9">{{ $formatTime($bookingData['return_time'] ?? null) }}</div>
             </div>
-            @endif
-
-            {{-- Hours --}}
-            @if(!empty($bookingData['hours']))
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Hours:</strong></div>
-              <div class="col-sm-9">{{ $bookingData['hours'] ?? 'N/A' }}</div>
+              <div class="col-sm-9">{{ $show($bookingData['hours'] ?? null) }}</div>
             </div>
-            @endif
-
-            {{-- Service Type --}}
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Service Type:</strong></div>
               <div class="col-sm-9">
                 @if(!empty($bookingData['hours']))
                 Hourly/As Directed
                 @else
-                To Airport
+                Point-to-Point
                 @endif
               </div>
             </div>
-
-            {{-- Passenger --}}
-            @if(!empty($bookingData['passenger_name']))
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Passenger:</strong></div>
-              <div class="col-sm-9">{{ $bookingData['passenger_name'] }}</div>
+              <div class="col-sm-9">{{ $show($bookingData['passenger_name'] ?? null) }}</div>
             </div>
-            @endif
-
-            {{-- Client Ref# --}}
-            @if(!empty($bookingData['booking_id']))
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Client Ref#:</strong></div>
-              <div class="col-sm-9">N/A</div>
+              <div class="col-sm-9">{{ $show($bookingData['client_ref'] ?? null) }}</div>
             </div>
-            @endif
-
-            {{-- Phone Number --}}
-            @if(!empty($bookingData['phone']))
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Phone Number:</strong></div>
-              <div class="col-sm-9">{{ $bookingData['phone'] }}</div>
+              <div class="col-sm-9">{{ $show($bookingData['phone'] ?? null) }}</div>
             </div>
-            @endif
-
-            {{-- No. of Pass --}}
-            @if(!empty($bookingData['passengers']))
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">No. of Pass:</strong></div>
-              <div class="col-sm-9">{{ $bookingData['passengers'] }}</div>
+              <div class="col-sm-9">{{ $show($bookingData['passengers'] ?? null) }}</div>
             </div>
-            @endif
-
-            {{-- Vehicle Type --}}
-            @if(!empty($bookingData['vehicle_type']))
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Vehicle Type:</strong></div>
-              <div class="col-sm-9">{{ $bookingData['vehicle_type'] }}</div>
+              <div class="col-sm-9">{{ $show($bookingData['vehicle_type'] ?? null) }}</div>
             </div>
-            @endif
-
-            {{-- Primary/Billing Contact --}}
-            @if(!empty($bookingData['booker_first_name']) || !empty($bookingData['booker_last_name']))
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Primary/Billing Contact:</strong></div>
-              <div class="col-sm-9">{{ trim($bookingData['booker_first_name'] . ' ' . $bookingData['booker_last_name'])
-                }}</div>
+              <div class="col-sm-9">{{ $show(trim(($bookingData['booker_first_name'] ?? '') . ' ' . ($bookingData['booker_last_name'] ?? ''))) }}</div>
             </div>
-            @endif
-
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Passenger Email:</strong></div>
-              <div class="col-sm-9">{{ $bookingData['email'] }}</div>
+              <div class="col-sm-9">{{ $show($bookingData['email'] ?? null) }}</div>
             </div>
-
-            {{-- Payment Method --}}
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Payment Method:</strong></div>
               <div class="col-sm-9">Credit Card</div>
             </div>
+            <div class="row">
+              <div class="col-sm-3"><strong class="mian-cc">Payment Status:</strong></div>
+              <div class="col-sm-9">{{ $show($bookingData['payment_status'] ?? null) }}</div>
+            </div>
 
-        {{-- Booker Info (if booking for others) --}}
-        @if(!empty($bookingData['isBookingForOthers']) && ($bookingData['booker_first_name'] ||
-        $bookingData['booker_last_name'] || $bookingData['booker_email'] || $bookingData['booker_number']))
+          @if($bookerName !== '')
           @include('partials.booking_pdf_section_header', ['title' => 'Booker Information', 'variant' => 'light'])
-            @if($bookingData['booker_first_name'] || $bookingData['booker_last_name'])
             <div class="row">
               <div class="col-sm-3 no-top-padding"><strong class="mian-cc">Booker Name:</strong></div>
-              <div class="col-sm-9 no-top-padding">{{ trim($bookingData['booker_first_name'] . ' ' .
-                $bookingData['booker_last_name']) }}</div>
+              <div class="col-sm-9 no-top-padding">{{ $bookerName }}</div>
             </div>
-            @endif
-
-            @if($bookingData['booker_email'])
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Booker Email:</strong></div>
-              <div class="col-sm-9">{{ $bookingData['booker_email'] }}</div>
+              <div class="col-sm-9">{{ $show($bookingData['booker_email'] ?? null) }}</div>
             </div>
-            @endif
-
-            @if($bookingData['booker_number'])
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Booker Phone:</strong></div>
-              <div class="col-sm-9">{{ $bookingData['booker_number'] }}</div>
+              <div class="col-sm-9">{{ $show($bookingData['booker_number'] ?? null) }}</div>
             </div>
-            @endif
-        @endif
+          @endif
 
-        {{-- Trip Routing Information --}}
-        @if(!empty($bookingData['pickup_location']) || !empty($bookingData['dropoff_location']) ||
-        !empty($bookingData['hours']))
           @include('partials.booking_pdf_section_header', ['title' => 'Trip Routing Information:', 'variant' => 'light'])
-            @if(!empty($bookingData['pickup_location']))
             <div class="row">
               <div class="col-sm-3 no-top-padding"><strong class="mian-cc">Pick-up Location:</strong></div>
-              <div class="col-sm-9 no-top-padding">{{ $bookingData['pickup_location'] }}</div>
+              <div class="col-sm-9 no-top-padding">{{ $show($bookingData['pickup_location'] ?? null) }}</div>
             </div>
-            @endif
-
-            @if(!empty($bookingData['hours']))
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Stop Location:</strong></div>
-              <div class="col-sm-9">STOP AS DIRECTED</div>
+              <div class="col-sm-9">{{ !empty($bookingData['hours']) ? 'STOP AS DIRECTED' : $np }}</div>
             </div>
-            @endif
-
-            @if(!empty($bookingData['dropoff_location']))
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Drop-off Location:</strong></div>
-              <div class="col-sm-9">{{ $bookingData['dropoff_location'] }}</div>
+              <div class="col-sm-9">{{ $show($bookingData['dropoff_location'] ?? null) }}</div>
             </div>
-            @endif
-        @endif
 
-        @if($bookingData['flight_details'] && $bookingData['flight_details']['flight_number'] &&
-        $bookingData['flight_details']['pickup_flight_details'])
           @include('partials.booking_pdf_section_header', ['title' => 'Flight/Airport Information', 'variant' => 'primary'])
-            @if($bookingData['flight_details']['flight_number'])
             <div class="row">
               <div class="col-sm-3 no-top-padding"><strong class="mian-cc">Flight Number:</strong></div>
-              <div class="col-sm-9 no-top-padding">{{ $bookingData['flight_details']['flight_number'] }}</div>
+              <div class="col-sm-9 no-top-padding">{{ $show($fd['flight_number'] ?? null) }}</div>
             </div>
-            @endif
-            @if($bookingData['flight_details']['pickup_flight_details'])
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Pickup Flight Details:</strong></div>
-              <div class="col-sm-9">{{ $bookingData['flight_details']['pickup_flight_details'] }}</div>
+              <div class="col-sm-9">{{ $show($fd['pickup_flight_details'] ?? null) }}</div>
             </div>
-            @endif
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Meet Option:</strong></div>
-              <div class="col-sm-9">{{ $bookingData['flight_details']['meet_option'] ?? 'Not Specified!' }}</div>
+              <div class="col-sm-9">{{ $show(isset($fd['meet_option']) && $fd['meet_option'] !== '' ? ucfirst((string) $fd['meet_option']) : null) }}</div>
             </div>
-        @endif
 
-        @if(!empty($bookingData['special_instructions']))
           @include('partials.booking_pdf_section_header', ['title' => 'Notes/Comments:', 'variant' => 'light'])
-          <p style="margin: 0;">{{ $bookingData['special_instructions'] }}</p>
-        @endif
+          <p style="margin: 0;">{{ $show($bookingData['special_instructions'] ?? null) }}</p>
 
-        {{-- Charges & Fees --}}
-        @if(isset($bookingData['total_amount']))
           @include('partials.booking_pdf_section_header', ['title' => 'Charges & Fees:', 'variant' => 'light'])
             <div class="charges-block-end">
             <div class="row">
               <div class="col-sm-3 no-top-padding"><strong class="mian-cc">Fare (All inclusive):</strong></div>
-              <div class="col-sm-9 no-top-padding"><strong>${{ number_format($bookingData['total_amount'], 2)
-                  }}</strong></div>
+              <div class="col-sm-9 no-top-padding"><strong>{{ isset($bookingData['total_amount']) ? '$' . number_format((float) $bookingData['total_amount'], 2) : $np }}</strong></div>
             </div>
-
-            {{-- Other Charges --}}
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Other charges:</strong></div>
-              <div class="col-sm-9"><strong>$0.00</strong></div>
+              <div class="col-sm-9"><strong>{{ isset($bookingData['total_amount']) ? '$0.00' : $np }}</strong></div>
             </div>
-
-            {{-- Payment Deposits --}}
             <div class="row" style="color: #28a745;">
               <div class="col-sm-3"><strong class="mian-cc">Payment/Deposits:</strong></div>
-              <div class="col-sm-9"><strong>$0.00</strong></div>
+              <div class="col-sm-9"><strong>{{ isset($bookingData['total_amount']) ? '$0.00' : $np }}</strong></div>
             </div>
-
-            {{-- Total Amount --}}
             <div class="row" style="color: #dc3545; margin-bottom: 0;">
               <div class="col-sm-3"><strong class="mian-cc">Total Due:</strong></div>
-              <div class="col-sm-9"><strong>${{ number_format($bookingData['total_amount'], 2) }}</strong></div>
+              <div class="col-sm-9"><strong>{{ isset($bookingData['total_amount']) ? '$' . number_format((float) $bookingData['total_amount'], 2) : $np }}</strong></div>
             </div>
             </div>
-        @endif
 
       @include('partials.booking_pdf_section_header', [
           'title' => 'Cancellation Policy: Cancellation, Deposit & Service Policy',
