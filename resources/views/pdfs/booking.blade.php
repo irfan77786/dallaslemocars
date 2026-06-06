@@ -379,7 +379,7 @@
           'variant' => 'primary',
           'pageBreak' => true,
       ])
-        <p style="margin: 4px 0 0;">Dallas Limo Black Crs strives to provide excellent service while maintaining a clear, fair, and simple cancellation, deposit, and service policy. By booking with us, you agree to the following terms.</p>
+        <p style="margin: 4px 0 0;">Dallas Limo Black Cars strives to provide excellent service while maintaining a clear, fair, and simple cancellation, deposit, and service policy. By booking with us, you agree to the following terms.</p>
         <div class="row">
           <div class="col-sm-3"><strong class="mian-cc">Contact:</strong></div>
           <div class="col-sm-9">Email: info@dallaslimoandblackcars.com<br>Phone: +1 214-897-8056</div>
@@ -433,7 +433,7 @@
         <p>We are not liable for interruptions or cancellations due to events beyond our control (e.g., weather, disasters, terrorism, mechanical issues). We will attempt to reschedule or refund (minus non-refundable costs).</p>
 
         @include('partials.booking_pdf_section_header', ['title' => '7. Indemnification:', 'variant' => 'light'])
-        <p>By booking, you agree to indemnify and hold Dallas Limo Black Crs harmless for any claims arising from:<br>
+        <p>By booking, you agree to indemnify and hold Dallas Limo Black Cars harmless for any claims arising from:<br>
           - Your use of services<br>
           - Policy violations<br>
           - Damage caused by you or your party</p>
@@ -462,7 +462,7 @@
 
         @include('pdfs.partials.fifa-2026-event-policy', ['trimFifaSections' => $trimFifaSections ?? false])
 
-        <p style="margin: 8px 0 0;"><strong>Thank you for choosing Dallas Limo Black Crs.</strong><br>
+        <p style="margin: 8px 0 0;"><strong>Thank you for choosing Dallas Limo Black Cars.</strong><br>
           We are committed to fair and professional service.<br>
           Contact us: info@dallaslimoandblackcars.com | +1 214-897-8056</p>
       </div>

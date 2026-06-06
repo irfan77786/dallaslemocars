@@ -173,7 +173,7 @@
             @if (!empty($bookingData['isBookingForOthers'])
                 && (!empty($bookingData['booker_first_name']) || !empty($bookingData['booker_last_name']) || !empty($bookingData['booker_email']) || !empty($bookingData['booker_number'])))
                 <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
-                    <h3 style="background-color: #fff0f2; margin: 0; padding: 8px 12px; font-size: 14px; color: #e52c43; font-weight: 600; border-radius: 4px 4px 0 0;">Booker Information</h3>
+                    @include('partials.email_booking_subsection_header', ['title' => 'Booker Information'])
                     <table cellpadding="0" cellspacing="0" width="100%" style="font-size: 12px; padding: 10px;">
                         @if (!empty($bookingData['booker_first_name']) || !empty($bookingData['booker_last_name']))
                             <tr>
@@ -197,7 +197,7 @@
                 </div>
             @else
                 <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
-                    <h3 style="background-color: #fff0f2; margin: 0; padding: 8px 12px; font-size: 14px; color: #e52c43; font-weight: 600; border-radius: 4px 4px 0 0;">Booker Information:</h3>
+                    @include('partials.email_booking_subsection_header', ['title' => 'Booker Information:'])
                     <p style="font-size: 12px; margin: 0; padding: 12px; color: #555;">****** Information not provided ******</p>
                 </div>
             @endif
@@ -205,7 +205,7 @@
             {{-- Trip Routing Information (same as PDF) --}}
             @if (!empty($bookingData['pickup_location']) || !empty($bookingData['dropoff_location']) || !empty($bookingData['hours']))
                 <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
-                    <h3 style="background-color: #fff0f2; margin: 0; padding: 8px 12px; font-size: 14px; color: #e52c43; font-weight: 600; border-radius: 4px 4px 0 0;">Trip Routing Information:</h3>
+                    @include('partials.email_booking_subsection_header', ['title' => 'Trip Routing Information:'])
                     <table cellpadding="0" cellspacing="0" width="100%" style="font-size: 12px; padding: 10px;">
                         @if (!empty($bookingData['pickup_location']))
                             <tr>
@@ -229,7 +229,7 @@
                 </div>
             @else
                 <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
-                    <h3 style="background-color: #fff0f2; margin: 0; padding: 8px 12px; font-size: 14px; color: #e52c43; font-weight: 600; border-radius: 4px 4px 0 0;">Trip Routing Information:</h3>
+                    @include('partials.email_booking_subsection_header', ['title' => 'Trip Routing Information:'])
                     <p style="font-size: 12px; margin: 0; padding: 12px; color: #555;">****** Information not provided ******</p>
                 </div>
             @endif
@@ -266,7 +266,7 @@
 
             {{-- Notes/Comments (PDF framing) --}}
             <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
-                <h3 style="background-color: #fff0f2; margin: 0; padding: 8px 12px; font-size: 14px; color: #e52c43; font-weight: 600; border-radius: 4px 4px 0 0;">Notes/Comments:</h3>
+                @include('partials.email_booking_subsection_header', ['title' => 'Notes/Comments:'])
                 <p style="font-size: 12px; margin: 0; padding: 12px; color: #333;">
                     ****** {{ !empty($bookingData['special_instructions']) ? $bookingData['special_instructions'] : 'Information not provided' }} ******
                 </p>
@@ -275,7 +275,7 @@
             {{-- Charges & Fees (same lines as PDF) --}}
             @if (isset($bookingData['total_amount']))
                 <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
-                    <h3 style="background-color: #fff0f2; margin: 0; padding: 8px 12px; font-size: 14px; color: #e52c43; font-weight: 600; border-radius: 4px 4px 0 0;">Charges &amp; Fees:</h3>
+                    @include('partials.email_booking_subsection_header', ['title' => 'Charges & Fees:'])
                     <table cellpadding="0" cellspacing="0" width="100%" style="font-size: 12px; padding: 10px;">
                         <tr>
                             <td style="font-weight: bold; color: #666; width: 40%; padding: 4px 0; vertical-align: top;">Fare (All inclusive):</td>
@@ -297,7 +297,7 @@
                 </div>
             @else
                 <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
-                    <h3 style="background-color: #fff0f2; margin: 0; padding: 8px 12px; font-size: 14px; color: #e52c43; font-weight: 600; border-radius: 4px 4px 0 0;">Charges &amp; Fees:</h3>
+                    @include('partials.email_booking_subsection_header', ['title' => 'Charges & Fees:'])
                     <p style="font-size: 12px; margin: 0; padding: 12px; color: #555;">****** Information not provided ******</p>
                 </div>
             @endif
