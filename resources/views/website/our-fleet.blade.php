@@ -45,7 +45,7 @@
                     <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Our Luxury Fleet –  <span class="theme-color fw-bold">Premium Vehicles for Every Ride</span></h2>
                 </div>
                 <div class="col-12">
-                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every trip. Whether you need airport transportation, chauffeur service, executive travel, private car service, limousine service, or group transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class transportation across Dallas and nearby areas.</p>
+                    <p class="font-base justify-mobile">At Dallas Limo Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every trip. Whether you need airport transportation, chauffeur service, executive travel, private car service, limousine service, or group transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class transportation across Dallas and nearby areas.</p>
                 </div>
             </div>
             <div class="row">
@@ -136,7 +136,7 @@
                 
                 <div class="col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Executive Sedans for Private and Corporate Travel</h3>
-                    <p class="font-base text-justify">Our luxury sedan fleet provides reliable and professional transportation for travelers who value comfort, privacy, and punctuality. Whether you are heading to DFW Airport, Dallas Love Field, a business meeting, or a private appointment, our executive sedans deliver a refined travel experience. At <a href="https://dallaslimoandblackcars.com/"><strong>Dallas Limo and Black Cars</strong></a>, we use premium vehicles designed for smooth rides, quiet interiors, and high-end comfort throughout Dallas and surrounding areas.
+                    <p class="font-base text-justify">Our luxury sedan fleet provides reliable and professional transportation for travelers who value comfort, privacy, and punctuality. Whether you are heading to DFW Airport, Dallas Love Field, a business meeting, or a private appointment, our executive sedans deliver a refined travel experience. At <a href="https://dallaslimoandblackcars.com/"><strong>Dallas Limo Black Cars</strong></a>, we use premium vehicles designed for smooth rides, quiet interiors, and high-end comfort throughout Dallas and surrounding areas.
 
 Our sedan service is ideal for travelers coming from Downtown Dallas, Plano, Frisco, Irving, Arlington, McKinney, and nearby cities who need dependable transportation for personal and business travel. With professional chauffeurs, door-to-door service, and luxury interiors, our fleet provides the perfect combination of convenience, comfort, and executive style for every reservation.</p>
                 <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Book Luxury Sedan Service Today</a>
@@ -178,7 +178,7 @@ Our professional chauffeurs use our SUV fleet for smooth pickups and drop-offs a
                 
                 <div class="col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Sprinter Vans and Minibuses for Group Transportation</h3>
-                    <p class="font-base text-justify">Traveling with a group should still feel organized, comfortable, and professional. Our executive sprinter vans and minibuses offer premium transportation for corporate teams, wedding guests, airport groups, conference attendees, sports travel, and event transportation across Dallas and nearby cities. At Dallas Limo and Black Cars, we provide group vehicle options that help clients travel together without sacrificing comfort or reliability.
+                    <p class="font-base text-justify">Traveling with a group should still feel organized, comfortable, and professional. Our executive sprinter vans and minibuses offer premium transportation for corporate teams, wedding guests, airport groups, conference attendees, sports travel, and event transportation across Dallas and nearby cities. At Dallas Limo Black Cars, we provide group vehicle options that help clients travel together without sacrificing comfort or reliability.
 
 Our larger fleet vehicles include spacious seating, modern interiors, and professional chauffeur support for local and long-distance transportation. Whether you are planning airport transfers, private events, or group city-to-city rides from Dallas, our sprinter vans and minibuses provide a practical and luxury-focused solution for coordinated group travel.</p>
                   <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Book Group Transportation Today</a>

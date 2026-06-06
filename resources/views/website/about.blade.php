@@ -18,9 +18,9 @@
 
         <div class="row" style="pointer-events: none;">
             <div id="home-text-content" class="col-12 col-md-6 d-flex flex-column justify-content-center" style="pointer-events: auto; position: relative; z-index: 0;">
-                <h1 class="text-white h2 fw-bold mb-15">About Dallas Limo and Black Cars</h1>
+                <h1 class="text-white h2 fw-bold mb-15">About Dallas Limo Black Cars</h1>
                 <div class="d-none d-md-block">
-                    <p class="text-white font-lg fw-medium mb-30">Dallas Limo and Black Cars is a trusted provider of luxury transportation in Dallas, offering professional chauffeur service, airport transfers, private car service, limousine service, and city-to-city rides with comfort, reliability, and local expertise throughout Dallas and nearby areas.</p>
+                    <p class="text-white font-lg fw-medium mb-30">Dallas Limo Black Cars is a trusted provider of luxury transportation in Dallas, offering professional chauffeur service, airport transfers, private car service, limousine service, and city-to-city rides with comfort, reliability, and local expertise throughout Dallas and nearby areas.</p>
  
                     <p class="text-white font-base d-flex align-items-center mb-30 mb-md-0">
                         Call: <a href="tel:+12148978056" class="mx-2 fw-bold font-lg theme-color">+1 214-897-8056</a>
@@ -43,13 +43,13 @@
         <div class="row justify-content-center">
             <div class="mb-20 text-center col-12 col-lg-11 col-xl-10 mb-md-30 mb-lg-40">
                 <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">About Our <span class="theme-color">Luxury Transportation Company</span></h2>
-                <p class="font-base">Dallas Limo and Black Cars delivers professional black car and limousine service for travelers, families, executives, and groups who expect dependable transportation in Dallas, Fort Worth, Plano, Frisco, Irving, Arlington, and surrounding communities across the Dallas–Fort Worth metroplex.</p>
+                <p class="font-base">Dallas Limo Black Cars delivers professional black car and limousine service for travelers, families, executives, and groups who expect dependable transportation in Dallas, Fort Worth, Plano, Frisco, Irving, Arlington, and surrounding communities across the Dallas–Fort Worth metroplex.</p>
             </div>
         </div>
         <div class="py-20 row align-items-center">
             <div class="col-12 col-md-6 pr-xl-50">
                 <h3 class="h5 fw-semibold">Professional Chauffeur Service Built on Reliability</h3>
-                <p class="font-base text-justify">At Dallas Limo and Black Cars, our mission is simple: provide luxury transportation with professionalism, punctuality, and personalized care. We have built our reputation by serving clients who need dependable airport transfers, executive travel, private car service, and limousine transportation across Dallas and nearby cities. Every ride is handled with attention to comfort, timing, and customer satisfaction from reservation to final drop-off.
+                <p class="font-base text-justify">At Dallas Limo Black Cars, our mission is simple: provide luxury transportation with professionalism, punctuality, and personalized care. We have built our reputation by serving clients who need dependable airport transfers, executive travel, private car service, and limousine transportation across Dallas and nearby cities. Every ride is handled with attention to comfort, timing, and customer satisfaction from reservation to final drop-off.
 
 Whether you are booking a <a href="/services/airport-transfers-dallas/"><strong>black car to DFW Airport</strong></a>, arranging transportation for a business meeting in Downtown Dallas, or planning group travel from Plano, Frisco, Arlington, or Irving, our experienced chauffeurs and premium fleet are ready to deliver a smooth and stress-free travel experience.</p>
                     
@@ -78,7 +78,7 @@ Whether you are booking a <a href="/services/airport-transfers-dallas/"><strong>
                 <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Our Luxury Fleet – <span class="theme-color fw-bold">Premium Vehicles for Every Ride</span></h2>
             </div>
             <div class="col-12">
-                <p class="font-base justify-mobile">At Dallas Limo and Black Cars, our luxury fleet is selected to meet the transportation needs of business travelers, airport passengers, families, and private clients throughout Dallas and the surrounding DFW area. Whether you need <a href="https://dallaslimoandblackcars.com/"><strong>black car service</strong></a>, chauffeur transportation, airport transfers, limousine service, or group travel, our professionally maintained vehicles are designed to deliver comfort, style, and reliability on every trip.</p>
+                <p class="font-base justify-mobile">At Dallas Limo Black Cars, our luxury fleet is selected to meet the transportation needs of business travelers, airport passengers, families, and private clients throughout Dallas and the surrounding DFW area. Whether you need <a href="https://dallaslimoandblackcars.com/"><strong>black car service</strong></a>, chauffeur transportation, airport transfers, limousine service, or group travel, our professionally maintained vehicles are designed to deliver comfort, style, and reliability on every trip.</p>
             </div>
         </div>
         <div class="row">
@@ -163,7 +163,7 @@ Whether you are booking a <a href="/services/airport-transfers-dallas/"><strong>
                 
             <div class="col-12 col-md-6 pr-xl-50">
                 <h3 class="h5 fw-semibold">Who We Serve Across Dallas and Nearby Areas</h3>
-                <p class="font-base text-justify">Dallas Limo and Black Cars proudly serves a wide range of clients who need professional and dependable luxury transportation. Our services are trusted by corporate travelers, local residents, visitors, families, event planners, and groups looking for <a href="/services/private-car-service-in-dallas/"><strong> private car service</strong></a>, airport transportation, limousine service, and executive chauffeur service in Dallas and surrounding cities.
+                <p class="font-base text-justify">Dallas Limo Black Cars proudly serves a wide range of clients who need professional and dependable luxury transportation. Our services are trusted by corporate travelers, local residents, visitors, families, event planners, and groups looking for <a href="/services/private-car-service-in-dallas/"><strong> private car service</strong></a>, airport transportation, limousine service, and executive chauffeur service in Dallas and surrounding cities.
 
 From Downtown Dallas and Uptown to Plano, Frisco, Arlington, Irving, McKinney, Addison, Las Colinas, and nearby communities, we provide tailored transportation solutions based on comfort, timing, and service quality. Whether the ride is local or long distance, our team focuses on professional service and a smooth customer experience.</p>
                 <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Book Reliable Black Car Service Today</a>
@@ -182,7 +182,7 @@ From Downtown Dallas and Uptown to Plano, Frisco, Arlington, Irving, McKinney, A
                 </div>
             </div>
             <div class="mb-20 col-12 col-md-6 pr-xl-50">
-                <h3 class="h5 fw-semibold">Why Clients Choose Dallas Limo and Black Cars</h3>
+                <h3 class="h5 fw-semibold">Why Clients Choose Dallas Limo Black Cars</h3>
                 <p class="font-base text-justify">Clients choose our Dallas black car and limousine service because we combine local knowledge, premium vehicles, and professional chauffeur standards with a strong focus on reliability. We understand that transportation is not only about reaching a destination, but also about arriving comfortably, safely, and on schedule for airport travel, business appointments, special events, and private trips.
 
 Our team is committed to delivering consistent service quality for every reservation. From airport pickups at  <a href="/texas/black-car-service-plano-tx/"><strong>DFW and Love Field to executive travel in Plano</strong></a>, Frisco, Irving, and Arlington, we provide transportation that reflects professionalism, privacy, comfort, and attention to detail for every client we serve.
@@ -205,7 +205,7 @@ Our team is committed to delivering consistent service quality for every reserva
                 
             <div class="col-12 col-md-6 pr-xl-50">
                 <h3 class="h5 fw-semibold">Luxury Transportation with Local Dallas Expertise</h3>
-                <p class="font-base text-justify">Our company is built around the needs of travelers who value dependable service and local expertise. Dallas Limo and Black Cars understands the routes, airports, corporate districts, hotels, stadiums, and neighborhoods that matter most to clients throughout the Dallas–Fort Worth region. This local knowledge helps us provide efficient transportation for airport transfers, private rides, and city-to-city travel.
+                <p class="font-base text-justify">Our company is built around the needs of travelers who value dependable service and local expertise. Dallas Limo Black Cars understands the routes, airports, corporate districts, hotels, stadiums, and neighborhoods that matter most to clients throughout the Dallas–Fort Worth region. This local knowledge helps us provide efficient transportation for airport transfers, private rides, and city-to-city travel.
 
 With a luxury fleet, experienced chauffeurs, and a service-first approach, we continue to serve Dallas and nearby areas with transportation designed for convenience and peace of mind. Every reservation is handled with professionalism so our clients can travel with confidence for business, leisure, and special occasions.</p>
                 <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Reserve Your Luxury Ride Now</a>
@@ -226,7 +226,7 @@ With a luxury fleet, experienced chauffeurs, and a service-first approach, we co
         <div class="row justify-content-center">
             <div class="text-center col-12 col-lg-11 col-xl-10 mb-25 mb-md-30 mb-lg-40">
                 <h2 class="h2 fw-bold mb-15 mb-lg-20 seciononeheading">Where We Serve</h2>
-                <p class="font-base">Dallas Limo and Black Cars provides luxury transportation throughout Dallas and nearby areas, connecting clients to airports, corporate districts, neighborhoods, entertainment venues, hotels, and major destinations across the Dallas–Fort Worth metroplex.</p>
+                <p class="font-base">Dallas Limo Black Cars provides luxury transportation throughout Dallas and nearby areas, connecting clients to airports, corporate districts, neighborhoods, entertainment venues, hotels, and major destinations across the Dallas–Fort Worth metroplex.</p>
             </div>
         </div>
         <div class="row">
@@ -472,7 +472,7 @@ With a luxury fleet, experienced chauffeurs, and a service-first approach, we co
     <div class="ah-container">
         <div class="row">
             <div class="mb-10 text-center col-12 mb-md-20">
-                <h2 class="text-white h2 fw-bold">What Clients Say About Dallas Limo and Black Cars</h2>
+                <h2 class="text-white h2 fw-bold">What Clients Say About Dallas Limo Black Cars</h2>
             </div>
         </div>
         <div class="row">
@@ -498,7 +498,7 @@ With a luxury fleet, experienced chauffeurs, and a service-first approach, we co
                                 <span class="mb-10 text-center location fw-semibold font-lg d-block">Plano, TX</span>
                                 <blockquote class="mb-30">
                                     <p class="mb-0 text-center font-lg fw-medium">
-                                        Reliable and easy to book. I used Dallas Limo and Black Cars for airport transportation and was impressed by the chauffeur, the vehicle, and the overall professionalism.
+                                        Reliable and easy to book. I used Dallas Limo Black Cars for airport transportation and was impressed by the chauffeur, the vehicle, and the overall professionalism.
                                     </p>
                                 </blockquote>
                             </div>
@@ -555,7 +555,7 @@ With a luxury fleet, experienced chauffeurs, and a service-first approach, we co
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordion01-collapseOne">
-                            What does Dallas Limo and Black Cars specialize in?
+                            What does Dallas Limo Black Cars specialize in?
                         </button>
                     </h2>
                     <div id="accordion01-collapseOne" class="accordion-collapse collapse">
@@ -650,7 +650,7 @@ With a luxury fleet, experienced chauffeurs, and a service-first approach, we co
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordion01-collapseEight">
-                            How can I book with Dallas Limo and Black Cars?
+                            How can I book with Dallas Limo Black Cars?
                         </button>
                     </h2>
                     <div id="accordion01-collapseEight" class="accordion-collapse collapse">

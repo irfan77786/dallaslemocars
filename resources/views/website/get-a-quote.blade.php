@@ -189,7 +189,7 @@
                     <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Our Luxury Fleet <span class="theme-color fw-bold">Travel with Comfort and Class</span></h2>
                 </div>
                 <div class="col-12">
-                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we provide a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style. Whether you need Dallas airport transportation, <a href="/airports/dfw-car-service/"><strong>DFW airport car service</strong></a>, corporate transportation, black car service, or group travel, our professionally maintained vehicles ensure a smooth and elegant travel experience.
+                    <p class="font-base justify-mobile">At Dallas Limo Black Cars, we provide a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style. Whether you need Dallas airport transportation, <a href="/airports/dfw-car-service/"><strong>DFW airport car service</strong></a>, corporate transportation, black car service, or group travel, our professionally maintained vehicles ensure a smooth and elegant travel experience.
 
 Our fleet includes luxury sedans, black SUVs, executive sprinter vans, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class service across Dallas and the DFW area.</p>
                 </div>

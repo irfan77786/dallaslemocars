@@ -45,7 +45,7 @@
                     <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Our Luxury Fleet –  <span class="theme-color fw-bold">Travel from Dallas to Austin with Comfort and Class</span></h2>
                 </div>
                 <div class="col-12">
-                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every long-distance journey. Whether you need Dallas to Austin transportation, executive intercity travel, private car service, or group transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class Dallas to Austin car service.</p>
+                    <p class="font-base justify-mobile">At Dallas Limo Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every long-distance journey. Whether you need Dallas to Austin transportation, executive intercity travel, private car service, or group transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class Dallas to Austin car service.</p>
                 </div>
             </div>
             <div class="row">
@@ -149,7 +149,7 @@
                 <div class="py-20 row align-items-center">
                     <div class="col-12 col-md-6 pr-xl-50">
                         <h3 class="h5 fw-semibold">Dallas to Austin Car Service & Black Car Transportation</h3>
-                        <p class="font-base text-justify">Looking for a reliable Dallas to Austin car service? At Dallas Limo and Black Cars, we provide professional black car transportation between Dallas and Austin, ensuring every traveler enjoys a smooth, punctual, and stress-free ride. Our premium Dallas to Austin car service is trusted by business travelers, families, and visitors who need dependable transportation for long-distance travel across Texas.
+                        <p class="font-base text-justify">Looking for a reliable Dallas to Austin car service? At Dallas Limo Black Cars, we provide professional black car transportation between Dallas and Austin, ensuring every traveler enjoys a smooth, punctual, and stress-free ride. Our premium Dallas to Austin car service is trusted by business travelers, families, and visitors who need dependable transportation for long-distance travel across Texas.
 
 We proudly serve Downtown Dallas, Uptown Dallas, Plano, Frisco, Waco, Round Rock, and nearby Texas cities, providing efficient routes and on-time pickups so you never have to worry about delays during your trip.</p>
                     
@@ -240,7 +240,7 @@ We proudly serve Downtown Dallas, Uptown Dallas, Plano, Frisco, Waco, Round Rock
                 
                 <div class="col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Private Car Service from Dallas to Austin</h3>
-                    <p class="font-base text-justify">Our Dallas to Austin car service provides reliable and professional transportation between two of Texas’s busiest cities. Whether you are traveling for business, vacation, or a corporate event, our experienced chauffeurs ensure a smooth and punctual intercity travel experience. At Dallas Limo and Black Cars, we specialize in luxury long-distance transportation designed for comfort, reliability, and efficiency across Texas.
+                    <p class="font-base text-justify">Our Dallas to Austin car service provides reliable and professional transportation between two of Texas’s busiest cities. Whether you are traveling for business, vacation, or a corporate event, our experienced chauffeurs ensure a smooth and punctual intercity travel experience. At Dallas Limo Black Cars, we specialize in luxury long-distance transportation designed for comfort, reliability, and efficiency across Texas.
 
 Our service is ideal for travelers coming from Downtown Dallas, Plano, Frisco, Irving, Arlington, McKinney, and surrounding cities who need dependable transportation to Austin. With direct routing, door-to-door service, and professional chauffeurs, we make sure you arrive in Austin on time without stress. Our luxury fleet of sedans, SUVs, and executive vehicles provides the perfect combination of comfort and reliability for both personal and business travel.</p>
                 <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Book Reliable Car Service Today</a>
@@ -281,7 +281,7 @@ Our professional chauffeurs monitor traffic and route conditions to ensure timel
                 
                 <div class="col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Luxury Intercity Car Service Across the Dallas–Austin Route</h3>
-                    <p class="font-base text-justify">Traveling between Dallas and Austin should be comfortable and stress-free. Our luxury Dallas to Austin car service offers premium black car transportation designed for travelers who value reliability, privacy, and professional service. At Dallas Limo and Black Cars, we provide first-class intercity transportation for both departures and returns throughout the Dallas–Austin corridor.
+                    <p class="font-base text-justify">Traveling between Dallas and Austin should be comfortable and stress-free. Our luxury Dallas to Austin car service offers premium black car transportation designed for travelers who value reliability, privacy, and professional service. At Dallas Limo Black Cars, we provide first-class intercity transportation for both departures and returns throughout the Dallas–Austin corridor.
 
 Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles perfect for long-distance transportation. Whether you are traveling alone, with colleagues, or with family, our vehicles provide a comfortable and stylish ride between Dallas and Austin. With experienced chauffeurs, well-maintained vehicles, and flexible scheduling, our Dallas to Austin car service ensures every trip is smooth, safe, and perfectly timed for your travel plans.</p>
                   <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Reserve Your Dallas to Austin Car Service</a>

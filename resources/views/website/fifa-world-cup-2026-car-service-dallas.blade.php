@@ -45,7 +45,7 @@
                     <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Our Luxury Fleet –  <span class="theme-color fw-bold">Travel for FIFA World Cup 2026 with Comfort and Class</span></h2>
                 </div>
                 <div class="col-12">
-                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every tournament journey. Whether you need <a href="/book-now/"><strong>FIFA World Cup 2026 transportation</strong></a>, airport pickups, stadium transfers, executive event travel, or group transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class FIFA World Cup 2026 transportation in Dallas.</p>
+                    <p class="font-base justify-mobile">At Dallas Limo Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every tournament journey. Whether you need <a href="/book-now/"><strong>FIFA World Cup 2026 transportation</strong></a>, airport pickups, stadium transfers, executive event travel, or group transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class FIFA World Cup 2026 transportation in Dallas.</p>
                 </div>
             </div>
             <div class="row">
@@ -105,7 +105,7 @@
                 <div class="py-20 row align-items-center">
                     <div class="col-12 col-md-6 pr-xl-50">
                         <h3 class="h5 fw-semibold">Dallas FIFA World Cup 2026 Transportation & Black Car Service</h3>
-                        <p class="font-base text-justify">Looking for reliable FIFA World Cup 2026 transportation in Dallas? At Dallas Limo and Black Cars, we provide professional black car transportation for airport pickups, stadium transfers, hotel transportation, and tournament-related travel, ensuring every traveler enjoys a smooth, punctual, and stress-free ride. Our premium Dallas event car service is trusted by business travelers, fan groups, families, and visitors who need dependable transportation throughout the Dallas–Fort Worth metroplex.
+                        <p class="font-base text-justify">Looking for reliable FIFA World Cup 2026 transportation in Dallas? At Dallas Limo Black Cars, we provide professional black car transportation for airport pickups, stadium transfers, hotel transportation, and tournament-related travel, ensuring every traveler enjoys a smooth, punctual, and stress-free ride. Our premium Dallas event car service is trusted by business travelers, fan groups, families, and visitors who need dependable transportation throughout the Dallas–Fort Worth metroplex.
 
 We proudly serve Downtown Dallas, Arlington, Frisco, Plano, Irving, Las Colinas, and nearby DFW cities, providing efficient routes and on-time pickups so you never have to worry about event delays, traffic stress, or missing important World Cup activities.</p>
                     

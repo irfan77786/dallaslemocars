@@ -380,7 +380,7 @@
             <div class="py-20 ah-container">
                 <div class="row align-items-center">
                     <div class="text-center col-12 col-md-6 text-md-start">
-                        <p class="mb-0 font-sm"><a href="/">Dallas Limo and Black Cars</a> © 2026. All rights reserved.
+                        <p class="mb-0 font-sm"><a href="/">Dallas Limo Black Cars</a> © 2026. All rights reserved.
                         </p>
                     </div>
                     <div class="col-12 col-md-6 d-none d-md-block">

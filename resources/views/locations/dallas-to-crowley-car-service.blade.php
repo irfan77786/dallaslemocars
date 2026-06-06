@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="text-center col-12 col-xl-10">
                 <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30">Our Premium Fleet – Ride in Comfort and Style
-                    with <span class="theme-color fw-bold">Dallas Limo and Black Cars Service</span></h2>
+                    with <span class="theme-color fw-bold">Dallas Limo Black Cars Service</span></h2>
             </div>
             <div class="col-12 mb-15">
                 <p class="font-base">Lorem Ipsum is simply dummy text of the printing and typesetting industry.

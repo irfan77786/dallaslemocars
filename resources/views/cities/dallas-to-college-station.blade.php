@@ -91,7 +91,7 @@ $isHourly = session('service_type') === 'hourlyHire';
                 <div class="btom">
                     <div class="btom-bottom">
                         <h2>
-                            Dallas Limo And Black Cars Service – Luxury Rides to College Station
+                            Dallas Limo Black Cars Service – Luxury Rides to College Station
                         </h2>
                         <p>
                          Heading to Texas A&M in College Station? Our fleet makes the journey from Dallas efficient and comfortable.
@@ -128,7 +128,7 @@ $isHourly = session('service_type') === 'hourlyHire';
 
                     <img
                         src="/img/dallas-black-car-service.webp"
-                        alt="luxury Dallas Limo And Black Cars" />
+                        alt="luxury Dallas Limo Black Cars" />
                 </div>
                 <div class="btom-btn">
                     <a style="cursor: pointer;" class="quick-book-link" href="#">Ride in Dallas – Book Now</a>

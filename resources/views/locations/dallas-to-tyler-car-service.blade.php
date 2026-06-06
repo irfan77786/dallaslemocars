@@ -45,7 +45,7 @@
                     <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Our Luxury Fleet –  <span class="theme-color fw-bold">Travel to Tyler with Comfort and Class</span></h2>
                 </div>
                 <div class="col-12">
-                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every long-distance journey. Whether you need Dallas to Tyler transportation, private executive travel, family transportation, or group city-to-city rides, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class <a href="/services/airport-transfers-dallas/"><strong>Dallas to Tyler car service</strong></a>.</p>
+                    <p class="font-base justify-mobile">At Dallas Limo Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every long-distance journey. Whether you need Dallas to Tyler transportation, private executive travel, family transportation, or group city-to-city rides, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class <a href="/services/airport-transfers-dallas/"><strong>Dallas to Tyler car service</strong></a>.</p>
                 </div>
             </div>
             <div class="row">
@@ -149,7 +149,7 @@
                 <div class="py-20 row align-items-center">
                     <div class="col-12 col-md-6 pr-xl-50">
                         <h3 class="h5 fw-semibold">Dallas to Tyler Car Service & Black Car Transportation</h3>
-                        <p class="font-base text-justify">Looking for a reliable Dallas to Tyler car service? At Dallas Limo and Black Cars, we provide professional black car transportation from Dallas to Tyler, ensuring every traveler enjoys a smooth, punctual, and stress-free ride. Our <a href="/book-now/"><strong>premier Dallas to Tyler car service</strong></a> is trusted by business travelers, families, and visitors who need dependable transportation throughout the region.
+                        <p class="font-base text-justify">Looking for a reliable Dallas to Tyler car service? At Dallas Limo Black Cars, we provide professional black car transportation from Dallas to Tyler, ensuring every traveler enjoys a smooth, punctual, and stress-free ride. Our <a href="/book-now/"><strong>premier Dallas to Tyler car service</strong></a> is trusted by business travelers, families, and visitors who need dependable transportation throughout the region.
 
 We proudly serve Downtown Dallas, Plano, Frisco, Arlington, Tyler, Whitehouse, Lindale, and nearby East Texas communities, providing efficient routes and on-time pickups so you never have to worry about delays, road stress, or unreliable ride options during your trip.</p>
                     
@@ -240,7 +240,7 @@ We proudly serve Downtown Dallas, Plano, Frisco, Arlington, Tyler, Whitehouse, L
                 
                 <div class="col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Dallas to Tyler Black Car Service for Private Travel</h3>
-                    <p class="font-base text-justify">Our Dallas to Tyler car service provides reliable and professional transportation for travelers who want comfort, privacy, and dependable service on every ride. Whether you are traveling for business, a family visit, a medical appointment, a campus trip, or a special event, our experienced chauffeurs ensure a smooth and punctual travel experience. At Dallas Limo and Black Cars, we specialize in luxury city-to-city transportation designed for comfort, reliability, and efficiency across East Texas.
+                    <p class="font-base text-justify">Our Dallas to Tyler car service provides reliable and professional transportation for travelers who want comfort, privacy, and dependable service on every ride. Whether you are traveling for business, a family visit, a medical appointment, a campus trip, or a special event, our experienced chauffeurs ensure a smooth and punctual travel experience. At Dallas Limo Black Cars, we specialize in luxury city-to-city transportation designed for comfort, reliability, and efficiency across East Texas.
 
 Our service is ideal for travelers coming from Downtown Dallas, Plano, Frisco, Irving, Arlington, Mesquite, and surrounding areas who need dependable transportation to Tyler. With door-to-door service, professional chauffeurs, and carefully planned routes, we make sure you arrive on time without stress. Our luxury fleet of sedans, SUVs, and executive vehicles provides the perfect combination of comfort and reliability for both personal and business travel.</p>
                 <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Book Reliable Car Service Today</a>
@@ -281,7 +281,7 @@ Our professional chauffeurs monitor traffic and route conditions to ensure timel
                 
                 <div class="col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Luxury Dallas to Tyler Transportation Across East Texas</h3>
-                    <p class="font-base text-justify">Traveling to Tyler should be comfortable and stress-free. Our luxury Dallas to Tyler car service offers premium black car transportation designed for travelers who value reliability, privacy, and professional service. At Dallas Limo and Black Cars, we provide first-class city-to-city rides for both business and leisure travelers throughout the region.
+                    <p class="font-base text-justify">Traveling to Tyler should be comfortable and stress-free. Our luxury Dallas to Tyler car service offers premium black car transportation designed for travelers who value reliability, privacy, and professional service. At Dallas Limo Black Cars, we provide first-class city-to-city rides for both business and leisure travelers throughout the region.
 
 Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles perfect for long-distance transportation. Whether you are traveling alone, with colleagues, or with family, our vehicles provide a comfortable and stylish ride from Dallas to Tyler. With experienced chauffeurs, well-maintained vehicles, and flexible scheduling, our Dallas to Tyler car service ensures every trip is smooth, safe, and perfectly timed for your travel plans.</p>
                   <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Reserve Your Dallas to Tyler Car Service</a>
@@ -304,7 +304,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12">
                     <div class="swiper logo-swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" alt="Trusted partner logo for Dallas Limo and Black Cars luxury transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" alt="Trusted partner logo for Dallas Limo Black Cars luxury transportation service" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" alt="Corporate partner logo associated with Dallas city to city black car and chauffeur transportation service" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" alt="Business client logo for premium black car service and executive transportation across East Texas" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" alt="Professional affiliation logo for luxury airport and long distance transportation service" class="img-fluid"></div>
@@ -313,7 +313,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" alt="Partner business logo connected with Dallas luxury limo and black car service" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" alt="Trusted service partner logo for Dallas private transportation and chauffeur rides" class="img-fluid"></div>
 
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" alt="Trusted partner logo for Dallas Limo and Black Cars luxury transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" alt="Trusted partner logo for Dallas Limo Black Cars luxury transportation service" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" alt="Corporate partner logo associated with Dallas city to city black car and chauffeur transportation service" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" alt="Business client logo for premium black car service and executive transportation across East Texas" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" alt="Professional affiliation logo for luxury airport and long distance transportation service" class="img-fluid"></div>

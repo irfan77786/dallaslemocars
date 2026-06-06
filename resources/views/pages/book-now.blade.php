@@ -88,7 +88,7 @@
                     <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Choose From Our Premium Fleet</h2>
                 </div>
                 <div class="col-12">
-                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we provide a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style. Select the perfect vehicle for your journey and experience world-class service with professional chauffeurs dedicated to your satisfaction.</p>
+                    <p class="font-base justify-mobile">At Dallas Limo Black Cars, we provide a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style. Select the perfect vehicle for your journey and experience world-class service with professional chauffeurs dedicated to your satisfaction.</p>
                 </div>
             </div>
             <div class="row">
@@ -136,7 +136,7 @@
                 </div>
                 
                 <div class="col-12 col-md-6 pr-xl-50">
-                    <h3 class="h5 fw-semibold">Why Book With Dallas Limo and Black Cars?</h3>
+                    <h3 class="h5 fw-semibold">Why Book With Dallas Limo Black Cars?</h3>
                     <p class="font-base text-justify">When you choose our service, you get more than just a ride — you get complete peace of mind knowing you’re traveling with experienced chauffeurs and premium luxury vehicles. We proudly serve the entire Dallas–Fort Worth area, providing reliable transportation services available 24/7 to meet your schedule and travel needs. Our booking process is simple, secure, and fully transparent, ensuring there are no hidden fees or unexpected charges. We offer competitive pricing, real-time ride tracking, and flexible scheduling options for maximum convenience. Whether you need airport transfers, corporate transportation, special event services, or city-to-city travel, we deliver a smooth and stress-free experience. Our commitment to safety, punctuality, and exceptional customer service makes us a trusted choice for <a href="https://dallaslimoandblackcars.com/"><strong>black car service in Dallas</strong></a>.</p>
                     <a href="#" onclick="document.querySelector('.search-form-wrapper-desktop').scrollIntoView({behavior: 'smooth'});" class="btn btn-primary sm fw-medium fifa-btn-full">Complete Your Booking</a>
                 </div>

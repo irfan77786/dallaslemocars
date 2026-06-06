@@ -94,7 +94,7 @@
                         </div>
                         <div class="col-12 mb-15">
                             <p class="mb-2 font-sm contact-cc">
-                                Do you agree to receive texts from Dallas Limo and Black Cars
+                                Do you agree to receive texts from Dallas Limo Black Cars
                                 Service (+1 214-897-8056)? Messages may include reservation
                                 reminders/updates. Msg &amp; data rates may apply. Reply STOP
                                 to unsubscribe or HELP for support.</p>
@@ -104,7 +104,7 @@
                                     name="sms_consent" value="1" style="margin-left: 0;" required>
                                 <label class="form-check-label small d-inline-block ms-2" for="sms_consent"
                                     style="margin-top: -2px;">
-                                    Yes, I agree to receive text messages from Dallas Limo and Black Cars sent from (+1 214-897-8056).
+                                    Yes, I agree to receive text messages from Dallas Limo Black Cars sent from (+1 214-897-8056).
                                 </label>
                             </div>
                             @error('sms_consent')

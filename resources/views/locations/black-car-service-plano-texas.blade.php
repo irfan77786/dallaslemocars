@@ -45,7 +45,7 @@
                     <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Our Luxury Fleet –  <span class="theme-color fw-bold">Travel in Plano with Comfort and Class</span></h2>
                 </div>
                 <div class="col-12">
-                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every ride in Plano. Whether you need DFW airport transportation, Dallas Love Field transfers, executive travel, or group transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class <a href="/services/chauffeur-service-dallas/"><strong>black car service in Plano</strong></a>.</p>
+                    <p class="font-base justify-mobile">At Dallas Limo Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every ride in Plano. Whether you need DFW airport transportation, Dallas Love Field transfers, executive travel, or group transportation, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious minibuses, all driven by professional chauffeurs dedicated to providing first-class <a href="/services/chauffeur-service-dallas/"><strong>black car service in Plano</strong></a>.</p>
                 </div>
             </div>
             <div class="row">
@@ -149,7 +149,7 @@
                 <div class="py-20 row align-items-center">
                     <div class="col-12 col-md-6 pr-xl-50">
                         <h3 class="h5 fw-semibold">Plano Black Car Service & Private Transportation</h3>
-                        <p class="font-base text-justify">Looking for a reliable black car service in Plano? At Dallas Limo and Black Cars, we provide professional chauffeur transportation for airport transfers, corporate meetings, private rides, and special events, ensuring every traveler enjoys a smooth, punctual, and stress-free ride. Our <a href="https://dallaslimoandblackcars.com/"><strong>premier Plano black car service</strong></a> is trusted by business travelers, families, and visitors who need dependable transportation throughout Plano and the greater Dallas–Fort Worth region.
+                        <p class="font-base text-justify">Looking for a reliable black car service in Plano? At Dallas Limo Black Cars, we provide professional chauffeur transportation for airport transfers, corporate meetings, private rides, and special events, ensuring every traveler enjoys a smooth, punctual, and stress-free ride. Our <a href="https://dallaslimoandblackcars.com/"><strong>premier Plano black car service</strong></a> is trusted by business travelers, families, and visitors who need dependable transportation throughout Plano and the greater Dallas–Fort Worth region.
 
 We proudly serve Plano, Frisco, Richardson, Allen, McKinney, Dallas, and nearby North Texas cities, providing efficient routes and on-time pickups so you never have to worry about delays for flights, meetings, or important occasions.</p>
                     
@@ -240,7 +240,7 @@ We proudly serve Plano, Frisco, Richardson, Allen, McKinney, Dallas, and nearby 
                 
                 <div class="col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Plano Black Car Service to DFW & Love Field</h3>
-                    <p class="font-base text-justify">Our Plano black car service provides reliable and <a href="/airports/dfw-car-service/"><strong>professional transportation to DFW International Airport</strong></a> and Dallas Love Field Airport. Whether you are traveling for business, vacation, or a corporate event, our experienced chauffeurs ensure a smooth and punctual travel experience. At Dallas Limo and Black Cars, we specialize in luxury private transportation designed for comfort, reliability, and efficiency across Plano and the Dallas–Fort Worth metroplex.
+                    <p class="font-base text-justify">Our Plano black car service provides reliable and <a href="/airports/dfw-car-service/"><strong>professional transportation to DFW International Airport</strong></a> and Dallas Love Field Airport. Whether you are traveling for business, vacation, or a corporate event, our experienced chauffeurs ensure a smooth and punctual travel experience. At Dallas Limo Black Cars, we specialize in luxury private transportation designed for comfort, reliability, and efficiency across Plano and the Dallas–Fort Worth metroplex.
 
 Our service is ideal for travelers coming from Plano, Frisco, Richardson, Allen, McKinney, and surrounding North Texas cities who need dependable airport transfers. With timely pickups, door-to-door service, and professional chauffeurs, we make sure you arrive at the airport on time without stress. Our luxury fleet of sedans, SUVs, and executive vehicles provides the perfect combination of comfort and reliability for both personal and business travel.</p>
                 <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Book Reliable Black Car Service Today</a>
@@ -281,7 +281,7 @@ Our professional chauffeurs monitor traffic and routes to ensure timely pickups 
                 
                 <div class="col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Luxury Black Car Service Across Plano and North Texas</h3>
-                    <p class="font-base text-justify">Traveling through Plano should be comfortable and stress-free. Our <a href="/book-now/"><strong> luxury black car service in Plano</strong></a> offers premium private transportation designed for travelers who value reliability, privacy, and professional service. At Dallas Limo and Black Cars, we provide first-class transportation for airport transfers, business travel, special events, and private rides throughout the North Texas area.
+                    <p class="font-base text-justify">Traveling through Plano should be comfortable and stress-free. Our <a href="/book-now/"><strong> luxury black car service in Plano</strong></a> offers premium private transportation designed for travelers who value reliability, privacy, and professional service. At Dallas Limo Black Cars, we provide first-class transportation for airport transfers, business travel, special events, and private rides throughout the North Texas area.
 
 Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles perfect for private transportation. Whether you are traveling alone, with colleagues, or with family, our vehicles provide a comfortable and stylish ride to destinations in Plano and beyond. With experienced chauffeurs, well-maintained vehicles, and flexible scheduling, our Plano black car service ensures every trip is smooth, safe, and perfectly timed for your travel plans.</p>
                   <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Reserve Your Plano Black Car Service</a>
@@ -304,7 +304,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12">
                     <div class="swiper logo-swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" alt="Trusted partner logo for Dallas Limo and Black Cars luxury transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" alt="Trusted partner logo for Dallas Limo Black Cars luxury transportation service" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" alt="Corporate partner logo associated with Plano black car and chauffeur transportation service" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" alt="Business client logo for premium black car service and executive transportation in Plano" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" alt="Professional affiliation logo for luxury airport and corporate transportation service" class="img-fluid"></div>
@@ -313,7 +313,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" alt="Partner business logo connected with Dallas luxury limo and black car service" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" alt="Trusted service partner logo for Plano private transportation and chauffeur rides" class="img-fluid"></div>
 
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" alt="Trusted partner logo for Dallas Limo and Black Cars luxury transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" alt="Trusted partner logo for Dallas Limo Black Cars luxury transportation service" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" alt="Corporate partner logo associated with Plano black car and chauffeur transportation service" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" alt="Business client logo for premium black car service and executive transportation in Plano" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" alt="Professional affiliation logo for luxury airport and corporate transportation service" class="img-fluid"></div>

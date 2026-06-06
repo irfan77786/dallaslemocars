@@ -45,7 +45,7 @@
                     <h2 class="h2 fw-bold mb-15 mb-sm-20 mb-lg-30 seciononeheading">Our Luxury Fleet –  <span class="theme-color fw-bold">Travel from DFW to Waco with Comfort and Class</span></h2>
                 </div>
                 <div class="col-12">
-                    <p class="font-base justify-mobile">At Dallas Limo and Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every long-distance ride. Whether you need DFW to Waco transportation, private airport pickup, executive travel, or group car service to Waco, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious vans, all driven by professional chauffeurs dedicated to providing first-class <a href="/services/chauffeur-service-dallas/"><strong>private transportation from DFW Airport to Waco</strong></a>.</p>
+                    <p class="font-base justify-mobile">At Dallas Limo Black Cars, we offer a premium fleet of luxury vehicles designed to deliver comfort, reliability, and style for every long-distance ride. Whether you need DFW to Waco transportation, private airport pickup, executive travel, or group car service to Waco, our professionally maintained vehicles ensure a smooth and stress-free ride. Our fleet includes luxury sedans, black SUVs, and spacious vans, all driven by professional chauffeurs dedicated to providing first-class <a href="/services/chauffeur-service-dallas/"><strong>private transportation from DFW Airport to Waco</strong></a>.</p>
                 </div>
             </div>
             <div class="row">
@@ -149,7 +149,7 @@
                 <div class="py-20 row align-items-center">
                     <div class="col-12 col-md-6 pr-xl-50">
                         <h3 class="h5 fw-semibold">Private DFW to Waco Airport Transfer Service</h3>
-                        <p class="font-base text-justify">Looking for a reliable DFW to Waco car service? At Dallas Limo and Black Cars, we provide professional private transportation from Dallas/Fort Worth International Airport to Waco, ensuring every traveler enjoys a smooth, punctual, and stress-free ride. Our <a href="/services/private-car-service-in-dallas/"><strong>premier DFW to Waco black car service</strong></a> is trusted by business travelers, families, students, and visitors who need dependable transportation between the airport and Central Texas.
+                        <p class="font-base text-justify">Looking for a reliable DFW to Waco car service? At Dallas Limo Black Cars, we provide professional private transportation from Dallas/Fort Worth International Airport to Waco, ensuring every traveler enjoys a smooth, punctual, and stress-free ride. Our <a href="/services/private-car-service-in-dallas/"><strong>premier DFW to Waco black car service</strong></a> is trusted by business travelers, families, students, and visitors who need dependable transportation between the airport and Central Texas.
 
 We proudly provide service to Downtown Waco, Baylor University, local hotels, business districts, event venues, and nearby communities, offering efficient routes and on-time pickups so you can travel comfortably without waiting for rental cars, rideshares, or shuttle delays.</p>
                     
@@ -240,7 +240,7 @@ We proudly provide service to Downtown Waco, Baylor University, local hotels, bu
                 
                 <div class="col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Luxury Car Service from DFW Airport to Waco</h3>
-                    <p class="font-base text-justify">Our DFW to Waco car service provides reliable and professional transportation from Dallas/Fort Worth International Airport to Waco for travelers who want comfort, privacy, and dependable service. Whether you are visiting Baylor University, heading to a hotel, traveling for business, or returning home, our experienced chauffeurs ensure a smooth and punctual transfer experience. At Dallas Limo and Black Cars, we specialize in private airport transportation designed for comfort, reliability, and efficiency between North Texas and Central Texas.
+                    <p class="font-base text-justify">Our DFW to Waco car service provides reliable and professional transportation from Dallas/Fort Worth International Airport to Waco for travelers who want comfort, privacy, and dependable service. Whether you are visiting Baylor University, heading to a hotel, traveling for business, or returning home, our experienced chauffeurs ensure a smooth and punctual transfer experience. At Dallas Limo Black Cars, we specialize in private airport transportation designed for comfort, reliability, and efficiency between North Texas and Central Texas.
 
 Our service is ideal for travelers arriving at DFW Airport who need direct transportation to Downtown Waco, Baylor campus, offices, residences, hotels, and nearby destinations. With real-time flight monitoring, door-to-door service, and professional chauffeurs, we make sure your ride is on schedule from pickup to final drop-off. Our luxury fleet of sedans, SUVs, and executive vehicles provides the perfect combination of comfort and reliability for both personal and business travel.</p>
                 <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Book Reliable DFW to Waco Service Today</a>
@@ -281,7 +281,7 @@ Our professional chauffeurs monitor traffic and flight schedules to ensure timel
                 
                 <div class="col-12 col-md-6 pr-xl-50">
                     <h3 class="h5 fw-semibold">Private DFW to Waco Transportation for Business and Leisure</h3>
-                    <p class="font-base text-justify">Traveling from DFW Airport to Waco should be comfortable and stress-free. Our private DFW to Waco transportation service offers premium black car travel designed for passengers who value reliability, privacy, and professional service. At Dallas Limo and Black Cars, we provide first-class long-distance airport transfers for both individual and group travelers heading to Waco and surrounding areas.
+                    <p class="font-base text-justify">Traveling from DFW Airport to Waco should be comfortable and stress-free. Our private DFW to Waco transportation service offers premium black car travel designed for passengers who value reliability, privacy, and professional service. At Dallas Limo Black Cars, we provide first-class long-distance airport transfers for both individual and group travelers heading to Waco and surrounding areas.
 
 Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles perfect for direct transportation from the airport. Whether you are traveling alone, with colleagues, with family, or with extra luggage, our vehicles provide a comfortable and stylish ride from DFW to Waco. With experienced chauffeurs, well-maintained vehicles, and flexible scheduling, our DFW to Waco car service ensures every trip is smooth, safe, and professionally managed from start to finish.</p>
                   <a href="/booking/" class="btn btn-primary sm fw-medium fifa-btn-full">Reserve Your DFW to Waco Car Service</a>
@@ -304,7 +304,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12">
                     <div class="swiper logo-swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" alt="Trusted partner logo for Dallas Limo and Black Cars luxury transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" alt="Trusted partner logo for Dallas Limo Black Cars luxury transportation service" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" alt="Corporate partner logo associated with DFW airport black car and chauffeur transportation service" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" alt="Business client logo for premium airport transfer and executive transportation service" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" alt="Professional affiliation logo for luxury airport and long distance transportation provider" class="img-fluid"></div>
@@ -313,7 +313,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" alt="Partner business logo connected with Dallas luxury limo and black car service" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" alt="Trusted service partner logo for DFW airport transportation and private chauffeur rides" class="img-fluid"></div>
 
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" alt="Trusted partner logo for Dallas Limo and Black Cars luxury transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" alt="Trusted partner logo for Dallas Limo Black Cars luxury transportation service" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" alt="Corporate partner logo associated with DFW airport black car and chauffeur transportation service" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" alt="Business client logo for premium airport transfer and executive transportation service" class="img-fluid"></div>
                             <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" alt="Professional affiliation logo for luxury airport and long distance transportation provider" class="img-fluid"></div>
