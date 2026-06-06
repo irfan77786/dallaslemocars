@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AirportController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminBookingController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\LocationController;
@@ -412,7 +413,9 @@ Route::middleware('checkBookingCompletion')->group(function () {
     Route::get('/allVehicle/', [BookingController::class, 'showAll']);
     Route::post('/submit-passengerInfo/{id}', [BookingController::class, 'submitPassengerInfo']);
     Route::match(['get', 'post'], '/bookRide', [BookingController::class, 'bookRide']);
+    Route::get('/booking/payment', [BookingController::class, 'showPayment'])->name('booking.payment');
     Route::post('/completeBook', [BookingController::class, 'completeBook']);
+    Route::post('/finalize-trip', [AdminBookingController::class, 'finalizeTrip']);
     Route::get('/calculate-return-trip/', [BookingController::class, 'CalculateReturnTrip']);
     Route::post('/save-return-service', [BookingController::class, 'saveReturnService']);
     Route::get('/booking/', [BookingController::class, 'showForm'])->name('booking.form');  //step 1

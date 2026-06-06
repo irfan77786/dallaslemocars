@@ -195,6 +195,17 @@ a.hover-black {
 <h5 class="mb-2 fw-bold">Payment Information</h5>
 <p class="mb-3 small" style="color: #000;">All transactions are secure and encrypted. Safe and secure payments powered by <b>Stripe</b></p>
 
+@if(session('error'))
+    <div class="mb-3 alert alert-danger">{{ session('error') }}</div>
+@endif
+@if($errors->any())
+    <div class="mb-3 alert alert-danger">
+        @foreach($errors->all() as $error)
+            <div>{{ $error }}</div>
+        @endforeach
+    </div>
+@endif
+
 <form id="payment-form" method="POST" action="{{ url('/completeBook') }}">
 @csrf
 <input type="hidden" name="payment_method_id" id="payment_method_id">
@@ -420,6 +431,12 @@ form.addEventListener('submit', async function (event) {
                     <li><b>Automatic Charges:</b> Payments for service will be automatically charged to the same form of payment one day prior to service. Services associated with your booking that are requested after booking confirmation will be billed separately.</li>
                     <li><b>Declined Payments:</b> Payments that are declined will require you to provide another form of payment. If the alternate form of payment is not given, it is possible your booking may be canceled. Dallas Limo Black Cars is not liable for cancellations on your booking due to payment issues.</li>
                 </ul>
+                <p>To secure your reservation, Dallas Limo Black Cars requires a valid credit, debit, or prepaid card on file.</p>
+                <p>At the time of booking, a pre-authorization hold will be placed via our payment processor (Stripe) for the estimated reservation total plus a 20% buffer. This authorization is not a charge and confirms sufficient funds for the scheduled service and potential variable charges.</p>
+                <p>The 20% buffer may be used to cover approved incidentals, including additional wait time, extended service hours, extra stops, route changes, tolls, parking, airport or venue fees, or client-requested service modifications.</p>
+                <p>If the required pre-authorization cannot be obtained, the reservation may not be confirmed or may be canceled.</p>
+                <p>The final trip total is calculated after service completion and reflects the actual services provided. The final amount is captured after the trip and typically appears on your account within 48–72 business hours, depending on your bank. Any unused authorized funds are automatically released by Stripe and your card issuer.</p>
+                <p>By confirming a reservation and providing payment information, you authorize this pre-authorization and post-service charge process, including adjustments based on actual service usage. Authorization holds may appear as pending and do not represent a completed charge.</p>
                 <h6>5. Social Media/Social Networks</h6>
                 <p>We may include social media plugins on our services to allow interaction with our social media profiles. These plugins may collect personal information according to their privacy policies. Please review third-party privacy policies for more details.</p>
                 <h6>6. Data Processing During Registered Use and Booking Rides</h6>

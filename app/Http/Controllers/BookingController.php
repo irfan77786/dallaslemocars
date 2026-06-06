@@ -853,7 +853,26 @@ public function bookRide(Request $request)
 
     session(['final_price' => $total]);
 
-    // Redirect to payment view (or wherever step 5 is)
+    return redirect()->route('booking.payment');
+}
+
+public function showPayment()
+{
+    if (!session('pickup_location') || !session('pickup_date') || !session('final_price')) {
+        return redirect()->route('booking');
+    }
+
+    $cards = [];
+    if (auth()->check()) {
+        Stripe::setApiKey(config('services.stripe.secret'));
+        $stripeCustomerId = StripeCustomerResolver::resolveForUser(auth()->user());
+        $cardsList = PaymentMethod::all([
+            'customer' => $stripeCustomerId,
+            'type' => 'card',
+        ]);
+        $cards = $cardsList->data ?? [];
+    }
+
     return view('booking.payment', [
         'step' => 5,
         'cards' => $cards,
@@ -863,8 +882,8 @@ public function bookRide(Request $request)
             'keywords' => 'Dallas black car payment, luxury car service payment, airport transfer payment Dallas',
             'og_title' => 'Payment | Dallas Limo And Black Cars',
             'og_description' => 'Complete your payment securely for Dallas luxury car service.',
-            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
-        ]
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png'),
+        ],
     ]);
 }
 private function generateUniqueBookingId(): string
@@ -886,8 +905,10 @@ public function completeBook(Request $request)
         'payment_method_id' => 'required|string',
     ]);
 
+    $paymentRedirect = fn (string $message) => redirect()->route('booking.payment')->with('error', $message);
+
     if ($validator->fails()) {
-        return redirect()->back()->withErrors($validator)->withInput();
+        return redirect()->route('booking.payment')->withErrors($validator)->withInput();
     }
 
     \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
@@ -934,6 +955,17 @@ public function completeBook(Request $request)
             );
         }
 
+        $latestBooking = Booking::orderBy('id', 'desc')->first();
+        $lastNumericId = 41100;
+        if ($latestBooking && preg_match('/pm_(\d+)/', $latestBooking->booking_id, $matches)) {
+            $lastNumericId = (int) $matches[1] + 1;
+        }
+        $customBookingId = 'pm_' . $lastNumericId;
+
+        $sanitizedPrice = (float) str_replace(',', '', (string) $selected_price);
+        $bufferAmount = max($sanitizedPrice * 0.20, 20);
+        $amountToAuthorize = $sanitizedPrice + $bufferAmount;
+
         try {
             // Attach PaymentMethod to Customer
             \Stripe\PaymentMethod::retrieve($request->payment_method_id)->attach([
@@ -941,57 +973,50 @@ public function completeBook(Request $request)
             ]);
 
             // -------------------------
-            // Create PaymentIntent
+            // Create PaymentIntent (quote + 20% buffer, min $20)
             // -------------------------
-            $amountInCents = (int) round(((float) $selected_price) * 100);
             $paymentIntent = \Stripe\PaymentIntent::create([
-                'amount' => $amountInCents,
+                'amount' => (int) round($amountToAuthorize * 100),
                 'currency' => 'usd',
                 'customer' => $stripeCustomerId,
                 'payment_method' => $request->payment_method_id,
+                'setup_future_usage' => 'off_session',
                 'capture_method' => 'manual',
-                'off_session' => true,
                 'confirm' => true,
+                'return_url' => route('thankyou'),
+                'description' => 'Car Service Booking ' . $customBookingId . ' (w/ Buffer)',
+                'metadata' => [
+                    'booking_id' => $customBookingId,
+                    'base_price' => (string) $selected_price,
+                    'buffer_amount' => (string) $bufferAmount,
+                ],
             ]);
         } catch (\Stripe\Exception\CardException $e) {
             // Log the Stripe card error
             \Log::error('Stripe Card Error: ' . $e->getError()->message);
             // Redirect back with user-friendly message
-            return redirect()->back()->with('error', 'Card error: ' . $e->getError()->message);
+            return $paymentRedirect('Card error: ' . $e->getError()->message);
         } catch (\Stripe\Exception\ApiErrorException $e) {
-            // Log any API-related errors
             \Log::error('Stripe API Error: ' . $e->getMessage());
-            return redirect()->back()->with('error', 'Stripe API error: ' . $e->getMessage());
+            return $paymentRedirect('Stripe API error: ' . $e->getMessage());
         } catch (\Exception $e) {
-            // Log general errors
             \Log::error('General Error: ' . $e->getMessage());
-            return redirect()->back()->with('error', 'Something went wrong: ' . $e->getMessage());
+            return $paymentRedirect('Something went wrong: ' . $e->getMessage());
         }
 
 
         $transactionId = $paymentIntent->id;
 
         if ($paymentIntent->status === 'requires_action' && $paymentIntent->next_action && $paymentIntent->next_action->type === 'use_stripe_sdk') {
-            return redirect()->back()->with('error', 'Payment requires additional authentication.');
+            return $paymentRedirect('Payment requires additional authentication. Please try a different card.');
         }
 
         $authorizedStatuses = ['requires_capture', 'succeeded'];
         if (! in_array($paymentIntent->status, $authorizedStatuses, true)) {
-            return redirect()->back()->with(
-                'error',
-                'Payment was not authorized. Status: ' . ($paymentIntent->status ?? 'unknown')
-            );
+            return $paymentRedirect('Payment was not authorized. Status: ' . ($paymentIntent->status ?? 'unknown'));
         }
 
         $bookingPaymentStatus = $paymentIntent->status === 'succeeded' ? 'Paid' : 'Authorized';
-        // Booking ID Generation
-        // -------------------------
-        $latestBooking = Booking::orderBy('id', 'desc')->first();
-        $lastNumericId = 41100;
-
-        if ($latestBooking && preg_match('/pm_(\d+)/', $latestBooking->booking_id, $matches)) {
-            $lastNumericId = (int)$matches[1] + 1;
-        }
 
         $booker = Booker::create([
             'first_name' => $booker_first_name,
@@ -999,8 +1024,6 @@ public function completeBook(Request $request)
             'email'      => $booker_email,
             'phone_number' => $booker_number,
         ]);
-
-        $customBookingId = 'pm_' . $lastNumericId;
 
         // -------------------------
         // Return Service Handling
@@ -1027,20 +1050,20 @@ public function completeBook(Request $request)
         $returnDateYmd = $isRoundTrip ? $this->safeFormatDate($return_date) : null;
 
         if (!$pickupDateYmd) {
-            return redirect()->back()->with('error', 'Invalid pickup date');
+            return $paymentRedirect('Invalid pickup date');
         }
         if ($isRoundTrip && !$returnDateYmd) {
-            return redirect()->back()->with('error', 'Invalid return date');
+            return $paymentRedirect('Invalid return date');
         }
 
         $pickupTimeHis = $this->safeFormatTime($pickup_time);
         $returnTimeHis = $isRoundTrip ? $this->safeFormatTime($return_time) : null;
 
         if (!$pickupTimeHis) {
-            return redirect()->back()->with('error', 'Invalid pickup time');
+            return $paymentRedirect('Invalid pickup time');
         }
         if ($isRoundTrip && !$returnTimeHis) {
-            return redirect()->back()->with('error', 'Invalid return time');
+            return $paymentRedirect('Invalid return time');
         }
 
         $booking = Booking::create([
@@ -1056,6 +1079,9 @@ public function completeBook(Request $request)
             'return_time' => $returnTimeHis,
             'total_price' => $selected_price,
             'payment_status' => $bookingPaymentStatus,
+            'stripe_customer_id' => $stripeCustomerId,
+            'stripe_payment_method_id' => $request->payment_method_id,
+            'buffer_amount' => $bufferAmount,
             'return_service_id' => $returnServiceId,
             'round_trip' => session('round_trip') ? 1 : 0,
             'note' => session('note') ?? null,
@@ -1134,6 +1160,7 @@ public function completeBook(Request $request)
             'vehicle_type' => $vehicle_name ?? 'Standard',
             'passengers' => 1,
             'total_amount' => $selected_price,
+            'buffer_amount' => $bufferAmount,
             'payment_status' => $bookingPaymentStatus,
             'special_instructions' => session('note') ?? null,
             'flight_details' => $flight_details,
@@ -1157,11 +1184,12 @@ public function completeBook(Request $request)
         return $user ? redirect()->route('dashboard')->with('success', 'Booking completed successfully!') : redirect()->route('thankyou');
 
     } catch (\Stripe\Exception\CardException $e) {
-        return redirect()->back()->with('error', $e->getError()->message);
+        return redirect()->route('booking.payment')->with('error', $e->getError()->message);
     } catch (\Stripe\Exception\ApiErrorException $e) {
-        return redirect()->back()->with('error', 'Stripe API error: ' . $e->getMessage());
+        return redirect()->route('booking.payment')->with('error', 'Stripe API error: ' . $e->getMessage());
     } catch (\Exception $e) {
-        return redirect()->back()->with('error', 'Something went wrong: ' . $e->getMessage());
+        \Log::error('completeBook error: ' . $e->getMessage());
+        return redirect()->route('booking.payment')->with('error', 'Something went wrong: ' . $e->getMessage());
     }
 }
 
