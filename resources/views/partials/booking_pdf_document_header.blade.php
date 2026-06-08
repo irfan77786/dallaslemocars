@@ -1,5 +1,5 @@
 {{-- PDF letterhead: logo left, company details right --}}
-<header style="width: 100%; display: table; margin-bottom: 8px;">
+<header style="width: 100%; display: table; margin-bottom: 4px;">
     <div style="display: table-row;">
         <div style="display: table-cell; vertical-align: middle; width: 58%;">
             @include('partials.pdf_logo_image', ['logoMaxHeight' => 56, 'align' => 'left'])

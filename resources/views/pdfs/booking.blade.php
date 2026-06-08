@@ -15,10 +15,10 @@
     body {
       font-family: 'Abel', 'Helvetica', 'Arial', sans-serif;
       color: #333;
-      line-height: 1.48;
-      padding: 10px 12px;
+      line-height: 1.45;
+      padding: 8px 10px;
       margin: 0;
-      font-size: 12px;
+      font-size: 11px;
     }
 
     .container {
@@ -56,20 +56,79 @@
     }
 
     .sections.booking-block .section-content {
-      padding: 8px 8px 4px;
+      padding: 6px 6px 2px;
+    }
+
+    .booking-details-compact .row .col-sm-3,
+    .booking-details-compact .row .col-sm-9 {
+      padding: 5px 6px;
+      line-height: 1.48;
+      font-size: 11px;
+    }
+
+    .booking-details-compact .row + .row .col-sm-3,
+    .booking-details-compact .row + .row .col-sm-9 {
+      padding-top: 4px;
+    }
+
+    .booking-details-compact p {
+      margin: 5px 0;
+      line-height: 1.48;
+    }
+
+    .policy-compact p {
+      margin: 4px 0 6px;
+      line-height: 1.45;
+      font-size: 11px;
+    }
+
+    .policy-compact .row .col-sm-3,
+    .policy-compact .row .col-sm-9 {
+      padding: 4px 6px;
+      line-height: 1.45;
+      font-size: 11px;
+    }
+
+    .pdf-closing-block {
+      page-break-inside: avoid;
+      margin-top: 5px;
+      padding-top: 5px;
+      border-top: 1px solid #e0e4e8;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .pdf-closing-block p {
+      margin: 3px 0;
     }
 
     .pdf-section-header {
-      margin-bottom: 8px;
+      margin-bottom: 3px;
     }
 
     .section-content .pdf-subsection-header {
-      margin: 6px 0 8px;
+      margin: 5px 0 5px;
+    }
+
+    .booking-page-one .pdf-subsection-header {
+      margin: 6px 0 5px;
+    }
+
+    .section-content .pdf-subsection-header + .charges-block-end {
+      margin-top: 0;
+      padding-top: 0;
     }
 
     .charges-block-end {
+      margin-top: 0;
       margin-bottom: 0;
+      padding-top: 0;
       padding-bottom: 0;
+    }
+
+    .charges-block-end .row:first-child .col-sm-3,
+    .charges-block-end .row:first-child .col-sm-9 {
+      padding-top: 0 !important;
     }
 
     .mian-cc {
@@ -80,12 +139,12 @@
     .section-content {
       padding: 0;
       margin: 0;
-      line-height: 1.48;
+      line-height: 1.45;
     }
 
     .section-content p {
-      margin: 5px 0;
-      line-height: 1.48;
+      margin: 4px 0 6px;
+      line-height: 1.45;
     }
 
     .info-grid {
@@ -163,14 +222,14 @@
     .col-sm-9 {
       display: table-cell;
       vertical-align: top;
-      padding: 4px 8px;
-      line-height: 1.48;
+      padding: 4px 6px;
+      line-height: 1.45;
       box-sizing: border-box;
     }
 
     .row + .row .col-sm-3,
     .row + .row .col-sm-9 {
-      padding-top: 3px;
+      padding-top: 4px;
     }
 
     .col-sm-3 {
@@ -194,6 +253,18 @@
       break-before: page;
     }
 
+    .policy-page {
+      page-break-before: always;
+      break-before: page;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    .booking-page-one .charges-block-end {
+      margin-bottom: 0;
+      padding-bottom: 6px;
+    }
+
   </style>
 </head>
 
@@ -206,8 +277,10 @@
           'title' => 'Booking Confirmation #' . ($bookingData['booking_id'] ?? 'N/A'),
           'variant' => 'primary',
           'metaRight' => 'Last Modified On: ' . now()->format('m/d/Y h:i A'),
+          'compact' => true,
       ])
       <div class="section-content">
+      <div class="booking-details-compact booking-page-one">
           @php
               $np = 'Not provided';
               $fd = is_array($bookingData['flight_details'] ?? null) ? $bookingData['flight_details'] : [];
@@ -248,6 +321,7 @@
               <div class="col-sm-3"><strong class="mian-cc">Pick-up Time:</strong></div>
               <div class="col-sm-9">{{ $formatTime($bookingData['pickup_time'] ?? null) }}</div>
             </div>
+            @if(!empty($bookingData['return_date']) || !empty($bookingData['is_round_trip']))
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Return Date:</strong></div>
               <div class="col-sm-9">{{ $formatDate($bookingData['return_date'] ?? null) }}</div>
@@ -256,10 +330,13 @@
               <div class="col-sm-3"><strong class="mian-cc">Return Time:</strong></div>
               <div class="col-sm-9">{{ $formatTime($bookingData['return_time'] ?? null) }}</div>
             </div>
+            @endif
+            @if(!empty($bookingData['hours']))
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Hours:</strong></div>
               <div class="col-sm-9">{{ $show($bookingData['hours'] ?? null) }}</div>
             </div>
+            @endif
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Service Type:</strong></div>
               <div class="col-sm-9">
@@ -274,10 +351,12 @@
               <div class="col-sm-3"><strong class="mian-cc">Passenger:</strong></div>
               <div class="col-sm-9">{{ $show($bookingData['passenger_name'] ?? null) }}</div>
             </div>
+            @if(!empty($bookingData['client_ref']))
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Client Ref#:</strong></div>
               <div class="col-sm-9">{{ $show($bookingData['client_ref'] ?? null) }}</div>
             </div>
+            @endif
             <div class="row">
               <div class="col-sm-3"><strong class="mian-cc">Phone Number:</strong></div>
               <div class="col-sm-9">{{ $show($bookingData['phone'] ?? null) }}</div>
@@ -308,7 +387,7 @@
             </div>
 
           @if($bookerName !== '')
-          @include('partials.booking_pdf_section_header', ['title' => 'Booker Information', 'variant' => 'light'])
+          @include('partials.booking_pdf_section_header', ['title' => 'Booker Information', 'variant' => 'light', 'compact' => true])
             <div class="row">
               <div class="col-sm-3 no-top-padding"><strong class="mian-cc">Booker Name:</strong></div>
               <div class="col-sm-9 no-top-padding">{{ $bookerName }}</div>
@@ -323,7 +402,7 @@
             </div>
           @endif
 
-          @include('partials.booking_pdf_section_header', ['title' => 'Trip Routing Information:', 'variant' => 'light'])
+          @include('partials.booking_pdf_section_header', ['title' => 'Trip Routing Information:', 'variant' => 'light', 'compact' => true])
             <div class="row">
               <div class="col-sm-3 no-top-padding"><strong class="mian-cc">Pick-up Location:</strong></div>
               <div class="col-sm-9 no-top-padding">{{ $show($bookingData['pickup_location'] ?? null) }}</div>
@@ -337,7 +416,7 @@
               <div class="col-sm-9">{{ $show($bookingData['dropoff_location'] ?? null) }}</div>
             </div>
 
-          @include('partials.booking_pdf_section_header', ['title' => 'Flight/Airport Information', 'variant' => 'primary'])
+          @include('partials.booking_pdf_section_header', ['title' => 'Flight/Airport Information', 'variant' => 'light', 'compact' => true])
             <div class="row">
               <div class="col-sm-3 no-top-padding"><strong class="mian-cc">Flight Number:</strong></div>
               <div class="col-sm-9 no-top-padding">{{ $show($fd['flight_number'] ?? null) }}</div>
@@ -351,10 +430,10 @@
               <div class="col-sm-9">{{ $show(isset($fd['meet_option']) && $fd['meet_option'] !== '' ? ucfirst((string) $fd['meet_option']) : null) }}</div>
             </div>
 
-          @include('partials.booking_pdf_section_header', ['title' => 'Notes/Comments:', 'variant' => 'light'])
-          <p style="margin: 0;">{{ $show($bookingData['special_instructions'] ?? null) }}</p>
+          @include('partials.booking_pdf_section_header', ['title' => 'Notes/Comments:', 'variant' => 'light', 'compact' => true])
+          <p style="margin: 5px 0; line-height: 1.48;">{{ $show($bookingData['special_instructions'] ?? null) }}</p>
 
-          @include('partials.booking_pdf_section_header', ['title' => 'Charges & Fees:', 'variant' => 'light'])
+          @include('partials.booking_pdf_section_header', ['title' => 'Charges & Fees:', 'variant' => 'light', 'compact' => true, 'tight' => true])
             <div class="charges-block-end">
             <div class="row">
               <div class="col-sm-3 no-top-padding"><strong class="mian-cc">Fare (All inclusive):</strong></div>
@@ -373,22 +452,24 @@
               <div class="col-sm-9"><strong>{{ isset($bookingData['total_amount']) ? '$' . number_format((float) $bookingData['total_amount'], 2) : $np }}</strong></div>
             </div>
             </div>
+      </div>
 
+      <div class="policy-page policy-compact">
       @include('partials.booking_pdf_section_header', [
           'title' => 'Cancellation Policy: Cancellation, Deposit & Service Policy',
           'variant' => 'primary',
-          'pageBreak' => true,
+          'compact' => true,
       ])
-        <p style="margin: 4px 0 0;">Dallas Limo Black Cars strives to provide excellent service while maintaining a clear, fair, and simple cancellation, deposit, and service policy. By booking with us, you agree to the following terms.</p>
+        <p style="margin: 4px 0 6px; line-height: 1.45;">Dallas Limo Black Cars strives to provide excellent service while maintaining a clear, fair, and simple cancellation, deposit, and service policy. By booking with us, you agree to the following terms.</p>
         <div class="row">
           <div class="col-sm-3"><strong class="mian-cc">Contact:</strong></div>
           <div class="col-sm-9">Email: info@dallaslimoandblackcars.com<br>Phone: +1 214-897-8056</div>
         </div>
 
-        @include('partials.booking_pdf_section_header', ['title' => '1. General Cancellation Policy:', 'variant' => 'light'])
+        @include('partials.booking_pdf_section_header', ['title' => '1. General Cancellation Policy:', 'variant' => 'light', 'compact' => true])
         <p>Cancellations must occur during the stated timeframes for each vehicle type. Cancellations outside these periods will result in full charges for the reserved services.</p>
 
-        @include('partials.booking_pdf_section_header', ['title' => '2. Vehicle-Specific Cancellation Policy:', 'variant' => 'light'])
+        @include('partials.booking_pdf_section_header', ['title' => '2. Vehicle-Specific Cancellation Policy:', 'variant' => 'light', 'compact' => true])
         <div class="row">
           <div class="col-sm-3 no-top-padding"><strong>Luxury Sedans:</strong></div>
           <div class="col-sm-9 no-top-padding">Cancel at least 24 hours prior. Late cancellations: 100% charge.</div>
@@ -410,35 +491,35 @@
           <div class="col-sm-9">Cancel at least 7 days prior. Late cancellations: Full charge including any deposits.</div>
         </div>
 
-        @include('partials.booking_pdf_section_header', ['title' => '3. Deposit Policy:', 'variant' => 'light'])
+        @include('partials.booking_pdf_section_header', ['title' => '3. Deposit Policy:', 'variant' => 'light', 'compact' => true])
         <p>- 50% non-refundable deposit due shortly of signing the agreement.<br>
           - Final payment due at least 7 days before the reservation date.<br>
           - Written notice required for cancellations as per policy.<br>
           - If proper notice is not given, all payments are non-refundable.<br>
           - Credit card authorization form required for all bookings.</p>
 
-        @include('partials.booking_pdf_section_header', ['title' => '4. Alcohol and Illegal Substances:', 'variant' => 'light'])
+        @include('partials.booking_pdf_section_header', ['title' => '4. Alcohol and Illegal Substances:', 'variant' => 'light', 'compact' => true])
         <p>- Alcohol permitted only for passengers 21 and older.<br>
           - Illegal substances strictly prohibited. Immediate cancellation with no refund.<br>
           - Smoking is not allowed in any vehicle.</p>
 
-        @include('partials.booking_pdf_section_header', ['title' => '5. Damage To Vehicle:', 'variant' => 'light'])
+        @include('partials.booking_pdf_section_header', ['title' => '5. Damage To Vehicle:', 'variant' => 'light', 'compact' => true])
         <p>The client is responsible for any damage caused by passengers, including:<br>
           - Spills or stains needing special cleaning<br>
           - Burns, tears, or physical damage to interior/exterior<br>
           - Loss of revenue due to vehicle being out of service<br>
           Minimum charge for damage or cleaning is $250. Additional fees may apply.</p>
 
-        @include('partials.booking_pdf_section_header', ['title' => '6. Force Majeure:', 'variant' => 'light'])
+        @include('partials.booking_pdf_section_header', ['title' => '6. Force Majeure:', 'variant' => 'light', 'compact' => true])
         <p>We are not liable for interruptions or cancellations due to events beyond our control (e.g., weather, disasters, terrorism, mechanical issues). We will attempt to reschedule or refund (minus non-refundable costs).</p>
 
-        @include('partials.booking_pdf_section_header', ['title' => '7. Indemnification:', 'variant' => 'light'])
+        @include('partials.booking_pdf_section_header', ['title' => '7. Indemnification:', 'variant' => 'light', 'compact' => true])
         <p>By booking, you agree to indemnify and hold Dallas Limo Black Cars harmless for any claims arising from:<br>
           - Your use of services<br>
           - Policy violations<br>
           - Damage caused by you or your party</p>
 
-        @include('partials.booking_pdf_section_header', ['title' => '8. Wait Time Policy:', 'variant' => 'light'])
+        @include('partials.booking_pdf_section_header', ['title' => '8. Wait Time Policy:', 'variant' => 'light', 'compact' => true])
         <div class="row">
           <div class="col-sm-3 no-top-padding"><strong>Airport Transfers:</strong></div>
           <div class="col-sm-9 no-top-padding">30-minute grace period (domestic), 60 minutes (international). After that: $15 per 15 minutes.</div>
@@ -448,29 +529,28 @@
           <div class="col-sm-9">15-minute grace period. After that: $15 per 15 minutes.</div>
         </div>
 
-        @include('partials.booking_pdf_section_header', ['title' => '9. No-Show Policy:', 'variant' => 'light'])
+        @include('partials.booking_pdf_section_header', ['title' => '9. No-Show Policy:', 'variant' => 'light', 'compact' => true])
         <p>No-shows are charged the full booking amount. Clients must confirm pickup details and stay in contact.</p>
 
-        @include('partials.booking_pdf_section_header', ['title' => '10. Special Event Policies:', 'variant' => 'light'])
+        @include('partials.booking_pdf_section_header', ['title' => '10. Special Event Policies:', 'variant' => 'light', 'compact' => true])
         <p>- Events (weddings, concerts, etc.) require 14-day cancellation notice.<br>
           - 50% deposit required to confirm reservation.<br>
           - No refund if cancelled within 14 days of the event.</p>
 
-        @include('partials.booking_pdf_section_header', ['title' => '11. Refund Policy:', 'variant' => 'light'])
+        @include('partials.booking_pdf_section_header', ['title' => '11. Refund Policy:', 'variant' => 'light', 'compact' => true])
         <p>- Approved refunds are processed within 5–7 business days.<br>
           - No refunds for Motor Coaches, Mini Buses, or Special Events after cancellation window closes.</p>
 
         @include('pdfs.partials.fifa-2026-event-policy', ['trimFifaSections' => $trimFifaSections ?? false])
 
-        <p style="margin: 8px 0 0;"><strong>Thank you for choosing Dallas Limo Black Cars.</strong><br>
-          We are committed to fair and professional service.<br>
-          Contact us: info@dallaslimoandblackcars.com | +1 214-897-8056</p>
+        <div class="pdf-closing-block">
+          <p><strong>Thank you for choosing Dallas Limo Black Cars.</strong> We are committed to fair and professional service.</p>
+          <p>Contact us: info@dallaslimoandblackcars.com | +1 214-897-8056</p>
+          <p style="text-align: center; color: #666;">Questions about your booking? +1 214-897-8056 | info@dallaslimoandblackcars.com</p>
+        </div>
+      </div>
       </div>
     </div>
-
-    <footer style="margin-top: 10px; padding-top: 8px; border-top: 1px solid #e0e4e8; text-align: center; font-size: 11px; color: #666;">
-      <p style="margin: 4px 0;">Questions about your booking? +1 214-897-8056 | info@dallaslimoandblackcars.com</p>
-    </footer>
   </div>
 </body>
 

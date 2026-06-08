@@ -237,7 +237,7 @@
             {{-- Flight/Airport Information (same gate as PDF) --}}
             @if ($hasFlightBlock)
                 <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
-                    <h3 style="background-color: #e52c43; background-image: linear-gradient(90deg, #e52c43, #ff6c00, #e52c43); margin: 0; padding: 8px 12px; font-size: 14px; color: #ffffff; font-weight: 600; border-radius: 4px 4px 0 0;">Flight/Airport Information</h3>
+                    @include('partials.email_booking_subsection_header', ['title' => 'Flight/Airport Information'])
                     <table cellpadding="0" cellspacing="0" width="100%" style="font-size: 12px; padding: 10px;">
                         @if (!empty($fd['flight_number']))
                             <tr>
@@ -259,7 +259,7 @@
                 </div>
             @else
                 <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
-                    <h3 style="background-color: #e52c43; background-image: linear-gradient(90deg, #e52c43, #ff6c00, #e52c43); margin: 0; padding: 8px 12px; font-size: 14px; color: #ffffff; font-weight: 600; border-radius: 4px 4px 0 0;">Flight/Airport Information:</h3>
+                    @include('partials.email_booking_subsection_header', ['title' => 'Flight/Airport Information:'])
                     <p style="font-size: 12px; margin: 0; padding: 12px; color: #555;">****** Information not provided ******</p>
                 </div>
             @endif

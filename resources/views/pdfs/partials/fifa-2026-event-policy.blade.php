@@ -1,8 +1,9 @@
 @include('partials.booking_pdf_section_header', [
     'title' => 'FIFA World Cup 2026 Event Policy (Dallas–Fort Worth Market)',
     'variant' => 'primary',
+    'compact' => true,
 ])
-<p style="margin-top: 0;">For all services scheduled between June 13, 2026 through July 15, 2026, the following strict policies apply due to high-demand operations related to the FIFA World Cup 2026:</p>
+<p style="margin: 4px 0 6px; font-size: 11px; line-height: 1.45;">For all services scheduled between June 13, 2026 through July 15, 2026, the following strict policies apply due to high-demand operations related to the FIFA World Cup 2026:</p>
 
 @include('partials.booking_pdf_section_header', ['title' => 'Special Event Rates (Non-Negotiable)', 'variant' => 'light'])
 <p>- All reservations within these dates are subject to FIFA 2026 special event pricing<br>

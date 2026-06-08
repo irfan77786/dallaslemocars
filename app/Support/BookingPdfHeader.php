@@ -11,30 +11,51 @@ class BookingPdfHeader
 
     public const GRADIENT_END = '#e52c43';
 
-    public const LIGHT_BG = '#f4f6f8';
+    /** Light tint of brand gradient — warm cream/peach (reference-style subsection bar) */
+    public const LIGHT_BG = '#fef3ef';
 
     public const LIGHT_TEXT = '#0b1422';
 
+    public const BAR_HEIGHT = 40;
+
+    public const BAR_HEIGHT_COMPACT = 34;
+
+    /** Gradient-only PNG (no text) — safe to stretch; pair with HTML text in the PDF. */
+    public static function primaryGradientBarDataUri(int $width = 400, int $height = 40): ?string
+    {
+        return self::gradientBarDataUri(
+            self::hexToRgb(self::GRADIENT_START),
+            self::hexToRgb(self::GRADIENT_MID),
+            $width,
+            $height
+        );
+    }
+
+    /** Light tint gradient-only PNG for subsection bars. */
+    public static function lightGradientBarDataUri(int $width = 400, int $height = 40): ?string
+    {
+        return self::gradientBarDataUri(
+            self::lightTintRgb(self::GRADIENT_START),
+            self::lightTintRgb(self::GRADIENT_MID),
+            $width,
+            $height
+        );
+    }
+
     /**
-     * PNG data URI: horizontal red → orange → red bar with white title (DomPDF-safe).
+     * @param array{0: int, 1: int, 2: int} $from
+     * @param array{0: int, 1: int, 2: int} $to
      */
-    public static function primaryBarDataUri(string $title, int $width = 1200, int $height = 52, ?string $rightText = null): ?string
+    private static function gradientBarDataUri(array $from, array $to, int $width, int $height): ?string
     {
         if (! function_exists('imagecreatetruecolor')) {
             return null;
-        }
-
-        if ($rightText !== null && $rightText !== '') {
-            $height = max($height, 56);
         }
 
         $img = imagecreatetruecolor($width, $height);
         if ($img === false) {
             return null;
         }
-
-        $from = self::hexToRgb(self::GRADIENT_START);
-        $to = self::hexToRgb(self::GRADIENT_MID);
 
         for ($x = 0; $x < $width; $x++) {
             $ratio = $width > 1 ? $x / ($width - 1) : 0;
@@ -49,30 +70,6 @@ class BookingPdfHeader
             imageline($img, $x, 0, $x, $height - 1, $color);
         }
 
-        $white = imagecolorallocate($img, 255, 255, 255);
-        $boldFontPath = base_path('vendor/dompdf/dompdf/lib/fonts/DejaVuSans-Bold.ttf');
-
-        if (is_readable($boldFontPath)) {
-            $titleSize = 18;
-            $titleY = self::ttfBaselineY($titleSize, 0, $boldFontPath, $title, $height);
-            imagettftext($img, $titleSize, 0, 20, $titleY, $white, $boldFontPath, $title);
-
-            if ($rightText !== null && $rightText !== '') {
-                $rightSize = 12;
-                $rightY = self::ttfBaselineY($rightSize, 0, $boldFontPath, $rightText, $height);
-                $bbox = imagettfbbox($rightSize, 0, $boldFontPath, $rightText);
-                $rightWidth = $bbox !== false ? abs($bbox[2] - $bbox[0]) : 0;
-                $rightX = max(20, $width - $rightWidth - 20);
-                imagettftext($img, $rightSize, 0, $rightX, $rightY, $white, $boldFontPath, $rightText);
-            }
-        } else {
-            $fallbackY = (int) (($height - 15) / 2);
-            imagestring($img, 5, 12, $fallbackY, $title, $white);
-            if ($rightText !== null && $rightText !== '') {
-                imagestring($img, 4, max(12, $width - (strlen($rightText) * 7) - 12), $fallbackY, $rightText, $white);
-            }
-        }
-
         ob_start();
         imagepng($img);
         imagedestroy($img);
@@ -81,6 +78,18 @@ class BookingPdfHeader
         return is_string($png) && $png !== ''
             ? 'data:image/png;base64,' . base64_encode($png)
             : null;
+    }
+
+    /** @return array{0: int, 1: int, 2: int} */
+    private static function lightTintRgb(string $hex, float $whiteRatio = 0.9): array
+    {
+        $rgb = self::hexToRgb($hex);
+
+        return [
+            (int) round($rgb[0] + (255 - $rgb[0]) * $whiteRatio),
+            (int) round($rgb[1] + (255 - $rgb[1]) * $whiteRatio),
+            (int) round($rgb[2] + (255 - $rgb[2]) * $whiteRatio),
+        ];
     }
 
     private static function ttfBaselineY(int $fontSize, int $angle, string $fontPath, string $text, int $imageHeight): int
