@@ -948,15 +948,9 @@ border-radius: 4px !important;
                         $isHourlyHire = (session('service_type') === 'hourlyHire') || (($service_type ?? null) === 'hourlyHire');
                         $selectedHours = (int) session('select_hours', 0);
                         $passengerCount = (int) ($value['number_of_passengers'] ?? 0);
-                        $vehicleName = trim($value['vehicle_name'] ?? '');
-                        $requiredMinHours = 0;
-                        if ($isHourlyHire) {
-                            if ($vehicleName === 'Party Bus 20' && $passengerCount === 20) {
-                                $requiredMinHours = 5;
-                            } else {
-                                $requiredMinHours = $passengerCount <= 6 ? 3 : ($passengerCount <= 27 ? 4 : 5);
-                            }
-                        }
+                        $requiredMinHours = $isHourlyHire
+                            ? \App\Models\Vehicle::minimumHourlyHoursForPassengers($passengerCount)
+                            : 0;
                         $requiresMoreHours = $requiredMinHours > 0 && $selectedHours < $requiredMinHours;
                     @endphp
                     <div class="vehical-card selectable-card" data-id="{{ $value['id'] }}" data-requires-more-hours="{{ $requiresMoreHours ? '1' : '0' }}" data-required-hours="{{ $requiredMinHours }}">

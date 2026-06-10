@@ -47,6 +47,14 @@ class BookingController extends Controller
         $serviceType = session('service_type');
 
         if ($serviceType === 'hourlyHire') {
+            $minHours = $vehicle->minimumHourlyHours();
+            if ((int) $hours < $minHours) {
+                return redirect()->back()->with(
+                    'error',
+                    "This vehicle requires a minimum booking of {$minHours} hours. Please select {$minHours} or more hours."
+                );
+            }
+
             $result = $this->calculateDistanceWithStops(
                 $pickup,
                 null,

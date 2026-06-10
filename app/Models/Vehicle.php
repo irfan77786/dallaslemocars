@@ -30,6 +30,24 @@ class Vehicle extends Model
         return $this->hasMany(CarSeat::class);
     }
 
+    public static function minimumHourlyHoursForPassengers(int $passengerCount): int
+    {
+        if ($passengerCount <= 6) {
+            return 3;
+        }
+
+        if ($passengerCount > 18) {
+            return 5;
+        }
+
+        return 4;
+    }
+
+    public function minimumHourlyHours(): int
+    {
+        return self::minimumHourlyHoursForPassengers((int) $this->number_of_passengers);
+    }
+
     // public function getBreakDownAttribute()
     // {
     //     return $this->rateVehicle->breakDown ?? null;
