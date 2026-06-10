@@ -85,23 +85,33 @@
                     <!--<h2 class="mb-2 step-title font-weight-bold" style="font-size: 16px">Outward Trip</h2>-->
 
                     @php
-                        $base = session('calculated_price');
-                        if ($breakdown && isset($breakdown['hourlyFare'])) {
-                            $base = $breakdown['hourlyFare'];
-                        }
-                        $base = $base ?? 0;
-                        $price = number_format($base, 2);
-                        [$whole, $decimal] = explode('.', $price);
-                    @endphp
-                    @php
+                        $isHourlyHire = session('service_type') === 'hourlyHire' || (($breakdown['type'] ?? '') === 'Hourly');
+                        $tripPrice = (float) (session('calculated_price') ?? 0);
                         $isRoundTrip = session('round_trip') == 'on';
                     @endphp
-                    <div class="mb-1 d-flex justify-content-between">
-                        <span class="pricing_summary_label">{{ $isRoundTrip ? 'Outward Trip' : 'Base Fare' }}</span>
-                        <span id="trip-price" class="pricing_summary_price">
-                            ${{ $whole}}<span class="price-decimal">.{{ $decimal }}</span> USD
-                        </span>
-                    </div>
+                    @if($isHourlyHire && $breakdown && isset($breakdown['hourlyFare']))
+                        @php
+                            $hourlyRate = number_format((float) $breakdown['hourlyFare'], 2);
+                            [$hourlyWhole, $hourlyDecimal] = explode('.', $hourlyRate);
+                        @endphp
+                        <div class="mb-1 d-flex justify-content-between">
+                            <span class="pricing_summary_label">Hourly Rate</span>
+                            <span class="pricing_summary_price">
+                                ${{ $hourlyWhole }}<span class="price-decimal">.{{ $hourlyDecimal }}</span> USD
+                            </span>
+                        </div>
+                    @else
+                        @php
+                            $price = number_format($tripPrice, 2);
+                            [$whole, $decimal] = explode('.', $price);
+                        @endphp
+                        <div class="mb-1 d-flex justify-content-between">
+                            <span class="pricing_summary_label">{{ $isRoundTrip ? 'Outward Trip' : 'Base Fare' }}</span>
+                            <span id="trip-price" class="pricing_summary_price">
+                                ${{ $whole }}<span class="price-decimal">.{{ $decimal }}</span> USD
+                            </span>
+                        </div>
+                    @endif
                     @if($breakdown && isset($breakdown['hours']) && session('select_hours'))
                         <div class="mb-1 d-flex justify-content-between">
                             <span class="pricing_summary_label">Total Hours</span>
@@ -142,12 +152,8 @@
                     <div class="d-flex justify-content-between total_price_box">
                         <span class="pricing_total_label" style="background: linear-gradient(90deg, #e52c43, #ff6c00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;">Total</span>
                         @php
-                            $base = session('calculated_price');
-                            if ($base === null && $breakdown && isset($breakdown['hourlyFare'])) {
-                                $base = $breakdown['hourlyFare'];
-                            }
-                            $base = $base ?? 0;
-                            $return = session('return_price') ?? 0;
+                            $base = (float) (session('calculated_price') ?? 0);
+                            $return = (float) (session('return_price') ?? 0);
                             $rawTotal = $base + $return;
                             $formattedTotal = number_format($rawTotal, 2);
                             [$whole, $decimal] = explode('.', $formattedTotal);
