@@ -85,39 +85,17 @@
                     <!--<h2 class="mb-2 step-title font-weight-bold" style="font-size: 16px">Outward Trip</h2>-->
 
                     @php
-                        $isHourlyHire = session('service_type') === 'hourlyHire' || (($breakdown['type'] ?? '') === 'Hourly');
                         $tripPrice = (float) (session('calculated_price') ?? 0);
                         $isRoundTrip = session('round_trip') == 'on';
+                        $price = number_format($tripPrice, 2);
+                        [$whole, $decimal] = explode('.', $price);
                     @endphp
-                    @if($isHourlyHire && $breakdown && isset($breakdown['hourlyFare']))
-                        @php
-                            $hourlyRate = number_format((float) $breakdown['hourlyFare'], 2);
-                            [$hourlyWhole, $hourlyDecimal] = explode('.', $hourlyRate);
-                        @endphp
-                        <div class="mb-1 d-flex justify-content-between">
-                            <span class="pricing_summary_label">Hourly Rate</span>
-                            <span class="pricing_summary_price">
-                                ${{ $hourlyWhole }}<span class="price-decimal">.{{ $hourlyDecimal }}</span> USD
-                            </span>
-                        </div>
-                    @else
-                        @php
-                            $price = number_format($tripPrice, 2);
-                            [$whole, $decimal] = explode('.', $price);
-                        @endphp
-                        <div class="mb-1 d-flex justify-content-between">
-                            <span class="pricing_summary_label">{{ $isRoundTrip ? 'Outward Trip' : 'Base Fare' }}</span>
-                            <span id="trip-price" class="pricing_summary_price">
-                                ${{ $whole }}<span class="price-decimal">.{{ $decimal }}</span> USD
-                            </span>
-                        </div>
-                    @endif
-                    @if($breakdown && isset($breakdown['hours']) && session('select_hours'))
-                        <div class="mb-1 d-flex justify-content-between">
-                            <span class="pricing_summary_label">Total Hours</span>
-                            <span class="pricing_summary_price">{{ $breakdown['hours']? $breakdown['hours' ]: session('select_hours') }}</span>
-                        </div>
-                    @endif
+                    <div class="mb-1 d-flex justify-content-between">
+                        <span class="pricing_summary_label">{{ $isRoundTrip ? 'Outward Trip' : 'Base Fare' }}</span>
+                        <span id="trip-price" class="pricing_summary_price">
+                            ${{ $whole }}<span class="price-decimal">.{{ $decimal }}</span> USD
+                        </span>
+                    </div>
                         <div id="return-trip-section" style="{{ (session('round_trip') == 'on' && session('return_price')) ? '' : 'display: none;' }}">
                             <hr />
                             <!--<h2 class="mb-3 step-title font-weight-bold" style="font-size: 16px">Return Trip</h2>-->
