@@ -29,9 +29,12 @@ class QuoteMail extends Mailable
      */
     public function envelope(): Envelope
     {
-        $subject = $this->isAdmin 
-            ? 'New Quote Request from ' . ($this->details['full_name'] ?? 'User')
-            : 'Your Quote Request - Dallas Black Cars';
+        $quoteNumber = $this->details['quote_number'] ?? '';
+        $quoteRef = $quoteNumber ? " [{$quoteNumber}]" : '';
+
+        $subject = $this->isAdmin
+            ? 'New Quote Request from ' . ($this->details['full_name'] ?? 'User') . $quoteRef
+            : 'Your Quote Request' . $quoteRef . ' - Dallas Black Cars';
         
         return new Envelope(
             subject: $subject

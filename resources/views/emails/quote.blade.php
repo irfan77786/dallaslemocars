@@ -40,11 +40,18 @@
                 details. You can expect to receive your quote shortly.</p>
             @endif
 
+            @if(!empty($details['quote_number']))
+            <div style="background-color: #f0f4ff; border-radius: 4px; padding: 12px; margin: 15px 0; border: 1px solid #c5d4f5; text-align: center;">
+                <p style="margin: 0; font-size: 12px; color: #555;">Quote Reference Number</p>
+                <p style="margin: 4px 0 0; font-size: 18px; font-weight: bold; color: #12143e;">{{ $details['quote_number'] }}</p>
+            </div>
+            @endif
+
             {{-- Trip Details --}}
             <div class="trip-details"
                 style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
                 <h3
-                    style="background: #12143e; margin: 0; padding: 8px 12px; font-size: 14px; color: #ffffff; border-radius: 4px 4px 0 0;">
+                    style="background-color: #e52c43; background-image: linear-gradient(90deg, #e52c43, #ff6c00, #e52c43); margin: 0; padding: 8px 12px; font-size: 14px; color: #ffffff; font-weight: 600; border-radius: 4px 4px 0 0;">
                     Trip Details</h3>
                 <table cellpadding="0" cellspacing="0" width="100%" style="font-size: 12px; padding: 10px;">
                     <tr>
@@ -84,7 +91,7 @@
             <div class="contact-details"
                 style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
                 <h3
-                    style="background: #12143e; margin: 0; padding: 8px 12px; font-size: 14px; color: #ffffff; border-radius: 4px 4px 0 0;">
+                    style="background-color: #e52c43; background-image: linear-gradient(90deg, #e52c43, #ff6c00, #e52c43); margin: 0; padding: 8px 12px; font-size: 14px; color: #ffffff; font-weight: 600; border-radius: 4px 4px 0 0;">
                     Contact Information</h3>
                 <table cellpadding="0" cellspacing="0" width="100%" style="font-size: 12px; padding: 10px;">
                     <tr>
@@ -104,7 +111,7 @@
             <div class="message-section"
                 style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
                 <h3
-                    style="background: #12143e; margin: 0; padding: 8px 12px; font-size: 14px; color: #ffffff; border-radius: 4px 4px 0 0;">
+                    style="background-color: #e52c43; background-image: linear-gradient(90deg, #e52c43, #ff6c00, #e52c43); margin: 0; padding: 8px 12px; font-size: 14px; color: #ffffff; font-weight: 600; border-radius: 4px 4px 0 0;">
                     Additional Notes</h3>
                 <div style="padding: 10px;">
                     <p style="margin: 0; font-size: 12px; color: #333; white-space: pre-wrap; word-wrap: break-word;">{{

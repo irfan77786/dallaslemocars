@@ -119,6 +119,9 @@
                     <div class="quote-thank-you-content">
                         <h1 class="quote-thank-you-title">Thank You!</h1>
                         <p class="quote-thank-you-text mb-0">Your request has been successfully submitted.</p>
+                        @if(session('quote_number'))
+                            <p class="quote-thank-you-text mb-0">Your quote reference number is <strong>{{ session('quote_number') }}</strong>.</p>
+                        @endif
                         <p class="quote-thank-you-text">Our team will contact you shortly.</p>
                         <a href="{{ url('/') }}" class="quote-thank-you-btn">Back To Home</a>
                     </div>

@@ -299,7 +299,10 @@ class WebsiteController extends Controller
         ]);
 
         try {
+            $quoteNumber = Quote::generateQuoteNumber();
+
             $quoteData = [
+                'quote_number' => $quoteNumber,
                 'vehicle_type' => $validated['vehicle_type'],
                 'trip_type' => $validated['trip_type'],
                 'number_of_passengers' => $validated['number_of_passengers'],
@@ -315,10 +318,13 @@ class WebsiteController extends Controller
             Quote::create($quoteData);
 
             Mail::to($validated['email'])->send(new QuoteMail($quoteData, false));
-            
-            Mail::to('info@legacyonelimo.com')->send(new QuoteMail($quoteData, true));
 
-            return redirect()->route('get_a_quote_thank_you');
+            $adminEmail = trim((string) (config('mail.admin_email') ?: env('ADMIN_EMAIL_ADDRESS')));
+            if ($adminEmail) {
+                Mail::to($adminEmail)->send(new QuoteMail($quoteData, true));
+            }
+
+            return redirect()->route('get_a_quote_thank_you')->with('quote_number', $quoteNumber);
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Error: ' . $e->getMessage());
         }
