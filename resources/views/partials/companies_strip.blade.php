@@ -9,7 +9,7 @@
                                 @php $padded = str_pad((string) $i, 2, '0', STR_PAD_LEFT); @endphp
                                 <div class="swiper-slide">
                                     <img src="{{ asset('new_assets/assets/logo-' . $padded . '.png') }}"
-                                         alt="Partner client logo {{ $i }} — Dallas Limo and Black Cars"
+                                         alt="Partner client logo {{ $i }} — Dallas Limo Black Cars"
                                          class="img-fluid"
                                          loading="lazy"
                                          decoding="async">

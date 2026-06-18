@@ -8,12 +8,12 @@
         <link rel="shortcut icon" href="{{ asset('assets/img/site/dallas-black-car-service-favicon.png') }}">
 
         {{-- SEO Meta Tags --}}
-        <title>{{ $seo['title'] ?? config('app.name', 'Dallas Limo And Black Cars') }}</title>
+        <title>{{ $seo['title'] ?? config('app.name', 'Dallas Limo Black Cars') }}</title>
         <meta name="description" content="{{ $seo['description'] ?? 'Premium black car and limousine service in Dallas, Texas. Luxury transportation for airport transfers, corporate events, and special occasions.' }}">
         <meta name="keywords" content="{{ $seo['keywords'] ?? 'Dallas black car service, Dallas limo service, luxury car service Dallas, airport transportation Dallas' }}">
         
         {{-- Open Graph Meta Tags --}}
-        <meta property="og:title" content="{{ $seo['og_title'] ?? $seo['title'] ?? config('app.name', 'Dallas Limo And Black Cars') }}">
+        <meta property="og:title" content="{{ $seo['og_title'] ?? $seo['title'] ?? config('app.name', 'Dallas Limo Black Cars') }}">
         <meta property="og:description" content="{{ $seo['og_description'] ?? $seo['description'] ?? 'Premium black car and limousine service in Dallas, Texas.' }}">
         <meta property="og:image" content="{{ $seo['og_image'] ?? asset('img/black-car-service-dallas.webp') }}">
         <meta property="og:type" content="website">
@@ -21,7 +21,7 @@
         
         {{-- Twitter Card Meta Tags --}}
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="{{ $seo['og_title'] ?? $seo['title'] ?? config('app.name', 'Dallas Limo And Black Cars') }}">
+        <meta name="twitter:title" content="{{ $seo['og_title'] ?? $seo['title'] ?? config('app.name', 'Dallas Limo Black Cars') }}">
         <meta name="twitter:description" content="{{ $seo['og_description'] ?? $seo['description'] ?? 'Premium black car and limousine service in Dallas, Texas.' }}">
         <meta name="twitter:image" content="{{ $seo['og_image'] ?? asset('img/black-car-service-dallas.webp') }}">
 

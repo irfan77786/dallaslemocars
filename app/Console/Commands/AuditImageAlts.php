@@ -179,7 +179,7 @@ class AuditImageAlts extends Command
     private function guessAlt(string $tag): string
     {
         if (! preg_match('/\bsrc\s*=\s*("|\')(.*?)\1/i', $tag, $m)) {
-            return 'Dallas Limo and Black Cars';
+            return 'Dallas Limo Black Cars';
         }
 
         $src = $m[2];
@@ -191,12 +191,12 @@ class AuditImageAlts extends Command
 
         $basename = pathinfo(parse_url($src, PHP_URL_PATH) ?: $src, PATHINFO_FILENAME);
         if ($basename === '' || $basename === false) {
-            return 'Dallas Limo and Black Cars';
+            return 'Dallas Limo Black Cars';
         }
 
         // Common patterns to skip / fallback
         if (preg_match('/^[0-9a-f]{16,}$|^\d{8,}$/i', $basename)) {
-            return 'Dallas Limo and Black Cars';
+            return 'Dallas Limo Black Cars';
         }
 
         $text = preg_replace('/[-_]+/', ' ', $basename);
@@ -209,7 +209,7 @@ class AuditImageAlts extends Command
         $text = trim((string) $text);
 
         if ($text === '') {
-            return 'Dallas Limo and Black Cars';
+            return 'Dallas Limo Black Cars';
         }
 
         // Title-case but keep common acronyms uppercase

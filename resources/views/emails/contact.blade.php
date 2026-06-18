@@ -97,7 +97,7 @@
 
         <div class="footer"
             style="text-align: center; padding: 20px 10px; font-size: 12px; color: #777; border-top: 1px solid #e1e1e1;">
-            <p style="margin: 0 0 5px;"><strong>Dallas Limo And Black Cars</strong></p>
+            <p style="margin: 0 0 5px;"><strong>Dallas Limo Black Cars</strong></p>
             <p style="margin: 0 0 8px;">Premier Black Car & Limo Service in Dallas</p>
             <p style="margin: 0 0 5px;"><a href="tel:+12148978056" style="color: #12143e; text-decoration: none;">+1
                     214-897-8056</a> | <a href="mailto:info@dallaslimoandblackcars.com"

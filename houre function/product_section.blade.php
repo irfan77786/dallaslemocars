@@ -1086,7 +1086,7 @@ border-radius: 4px !important;
         <div class="mbs-top">
             <div class="mbs-hero position-relative">
                 <span class="best-value-badge"> <i style="font-size: 13px;" class="bi bi-tag-fill"></i> <span>Best Value</span> </span>
-                <img src="" alt="Dallas Limo and Black Cars" />
+                <img src="" alt="Dallas Limo Black Cars" />
             </div>
         </div>
         <div class="flex-wrap mbs-title-row d-flex align-items-center justify-content-between">

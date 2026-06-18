@@ -22,11 +22,11 @@ class WebsiteController extends Controller
         }
 
         $seo = [
-            'title' => 'About Us | Dallas Limo And Black Cars Service',
-            'description' => 'Learn about Dallas Limo And Black Cars Service, Dallas–Fort Worth’s premier luxury black car & limousine service. Professional chauffeurs, premium fleet, DFW & Love Field coverage.',
+            'title' => 'About Us | Dallas Limo Black Cars Service',
+            'description' => 'Learn about Dallas Limo Black Cars Service, Dallas–Fort Worth’s premier luxury black car & limousine service. Professional chauffeurs, premium fleet, DFW & Love Field coverage.',
             'keywords' => 'Black Car Service in Dallas, Executive Chauffeur Service DFW, Luxury Airport Transfer Love Field, DFW Car Service',
-            'og_title' => 'About Us | Dallas Limo And Black Cars Service',
-            'og_description' => 'Learn about Dallas Limo And Black Cars Service, Dallas–Fort Worth’s premier luxury black car & limousine service. Professional chauffeurs, premium fleet, DFW & Love Field coverage.',
+            'og_title' => 'About Us | Dallas Limo Black Cars Service',
+            'og_description' => 'Learn about Dallas Limo Black Cars Service, Dallas–Fort Worth’s premier luxury black car & limousine service. Professional chauffeurs, premium fleet, DFW & Love Field coverage.',
             'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
         ];
 
