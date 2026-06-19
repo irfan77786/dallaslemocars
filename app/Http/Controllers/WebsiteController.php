@@ -173,8 +173,11 @@ class WebsiteController extends Controller
             Contact::create($contactData);
 
             Mail::to($validated['email'])->send(new ContactMail($contactData, false));
-            
-            Mail::to('info@legacyonelimo.com')->send(new ContactMail($contactData, true));
+
+            $adminEmail = trim((string) (config('mail.admin_email') ?: env('ADMIN_EMAIL_ADDRESS')));
+            if ($adminEmail) {
+                Mail::to($adminEmail)->send(new ContactMail($contactData, true));
+            }
 
             return redirect()->back()->with('success', 'Your message has been sent successfully!');
         } catch (\Exception $e) {
@@ -274,8 +277,11 @@ class WebsiteController extends Controller
             CorporateSupport::create($corporateData);
 
             Mail::to($validated['email'])->send(new CorporateSupportMail($corporateData, false));
-            
-            Mail::to('info@legacyonelimo.com')->send(new CorporateSupportMail($corporateData, true));
+
+            $adminEmail = trim((string) (config('mail.admin_email') ?: env('ADMIN_EMAIL_ADDRESS')));
+            if ($adminEmail) {
+                Mail::to($adminEmail)->send(new CorporateSupportMail($corporateData, true));
+            }
 
             return redirect()->back()->with('success', 'Your corporate support request has been sent successfully!');
         } catch (\Exception $e) {
