@@ -312,11 +312,32 @@ document.addEventListener('DOMContentLoaded', function () {
     card.mount('#card-element');
 
     const form = document.getElementById('payment-form');
+    const payButton = document.getElementById('final-pay-button');
     const errorDiv = document.getElementById('card-errors');
     const cardNameInput = document.getElementById('card-name');
     const hiddenPaymentMethod = document.getElementById('payment_method_id');
     const savedRadios = document.querySelectorAll('.saved-card-radio');
     const newCardFields = document.getElementById('new-card-fields');
+
+    function setPaymentSubmitting(isSubmitting) {
+        if (!payButton) {
+            return;
+        }
+
+        if (isSubmitting) {
+            if (!payButton.dataset.originalHtml) {
+                payButton.dataset.originalHtml = payButton.innerHTML;
+            }
+            payButton.disabled = true;
+            payButton.innerHTML = 'Processing payment...';
+            return;
+        }
+
+        payButton.disabled = false;
+        if (payButton.dataset.originalHtml) {
+            payButton.innerHTML = payButton.dataset.originalHtml;
+        }
+    }
 
     function toggleNewCardFields(show) {
         newCardFields.style.display = show ? 'block' : 'none';
@@ -368,6 +389,7 @@ form.addEventListener('submit', async function (event) {
 
     // If a saved card is selected, submit form directly
     if (hiddenPaymentMethod.value && hiddenPaymentMethod.value !== '') {
+        setPaymentSubmitting(true);
         form.submit();
         return;
     }
@@ -393,6 +415,7 @@ form.addEventListener('submit', async function (event) {
     }
 
     hiddenPaymentMethod.value = paymentMethod.id;
+    setPaymentSubmitting(true);
     form.submit();
 });
 

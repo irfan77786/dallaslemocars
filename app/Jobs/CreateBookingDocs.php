@@ -2,16 +2,22 @@
 
 namespace App\Jobs;
 
+use App\Support\AdminNotificationEmails;
+use App\Support\BookingPdfBuilder;
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
-use App\Support\BookingPdfBuilder;
 
-class CreateBookingDocs
+class CreateBookingDocs implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
+    public int $tries = 3;
+
+    public int $timeout = 300;
 
     public $bookingData;
     public $customBookingId;
@@ -45,18 +51,16 @@ class CreateBookingDocs
 
             BookingPdfBuilder::save($filePath, $this->bookingData);
 
-            $adminEmail = trim((string) (config('mail.admin_email') ?: env('ADMIN_EMAIL_ADDRESS')));
-            \Log::info('Admin email from config: ' . ($adminEmail ?: 'NOT FOUND'));
-            \Log::info('Customer email: ' . $this->bookingData['email']);
-
             $recipients = [
                 ['email' => $this->bookingData['email'], 'isAdmin' => false, 'isBooker' => false],
             ];
 
-            if (!empty($adminEmail)) {
-                $recipients[] = ['email' => trim($adminEmail), 'isAdmin' => true, 'isBooker' => false];
+            foreach (AdminNotificationEmails::addresses() as $adminEmail) {
+                $recipients[] = ['email' => $adminEmail, 'isAdmin' => true, 'isBooker' => false];
                 \Log::info('Added admin email to recipients: ' . $adminEmail);
-            } else {
+            }
+
+            if (empty(AdminNotificationEmails::addresses())) {
                 \Log::warning('Admin email not found in configuration');
             }
 

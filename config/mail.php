@@ -117,7 +117,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Booking notifications
+    | Admin notification recipients
     |--------------------------------------------------------------------------
     */
     'admin_email' => env('ADMIN_EMAIL_ADDRESS'),

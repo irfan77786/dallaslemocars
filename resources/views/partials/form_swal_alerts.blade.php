@@ -12,6 +12,32 @@
     }
     $resetFormSelector = $resetFormSelector ?? null;
 @endphp
+<script>
+(function () {
+    var deferredFormSelectors = '.contact-us-form, .get-a-quote-form, .news-letter-form';
+    document.querySelectorAll(deferredFormSelectors).forEach(function (form) {
+        form.addEventListener('submit', function () {
+            if (form.dataset.submitting === '1') {
+                return;
+            }
+
+            form.dataset.submitting = '1';
+
+            form.querySelectorAll('[type="submit"]').forEach(function (button) {
+                if (button.disabled) {
+                    return;
+                }
+
+                button.disabled = true;
+                if (!button.dataset.originalHtml) {
+                    button.dataset.originalHtml = button.innerHTML;
+                }
+                button.innerHTML = 'Sending...';
+            });
+        });
+    });
+})();
+</script>
 @if ($validationHtml !== '' || $swalSuccess || $swalError)
 <script>
 (function () {

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
 use App\Mail\CorporateSupportMail;
 use App\Mail\QuoteMail;
+use App\Jobs\SendWebsiteFormEmailsJob;
 use App\Models\Contact;
 use App\Models\CorporateSupport;
 use App\Models\Quote;
@@ -172,12 +172,11 @@ class WebsiteController extends Controller
 
             Contact::create($contactData);
 
-            Mail::to($validated['email'])->send(new ContactMail($contactData, false));
-
-            $adminEmail = trim((string) (config('mail.admin_email') ?: env('ADMIN_EMAIL_ADDRESS')));
-            if ($adminEmail) {
-                Mail::to($adminEmail)->send(new ContactMail($contactData, true));
-            }
+            SendWebsiteFormEmailsJob::dispatch(
+                ContactMail::class,
+                $contactData,
+                $validated['email']
+            );
 
             return redirect()->back()->with('success', 'Your message has been sent successfully!');
         } catch (\Exception $e) {
@@ -276,12 +275,11 @@ class WebsiteController extends Controller
 
             CorporateSupport::create($corporateData);
 
-            Mail::to($validated['email'])->send(new CorporateSupportMail($corporateData, false));
-
-            $adminEmail = trim((string) (config('mail.admin_email') ?: env('ADMIN_EMAIL_ADDRESS')));
-            if ($adminEmail) {
-                Mail::to($adminEmail)->send(new CorporateSupportMail($corporateData, true));
-            }
+            SendWebsiteFormEmailsJob::dispatch(
+                CorporateSupportMail::class,
+                $corporateData,
+                $validated['email']
+            );
 
             return redirect()->back()->with('success', 'Your corporate support request has been sent successfully!');
         } catch (\Exception $e) {
@@ -323,12 +321,11 @@ class WebsiteController extends Controller
 
             Quote::create($quoteData);
 
-            Mail::to($validated['email'])->send(new QuoteMail($quoteData, false));
-
-            $adminEmail = trim((string) (config('mail.admin_email') ?: env('ADMIN_EMAIL_ADDRESS')));
-            if ($adminEmail) {
-                Mail::to($adminEmail)->send(new QuoteMail($quoteData, true));
-            }
+            SendWebsiteFormEmailsJob::dispatch(
+                QuoteMail::class,
+                $quoteData,
+                $validated['email']
+            );
 
             return redirect()->route('get_a_quote_thank_you')->with('quote_number', $quoteNumber);
         } catch (\Exception $e) {

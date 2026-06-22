@@ -13,7 +13,7 @@ class StripeCustomerResolver
     {
         self::ensureApiKey();
 
-        if ($user->stripe_customer_id && self::customerExists($user->stripe_customer_id)) {
+        if ($user->stripe_customer_id) {
             return $user->stripe_customer_id;
         }
 
@@ -34,7 +34,7 @@ class StripeCustomerResolver
 
         $sessionId = session('stripe_customer_id');
 
-        if (is_string($sessionId) && $sessionId !== '' && self::customerExists($sessionId)) {
+        if (is_string($sessionId) && $sessionId !== '') {
             return $sessionId;
         }
 

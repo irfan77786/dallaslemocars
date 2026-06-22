@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\CreateBookingDocs;
+use App\Jobs\ProcessBookingCompletionJob;
 use App\Support\StripeCustomerResolver;
 use Carbon\Carbon;
 use App\Models\Booking;
@@ -943,7 +943,32 @@ public function completeBook(Request $request)
         $booker_email        = session('booker_email') ?? null;
         $hours               = session('select_hours') ?? null;
 
-        $flight_details = null;
+        $flight_details = [
+            'flight_number' => session('flight_number'),
+            'pickup_flight_details' => session('pickup_flight_details'),
+            'meet_option' => session('meet_option'),
+        ];
+
+        $pickupDateYmd = $this->safeFormatDate($pickup_date);
+        $isRoundTrip = session('round_trip') ? true : false;
+        $returnDateYmd = $isRoundTrip ? $this->safeFormatDate($return_date) : null;
+
+        if (! $pickupDateYmd) {
+            return $paymentRedirect('Invalid pickup date');
+        }
+        if ($isRoundTrip && ! $returnDateYmd) {
+            return $paymentRedirect('Invalid return date');
+        }
+
+        $pickupTimeHis = $this->safeFormatTime($pickup_time);
+        $returnTimeHis = $isRoundTrip ? $this->safeFormatTime($return_time) : null;
+
+        if (! $pickupTimeHis) {
+            return $paymentRedirect('Invalid pickup time');
+        }
+        if ($isRoundTrip && ! $returnTimeHis) {
+            return $paymentRedirect('Invalid return time');
+        }
 
         // -------------------------
         // Stripe Customer Handling
@@ -972,10 +997,15 @@ public function completeBook(Request $request)
         $amountToAuthorize = $sanitizedPrice + $bufferAmount;
 
         try {
-            // Attach PaymentMethod to Customer
-            \Stripe\PaymentMethod::retrieve($request->payment_method_id)->attach([
-                'customer' => $stripeCustomerId,
-            ]);
+            try {
+                \Stripe\PaymentMethod::retrieve($request->payment_method_id)->attach([
+                    'customer' => $stripeCustomerId,
+                ]);
+            } catch (\Stripe\Exception\InvalidRequestException $e) {
+                if (! str_contains(strtolower($e->getMessage()), 'already been attached')) {
+                    throw $e;
+                }
+            }
 
             // -------------------------
             // Create PaymentIntent (quote + 20% buffer, min $20)
@@ -1023,56 +1053,8 @@ public function completeBook(Request $request)
 
         $bookingPaymentStatus = $paymentIntent->status === 'succeeded' ? 'Paid' : 'Authorized';
 
-        $booker = Booker::create([
-            'first_name' => $booker_first_name,
-            'last_name'  => $booker_last_name,
-            'email'      => $booker_email,
-            'phone_number' => $booker_number,
-        ]);
-
-        // -------------------------
-        // Return Service Handling
-        // -------------------------
-        $returnServiceId = null;
-        if (session('return_service')) {
-            $returnPickupDate = session('return_date') ? $this->safeFormatDate(session('return_date')) : null;
-            $returnPickupTime = session('return_time') ? $this->safeFormatTime(session('return_time')) : now()->format('H:i:s');
-            $returnService = ReturnService::create([
-                'vehicle_id' => $vehicle_id,
-                'pickup_location' => session('dropoff_location'),
-                'dropoff_location' => session('pickup_location'),
-                'pickup_date' => $returnPickupDate ?? now()->format('Y-m-d'),
-                'pickup_time' => $returnPickupTime,
-            ]);
-            $returnServiceId = $returnService->id;
-        }
-
-        // -------------------------
-        // Create Booking
-        // -------------------------
-        $pickupDateYmd = $this->safeFormatDate($pickup_date);
-        $isRoundTrip = session('round_trip') ? true : false;
-        $returnDateYmd = $isRoundTrip ? $this->safeFormatDate($return_date) : null;
-
-        if (!$pickupDateYmd) {
-            return $paymentRedirect('Invalid pickup date');
-        }
-        if ($isRoundTrip && !$returnDateYmd) {
-            return $paymentRedirect('Invalid return date');
-        }
-
-        $pickupTimeHis = $this->safeFormatTime($pickup_time);
-        $returnTimeHis = $isRoundTrip ? $this->safeFormatTime($return_time) : null;
-
-        if (!$pickupTimeHis) {
-            return $paymentRedirect('Invalid pickup time');
-        }
-        if ($isRoundTrip && !$returnTimeHis) {
-            return $paymentRedirect('Invalid return time');
-        }
-
         $booking = Booking::create([
-            'booker_id' => $booker ? $booker->id : null,
+            'booker_id' => null,
             'booking_id' => $customBookingId,
             'user_id' => $user ? $user->id : null,
             'vehicle_id' => $vehicle_id,
@@ -1087,63 +1069,43 @@ public function completeBook(Request $request)
             'stripe_customer_id' => $stripeCustomerId,
             'stripe_payment_method_id' => $request->payment_method_id,
             'buffer_amount' => $bufferAmount,
-            'return_service_id' => $returnServiceId,
+            'return_service_id' => null,
             'round_trip' => session('round_trip') ? 1 : 0,
             'note' => session('note') ?? null,
         ]);
 
-        // Payment record
         $booking->payments()->create([
-            'payment_method' => "card",
+            'payment_method' => 'card',
             'payment_status' => $bookingPaymentStatus,
             'transaction_id' => $transactionId,
             'amount' => $selected_price,
         ]);
 
-        // Passenger record
         $passenger = $booking->passengers()->create([
             'first_name' => $isBookingForOthers ? $guest['first_name'] ?? $first_name : $first_name,
             'last_name' => $isBookingForOthers ? $guest['last_name'] ?? $last_name : $last_name,
             'email' => $isBookingForOthers ? $guest['email'] ?? $email : $email,
             'phone_number' => $isBookingForOthers ? $guest['number'] ?? $number : $number,
             'is_booking_for_others' => $isBookingForOthers,
-            'booker_id' => $booker ? $booker->id : null,
+            'booker_id' => null,
         ]);
 
-        // Breakdown
         $breakdownData = session('breakdown_data');
-        if ($breakdownData && is_array($breakdownData)) {
-            $booking->breakdown()->create([
-                'booking_id' => $booking->id,
-                'base_fare' => $breakdownData['baseFare'] ?? null,
-                'per_km_rate' => $breakdownData['perKmRate'] ?? null,
-                'total_kms' => $breakdownData['distance_km'] ?? null,
-                'hourly_fare' => $breakdownData['hourlyFare'] ?? null,
-                'total_hours' => $hours,
-                'return_base_fare' => session('return_base_fare') ?? null,
-                'return_per_km_rate' => session('return_per_km_rate') ?? null,
-                'return_total_kms' => session('return_km') ?? null,
-            ]);
-        }
+        $breakdownPayload = ($breakdownData && is_array($breakdownData)) ? [
+            'booking_id' => $booking->id,
+            'base_fare' => $breakdownData['baseFare'] ?? null,
+            'per_km_rate' => $breakdownData['perKmRate'] ?? null,
+            'total_kms' => $breakdownData['distance_km'] ?? null,
+            'hourly_fare' => $breakdownData['hourlyFare'] ?? null,
+            'total_hours' => $hours,
+            'return_base_fare' => session('return_base_fare') ?? null,
+            'return_per_km_rate' => session('return_per_km_rate') ?? null,
+            'return_total_kms' => session('return_km') ?? null,
+        ] : [];
 
-        // Flight details
-        $flight_details = [
-            'flight_number' => session('flight_number'),
-            'pickup_flight_details' => session('pickup_flight_details'),
-            'meet_option' => session('meet_option'),
-        ];
-        if (session()->has('pickup_flight_details') || session()->has('flight_number') || session('is_airport')) {
-            FlightDetail::create([
-                'passenger_id' => $passenger->id,
-                'pickup_flight_details' => $flight_details['pickup_flight_details'],
-                'flight_number' => $flight_details['flight_number'],
-                'meet_option' => $flight_details['meet_option'],
-                'no_flight_info' => session('no_flight_info', false),
-                'inside_pickup_fee' => 0.00,
-            ]);
-        }
+        $returnPickupDate = session('return_date') ? $this->safeFormatDate(session('return_date')) : null;
+        $returnPickupTime = session('return_time') ? $this->safeFormatTime(session('return_time')) : now()->format('H:i:s');
 
-        // Dispatch booking documents
         $bookingData = [
             'booking_id' => $customBookingId,
             'isBookingForOthers' => $isBookingForOthers,
@@ -1170,21 +1132,47 @@ public function completeBook(Request $request)
             'special_instructions' => session('note') ?? null,
             'flight_details' => $flight_details,
         ];
-        CreateBookingDocs::dispatch($bookingData, $customBookingId);
 
-        // Clear session
-        session()->forget([
+        ProcessBookingCompletionJob::dispatch($booking->id, $passenger->id, [
+            'custom_booking_id' => $customBookingId,
+            'is_booking_for_others' => $isBookingForOthers,
+            'booker_first_name' => $booker_first_name,
+            'booker_last_name' => $booker_last_name,
+            'booker_email' => $booker_email,
+            'booker_number' => $booker_number,
+            'return_service' => (bool) session('return_service'),
+            'vehicle_id' => $vehicle_id,
+            'return_pickup_location' => session('dropoff_location'),
+            'return_dropoff_location' => session('pickup_location'),
+            'return_pickup_date' => $returnPickupDate ?? now()->format('Y-m-d'),
+            'return_pickup_time' => $returnPickupTime,
+            'breakdown' => $breakdownPayload,
+            'flight' => [
+                'should_create' => session()->has('pickup_flight_details') || session()->has('flight_number') || session('is_airport'),
+                'pickup_flight_details' => $flight_details['pickup_flight_details'],
+                'flight_number' => $flight_details['flight_number'],
+                'meet_option' => $flight_details['meet_option'],
+                'no_flight_info' => session('no_flight_info', false),
+            ],
+            'booking_data' => $bookingData,
+        ]);
+
+        $sessionKeysToForget = [
             'pickup_location', 'dropoff_location', 'pickup_date',
             'pickup_time', 'vehicle_id', 'vehicle_name',
             'final_price', 'calculated_price', 'guest',
             'return_service', 'round_trip', 'note',
-            'breakdown_data', 'return_base_fare', 'return_per_km_rate', 'return_km'
-        ]);
+            'breakdown_data', 'return_base_fare', 'return_per_km_rate', 'return_km',
+        ];
 
         session([
             'booking_completed' => true,
             'booking_id' => $customBookingId,
         ]);
+
+        dispatch(function () use ($sessionKeysToForget) {
+            session()->forget($sessionKeysToForget);
+        })->afterResponse();
 
         return $user ? redirect()->route('dashboard')->with('success', 'Booking completed successfully!') : redirect()->route('thankyou');
 
