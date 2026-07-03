@@ -112,7 +112,7 @@
                             @if (!empty($bookingData['hours']))
                                 Hourly/As Directed
                             @else
-                                To Airport
+                                Point-to-Point
                             @endif
                         </td>
                     </tr>
