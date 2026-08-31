@@ -1,0 +1,64 @@
+[10-Aug-2026 14:08:54 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Mail\Mailable" not found in /home/dallwske/dallaslimoandblackcars.com/app/Mail/Booking.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Mail/Booking.php on line 12
+[10-Aug-2026 14:08:55 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Mail\Mailable" not found in /home/dallwske/dallaslimoandblackcars.com/app/Mail/ContactMail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Mail/ContactMail.php on line 11
+[10-Aug-2026 14:08:55 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Mail\Mailable" not found in /home/dallwske/dallaslimoandblackcars.com/app/Mail/CorporateSupportMail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Mail/CorporateSupportMail.php on line 11
+[10-Aug-2026 14:08:56 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Mail\Mailable" not found in /home/dallwske/dallaslimoandblackcars.com/app/Mail/QuoteMail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Mail/QuoteMail.php on line 11
+[10-Aug-2026 14:10:59 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Mail\Mailable" not found in /home/dallwske/dallaslimoandblackcars.com/app/Mail/Booking.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Mail/Booking.php on line 12
+[10-Aug-2026 14:10:59 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Mail\Mailable" not found in /home/dallwske/dallaslimoandblackcars.com/app/Mail/ContactMail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Mail/ContactMail.php on line 11
+[10-Aug-2026 14:11:00 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Mail\Mailable" not found in /home/dallwske/dallaslimoandblackcars.com/app/Mail/CorporateSupportMail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Mail/CorporateSupportMail.php on line 11
+[10-Aug-2026 14:11:00 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Mail\Mailable" not found in /home/dallwske/dallaslimoandblackcars.com/app/Mail/QuoteMail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Mail/QuoteMail.php on line 11
+[10-Aug-2026 21:33:38 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Mail\Mailable" not found in /home/dallwske/dallaslimoandblackcars.com/app/Mail/Booking.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Mail/Booking.php on line 12
+[10-Aug-2026 21:33:38 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Mail\Mailable" not found in /home/dallwske/dallaslimoandblackcars.com/app/Mail/ContactMail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Mail/ContactMail.php on line 11
+[10-Aug-2026 21:33:39 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Mail\Mailable" not found in /home/dallwske/dallaslimoandblackcars.com/app/Mail/CorporateSupportMail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Mail/CorporateSupportMail.php on line 11
+[10-Aug-2026 21:33:39 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Mail\Mailable" not found in /home/dallwske/dallaslimoandblackcars.com/app/Mail/QuoteMail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Mail/QuoteMail.php on line 11
+[10-Aug-2026 21:35:33 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Mail\Mailable" not found in /home/dallwske/dallaslimoandblackcars.com/app/Mail/Booking.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Mail/Booking.php on line 12
+[10-Aug-2026 21:35:34 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Mail\Mailable" not found in /home/dallwske/dallaslimoandblackcars.com/app/Mail/ContactMail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Mail/ContactMail.php on line 11
+[10-Aug-2026 21:35:34 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Mail\Mailable" not found in /home/dallwske/dallaslimoandblackcars.com/app/Mail/CorporateSupportMail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Mail/CorporateSupportMail.php on line 11
+[10-Aug-2026 21:35:35 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Mail\Mailable" not found in /home/dallwske/dallaslimoandblackcars.com/app/Mail/QuoteMail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Mail/QuoteMail.php on line 11

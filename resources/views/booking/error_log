@@ -1,0 +1,8 @@
+[10-Aug-2026 14:11:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function session() in /home/dallwske/dallaslimoandblackcars.com/resources/views/booking/booking_detail.blade.php:281
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/resources/views/booking/booking_detail.blade.php on line 281
+[10-Aug-2026 21:35:53 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function session() in /home/dallwske/dallaslimoandblackcars.com/resources/views/booking/booking_detail.blade.php:281
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/resources/views/booking/booking_detail.blade.php on line 281

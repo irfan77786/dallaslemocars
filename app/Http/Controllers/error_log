@@ -26,3 +26,99 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in /home/dallwske/premiercls.com/app/Http/Controllers/BookingController.php on line 12
+[10-Aug-2026 14:10:29 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/AdminBookingController.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/AdminBookingController.php on line 12
+[10-Aug-2026 14:10:30 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/AirportController.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/AirportController.php on line 7
+[10-Aug-2026 14:10:30 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/BookingController.php:24
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/BookingController.php on line 24
+[10-Aug-2026 14:10:31 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/CityController.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/CityController.php on line 7
+[10-Aug-2026 14:10:31 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Routing\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/Controller.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/Controller.php on line 10
+[10-Aug-2026 14:10:31 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/ExportController.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/ExportController.php on line 11
+[10-Aug-2026 14:10:32 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/LocationController.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/LocationController.php on line 7
+[10-Aug-2026 14:10:32 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/PaymentMethodController.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/PaymentMethodController.php on line 12
+[10-Aug-2026 14:10:33 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/ProfileController.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/ProfileController.php on line 13
+[10-Aug-2026 14:10:33 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/ServiceController.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/ServiceController.php on line 7
+[10-Aug-2026 14:10:34 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/StoredLocationsController.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/StoredLocationsController.php on line 8
+[10-Aug-2026 14:10:34 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/WebsiteController.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/WebsiteController.php on line 14
+[10-Aug-2026 21:35:06 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/AdminBookingController.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/AdminBookingController.php on line 12
+[10-Aug-2026 21:35:06 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/AirportController.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/AirportController.php on line 7
+[10-Aug-2026 21:35:07 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/BookingController.php:24
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/BookingController.php on line 24
+[10-Aug-2026 21:35:07 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/CityController.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/CityController.php on line 7
+[10-Aug-2026 21:35:08 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Routing\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/Controller.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/Controller.php on line 10
+[10-Aug-2026 21:35:08 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/ExportController.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/ExportController.php on line 11
+[10-Aug-2026 21:35:09 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/LocationController.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/LocationController.php on line 7
+[10-Aug-2026 21:35:09 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/PaymentMethodController.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/PaymentMethodController.php on line 12
+[10-Aug-2026 21:35:09 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/ProfileController.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/ProfileController.php on line 13
+[10-Aug-2026 21:35:10 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/ServiceController.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/ServiceController.php on line 7
+[10-Aug-2026 21:35:10 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/StoredLocationsController.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/StoredLocationsController.php on line 8
+[10-Aug-2026 21:35:11 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/WebsiteController.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Http/Controllers/WebsiteController.php on line 14

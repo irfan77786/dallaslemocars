@@ -1,0 +1,24 @@
+[10-Aug-2026 14:09:44 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/dallwske/dallaslimoandblackcars.com/routes/auth.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/routes/auth.php on line 14
+[10-Aug-2026 14:09:44 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/dallwske/dallaslimoandblackcars.com/routes/console.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/routes/console.php on line 7
+[10-Aug-2026 14:09:44 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/dallwske/dallaslimoandblackcars.com/routes/web.php:25
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/routes/web.php on line 25
+[10-Aug-2026 21:34:23 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/dallwske/dallaslimoandblackcars.com/routes/auth.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/routes/auth.php on line 14
+[10-Aug-2026 21:34:24 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/dallwske/dallaslimoandblackcars.com/routes/console.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/routes/console.php on line 7
+[10-Aug-2026 21:34:25 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/dallwske/dallaslimoandblackcars.com/routes/web.php:25
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/routes/web.php on line 25

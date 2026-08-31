@@ -1,0 +1,16 @@
+[10-Aug-2026 14:10:54 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Console\Command" not found in /home/dallwske/dallaslimoandblackcars.com/app/Console/Commands/AuditImageAlts.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Console/Commands/AuditImageAlts.php on line 10
+[10-Aug-2026 14:10:54 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Console\Command" not found in /home/dallwske/dallaslimoandblackcars.com/app/Console/Commands/MinifyAssets.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Console/Commands/MinifyAssets.php on line 10
+[10-Aug-2026 21:35:29 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Console\Command" not found in /home/dallwske/dallaslimoandblackcars.com/app/Console/Commands/AuditImageAlts.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Console/Commands/AuditImageAlts.php on line 10
+[10-Aug-2026 21:35:29 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Console\Command" not found in /home/dallwske/dallaslimoandblackcars.com/app/Console/Commands/MinifyAssets.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Console/Commands/MinifyAssets.php on line 10

@@ -1,0 +1,120 @@
+[10-Aug-2026 14:09:25 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/0001_01_01_000000_create_users_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/0001_01_01_000000_create_users_table.php on line 7
+[10-Aug-2026 14:09:25 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/0001_01_01_000001_create_cache_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/0001_01_01_000001_create_cache_table.php on line 7
+[10-Aug-2026 14:09:26 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/0001_01_01_000002_create_jobs_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/0001_01_01_000002_create_jobs_table.php on line 7
+[10-Aug-2026 14:09:26 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_11_07_082114_create_personal_access_tokens_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_11_07_082114_create_personal_access_tokens_table.php on line 7
+[10-Aug-2026 14:09:27 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_11_24_180411_add_round_trip_time_fileds.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_11_24_180411_add_round_trip_time_fileds.php on line 7
+[10-Aug-2026 14:09:27 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_12_08_224038_add_stripe_customer_id_to_users_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_12_08_224038_add_stripe_customer_id_to_users_table.php on line 7
+[10-Aug-2026 14:09:27 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_12_09_000001_add_contact_type_to_users_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_12_09_000001_add_contact_type_to_users_table.php on line 7
+[10-Aug-2026 14:09:28 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_12_09_000002_add_user_id_to_users_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_12_09_000002_add_user_id_to_users_table.php on line 7
+[10-Aug-2026 14:09:28 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_12_09_171754_create_stored_locations_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_12_09_171754_create_stored_locations_table.php on line 7
+[10-Aug-2026 14:09:29 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_01_30_052157_create_airports_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_01_30_052157_create_airports_table.php on line 7
+[10-Aug-2026 14:09:29 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_03_12_183833_create_contacts_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_03_12_183833_create_contacts_table.php on line 7
+[10-Aug-2026 14:09:30 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_03_12_190011_create_corporate_supports_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_03_12_190011_create_corporate_supports_table.php on line 7
+[10-Aug-2026 14:09:30 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_03_13_164642_create_quotes_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_03_13_164642_create_quotes_table.php on line 7
+[10-Aug-2026 14:09:31 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_06_04_000001_add_stripe_buffer_fields_to_bookings_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_06_04_000001_add_stripe_buffer_fields_to_bookings_table.php on line 7
+[10-Aug-2026 14:09:31 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_06_17_195813_add_quote_number_to_quotes_table.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_06_17_195813_add_quote_number_to_quotes_table.php on line 8
+[10-Aug-2026 21:34:07 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/0001_01_01_000000_create_users_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/0001_01_01_000000_create_users_table.php on line 7
+[10-Aug-2026 21:34:07 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/0001_01_01_000001_create_cache_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/0001_01_01_000001_create_cache_table.php on line 7
+[10-Aug-2026 21:34:08 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/0001_01_01_000002_create_jobs_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/0001_01_01_000002_create_jobs_table.php on line 7
+[10-Aug-2026 21:34:08 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_11_07_082114_create_personal_access_tokens_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_11_07_082114_create_personal_access_tokens_table.php on line 7
+[10-Aug-2026 21:34:09 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_11_24_180411_add_round_trip_time_fileds.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_11_24_180411_add_round_trip_time_fileds.php on line 7
+[10-Aug-2026 21:34:09 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_12_08_224038_add_stripe_customer_id_to_users_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_12_08_224038_add_stripe_customer_id_to_users_table.php on line 7
+[10-Aug-2026 21:34:10 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_12_09_000001_add_contact_type_to_users_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_12_09_000001_add_contact_type_to_users_table.php on line 7
+[10-Aug-2026 21:34:10 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_12_09_000002_add_user_id_to_users_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_12_09_000002_add_user_id_to_users_table.php on line 7
+[10-Aug-2026 21:34:10 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_12_09_171754_create_stored_locations_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2025_12_09_171754_create_stored_locations_table.php on line 7
+[10-Aug-2026 21:34:11 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_01_30_052157_create_airports_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_01_30_052157_create_airports_table.php on line 7
+[10-Aug-2026 21:34:11 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_03_12_183833_create_contacts_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_03_12_183833_create_contacts_table.php on line 7
+[10-Aug-2026 21:34:12 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_03_12_190011_create_corporate_supports_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_03_12_190011_create_corporate_supports_table.php on line 7
+[10-Aug-2026 21:34:12 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_03_13_164642_create_quotes_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_03_13_164642_create_quotes_table.php on line 7
+[10-Aug-2026 21:34:13 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_06_04_000001_add_stripe_buffer_fields_to_bookings_table.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_06_04_000001_add_stripe_buffer_fields_to_bookings_table.php on line 7
+[10-Aug-2026 21:34:13 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Migrations\Migration" not found in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_06_17_195813_add_quote_number_to_quotes_table.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/database/migrations/2026_06_17_195813_add_quote_number_to_quotes_table.php on line 8
