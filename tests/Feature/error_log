@@ -14,3 +14,19 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in /home/dallwske/dallaslimoandblackcars.com/tests/Feature/ProfileTest.php on line 5
+[01-Sep-2026 11:07:03 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function it() in /home/dallwske/dallaslimoandblackcars.com/tests/Feature/ExampleTest.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/tests/Feature/ExampleTest.php on line 3
+[01-Sep-2026 11:07:03 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function test() in /home/dallwske/dallaslimoandblackcars.com/tests/Feature/ProfileTest.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/tests/Feature/ProfileTest.php on line 5
+[08-Sep-2026 01:10:33 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function it() in /home/dallwske/dallaslimoandblackcars.com/tests/Feature/ExampleTest.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/tests/Feature/ExampleTest.php on line 3
+[08-Sep-2026 01:10:34 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function test() in /home/dallwske/dallaslimoandblackcars.com/tests/Feature/ProfileTest.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/tests/Feature/ProfileTest.php on line 5

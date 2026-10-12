@@ -14,3 +14,19 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in /home/dallwske/dallaslimoandblackcars.com/app/Console/Commands/MinifyAssets.php on line 10
+[01-Sep-2026 11:07:59 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Console\Command" not found in /home/dallwske/dallaslimoandblackcars.com/app/Console/Commands/AuditImageAlts.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Console/Commands/AuditImageAlts.php on line 10
+[01-Sep-2026 11:07:59 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Console\Command" not found in /home/dallwske/dallaslimoandblackcars.com/app/Console/Commands/MinifyAssets.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Console/Commands/MinifyAssets.php on line 10
+[08-Sep-2026 01:11:31 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Console\Command" not found in /home/dallwske/dallaslimoandblackcars.com/app/Console/Commands/AuditImageAlts.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Console/Commands/AuditImageAlts.php on line 10
+[08-Sep-2026 01:11:32 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Console\Command" not found in /home/dallwske/dallaslimoandblackcars.com/app/Console/Commands/MinifyAssets.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/app/Console/Commands/MinifyAssets.php on line 10

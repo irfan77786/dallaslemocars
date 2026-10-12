@@ -6,3 +6,11 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in /home/dallwske/dallaslimoandblackcars.com/resources/views/booking/booking_detail.blade.php on line 281
+[01-Sep-2026 11:08:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function session() in /home/dallwske/dallaslimoandblackcars.com/resources/views/booking/booking_detail.blade.php:281
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/resources/views/booking/booking_detail.blade.php on line 281
+[08-Sep-2026 01:11:57 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function session() in /home/dallwske/dallaslimoandblackcars.com/resources/views/booking/booking_detail.blade.php:281
+Stack trace:
+#0 {main}
+  thrown in /home/dallwske/dallaslimoandblackcars.com/resources/views/booking/booking_detail.blade.php on line 281
