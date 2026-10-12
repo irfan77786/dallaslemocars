@@ -20,16 +20,11 @@ class PaymentMethodController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $stripeCustomerId = StripeCustomerResolver::resolveForUser($user);
+        [$stripeCustomerId, $cards] = StripeCustomerResolver::cardsForUser($user);
         $customer = Customer::retrieve($stripeCustomerId);
 
-        $cards = \Stripe\PaymentMethod::all([
-            'customer' => $stripeCustomerId,
-            'type' => 'card',
-        ]);
-
         return view('payment-methods.index', [
-            'cards'   => $cards->data,
+            'cards'   => $cards,
             'default' => $customer->invoice_settings->default_payment_method ?? null
         ]);
     }

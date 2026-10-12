@@ -18,9 +18,6 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
-use Stripe\PaymentMethod;
-use Stripe\Stripe;
-
 class BookingController extends Controller
 {
     /**
@@ -785,9 +782,6 @@ public function handleHourlyHire(Request $request)
 
 public function bookRide(Request $request)
 {
-
-    $user = null;
-    $cards = [];
     // Validate request fields
     $validated = $request->validate([
         'pickup_flight_details' => 'nullable|string|max:255',
@@ -798,18 +792,6 @@ public function bookRide(Request $request)
         'return-service' => 'nullable',
         'note' => 'nullable|string|max:500',
     ]);
-
-    Stripe::setApiKey(config('services.stripe.secret'));
-
-    if (auth()->check()) {
-        $user = auth()->user();
-        $stripeCustomerId = StripeCustomerResolver::resolveForUser($user);
-        $cardsList = PaymentMethod::all([
-            'customer' => $stripeCustomerId,
-            'type' => 'card',
-        ]);
-        $cards = $cardsList->data ?? [];
-    }
 
     if (isset($validated['meet_option']) && $validated['meet_option'] === 'none') {
         $validated['meet_option'] = null;
@@ -869,13 +851,7 @@ public function showPayment()
 
     $cards = [];
     if (auth()->check()) {
-        Stripe::setApiKey(config('services.stripe.secret'));
-        $stripeCustomerId = StripeCustomerResolver::resolveForUser(auth()->user());
-        $cardsList = PaymentMethod::all([
-            'customer' => $stripeCustomerId,
-            'type' => 'card',
-        ]);
-        $cards = $cardsList->data ?? [];
+        [, $cards] = StripeCustomerResolver::cardsForUser(auth()->user());
     }
 
     return view('booking.payment', [
