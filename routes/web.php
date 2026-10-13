@@ -484,16 +484,16 @@ Route::get('/', [BookingController::class, 'showForm'])->name('booking');
 Route::get('/about-us/', [WebsiteController::class, 'aboutUs'])->name('about_us');
 Route::get('/contact-us/', [WebsiteController::class, 'contactUs'])->name('contact_us');
 Route::post('/contact-us', [WebsiteController::class, 'contactUsPost'])
-    ->middleware('turnstile')
+    ->middleware(['turnstile', 'throttle:5,1'])
     ->name('contact_us_post');
 Route::post('/corporate-support', [WebsiteController::class, 'corporateSupportPost'])
-    ->middleware('turnstile')
+    ->middleware(['turnstile', 'throttle:5,1'])
     ->name('corporate_support_post');
 Route::get('/our-fleet/', [WebsiteController::class, 'ourFleet'])->name('our_fleet');
 Route::get('/get-a-quote/', [WebsiteController::class, 'getAQuote'])->name('get_a_quote');
 Route::get('/get-a-quote/thank-you', [WebsiteController::class, 'getAQuoteThankYou'])->name('get_a_quote_thank_you');
 Route::post('/get-a-quote', [WebsiteController::class, 'getAQuotePost'])
-    ->middleware('turnstile')
+    ->middleware(['turnstile', 'throttle:5,1'])
     ->name('get_a_quote_post');
 Route::get('/fifa-world-cup-2026-car-service-dallas/', [WebsiteController::class, 'fifaWorldCup2026CarServiceDallas'])->name('fifa_world_cup_2026_car_service_dallas');
 Route::post('/booking/point-to-point', [BookingController::class, 'handlePointToPoint'])

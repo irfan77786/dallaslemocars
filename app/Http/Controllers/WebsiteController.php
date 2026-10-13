@@ -10,6 +10,8 @@ use App\Jobs\SendWebsiteFormEmailsJob;
 use App\Models\Contact;
 use App\Models\CorporateSupport;
 use App\Models\Quote;
+use App\Support\FormSpamGuard;
+use Illuminate\Support\Facades\Log;
 
 class WebsiteController extends Controller
 {
@@ -157,9 +159,15 @@ class WebsiteController extends Controller
             'full_name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'phone' => 'required|string|max:20',
-            'message' => 'required|string|min:10',
+            'message' => 'required|string|min:10|max:5000',
             'sms_consent' => 'required|accepted',
         ]);
+
+        if (FormSpamGuard::isSpam($request->only(['full_name', 'email', 'phone', 'message', 'website']))) {
+            Log::info('Blocked spam contact submission', ['email' => $validated['email'] ?? null]);
+
+            return redirect()->back()->with('success', 'Your message has been sent successfully!');
+        }
 
         try {
             $contactData = [
@@ -262,8 +270,14 @@ class WebsiteController extends Controller
             'full_name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'phone' => 'required|string|max:20',
-            'message' => 'required|string|min:10',
+            'message' => 'required|string|min:10|max:5000',
         ]);
+
+        if (FormSpamGuard::isSpam($request->only(['full_name', 'email', 'phone', 'message', 'website']))) {
+            Log::info('Blocked spam corporate support submission', ['email' => $validated['email'] ?? null]);
+
+            return redirect()->back()->with('success', 'Your corporate support request has been sent successfully!');
+        }
 
         try {
             $corporateData = [
@@ -299,8 +313,14 @@ class WebsiteController extends Controller
             'dropoff_address' => 'required|string|max:255',
             'full_name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'message' => 'nullable|string|min:5',
+            'message' => 'nullable|string|min:5|max:5000',
         ]);
+
+        if (FormSpamGuard::isSpam($request->only(['full_name', 'email', 'message', 'website', 'pickup_address', 'dropoff_address']))) {
+            Log::info('Blocked spam quote submission', ['email' => $validated['email'] ?? null]);
+
+            return redirect()->route('get_a_quote_thank_you')->with('quote_number', 'PENDING');
+        }
 
         try {
             $quoteNumber = Quote::generateQuoteNumber();

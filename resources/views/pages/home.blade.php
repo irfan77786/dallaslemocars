@@ -487,6 +487,7 @@ With our executive corporate black car service in Dallas, you can focus on your 
 
                     <form class="mx-auto news-letter-form me-md-0 px-15 py-25" action="{{ route('corporate_support_post') }}" method="post">
                         @csrf
+                        <x-honeypot />
                         <div class="text-center">
                             <h3 class="mb-0 font-base fw-bold">Need Corporate Support?</h3>
                             <p class="font-sm">Fill out the form and our team will take care of the rest</p>

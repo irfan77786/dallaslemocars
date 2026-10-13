@@ -62,6 +62,7 @@
 
                 <form action="{{ route('contact_us_post') }}" method="post" class="px-20 bg-white contact-us-form px-sm-30 py-30">
                     @csrf
+                    <x-honeypot />
                     <div class="row">
                         <div class="col-12 col-md-6 col-lg-4 mb-15">
                             <label for="full_name" class="mb-1 form-label fw-medium">Full Name</label>

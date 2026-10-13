@@ -65,6 +65,7 @@
 
                         <form action="{{ route('get_a_quote_post') }}" method="post" class="get-a-quote-form bg-white px-20 px-sm-30 py-30">
                             @csrf
+                            <x-honeypot />
                             <div class="row">
                                 <div class="col-12 col-md-6 col-lg-4 mb-15">
                                     <label for="vehicle_type" class="form-label mb-1 fw-medium">Select Vehicles Option:</label>
