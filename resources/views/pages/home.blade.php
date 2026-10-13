@@ -520,6 +520,9 @@ With our executive corporate black car service in Dallas, you can focus on your 
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+                            <div class="col-12 d-flex justify-content-center">
+                                <x-turnstile />
+                            </div>
                             <div class="col-12 text-center">
                                 <button type="submit" class="btn btn-primary btn-sm">Submit</button>
                             </div>

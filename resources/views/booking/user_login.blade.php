@@ -366,6 +366,8 @@ $step = 3;
                     <input type="hidden" id="booker_number" name="booker_number" value="">
                     <input type="text" name="type" value="guest" hidden>
 
+                    <x-turnstile id="turnstile-guest" />
+
                     <button type="submit" class="continue-btn btn btn-primary btn-uniform w-100 cta-button"
                         style="text-transform: uppercase;">CONTINUE AS
                         GUEST</button>
@@ -444,6 +446,10 @@ $step = 3;
                     @endif
 
                     <input type="text" name="type" value="real" hidden>
+
+                    @guest
+                        <x-turnstile id="turnstile-booking-login" />
+                    @endguest
 
                     <button id="continue_right" type="submit"
                         class="login-btn btn btn-primary btn-uniform w-100 cta-button"

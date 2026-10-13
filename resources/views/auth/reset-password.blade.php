@@ -53,6 +53,8 @@
                     @enderror
                 </div>
 
+                <x-turnstile />
+
                 <!-- Submit Button -->
                 <button type="submit" class="btn btn-primary w-100 mt-2">
                     {{ __('Reset Password') }}

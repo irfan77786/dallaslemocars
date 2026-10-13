@@ -412,9 +412,11 @@ Route::middleware('checkBookingCompletion')->group(function () {
     Route::get('/book-now/', [BookingController::class, 'BookNow'])->name('book_now');
     Route::get('/allVehicle/', [BookingController::class, 'showAll']);
     Route::post('/submit-passengerInfo/{id}', [BookingController::class, 'submitPassengerInfo']);
-    Route::match(['get', 'post'], '/bookRide', [BookingController::class, 'bookRide']);
+    Route::match(['get', 'post'], '/bookRide', [BookingController::class, 'bookRide'])
+        ->middleware('turnstile');
     Route::get('/booking/payment', [BookingController::class, 'showPayment'])->name('booking.payment');
-    Route::post('/completeBook', [BookingController::class, 'completeBook']);
+    Route::post('/completeBook', [BookingController::class, 'completeBook'])
+        ->middleware('turnstile');
     Route::post('/finalize-trip', [AdminBookingController::class, 'finalizeTrip']);
     Route::get('/calculate-return-trip/', [BookingController::class, 'CalculateReturnTrip']);
     Route::post('/save-return-service', [BookingController::class, 'saveReturnService']);
@@ -481,15 +483,25 @@ Route::prefix('city-to-city-ride')->group(function () {
 Route::get('/', [BookingController::class, 'showForm'])->name('booking');
 Route::get('/about-us/', [WebsiteController::class, 'aboutUs'])->name('about_us');
 Route::get('/contact-us/', [WebsiteController::class, 'contactUs'])->name('contact_us');
-Route::post('/contact-us', [WebsiteController::class, 'contactUsPost'])->name('contact_us_post');
-Route::post('/corporate-support', [WebsiteController::class, 'corporateSupportPost'])->name('corporate_support_post');
+Route::post('/contact-us', [WebsiteController::class, 'contactUsPost'])
+    ->middleware('turnstile')
+    ->name('contact_us_post');
+Route::post('/corporate-support', [WebsiteController::class, 'corporateSupportPost'])
+    ->middleware('turnstile')
+    ->name('corporate_support_post');
 Route::get('/our-fleet/', [WebsiteController::class, 'ourFleet'])->name('our_fleet');
 Route::get('/get-a-quote/', [WebsiteController::class, 'getAQuote'])->name('get_a_quote');
 Route::get('/get-a-quote/thank-you', [WebsiteController::class, 'getAQuoteThankYou'])->name('get_a_quote_thank_you');
-Route::post('/get-a-quote', [WebsiteController::class, 'getAQuotePost'])->name('get_a_quote_post');
+Route::post('/get-a-quote', [WebsiteController::class, 'getAQuotePost'])
+    ->middleware('turnstile')
+    ->name('get_a_quote_post');
 Route::get('/fifa-world-cup-2026-car-service-dallas/', [WebsiteController::class, 'fifaWorldCup2026CarServiceDallas'])->name('fifa_world_cup_2026_car_service_dallas');
-Route::post('/booking/point-to-point', [BookingController::class, 'handlePointToPoint'])->name('booking.pointToPoint');
-Route::post('/booking/hourly-hire', [BookingController::class, 'handleHourlyHire'])->name('booking.hourlyHire');
+Route::post('/booking/point-to-point', [BookingController::class, 'handlePointToPoint'])
+    ->middleware('turnstile')
+    ->name('booking.pointToPoint');
+Route::post('/booking/hourly-hire', [BookingController::class, 'handleHourlyHire'])
+    ->middleware('turnstile')
+    ->name('booking.hourlyHire');
 Route::get('/thank-you', [BookingController::class, 'ThankYou'])->name('thankyou');
 
 // ------------------------------------- CONFIGURATION ROUTES -------------------------------------------------:

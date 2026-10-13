@@ -289,6 +289,8 @@ a.hover-black {
 
 <div id="card-errors" class="mb-2 text-danger small"></div>
 
+<x-turnstile id="turnstile-payment" />
+
 {{-- ✅ BUTTON --}}
 <button type="submit" id="final-pay-button" class="mt-3 btn btn-primary w-100">
 BOOK NOW

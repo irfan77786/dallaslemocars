@@ -454,6 +454,10 @@
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    @if (filled(config('services.turnstile.site_key')) && filled(config('services.turnstile.secret_key')))
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    @endif
+
       <script>
             window.dataLayer = window.dataLayer || [];
 

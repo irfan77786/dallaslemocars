@@ -111,6 +111,9 @@
                                 <div class="invalid-feedback d-block">{{ $message }}</div>
                             @enderror
                         </div>
+                        <div class="col-12">
+                            <x-turnstile />
+                        </div>
                         <div class="col-12 text-end">
                             <button type="submit" class="btn btn-primary fw-bold" id="submitBtn">Send Message</button>
                         </div>

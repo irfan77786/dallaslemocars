@@ -73,6 +73,8 @@
                     @enderror
                 </div>
 
+                <x-turnstile />
+
                 <!-- Submit -->
                 <button type="submit" class="btn btn-primary w-100">
                     {{ __('Register') }}

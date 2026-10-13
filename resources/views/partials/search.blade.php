@@ -201,6 +201,8 @@ $tabSuffix = $id_suffix ?? '';
                         }
                     </style>
 
+                    <x-turnstile id="turnstile-ptp{{ $tabSuffix }}" />
+
                     <button type="submit" class="btn btn-primary w-100 search_btn point-button"
                         style="text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; font-size: 0.8rem;line-height: 2;">
                         Get My Prices
@@ -311,6 +313,7 @@ $tabSuffix = $id_suffix ?? '';
                         </div>
                     </div>
                     <br>
+                    <x-turnstile id="turnstile-hourly{{ $tabSuffix }}" />
                     <button type="submit" class="btn btn-primary w-100 search_btn point-button"
                         style="text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; font-size: 0.8rem;line-height: 2;">
                         Get My Prices

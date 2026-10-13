@@ -35,6 +35,8 @@
                     <label class="form-check-label" for="remember_me">{{ __('Remember me') }}</label>
                 </div>
 
+                <x-turnstile />
+
                 <div class="text-left mb-1">
                     @if (Route::has('password.request'))
                         <a class="text-decoration-none small" href="{{ route('password.request') }}">{{ __('Forgot your password?') }}</a>

@@ -27,6 +27,8 @@
                     @error('email')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
                 </div>
 
+                <x-turnstile />
+
                 <button type="submit" class="btn btn-primary w-100">
                     {{ __('Email Password Reset Link') }}
                 </button>
