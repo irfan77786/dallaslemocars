@@ -176,82 +176,7 @@ $isHourly = session('service_type') === 'hourlyHire';
         </div>
     </div>
 </section>
-
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-
-            <div class="col-md-10">
-                <h5>
-                    <span class="main-color">Going to the airport,</span> a business
-                    meeting, or the big game?
-                </h5>
-
-                <p class="bottom-cta-content">
-                    Your private chauffeur is ready for DFW Airport, Plano business
-                    districts, Legacy West, or AT&amp;T Stadium game days.
-                </p>
-
-                <a style="cursor: pointer;" class="quick-book-link bottom-cta-vtb-c" href="#">Travel in Comfort – Book Now</a>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
-</div>
-
-<section class="about-uss city-pages">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="pt-chauffeur-1">
-                    <img
-                        src="/images/img/airport-pickup-service-dallas.webp"
-                        alt="Chauffeured black car service in Dallas" />
-                </div>
-            </div>
-
-            <div class="col-md-8">
-                <div class="pt-section-title-box">
-                    <h5 class="pt-section-titles">
-                        Group Travel & Special Events
-                    </h5>
-
-                    <p class="pt-section-description">
-                        Heading to College Station with friends, colleagues, or family?
-                        Our limo service makes group travel simple & comfy. We serve
-                        areas like Frisco, Plano & Garland. Roomy SUVs & <a href="/services/luxury-van-rental-dallas-texas/" class="internal-links">luxury vans</a> are
-                        available for passengers & luggage. Experienced chauffeurs plan
-                        each trip. They choose the best routes & avoid traffic delays.
-                        Whether for university events, corporate visits, or family
-                        trips, our Dallas–College Station limo service gives smooth,
-                        enjoyable rides & on-time arrivals.
-                    </p>
-                    <p class="pt-section-description">
-                        Reserve your group ride now & enjoy stress-free travel with our
-                        expert chauffeurs.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-
-            <div class="col-md-10">
-                <img
-                    src="/img/fifa-world-cup-2026-car-service-dallas.jpg"
-                    alt="fifa world cup 2026 car service dallas" />
-
-                <a
-                    href="/fifa-world-cup-2026-car-service-dallas/"
-                    class="bottom-cta-vtb-c">Visit our fifa world cup 2026 page</a>
-            </div>
-            <div class="col-md-1"></div>
+<div class="col-md-1"></div>
         </div>
     </div>
 </div>
@@ -505,7 +430,7 @@ $isHourly = session('service_type') === 'hourlyHire';
 
             <div class="col-md-10">
                 <h3><span class="main-color">Make Every Mile </span><br>First-Class</h3>
-                <a href="/fifa-world-cup-2026-car-service-dallas/" class="bottom-cta-vtb-c">Reserve Your Black Car Today</a>
+                <a href="/booking/" class="bottom-cta-vtb-c">Reserve Your Black Car Today</a>
             </div>
             <div class="col-md-1">
             </div>

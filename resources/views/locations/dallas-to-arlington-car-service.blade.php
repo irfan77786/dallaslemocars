@@ -198,6 +198,5 @@
 @include('partials.top-cities')
 @include('partials.companies_strip')
 @include('partials.testimonials')
-@include('partials.fifa')
 @include('partials.faq')
 @endsection

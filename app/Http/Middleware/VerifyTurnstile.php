@@ -25,6 +25,11 @@ class VerifyTurnstile
             return $next($request);
         }
 
+        // Booking funnel login/register posts to /login or /register without captcha.
+        if ($request->input('login_type') === 'booking') {
+            return $next($request);
+        }
+
         $token = $request->input('cf-turnstile-response');
 
         if (! $this->turnstile->verify(is_string($token) ? $token : null, $request->ip())) {

@@ -355,6 +355,5 @@
     
     @include('partials.companies_strip')
     @include('partials.testimonials')
-    @include('partials.fifa')
-    @include('partials.faq')
+@include('partials.faq')
 @endsection

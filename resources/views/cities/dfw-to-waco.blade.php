@@ -178,82 +178,7 @@ $isHourly = session('service_type') === 'hourlyHire';
         </div>
     </div>
 </section>
-
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-
-            <div class="col-md-10">
-                <h5>
-                    <span class="main-color">Going to the airport,</span> a business
-                    meeting, or the big game?
-                </h5>
-
-                <p class="bottom-cta-content">
-                    Your private chauffeur is ready for DFW Airport, Plano business
-                    districts, Legacy West, or AT&amp;T Stadium game days.
-                </p>
-
-                <a style="cursor: pointer;" class="quick-book-link bottom-cta-vtb-c" href="#">Travel in Comfort – Book Now</a>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
-</div>
-
-<section class="about-uss city-pages">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="pt-chauffeur-1">
-                    <img
-                        src="/img/luxury-car-service-dallas-to-waco.webp"
-                        alt="Chauffeured black car service in Dallas" />
-                </div>
-            </div>
-
-            <div class="col-md-8">
-                <div class="pt-section-title-box">
-                    <h5 class="pt-section-titles">
-                        Reliable Group Travel to Waco
-                    </h5>
-
-                    <p class="pt-section-description">
-                        Our Dallas to Waco <a href="/services/private-car-service-in-dallas-texas/" class="internal-links">private car service</a> is great for families,
-                        friends, or business teams. We provide roomy SUVs & luxury vans
-                        for passengers & luggage. We serve areas like Highland Park,
-                        University Park & Richardson. Drivers carefully plan routes to
-                        avoid delays. Meetings, events, or personal trips—we keep
-                        safety, comfort & convenience top priority. Travel between DFW &
-                        Waco is easy. Experienced chauffeurs & quality vehicles make
-                        every ride smooth & reliable.
-                    </p>
-                    <p class="pt-section-description">
-                        <a href="/book-now/" class="internal-links">Reserve your group transfer today</a> & enjoy a hassle-free ride
-                        from Dallas to Waco.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-
-            <div class="col-md-10">
-                <img
-                    src="/img/fifa-world-cup-2026-car-service-dallas.jpg"
-                    alt="fifa world cup 2026 car service dallas" />
-
-                <a
-                    href="/fifa-world-cup-2026-car-service-dallas/"
-                    class="bottom-cta-vtb-c">Visit our fifa world cup 2026 page</a>
-            </div>
-            <div class="col-md-1"></div>
+<div class="col-md-1"></div>
         </div>
     </div>
 </div>
@@ -507,7 +432,7 @@ $isHourly = session('service_type') === 'hourlyHire';
 
             <div class="col-md-10">
                 <h3><span class="main-color">Make Every Mile </span><br>First-Class</h3>
-                <a href="/fifa-world-cup-2026-car-service-dallas/" class="bottom-cta-vtb-c">Reserve Your Black Car Today</a>
+                <a href="/booking/" class="bottom-cta-vtb-c">Reserve Your Black Car Today</a>
             </div>
             <div class="col-md-1">
             </div>

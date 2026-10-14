@@ -9,11 +9,10 @@ class BookingPdfBuilder
 {
     public const MAX_PAGES = 3;
 
-    public static function make(array $bookingData, bool $trimFifaSections = false): DomPdfWrapper
+    public static function make(array $bookingData): DomPdfWrapper
     {
         return Pdf::loadView('pdfs.booking', [
             'bookingData' => $bookingData,
-            'trimFifaSections' => $trimFifaSections,
         ]);
     }
 
@@ -24,18 +23,9 @@ class BookingPdfBuilder
         return (int) $pdf->getDomPDF()->getCanvas()->get_page_count();
     }
 
-    /**
-     * Build booking PDF; if over max pages, omit optional FIFA sections and rebuild.
-     */
     public static function makeWithinPageLimit(array $bookingData, int $maxPages = self::MAX_PAGES): DomPdfWrapper
     {
-        $pdf = self::make($bookingData, false);
-
-        if (self::pageCount($pdf) <= $maxPages) {
-            return $pdf;
-        }
-
-        $pdf = self::make($bookingData, true);
+        $pdf = self::make($bookingData);
         $pdf->render();
 
         return $pdf;

@@ -396,8 +396,6 @@
 
                     <p class="mt-1 mb-0 text-muted small text-start" style="line-height: 1.2rem;">Enter any special
                         requests or important information for your ride, e.g. child car seats, etc.</p>
-                    <x-turnstile id="turnstile-booking-detail" />
-
                     <div class="mt-4 d-none d-md-flex align-items-center">
                         <button type="submit" class="mr-3 btn btn-outline btn-uniform skip-btn">SKIP</button>
                         <button type="submit" class="btn btn-primary btn-uniform flex-fill">CONTINUE TO PAYMENT</button>

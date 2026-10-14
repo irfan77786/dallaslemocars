@@ -39,30 +39,6 @@ class WebsiteController extends Controller
         ]);
     }
 
-    public function fifaWorldCup2026CarServiceDallas(Request $request){
-        if($request->edit){
-            session(['edit'=>1]);
-        }else{
-            session()->flush();
-            $request->session()->regenerateToken();
-        }
-
-        $seo = [
-            'title' => 'FIFA 2026 Car Service Dallas | Luxury Rides to AT&T Stadium',
-            'description' => 'Experience premium car service for FIFA World Cup 2026 in Dallas. Luxury sedans, SUVs, and buses for seamless transfers to AT&T Stadium. Book your ride today!',
-            'keywords' => 'FIFA World Cup 2026 Dallas car service, AT&T Stadium transportation, luxury car service Dallas',
-            'og_title' => 'FIFA 2026 Car Service Dallas | Luxury Rides to AT&T Stadium',
-            'og_description' => 'Experience premium car service for FIFA World Cup 2026 in Dallas. Luxury sedans, SUVs, and buses for seamless transfers to AT&T Stadium. Book your ride today!',
-            'og_image' => asset('img/black-car-service-fifa-world-cup-banner.webp')
-        ];
-
-        return view('website.fifa-world-cup-2026-car-service-dallas', [
-            'backgroundImage' => '/img/black-car-service-fifa-world-cup-banner.webp',
-            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
-            'seo' => $seo
-        ]);
-    }
-
     public function ourFleet(Request $request){
         if($request->edit){
             session(['edit'=>1]);

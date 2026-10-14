@@ -177,113 +177,7 @@ $isHourly = session('service_type') === 'hourlyHire';
         </div>
     </div>
 </section>
-
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-
-            <div class="col-md-10">
-                <h5>
-                    <span class="main-color">Going to the airport,</span> a business
-                    meeting, or the big game?
-                </h5>
-
-                <p class="bottom-cta-content">
-                    Your private chauffeur is ready for DFW Airport, Plano business
-                    districts, Legacy West, or AT&amp;T Stadium game days.
-                </p>
-
-                <a style="cursor: pointer;" class="quick-book-link bottom-cta-vtb-c" href="#">Travel in Comfort – Book Now</a>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
-</div>
-
-<section class="about-uss city-pages">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="pt-chauffeur-1">
-                    <img
-                        src="/images/img/airport-pickup-service-dallas.webp"
-                        alt="Chauffeured black car service in Dallas" />
-                </div>
-            </div>
-
-            <div class="col-md-8">
-                <div class="pt-section-title-box">
-                    <h5 class="pt-section-titles">
-                        Why choose us for Dallas to Sherman Car Service
-                    </h5>
-
-                    <p>
-                        Traveling between Dallas &amp; Sherman has never been easier
-                        with our dependable <a href="" class="internal-links">city-to-city car service</a>. Whether you’re
-                        heading north for business, visiting family, or attending local
-                        events, our private rides provide comfort, safety, &amp;
-                        convenience for every trip.
-                    </p>
-
-                    <ul>
-                        <li>
-                            <strong>Professional Drivers: </strong>Experienced chauffeurs
-                            familiar with the Dallas–Sherman route.
-                        </li>
-                        <li>
-                            <strong>Direct &amp; Reliable: </strong>Enjoy seamless
-                            door-to-door travel without the stress of traffic or parking.
-                        </li>
-                        <li>
-                            <strong>Comfortable Fleet: </strong>Clean, modern vehicles
-                            designed for both individuals &amp; groups.
-                        </li>
-                        <li>
-                            <strong>Flexible Scheduling: </strong>Choose your preferred
-                            pickup time for total convenience.
-                        </li>
-                        <li>
-                            <strong>Transparent Rates: </strong>Fair, upfront pricing with
-                            no hidden fees.
-                        </li>
-                        <li>
-                            <strong>Added Comforts: </strong>Complimentary water, charging
-                            ports, &amp; Wi-Fi available in select vehicles.
-                        </li>
-                        <li>
-                            <strong>Safe Travel: </strong>Every ride is focused on
-                            reliability, punctuality, &amp; passenger care.
-                        </li>
-                    </ul>
-
-                    <p>
-                        Our Dallas to/from Sherman service is the perfect solution for
-                        commuters, business travelers, or anyone who values a smooth
-                        &amp; stress-free ride. Sit back, relax, &amp; enjoy the
-                        journey.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-
-            <div class="col-md-10">
-                <img
-                    src="/img/fifa-world-cup-2026-car-service-dallas.jpg"
-                    alt="fifa world cup 2026 car service dallas" />
-
-                <a
-                    href="/fifa-world-cup-2026-car-service-dallas/"
-                    class="bottom-cta-vtb-c">Visit our fifa world cup 2026 page</a>
-            </div>
-            <div class="col-md-1"></div>
+<div class="col-md-1"></div>
         </div>
     </div>
 </div>
@@ -520,7 +414,7 @@ $isHourly = session('service_type') === 'hourlyHire';
 
             <div class="col-md-10">
                 <h3><span class="main-color">Make Every Mile </span><br>First-Class</h3>
-                <a href="/fifa-world-cup-2026-car-service-dallas/" class="bottom-cta-vtb-c">Reserve Your Black Car Today</a>
+                <a href="/booking/" class="bottom-cta-vtb-c">Reserve Your Black Car Today</a>
             </div>
             <div class="col-md-1">
             </div>

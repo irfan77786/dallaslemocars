@@ -38,34 +38,6 @@
                 <p style="font-size: 12px; margin: 0 0 10px;">Thank you for choosing our service. Your booking has been successfully confirmed. Below are your booking details :</p>
             @endif
 
-            {{-- FIFA World Cup 2026 event notice (above booking confirmation header) --}}
-            <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="margin: 0 0 20px; border-collapse: collapse;">
-                <tr>
-                    <td style="background-color: #faf6ef; border: 1px solid #9a7738; border-radius: 14px; padding: 14px 16px;">
-                        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
-                            <tr>
-                                <td style="width: 44px; vertical-align: top; padding: 2px 12px 0 0;">
-                                    <div style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #7a5c1e; background-color: #f5ead4; text-align: center; line-height: 32px; font-size: 18px; font-weight: 700; color: #5c4515; font-family: Georgia, 'Times New Roman', serif;">
-                                        i
-                                    </div>
-                                </td>
-                                <td style="vertical-align: top; color: #4a3b2a;">
-                                    <p style="margin: 0 0 10px; font-size: 13px; font-weight: 700; color: #3d2914;">
-                                        Important Event Notice &ndash; FIFA World Cup 2026 (June 13 &ndash; July 15, 2026):
-                                    </p>
-                                    <p style="margin: 0 0 12px; font-size: 12px; line-height: 1.55; color: #554433; font-style: italic;">
-                                        If this booking falls within the FIFA World Cup 2026 event dates, all rates, fees, and minimums are subject to change without notice based on event demand, availability, and operational conditions. You acknowledge and agree that these rates are not guaranteed until final payment is made in accordance with our policy. By confirming this reservation, you expressly authorize any rate adjustments and agree that such changes are not a basis for refund, credit, cancellation, or chargeback.
-                                    </p>
-                                    <p style="margin: 0; font-size: 11px; line-height: 1.45; color: #4a4035;">
-                                        Complete FIFA 2026 (Dallas&ndash;Fort Worth) event terms are included in your attached booking PDF.
-                                    </p>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
-
             {{-- Booking Confirmation #… (aligned with PDF fields) --}}
             <div class="booking-details" style="background-color: #f8f9fa; border-radius: 4px; margin: 20px 0; border: 1px solid #e0e0e0;">
                 <h3 style="background-color: #e52c43; background-image: linear-gradient(90deg, #e52c43, #ff6c00, #e52c43); margin: 0; padding: 8px 12px; font-size: 14px; color: #ffffff; font-weight: 600; border-radius: 4px 4px 0 0;">

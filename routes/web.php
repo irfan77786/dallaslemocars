@@ -412,11 +412,9 @@ Route::middleware('checkBookingCompletion')->group(function () {
     Route::get('/book-now/', [BookingController::class, 'BookNow'])->name('book_now');
     Route::get('/allVehicle/', [BookingController::class, 'showAll']);
     Route::post('/submit-passengerInfo/{id}', [BookingController::class, 'submitPassengerInfo']);
-    Route::match(['get', 'post'], '/bookRide', [BookingController::class, 'bookRide'])
-        ->middleware('turnstile');
+    Route::match(['get', 'post'], '/bookRide', [BookingController::class, 'bookRide']);
     Route::get('/booking/payment', [BookingController::class, 'showPayment'])->name('booking.payment');
-    Route::post('/completeBook', [BookingController::class, 'completeBook'])
-        ->middleware('turnstile');
+    Route::post('/completeBook', [BookingController::class, 'completeBook']);
     Route::post('/finalize-trip', [AdminBookingController::class, 'finalizeTrip']);
     Route::get('/calculate-return-trip/', [BookingController::class, 'CalculateReturnTrip']);
     Route::post('/save-return-service', [BookingController::class, 'saveReturnService']);
@@ -495,12 +493,11 @@ Route::get('/get-a-quote/thank-you', [WebsiteController::class, 'getAQuoteThankY
 Route::post('/get-a-quote', [WebsiteController::class, 'getAQuotePost'])
     ->middleware(['turnstile', 'throttle:5,1'])
     ->name('get_a_quote_post');
-Route::get('/fifa-world-cup-2026-car-service-dallas/', [WebsiteController::class, 'fifaWorldCup2026CarServiceDallas'])->name('fifa_world_cup_2026_car_service_dallas');
+Route::redirect('/fifa-world-cup-2026-car-service-dallas/', '/', 301);
+Route::redirect('/fifa-world-cup-2026-car-service-dallas', '/', 301);
 Route::post('/booking/point-to-point', [BookingController::class, 'handlePointToPoint'])
-    ->middleware('turnstile')
     ->name('booking.pointToPoint');
 Route::post('/booking/hourly-hire', [BookingController::class, 'handleHourlyHire'])
-    ->middleware('turnstile')
     ->name('booking.hourlyHire');
 Route::get('/thank-you', [BookingController::class, 'ThankYou'])->name('thankyou');
 

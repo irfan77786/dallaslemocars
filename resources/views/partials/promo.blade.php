@@ -13,7 +13,7 @@
                             Airport, Fort Worth Alliance Airport, Private FBO Terminals.</p>
                             <p><strong class="strong-c-color">Business and Entertainment Districts:</strong> <a href="/locations/black-car-service-plano-texas/" class="internal-links">Legacy West (Plano)</a>, The Star (Frisco), Las Colinas
                             (Irving), Downtown Dallas, Dallas Arts District, Sundance Square (Fort Worth).</p>
-                            <p><strong class="strong-c-color">Sporting and Event Venues:</strong> <a href="/fifa-world-cup-2026-car-service-dallas/" class="internal-links">AT&amp;T Stadium</a>, Globe Life Field, American Airlines Center, Toyota
+                            <p><strong class="strong-c-color">Sporting and Event Venues:</strong> AT&amp;T Stadium, Globe Life Field, American Airlines Center, Toyota
                             Stadium, PGA Frisco, Texas Motor Speedway, Toyota Music Factory.</p>
                     </div>
                 </div>

@@ -171,103 +171,7 @@ $isHourly = session('service_type') === 'hourlyHire';
         </div>
       </div>
     </section>
-
-    <div class="cta cta-ddc-nones bottom-button-vtb-c">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-1"></div>
-
-          <div class="col-md-10">
-            <h5>
-              <span class="main-color">Going to the airport,</span> a business
-              meeting, or the big game?
-            </h5>
-
-            <p class="bottom-cta-content">
-              Your private chauffeur is ready for DFW Airport, Plano business
-              districts, Legacy West, or AT&amp;T Stadium game days.
-            </p>
-
-            <a style="cursor: pointer;" class="quick-book-link bottom-cta-vtb-c"
-              >Travel in Comfort – Book Now</a
-            >
-          </div>
-          <div class="col-md-1"></div>
-        </div>
-      </div>
-    </div>
-
-    <section class="about-uss city-pages">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="pt-chauffeur-1">
-              <img
-                src="/images/img/dallas-airport-transfer-service.webp"
-                alt="Chauffeured black car service in Dallas"
-              />
-            </div>
-          </div>
-
-          <div class="col-md-8">
-            <div class="pt-section-title-box">
-              <h5 class="pt-section-titles">
-                Stress-Free Airport <span class="main-color">Experience</span>
-              </h5>
-
-              <p class="pt-section-description">
-                Travel days can feel hard, especially after a long flight. Our
-                <a
-                  href="/airport/addison-airport-car-service/"
-                  class="internal-links"
-                  >Dallas airport greeters</a
-                >
-                give comfort, ease & peace of mind. From the moment you arrive,
-                your greeter helps with bags, answers your questions & takes you
-                straight to your waiting car.
-              </p>
-              <p class="pt-section-description">
-                This service works great for
-                <a
-                  href="/services/private-car-service-in-dallas-texas/"
-                  class="internal-links"
-                  >international travelers</a
-                >, seniors & business clients in Dallas. It removes waiting time
-                & confusion, giving you a quick & safe move from plane to car.
-                Whether you travel alone or with a group, our airport greeter
-                service in Dallas makes arrivals calm, simple & welcoming. "Book
-                your Dallas airport meet & greet today" at DFW or
-                <a
-                  href="/airport/dallas-love-field-black-car-service/"
-                  class="internal-links"
-                  >Love Field Airport</a
-                >
-                & enjoy a smooth, stress-free arrival or departure.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="cta cta-ddc-nones bottom-button-vtb-c">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-1"></div>
-
-          <div class="col-md-10">
-            <img
-              src="/img/fifa-world-cup-2026-car-service-dallas.jpg"
-              alt="fifa world cup 2026 car service dallas"
-            />
-
-            <a
-              href="/fifa-world-cup-2026-car-service-dallas/"
-              class="bottom-cta-vtb-c"
-              >Visit our fifa world cup 2026 page</a
-            >
-          </div>
-          <div class="col-md-1"></div>
+<div class="col-md-1"></div>
         </div>
       </div>
     </div>
@@ -529,7 +433,7 @@ $isHourly = session('service_type') === 'hourlyHire';
 
         <div class="col-md-10">
           <h3><span class="main-color">Make Every Mile </span><br>First-Class</h3>
-          <a href="/fifa-world-cup-2026-car-service-dallas/" class="bottom-cta-vtb-c">Reserve Your Black Car Today</a>
+          <a href="/booking/" class="bottom-cta-vtb-c">Reserve Your Black Car Today</a>
         </div>
         <div class="col-md-1">
         </div>

@@ -29,8 +29,6 @@
                                     </ul>
                                 </li>
 
-                                <li><a href="#">FIFA World Cup 26</a></li>
-
                                 <li><a href="#">Fleet</a></li>
 
                                 <li class="has-submenu">
@@ -106,7 +104,6 @@
                             <li><a href="#">Private Aviation/FBO</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">FIFA World Cup 26</a></li>
                     <li><a href="#">Fleet</a></li>
                     <li class="has-submenu">
                         <a href="#" class="submenu-toggle">Help</a>

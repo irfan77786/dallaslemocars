@@ -193,10 +193,6 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link @if(request()->path() == 'fifa-world-cup-2026-car-service-dallas') active @endif" href="/fifa-world-cup-2026-car-service-dallas">FIFA World
-                                        Cup 26</a>
-                                </li>
-                                <li class="nav-item">
                                     <a class="nav-link @if(request()->path() == 'contact-us') active @endif" href="/contact-us">Contact
                                     </a>
                                 </li>

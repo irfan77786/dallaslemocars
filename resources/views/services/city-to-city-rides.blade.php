@@ -91,51 +91,7 @@
     </section>
    
    
-<section class="fifa-main-banner only-m" style="
-    background: url(/img/black-car-service-for-fifa-world-cup-2026-mobile.webp) center top;
-">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-               <div class="fifa-btns">
-                 
-                 
-                </div>
-            </div>
-        </div>
-
-       
-    </div>
-</section>
-<section class="fifa-main-banner only-d" style="
-    background: url(/img/black-car-service-for-fifa-world-cup-2026.webp) center top;
-">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-               <div class="fifa-btns">
-                 
-                 
-                </div>
-            </div>
-        </div>
-
-       
-    </div>
-</section>
-   <div class="container text-center here-fifa">
- <div class="row">
-         <div class="col-md-12">
-              <div class="fifa-btnss">  
-                    
-                   
-            <a href="/fifa-world-cup-2026-car-service-dallas/" class="btn btn-primary fifa-btn">Visit FIFA World Cup 2026 Page</a>
-            </div>
-            </div>
-            </div>
-            
-    </div>
-        <section class="detail-content-section bg-gray py-40 py-sm-40 py-md-40 py-lg-50">
+<section class="detail-content-section bg-gray py-40 py-sm-40 py-md-40 py-lg-50">
             <div class="ah-container">
                 <div class="row justify-content-center">
                     <div class="mb-20 text-center col-12 col-lg-11 col-xl-10 mb-md-30 mb-lg-40">

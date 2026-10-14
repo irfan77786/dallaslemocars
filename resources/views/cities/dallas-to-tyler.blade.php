@@ -174,81 +174,7 @@ $isHourly = session('service_type') === 'hourlyHire';
         </div>
     </div>
 </section>
-
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-
-            <div class="col-md-10">
-                <h5>
-                    <span class="main-color">Going to the airport,</span> a business
-                    meeting, or the big game?
-                </h5>
-
-                <p class="bottom-cta-content">
-                    Your private chauffeur is ready for DFW Airport, Plano business
-                    districts, Legacy West, or AT&amp;T Stadium game days.
-                </p>
-
-                <a style="cursor: pointer;" class="quick-book-link bottom-cta-vtb-c" href="#">Travel in Comfort – Book Now</a>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
-</div>
-
-<section class="about-uss city-pages">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="pt-chauffeur-1">
-                    <img
-                        src="/img/luxury-car-service-dallas-to-tyler.webp"
-                        alt="Chauffeured black car service in Dallas" />
-                </div>
-            </div>
-
-            <div class="col-md-8">
-                <div class="pt-section-title-box">
-                    <h5 class="pt-section-titles">
-                        Group & Event Transfers
-                    </h5>
-
-                    <p class="pt-section-description">
-                        Traveling with family, friends, or colleagues? Our Dallas to
-                        Tyler limo service has roomy SUVs & luxury vans. Everyone can
-                        ride together comfortably. We serve areas like Highland Park,
-                        Addison & University Park. Our chauffeurs manage all
-                        details—from routes to luggage. Perfect for corporate events,
-                        weddings, or leisure trips.
-                    </p>
-                    <p class="pt-section-description">
-                        We provide safe, reliable & stylish transportation. Comfort,
-                        punctuality & satisfaction are our focus. Long-distance travel
-                        is easy & enjoyable for all passengers.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="cta cta-ddc-nones bottom-button-vtb-c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-
-            <div class="col-md-10">
-                <img
-                    src="/img/fifa-world-cup-2026-car-service-dallas.jpg"
-                    alt="Dallas to Tyler Limo Service for Airport and City Rides" />
-
-                <a
-                    href="/fifa-world-cup-2026-car-service-dallas/"
-                    class="bottom-cta-vtb-c">Visit our fifa world cup 2026 page</a>
-            </div>
-            <div class="col-md-1"></div>
+<div class="col-md-1"></div>
         </div>
     </div>
 </div>
@@ -626,7 +552,7 @@ $isHourly = session('service_type') === 'hourlyHire';
 
             <div class="col-md-10">
                 <h3><span class="main-color">Make Every Mile </span><br>First-Class</h3>
-                <a href="/fifa-world-cup-2026-car-service-dallas/" class="bottom-cta-vtb-c">Reserve Your Black Car Today</a>
+                <a href="/booking/" class="bottom-cta-vtb-c">Reserve Your Black Car Today</a>
             </div>
             <div class="col-md-1">
             </div>

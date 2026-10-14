@@ -289,8 +289,6 @@ a.hover-black {
 
 <div id="card-errors" class="mb-2 text-danger small"></div>
 
-<x-turnstile id="turnstile-payment" />
-
 {{-- ✅ BUTTON --}}
 <button type="submit" id="final-pay-button" class="mt-3 btn btn-primary w-100">
 BOOK NOW
@@ -433,8 +431,7 @@ form.addEventListener('submit', async function (event) {
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                @include('partials.fifa_2026_booking_notice')
-                <p>Welcome to Dallas Limo Black Cars! These Terms and Conditions govern your use of this website and our services. By getting access to and the usage of this website and our services, you agree to be bound using those Terms. If you do not agree to those Terms, you can no longer use our offerings or this website. You acknowledge that Dallas Limo Black Cars has the right to exchange those Terms at any time without notice to you. Continue to check them from time to time for updates.</p>
+<p>Welcome to Dallas Limo Black Cars! These Terms and Conditions govern your use of this website and our services. By getting access to and the usage of this website and our services, you agree to be bound using those Terms. If you do not agree to those Terms, you can no longer use our offerings or this website. You acknowledge that Dallas Limo Black Cars has the right to exchange those Terms at any time without notice to you. Continue to check them from time to time for updates.</p>
                 <h6>1. Definitions</h6>
                 <p><b>Dallas Limo Black Cars, "we", "our", or "us":</b> Refers to the enterprise, the internet site, the owners, the operators, and/or the associates. <b>"You" or "User":</b> Refers to individuals or entities who get admission to or employ our internet site or offerings.</p>
                 <h6>2. Acknowledgment And Agreement To Terms</h6>

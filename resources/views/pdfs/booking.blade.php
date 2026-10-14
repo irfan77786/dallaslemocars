@@ -541,8 +541,6 @@
         <p>- Approved refunds are processed within 5–7 business days.<br>
           - No refunds for Motor Coaches, Mini Buses, or Special Events after cancellation window closes.</p>
 
-        @include('pdfs.partials.fifa-2026-event-policy', ['trimFifaSections' => $trimFifaSections ?? false])
-
         <div class="pdf-closing-block">
           <p><strong>Thank you for choosing Dallas Limo Black Cars.</strong> We are committed to fair and professional service.</p>
           <p>Contact us: info@dallaslimoandblackcars.com | +1 214-897-8056</p>
