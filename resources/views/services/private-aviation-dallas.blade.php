@@ -258,23 +258,23 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12">
                     <div class="swiper logo-swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid" alt="private aviation Dallas transportation partner logo 1"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid" alt="Dallas black car service partner logo 2"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid" alt="private airport transfer partner logo 3"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid" alt="executive aviation transportation partner logo 4"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid" alt="Dallas chauffeur service partner logo 5"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid" alt="luxury airport car service partner logo 6"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid" alt="FBO transportation partner logo 7"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid" alt="private jet ground transportation partner logo 8"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.webp') }}" class="img-fluid" alt="private aviation Dallas transportation partner logo 1"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.webp') }}" class="img-fluid" alt="Dallas black car service partner logo 2"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.webp') }}" class="img-fluid" alt="private airport transfer partner logo 3"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.webp') }}" class="img-fluid" alt="executive aviation transportation partner logo 4"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.webp') }}" class="img-fluid" alt="Dallas chauffeur service partner logo 5"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.webp') }}" class="img-fluid" alt="luxury airport car service partner logo 6"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.webp') }}" class="img-fluid" alt="FBO transportation partner logo 7"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.webp') }}" class="img-fluid" alt="private jet ground transportation partner logo 8"></div>
 
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid" alt="Dallas private aviation travel partner logo 9"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid" alt="executive airport transfer partner logo 10"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid" alt="Dallas luxury black car partner logo 11"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid" alt="corporate aviation transfer partner logo 12"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid" alt="premium chauffeur transportation partner logo 13"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid" alt="North Texas private airport transfer partner logo 14"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid" alt="Dallas executive travel partner logo 15"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid" alt="private terminal transportation partner logo 16"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.webp') }}" class="img-fluid" alt="Dallas private aviation travel partner logo 9"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.webp') }}" class="img-fluid" alt="executive airport transfer partner logo 10"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.webp') }}" class="img-fluid" alt="Dallas luxury black car partner logo 11"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.webp') }}" class="img-fluid" alt="corporate aviation transfer partner logo 12"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.webp') }}" class="img-fluid" alt="premium chauffeur transportation partner logo 13"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.webp') }}" class="img-fluid" alt="North Texas private airport transfer partner logo 14"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.webp') }}" class="img-fluid" alt="Dallas executive travel partner logo 15"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.webp') }}" class="img-fluid" alt="private terminal transportation partner logo 16"></div>
                         </div>
                     </div>
                 </div>

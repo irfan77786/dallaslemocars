@@ -172,7 +172,7 @@
             </div>
             <div class="col-12 col-md-6 h-100">
                 <div class="img-holder ms-md-auto">
-                    <img src="{{ asset('new_assets/assets/image-01.png') }}" class="img-fluid" alt="Image">
+                    <img src="{{ asset('new_assets/assets/image-01.webp') }}" class="img-fluid" alt="Image">
                 </div>
             </div>
         </div>
@@ -189,7 +189,7 @@
             </div>
             <div class="col-12 col-md-6 h-100">
                 <div class="img-holder">
-                    <img src="{{ asset('new_assets/assets/image-02.png') }}" class="img-fluid" alt="Image">
+                    <img src="{{ asset('new_assets/assets/image-02.webp') }}" class="img-fluid" alt="Image">
                 </div>
             </div>
         </div>

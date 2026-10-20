@@ -258,23 +258,23 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12">
                     <div class="swiper logo-swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" alt="Trusted partner logo for Waco Regional Airport chauffeur and black car service" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" alt="Business partner logo for luxury Waco airport transportation service" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" alt="Corporate client logo for executive black car and airport transfer service" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" alt="Affiliated brand logo for premium limo and chauffeur transportation in Texas" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" alt="Professional travel partner logo for Waco Regional Airport car service provider" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" alt="Luxury transportation partner logo for black car service in Waco and Dallas" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" alt="Executive transportation client logo for Waco airport chauffeur service company" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" alt="Featured brand logo associated with Texas limo and black car services" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.webp') }}" alt="Trusted partner logo for Waco Regional Airport chauffeur and black car service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.webp') }}" alt="Business partner logo for luxury Waco airport transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.webp') }}" alt="Corporate client logo for executive black car and airport transfer service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.webp') }}" alt="Affiliated brand logo for premium limo and chauffeur transportation in Texas" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.webp') }}" alt="Professional travel partner logo for Waco Regional Airport car service provider" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.webp') }}" alt="Luxury transportation partner logo for black car service in Waco and Dallas" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.webp') }}" alt="Executive transportation client logo for Waco airport chauffeur service company" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.webp') }}" alt="Featured brand logo associated with Texas limo and black car services" class="img-fluid"></div>
 
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" alt="Trusted partner logo for Waco Regional Airport chauffeur and black car service" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" alt="Business partner logo for luxury Waco airport transportation service" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" alt="Corporate client logo for executive black car and airport transfer service" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" alt="Affiliated brand logo for premium limo and chauffeur transportation in Texas" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" alt="Professional travel partner logo for Waco Regional Airport car service provider" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" alt="Luxury transportation partner logo for black car service in Waco and Dallas" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" alt="Executive transportation client logo for Waco airport chauffeur service company" class="img-fluid"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" alt="Featured brand logo associated with Texas limo and black car services" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.webp') }}" alt="Trusted partner logo for Waco Regional Airport chauffeur and black car service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.webp') }}" alt="Business partner logo for luxury Waco airport transportation service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.webp') }}" alt="Corporate client logo for executive black car and airport transfer service" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.webp') }}" alt="Affiliated brand logo for premium limo and chauffeur transportation in Texas" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.webp') }}" alt="Professional travel partner logo for Waco Regional Airport car service provider" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.webp') }}" alt="Luxury transportation partner logo for black car service in Waco and Dallas" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.webp') }}" alt="Executive transportation client logo for Waco airport chauffeur service company" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.webp') }}" alt="Featured brand logo associated with Texas limo and black car services" class="img-fluid"></div>
                         </div>
                     </div>
                 </div>

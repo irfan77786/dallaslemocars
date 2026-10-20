@@ -258,23 +258,23 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12">
                     <div class="swiper logo-swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid" alt="partner company logo 1"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid" alt="partner company logo 2"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid" alt="partner company logo 3"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid" alt="partner company logo 4"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid" alt="partner company logo 5"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid" alt="partner company logo 6"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid" alt="partner company logo 7"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid" alt="partner company logo 8"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.webp') }}" class="img-fluid" alt="partner company logo 1"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.webp') }}" class="img-fluid" alt="partner company logo 2"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.webp') }}" class="img-fluid" alt="partner company logo 3"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.webp') }}" class="img-fluid" alt="partner company logo 4"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.webp') }}" class="img-fluid" alt="partner company logo 5"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.webp') }}" class="img-fluid" alt="partner company logo 6"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.webp') }}" class="img-fluid" alt="partner company logo 7"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.webp') }}" class="img-fluid" alt="partner company logo 8"></div>
 
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid" alt="partner company logo 9"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid" alt="partner company logo 10"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid" alt="partner company logo 11"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid" alt="partner company logo 12"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid" alt="partner company logo 13"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid" alt="partner company logo 14"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid" alt="partner company logo 15"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid" alt="partner company logo 16"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.webp') }}" class="img-fluid" alt="partner company logo 9"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.webp') }}" class="img-fluid" alt="partner company logo 10"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.webp') }}" class="img-fluid" alt="partner company logo 11"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.webp') }}" class="img-fluid" alt="partner company logo 12"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.webp') }}" class="img-fluid" alt="partner company logo 13"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.webp') }}" class="img-fluid" alt="partner company logo 14"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.webp') }}" class="img-fluid" alt="partner company logo 15"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.webp') }}" class="img-fluid" alt="partner company logo 16"></div>
                         </div>
                     </div>
                 </div>

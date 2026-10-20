@@ -99,7 +99,7 @@ class BookingController extends Controller
                 'keywords' => 'Dallas black car booking, luxury car service login, airport transfer booking Dallas',
                 'og_title' => 'Login or Continue as Guest | Dallas Limo Black Cars',
                 'og_description' => 'Sign in to your account or continue as a guest to complete your luxury car service booking in Dallas.',
-                'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
+                'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.webp')
             ]
         ]);
     }
@@ -116,7 +116,7 @@ class BookingController extends Controller
             'keywords' => 'Dallas Limo Black Cars, Dallas Black Car Service, Black car service near me, Luxury Car Service Dallas',
             'og_title' => 'Dallas Limo Black Cars',
             'og_description' => 'Experience reliable Dallas Limo Black Cars for airport transfers, corporate travel & luxury rides. 24/7 chauffeurs, clean fleet & on-time service across DFW.',
-            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png'),
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.webp'),
         ];
 
         return view('pages.home', [
@@ -136,7 +136,7 @@ class BookingController extends Controller
             'keywords' => 'Airport Car Service Dallas, DFW Car Service, Dallas Limo Black Cars',
             'og_title' => 'Airport Car Service Dallas � Book Your Ride Now',
             'og_description' => 'Book your Airport Car Service Dallas today. Reliable, luxury sedans & SUVs with professional chauffeurs for DFW & Love Field. 24/7 airport transfers � reserve now.',
-            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.webp')
         ];
 
         return view('pages.book-now', [
@@ -182,7 +182,7 @@ public function handlePointToPoint(Request $request)
                 'keywords' => 'Dallas black car booking, luxury car selection, airport transfer vehicles Dallas',
                 'og_title' => 'Select Your Vehicle | Dallas Limo Black Cars',
                 'og_description' => 'Choose your luxury vehicle for your Dallas car service.',
-                'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
+                'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.webp')
             ]
         ]);
     }
@@ -276,7 +276,7 @@ public function handlePointToPoint(Request $request)
             'keywords' => 'Dallas black car booking, luxury car selection, airport transfer vehicles Dallas',
             'og_title' => 'Select Your Vehicle | Dallas Limo Black Cars',
             'og_description' => 'Choose your luxury vehicle for your Dallas car service.',
-            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.webp')
         ]
     ]);
 }
@@ -364,7 +364,7 @@ public function handleHourlyHire(Request $request)
             'keywords' => 'Dallas black car booking, luxury car selection, airport transfer vehicles Dallas',
             'og_title' => 'Select Your Vehicle | Dallas Limo Black Cars',
             'og_description' => 'Choose your luxury vehicle for your Dallas car service.',
-            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.webp')
         ]
     ]);
 }
@@ -682,7 +682,7 @@ public function handleHourlyHire(Request $request)
                     'keywords' => 'Dallas black car booking, luxury car service booking, airport transfer booking Dallas',
                     'og_title' => 'Booking Details | Dallas Limo Black Cars',
                     'og_description' => 'Complete your booking details for Dallas luxury car service.',
-                    'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
+                    'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.webp')
                 ]
             ]);
         }
@@ -774,7 +774,7 @@ public function handleHourlyHire(Request $request)
                 'keywords' => 'Dallas black car booking, luxury car service booking, airport transfer booking Dallas',
                 'og_title' => 'Booking Details | Dallas Limo Black Cars',
                 'og_description' => 'Complete your booking details for Dallas luxury car service.',
-                'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
+                'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.webp')
             ]
         ]);
 
@@ -863,7 +863,7 @@ public function showPayment()
             'keywords' => 'Dallas black car payment, luxury car service payment, airport transfer payment Dallas',
             'og_title' => 'Payment | Dallas Limo Black Cars',
             'og_description' => 'Complete your payment securely for Dallas luxury car service.',
-            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png'),
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.webp'),
         ],
     ]);
 }
@@ -1203,7 +1203,7 @@ public function completeBook(Request $request)
             'keywords' => 'Dallas black car booking, luxury car service confirmation, airport transfer booking Dallas',
             'og_title' => 'Thank You for Your Booking | Dallas Limo Black Cars',
             'og_description' => 'Thank you for booking with Dallas Limo Black Cars. Your luxury transportation has been confirmed.',
-            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.webp')
         ]
     ]);
 }

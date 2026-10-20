@@ -3,10 +3,12 @@
     $logoWidth = isset($logoWidth) ? (int) $logoWidth : null;
     $logoMaxHeight = isset($logoMaxHeight) ? (int) $logoMaxHeight : null;
     $align = ($align ?? 'center') === 'left' ? 'left' : 'center';
+    {{-- Prefer PNG for DomPDF (WebP support is unreliable) --}}
     $localCandidates = [
-        base_path('new_assets/assets/black-car-service-dallas-logo.png'),
         public_path('new_assets/assets/black-car-service-dallas-logo.png'),
+        base_path('new_assets/assets/black-car-service-dallas-logo.png'),
         public_path('assets/img/site/black-car-service-dallas-logo.png'),
+        base_path('assets/img/site/black-car-service-dallas-logo.png'),
     ];
     $raw = null;
     foreach ($localCandidates as $path) {

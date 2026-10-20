@@ -16,14 +16,14 @@
     {{-- Open Graph Meta Tags --}}
     <meta property="og:title" content="{{ $seo['og_title'] ?? $seo['title'] ?? 'DALLAS LIMOS AND BLACK CAR SERVICE' }}">
     <meta property="og:description" content="{{ $seo['og_description'] ?? $seo['description'] ?? 'Premium black car and limousine service in Dallas, Texas.' }}">
-    <meta property="og:image" content="{{ $seo['og_image'] ?? asset('new_assets/assets/black-car-service-dallas-logo.png') }}">
+    <meta property="og:image" content="{{ $seo['og_image'] ?? asset('new_assets/assets/black-car-service-dallas-logo.webp') }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
     {{-- Twitter Card Meta Tags --}}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ $seo['og_title'] ?? $seo['title'] ?? 'DALLAS LIMOS AND BLACK CAR SERVICE' }}">
     <meta name="twitter:description" content="{{ $seo['og_description'] ?? $seo['description'] ?? 'Premium black car and limousine service in Dallas, Texas.' }}">
-    <meta name="twitter:image" content="{{ $seo['og_image'] ?? asset('new_assets/assets/black-car-service-dallas-logo.png') }}">
+    <meta name="twitter:image" content="{{ $seo['og_image'] ?? asset('new_assets/assets/black-car-service-dallas-logo.webp') }}">
     <link rel="shortcut icon" href="/img/favicon.png">
 
     {{-- Early connections for third-party origins --}}
@@ -42,36 +42,42 @@
     <link rel="stylesheet" href="{{ asset('new_assets/css/style.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom.min.css') }}">
 
-    {{-- Fonts: display=swap already set; load after critical CSS --}}
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-        rel="stylesheet">
-
-    {{-- Non-critical CSS: async load to unblock first paint --}}
-    <link rel="stylesheet" href="{{ asset('new_assets/css/swiper-min.min.css') }}" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="{{ asset('new_assets/css/slick.min.css') }}" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/css/intlTelInput.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-material-datetimepicker.min.css') }}" media="print" onload="this.media='all'">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+    {{-- Fonts: non-blocking + display=swap --}}
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
-        <link rel="stylesheet" href="{{ asset('new_assets/css/swiper-min.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('new_assets/css/slick.min.css') }}">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/css/intlTelInput.min.css">
-        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-material-datetimepicker.min.css') }}">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     </noscript>
 
     @php
         $needsDataTables = request()->is('dashboard*') || request()->is('users') || request()->is('users/*') || request()->is('invoices*');
+        $needsIntlTel = request()->is('user-login*') || request()->is('submit-passengerInfo*') || request()->is('contact-us') || request()->is('get-a-quote') || request()->is('bookRide');
+        $needsBookingLibs = !request()->is('dashboard*') && !request()->is('users') && !request()->is('users/*') && !request()->is('invoices*');
     @endphp
+
+    {{-- Non-critical CSS: async (removed unused slick + flatpickr) --}}
+    <link rel="stylesheet" href="{{ asset('new_assets/css/swiper-min.min.css') }}" media="print" onload="this.media='all'">
+    @if($needsBookingLibs)
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-material-datetimepicker.min.css') }}" media="print" onload="this.media='all'">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    @endif
+    @if($needsIntlTel)
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/css/intlTelInput.min.css" media="print" onload="this.media='all'">
+    @endif
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="{{ asset('new_assets/css/swiper-min.min.css') }}">
+        @if($needsBookingLibs)
+            <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-material-datetimepicker.min.css') }}">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
+        @endif
+        @if($needsIntlTel)
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/css/intlTelInput.min.css">
+        @endif
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    </noscript>
+
     @if($needsDataTables)
         <link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
         <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.min.css" rel="stylesheet">
@@ -95,7 +101,7 @@
                 <div class="col-8 col-lg-3">
                     <div class="logo">
                         <a href="/">
-                            <img src="{{ asset('new_assets/assets/black-car-service-dallas-logo.png') }}" alt="Black Car Service Dallas"
+                            <img src="{{ asset('new_assets/assets/black-car-service-dallas-logo.webp') }}" alt="Black Car Service Dallas"
                                 class="img-fluid" width="180" height="48" decoding="async">
                         </a>
                     </div>
@@ -436,7 +442,6 @@
         </div>
     </footer>
 
-    {{-- jQuery + booking custom.js must stay before Maps callback --}}
     <script src="{{ asset('new_assets/js/jquery.min.js') }}"></script>
     @if($needsDataTables)
         <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
@@ -444,28 +449,109 @@
         <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
         <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
     @endif
-    <script src="{{ asset('assets/js/custom.min.js') }}?v={{ filemtime(public_path('assets/js/custom.min.js')) }}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google_maps.api_key') }}&libraries=places&loading=async&callback=initAutocomplete" async defer></script>
+
+    @if($needsBookingLibs)
+        <script src="{{ asset('assets/js/custom.min.js') }}?v={{ filemtime(public_path('assets/js/custom.min.js')) }}"></script>
+    @endif
 
     <script src="{{ asset('new_assets/js/bootstrap-min.min.js') }}" defer></script>
     <script src="{{ asset('new_assets/js/swiper-min.min.js') }}" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js" defer></script>
-    <script src="{{ asset('new_assets/js/slick-min.min.js') }}" defer></script>
     <script src="{{ asset('new_assets/js/custom_new.min.js') }}" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment-with-locales.min.js" defer></script>
-    <script src="{{ asset('assets/js/bootstrap-material-datetimepicker.min.js') }}" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @if($needsIntlTel)
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js" defer></script>
+    @endif
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 
     @if (filled(config('services.turnstile.site_key')) && filled(config('services.turnstile.secret_key')))
         <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     @endif
 
-    {{-- Analytics: load after idle so it does not compete with LCP --}}
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){ dataLayer.push(arguments); }
+
+        @if($needsBookingLibs)
+        (function () {
+            var mapsKey = @json(config('services.google_maps.api_key'));
+            var mapsLoading = false;
+            var dateLibsLoading = false;
+            var dateLibsReady = false;
+
+            window.loadGoogleMapsOnce = function () {
+                if (mapsLoading || (window.google && window.google.maps && window.google.maps.places)) {
+                    return;
+                }
+                mapsLoading = true;
+                var s = document.createElement('script');
+                s.src = 'https://maps.googleapis.com/maps/api/js?key=' + encodeURIComponent(mapsKey) + '&libraries=places&loading=async&callback=initAutocomplete';
+                s.async = true;
+                document.head.appendChild(s);
+            };
+
+            function initDatePickers() {
+                if (!window.jQuery || !jQuery.fn.bootstrapMaterialDatePicker) {
+                    return;
+                }
+                jQuery(
+                    '#pickup-datetime, #pickup-datetime-hourly, #return-datetime-hourly, #pickup-datetime_mobile, #pickup-datetime-hourly_mobile, #return-datetime-hourly_mobile, #pickup-datetime_form, #pickup-datetime-hourly_form, #return-datetime-hourly_form, #pickup-datetime_hero, #pickup-datetime-hourly_hero, #return-datetime-hourly_hero'
+                ).bootstrapMaterialDatePicker({
+                    format: 'ddd, MMM Do, YYYY h:mm A',
+                    minDate: new Date(),
+                    lang: 'en',
+                    weekStart: 0,
+                    shortTime: true,
+                    cancelText: 'Back',
+                    okText: 'OK',
+                    switchOnClick: true
+                });
+                dateLibsReady = true;
+            }
+
+            window.loadDatePickerLibsOnce = function () {
+                if (dateLibsReady) {
+                    return;
+                }
+                if (dateLibsLoading) {
+                    return;
+                }
+                dateLibsLoading = true;
+                var momentSrc = 'https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment.min.js';
+                var pickerSrc = @json(asset('assets/js/bootstrap-material-datetimepicker.min.js'));
+                var m = document.createElement('script');
+                m.src = momentSrc;
+                m.onload = function () {
+                    var p = document.createElement('script');
+                    p.src = pickerSrc;
+                    p.onload = initDatePickers;
+                    document.head.appendChild(p);
+                };
+                document.head.appendChild(m);
+            };
+
+            function bindLazyLibs() {
+                document.querySelectorAll(
+                    'input[id^="pickup-location"], input[id^="dropoff-location"], input[name="pickup_location"], input[name="dropoff_location"]'
+                ).forEach(function (el) {
+                    el.addEventListener('focus', window.loadGoogleMapsOnce, { once: true });
+                    el.addEventListener('touchstart', window.loadGoogleMapsOnce, { once: true, passive: true });
+                });
+                document.querySelectorAll(
+                    'input[id*="datetime"], input[id*="pickup-datetime"], input[id*="return-datetime"]'
+                ).forEach(function (el) {
+                    el.addEventListener('focus', window.loadDatePickerLibsOnce, { once: true });
+                    el.addEventListener('touchstart', window.loadDatePickerLibsOnce, { once: true, passive: true });
+                });
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', bindLazyLibs);
+            } else {
+                bindLazyLibs();
+            }
+        })();
+        @endif
+
         function loadAnalytics() {
             var s = document.createElement('script');
             s.async = true;
@@ -478,15 +564,16 @@
             document.head.appendChild(s);
         }
         if ('requestIdleCallback' in window) {
-            requestIdleCallback(loadAnalytics, { timeout: 4000 });
+            requestIdleCallback(loadAnalytics, { timeout: 5000 });
         } else {
-            window.addEventListener('load', function () { setTimeout(loadAnalytics, 2000); });
+            window.addEventListener('load', function () { setTimeout(loadAnalytics, 2500); });
         }
+
         (function () {
             var originalWarn = console.warn;
             console.warn = function (msg) {
                 var args = Array.prototype.slice.call(arguments);
-                if (typeof msg === 'string' && (msg.includes('google.maps.places.PlacesService') || msg.includes('google.maps.places.AutocompleteService') || msg.includes('google.maps.Marker'))) {
+                if (typeof msg === 'string' && (msg.indexOf('google.maps.places.PlacesService') !== -1 || msg.indexOf('google.maps.places.AutocompleteService') !== -1 || msg.indexOf('google.maps.Marker') !== -1)) {
                     return;
                 }
                 return originalWarn.apply(console, args);

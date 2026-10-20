@@ -258,23 +258,23 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                 <div class="col-12">
                     <div class="swiper logo-swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid" alt="Love Field airport car service partner logo 1"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid" alt="Dallas Love Field transportation partner logo 2"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid" alt="Dallas black car service partner logo 3"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid" alt="executive airport transfer partner logo 4"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid" alt="luxury chauffeur transportation partner logo 5"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid" alt="Love Field executive travel partner logo 6"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid" alt="airport black car service partner logo 7"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid" alt="Dallas Fort Worth transportation partner logo 8"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.webp') }}" class="img-fluid" alt="Love Field airport car service partner logo 1"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.webp') }}" class="img-fluid" alt="Dallas Love Field transportation partner logo 2"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.webp') }}" class="img-fluid" alt="Dallas black car service partner logo 3"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.webp') }}" class="img-fluid" alt="executive airport transfer partner logo 4"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.webp') }}" class="img-fluid" alt="luxury chauffeur transportation partner logo 5"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.webp') }}" class="img-fluid" alt="Love Field executive travel partner logo 6"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.webp') }}" class="img-fluid" alt="airport black car service partner logo 7"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.webp') }}" class="img-fluid" alt="Dallas Fort Worth transportation partner logo 8"></div>
 
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid" alt="premium Love Field airport car service partner logo 9"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid" alt="Dallas luxury airport transportation partner logo 10"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid" alt="professional chauffeur service partner logo 11"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid" alt="business travel transportation partner logo 12"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid" alt="Love Field limousine service partner logo 13"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid" alt="airport pickup and drop off partner logo 14"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid" alt="Dallas executive chauffeur partner logo 15"></div>
-                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid" alt="Love Field luxury black car partner logo 16"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.webp') }}" class="img-fluid" alt="premium Love Field airport car service partner logo 9"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.webp') }}" class="img-fluid" alt="Dallas luxury airport transportation partner logo 10"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.webp') }}" class="img-fluid" alt="professional chauffeur service partner logo 11"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.webp') }}" class="img-fluid" alt="business travel transportation partner logo 12"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.webp') }}" class="img-fluid" alt="Love Field limousine service partner logo 13"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.webp') }}" class="img-fluid" alt="airport pickup and drop off partner logo 14"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.webp') }}" class="img-fluid" alt="Dallas executive chauffeur partner logo 15"></div>
+                            <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.webp') }}" class="img-fluid" alt="Love Field luxury black car partner logo 16"></div>
                         </div>
                     </div>
                 </div>

@@ -249,23 +249,23 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 <div class="col-12">
                     <div class="swiper logo-swiper">
                         <div class="swiper-wrapper">
-                           <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid" alt="Dallas limo and black car service partner company logo 1" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid" alt="Dallas private car service partner brand logo 2" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid" alt="chauffeur transportation partner company logo 3" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid" alt="Dallas executive transportation partner logo 4" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid" alt="luxury black car service partner logo 5" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid" alt="Dallas airport transportation partner brand logo 6" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid" alt="DFW luxury chauffeur service partner logo 7" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid" alt="Dallas limousine service partner company logo 8" loading="lazy" decoding="async" width="160" height="60"></div>
+                           <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.webp') }}" class="img-fluid" alt="Dallas limo and black car service partner company logo 1" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.webp') }}" class="img-fluid" alt="Dallas private car service partner brand logo 2" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.webp') }}" class="img-fluid" alt="chauffeur transportation partner company logo 3" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.webp') }}" class="img-fluid" alt="Dallas executive transportation partner logo 4" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.webp') }}" class="img-fluid" alt="luxury black car service partner logo 5" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.webp') }}" class="img-fluid" alt="Dallas airport transportation partner brand logo 6" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.webp') }}" class="img-fluid" alt="DFW luxury chauffeur service partner logo 7" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.webp') }}" class="img-fluid" alt="Dallas limousine service partner company logo 8" loading="lazy" decoding="async" width="160" height="60"></div>
 
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid" alt="Dallas transportation partner logo brand 9" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid" alt="Dallas executive chauffeur partner logo 10" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid" alt="luxury private car service partner logo 11" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid" alt="Dallas corporate transportation partner brand logo 12" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid" alt="premium Dallas limo partner logo 13" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid" alt="Dallas black car chauffeur partner company logo 14" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid" alt="DFW executive travel partner brand logo 15" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid" alt="Dallas luxury transportation partner logo 16" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.webp') }}" class="img-fluid" alt="Dallas transportation partner logo brand 9" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.webp') }}" class="img-fluid" alt="Dallas executive chauffeur partner logo 10" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.webp') }}" class="img-fluid" alt="luxury private car service partner logo 11" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.webp') }}" class="img-fluid" alt="Dallas corporate transportation partner brand logo 12" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.webp') }}" class="img-fluid" alt="premium Dallas limo partner logo 13" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.webp') }}" class="img-fluid" alt="Dallas black car chauffeur partner company logo 14" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.webp') }}" class="img-fluid" alt="DFW executive travel partner brand logo 15" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.webp') }}" class="img-fluid" alt="Dallas luxury transportation partner logo 16" loading="lazy" decoding="async" width="160" height="60"></div>
                         </div>
                     </div>
                 </div>

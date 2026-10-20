@@ -1812,6 +1812,8 @@ $(document).ready(function () {
 
     idsToSync.forEach(syncInputs);
 
+    // Date picker is lazy-loaded on first focus (see master.blade.php).
+    // If already present (e.g. cached navigations), init immediately.
     if ($.fn.bootstrapMaterialDatePicker) {
         $(
             "#pickup-datetime, #pickup-datetime-hourly, #return-datetime-hourly, #pickup-datetime_mobile, #pickup-datetime-hourly_mobile, #return-datetime-hourly_mobile",
@@ -1825,12 +1827,9 @@ $(document).ready(function () {
             okText: "OK",
             switchOnClick: true,
         });
-
-        // Ensure clicking the icon triggers the input
-        $(".input-icon-left").on("click", function () {
-            $(this).next("input").focus();
-        });
-    } else {
-        console.error("bootstrapMaterialDatePicker plugin is not loaded");
     }
+
+    $(".input-icon-left").on("click", function () {
+        $(this).next("input").focus();
+    });
 });

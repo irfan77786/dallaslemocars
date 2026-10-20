@@ -29,12 +29,12 @@ class WebsiteController extends Controller
             'keywords' => 'Black Car Service in Dallas, Executive Chauffeur Service DFW, Luxury Airport Transfer Love Field, DFW Car Service',
             'og_title' => 'About Us | Dallas Limo Black Cars Service',
             'og_description' => 'Learn about Dallas Limo Black Cars Service, Dallas–Fort Worth’s premier luxury black car & limousine service. Professional chauffeurs, premium fleet, DFW & Love Field coverage.',
-            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.webp')
         ];
 
         return view('website.about', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
-            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.webp',
             'seo' => $seo
         ]);
     }
@@ -53,12 +53,12 @@ class WebsiteController extends Controller
             'keywords' => 'Dallas black car service, luxury car service Dallas, airport car service Dallas',
             'og_title' => 'Dallas Black Car Service Fleet – Luxury Sedans, SUVs, Sprinter Vans',
             'og_description' => 'Discover our Dallas black car service fleet – luxury sedans, SUVs & Sprinter vans for business trips, airport transfers & group events.',
-            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.webp')
         ];
 
         return view('website.our-fleet', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
-            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.webp',
             'seo' => $seo
         ]);
     }
@@ -77,12 +77,12 @@ class WebsiteController extends Controller
             'keywords' => 'Dallas black car service quote, luxury car service Dallas, airport transfer quote Dallas',
             'og_title' => 'Get a Quote – Dallas Black Car and Limousine Service',
             'og_description' => 'Instantly receive a transparent quote for your luxury ride in Dallas. Choose from sedans, SUVs, or Sprinter vans for airport transfers, corporate events, and more.',
-            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.webp')
         ];
 
         return view('website.get-a-quote', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
-            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.webp',
             'seo' => $seo
         ]);
     }
@@ -95,12 +95,12 @@ class WebsiteController extends Controller
             'keywords' => 'Dallas black car quote thank you, luxury car service Dallas quote',
             'og_title' => 'Thank You – Quote Request Received | Dallas Black Car Service',
             'og_description' => 'Thank you for requesting a quote. Our team will contact you shortly.',
-            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png'),
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.webp'),
         ];
 
         return view('website.get-a-quote-thank-you', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
-            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.webp',
             'seo' => $seo,
         ]);
     }
@@ -119,12 +119,12 @@ class WebsiteController extends Controller
             'keywords' => 'Dallas black car service contact, luxury car service Dallas, airport car service Dallas',
             'og_title' => 'Contact Dallas Black Car Service',
             'og_description' => 'Reach Dallas Black Car Service for reliable black car rides, airport transfers, corporate travel, and group transportation. Call, email, or book online today!',
-            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.webp')
         ];
 
         return view('website.contact-us', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
-            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.webp',
             'seo' => $seo
         ]);
     }
@@ -182,12 +182,12 @@ class WebsiteController extends Controller
             'keywords' => 'Dallas black car service cancellation policy, luxury car service cancellation policy Dallas, airport car service cancellation policy Dallas',
             'og_title' => 'Cancellation Policy – Dallas Black Car Service',
             'og_description' => 'Learn about our cancellation policy for Dallas black car service. Book your ride today and experience our transparent and flexible cancellation process.',
-            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.webp')
         ];
 
         return view('website.cancellation-policy', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
-            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.webp',
             'seo' => $seo
         ]);
     }
@@ -206,12 +206,12 @@ class WebsiteController extends Controller
             'keywords' => 'Dallas black car service terms and conditions, luxury car service terms and conditions Dallas, airport car service terms and conditions Dallas',
             'og_title' => 'Terms and Conditions – Dallas Black Car Service',
             'og_description' => 'Review our terms and conditions for Dallas black car service. Understand your rights and obligations when using our services.',
-            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.webp')
         ];
 
         return view('website.terms-and-conditions', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
-            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.webp',
             'seo' => $seo
         ]);
     }
@@ -230,12 +230,12 @@ class WebsiteController extends Controller
             'keywords' => 'Dallas black car service privacy policy, luxury car service privacy policy Dallas, airport car service privacy policy Dallas',
             'og_title' => 'Privacy Policy – Dallas Black Car Service',
             'og_description' => 'Review our privacy policy for Dallas black car service. Understand how we collect, use, and safeguard your personal information.',
-            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.png')
+            'og_image' => asset('new_assets/assets/black-car-service-dallas-logo.webp')
         ];
 
         return view('website.privacy-policy', [
             'backgroundImage' => '/img/black-car-service-frisco.webp',
-            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.png',
+            'mobileImage' => 'new_assets/assets/black-car-service-dallas-logo.webp',
             'seo' => $seo
         ]);
     }
