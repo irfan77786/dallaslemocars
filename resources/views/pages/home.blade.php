@@ -29,6 +29,8 @@
                     decoding="async"
                 >
             </picture>
+            {{-- Same dark overlay as About Us (.home-banner-section .ah-container:after) --}}
+            <div class="hero-banner-overlay" aria-hidden="true"></div>
             <!-- Map Container (Initially hidden, shows up when location is selected) -->
             <div id="map" class="position-absolute w-100 h-100" style="top:0; left:0; z-index: 1; display:none;">
             </div>
@@ -67,6 +69,13 @@
                 object-fit: cover;
                 object-position: center center;
                 z-index: 0;
+                pointer-events: none;
+            }
+            .hero-banner-overlay {
+                position: absolute;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.7);
+                z-index: 1;
                 pointer-events: none;
             }
             @media (max-width: 767px) {

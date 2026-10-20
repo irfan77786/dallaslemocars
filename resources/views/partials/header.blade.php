@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 logo" style="padding-left: 8px; padding-right: 0px;">
-                        <img style="position: relative; z-index: 6 !important; cursor: pointer;" onclick="window.location.href='{{ url('/') }}'" src="{{ asset('assets/img/site/black-car-service-dallas-logo.webp') }}" class="logo-display" alt="shipo">
+                        <img style="position: relative; z-index: 6 !important; cursor: pointer;" onclick="window.location.href='{{ url('/') }}'" src="{{ asset('assets/img/site/black-car-service-dallas-logo.png') }}" class="logo-display" alt="shipo">
                     <div class="col-12">
                         <div class="responsive-menu"></div>
                     </div>
@@ -73,7 +73,7 @@
         <aside id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
             <div class="drawer-header d-flex justify-content-between align-items-center">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('assets/img/site/black-car-service-dallas-logo.webp') }}" class="logo-display" alt="shipo" style="height: 40px;">
+                    <img src="{{ asset('assets/img/site/black-car-service-dallas-logo.png') }}" class="logo-display" alt="shipo" style="height: 40px;">
                 </a>
                 <button class="btn btn-link p-0 drawer-close" aria-label="Close menu">
                     <i class="bi bi-x-lg" style="font-size: 1.4rem;"></i>
