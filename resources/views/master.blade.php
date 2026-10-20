@@ -19,48 +19,63 @@
     <meta property="og:image" content="{{ $seo['og_image'] ?? asset('new_assets/assets/black-car-service-dallas-logo.png') }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QG1V45PRT1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-QG1V45PRT1');
-</script>
     {{-- Twitter Card Meta Tags --}}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ $seo['og_title'] ?? $seo['title'] ?? 'DALLAS LIMOS AND BLACK CAR SERVICE' }}">
     <meta name="twitter:description" content="{{ $seo['og_description'] ?? $seo['description'] ?? 'Premium black car and limousine service in Dallas, Texas.' }}">
     <meta name="twitter:image" content="{{ $seo['og_image'] ?? asset('new_assets/assets/black-car-service-dallas-logo.png') }}">
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+    {{-- Early connections for third-party origins --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://maps.googleapis.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+    {{-- LCP / critical image preloads (homepage hero) --}}
+    @stack('preload')
+
+    {{-- Critical CSS only (render-blocking kept minimal) --}}
+    <link rel="stylesheet" href="{{ asset('new_assets/css/bootstrap-min.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('new_assets/css/style.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.min.css') }}">
+
+    {{-- Fonts: display=swap already set; load after critical CSS --}}
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/css/intlTelInput.min.css" />
-    <link rel="stylesheet" href="{{ asset('new_assets/css/swiper-min.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('new_assets/css/slick.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('new_assets/css/bootstrap-min.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('new_assets/css/style.min.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<link rel="shortcut icon" href="/img/favicon.png">
-    <!-- Old Custom CSS (for form styles) -->
-    <link rel="stylesheet" href="{{ asset('assets/css/custom.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-material-datetimepicker.min.css') }}">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Preload critical JavaScript files -->
-    <link rel="preload" href="{{ asset('assets/js/custom.min.js') }}" as="script">
-    <link rel="preload" href="{{ asset('new_assets/js/jquery.min.js') }}" as="script">
+    {{-- Non-critical CSS: async load to unblock first paint --}}
+    <link rel="stylesheet" href="{{ asset('new_assets/css/swiper-min.min.css') }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ asset('new_assets/css/slick.min.css') }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/css/intlTelInput.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-material-datetimepicker.min.css') }}" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="{{ asset('new_assets/css/swiper-min.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('new_assets/css/slick.min.css') }}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/css/intlTelInput.min.css">
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-material-datetimepicker.min.css') }}">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    </noscript>
 
-    <!-- Preload logo image for faster rendering -->
-    <link rel="preload" href="{{ asset('new_assets/assets/black-car-service-dallas-logo.png') }}" as="image">
+    @php
+        $needsDataTables = request()->is('dashboard*') || request()->is('users') || request()->is('users/*') || request()->is('invoices*');
+    @endphp
+    @if($needsDataTables)
+        <link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+        <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.min.css" rel="stylesheet">
+    @endif
 
     @yield('styles')
 </head>
@@ -81,7 +96,7 @@
                     <div class="logo">
                         <a href="/">
                             <img src="{{ asset('new_assets/assets/black-car-service-dallas-logo.png') }}" alt="Black Car Service Dallas"
-                                class="img-fluid">
+                                class="img-fluid" width="180" height="48" decoding="async">
                         </a>
                     </div>
                 </div>
@@ -421,56 +436,63 @@
         </div>
     </footer>
 
-    <!-- Critical Scripts - Load First -->
+    {{-- jQuery + booking custom.js must stay before Maps callback --}}
     <script src="{{ asset('new_assets/js/jquery.min.js') }}"></script>
-    <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
-
-    <!-- Load custom.js immediately after jQuery (contains map functions) -->
+    @if($needsDataTables)
+        <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
+    @endif
     <script src="{{ asset('assets/js/custom.min.js') }}?v={{ filemtime(public_path('assets/js/custom.min.js')) }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google_maps.api_key') }}&libraries=places&loading=async&callback=initAutocomplete" async defer></script>
 
-    <!-- Google Maps - Load after custom.js so initAutocomplete can find the functions -->
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google_maps.api_key') }}&libraries=places&callback=initAutocomplete"></script>
-
-    <!-- Other Scripts - Can be deferred -->
     <script src="{{ asset('new_assets/js/bootstrap-min.min.js') }}" defer></script>
     <script src="{{ asset('new_assets/js/swiper-min.min.js') }}" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js" defer></script>
     <script src="{{ asset('new_assets/js/slick-min.min.js') }}" defer></script>
     <script src="{{ asset('new_assets/js/custom_new.min.js') }}" defer></script>
-
-    <!-- Date/Time Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment-with-locales.min.js" defer></script>
     <script src="{{ asset('assets/js/bootstrap-material-datetimepicker.min.js') }}" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.min.js" defer></script>
-
-    <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     @if (filled(config('services.turnstile.site_key')) && filled(config('services.turnstile.secret_key')))
         <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     @endif
 
-      <script>
-            window.dataLayer = window.dataLayer || [];
-
-            function gtag() {
-            dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-            gtag('config', 'G-D87H3B4PXN');
-            const originalWarn = console.warn;
-            console.warn = function(msg, ...args) {
-            if (typeof msg === 'string' && msg.includes('google.maps.places.PlacesService') || msg.includes('google.maps.places.AutocompleteService') || msg.includes('google.maps.Marker')) {
-                // Suppress this specific warning
-                return;
-            }
-            originalWarn.apply(console, [msg, ...args]);
+    {{-- Analytics: load after idle so it does not compete with LCP --}}
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        function loadAnalytics() {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-QG1V45PRT1';
+            s.onload = function () {
+                gtag('js', new Date());
+                gtag('config', 'G-QG1V45PRT1');
+                gtag('config', 'G-D87H3B4PXN');
             };
-        </script>
+            document.head.appendChild(s);
+        }
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadAnalytics, { timeout: 4000 });
+        } else {
+            window.addEventListener('load', function () { setTimeout(loadAnalytics, 2000); });
+        }
+        (function () {
+            var originalWarn = console.warn;
+            console.warn = function (msg) {
+                var args = Array.prototype.slice.call(arguments);
+                if (typeof msg === 'string' && (msg.includes('google.maps.places.PlacesService') || msg.includes('google.maps.places.AutocompleteService') || msg.includes('google.maps.Marker'))) {
+                    return;
+                }
+                return originalWarn.apply(console, args);
+            };
+        })();
+    </script>
     @yield('scripts')
 </body>
 

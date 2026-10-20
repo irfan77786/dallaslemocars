@@ -1,5 +1,10 @@
 @extends('master')
 
+@push('preload')
+    <link rel="preload" as="image" href="/img/dallas-limo-and-black-cars-banner-mobile.webp" type="image/webp" media="(max-width: 767px)" fetchpriority="high">
+    <link rel="preload" as="image" href="/img/dallas-limo-and-black-cars-banner.webp" type="image/webp" media="(min-width: 768px)" fetchpriority="high">
+@endpush
+
 @section('content')
     <section class="d-md-none">
         <div class="ah-container">
@@ -10,13 +15,25 @@
     </section>
 
     <section class="home-banner-section">
-        <div id="hero-banner-container" class="py-60 ah-container position-relative py-sm-70 py-md-80 py-lg-100"
-             style="z-index: 2; background-image: url('https://dallaslimoandblackcars.com/img/dallas-limo-and-black-cars-banner.webp');">
+        <div id="hero-banner-container" class="py-60 ah-container position-relative py-sm-70 py-md-80 py-lg-100" style="z-index: 2;">
+            {{-- Real <img> LCP element (better than CSS background for PageSpeed) --}}
+            <picture>
+                <source media="(max-width: 767px)" srcset="/img/dallas-limo-and-black-cars-banner-mobile.webp" type="image/webp">
+                <img
+                    src="/img/dallas-limo-and-black-cars-banner.webp"
+                    alt="Dallas limo and black car service luxury chauffeur"
+                    class="hero-lcp-img"
+                    width="1600"
+                    height="1067"
+                    fetchpriority="high"
+                    decoding="async"
+                >
+            </picture>
             <!-- Map Container (Initially hidden, shows up when location is selected) -->
             <div id="map" class="position-absolute w-100 h-100" style="top:0; left:0; z-index: 1; display:none;">
             </div>
 
-            <div class="row" style="pointer-events: none;">
+            <div class="row" style="pointer-events: none; position: relative; z-index: 2;">
                 <div id="home-text-content" class="col-12 col-md-6 d-flex flex-column justify-content-center" style="pointer-events: auto; position: relative; z-index: 0;">
                     <h1 class="text-white h2 fw-bold mb-15">Premier Black Car Service Dallas</h1>
                     <div class="d-none d-md-block">
@@ -38,13 +55,24 @@
         </div>
 
         <style>
+            #hero-banner-container {
+                overflow: hidden;
+                background-color: #0b1c2c;
+            }
+            .hero-lcp-img {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center center;
+                z-index: 0;
+                pointer-events: none;
+            }
             @media (max-width: 767px) {
                 #hero-banner-container {
                     min-height: 300px !important;
                     height: 300px !important;
-                    background-size: cover !important;
-                    background-position: center center !important;
-                    background-repeat: no-repeat !important;
                     display: flex !important;
                     align-items: center !important;
                     justify-content: center !important;
@@ -125,7 +153,7 @@ Our fleet includes luxury sedans, black SUVs, executive sprinter vans, and spaci
             <div class="row">
                 <div class="col-12">
                     <div class="img-holder">
-                        <img src="{{ asset('new_assets/assets/fleet-img.webp') }}" alt="Fleet Image" class="img-fluid">
+                        <img src="{{ asset('new_assets/assets/fleet-img.webp') }}" alt="Fleet Image" class="img-fluid" loading="lazy" decoding="async" width="1200" height="675">
                     </div>
                 </div>
                 <div class="text-center col-12 pt-15">
@@ -141,7 +169,7 @@ Our fleet includes luxury sedans, black SUVs, executive sprinter vans, and spaci
             <div class="py-20 row align-items-center">
                 <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport-mobile.webp" class="img-fluid" alt="luxury black car service in Dallas Texas with professional chauffeur">
+                        <img src="/img/dallas-black-car-service-dfw-love-field-airport-mobile.webp" class="img-fluid" alt="luxury black car service in Dallas Texas with professional chauffeur" loading="lazy" decoding="async" width="600" height="400">
                     </div>
                 </div>
                 
@@ -159,7 +187,7 @@ Serving Downtown Dallas, Plano, Frisco, Irving, McKinney, and the entire DFW met
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="premium Dallas limo and black car airport transfer service">
+                        <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="premium Dallas limo and black car airport transfer service" loading="lazy" decoding="async" width="800" height="600">
                     </div>
                 </div>
             </div>
@@ -167,7 +195,7 @@ Serving Downtown Dallas, Plano, Frisco, Irving, McKinney, and the entire DFW met
             <div class="flex-row-reverse py-20 row align-items-center">
                 <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt="DFW airport black car service luxury chauffeur pickup">
+                        <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt="DFW airport black car service luxury chauffeur pickup" loading="lazy" decoding="async" width="600" height="400">
                     </div>
                 </div>
                 <div class="mb-20 col-12 col-md-6 pr-xl-50">
@@ -183,14 +211,14 @@ Our professional chauffeurs prioritize punctuality, discretion, and reliability,
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="luxury chauffeur service for business meetings Dallas">
+                        <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="luxury chauffeur service for business meetings Dallas" loading="lazy" decoding="async" width="800" height="600">
                     </div>
                 </div>
             </div>
                <div class="py-20 row align-items-center">
                   <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service-mobile.webp" class="img-fluid" alt="luxury sedan black car service Dallas Texas">
+                        <img src="/img/dallas-city-to-city-black-car-service-mobile.webp" class="img-fluid" alt="luxury sedan black car service Dallas Texas" loading="lazy" decoding="async" width="600" height="400">
                     </div>
                 </div>
                 
@@ -206,7 +234,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service.webp" class="img-fluid" alt="stretch limousine service Dallas Texas luxury limo ride">
+                        <img src="/img/dallas-city-to-city-black-car-service.webp" class="img-fluid" alt="stretch limousine service Dallas Texas luxury limo ride" loading="lazy" decoding="async" width="800" height="600">
                     </div>
                 </div>
             </div>
@@ -221,23 +249,23 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 <div class="col-12">
                     <div class="swiper logo-swiper">
                         <div class="swiper-wrapper">
-                           <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid" alt="Dallas limo and black car service partner company logo 1"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid" alt="Dallas private car service partner brand logo 2"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid" alt="chauffeur transportation partner company logo 3"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid" alt="Dallas executive transportation partner logo 4"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid" alt="luxury black car service partner logo 5"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid" alt="Dallas airport transportation partner brand logo 6"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid" alt="DFW luxury chauffeur service partner logo 7"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid" alt="Dallas limousine service partner company logo 8"></div>
+                           <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid" alt="Dallas limo and black car service partner company logo 1" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid" alt="Dallas private car service partner brand logo 2" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid" alt="chauffeur transportation partner company logo 3" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid" alt="Dallas executive transportation partner logo 4" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid" alt="luxury black car service partner logo 5" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid" alt="Dallas airport transportation partner brand logo 6" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid" alt="DFW luxury chauffeur service partner logo 7" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid" alt="Dallas limousine service partner company logo 8" loading="lazy" decoding="async" width="160" height="60"></div>
 
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid" alt="Dallas transportation partner logo brand 9"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid" alt="Dallas executive chauffeur partner logo 10"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid" alt="luxury private car service partner logo 11"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid" alt="Dallas corporate transportation partner brand logo 12"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid" alt="premium Dallas limo partner logo 13"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid" alt="Dallas black car chauffeur partner company logo 14"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid" alt="DFW executive travel partner brand logo 15"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid" alt="Dallas luxury transportation partner logo 16"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.png') }}" class="img-fluid" alt="Dallas transportation partner logo brand 9" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.png') }}" class="img-fluid" alt="Dallas executive chauffeur partner logo 10" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.png') }}" class="img-fluid" alt="luxury private car service partner logo 11" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.png') }}" class="img-fluid" alt="Dallas corporate transportation partner brand logo 12" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.png') }}" class="img-fluid" alt="premium Dallas limo partner logo 13" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.png') }}" class="img-fluid" alt="Dallas black car chauffeur partner company logo 14" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.png') }}" class="img-fluid" alt="DFW executive travel partner brand logo 15" loading="lazy" decoding="async" width="160" height="60"></div>
+<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.png') }}" class="img-fluid" alt="Dallas luxury transportation partner logo 16" loading="lazy" decoding="async" width="160" height="60"></div>
                         </div>
                     </div>
                 </div>
@@ -259,7 +287,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-austin.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-austin.webp" alt="Top City" class="img-fluid" loading="lazy" decoding="async" width="640" height="400">
                         </div>
                         <div class="city-details p-15 position-absolute">
                            <div class="row">
@@ -284,7 +312,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-college-station.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-college-station.webp" alt="Top City" class="img-fluid" loading="lazy" decoding="async" width="640" height="400">
                         </div>
                         <div class="city-details p-15 position-absolute">
                       <div class="row">
@@ -308,7 +336,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-houston.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-houston.webp" alt="Top City" class="img-fluid" loading="lazy" decoding="async" width="640" height="400">
                         </div>
                         <div class="city-details p-15 position-absolute">
                           
@@ -335,7 +363,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-sherman.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-sherman.webp" alt="Top City" class="img-fluid" loading="lazy" decoding="async" width="640" height="400">
                         </div>
                         <div class="city-details p-15 position-absolute">
                               <div class="row">
@@ -359,7 +387,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-tyler.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-tyler.webp" alt="Top City" class="img-fluid" loading="lazy" decoding="async" width="640" height="400">
                         </div>
                         <div class="city-details p-15 position-absolute">
                              <div class="row">
@@ -383,7 +411,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-waco.webp" alt="Top City" class="img-fluid">
+                            <img src="/img/black-car-service-waco.webp" alt="Top City" class="img-fluid" loading="lazy" decoding="async" width="640" height="400">
                         </div>
                         <div class="city-details p-15 position-absolute">
                               <div class="row">
