@@ -23,14 +23,20 @@
                     type="image/webp"
                     srcset="/img/dallas-limo-and-black-cars-banner-mobile-480.webp 480w, /img/dallas-limo-and-black-cars-banner-mobile.webp 800w"
                     sizes="100vw">
+                <source
+                    media="(min-width: 768px)"
+                    type="image/webp"
+                    srcset="/img/dallas-limo-and-black-cars-banner.webp"
+                    sizes="100vw">
+                {{-- Mobile-first fallback src so Lighthouse mobile does not fetch the 1600px desktop file --}}
                 <img
-                    src="/img/dallas-limo-and-black-cars-banner.webp"
+                    src="/img/dallas-limo-and-black-cars-banner-mobile-480.webp"
                     alt="Dallas limo and black car service luxury chauffeur"
                     class="hero-lcp-img"
-                    width="1600"
-                    height="1067"
+                    width="480"
+                    height="320"
                     fetchpriority="high"
-                    decoding="sync"
+                    decoding="async"
                     loading="eager"
                 >
             </picture>
@@ -138,7 +144,7 @@
         </style>
     </section>
 
-    <section class="fleet-section py-40 py-sm-50 py-md-50 py-lg-50">
+    <section class="fleet-section py-40 py-sm-50 py-md-50 py-lg-50" style="content-visibility:auto;contain-intrinsic-size:1px 800px">
         <div class="ah-container">
             <div class="row justify-content-center">
                 <div class="text-center col-12 col-xl-10">
@@ -201,7 +207,7 @@ Our fleet includes luxury sedans, black SUVs, executive sprinter vans, and spaci
         </div>
     </section>
 
-<section class="detail-content-section bg-gray py-40 py-sm-50 py-md-50 py-lg-40 seciononeheading">
+<section class="detail-content-section bg-gray py-40 py-sm-50 py-md-50 py-lg-40 seciononeheading" style="content-visibility:auto;contain-intrinsic-size:1px 1200px">
         <div class="ah-container">
             
             <div class="py-20 row align-items-center">
@@ -281,7 +287,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
         </div>
     </section>
 
-    <section class="py-40 py-lg-40">
+    <section class="py-40 py-lg-40" style="content-visibility:auto;contain-intrinsic-size:1px 120px">
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-12">
@@ -312,7 +318,8 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
     </section>
 
     <section
-        class="intercity-ride-section bg-gray pt-40 pb-30 pt-sm-40 pb-sm-35 pt-md-40 pb-md-40 pt-lg-40 pb-lg-40">
+        class="intercity-ride-section bg-gray pt-40 pb-30 pt-sm-40 pb-sm-35 pt-md-40 pb-md-40 pt-lg-40 pb-lg-40"
+        style="content-visibility:auto;contain-intrinsic-size:1px 900px">
         <div class="ah-container">
             <div class="row justify-content-center">
                 <div class="text-center col-12 col-lg-11 col-xl-10 mb-25 mb-md-30 mb-lg-40">
@@ -625,7 +632,7 @@ With our executive corporate black car service in Dallas, you can focus on your 
 
  
 
-    <section class="faqs-section py-40 py-sm-40 py-md-50 py-lg-50">
+    <section class="faqs-section py-40 py-sm-40 py-md-50 py-lg-50" style="content-visibility:auto;contain-intrinsic-size:1px 700px">
         <div class="ah-container">
             <div class="row">
                 <div class="text-center col-12 mb-20 mb-md-15 mb-lg-20">

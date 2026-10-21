@@ -33,7 +33,8 @@
         $needsBookingLibs = !request()->is('dashboard*') && !request()->is('users') && !request()->is('users/*') && !request()->is('invoices*');
         $needsIconFonts = !$isHome;
         $needsSweetAlert = !$isHome || session()->has('success') || session()->has('error') || (isset($errors) && $errors->any());
-        $fontCss = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap';
+        // Fewer font weights = smaller download; 900 still used in theme
+        $fontCss = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap';
         $cssBootstrap = asset('new_assets/css/bootstrap-min.min.css');
         $cssStyle = asset('new_assets/css/style.min.css');
         $cssCustom = asset('assets/css/custom.min.css');
@@ -52,15 +53,48 @@
     {{-- LCP / critical image preloads (homepage hero) --}}
     @stack('preload')
 
-    {{-- Start CSS download immediately, then apply (still render-blocking for layout-critical files) --}}
+    {{-- Layout CSS stays render-blocking so header/navbar never FOUC on refresh --}}
     <link rel="preload" as="style" href="{{ $cssBootstrap }}">
     <link rel="preload" as="style" href="{{ $cssStyle }}">
-    <link rel="preload" as="style" href="{{ $cssCustom }}">
     <link rel="stylesheet" href="{{ $cssBootstrap }}">
     <link rel="stylesheet" href="{{ $cssStyle }}">
-    <link rel="stylesheet" href="{{ $cssCustom }}">
+    @if($isHome)
+        {{-- custom.css is mostly forms/booking polish — load async on homepage only --}}
+        <link rel="preload" as="style" href="{{ $cssCustom }}" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="{{ $cssCustom }}"></noscript>
+        {{-- Minimal form/hero bridge until custom.css arrives --}}
+        <style>
+            .search-tab-wrap{background:#fff;border-radius:8px;box-shadow:0 0 4px #6e6e6e;padding:30px 16px;width:100%;max-width:450px;margin:auto;position:relative}
+            .search-tab-wrap .nav-tabs{display:flex;list-style:none;margin:0;padding:0 0 8px;border:0;position:relative}
+            .search-tab-wrap .nav-tabs .nav-item{flex:1}
+            .search-tab-wrap .nav-link{display:block;text-align:center;padding:8px 12px;font-size:12px;font-weight:600;color:#232323;border:0}
+            .search-tab-wrap .nav-link.active{color:#e52c43}
+            .search-tab-wrap .nav-tabs::after{content:"";position:absolute;left:0;bottom:0;width:50%;height:2px;background:#e52c43;transition:left .4s ease}
+            .search-tab-wrap .nav-tabs:has(.nav-item:nth-child(2) .nav-link.active)::after{left:50%}
+            .floating-bordered-input{position:relative;border:1px solid #c4c4c4;border-radius:4px;padding:0 6px 0 40px;background:#fff;margin-bottom:1.5rem}
+            .floating-bordered-input .floating-label{position:absolute;top:-14px;left:7px;background:#fff;padding:0 6px 10px;font-size:10px;color:#3c3b3b}
+            .floating-bordered-input .form-control{border:none;box-shadow:none;width:100%;padding:12px 0 20px;margin-top:10px;min-height:46px;background:transparent;font-size:15px}
+            .floating-bordered-input .input-icon-left{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#777;pointer-events:none}
+            #hero-banner-container{overflow:hidden;background-color:#0b1c2c;position:relative}
+            .hero-lcp-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;pointer-events:none}
+            .hero-banner-overlay{position:absolute;inset:0;background:rgba(0,0,0,.7);z-index:1;pointer-events:none}
+            @media(max-width:767px){
+                .search-form-mobile{background:#fff;display:block;width:100%}
+                .search-tab-wrap{box-shadow:none;max-width:100%;padding:30px 1px;float:none}
+                #hero-banner-container{min-height:300px!important;height:300px!important;display:flex!important;align-items:center;justify-content:center;margin-left:18px;margin-right:18px}
+            }
+            @media(min-width:768px){
+                #hero-banner-container{min-height:570px}
+                .search-form-wrapper-desktop{position:absolute;width:100%;z-index:10}
+                .search-tab-wrap{float:right;padding:30px 50px}
+            }
+        </style>
+    @else
+        <link rel="preload" as="style" href="{{ $cssCustom }}">
+        <link rel="stylesheet" href="{{ $cssCustom }}">
+    @endif
 
-    {{-- Fonts: non-blocking + display=swap; weights only (no full variable axes / italics) --}}
+    {{-- Fonts: non-blocking + display=swap --}}
     <link rel="preload" as="style" href="{{ $fontCss }}" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
         <link href="{{ $fontCss }}" rel="stylesheet">
@@ -452,19 +486,20 @@
         </div>
     </footer>
 
-    {{-- jQuery: defer on homepage (no blocking). Other pages keep sync for inline @yield scripts. --}}
-    <script src="{{ asset('new_assets/js/jquery.min.js') }}" @if($isHome) defer @endif></script>
+    {{-- Non-home: load jQuery/booking immediately. Homepage: defer until after LCP / first form use. --}}
+    @if(!$isHome)
+        <script src="{{ asset('new_assets/js/jquery.min.js') }}"></script>
+        @if($needsBookingLibs)
+            <script src="{{ asset('assets/js/custom.min.js') }}?v={{ filemtime(public_path('assets/js/custom.min.js')) }}" defer></script>
+        @endif
+    @endif
     @if($needsDataTables)
         <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
         <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
         <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
     @endif
-    @if($needsBookingLibs)
-        <script src="{{ asset('assets/js/custom.min.js') }}?v={{ filemtime(public_path('assets/js/custom.min.js')) }}" defer></script>
-    @endif
     <script src="{{ asset('new_assets/js/bootstrap-min.min.js') }}" defer></script>
-    {{-- Swiper (~150KB) + custom_new: loaded on demand when carousels approach viewport --}}
     @if($needsIntlTel)
         <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js" defer></script>
     @endif
@@ -481,9 +516,15 @@
         function gtag(){ dataLayer.push(arguments); }
 
         (function () {
+            var jqSrc = @json(asset('new_assets/js/jquery.min.js'));
+            var bookingSrc = @json(asset('assets/js/custom.min.js') . '?v=' . filemtime(public_path('assets/js/custom.min.js')));
             var swiperCss = @json(asset('new_assets/css/swiper-min.min.css'));
             var swiperJs = @json(asset('new_assets/js/swiper-min.min.js'));
             var customNewJs = @json(asset('new_assets/js/custom_new.min.js'));
+            var isHome = @json($isHome);
+            var needsBooking = @json($needsBookingLibs);
+            var jqPromise = null;
+            var bookingPromise = null;
             var swiperPromise = null;
 
             function loadScript(src) {
@@ -512,28 +553,36 @@
                 document.head.appendChild(l);
             }
 
-            function whenJqueryReady() {
-                return new Promise(function (resolve) {
-                    if (window.jQuery) {
-                        resolve();
-                        return;
-                    }
-                    var n = 0;
-                    var t = setInterval(function () {
-                        n++;
-                        if (window.jQuery || n > 200) {
-                            clearInterval(t);
-                            resolve();
-                        }
-                    }, 25);
-                });
-            }
+            window.loadJqueryOnce = function () {
+                if (window.jQuery) {
+                    return Promise.resolve();
+                }
+                if (!jqPromise) {
+                    jqPromise = loadScript(jqSrc);
+                }
+                return jqPromise;
+            };
+
+            window.loadBookingCustomOnce = function () {
+                if (!needsBooking) {
+                    return Promise.resolve();
+                }
+                if (typeof window.initAutocomplete === 'function') {
+                    return Promise.resolve();
+                }
+                if (!bookingPromise) {
+                    bookingPromise = window.loadJqueryOnce().then(function () {
+                        return loadScript(bookingSrc);
+                    });
+                }
+                return bookingPromise;
+            };
 
             window.loadSwiperBundleOnce = function () {
                 if (swiperPromise) {
                     return swiperPromise;
                 }
-                swiperPromise = whenJqueryReady().then(function () {
+                swiperPromise = window.loadJqueryOnce().then(function () {
                     loadStylesheet(swiperCss);
                     return loadScript(swiperJs);
                 }).then(function () {
@@ -574,10 +623,12 @@
                     return;
                 }
                 mapsLoading = true;
-                var s = document.createElement('script');
-                s.src = 'https://maps.googleapis.com/maps/api/js?key=' + encodeURIComponent(mapsKey) + '&libraries=places&loading=async&callback=initAutocomplete';
-                s.async = true;
-                document.head.appendChild(s);
+                window.loadBookingCustomOnce().then(function () {
+                    var s = document.createElement('script');
+                    s.src = 'https://maps.googleapis.com/maps/api/js?key=' + encodeURIComponent(mapsKey) + '&libraries=places&loading=async&callback=initAutocomplete';
+                    s.async = true;
+                    document.head.appendChild(s);
+                });
             };
 
             function initDatePickers() {
@@ -604,25 +655,27 @@
                     return;
                 }
                 dateLibsLoading = true;
-                var css = document.createElement('link');
-                css.rel = 'stylesheet';
-                css.href = @json(asset('assets/css/bootstrap-material-datetimepicker.min.css'));
-                document.head.appendChild(css);
-                var icons = document.createElement('link');
-                icons.rel = 'stylesheet';
-                icons.href = 'https://fonts.googleapis.com/icon?family=Material+Icons&display=swap';
-                document.head.appendChild(icons);
-                var momentSrc = 'https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment.min.js';
-                var pickerSrc = @json(asset('assets/js/bootstrap-material-datetimepicker.min.js'));
-                var m = document.createElement('script');
-                m.src = momentSrc;
-                m.onload = function () {
-                    var p = document.createElement('script');
-                    p.src = pickerSrc;
-                    p.onload = initDatePickers;
-                    document.head.appendChild(p);
-                };
-                document.head.appendChild(m);
+                window.loadBookingCustomOnce().then(function () {
+                    var css = document.createElement('link');
+                    css.rel = 'stylesheet';
+                    css.href = @json(asset('assets/css/bootstrap-material-datetimepicker.min.css'));
+                    document.head.appendChild(css);
+                    var icons = document.createElement('link');
+                    icons.rel = 'stylesheet';
+                    icons.href = 'https://fonts.googleapis.com/icon?family=Material+Icons&display=swap';
+                    document.head.appendChild(icons);
+                    var momentSrc = 'https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment.min.js';
+                    var pickerSrc = @json(asset('assets/js/bootstrap-material-datetimepicker.min.js'));
+                    var m = document.createElement('script');
+                    m.src = momentSrc;
+                    m.onload = function () {
+                        var p = document.createElement('script');
+                        p.src = pickerSrc;
+                        p.onload = initDatePickers;
+                        document.head.appendChild(p);
+                    };
+                    document.head.appendChild(m);
+                });
             };
 
             function bindLazyLibs() {
@@ -638,14 +691,35 @@
                     el.addEventListener('focus', window.loadDatePickerLibsOnce, { once: true });
                     el.addEventListener('touchstart', window.loadDatePickerLibsOnce, { once: true, passive: true });
                 });
+                document.querySelectorAll('.search-tab-wrap, .search-form-mobile, .search-form-wrapper-desktop').forEach(function (wrap) {
+                    wrap.addEventListener('focusin', function () {
+                        window.loadBookingCustomOnce();
+                    }, { once: true });
+                });
             }
             @endif
+
+            function warmHomepageLibs() {
+                if (!isHome || !needsBooking) {
+                    return;
+                }
+                window.loadBookingCustomOnce();
+            }
 
             function boot() {
                 @if($needsBookingLibs)
                 bindLazyLibs();
                 @endif
                 observeSwiper();
+                if (isHome && needsBooking) {
+                    if ('requestIdleCallback' in window) {
+                        requestIdleCallback(warmHomepageLibs, { timeout: 3500 });
+                    } else {
+                        window.addEventListener('load', function () {
+                            setTimeout(warmHomepageLibs, 2000);
+                        });
+                    }
+                }
             }
 
             if (document.readyState === 'loading') {
@@ -667,9 +741,9 @@
             document.head.appendChild(s);
         }
         if ('requestIdleCallback' in window) {
-            requestIdleCallback(loadAnalytics, { timeout: 5000 });
+            requestIdleCallback(loadAnalytics, { timeout: 6000 });
         } else {
-            window.addEventListener('load', function () { setTimeout(loadAnalytics, 2500); });
+            window.addEventListener('load', function () { setTimeout(loadAnalytics, 3000); });
         }
 
         (function () {

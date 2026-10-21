@@ -18,6 +18,24 @@ const options = {
 
 function geolocate() {}
 
+/** Run after DOM is ready (works even if this file loads late). */
+function domReady(fn) {
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", fn);
+    } else {
+        fn();
+    }
+}
+
+/** Run after full window load (works even if this file loads late). */
+function onWindowLoad(fn) {
+    if (document.readyState === "complete") {
+        fn();
+    } else {
+        window.addEventListener("load", fn);
+    }
+}
+
 function setHeroMapActive(active) {
     const hero = document.getElementById("hero-banner-container");
     const text = document.getElementById("home-text-content");
@@ -117,7 +135,7 @@ timeInputs.forEach((input) => {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+domReady(function () {
     const $pickup = $(
         "#pickup-location, #pickup-location_mobile, #pickup-location_form",
     );
@@ -275,7 +293,7 @@ function triggerPlaceChangedIfPrefilled() {
 }
 
 // Improved date input handling for mobile devices
-document.addEventListener("DOMContentLoaded", function () {
+domReady(function () {
     const isIOS =
         /iPad|iPhone|iPod/.test(navigator.userAgent) ||
         (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
@@ -1738,9 +1756,9 @@ function setupAutocompleteFix() {
     });
 }
 
-window.addEventListener("load", setupAutocompleteFix);
+onWindowLoad(setupAutocompleteFix);
 // Run when the page fully loads
-window.addEventListener("load", triggerPlaceChangedIfPrefilled);
+onWindowLoad(triggerPlaceChangedIfPrefilled);
 
 // ALSO run when user comes back using browser back/forward buttons
 window.addEventListener("pageshow", function (event) {
