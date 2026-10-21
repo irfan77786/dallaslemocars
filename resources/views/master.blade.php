@@ -26,56 +26,63 @@
     <meta name="twitter:image" content="{{ $seo['og_image'] ?? asset('new_assets/assets/black-car-service-dallas-logo.png') }}">
     <link rel="shortcut icon" href="/img/favicon.png">
 
+    @php
+        $isHome = request()->is('/');
+        $needsDataTables = request()->is('dashboard*') || request()->is('users') || request()->is('users/*') || request()->is('invoices*');
+        $needsIntlTel = request()->is('user-login*') || request()->is('submit-passengerInfo*') || request()->is('contact-us') || request()->is('get-a-quote') || request()->is('bookRide');
+        $needsBookingLibs = !request()->is('dashboard*') && !request()->is('users') && !request()->is('users/*') && !request()->is('invoices*');
+        $needsIconFonts = !$isHome;
+        $needsSweetAlert = !$isHome || session()->has('success') || session()->has('error') || (isset($errors) && $errors->any());
+        $fontCss = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap';
+        $cssBootstrap = asset('new_assets/css/bootstrap-min.min.css');
+        $cssStyle = asset('new_assets/css/style.min.css');
+        $cssCustom = asset('assets/css/custom.min.css');
+    @endphp
+
     {{-- Early connections for third-party origins --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    @if($needsIconFonts || $needsIntlTel || $needsSweetAlert)
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    @endif
     <link rel="dns-prefetch" href="https://maps.googleapis.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 
     {{-- LCP / critical image preloads (homepage hero) --}}
     @stack('preload')
 
-    {{-- Critical CSS only (render-blocking kept minimal) --}}
-    <link rel="stylesheet" href="{{ asset('new_assets/css/bootstrap-min.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('new_assets/css/style.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/custom.min.css') }}">
+    {{-- Start CSS download immediately, then apply (still render-blocking for layout-critical files) --}}
+    <link rel="preload" as="style" href="{{ $cssBootstrap }}">
+    <link rel="preload" as="style" href="{{ $cssStyle }}">
+    <link rel="preload" as="style" href="{{ $cssCustom }}">
+    <link rel="stylesheet" href="{{ $cssBootstrap }}">
+    <link rel="stylesheet" href="{{ $cssStyle }}">
+    <link rel="stylesheet" href="{{ $cssCustom }}">
 
-    {{-- Fonts: non-blocking + display=swap --}}
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    {{-- Fonts: non-blocking + display=swap; weights only (no full variable axes / italics) --}}
+    <link rel="preload" as="style" href="{{ $fontCss }}" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+        <link href="{{ $fontCss }}" rel="stylesheet">
     </noscript>
 
-    @php
-        $needsDataTables = request()->is('dashboard*') || request()->is('users') || request()->is('users/*') || request()->is('invoices*');
-        $needsIntlTel = request()->is('user-login*') || request()->is('submit-passengerInfo*') || request()->is('contact-us') || request()->is('get-a-quote') || request()->is('bookRide');
-        $needsBookingLibs = !request()->is('dashboard*') && !request()->is('users') && !request()->is('users/*') && !request()->is('invoices*');
-    @endphp
-
-    {{-- Non-critical CSS: async (removed unused slick + flatpickr) --}}
-    <link rel="stylesheet" href="{{ asset('new_assets/css/swiper-min.min.css') }}" media="print" onload="this.media='all'">
-    @if($needsBookingLibs)
-        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-material-datetimepicker.min.css') }}" media="print" onload="this.media='all'">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    @endif
+    {{-- Non-critical CSS: async (Swiper CSS loaded on demand with its JS) --}}
     @if($needsIntlTel)
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/css/intlTelInput.min.css" media="print" onload="this.media='all'">
     @endif
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+    @if($needsIconFonts)
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+    @endif
     <noscript>
         <link rel="stylesheet" href="{{ asset('new_assets/css/swiper-min.min.css') }}">
-        @if($needsBookingLibs)
-            <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-material-datetimepicker.min.css') }}">
-            <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet">
-        @endif
         @if($needsIntlTel)
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/css/intlTelInput.min.css">
         @endif
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+        @if($needsIconFonts)
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+        @endif
     </noscript>
 
     @if($needsDataTables)
@@ -101,15 +108,18 @@
                 <div class="col-8 col-lg-3">
                     <div class="logo">
                         <a href="/">
-                            <img src="{{ asset('new_assets/assets/black-car-service-dallas-logo.png') }}" alt="Black Car Service Dallas"
-                                class="img-fluid" width="180" height="48" decoding="async">
+                            <picture>
+                                <source srcset="{{ asset('new_assets/assets/black-car-service-dallas-logo.webp') }}" type="image/webp">
+                                <img src="{{ asset('new_assets/assets/black-car-service-dallas-logo.png') }}" alt="Black Car Service Dallas"
+                                    class="img-fluid" width="360" height="89" decoding="async">
+                            </picture>
                         </a>
                     </div>
                 </div>
                 @if($hideHeaderItems)
                 <div class="col-4 col-lg-9 d-flex align-items-center justify-content-end">
                     <a href="tel:+12148978056" class="text-dark fw-semibold text-decoration-none d-inline-flex align-items-center gap-2">
-                        <i class="fa-solid fa-phone"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64 0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
                         <span>+1 214-897-8056</span>
                     </a>
                 </div>
@@ -442,27 +452,25 @@
         </div>
     </footer>
 
-    <script src="{{ asset('new_assets/js/jquery.min.js') }}"></script>
+    {{-- jQuery: defer on homepage (no blocking). Other pages keep sync for inline @yield scripts. --}}
+    <script src="{{ asset('new_assets/js/jquery.min.js') }}" @if($isHome) defer @endif></script>
     @if($needsDataTables)
         <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
         <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
         <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
     @endif
-
     @if($needsBookingLibs)
-        <script src="{{ asset('assets/js/custom.min.js') }}?v={{ filemtime(public_path('assets/js/custom.min.js')) }}"></script>
+        <script src="{{ asset('assets/js/custom.min.js') }}?v={{ filemtime(public_path('assets/js/custom.min.js')) }}" defer></script>
     @endif
-
     <script src="{{ asset('new_assets/js/bootstrap-min.min.js') }}" defer></script>
-    <script src="{{ asset('new_assets/js/swiper-min.min.js') }}" defer></script>
-    <script src="{{ asset('new_assets/js/custom_new.min.js') }}" defer></script>
-
+    {{-- Swiper (~150KB) + custom_new: loaded on demand when carousels approach viewport --}}
     @if($needsIntlTel)
         <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js" defer></script>
     @endif
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+    @if($needsSweetAlert)
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+    @endif
 
     @if (filled(config('services.turnstile.site_key')) && filled(config('services.turnstile.secret_key')))
         <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -472,8 +480,90 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){ dataLayer.push(arguments); }
 
-        @if($needsBookingLibs)
         (function () {
+            var swiperCss = @json(asset('new_assets/css/swiper-min.min.css'));
+            var swiperJs = @json(asset('new_assets/js/swiper-min.min.js'));
+            var customNewJs = @json(asset('new_assets/js/custom_new.min.js'));
+            var swiperPromise = null;
+
+            function loadScript(src) {
+                return new Promise(function (resolve, reject) {
+                    if (document.querySelector('script[data-src-key="' + src + '"]')) {
+                        resolve();
+                        return;
+                    }
+                    var s = document.createElement('script');
+                    s.src = src;
+                    s.async = true;
+                    s.setAttribute('data-src-key', src);
+                    s.onload = function () { resolve(); };
+                    s.onerror = reject;
+                    document.body.appendChild(s);
+                });
+            }
+
+            function loadStylesheet(href) {
+                if (document.querySelector('link[href="' + href + '"]')) {
+                    return;
+                }
+                var l = document.createElement('link');
+                l.rel = 'stylesheet';
+                l.href = href;
+                document.head.appendChild(l);
+            }
+
+            function whenJqueryReady() {
+                return new Promise(function (resolve) {
+                    if (window.jQuery) {
+                        resolve();
+                        return;
+                    }
+                    var n = 0;
+                    var t = setInterval(function () {
+                        n++;
+                        if (window.jQuery || n > 200) {
+                            clearInterval(t);
+                            resolve();
+                        }
+                    }, 25);
+                });
+            }
+
+            window.loadSwiperBundleOnce = function () {
+                if (swiperPromise) {
+                    return swiperPromise;
+                }
+                swiperPromise = whenJqueryReady().then(function () {
+                    loadStylesheet(swiperCss);
+                    return loadScript(swiperJs);
+                }).then(function () {
+                    return loadScript(customNewJs);
+                });
+                return swiperPromise;
+            };
+
+            function observeSwiper() {
+                var targets = document.querySelectorAll('.logo-swiper, .testimonial-slider');
+                if (!targets.length) {
+                    return;
+                }
+                if (!('IntersectionObserver' in window)) {
+                    window.loadSwiperBundleOnce();
+                    return;
+                }
+                var io = new IntersectionObserver(function (entries) {
+                    for (var i = 0; i < entries.length; i++) {
+                        if (entries[i].isIntersecting) {
+                            io.disconnect();
+                            window.loadSwiperBundleOnce();
+                            break;
+                        }
+                    }
+                }, { rootMargin: '250px 0px' });
+                targets.forEach(function (el) { io.observe(el); });
+            }
+
+            @if($needsBookingLibs)
             var mapsKey = @json(config('services.google_maps.api_key'));
             var mapsLoading = false;
             var dateLibsLoading = false;
@@ -510,13 +600,18 @@
             }
 
             window.loadDatePickerLibsOnce = function () {
-                if (dateLibsReady) {
-                    return;
-                }
-                if (dateLibsLoading) {
+                if (dateLibsReady || dateLibsLoading) {
                     return;
                 }
                 dateLibsLoading = true;
+                var css = document.createElement('link');
+                css.rel = 'stylesheet';
+                css.href = @json(asset('assets/css/bootstrap-material-datetimepicker.min.css'));
+                document.head.appendChild(css);
+                var icons = document.createElement('link');
+                icons.rel = 'stylesheet';
+                icons.href = 'https://fonts.googleapis.com/icon?family=Material+Icons&display=swap';
+                document.head.appendChild(icons);
                 var momentSrc = 'https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment.min.js';
                 var pickerSrc = @json(asset('assets/js/bootstrap-material-datetimepicker.min.js'));
                 var m = document.createElement('script');
@@ -544,13 +639,21 @@
                     el.addEventListener('touchstart', window.loadDatePickerLibsOnce, { once: true, passive: true });
                 });
             }
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', bindLazyLibs);
-            } else {
+            @endif
+
+            function boot() {
+                @if($needsBookingLibs)
                 bindLazyLibs();
+                @endif
+                observeSwiper();
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', boot);
+            } else {
+                boot();
             }
         })();
-        @endif
 
         function loadAnalytics() {
             var s = document.createElement('script');

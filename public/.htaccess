@@ -25,6 +25,11 @@
 # unminified CSS/JS by serving them compressed over the wire.
 # ====================================================================
 
+AddType image/webp .webp
+AddType image/avif .avif
+AddType font/woff2 .woff2
+AddType font/woff .woff
+
 # --------- 1. Compress text-based assets (gzip / deflate) -----------
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript

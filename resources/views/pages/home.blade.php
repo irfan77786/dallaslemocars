@@ -1,7 +1,7 @@
 @extends('master')
 
 @push('preload')
-    <link rel="preload" as="image" href="/img/dallas-limo-and-black-cars-banner-mobile.webp" type="image/webp" media="(max-width: 767px)" fetchpriority="high">
+    <link rel="preload" as="image" href="/img/dallas-limo-and-black-cars-banner-mobile-480.webp" type="image/webp" media="(max-width: 767px)" fetchpriority="high" imagesizes="100vw">
     <link rel="preload" as="image" href="/img/dallas-limo-and-black-cars-banner.webp" type="image/webp" media="(min-width: 768px)" fetchpriority="high">
 @endpush
 
@@ -18,7 +18,11 @@
         <div id="hero-banner-container" class="py-60 ah-container position-relative py-sm-70 py-md-80 py-lg-100" style="z-index: 2;">
             {{-- Real <img> LCP element (better than CSS background for PageSpeed) --}}
             <picture>
-                <source media="(max-width: 767px)" srcset="/img/dallas-limo-and-black-cars-banner-mobile.webp" type="image/webp">
+                <source
+                    media="(max-width: 767px)"
+                    type="image/webp"
+                    srcset="/img/dallas-limo-and-black-cars-banner-mobile-480.webp 480w, /img/dallas-limo-and-black-cars-banner-mobile.webp 800w"
+                    sizes="100vw">
                 <img
                     src="/img/dallas-limo-and-black-cars-banner.webp"
                     alt="Dallas limo and black car service luxury chauffeur"
@@ -26,7 +30,8 @@
                     width="1600"
                     height="1067"
                     fetchpriority="high"
-                    decoding="async"
+                    decoding="sync"
+                    loading="eager"
                 >
             </picture>
             {{-- Same dark overlay as About Us (.home-banner-section .ah-container:after) --}}
@@ -77,6 +82,21 @@
                 background: rgba(0, 0, 0, 0.7);
                 z-index: 1;
                 pointer-events: none;
+            }
+            /* When map is shown: hide banner image/overlay/headline so map is fully visible */
+            #hero-banner-container.map-active .hero-lcp-img,
+            #hero-banner-container.map-active .hero-banner-overlay {
+                opacity: 0;
+                visibility: hidden;
+            }
+            #hero-banner-container.map-active #home-text-content {
+                visibility: hidden !important;
+                pointer-events: none !important;
+            }
+            #hero-banner-container.map-active #map {
+                display: block !important;
+                z-index: 1;
+                background: #e8eef5;
             }
             @media (max-width: 767px) {
                 #hero-banner-container {
@@ -162,7 +182,16 @@ Our fleet includes luxury sedans, black SUVs, executive sprinter vans, and spaci
             <div class="row">
                 <div class="col-12">
                     <div class="img-holder">
-                        <img src="{{ asset('new_assets/assets/fleet-img.webp') }}" alt="Fleet Image" class="img-fluid" loading="lazy" decoding="async" width="1200" height="675">
+                        <img
+                            src="{{ asset('new_assets/assets/fleet-img-1200.webp') }}"
+                            srcset="{{ asset('new_assets/assets/fleet-img-800.webp') }} 800w, {{ asset('new_assets/assets/fleet-img-1200.webp') }} 1200w, {{ asset('new_assets/assets/fleet-img.webp') }} 2300w"
+                            sizes="(max-width: 767px) 100vw, (max-width: 1199px) 90vw, 1140px"
+                            alt="Fleet Image"
+                            class="img-fluid"
+                            loading="lazy"
+                            decoding="async"
+                            width="2300"
+                            height="600">
                     </div>
                 </div>
                 <div class="text-center col-12 pt-15">
@@ -178,7 +207,7 @@ Our fleet includes luxury sedans, black SUVs, executive sprinter vans, and spaci
             <div class="py-20 row align-items-center">
                 <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport-mobile.webp" class="img-fluid" alt="luxury black car service in Dallas Texas with professional chauffeur" loading="lazy" decoding="async" width="600" height="400">
+                        <img src="/img/dallas-black-car-service-dfw-love-field-airport-mobile.webp" class="img-fluid" alt="luxury black car service in Dallas Texas with professional chauffeur" loading="lazy" decoding="async" width="557" height="330">
                     </div>
                 </div>
                 
@@ -196,7 +225,7 @@ Serving Downtown Dallas, Plano, Frisco, Irving, McKinney, and the entire DFW met
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="premium Dallas limo and black car airport transfer service" loading="lazy" decoding="async" width="800" height="600">
+                        <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="premium Dallas limo and black car airport transfer service" loading="lazy" decoding="async" width="826" height="492">
                     </div>
                 </div>
             </div>
@@ -204,7 +233,7 @@ Serving Downtown Dallas, Plano, Frisco, Irving, McKinney, and the entire DFW met
             <div class="flex-row-reverse py-20 row align-items-center">
                 <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt="DFW airport black car service luxury chauffeur pickup" loading="lazy" decoding="async" width="600" height="400">
+                        <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt="DFW airport black car service luxury chauffeur pickup" loading="lazy" decoding="async" width="557" height="330">
                     </div>
                 </div>
                 <div class="mb-20 col-12 col-md-6 pr-xl-50">
@@ -220,14 +249,14 @@ Our professional chauffeurs prioritize punctuality, discretion, and reliability,
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="luxury chauffeur service for business meetings Dallas" loading="lazy" decoding="async" width="800" height="600">
+                        <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="luxury chauffeur service for business meetings Dallas" loading="lazy" decoding="async" width="826" height="492">
                     </div>
                 </div>
             </div>
                <div class="py-20 row align-items-center">
                   <div class="col-12 col-md-6 h-100 only-m">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service-mobile.webp" class="img-fluid" alt="luxury sedan black car service Dallas Texas" loading="lazy" decoding="async" width="600" height="400">
+                        <img src="/img/dallas-city-to-city-black-car-service-mobile.webp" class="img-fluid" alt="luxury sedan black car service Dallas Texas" loading="lazy" decoding="async" width="557" height="330">
                     </div>
                 </div>
                 
@@ -243,7 +272,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 </div>
                 <div class="col-12 col-md-6 h-100 only-d">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service.webp" class="img-fluid" alt="stretch limousine service Dallas Texas luxury limo ride" loading="lazy" decoding="async" width="800" height="600">
+                        <img src="/img/dallas-city-to-city-black-car-service.webp" class="img-fluid" alt="stretch limousine service Dallas Texas luxury limo ride" loading="lazy" decoding="async" width="826" height="492">
                     </div>
                 </div>
             </div>
@@ -296,7 +325,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-austin.webp" alt="Top City" class="img-fluid" loading="lazy" decoding="async" width="640" height="400">
+                            <img src="/img/black-car-service-austin.webp" alt="Top City" class="img-fluid" loading="lazy" decoding="async" width="450" height="215">
                         </div>
                         <div class="city-details p-15 position-absolute">
                            <div class="row">
@@ -321,7 +350,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-college-station.webp" alt="Top City" class="img-fluid" loading="lazy" decoding="async" width="640" height="400">
+                            <img src="/img/black-car-service-college-station.webp" alt="Top City" class="img-fluid" loading="lazy" decoding="async" width="450" height="215">
                         </div>
                         <div class="city-details p-15 position-absolute">
                       <div class="row">
@@ -345,7 +374,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-houston.webp" alt="Top City" class="img-fluid" loading="lazy" decoding="async" width="640" height="400">
+                            <img src="/img/black-car-service-houston.webp" alt="Top City" class="img-fluid" loading="lazy" decoding="async" width="450" height="215">
                         </div>
                         <div class="city-details p-15 position-absolute">
                           
@@ -372,7 +401,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-sherman.webp" alt="Top City" class="img-fluid" loading="lazy" decoding="async" width="640" height="400">
+                            <img src="/img/black-car-service-sherman.webp" alt="Top City" class="img-fluid" loading="lazy" decoding="async" width="450" height="215">
                         </div>
                         <div class="city-details p-15 position-absolute">
                               <div class="row">
@@ -396,7 +425,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-tyler.webp" alt="Top City" class="img-fluid" loading="lazy" decoding="async" width="640" height="400">
+                            <img src="/img/black-car-service-tyler.webp" alt="Top City" class="img-fluid" loading="lazy" decoding="async" width="450" height="215">
                         </div>
                         <div class="city-details p-15 position-absolute">
                              <div class="row">
@@ -420,7 +449,7 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                 <div class="col-12 col-sm-6 col-lg-4">
                     <article class="mb-20 top-cities-item mb-sm-25 mb-md-30">
                         <div class="img-holder">
-                            <img src="/img/black-car-service-waco.webp" alt="Top City" class="img-fluid" loading="lazy" decoding="async" width="640" height="400">
+                            <img src="/img/black-car-service-waco.webp" alt="Top City" class="img-fluid" loading="lazy" decoding="async" width="450" height="215">
                         </div>
                         <div class="city-details p-15 position-absolute">
                               <div class="row">
@@ -613,7 +642,7 @@ With our executive corporate black car service in Dallas, you can focus on your 
                                 aria-expanded="false" aria-controls="accordion01-collapseOne">
                                What areas does your Dallas black car service cover?
                                 <span class="chevron-icon ms-auto">
-                                    <img src="{{ asset('new_assets/assets/chevron-down.svg') }}" width="20" alt="chevron" class="img-fluid">
+                                    <img src="{{ asset('new_assets/assets/chevron-down.svg') }}" width="20" height="20" alt="chevron" class="img-fluid" loading="lazy" decoding="async">
                                 </span>
                             </button>
                         </h2>
@@ -635,7 +664,7 @@ With our executive corporate black car service in Dallas, you can focus on your 
                                 aria-expanded="false" aria-controls="accordion01-collapseTwo">
                                 Do you provide airport transfers to DFW and Love Field Airport?
                                 <span class="chevron-icon ms-auto">
-                                    <img src="{{ asset('new_assets/assets/chevron-down.svg') }}" width="20" alt="chevron" class="img-fluid">
+                                    <img src="{{ asset('new_assets/assets/chevron-down.svg') }}" width="20" height="20" alt="chevron" class="img-fluid" loading="lazy" decoding="async">
                                 </span>
                             </button>
                         </h2>
@@ -657,7 +686,7 @@ With our executive corporate black car service in Dallas, you can focus on your 
                                 aria-expanded="false" aria-controls="accordion01-collapseThree">
                                 Is your black car service available for corporate travel?
                                 <span class="chevron-icon ms-auto">
-                                    <img src="{{ asset('new_assets/assets/chevron-down.svg') }}" width="20" alt="chevron" class="img-fluid">
+                                    <img src="{{ asset('new_assets/assets/chevron-down.svg') }}" width="20" height="20" alt="chevron" class="img-fluid" loading="lazy" decoding="async">
                                 </span>
                             </button>
                         </h2>
@@ -680,7 +709,7 @@ With our executive corporate black car service in Dallas, you can focus on your 
                                 aria-expanded="false" aria-controls="accordion01-collapseFour">
                                 Can I book city-to-city black car service from Dallas?
                                 <span class="chevron-icon ms-auto">
-                                    <img src="{{ asset('new_assets/assets/chevron-down.svg') }}" width="20" alt="chevron" class="img-fluid">
+                                    <img src="{{ asset('new_assets/assets/chevron-down.svg') }}" width="20" height="20" alt="chevron" class="img-fluid" loading="lazy" decoding="async">
                                 </span>
                             </button>
                         </h2>
@@ -706,7 +735,7 @@ With our executive corporate black car service in Dallas, you can focus on your 
                                 aria-expanded="false" aria-controls="accordion01-collapseFive">
                                 How do I book your Dallas black car service?
                                 <span class="chevron-icon ms-auto">
-                                    <img src="{{ asset('new_assets/assets/chevron-down.svg') }}" width="20" alt="chevron" class="img-fluid">
+                                    <img src="{{ asset('new_assets/assets/chevron-down.svg') }}" width="20" height="20" alt="chevron" class="img-fluid" loading="lazy" decoding="async">
                                 </span>
                             </button>
                         </h2>
@@ -729,7 +758,7 @@ With our executive corporate black car service in Dallas, you can focus on your 
                                 aria-expanded="false" aria-controls="accordion01-collapseSix">
                                 What types of vehicles are available in your fleet?
                                 <span class="chevron-icon ms-auto">
-                                    <img src="{{ asset('new_assets/assets/chevron-down.svg') }}" width="20" alt="chevron" class="img-fluid">
+                                    <img src="{{ asset('new_assets/assets/chevron-down.svg') }}" width="20" height="20" alt="chevron" class="img-fluid" loading="lazy" decoding="async">
                                 </span>
                             </button>
                         </h2>
@@ -751,7 +780,7 @@ With our executive corporate black car service in Dallas, you can focus on your 
                                 aria-expanded="false" aria-controls="accordion01-collapseSeven">
                                 Are your chauffeurs professionally trained?
                                 <span class="chevron-icon ms-auto">
-                                    <img src="{{ asset('new_assets/assets/chevron-down.svg') }}" width="20" alt="chevron" class="img-fluid">
+                                    <img src="{{ asset('new_assets/assets/chevron-down.svg') }}" width="20" height="20" alt="chevron" class="img-fluid" loading="lazy" decoding="async">
                                 </span>
                             </button>
                         </h2>
@@ -771,7 +800,7 @@ With our executive corporate black car service in Dallas, you can focus on your 
                                 aria-expanded="false" aria-controls="accordion01-collapseEight">
                                 Why choose your Dallas black car service?
                                 <span class="chevron-icon ms-auto">
-                                    <img src="{{ asset('new_assets/assets/chevron-down.svg') }}" width="20" alt="chevron" class="img-fluid">
+                                    <img src="{{ asset('new_assets/assets/chevron-down.svg') }}" width="20" height="20" alt="chevron" class="img-fluid" loading="lazy" decoding="async">
                                 </span>
                             </button>
                         </h2>

@@ -18,6 +18,19 @@ const options = {
 
 function geolocate() {}
 
+function setHeroMapActive(active) {
+    const hero = document.getElementById("hero-banner-container");
+    const text = document.getElementById("home-text-content");
+    if (hero) {
+        hero.classList.toggle("map-active", !!active);
+    }
+    if (text) {
+        text.style.visibility = active ? "hidden" : "visible";
+        text.style.pointerEvents = active ? "none" : "auto";
+    }
+}
+window.setHeroMapActive = setHeroMapActive;
+
 function resetMap() {
     const mapElement = document.getElementById("map");
     $(window).width() < 768 ? $(".mobile-hero").show() : $(".web-hero").show();
@@ -73,9 +86,7 @@ function resetMap() {
         mapElement.style.removeProperty("display");
     }
 
-    // Show the header text content again
-    $("#home-text-content").css("visibility", "visible");
-    $("#home-text-content").css("pointer-events", "auto");
+    setHeroMapActive(false);
 
     pickupPlacePoint = null;
     dropoffPlacePoint = null;
@@ -255,15 +266,7 @@ function triggerPlaceChangedIfPrefilled() {
                 }
 
                 document.getElementById("map").style.display = "block";
-                // Hide header text when map is shown via prefill
-                if (document.getElementById("home-text-content")) {
-                    document.getElementById(
-                        "home-text-content",
-                    ).style.visibility = "hidden";
-                    document.getElementById(
-                        "home-text-content",
-                    ).style.pointerEvents = "none";
-                }
+                setHeroMapActive(true);
 
                 initMap(pickupPlace, dropoffPlace); // Show whatever location is available
             });
@@ -597,6 +600,7 @@ let dropoffPlacePoint = null;
 function handlePointToPointUpdate() {
     if (pickupPlacePoint || dropoffPlacePoint) {
         document.getElementById("map").style.display = "block";
+        setHeroMapActive(true);
         initMap(pickupPlacePoint, dropoffPlacePoint);
     }
 }
@@ -815,9 +819,7 @@ function onLocationChanged() {
             // Fade out effect
             $(mapElement).fadeOut(animationDuration);
             $("#hide_on_map").fadeIn(animationDuration);
-            // Show header text
-            $("#home-text-content").css("visibility", "visible");
-            $("#home-text-content").css("pointer-events", "auto");
+            setHeroMapActive(false);
         }
     } else if (map) {
         // Ensure map is visible
@@ -825,9 +827,7 @@ function onLocationChanged() {
             mapElement.style.display = "block";
             $("#hide_on_map").hide();
             $(mapElement).hide().fadeIn(animationDuration);
-            // Hide header text
-            $("#home-text-content").css("visibility", "hidden");
-            $("#home-text-content").css("pointer-events", "none");
+            setHeroMapActive(true);
         }
 
         // Animate to the appropriate marker
@@ -985,7 +985,9 @@ function initMap(pickupPlace, dropoffPlace) {
         mapElement.style.removeProperty("background-size");
         mapElement.style.removeProperty("background-position");
         mapElement.style.removeProperty("background-repeat");
+        mapElement.style.display = "block";
         $(".below-map").removeClass("main-hero");
+        setHeroMapActive(true);
     }
 
     const mapStyle = [
@@ -1415,8 +1417,7 @@ function calculateRoute(swapped = false) {
     const mapDisplayElement = document.getElementById("map");
     if (mapDisplayElement) {
         mapDisplayElement.style.display = "block";
-        $("#home-text-content").css("visibility", "hidden");
-        $("#home-text-content").css("pointer-events", "none");
+        setHeroMapActive(true);
     }
 
     // Get and display the route

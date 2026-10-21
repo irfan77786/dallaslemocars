@@ -79,10 +79,20 @@
             });
         @endif
     }
-    if (typeof Swal !== 'undefined') {
-        runSwal();
+    function startSwal() {
+        if (typeof Swal !== 'undefined') {
+            runSwal();
+            return;
+        }
+        var s = document.createElement('script');
+        s.src = 'https://cdn.jsdelivr.net/npm/sweetalert2@11';
+        s.onload = runSwal;
+        document.body.appendChild(s);
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', startSwal);
     } else {
-        window.addEventListener('load', runSwal);
+        startSwal();
     }
 })();
 </script>
