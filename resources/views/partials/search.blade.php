@@ -204,7 +204,7 @@ $tabSuffix = $id_suffix ?? '';
                     <button type="submit" class="btn btn-primary w-100 search_btn point-button"
                         style="text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; font-size: 0.8rem;line-height: 2;">
                         Get My Prices
-                        <i class="fa-solid fa-arrow-right" style="font-size: 14px; margin: 2px;"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true" style="margin: 2px; vertical-align: -2px;"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.8 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
                     </button>
 
                 </form>
@@ -244,7 +244,7 @@ $tabSuffix = $id_suffix ?? '';
                     <!-- Select Hours -->
                     <div class="floating-bordered-input position-relative rlx-theme">
                         <span class="floating-label">Select Duration</span>
-                        <span class="input-icon-left"><i class="bi bi-clock-fill"></i></span>
+                        <span class="input-icon-left"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/></svg></span>
 
                         <div class="rlx-select" id="rlx-hours{{ $tabSuffix }}" data-name="select_hours"
                             data-initial="{{ session('select_hours') ?? '' }}">
@@ -314,7 +314,7 @@ $tabSuffix = $id_suffix ?? '';
                     <button type="submit" class="btn btn-primary w-100 search_btn point-button"
                         style="text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; font-size: 0.8rem;line-height: 2;">
                         Get My Prices
-                        <i class="fa-solid fa-arrow-right" style="font-size: 14px; margin: 2px;"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true" style="margin: 2px; vertical-align: -2px;"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.8 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
                     </button>
                 </form>
             </div>
