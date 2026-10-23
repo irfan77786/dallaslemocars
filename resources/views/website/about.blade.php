@@ -293,11 +293,7 @@ With a luxury fleet, experienced chauffeurs, and a service-first approach, we co
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <h3 class="mb-1 text-white h6">Dallas
-                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                        data-testid="ChevronRightIcon">
-                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                    </svg>
+                                    <svg class="ic" width="20" height="20" aria-hidden="true"><use href="#ic-chevron"></use></svg>
                                     Austin
                                 </h3>
                             </div>
@@ -317,11 +313,7 @@ With a luxury fleet, experienced chauffeurs, and a service-first approach, we co
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <h3 class="mb-1 text-white h6">Dallas
-                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                        data-testid="ChevronRightIcon">
-                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                    </svg>
+                                    <svg class="ic" width="20" height="20" aria-hidden="true"><use href="#ic-chevron"></use></svg>
                                     College Station
                                 </h3>
                             </div>
@@ -341,11 +333,7 @@ With a luxury fleet, experienced chauffeurs, and a service-first approach, we co
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <h3 class="mb-1 text-white h6">Dallas
-                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                        data-testid="ChevronRightIcon">
-                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                    </svg>
+                                    <svg class="ic" width="20" height="20" aria-hidden="true"><use href="#ic-chevron"></use></svg>
                                     Houston
                                 </h3>
                             </div>
@@ -365,11 +353,7 @@ With a luxury fleet, experienced chauffeurs, and a service-first approach, we co
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <h3 class="mb-1 text-white h6">Dallas
-                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                        data-testid="ChevronRightIcon">
-                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                    </svg>
+                                    <svg class="ic" width="20" height="20" aria-hidden="true"><use href="#ic-chevron"></use></svg>
                                      Sherman
                                 </h3>
                             </div>
@@ -389,11 +373,7 @@ With a luxury fleet, experienced chauffeurs, and a service-first approach, we co
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <h3 class="mb-1 text-white h6">Dallas
-                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                        data-testid="ChevronRightIcon">
-                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                    </svg>
+                                    <svg class="ic" width="20" height="20" aria-hidden="true"><use href="#ic-chevron"></use></svg>
                                     Tyler
                                 </h3>
                             </div>
@@ -413,11 +393,7 @@ With a luxury fleet, experienced chauffeurs, and a service-first approach, we co
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <h3 class="mb-1 text-white h6">Dallas
-                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                        focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                        data-testid="ChevronRightIcon">
-                                        <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                    </svg>
+                                    <svg class="ic" width="20" height="20" aria-hidden="true"><use href="#ic-chevron"></use></svg>
                                     Waco
                                 </h3>
                             </div>

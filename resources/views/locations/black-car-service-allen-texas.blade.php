@@ -304,11 +304,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                            <div class="row">
                            <div class="col-md-6 col-sm-6">
                             <h3 class="mb-1 text-white h6">Allen
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
+                                <svg class="ic" width="20" height="20" aria-hidden="true"><use href="#ic-chevron"></use></svg>
                                 Dallas
                             </h3>
                             </div>
@@ -329,11 +325,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                       <div class="row">
                            <div class="col-md-6 col-sm-6">
                             <h3 class="mb-1 text-white h6">Allen
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
+                                <svg class="ic" width="20" height="20" aria-hidden="true"><use href="#ic-chevron"></use></svg>
                                 Plano
                             </h3>
                             </div>
@@ -354,11 +346,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                               <div class="row">
                            <div class="col-md-6 col-sm-6">
                             <h3 class="mb-1 text-white h6">Allen
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
+                                <svg class="ic" width="20" height="20" aria-hidden="true"><use href="#ic-chevron"></use></svg>
                                 DFW Airport
                             </h3>
                             </div>
@@ -380,11 +368,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                               <div class="row">
                            <div class="col-md-6 col-sm-6">
                             <h3 class="mb-1 text-white h6">Allen
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
+                                <svg class="ic" width="20" height="20" aria-hidden="true"><use href="#ic-chevron"></use></svg>
                                  McKinney
                             </h3>
                             </div>
@@ -404,11 +388,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                              <div class="row">
                            <div class="col-md-6 col-sm-6">
                             <h3 class="mb-1 text-white h6">Allen
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
+                                <svg class="ic" width="20" height="20" aria-hidden="true"><use href="#ic-chevron"></use></svg>
                                 Frisco
                             </h3>
                             </div>
@@ -428,11 +408,7 @@ Our luxury fleet includes executive sedans, spacious SUVs, and premium vehicles 
                               <div class="row">
                            <div class="col-md-6 col-sm-6">
                             <h3 class="mb-1 text-white h6">Allen
-                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
-                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
-                                    data-testid="ChevronRightIcon">
-                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
-                                </svg>
+                                <svg class="ic" width="20" height="20" aria-hidden="true"><use href="#ic-chevron"></use></svg>
                                 Love Field
                             </h3>
                             </div>
