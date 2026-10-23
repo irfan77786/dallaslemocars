@@ -67,6 +67,81 @@
             </div>
         </div>
 
+        <style>
+            #hero-banner-container {
+                overflow: hidden;
+                background-color: #0b1c2c;
+            }
+            .hero-lcp-img {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center center;
+                z-index: 0;
+                pointer-events: none;
+            }
+            .hero-banner-overlay {
+                position: absolute;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.7);
+                z-index: 1;
+                pointer-events: none;
+            }
+            /* When map is shown: hide banner image/overlay/headline so map is fully visible */
+            #hero-banner-container.map-active .hero-lcp-img,
+            #hero-banner-container.map-active .hero-banner-overlay {
+                opacity: 0;
+                visibility: hidden;
+            }
+            #hero-banner-container.map-active #home-text-content {
+                visibility: hidden !important;
+                pointer-events: none !important;
+            }
+            #hero-banner-container.map-active #map {
+                display: block !important;
+                z-index: 1;
+                background: #e8eef5;
+            }
+            @media (max-width: 767px) {
+                #hero-banner-container {
+                    min-height: 300px !important;
+                    height: 300px !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                }
+                #hero-banner-container .row {
+                    width: 100%;
+                    margin: 0;
+                    justify-content: center !important;
+                    align-items: center !important;
+                }
+                #home-text-content {
+                    justify-content: center !important;
+                    align-items: center !important;
+                    text-align: center !important;
+                }
+                #home-text-content h1 {
+                    text-align: center !important;
+                    white-space: nowrap !important;
+                }
+            }
+            @media (min-width: 768px) {
+                #hero-banner-container {
+                    min-height: 570px;
+                }
+                #home-text-content {
+                    margin-top: 130px;
+                }
+                .search-form-wrapper-desktop {
+                    position: absolute;
+                    width: 100%;
+                    z-index: 10;
+                }
+            }
+        </style>
     </section>
 
     <section class="fleet-section py-40 py-sm-50 py-md-50 py-lg-50" style="content-visibility:auto;contain-intrinsic-size:1px 800px">
@@ -263,7 +338,11 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                            <div class="row">
                            <div class="col-md-6 col-sm-6">
                             <h3 class="mb-1 text-white h6">Dallas
-                                <svg class="ic" width="20" height="20" aria-hidden="true"><use href="#ic-chevron"></use></svg>
+                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                    data-testid="ChevronRightIcon">
+                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                </svg>
                                 Austin
                             </h3>
                             </div>
@@ -284,7 +363,11 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                       <div class="row">
                            <div class="col-md-6 col-sm-6">
                             <h3 class="mb-1 text-white h6">Dallas
-                                <svg class="ic" width="20" height="20" aria-hidden="true"><use href="#ic-chevron"></use></svg>
+                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                    data-testid="ChevronRightIcon">
+                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                </svg>
                                 College Station
                             </h3>
                             </div>
@@ -305,7 +388,11 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                               <div class="row">
                            <div class="col-md-6 col-sm-6">
                             <h3 class="mb-1 text-white h6">Dallas
-                                <svg class="ic" width="20" height="20" aria-hidden="true"><use href="#ic-chevron"></use></svg>
+                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                    data-testid="ChevronRightIcon">
+                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                </svg>
                                 Houston
                             </h3>
                             </div>
@@ -327,7 +414,11 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                               <div class="row">
                            <div class="col-md-6 col-sm-6">
                             <h3 class="mb-1 text-white h6">Dallas
-                                <svg class="ic" width="20" height="20" aria-hidden="true"><use href="#ic-chevron"></use></svg>
+                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                    data-testid="ChevronRightIcon">
+                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                </svg>
                                  Sherman
                             </h3>
                             </div>
@@ -347,7 +438,11 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                              <div class="row">
                            <div class="col-md-6 col-sm-6">
                             <h3 class="mb-1 text-white h6">Dallas
-                                <svg class="ic" width="20" height="20" aria-hidden="true"><use href="#ic-chevron"></use></svg>
+                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                    data-testid="ChevronRightIcon">
+                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                </svg>
                                 Tyler
                             </h3>
                             </div>
@@ -367,7 +462,11 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
                               <div class="row">
                            <div class="col-md-6 col-sm-6">
                             <h3 class="mb-1 text-white h6">Dallas
-                                <svg class="ic" width="20" height="20" aria-hidden="true"><use href="#ic-chevron"></use></svg>
+                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-style-nw1xan"
+                                    focusable="false" aria-hidden="true" width="20" viewBox="0 0 24 24"
+                                    data-testid="ChevronRightIcon">
+                                    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#fff"></path>
+                                </svg>
                                 Waco
                             </h3>
                             </div>

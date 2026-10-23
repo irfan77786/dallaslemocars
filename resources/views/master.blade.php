@@ -62,6 +62,7 @@
         {{-- custom.css is mostly forms/booking polish — load async on homepage only --}}
         <link rel="preload" as="style" href="{{ $cssCustom }}" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="{{ $cssCustom }}"></noscript>
+        {{-- Minimal form/hero bridge until custom.css arrives --}}
         <style>
             .search-tab-wrap{background:#fff;border-radius:8px;box-shadow:0 0 4px #6e6e6e;padding:30px 16px;width:100%;max-width:450px;margin:auto;position:relative}
             .search-tab-wrap .nav-tabs{display:flex;list-style:none;margin:0;padding:0 0 8px;border:0;position:relative}
@@ -124,11 +125,9 @@
     @endif
 
     @yield('styles')
-    <link rel="stylesheet" href="{{ asset('assets/css/page-shell.css') }}?v={{ filemtime(base_path('assets/css/page-shell.css')) }}">
 </head>
 
-<body @class(['page-home' => $isHome])>
-    @include('partials.icon-sprite')
+<body>
     @php
         $hideHeaderItems = request()->is('booking/point-to-point')
             || request()->is('booking/point-to-point/*')
@@ -154,7 +153,7 @@
                 @if($hideHeaderItems)
                 <div class="col-4 col-lg-9 d-flex align-items-center justify-content-end">
                     <a href="tel:+12148978056" class="text-dark fw-semibold text-decoration-none d-inline-flex align-items-center gap-2">
-                        <svg class="ic" width="14" height="14" aria-hidden="true"><use href="#ic-phone"></use></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64 0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
                         <span>+1 214-897-8056</span>
                     </a>
                 </div>
@@ -164,7 +163,12 @@
                         <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
-                            <svg class="ic" width="28" height="28" aria-hidden="true"><use href="#ic-menu"></use></svg>
+                            <svg width="28px" height="28px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 18L20 18" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                                <path d="M4 12L20 12" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                                <path d="M4 6L20 6" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                            </svg>
                         </button>
                         <div class="collapse navbar-collapse ms-auto" id="navbarSupportedContent">
                             <ul class="mb-2 navbar-nav ms-auto mb-lg-0">
@@ -281,22 +285,34 @@
         <div class="py-30 d-md-none social-network-link">
             <ul class="mb-0 list-unstyled d-flex justify-content-center">
                 <li class="mx-15"><a href="https://www.facebook.com/dallaslimoandblackcars">
-                        <svg class="ic" width="30" height="30" aria-hidden="true"><use href="#ic-facebook"></use></svg>
+                        <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                            <path
+                                d="M240 363.3L240 576L356 576L356 363.3L442.5 363.3L460.5 265.5L356 265.5L356 230.9C356 179.2 376.3 159.4 428.7 159.4C445 159.4 458.1 159.8 465.7 160.6L465.7 71.9C451.4 68 416.4 64 396.2 64C289.3 64 240 114.5 240 223.4L240 265.5L174 265.5L174 363.3L240 363.3z" />
+                        </svg>
                     </a></li>
              <li class="mx-15">
     <a href="https://www.instagram.com/dallaslimoandblackcars/" target="_blank">
-        <svg class="ic" width="30" height="30" aria-hidden="true"><use href="#ic-instagram"></use></svg>
+        <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+            <path fill="#b1b8c3"
+                d="M320.3 205C256.8 204.8 205.2 256.2 205 319.7C204.8 383.2 256.2 434.8 319.7 435C383.2 435.2 434.8 383.8 435 320.3C435.2 256.8 383.8 205.2 320.3 205zM319.7 245.4C360.9 245.2 394.4 278.5 394.6 319.7C394.8 360.9 361.5 394.4 320.3 394.6C279.1 394.8 245.6 361.5 245.4 320.3C245.2 279.1 278.5 245.6 319.7 245.4zM413.1 200.3C413.1 185.5 425.1 173.5 439.9 173.5C454.7 173.5 466.7 185.5 466.7 200.3C466.7 215.1 454.7 227.1 439.9 227.1C425.1 227.1 413.1 215.1 413.1 200.3zM542.8 227.5C541.1 191.6 532.9 159.8 506.6 133.6C480.4 107.4 448.6 99.2 412.7 97.4C375.7 95.3 264.8 95.3 227.8 97.4C192 99.1 160.2 107.3 133.9 133.5C107.6 159.7 99.5 191.5 97.7 227.4C95.6 264.4 95.6 375.3 97.7 412.3C99.4 448.2 107.6 480 133.9 506.2C160.2 532.4 191.9 540.6 227.8 542.4C264.8 544.5 375.7 544.5 412.7 542.4C448.6 540.7 480.4 532.5 506.6 506.2C532.8 480 541 448.2 542.8 412.3C544.9 375.3 544.9 264.5 542.8 227.5zM495 452C487.2 471.6 472.1 486.7 452.4 494.6C422.9 506.3 352.9 503.6 320.3 503.6C287.7 503.6 217.6 506.2 188.2 494.6C168.6 486.8 153.5 471.7 145.6 452C133.9 422.5 136.6 352.5 136.6 319.9C136.6 287.3 134 217.2 145.6 187.8C153.4 168.2 168.5 153.1 188.2 145.2C217.7 133.5 287.7 136.2 320.3 136.2C352.9 136.2 423 133.6 452.4 145.2C472 153 487.1 168.1 495 187.8C506.7 217.3 504 287.3 504 319.9C504 352.5 506.7 422.6 495 452z"/>
+        </svg>
     </a>
 </li>
 
              <li class="mx-15">
     <a href="https://www.youtube.com/@dallaslimoandblackcars" target="_blank">
-        <svg class="ic" width="30" height="30" aria-hidden="true"><use href="#ic-youtube"></use></svg>
+        <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path fill="#b1b8c3"
+                d="M549.7 124.1C543.3 100 524.5 81.2 500.4 74.8C456.3 64 288 64 288 64S119.7 64 75.6 74.8C51.5 81.2 32.7 100 26.3 124.1C15.5 168.3 15.5 256 15.5 256S15.5 343.7 26.3 387.9C32.7 412 51.5 430.8 75.6 437.2C119.7 448 288 448 288 448S456.3 448 500.4 437.2C524.5 430.8 543.3 412 549.7 387.9C560.5 343.7 560.5 256 560.5 256S560.5 168.3 549.7 124.1zM232 338.3V173.7L361.8 256L232 338.3z"/>
+        </svg>
     </a>
 </li>
 
                 <li class="mx-15"><a href="https://x.com/DallasBlackLimo">
-                        <svg class="ic" width="30" height="30" aria-hidden="true"><use href="#ic-x"></use></svg>
+                        <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                            <path
+                                d="M523.4 215.7C523.7 220.2 523.7 224.8 523.7 229.3C523.7 368 418.1 527.9 225.1 527.9C165.6 527.9 110.4 510.7 64 480.8C72.4 481.8 80.6 482.1 89.3 482.1C138.4 482.1 183.5 465.5 219.6 437.3C173.5 436.3 134.8 406.1 121.5 364.5C128 365.5 134.5 366.1 141.3 366.1C150.7 366.1 160.1 364.8 168.9 362.5C120.8 352.8 84.8 310.5 84.8 259.5L84.8 258.2C98.8 266 115 270.9 132.2 271.5C103.9 252.7 85.4 220.5 85.4 184.1C85.4 164.6 90.6 146.7 99.7 131.1C151.4 194.8 229 236.4 316.1 240.9C314.5 233.1 313.5 225 313.5 216.9C313.5 159.1 360.3 112 418.4 112C448.6 112 475.9 124.7 495.1 145.1C518.8 140.6 541.6 131.8 561.7 119.8C553.9 144.2 537.3 164.6 515.6 177.6C536.7 175.3 557.2 169.5 576 161.4C561.7 182.2 543.8 200.7 523.4 215.7z" />
+                        </svg>
                     </a></li>
                     
                     
@@ -370,16 +386,41 @@
                         <h5 class="mb-10 text-white h4 fw-bold mb-md-3">Contact Details</h5>
                         <ul class="footer-nav-list-item list-unstyled mb-30 mb-lg-0">
                             <li class="gap-2 d-flex align-items-center">
-                                <svg class="ic" width="19" height="19" aria-hidden="true"><use href="#ic-mail"></use></svg>
+                                <svg width="19" height="19" viewBox="0 0 19 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M5.75 6.375L7.95652 7.67955C9.2429 8.44012 9.7571 8.44012 11.0435 7.67955L13.25 6.375"
+                                        stroke="#b1b8c3" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M2.01183 10.1067C2.06086 12.4059 2.08537 13.5554 2.93372 14.4071C3.78206 15.2586 4.96275 15.2882 7.32412 15.3476C8.77948 15.3842 10.2205 15.3842 11.6759 15.3476C14.0373 15.2882 15.2179 15.2586 16.0663 14.4071C16.9147 13.5554 16.9392 12.4059 16.9881 10.1067C17.004 9.36743 17.004 8.63258 16.9881 7.8933C16.9392 5.59415 16.9147 4.44457 16.0663 3.593C15.2179 2.74142 14.0373 2.71176 11.6759 2.65243C10.2205 2.61586 8.77947 2.61586 7.32411 2.65242C4.96275 2.71175 3.78206 2.74141 2.93371 3.59299C2.08537 4.44456 2.06085 5.59414 2.01182 7.8933C1.99605 8.63258 1.99606 9.36743 2.01183 10.1067Z"
+                                        stroke="#b1b8c3" stroke-width="1.5" stroke-linejoin="round" />
+                                </svg>
                                 <a class="single-line-ellipses" href="mailto:info@dallaslimoandblackcars.com"
                                     style="width: 200px;">info@dallaslimoandblackcars.com</a>
                             </li>
                             <li class="gap-2 d-flex align-items-center">
-                                <svg class="ic" width="19" height="19" aria-hidden="true"><use href="#ic-phone-line"></use></svg>
+                                <svg width="19" height="19" viewBox="0 0 19 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M3.33321 8.9568C2.6222 7.71698 2.27889 6.70461 2.07188 5.67841C1.76571 4.16069 2.46636 2.67811 3.62703 1.7321C4.11759 1.33229 4.67992 1.46889 4.97 1.9893L5.62488 3.16418C6.14397 4.09543 6.4035 4.56104 6.35202 5.05469C6.30055 5.54834 5.95053 5.9504 5.25048 6.75451L3.33321 8.9568ZM3.33321 8.9568C4.77238 11.4662 7.03088 13.726 9.5432 15.1668M9.5432 15.1668C10.783 15.8778 11.7954 16.2211 12.8216 16.4281C14.3393 16.7343 15.8219 16.0337 16.7679 14.873C17.1677 14.3825 17.0311 13.8201 16.5107 13.53L15.3358 12.8751C14.4045 12.356 13.9389 12.0965 13.4453 12.148C12.9516 12.1994 12.5496 12.5495 11.7455 13.2495L9.5432 15.1668Z"
+                                        stroke="#b1b8c3" stroke-width="1.5" stroke-linejoin="round" />
+                                    <path
+                                        d="M11 5.12389C12.0674 5.57718 12.9228 6.43258 13.3761 7.5M11.4905 1.5C14.1434 2.26557 16.2343 4.35639 17 7.00922"
+                                        stroke="#b1b8c3" stroke-width="1.5" stroke-linecap="round" />
+                                </svg>
                                 <a href="tel:+12134526789">+1 214-897-8056</a>
                             </li>
                             <li class="gap-2 d-flex align-items-center">
-                                <svg class="ic" width="19" height="19" aria-hidden="true"><use href="#ic-pin-line"></use></svg>
+                                <svg width="19" height="19" viewBox="0 0 19 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12.125 8.25C12.125 9.69975 10.9497 10.875 9.5 10.875C8.05025 10.875 6.875 9.69975 6.875 8.25C6.875 6.80025 8.05025 5.625 9.5 5.625C10.9497 5.625 12.125 6.80025 12.125 8.25Z"
+                                        stroke="#b1b8c3" stroke-width="1.5" />
+                                    <path
+                                        d="M9.5 1.5C13.153 1.5 16.25 4.52474 16.25 8.19435C16.25 11.9224 13.1025 14.5385 10.1953 16.3175C9.98338 16.4372 9.74375 16.5 9.5 16.5C9.25625 16.5 9.01662 16.4372 8.80475 16.3175C5.90292 14.5212 2.75 11.9353 2.75 8.19435C2.75 4.52474 5.84708 1.5 9.5 1.5Z"
+                                        stroke="#b1b8c3" stroke-width="1.5" />
+                                </svg>
                                 <address class="mb-0">
                                     <p class="mb-0">Dallas, TX  75204</p>
                                 </address>
@@ -406,23 +447,37 @@
                     <div class="col-12 col-md-6 d-none d-md-block">
                         <ul class="mb-0 list-unstyled d-flex justify-content-end">
                             <li class="ml-20"><a href="https://www.facebook.com/dallaslimoandblackcars">
-                                    <svg class="ic" width="22" height="22" aria-hidden="true"><use href="#ic-facebook"></use></svg>
+                                    <svg width="22" height="22" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 640 640">
+                                        <path fill="#b1b8c3"
+                                            d="M240 363.3L240 576L356 576L356 363.3L442.5 363.3L460.5 265.5L356 265.5L356 230.9C356 179.2 376.3 159.4 428.7 159.4C445 159.4 458.1 159.8 465.7 160.6L465.7 71.9C451.4 68 416.4 64 396.2 64C289.3 64 240 114.5 240 223.4L240 265.5L174 265.5L174 363.3L240 363.3z" />
+                                    </svg>
                                 </a></li>
                         <li class="ml-20">
     <a href="https://www.instagram.com/dallaslimoandblackcars/" target="_blank">
-        <svg class="ic" width="22" height="22" aria-hidden="true"><use href="#ic-instagram"></use></svg>
+        <svg width="22" height="22" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+            <path fill="#b1b8c3"
+                d="M320.3 205C256.8 204.8 205.2 256.2 205 319.7C204.8 383.2 256.2 434.8 319.7 435C383.2 435.2 434.8 383.8 435 320.3C435.2 256.8 383.8 205.2 320.3 205zM319.7 245.4C360.9 245.2 394.4 278.5 394.6 319.7C394.8 360.9 361.5 394.4 320.3 394.6C279.1 394.8 245.6 361.5 245.4 320.3C245.2 279.1 278.5 245.6 319.7 245.4zM413.1 200.3C413.1 185.5 425.1 173.5 439.9 173.5C454.7 173.5 466.7 185.5 466.7 200.3C466.7 215.1 454.7 227.1 439.9 227.1C425.1 227.1 413.1 215.1 413.1 200.3zM542.8 227.5C541.1 191.6 532.9 159.8 506.6 133.6C480.4 107.4 448.6 99.2 412.7 97.4C375.7 95.3 264.8 95.3 227.8 97.4C192 99.1 160.2 107.3 133.9 133.5C107.6 159.7 99.5 191.5 97.7 227.4C95.6 264.4 95.6 375.3 97.7 412.3C99.4 448.2 107.6 480 133.9 506.2C160.2 532.4 191.9 540.6 227.8 542.4C264.8 544.5 375.7 544.5 412.7 542.4C448.6 540.7 480.4 532.5 506.6 506.2C532.8 480 541 448.2 542.8 412.3C544.9 375.3 544.9 264.5 542.8 227.5z"/>
+        </svg>
     </a>
 </li>
                             
                             
                             <li class="ml-20">
     <a href="https://www.youtube.com/@DallasBlackCarsLimoService" target="_blank">
-        <svg class="ic" width="22" height="22" aria-hidden="true"><use href="#ic-youtube"></use></svg>
+        <svg width="22" height="22" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path fill="#b1b8c3"
+                d="M549.7 124.1C543.3 100 524.5 81.2 500.4 74.8C456.3 64 288 64 288 64S119.7 64 75.6 74.8C51.5 81.2 32.7 100 26.3 124.1C15.5 168.3 15.5 256 15.5 256S15.5 343.7 26.3 387.9C32.7 412 51.5 430.8 75.6 437.2C119.7 448 288 448 288 448S456.3 448 500.4 437.2C524.5 430.8 543.3 412 549.7 387.9C560.5 343.7 560.5 256 560.5 256S560.5 168.3 549.7 124.1zM232 338.3V173.7L361.8 256L232 338.3z" />
+        </svg>
     </a>
 </li>
                                 
                             <li class="ml-20"><a href="https://x.com/dallasblackcars">
-                                    <svg class="ic" width="22" height="22" aria-hidden="true"><use href="#ic-x"></use></svg>
+                                    <svg width="22" height="22" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 640 640">
+                                        <path fill="#b1b8c3"
+                                            d="M523.4 215.7C523.7 220.2 523.7 224.8 523.7 229.3C523.7 368 418.1 527.9 225.1 527.9C165.6 527.9 110.4 510.7 64 480.8C72.4 481.8 80.6 482.1 89.3 482.1C138.4 482.1 183.5 465.5 219.6 437.3C173.5 436.3 134.8 406.1 121.5 364.5C128 365.5 134.5 366.1 141.3 366.1C150.7 366.1 160.1 364.8 168.9 362.5C120.8 352.8 84.8 310.5 84.8 259.5L84.8 258.2C98.8 266 115 270.9 132.2 271.5C103.9 252.7 85.4 220.5 85.4 184.1C85.4 164.6 90.6 146.7 99.7 131.1C151.4 194.8 229 236.4 316.1 240.9C314.5 233.1 313.5 225 313.5 216.9C313.5 159.1 360.3 112 418.4 112C448.6 112 475.9 124.7 495.1 145.1C518.8 140.6 541.6 131.8 561.7 119.8C553.9 144.2 537.3 164.6 515.6 177.6C536.7 175.3 557.2 169.5 576 161.4C561.7 182.2 543.8 200.7 523.4 215.7z" />
+                                    </svg>
                                 </a></li>
                         </ul>
                     </div>
@@ -457,23 +512,251 @@
     @endif
 
     <script>
-        window.__siteBoot = {
-            jqSrc: @json(asset('new_assets/js/jquery.min.js')),
-            bookingSrc: @json(asset('assets/js/custom.min.js') . '?v=' . filemtime(public_path('assets/js/custom.min.js'))),
-            swiperCss: @json(asset('new_assets/css/swiper-min.min.css')),
-            swiperJs: @json(asset('new_assets/js/swiper-min.min.js')),
-            customNewJs: @json(asset('new_assets/js/custom_new.min.js')),
-            isHome: @json($isHome),
-            needsBooking: @json($needsBookingLibs),
-            mapsKey: @json($needsBookingLibs ? config('services.google_maps.api_key') : ''),
-            dateCss: @json(asset('assets/css/bootstrap-material-datetimepicker.min.css')),
-            pickerSrc: @json(asset('assets/js/bootstrap-material-datetimepicker.min.js')),
-            momentSrc: 'https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment.min.js',
-            iconsHref: 'https://fonts.googleapis.com/icon?family=Material+Icons&display=swap'
-        };
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+
+        (function () {
+            var jqSrc = @json(asset('new_assets/js/jquery.min.js'));
+            var bookingSrc = @json(asset('assets/js/custom.min.js') . '?v=' . filemtime(public_path('assets/js/custom.min.js')));
+            var swiperCss = @json(asset('new_assets/css/swiper-min.min.css'));
+            var swiperJs = @json(asset('new_assets/js/swiper-min.min.js'));
+            var customNewJs = @json(asset('new_assets/js/custom_new.min.js'));
+            var isHome = @json($isHome);
+            var needsBooking = @json($needsBookingLibs);
+            var jqPromise = null;
+            var bookingPromise = null;
+            var swiperPromise = null;
+
+            function loadScript(src) {
+                return new Promise(function (resolve, reject) {
+                    if (document.querySelector('script[data-src-key="' + src + '"]')) {
+                        resolve();
+                        return;
+                    }
+                    var s = document.createElement('script');
+                    s.src = src;
+                    s.async = true;
+                    s.setAttribute('data-src-key', src);
+                    s.onload = function () { resolve(); };
+                    s.onerror = reject;
+                    document.body.appendChild(s);
+                });
+            }
+
+            function loadStylesheet(href) {
+                if (document.querySelector('link[href="' + href + '"]')) {
+                    return;
+                }
+                var l = document.createElement('link');
+                l.rel = 'stylesheet';
+                l.href = href;
+                document.head.appendChild(l);
+            }
+
+            window.loadJqueryOnce = function () {
+                if (window.jQuery) {
+                    return Promise.resolve();
+                }
+                if (!jqPromise) {
+                    jqPromise = loadScript(jqSrc);
+                }
+                return jqPromise;
+            };
+
+            window.loadBookingCustomOnce = function () {
+                if (!needsBooking) {
+                    return Promise.resolve();
+                }
+                if (typeof window.initAutocomplete === 'function') {
+                    return Promise.resolve();
+                }
+                if (!bookingPromise) {
+                    bookingPromise = window.loadJqueryOnce().then(function () {
+                        return loadScript(bookingSrc);
+                    });
+                }
+                return bookingPromise;
+            };
+
+            window.loadSwiperBundleOnce = function () {
+                if (swiperPromise) {
+                    return swiperPromise;
+                }
+                swiperPromise = window.loadJqueryOnce().then(function () {
+                    loadStylesheet(swiperCss);
+                    return loadScript(swiperJs);
+                }).then(function () {
+                    return loadScript(customNewJs);
+                });
+                return swiperPromise;
+            };
+
+            function observeSwiper() {
+                var targets = document.querySelectorAll('.logo-swiper, .testimonial-slider');
+                if (!targets.length) {
+                    return;
+                }
+                if (!('IntersectionObserver' in window)) {
+                    window.loadSwiperBundleOnce();
+                    return;
+                }
+                var io = new IntersectionObserver(function (entries) {
+                    for (var i = 0; i < entries.length; i++) {
+                        if (entries[i].isIntersecting) {
+                            io.disconnect();
+                            window.loadSwiperBundleOnce();
+                            break;
+                        }
+                    }
+                }, { rootMargin: '250px 0px' });
+                targets.forEach(function (el) { io.observe(el); });
+            }
+
+            @if($needsBookingLibs)
+            var mapsKey = @json(config('services.google_maps.api_key'));
+            var mapsLoading = false;
+            var dateLibsLoading = false;
+            var dateLibsReady = false;
+
+            window.loadGoogleMapsOnce = function () {
+                if (mapsLoading || (window.google && window.google.maps && window.google.maps.places)) {
+                    return;
+                }
+                mapsLoading = true;
+                window.loadBookingCustomOnce().then(function () {
+                    var s = document.createElement('script');
+                    s.src = 'https://maps.googleapis.com/maps/api/js?key=' + encodeURIComponent(mapsKey) + '&libraries=places&loading=async&callback=initAutocomplete';
+                    s.async = true;
+                    document.head.appendChild(s);
+                });
+            };
+
+            function initDatePickers() {
+                if (!window.jQuery || !jQuery.fn.bootstrapMaterialDatePicker) {
+                    return;
+                }
+                jQuery(
+                    '#pickup-datetime, #pickup-datetime-hourly, #return-datetime-hourly, #pickup-datetime_mobile, #pickup-datetime-hourly_mobile, #return-datetime-hourly_mobile, #pickup-datetime_form, #pickup-datetime-hourly_form, #return-datetime-hourly_form, #pickup-datetime_hero, #pickup-datetime-hourly_hero, #return-datetime-hourly_hero'
+                ).bootstrapMaterialDatePicker({
+                    format: 'ddd, MMM Do, YYYY h:mm A',
+                    minDate: new Date(),
+                    lang: 'en',
+                    weekStart: 0,
+                    shortTime: true,
+                    cancelText: 'Back',
+                    okText: 'OK',
+                    switchOnClick: true
+                });
+                dateLibsReady = true;
+            }
+
+            window.loadDatePickerLibsOnce = function () {
+                if (dateLibsReady || dateLibsLoading) {
+                    return;
+                }
+                dateLibsLoading = true;
+                window.loadBookingCustomOnce().then(function () {
+                    var css = document.createElement('link');
+                    css.rel = 'stylesheet';
+                    css.href = @json(asset('assets/css/bootstrap-material-datetimepicker.min.css'));
+                    document.head.appendChild(css);
+                    var icons = document.createElement('link');
+                    icons.rel = 'stylesheet';
+                    icons.href = 'https://fonts.googleapis.com/icon?family=Material+Icons&display=swap';
+                    document.head.appendChild(icons);
+                    var momentSrc = 'https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment.min.js';
+                    var pickerSrc = @json(asset('assets/js/bootstrap-material-datetimepicker.min.js'));
+                    var m = document.createElement('script');
+                    m.src = momentSrc;
+                    m.onload = function () {
+                        var p = document.createElement('script');
+                        p.src = pickerSrc;
+                        p.onload = initDatePickers;
+                        document.head.appendChild(p);
+                    };
+                    document.head.appendChild(m);
+                });
+            };
+
+            function bindLazyLibs() {
+                document.querySelectorAll(
+                    'input[id^="pickup-location"], input[id^="dropoff-location"], input[name="pickup_location"], input[name="dropoff_location"]'
+                ).forEach(function (el) {
+                    el.addEventListener('focus', window.loadGoogleMapsOnce, { once: true });
+                    el.addEventListener('touchstart', window.loadGoogleMapsOnce, { once: true, passive: true });
+                });
+                document.querySelectorAll(
+                    'input[id*="datetime"], input[id*="pickup-datetime"], input[id*="return-datetime"]'
+                ).forEach(function (el) {
+                    el.addEventListener('focus', window.loadDatePickerLibsOnce, { once: true });
+                    el.addEventListener('touchstart', window.loadDatePickerLibsOnce, { once: true, passive: true });
+                });
+                document.querySelectorAll('.search-tab-wrap, .search-form-mobile, .search-form-wrapper-desktop').forEach(function (wrap) {
+                    wrap.addEventListener('focusin', function () {
+                        window.loadBookingCustomOnce();
+                    }, { once: true });
+                });
+            }
+            @endif
+
+            function warmHomepageLibs() {
+                if (!isHome || !needsBooking) {
+                    return;
+                }
+                window.loadBookingCustomOnce();
+            }
+
+            function boot() {
+                @if($needsBookingLibs)
+                bindLazyLibs();
+                @endif
+                observeSwiper();
+                if (isHome && needsBooking) {
+                    if ('requestIdleCallback' in window) {
+                        requestIdleCallback(warmHomepageLibs, { timeout: 3500 });
+                    } else {
+                        window.addEventListener('load', function () {
+                            setTimeout(warmHomepageLibs, 2000);
+                        });
+                    }
+                }
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', boot);
+            } else {
+                boot();
+            }
+        })();
+
+        function loadAnalytics() {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-QG1V45PRT1';
+            s.onload = function () {
+                gtag('js', new Date());
+                gtag('config', 'G-QG1V45PRT1');
+                gtag('config', 'G-D87H3B4PXN');
+            };
+            document.head.appendChild(s);
+        }
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadAnalytics, { timeout: 6000 });
+        } else {
+            window.addEventListener('load', function () { setTimeout(loadAnalytics, 3000); });
+        }
+
+        (function () {
+            var originalWarn = console.warn;
+            console.warn = function (msg) {
+                var args = Array.prototype.slice.call(arguments);
+                if (typeof msg === 'string' && (msg.indexOf('google.maps.places.PlacesService') !== -1 || msg.indexOf('google.maps.places.AutocompleteService') !== -1 || msg.indexOf('google.maps.Marker') !== -1)) {
+                    return;
+                }
+                return originalWarn.apply(console, args);
+            };
+        })();
     </script>
-    <script src="{{ asset('assets/js/site-boot.js') }}?v={{ filemtime(base_path('assets/js/site-boot.js')) }}" defer></script>
-    <script src="{{ asset('assets/js/search-form.js') }}?v={{ filemtime(base_path('assets/js/search-form.js')) }}" defer></script>
     @yield('scripts')
 </body>
 

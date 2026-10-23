@@ -159,10 +159,6 @@
                         </li>
                     </ol>
                 </ol>
-                <h3 class="h5 fw-medium">How to cancel a reservation</h3>
-                <p class="font-base">Call Dallas Limo Black Cars at <a href="tel:+12148978056">+1 214-897-8056</a> or email <a href="mailto:info@dallaslimoandblackcars.com">info@dallaslimoandblackcars.com</a> with your name, pickup date, and booking reference. A team member confirms the cancellation in writing. The free-cancel window is measured from the scheduled pickup time, not from the time the request is sent, so send it early enough to land inside the window for your vehicle.</p>
-                <p class="font-base">Sedans, luxury sedans, and SUVs can be canceled without a fee at least 24 hours before pickup. Mercedes Sprinters, executive vans, minibuses, and larger group vehicles need at least 72 hours. Inside those windows the reserved trip is charged in full because the chauffeur and vehicle have already been held. Airport rides follow the same windows. If your flight is delayed, call as soon as the new arrival time is known so dispatch can adjust the pickup instead of treating the trip as a no-show.</p>
-                <p class="font-base">Changes to the pickup address, destination, date, or passenger count are accepted in the same windows when the vehicle type still fits the trip. A larger vehicle or added hours may change the price, and the updated total is confirmed before the chauffeur is dispatched. No-shows and vehicles turned away for smoking or prohibited items are billed as a late cancellation. Deposits already collected are applied to the final charge, and any amount above the deposit is billed to the card on file.</p>
             </div>
         </div>
     </div>

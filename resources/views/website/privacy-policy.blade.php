@@ -53,8 +53,6 @@
                     payment information, and ride preferences. We use this data to provide services, communicate
                     regarding your service, handle billing, and improve offerings. By using our services, you
                     consent to this data processing.</p>
-                <h3 class="h5 fw-medium">7. How to reach us about your information</h3>
-                <p class="font-base">You can ask what personal information we hold, request a correction, or ask us to delete a booking profile by emailing <a href="mailto:info@dallaslimoandblackcars.com">info@dallaslimoandblackcars.com</a> or calling <a href="tel:+12148978056">+1 214-897-8056</a>. Include the name and phone number on the reservation so we can match the request. We use reservation details only to dispatch the chauffeur, send confirmations, process payment, and support the trip. We do not sell passenger lists. Card data is handled by the payment processor, and we keep trip records only as long as billing, support, and legal requirements need them.</p>
             </div>
         </div>
     </div>
