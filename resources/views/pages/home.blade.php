@@ -36,7 +36,7 @@
                     width="480"
                     height="320"
                     fetchpriority="high"
-                    decoding="async"
+                    decoding="sync"
                     loading="eager"
                 >
             </picture>
@@ -136,13 +136,15 @@ Our fleet includes luxury sedans, black SUVs, executive sprinter vans, and spaci
         <div class="ah-container">
             
             <div class="py-20 row align-items-center">
-                <div class="col-12 col-md-6 h-100 only-m">
+                <div class="col-12 col-md-6 h-100 order-1 order-md-2">
                     <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport-mobile.webp" class="img-fluid" alt="luxury black car service in Dallas Texas with professional chauffeur" loading="lazy" decoding="async" width="557" height="330">
+                        <picture>
+                            <source media="(max-width: 767px)" srcset="/img/dallas-black-car-service-dfw-love-field-airport-mobile.webp" type="image/webp">
+                            <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="premium Dallas limo and black car airport transfer service" loading="lazy" decoding="async" width="826" height="492">
+                        </picture>
                     </div>
                 </div>
-                
-                <div class="col-12 col-md-6 pr-xl-50">
+                <div class="col-12 col-md-6 pr-xl-50 order-2 order-md-1">
                     <h3 class="h5 fw-semibold">Reliable Black Car Service for DFW & Love Field Airport Transfers</h3>
                     <p class="font-base text-justify">Traveling to or from the airport should be smooth, comfortable, and stress-free. Our <a href="/services/airport-transfers-dallas/"><strong>reliable black car service for DFW Airport</strong></a> and Dallas Love Field Airport provides punctual, professional, and luxury transportation across the Dallas–Fort Worth area.
 
@@ -154,20 +156,18 @@ Serving Downtown Dallas, Plano, Frisco, Irving, McKinney, and the entire DFW met
                 <a href="/booking/"
                         class="btn btn-primary sm fw-medium fifa-btn-full">Book Reliable Airport Car Service Today</a>
                 </div>
-                <div class="col-12 col-md-6 h-100 only-d">
-                    <div class="service-image">
-                        <img src="/img/dallas-black-car-service-dfw-love-field-airport.webp" class="img-fluid" alt="premium Dallas limo and black car airport transfer service" loading="lazy" decoding="async" width="826" height="492">
-                    </div>
-                </div>
             </div>
             
-            <div class="flex-row-reverse py-20 row align-items-center">
-                <div class="col-12 col-md-6 h-100 only-m">
+            <div class="py-20 row align-items-center">
+                <div class="col-12 col-md-6 h-100 order-1">
                     <div class="service-image">
-                        <img src="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" class="img-fluid" alt="DFW airport black car service luxury chauffeur pickup" loading="lazy" decoding="async" width="557" height="330">
+                        <picture>
+                            <source media="(max-width: 767px)" srcset="/img/dallas-corporate-black-car-chauffeur-service-mobile.webp" type="image/webp">
+                            <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="luxury chauffeur service for business meetings Dallas" loading="lazy" decoding="async" width="826" height="492">
+                        </picture>
                     </div>
                 </div>
-                <div class="mb-20 col-12 col-md-6 pr-xl-50">
+                <div class="mb-20 col-12 col-md-6 pr-xl-50 order-2">
                     <h3 class="h5 fw-semibold">Executive Corporate Travel with professional chauffeur Service</h3>
                     <p class="font-base text-justify">For business professionals who value punctuality, comfort, and reliability, our executive corporate travel with <a href="/services/chauffeur-service-dallas/"><strong> professional chauffeur service</strong></a> offers premium transportation across the Dallas–Fort Worth area. At Dallas Limo Black Cars, we specialize in corporate black car service in Dallas, providing luxury vehicles and experienced chauffeurs dedicated to delivering a seamless and professional travel experience.
 
@@ -178,20 +178,17 @@ Our professional chauffeurs prioritize punctuality, discretion, and reliability,
                     <a href="/booking/"
                         class="btn btn-primary sm fw-medium fifa-btn-full">Get Corporate Travel Quote Now</a>
                 </div>
-                <div class="col-12 col-md-6 h-100 only-d">
-                    <div class="service-image">
-                        <img src="/img/dallas-corporate-black-car-chauffeur-service.webp" class="img-fluid" alt="luxury chauffeur service for business meetings Dallas" loading="lazy" decoding="async" width="826" height="492">
-                    </div>
-                </div>
             </div>
                <div class="py-20 row align-items-center">
-                  <div class="col-12 col-md-6 h-100 only-m">
+                <div class="col-12 col-md-6 h-100 order-1 order-md-2">
                     <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service-mobile.webp" class="img-fluid" alt="luxury sedan black car service Dallas Texas" loading="lazy" decoding="async" width="557" height="330">
+                        <picture>
+                            <source media="(max-width: 767px)" srcset="/img/dallas-city-to-city-black-car-service-mobile.webp" type="image/webp">
+                            <img src="/img/dallas-city-to-city-black-car-service.webp" class="img-fluid" alt="stretch limousine service Dallas Texas luxury limo ride" loading="lazy" decoding="async" width="826" height="492">
+                        </picture>
                     </div>
                 </div>
-                
-                <div class="col-12 col-md-6 pr-xl-50">
+                <div class="col-12 col-md-6 pr-xl-50 order-2 order-md-1">
                     <h3 class="h5 fw-semibold">Private City-to-City Black Car Service from Dallas</h3>
                     <p class="font-base text-justify">Travel comfortably between cities with our <a href="/city-to-city-rides/"><strong>private city-to-city black car service from Dallas </strong></a>, designed for travelers who value luxury, privacy, and reliable long-distance transportation. At Dallas Limo Black Cars, we provide professional chauffeur service for passengers seeking smooth, stress-free travel between Dallas and nearby cities across Texas and the DFW metroplex.
 
@@ -200,11 +197,6 @@ Our Dallas city-to-city black car service is ideal for business travelers, famil
 Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and convenience for long-distance travel. With professional chauffeurs and dependable door-to-door transportation, we provide a seamless and reliable travel experience for every trip.</p>
                   <a href="/booking/"
                         class="btn btn-primary sm fw-medium fifa-btn-full">Book Your City-to-City Ride Today</a>
-                </div>
-                <div class="col-12 col-md-6 h-100 only-d">
-                    <div class="service-image">
-                        <img src="/img/dallas-city-to-city-black-car-service.webp" class="img-fluid" alt="stretch limousine service Dallas Texas luxury limo ride" loading="lazy" decoding="async" width="826" height="492">
-                    </div>
                 </div>
             </div>
             
@@ -226,15 +218,6 @@ Our fleet of luxury sedans and executive SUVs delivers comfort, privacy, and con
 <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.webp') }}" class="img-fluid" alt="Dallas airport transportation partner brand logo 6" loading="lazy" decoding="async" width="160" height="60"></div>
 <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.webp') }}" class="img-fluid" alt="DFW luxury chauffeur service partner logo 7" loading="lazy" decoding="async" width="160" height="60"></div>
 <div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.webp') }}" class="img-fluid" alt="Dallas limousine service partner company logo 8" loading="lazy" decoding="async" width="160" height="60"></div>
-
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-01.webp') }}" class="img-fluid" alt="Dallas transportation partner logo brand 9" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-02.webp') }}" class="img-fluid" alt="Dallas executive chauffeur partner logo 10" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-03.webp') }}" class="img-fluid" alt="luxury private car service partner logo 11" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-04.webp') }}" class="img-fluid" alt="Dallas corporate transportation partner brand logo 12" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-05.webp') }}" class="img-fluid" alt="premium Dallas limo partner logo 13" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-06.webp') }}" class="img-fluid" alt="Dallas black car chauffeur partner company logo 14" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-07.webp') }}" class="img-fluid" alt="DFW executive travel partner brand logo 15" loading="lazy" decoding="async" width="160" height="60"></div>
-<div class="swiper-slide"><img src="{{ asset('new_assets/assets/logo-08.webp') }}" class="img-fluid" alt="Dallas luxury transportation partner logo 16" loading="lazy" decoding="async" width="160" height="60"></div>
                         </div>
                     </div>
                 </div>

@@ -33,11 +33,12 @@
         $needsBookingLibs = !request()->is('dashboard*') && !request()->is('users') && !request()->is('users/*') && !request()->is('invoices*');
         $needsIconFonts = !$isHome;
         $needsSweetAlert = !$isHome || session()->has('success') || session()->has('error') || (isset($errors) && $errors->any());
-        // Fewer font weights = smaller download; 900 still used in theme
-        $fontCss = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap';
+        // Fewer weights = smaller font CSS/files (theme mainly uses regular/semibold/bold)
+        $fontCss = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap';
         $cssBootstrap = asset('new_assets/css/bootstrap-min.min.css');
         $cssStyle = asset('new_assets/css/style.min.css');
         $cssCustom = asset('assets/css/custom.min.css');
+        $hasTurnstile = filled(config('services.turnstile.site_key')) && filled(config('services.turnstile.secret_key'));
     @endphp
 
     {{-- Early connections for third-party origins --}}
@@ -53,14 +54,12 @@
     {{-- LCP / critical image preloads (homepage hero) --}}
     @stack('preload')
 
-    {{-- Layout CSS stays render-blocking so header/navbar never FOUC on refresh --}}
-    <link rel="preload" as="style" href="{{ $cssBootstrap }}">
-    <link rel="preload" as="style" href="{{ $cssStyle }}">
+    {{-- Layout CSS render-blocking (no extra preload — preload competed with LCP image) --}}
     <link rel="stylesheet" href="{{ $cssBootstrap }}">
     <link rel="stylesheet" href="{{ $cssStyle }}">
     @if($isHome)
         {{-- custom.css is mostly forms/booking polish — load async on homepage only --}}
-        <link rel="preload" as="style" href="{{ $cssCustom }}" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="stylesheet" href="{{ $cssCustom }}" media="print" onload="this.media='all'">
         <noscript><link rel="stylesheet" href="{{ $cssCustom }}"></noscript>
         <style>
             .search-tab-wrap{background:#fff;border-radius:8px;box-shadow:0 0 4px #6e6e6e;padding:30px 16px;width:100%;max-width:450px;margin:auto;position:relative}
@@ -77,10 +76,14 @@
             #hero-banner-container{overflow:hidden;background-color:#0b1c2c;position:relative}
             .hero-lcp-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;pointer-events:none}
             .hero-banner-overlay{position:absolute;inset:0;background:rgba(0,0,0,.7);z-index:1;pointer-events:none}
+            .only-m{display:none}
+            .only-d{display:block}
             @media(max-width:767px){
                 .search-form-mobile{background:#fff;display:block;width:100%}
                 .search-tab-wrap{box-shadow:none;max-width:100%;padding:30px 1px;float:none}
                 #hero-banner-container{min-height:300px!important;height:300px!important;display:flex!important;align-items:center;justify-content:center;margin-left:18px;margin-right:18px}
+                .only-m{display:block!important}
+                .only-d{display:none!important}
             }
             @media(min-width:768px){
                 #hero-banner-container{min-height:570px}
@@ -89,7 +92,6 @@
             }
         </style>
     @else
-        <link rel="preload" as="style" href="{{ $cssCustom }}">
         <link rel="stylesheet" href="{{ $cssCustom }}">
     @endif
 
@@ -146,7 +148,7 @@
                             <picture>
                                 <source srcset="{{ asset('new_assets/assets/black-car-service-dallas-logo.webp') }}" type="image/webp">
                                 <img src="{{ asset('new_assets/assets/black-car-service-dallas-logo.png') }}" alt="Black Car Service Dallas"
-                                    class="img-fluid" width="360" height="89" decoding="async">
+                                    class="img-fluid" width="360" height="89" decoding="async" fetchpriority="low">
                             </picture>
                         </a>
                     </div>
@@ -444,7 +446,9 @@
         <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
         <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
     @endif
-    <script src="{{ asset('new_assets/js/bootstrap-min.min.js') }}" defer></script>
+    @if(!$isHome)
+        <script src="{{ asset('new_assets/js/bootstrap-min.min.js') }}" defer></script>
+    @endif
     @if($needsIntlTel)
         <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js" defer></script>
     @endif
@@ -452,24 +456,23 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     @endif
 
-    @if (filled(config('services.turnstile.site_key')) && filled(config('services.turnstile.secret_key')))
-        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    @endif
-
     <script>
         window.__siteBoot = {
             jqSrc: @json(asset('new_assets/js/jquery.min.js')),
             bookingSrc: @json(asset('assets/js/custom.min.js') . '?v=' . filemtime(public_path('assets/js/custom.min.js'))),
+            bootstrapSrc: @json(asset('new_assets/js/bootstrap-min.min.js')),
             swiperCss: @json(asset('new_assets/css/swiper-min.min.css')),
             swiperJs: @json(asset('new_assets/js/swiper-min.min.js')),
-            customNewJs: @json(asset('new_assets/js/custom_new.min.js')),
+            customNewJs: @json(asset('new_assets/js/custom_new.min.js') . '?v=' . filemtime(base_path('new_assets/js/custom_new.min.js'))),
             isHome: @json($isHome),
+            lazyBootstrap: @json($isHome),
             needsBooking: @json($needsBookingLibs),
             mapsKey: @json($needsBookingLibs ? config('services.google_maps.api_key') : ''),
             dateCss: @json(asset('assets/css/bootstrap-material-datetimepicker.min.css')),
             pickerSrc: @json(asset('assets/js/bootstrap-material-datetimepicker.min.js')),
             momentSrc: 'https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment.min.js',
-            iconsHref: 'https://fonts.googleapis.com/icon?family=Material+Icons&display=swap'
+            iconsHref: 'https://fonts.googleapis.com/icon?family=Material+Icons&display=swap',
+            turnstileSrc: @json($hasTurnstile ? 'https://challenges.cloudflare.com/turnstile/v0/api.js' : '')
         };
     </script>
     <script src="{{ asset('assets/js/site-boot.js') }}?v={{ filemtime(base_path('assets/js/site-boot.js')) }}" defer></script>

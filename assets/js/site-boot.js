@@ -8,6 +8,7 @@
     var jqPromise = null;
     var bookingPromise = null;
     var swiperPromise = null;
+    var bootstrapPromise = null;
 
     function loadScript(src) {
         return new Promise(function (resolve, reject) {
@@ -60,14 +61,23 @@
         return bookingPromise;
     };
 
+    window.loadBootstrapOnce = function () {
+        if (window.bootstrap) {
+            return Promise.resolve();
+        }
+        if (!bootstrapPromise) {
+            bootstrapPromise = loadScript(cfg.bootstrapSrc);
+        }
+        return bootstrapPromise;
+    };
+
     window.loadSwiperBundleOnce = function () {
         if (swiperPromise) {
             return swiperPromise;
         }
-        swiperPromise = window.loadJqueryOnce().then(function () {
-            loadStylesheet(cfg.swiperCss);
-            return loadScript(cfg.swiperJs);
-        }).then(function () {
+        // Swiper does not need jQuery — avoid pulling 86KB early.
+        loadStylesheet(cfg.swiperCss);
+        swiperPromise = loadScript(cfg.swiperJs).then(function () {
             return loadScript(cfg.customNewJs);
         });
         return swiperPromise;
@@ -90,8 +100,67 @@
                     break;
                 }
             }
-        }, { rootMargin: '250px 0px' });
+        }, { rootMargin: '120px 0px' });
         targets.forEach(function (el) { io.observe(el); });
+    }
+
+    function observeTurnstile() {
+        var widgets = document.querySelectorAll('.cf-turnstile');
+        if (!widgets.length || !cfg.turnstileSrc) {
+            return;
+        }
+        function inject() {
+            if (document.querySelector('script[data-src-key="' + cfg.turnstileSrc + '"]')) {
+                return;
+            }
+            loadScript(cfg.turnstileSrc);
+        }
+        if (!('IntersectionObserver' in window)) {
+            inject();
+            return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+            for (var i = 0; i < entries.length; i++) {
+                if (entries[i].isIntersecting) {
+                    io.disconnect();
+                    inject();
+                    break;
+                }
+            }
+        }, { rootMargin: '200px 0px' });
+        widgets.forEach(function (el) { io.observe(el); });
+    }
+
+    function bindBootstrapLazy() {
+        if (!cfg.lazyBootstrap) {
+            return;
+        }
+        var loading = false;
+        function ensureBootstrap(triggerEl, evt) {
+            if (window.bootstrap || loading) {
+                return;
+            }
+            loading = true;
+            if (evt) {
+                evt.preventDefault();
+                evt.stopPropagation();
+            }
+            window.loadBootstrapOnce().then(function () {
+                loading = false;
+                if (triggerEl && typeof triggerEl.click === 'function') {
+                    triggerEl.click();
+                }
+            }).catch(function () {
+                loading = false;
+            });
+        }
+        document.querySelectorAll('.navbar-toggler, [data-bs-toggle], .dropdown-toggle, .sformlink').forEach(function (el) {
+            el.addEventListener('click', function (e) {
+                if (!window.bootstrap) {
+                    ensureBootstrap(el, e);
+                }
+            }, true);
+        });
     }
 
     if (cfg.needsBooking) {
@@ -166,13 +235,6 @@
         }
     }
 
-    function warmHomepageLibs() {
-        if (!cfg.isHome || !cfg.needsBooking) {
-            return;
-        }
-        window.loadBookingCustomOnce();
-    }
-
     function lockSubmitButtons() {
         document.querySelectorAll('.contact-us-form, .get-a-quote-form, .news-letter-form').forEach(function (form) {
             form.addEventListener('submit', function () {
@@ -198,17 +260,11 @@
         if (cfg.needsBooking) {
             bindLazyLibs();
         }
+        bindBootstrapLazy();
         observeSwiper();
+        observeTurnstile();
         lockSubmitButtons();
-        if (cfg.isHome && cfg.needsBooking) {
-            if ('requestIdleCallback' in window) {
-                requestIdleCallback(warmHomepageLibs, { timeout: 3500 });
-            } else {
-                window.addEventListener('load', function () {
-                    setTimeout(warmHomepageLibs, 2000);
-                });
-            }
-        }
+        // Do not idle-warm jQuery/booking on homepage — that was unused JS / TBT.
     }
 
     if (document.readyState === 'loading') {
@@ -229,11 +285,12 @@
         document.head.appendChild(s);
     }
 
+    // Push analytics after LCP window so it does not compete with hero paint.
     if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadAnalytics, { timeout: 6000 });
+        requestIdleCallback(loadAnalytics, { timeout: 10000 });
     } else {
         window.addEventListener('load', function () {
-            setTimeout(loadAnalytics, 3000);
+            setTimeout(loadAnalytics, 5000);
         });
     }
 
